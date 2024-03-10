@@ -1,0 +1,31 @@
+import MultiSided
+import Transaction
+import UFOS
+
+package Investment
+
+roleMixin CapitalSeeking_Agent  specializes Platform_Provider{
+    @externalDependence
+    [1] -- depends_on --  [1..*]  Resource_Claim( {const } )
+}
+roleMixin CapitalGiving_Agent  specializes Platform_Customer{
+    @characterization
+    ( {const } ) [1..*] -- inheres_in -- [1]  Resource_Claim( {const } )
+}
+category Resource 
+subkind Future_Reimbursement_Commitment  specializes Hired_Provider_Commitment{
+    @characterization
+     [1..*] -- inheres_in -- [1]  CapitalSeeking_Agent( {const } )
+    @externalDependence
+     [1..*] -- depends_on -- [1]  CapitalGiving_Agent( {const } )
+     [1..*]  -- is_part_of --<o> [1]  Investment
+}
+category Reimbursement {
+    @mediation
+     [1..*] -- bounds_to --  [0..1]  Future_Reimbursement_Commitment( {const } )
+}
+subkind Resource_Claim  specializes Service_Customer_Claim{
+    @mediation
+     [0..1] -- bounds_to --  [1..*]  Resource( {const } )
+}
+

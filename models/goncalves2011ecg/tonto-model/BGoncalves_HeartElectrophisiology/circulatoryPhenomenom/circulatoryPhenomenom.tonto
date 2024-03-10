@@ -1,0 +1,102 @@
+import heart
+import bioelectricPhenomena
+
+package circulatoryPhenomenom
+
+role HeartAsBloodContainer  specializes HumanHeart
+role RightVentricleAsBloodContainer  specializes RightVentricle{
+    ( {const } )[1]  --<o> [1]  HeartAsBloodContainer( {const } )
+    @material
+    [1] -- storing -- [1]  BloodinRightVentricle
+}
+role LeftAtriumAsBloodContainer  specializes LeftAtrium{
+    @memberOf
+    ( {const } )[1]  --<o> [1]  HeartAsBloodContainer( {const } )
+    @material
+    [1] -- storing -- [1]  BloodInLeftAtrium
+    @mediation
+    ( {const } )[1] -- [1]  LABloodStoring( {const } )
+}
+role RightAtriumAsBloodContainer  specializes RightAtrium{
+    ( {const } )[1]  --<o> [1]  HeartAsBloodContainer( {const } )
+    @mediation
+    ( {const } )[1] -- [1]  RABloodStoring( {const } )
+    @material
+    [1] -- storing -- [1]  BloodinRightAtrium
+}
+role LeftVentricleAsBloodContainer  specializes LeftVentricle{
+    ( {const } )[1]  --<o> [1]  HeartAsBloodContainer( {const } )
+    @mediation
+    ( {const } )[1] -- [1]  LVBloodStoring( {const } )
+    @material
+    [1] -- storing -- [1]  BloodInLeftVentricle
+}
+relator RABloodStoring {
+    @mediation
+    [1] -- [1]  BloodinRightAtrium( {const } )
+}
+kind BloodinRightAtrium {
+    [1] -- isMovedTo -- [1]  RightVentricleAsBloodContainer
+     [0..1]  --<o> [1]  BloodInHumanBody( {const } )
+    [1] -- isMovedTo -- [1]  BloodInPeripherals
+}
+relator RVBloodStoring {
+    @mediation
+    [1] -- [1]  RightVentricleAsBloodContainer( {const } )
+    @mediation
+    [1] -- [1]  BloodinRightVentricle( {const } )
+}
+kind BloodinRightVentricle {
+    [1] -- isMovedTo -- [1]  LungAsBloodContainer
+     [0..1]  --<o> [1]  BloodInHumanBody( {const } )
+}
+kind BloodInLeftAtrium {
+    [1] -- isMovedTo -- [1]  LeftVentricleAsBloodContainer
+     [0..1]  --<o> [1]  BloodInHumanBody( {const } inseparable )
+    [1] -- isMovedTo -- [1]  BloodInLungs
+}
+relator LABloodStoring {
+    @mediation
+    [1] -- [1]  BloodInLeftAtrium( {const } )
+}
+kind BloodInHumanBody {
+    [1] -- pumps -- [1]  HeartAsPump
+}
+relator LVBloodStoring 
+kind BloodInLeftVentricle {
+    @mediation
+    ( {const } )[1] -- [1]  LVBloodStoring( {const } )
+     [0..1]  --<o> [1]  BloodInHumanBody( {const } )
+    [1] -- isMovedTo -- [1]  PeripheralsAsBloodContainer
+}
+kind Peripherals {
+    [1]  --<o> [1]  HumanBody
+}
+kind Lungs {
+    [1]  --<o> [1]  HumanBody
+}
+role PeripheralsAsBloodContainer  specializes Peripherals{
+    @material
+    [1] -- storing -- [1]  BloodInPeripherals
+    @mediation
+    ( {const } )[1] -- [1]  PeripheralsBloodStoring( {const } )
+}
+kind BloodInPeripherals {
+    @mediation
+    ( {const } )[1] -- [1]  PeripheralsBloodStoring( {const } )
+     [0..1]  --<o> [1]  BloodInHumanBody( {const } )
+}
+relator PeripheralsBloodStoring 
+role LungAsBloodContainer  specializes Lungs{
+    @material
+    [1] -- storing -- [1]  BloodInLungs
+    @mediation
+    ( {const } )[1] -- [1]  LungBloodStoring( {const } )
+}
+relator LungBloodStoring 
+kind BloodInLungs {
+    @mediation
+    ( {const } )[1] -- [1]  LungBloodStoring( {const } )
+     [0..1]  --<o> [1]  BloodInHumanBody( {const } )
+}
+

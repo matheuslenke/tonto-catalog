@@ -1,0 +1,91 @@
+import Employment
+
+package Model
+
+role Customer  specializes Account{
+    customerId : int
+    location : undefined
+     [0..*] -- Plays_at --  [0..*]  Physical_building
+    [1] -- Makes_payment --  [0..*]  Payment
+    @material
+     [2..*] -- Books --  [0..*]  Shared_Booking
+    @material
+    [1] -- Books --  [0..*]  Single_Booking
+}
+role Instructor  specializes Employee{
+    instructorId : int
+    specialization : undefined
+    [1] -- Recieves --  [0..*]  Instructor_Booking
+    @material
+     [1..*] --  [1..*]  Mediated_by_employment_contract
+}
+role Owner  specializes ManagementUsers{
+    ownerId : int
+    [1] -- owns --  [1..*]  Company
+}
+role Employee  specializes ManagementUsers{
+    employeeId : int
+    @material
+     [0..*] -- Works_at --  [1..*]  Physical_building
+     [1..*] -- Hired --  [1..*]  Company
+    @material
+     [1..*] --  [1..*]  Mediated_by_employment_contract
+}
+role ManagementUsers  specializes Account{
+    manUserId : int
+    manRole : undefined
+}
+role User  specializes Person{
+    userId : int
+    password : undefined
+    role_ : undefined
+    @material
+     [0..*] -- creating --  [0..*]  Account
+}
+category Physical_building {
+    facilityId : int
+    location : undefined
+    sportType : string
+    [1] -- Receives --  [0..*]  FacilityBooking
+}
+category FacilityBooking {
+    bookingId : int
+    place : undefined
+    timeStamp : undefined
+    facilityId : int
+    [1] -- Get_payment -- [1]  Payment
+}
+kind Payment {
+    paymentId : undefined
+    bookingId : int
+}
+kind Booking_history {
+    Payment : float
+    timeStamp : undefined
+    values : float
+    isCanceled : undefined
+}
+kind Shared_Booking  specializes FacilityBooking{
+    noOfCustomers : int
+}
+collective Company {
+    companID : int
+    companyName : undefined
+    mainOfficeAddress : undefined
+}
+kind Single_Booking  specializes FacilityBooking{
+    idBoookingId : int
+    bookingID : int
+}
+kind Instructor_Booking  specializes FacilityBooking
+relator Account_creation {
+    @mediation
+     [1..*] -- includes_user -- [1]  Account( {const } )
+    @mediation
+     [0..*] -- includes_person -- [1]  User( {const } )
+}
+kind Person 
+kind Account 
+phase Inactive  specializes User
+phase Active  specializes User
+

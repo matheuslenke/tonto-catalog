@@ -1,0 +1,17 @@
+import Transport_Functions
+import Complementary_Categorizations
+
+package Subnetworks
+
+role Bidirectional_Connected_Subnetwork  specializes Subnetwork
+kind Subnetwork  specializes Transport_Function
+role Unidirectional_Subnetwork  specializes Subnetwork
+kind Subnetwork_Input  specializes Input{
+    @componentOf
+     [1..*]  --<o> [1]  Unidirectional_Subnetwork
+}
+kind Subnetwork_Output  specializes Output{
+    @componentOf
+     [1..*]  --<o> [1]  Unidirectional_Subnetwork
+}
+

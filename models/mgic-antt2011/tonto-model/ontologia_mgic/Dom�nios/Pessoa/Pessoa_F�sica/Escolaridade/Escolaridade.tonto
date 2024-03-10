@@ -1,0 +1,60 @@
+import Pessoa
+
+package Escolaridade
+
+role Graduado_Mdio  specializes Graduado_Fundamental
+relator Ensino_Fundamental  specializes Formao_Acadmica{
+    @mediation
+    [1] -- [1]  Graduado_Fundamental( {const } )
+}
+role Instituio_de_Ensino  specializes Pessoa_Jurdica
+kind Tese_de_Doutorado 
+relator Formao_Acadmica {
+    graduao : undefined
+    inicio : undefined
+    @mediation
+     [1..*] -- [1]  Instituio_de_Ensino( {const } )
+}
+role Graduado_Superior  specializes Graduado_Mdio
+mode Diploma {
+    @characterization
+    [1] -- [1]  Formao_Acadmica( {const } )
+}
+kind Dissertao_de_Mestrado 
+role Ps_Graduado  specializes Graduado_Superior
+relator Doutorado  specializes Formao_Acadmica{
+    rea : undefined
+    @mediation
+     [1..*] -- [1]  Doutor( {const } )
+    @mediation
+    [1] -- [1]  Tese_de_Doutorado( {const } )
+}
+relator Ps_Graduao  specializes Formao_Acadmica{
+    rea : undefined
+    @mediation
+     [1..*] -- [1]  Ps_Graduado( {const } )
+}
+relator Ensino_Mdio  specializes Formao_Acadmica{
+    @mediation
+    [1] -- [1]  Graduado_Mdio( {const } )
+}
+role Mestre  specializes Graduado_Superior
+relator Ensino_Superior  specializes Formao_Acadmica{
+    curso : undefined
+    @mediation
+     [1..*] -- [1]  Graduado_Superior( {const } )
+}
+role Graduado_Fundamental  specializes Pessoa_Fsica
+kind Projeto_de_Graduao {
+    @mediation
+    ( {const } )[1] -- [1]  Ensino_Superior
+}
+role Doutor  specializes Graduado_Superior
+relator Mestrado  specializes Formao_Acadmica{
+    rea : undefined
+    @mediation
+     [1..*] -- [1]  Mestre( {const } )
+    @mediation
+    [1] -- [1]  Dissertao_de_Mestrado( {const } )
+}
+

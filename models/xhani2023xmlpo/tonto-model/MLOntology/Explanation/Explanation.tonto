@@ -1,0 +1,56 @@
+import General_Module
+
+package Explanation
+
+kind ExplanationApproach 
+subkind AntehocAprroach  specializes ExplanationApproach{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  AntehocImplementation
+}
+subkind PosthocApproach  specializes ExplanationApproach{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  PosthocImplementation
+}
+event PosthocImplementation  specializes Implementation{
+    @creation
+    ( {const } )[1] -- [1]  XAIModel( {const } )
+}
+subkind XAIModel  specializes MLModel{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  XAIModelEvaluation
+}
+event XAIModelEvaluation 
+kind XAIEvaluationMetric {
+    @participation
+    ( {const } ) [1..*] --  [0..*]  XAIModelEvaluation
+}
+event AntehocImplementation 
+event Explain 
+quality XAIModelCharacteristic {
+    @characterization
+    [1] -- [1]  XAIModel( {const } )
+}
+category Explanation {
+    <o>--  ExplanationComponent
+    <o>--  ExplanationApproach
+    @participation
+    ( {const } ) [1..*] --  [0..*]  Explain
+}
+kind ExplanationComponent {
+    @mediation
+     [0..*] -- [1]  EvaluatesExplanationComponent( {const } )
+}
+relator EvaluatesExplanationComponent {
+    @mediation
+     [0..*] -- [1]  ExplanationComponentEvaluation( {const } )
+}
+kind ExplanationComponentEvaluation 
+kind ExplanationEvaluation {
+    <o>--  ExplanationComponentEvaluation
+    <o>--  XAIEvaluationMetric
+}
+quality XAIMetricCharacteristic {
+    @characterization
+    [1] -- [1]  XAIEvaluationMetric( {const } )
+}
+

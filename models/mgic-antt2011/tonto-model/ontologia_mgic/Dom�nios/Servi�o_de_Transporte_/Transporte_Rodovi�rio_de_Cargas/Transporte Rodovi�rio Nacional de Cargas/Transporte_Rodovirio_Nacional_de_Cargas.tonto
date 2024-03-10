@@ -1,0 +1,22 @@
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Transporte_Rodovirio_Nacional_de_Cargas_Prpria
+import Transporte_Rodovirio_de_Cargas
+
+package Transporte_Rodovirio_Nacional_de_Cargas
+
+relator Contratao_de_Transporte_Rodovirio_Nacional_de_Carga {
+    @mediation
+     [0..1] -- [1]  Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_Nacional_de_Cargas( {const } )
+    @mediation
+    [1] -- [1]  Documento_de_Contratao_de_Transporte_Rodovirio_Nacional_de_Cargas( {const } )
+}
+relator Operao_de_Transporte_Rodovirio_Nacional_de_Carga_Prpria_para_Fins_Comerciais  specializes Operao_de_Transporte_Rodovirio_Nacional_de_Carga_Prpria{
+    @mediation
+     [1..*] --  [1..*]  Nota_Fiscal_Emitida_para_Transporte_Rodovirio_Nacional_de_Carga_Prpria_para_Fins_Comerciais( {const } )
+}
+kind Contrato_de_Prestao_de_Servio_de_Transporte_Rodovirio_Nacional_de_Cargas 
+relator Operao_de_Transporte_Rodovirio_Nacional_de_Cargas  specializes Operao_de_Transporte_Rodovirio_de_Cargas
+role Documento_de_Contratao_de_Transporte_Rodovirio_Nacional_de_Cargas  specializes Contrato_de_Prestao_de_Servio_de_Transporte_Rodovirio_Nacional_de_Cargas
+role Nota_Fiscal_Emitida  specializes Nota_Fiscal_em_Operao_de_Transporte_Rodovirio_Nacional_de_Cargas
+role Nota_Fiscal_Emitida_para_Transporte_Rodovirio_Nacional_de_Carga_Prpria_para_Fins_Comerciais  specializes Nota_Fiscal_Emitida
+

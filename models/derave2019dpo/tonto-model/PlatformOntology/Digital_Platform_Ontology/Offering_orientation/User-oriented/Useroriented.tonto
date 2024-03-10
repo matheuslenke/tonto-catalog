@@ -1,0 +1,8 @@
+import Transaction
+import Productoriented
+import Resultoriented
+
+package Useroriented
+
+event UserOriented_Delivery  specializes Delivery, ProductOriented_Delivery, ResultOriented_Delivery
+

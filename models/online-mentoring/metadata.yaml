@@ -1,0 +1,22 @@
+title: Online Mentoring Model
+acronym:
+issued: 2013
+modified:
+contributor:
+keyword:
+ - online mentoring
+ - education
+theme: Class L - Education
+editorialNote: The ontology was developed as a course assignment.
+ontologyType:
+ - domain
+language: en
+designedForTask:
+ - conceptual clarification
+context:
+ - classroom
+source:
+representationStyle:
+ - ontouml
+landingPage:
+license: https://creativecommons.org/licenses/by/4.0

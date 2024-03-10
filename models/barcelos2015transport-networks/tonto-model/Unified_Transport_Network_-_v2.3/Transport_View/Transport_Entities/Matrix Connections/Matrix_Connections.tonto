@@ -1,0 +1,87 @@
+import Forwarding_Function
+import Forwarding_Points
+import Complementary_Categorizations
+import Forwarding_End_Points
+import Transport_Entities
+
+package Matrix_Connections
+
+role Active_Intermediate_Bidirectional_MFP  specializes Bidirectional_MFP, Connected_Reference_Point
+role Active_Path_Bidirectional_MFEP  specializes Bidirectional_MFEP, Connected_Reference_Point
+role Active_Path_Bidirectional_MFP  specializes Bidirectional_MFP, Connected_Reference_Point
+role Active_Sk_MFEP__Sk_MC_connected  specializes Sink_MFEP, Connected_Reference_Point{
+    @material
+     [1..*] -- Forwarding_Sink_MC --  [1..*]  Active_Sk_MFP__Sk_MC_connected
+}
+role Active_Sk_MFP__Int_MC_connected  specializes Sink_MFP, Connected_Reference_Point{
+    @material
+     [1..*] -- Forwarding_Intermediate_MC --  [1..*]  Active_So_MFP__Int_MC_connected
+}
+role Active_Sk_MFP__Sk_MC_connected  specializes Sink_MFP, Connected_Reference_Point
+role Active_So_MFEP__So_MC_connected  specializes Source_MFEP, Connected_Reference_Point{
+    @material
+     [1..*] -- Forwarding_Source_MC --  [1..*]  Active_So_MFP__So_MC_connected
+}
+role Active_So_MFP__Int_MC_connected  specializes Source_MFP, Connected_Reference_Point
+role Active_So_MFP__So_MC_connected  specializes Source_MFP, Connected_Reference_Point
+subkind Bi_Intermediate_MC  specializes Bidirectional_MC{
+    @material
+     [1..*] -- Forwarding_Bidirectional_Int_MC -- [2]  Active_Intermediate_Bidirectional_MFP
+}
+subkind Bi_Path_MC  specializes Bidirectional_MC{
+    @material
+     [1..*] -- Forwarding_Bidirectional_Path_MC_FP -- [1]  Active_Path_Bidirectional_MFP
+    @material
+     [1..*] -- Forwarding_Bidirectional_Path_MC_FEP -- [1]  Active_Path_Bidirectional_MFEP
+}
+subkind Bidirectional_MC  specializes Matrix_Connection
+relator Int_MC_Forwarding  specializes Forwarding{
+    @mediation
+    [1] -- is_represented_by_Intermediate_MC -- [1]  Intermediate_MC( {const } isRepresentedBy )
+    @mediation
+     [1..*] -- Forwarding_to_Intermediate_MC -- [1]  Active_So_MFP__Int_MC_connected( {const } transfersSo )
+    @mediation
+     [1..*] -- Forwarding_from_Intermediate_MC -- [1]  Active_Sk_MFP__Int_MC_connected( {const } transfersSk )
+    @mediation
+    [1] -- is_defined_by --  [1..*]  Forwarding_Rule_MC_SkSo( {const } )
+    @mediation
+    [1] -- is_configured_by -- [1]  Forwarding_Function_SkSo_Connected( {const } )
+}
+subkind Intermediate_MC  specializes Unidirectional_MC
+role Intermediate_MC_Bi_Component  specializes Intermediate_MC{
+    @componentOf
+    ( {const } composed )[2]  --<o> [1]  Bi_Intermediate_MC( {const } compose )
+}
+kind Matrix_Connection  specializes Transport_Entity
+subkind Sink_MC  specializes Unidirectional_MC
+role Sink_MC_Bi_Component  specializes Sink_MC{
+    @componentOf
+    ( {const } composedSk )[1]  --<o> [1]  Bi_Path_MC( {const } compose )
+}
+relator Sk_MC_Forwarding  specializes Forwarding{
+    @mediation
+    [1] -- is_represented_by_Sink_MC -- [1]  Sink_MC( {const } represented )
+    @mediation
+     [1..*] -- Forwarding_to_Sink_MC --  [1..*]  Active_Sk_MFP__Sk_MC_connected( {const } transfersM )
+    @mediation
+     [1..*] -- Forwarding_from_Sink_MC --  [1..*]  Active_Sk_MFEP__Sk_MC_connected( {const } transfersTCP )
+    @mediation
+    [1] -- is_configured_by -- [1]  Forwarding_Function_Sk_M_Connected( {const } )
+}
+relator So_MC_Forwarding  specializes Forwarding{
+    @mediation
+    [1] -- is_represented_by_Source_MC -- [1]  Source_MC( {const } represented )
+    @mediation
+     [1..*] -- Forwarding_to_Source_MC --  [1..*]  Active_So_MFP__So_MC_connected( {const } transfersM )
+    @mediation
+     [1..*] -- Forwarding_from_Source_MC --  [1..*]  Active_So_MFEP__So_MC_connected( {const } transfersTCP )
+    @mediation
+    [1] -- is_configured_by -- [1]  Forwarding_Function_So_M_Connected( {const } )
+}
+subkind Source_MC  specializes Unidirectional_MC
+role Source_MC_Bi_Component  specializes Source_MC{
+    @componentOf
+    ( {const } composedSo )[1]  --<o> [1]  Bi_Path_MC( {const } compose )
+}
+subkind Unidirectional_MC  specializes Matrix_Connection
+

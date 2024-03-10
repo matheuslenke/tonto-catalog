@@ -1,0 +1,30 @@
+package Beneficence__Nonmaleficence
+
+category NFRRequirement  specializes UFOCGoal
+category NFRQuality_Requirement  specializes NFRRequirement
+category UFOCGoal 
+category Beneficence_Requirement  specializes NFRQuality_Requirement
+category Nonmaleficence_Requirement  specializes NFRQuality_Requirement
+mode Intention {
+    @characterization
+     [1..*] -- inheres_in -- [1]  UFOAgent( {const } )
+     [1..*] --  [1..*]  UFOCGoal
+}
+category UFOAgent 
+event COVERGain_Event {
+     [0..*] -- positively_impacts --  [1..*]  Intention
+}
+event COVERLoss_Event {
+     [0..*] --  [1..*]  Intention
+}
+role Beneficence_Intention  specializes Intention{
+     [1..*] -- propositional_content_of --  [1..*]  Beneficence_Requirement
+    @externalDependence
+     [0..*] -- intends_to_create --  [1..*]  COVERGain_Event( {const } )
+}
+role Nonmaleficence_Intention  specializes Intention{
+     [1..*] -- propositional_content_of --  [1..*]  Nonmaleficence_Requirement
+    @externalDependence
+     [0..*] -- intends_to_prevent --  [1..*]  COVERLoss_Event( {const } )
+}
+

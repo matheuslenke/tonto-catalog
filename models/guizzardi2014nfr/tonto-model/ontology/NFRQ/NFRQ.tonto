@@ -1,0 +1,24 @@
+import UFOA
+import UFOC
+
+package NFRQ
+
+class Hardgoal  specializes Goal
+class Softgoal  specializes Goal
+class Function {
+    [1] -- refers_to -- [1]  Functional_Requirement
+}
+class NFR_Quality_Goal  specializes Goal{
+    [*] -- refers_to -- [1]  Quality_Universal
+}
+class Functional_Requirement  specializes Goal
+class Quality_Constraint  specializes NFR_Quality_Goal{
+    [*] -- requires_value_in -- [1]  Crisp_Quality_Region
+}
+class Vague_NFR  specializes NFR_Quality_Goal
+class Gradable_NFR  specializes NFR_Quality_Goal{
+    [*] -- requires_value_in -- [1]  Gradable_Quality_Region
+}
+class Crisp_Quality_Region  specializes Quality_Region
+class Gradable_Quality_Region  specializes Quality_Region
+

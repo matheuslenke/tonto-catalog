@@ -1,0 +1,10 @@
+package UFOB
+
+event Event 
+event Subevent  specializes Event
+event Event_A {
+    @participational
+    ( {const } ) [1..*]  --<o> [1]  Event_B( {const } )
+}
+event Event_B 
+

@@ -1,0 +1,22 @@
+title: IT Infrastructure Model
+acronym:
+issued: 2013
+modified:
+contributor:
+keyword:
+ - it infrastructure
+theme: Class T - Technology
+editorialNote:
+ontologyType:
+ - domain
+language: en
+designedForTask:
+ - conceptual clarification
+ - learning
+context:
+ - classroom
+source:
+representationStyle:
+ - ontouml
+landingPage:
+license: https://creativecommons.org/licenses/by/4.0

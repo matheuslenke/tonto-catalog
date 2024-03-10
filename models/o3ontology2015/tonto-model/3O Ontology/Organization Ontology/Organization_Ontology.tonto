@@ -1,0 +1,23 @@
+import OntoUML
+
+package Organization_Ontology
+
+subkind Composite_Line_Unit  specializes Line_Unit
+relator Missionary_Assignment_by_Appointment  specializes Missionary_Assignment{
+    @mediation
+    [1] -- formalizes -- [1]  Appointed_Team_Member( {const } appointed_member )
+}
+relator Missionary_Assignment_by_Election  specializes Missionary_Assignment{
+    @mediation
+     [0..*] -- participates --  [2..*]  Formal_Organization_Member( {const } )
+    @mediation
+    [1] -- formalizes -- [1]  Ellected_Team_Member( {const } ellected_member )
+}
+relator Missionary_Assignment_by_Allocation  specializes Missionary_Assignment{
+    @mediation
+    [1] -- formalizes -- [1]  Allocated_Team_Member( {const } allocated_member )
+}
+role Appointed_Team_Member  specializes Missionary_Unit_Member
+role Ellected_Team_Member  specializes Missionary_Unit_Member
+role Allocated_Team_Member  specializes Missionary_Unit_Member
+

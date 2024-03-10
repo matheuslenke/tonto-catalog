@@ -1,0 +1,47 @@
+import opm
+import bpo
+import fog
+import schema
+
+package omg
+
+category Geometry {
+    hasReferencedGeometryIdentifier : undefined
+    hasSimpleGeometryDiscription : undefined
+    innobrixRow : undefined
+    innobrixColumn : undefined
+    innobrixColumnCel : undefined
+    @material
+     [0..*] -- omgcomplementsGeometry --  [0..*]  Geometry
+    @comparative
+     [1..*] -- omghasGeometryState --  [1..*]  GeometryState
+    @material
+     [0..*] -- omgisDerivedFromGeometry --  [0..*]  Geometry
+    @participation
+    ( {const } ) [1..*] -- omghasGeometryContext -- [1]  GeometryContext( {const } )
+    @material
+     [0..*] -- omgisPartOfGeometry --  [0..*]  Geometry
+    @material
+     [0..*] -- omgtransformsGeometry --  [0..*]  Geometry
+    @material
+     [0..1] -- foghasReferencedContent -- [1]  ReferencedContent
+}
+situation GeometryState {
+    hasComplexGeometryDescription : undefined
+    GeneratedAtTime : undefined
+    wasAttributedTo : undefined
+    @material
+    ( {const } ) [0..*] -- omghasGeometryContext --  [0..*]  GeometryContext
+    @material
+     [0..*] -- omgcontainsPropertyState --  [0..*]  PropertyState
+    @material
+     [0..*] -- omgisDerivedFromGeometryState --  [0..*]  GeometryState
+    @material
+     [0..*] -- omgcontainsGeometryObject --  [0..*]  Entity
+}
+situation Current_Geometry_State  specializes GeometryState
+event GeometryContext {
+    @material
+     [0..*] -- schemasubjectOf --  [0..*]  Event
+}
+

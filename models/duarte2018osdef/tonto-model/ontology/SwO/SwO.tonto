@@ -1,0 +1,12 @@
+import SPO
+
+package SwO
+
+class Program  specializes Artifact
+class Loaded_Program_Copy {
+     [0..*] -- materialization_of -- [1]  Program
+}
+class Code {
+     [1..*]  --<o>  [0..1]  Program
+}
+

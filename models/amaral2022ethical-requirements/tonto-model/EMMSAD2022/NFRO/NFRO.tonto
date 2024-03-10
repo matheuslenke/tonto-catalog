@@ -1,0 +1,34 @@
+package NFRO
+
+category NFRRequirement  specializes UFOCGoal
+category NFRQuality_Requirement  specializes NFRRequirement{
+     [0..*] -- refers_to -- [1]  UFOQuality_Universal
+}
+type UFOQuality_Universal {
+    [1] -- instantiates --  [1..*]  UFOQuality
+}
+mode UFOQuality {
+     [0..*] -- has_value -- [1]  UFOQuality_Value
+}
+category UFOQuality_Value {
+     [1..*]  -- member_of --<o>  [1..*]  UFO_Quality_Region
+}
+category UFO_Quality_Region 
+category UFOCGoal 
+category Explicability_Requirement  specializes NFRQuality_Requirement{
+     [0..*]  --<o>  [0..*]  Ethical_Requirement
+}
+category Autonomy_Requirement  specializes NFRQuality_Requirement{
+     [0..*]  --<o>  [0..*]  Ethical_Requirement
+}
+category Beneficence_Requirement  specializes NFRQuality_Requirement{
+     [0..*]  --<o>  [0..*]  Ethical_Requirement
+}
+category Nonmaleficense_Requirement  specializes NFRQuality_Requirement{
+     [0..*]  --<o>  [0..*]  Ethical_Requirement
+}
+category Ethical_Requirement  specializes NFRQuality_Requirement
+category Justice_Requirement  specializes NFRQuality_Requirement{
+     [0..*]  --<o>  [0..*]  Ethical_Requirement
+}
+

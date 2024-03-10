@@ -1,0 +1,39 @@
+package Robotic
+
+kind Patient {
+    [*] -- play -- [*]  Being_Supported
+    [*] -- play -- [*]  Being_Lifted
+}
+role Being_Supported {
+    [*] -- [*]  BalanceSupport
+}
+relator BalanceSupport {
+    [*] -- [*]  Balance_Supporter
+}
+role Balance_Supporter 
+role Being_Lifted {
+    [*] -- [*]  LiftUp
+}
+relator LiftUp {
+    [*] -- [*]  Object_Lifter
+}
+role Object_Lifter 
+kind Robot_Handle {
+    [*] -- play -- [*]  Balance_Supporter
+    [*] -- play -- [*]  Object_Lifter
+    [*] -- ispartof -- [*]  Robot
+}
+kind Robot {
+    [*] -- play -- [*]  Electricity_Consumer
+}
+role Electricity_Consumer 
+role Electricity_Source 
+kind Battery {
+    [*] -- play -- [*]  Electricity_Source
+    [*] -- ispartof -- [*]  Robot
+}
+relator Electricity_Consumption {
+    [*] -- [*]  Electricity_Consumer
+    [*] -- [*]  Electricity_Source
+}
+

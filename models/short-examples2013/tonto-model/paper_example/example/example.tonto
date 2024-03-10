@@ -1,0 +1,35 @@
+package example
+
+kind Person {
+    @material
+    [*] -- knows -- [*]  Person
+}
+role Detective  specializes Person
+relator Criminal_Investigation {
+    @mediation
+    [1] -- participatesIn --  [2..*]  Detective( {const } detective )
+    @mediation
+     [1..*] -- investigates --  [1..*]  Suspect( {const } suspect )
+    @mediation
+    [1] -- responsibleFor -- [1]  Lead_Detective( {const } leader )
+    @mediation
+     [1..*] -- relatedTo --  [1..*]  Witness( {const } witness )
+}
+role Suspect  specializes Person
+role Lead_Detective  specializes Detective
+role Witness  specializes Person
+relator Interrogation {
+    @mediation
+     [1..*] -- targetOf -- [1]  Witness( {const } witness )
+    @mediation
+    [*] -- conducts --  [1..*]  Detective( {const } interrogator )
+}
+role Captain  specializes Detective
+role Officer  specializes Detective
+role Parent  specializes Person{
+    @material
+     [1..2] -- parentOf -- [*]  Child
+}
+role Child  specializes Person
+role Interrogator 
+

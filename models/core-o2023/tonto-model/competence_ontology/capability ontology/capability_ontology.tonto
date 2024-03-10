@@ -1,0 +1,23 @@
+import competence_ontology
+
+package capability_ontology
+
+mode Social_Capability  specializes Capability{
+    @characterization
+    [1] -- [1]  Social_Agent( {const } )
+     [0..*] -- emerges_from --  [2..*]  Capability
+     [0..*] -- results_from --  [2..*]  Capability
+}
+category Disposition {
+     [0..*] -- emerges_from --  [0..*]  Capability
+}
+situation Capability_Context {
+    @triggers
+    ( {const } )[1] --  [0..1]  Capability
+}
+event Capability_Manifestation {
+    @bringsAbout
+    ( {const } )[1] -- [1]  Capability_Outcome( {const } )
+}
+situation Capability_Outcome 
+

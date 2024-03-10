@@ -1,0 +1,71 @@
+package diagram1
+
+role High_School_Student  specializes Student
+role College_Student  specializes Student
+role Post_Graduate_Student  specializes Student
+role Student  specializes Natural_Person{
+    @material
+     [1..*] -- studies_at --  [1..*]  Educational_Institution
+}
+role Educational_Institution  specializes Employer{
+    @mediation
+    ( {const } )[1] --  [1..*]  Internship( {const } )
+}
+relator Enrolment {
+    @mediation
+     [1..*] -- [1]  Student( {const } )
+    @mediation
+     [1..*] -- [1]  Educational_Institution( {const } )
+}
+role Intern  specializes Student
+kind Legal_Person 
+subkind Natural_Person  specializes Legal_Person
+subkind Juridical_Person  specializes Legal_Person
+relator Employment {
+    @mediation
+     [1..*] -- [1]  Employee( {const } )
+    @mediation
+     [1..*] -- [1]  Employer( {const } )
+}
+role Employee  specializes Natural_Person{
+    @material
+     [1..*] -- works_at --  [1..*]  Employer
+}
+role Employer  specializes Juridical_Person
+role Educational_Supervisor  specializes Employee
+role Supervisor  specializes Employee
+role Internship_Provider_Organization  specializes Employer, Organization_Insured
+relator Internship {
+    hours_per_day : undefined
+    income : undefined
+    @mediation
+     [1..*] -- [1]  Supervisor( {const } supervisor )
+    @mediation
+     [1..*] -- [1]  Internship_Provider_Organization( {const } )
+    @mediation
+     [1..*] -- [1]  Educational_Supervisor( {const } )
+    @mediation
+    [1] -- [1]  Term_of_commitment( {const } )
+    @mediation
+    [1] -- [1]  Intern( {const } )
+}
+relator Obligatory_Internship  specializes Internship
+relator Voluntary_Internship  specializes Internship
+kind Term_of_commitment 
+relator Full_Time_Internship  specializes Internship
+relator Part_Time_Internship  specializes Internship
+role Insurance_Carrier  specializes Juridical_Person{
+    @material
+     [1..*] -- provides_insurance_to --  [1..*]  Organization_Insured
+}
+role Organization_Insured 
+relator Personal_Injury_Insurance {
+    @mediation
+     [1..*] -- [1]  Insurance_Carrier( {const } )
+    @mediation
+     [1..*] -- [1]  Organization_Insured( {const } )
+    @mediation
+    [1] -- [1]  Insurance_Policy( {const } )
+}
+kind Insurance_Policy 
+

@@ -1,0 +1,6 @@
+import ontology
+
+package Human
+
+phase LivingPerson  specializes BiologicalPerson
+

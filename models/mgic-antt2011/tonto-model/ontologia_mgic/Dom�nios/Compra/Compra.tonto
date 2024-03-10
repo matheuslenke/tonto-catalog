@@ -1,0 +1,108 @@
+import Produto
+import Convnio_de_Aquisio__Solicitao
+import Pessoa
+import Convnio_de_Aquisio__Cotao
+import Pagamento
+
+package Compra
+
+relator Solicitao_de_Bem {
+    medida : Unidade de Medida
+    quantidade : undefined
+}
+roleMixin Fornecedor {
+    @material
+     [1..*] -- faz_cotao_para_ --  [1..*]  Cotador
+}
+role Item_Solicitado  specializes Produto{
+    @mediation
+    [1] --  [1..*]  Solicitao_de_Item( {const } )
+}
+role Modelo_Cotado_Individualmente  specializes Modelo_Cotado{
+    @mediation
+    [1] --  [1..*]  Cotao_Individual_de_Modelo( {const } )
+}
+relator Cotao_Individual_de_Produto  specializes Cotao_Individual
+roleMixin Solicitado  specializes Concessionria_Rodoviria_Solicitada{
+    @mediation
+    ( {const } )[1] --  [1..*]  Solicitao_de_Compra
+}
+relator Compra_por_Cotao  specializes Compra_de_Item
+role Modelo_Cotado  specializes Modelo_Solicitado
+relator Compra_Solicitada  specializes Compra_de_Item
+role Produto_Cotado  specializes Item_Solicitado
+relator Compra_de_Item {
+    data : undefined
+    valor : undefined
+    @mediation
+    [1] --  [0..1]  Pagamento_de_Compra_de_Produto( {const } )
+    @mediation
+     [1..*] -- [1]  Comprador( {const } )
+}
+role Produto_Cotado_Coletivamente  specializes Produto_Cotado{
+    @mediation
+     [2..*] --  [1..*]  Cotao_Agrupada_de_Produto( {const } )
+}
+role Produto_Cotado_Individualmente  specializes Produto_Cotado{
+    @mediation
+    [1] --  [1..*]  Cotao_Individual_de_Produto( {const } )
+}
+relator Solicitao_de_Compra  specializes Solicitao_de_Compra_em_CA{
+    data : undefined
+    @material
+    [1] -- _feita_para_ --  [0..*]  Cotao
+    @mediation
+     [1..*] -- [*]  Compra_Solicitada( {const } )
+    @mediation
+    [1] --  [1..*]  Solicitao_de_Bem( {const } )
+}
+roleMixin Comprador  specializes Pessoa
+role Modelo_Solicitado {
+    @mediation
+    [1] --  [1..*]  Solicitao_de_Modelo( {const } )
+}
+relator Solicitao_de_Modelo  specializes Solicitao_de_Bem
+roleMixin Cotador  specializes Concessionria_Rodoviria_Cotadora_
+relator Cotao {
+    data : undefined
+    prazo : undefined
+    valor : undefined
+    @mediation
+     [1..*] -- [1]  Cotador( {const } )
+    @mediation
+    [1] --  [0..*]  Compra_por_Cotao( {const } )
+    @mediation
+     [1..*] -- [1]  Fornecedor( {const } )
+}
+relator Pagamento_de_Compra_de_Produto  specializes Pagamento{
+    @mediation
+    [1] -- [1]  Nota_Fiscal_de_Produto( {const } )
+}
+subkind Nota_Fiscal_de_Produto  specializes Comprovante_de_Pagamento
+relator Cotao_Agrupada_de_Modelo  specializes Cotao_Agrupada{
+    @mediation
+     [1..*] --  [2..*]  Modelo_Cotado_Coletivamente( {const } )
+}
+roleMixin Vendedor  specializes Pessoa{
+    @mediation
+    ( {const } )[1] --  [1..*]  Compra_de_Item
+}
+relator Cotao_Agrupada  specializes Cotao
+relator Cotao_Individual_de_Modelo  specializes Cotao_Individual
+relator Cotao_Individual  specializes Cotao
+relator Cotao_Agrupada_de_Produto  specializes Cotao_Agrupada
+kind Item_de_Compra {
+    @material
+     [1..*] -- adquire_ -- [1]  Comprador
+    @mediation
+    ( {const } ) [1..*] -- [1]  Compra_de_Item
+}
+relator Solicitao_de_Item  specializes Solicitao_de_Bem
+roleMixin Solicitante  specializes Entidade_Pblica_em_CA_Solicitante_{
+    @mediation
+    ( {const } )[1] --  [1..*]  Solicitao_de_Compra
+    @material
+     [1..*] -- solicita_produto_a_ --  [1..*]  Solicitado
+}
+role Modelo_Cotado_Coletivamente  specializes Modelo_Cotado
+

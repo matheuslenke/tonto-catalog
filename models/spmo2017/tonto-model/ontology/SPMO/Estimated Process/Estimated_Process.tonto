@@ -1,0 +1,39 @@
+import WBS
+import Performed_Process
+
+package Estimated_Process
+
+mode Scheduled_Process  specializes Intended_Process{
+    plannedStartDate : undefined
+    plannedEndDate : undefined
+}
+class Cost_Estimated_Process  specializes Project_Process{
+    estimatedCost : undefined
+}
+class Duration_Estimated_Process  specializes Project_Process{
+    estimatedDuration : undefined
+}
+class Estimated_Process  specializes Scheduled_Process, Cost_Estimated_Process, Duration_Estimated_Process, Project_Process
+class Scope_Estimated_Activity  specializes Project_Activity{
+     [1..*] -- is_to_produce --  [1..*]  Work_Package
+}
+class Cost_Estimated_Activity  specializes Project_Activity{
+    estimatedCost : undefined
+}
+class Estimated_Activity  specializes Scope_Estimated_Activity, Cost_Estimated_Activity, Duration_Estimated_Activity, Scheduled_Activity, Project_Activity
+class Duration_Estimated_Activity  specializes Project_Activity{
+    estimatedDuration : undefined
+}
+mode Scheduled_Activity  specializes Intended_Activity{
+    plannedStartDate : undefined
+    plannedEndDate : undefined
+}
+class Estimated_Stakeholder_Allocation  specializes Stakeholder_Allocation{
+    plannedStartDate : undefined
+    plannedEndDate : undefined
+    estimatedDuration : undefined
+    estimatedCost : undefined
+    @mediation
+     [0..*] -- is_to_perform -- [1]  Estimated_Activity( {const } )
+}
+

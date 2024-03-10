@@ -1,0 +1,43 @@
+import 1st_Order_Entities
+
+package Service_Offer
+
+kind ServiceOffer {
+    @Formal
+    [1] -- creates -- [1]  ServiceOffering
+}
+relator ServiceOffering {
+    @mediation
+     [1..*] -- provides -- [1]  ServiceProvider( {const } provider )
+    @componentOf
+    [1] <o>--  [1..*]  ServiceOfferingClaim
+    @componentOf
+    [1] <o>--  [1..*]  ServiceOfferingCommitment
+    @mediation
+     [1..*] -- offered_to -- [1]  TargetCustomerCommunity( {const } community )
+}
+mode ServiceOfferingClaim {
+    @characterization
+     [1..*] -- externallydependenton -- [1]  ServiceProvider( {const } provider )
+    @characterization
+     [1..*] -- inheres_in -- [1]  TargetCustomerCommunity( {const } community )
+}
+mode ServiceOfferingCommitment {
+    @characterization
+     [1..*] -- externallydependenton -- [1]  TargetCustomerCommunity( {const } community )
+    @characterization
+     [1..*] -- inheres_in -- [1]  ServiceProvider( {const } provider )
+    @Formal
+    [1] -- counterpart_of -- [1]  ServiceOfferingClaim
+}
+category ServiceOfferingDescription {
+    @Formal
+     [0..*] -- describes -- [1]  ServiceOffering
+}
+roleMixin ServiceProvider  specializes Agent
+roleMixin TargetCustomer  specializes Agent
+collective TargetCustomerCommunity {
+    @memberOf
+     [1..*] <>-- memberOf --  [1..*]  TargetCustomer
+}
+

@@ -1,0 +1,33 @@
+package Essential_Ontology
+
+class Goal {
+    [1] -- Has -- [1]  Transaction
+     [0..*] -- contribute_to --  [1..*]  Fact
+}
+kind Transaction {
+     [0..*] -- causally_related_to -- [1]  Transaction
+    [*] <o>-- [*]  Transaction_Phase
+}
+collective Interorganizational_Process {
+     [1..*] -- in --  [1..*]  Process_Participant
+    [*] <>-- [*]  Transaction
+}
+roleMixin Process_Participant {
+    [1] -- performs --  [1..*]  Act
+}
+role Initiator  specializes Process_Participant
+role Executor  specializes Process_Participant
+event Act {
+     [1..*] -- performed_in -- [1]  Transaction_Phase
+    [1] -- results_in -- [1]  Fact
+}
+phase Transaction_Phase {
+     [0..1] -- advances -- [1]  Fact
+}
+kind Fact 
+category Business_Object {
+    [1] -- related_to -- [1]  Fact
+}
+kind Physical_Object  specializes Business_Object
+kind Artificial_Object  specializes Business_Object
+

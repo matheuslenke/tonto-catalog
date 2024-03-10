@@ -1,0 +1,19 @@
+import Typology
+import GDPO_part_1
+
+package GDPO_User_Roles
+
+type User_Role_Type {
+     [1..*] -- can_perform --  [1..*]  User_Action_Type
+     [2..*] -- defines_user_role -- [1]  MultiSided_Platform_Hagiu_and_Wright_2015
+    @instantiation
+    ( {const } )[1] --  [0..*]  User_Role( {const } )
+}
+type User_Action_Type (instanceOf User_Action)
+type User_Role (instanceOf User_Role_Type){
+     [1..*] -- has -- [1]  Platform_User
+    [1] -- creates --  [0..1]  User_Affiliation_Action
+    [1] -- changes --  [0..*]  User_Role_Action
+}
+event User_Role_Action  specializes User_Action
+

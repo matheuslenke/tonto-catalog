@@ -1,0 +1,33 @@
+package Model
+
+enum ContributionType {
+}
+enum SourceType {
+}
+kind Concern {
+    @material
+     [0..*] -- isRelatedTo --  [0..*]  Concern
+}
+subkind NonFunctionalConcern  specializes Concern
+subkind FunctionalConcern  specializes Concern
+kind Keyword {
+    @componentOf
+    [*]  -- isKwOf --<o> [1]  Concern
+}
+kind Source {
+    st : SourceType [0..*] 
+    @componentOf
+    [*]  -- isSourceOf --<o> [1]  Concern
+}
+relator Relationship {
+    @mediation
+     [0..*] -- source -- [1]  Concern( {const } )
+    @mediation
+     [0..*] -- target -- [1]  Concern( {const } )
+}
+relator Dependency  specializes Relationship
+relator Contribution  specializes Relationship{
+    ct : ContributionType [0..*] 
+}
+relator Composition  specializes Relationship
+

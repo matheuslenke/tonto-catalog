@@ -1,0 +1,26 @@
+package Model
+
+subkind Organization  specializes Actor
+subkind Community  specializes Actor
+category Actor {
+    [*] -- eof -- [*]  Activity
+    [1] -- cact -- [1]  Performance_Evaluation
+     [1..*] -- cact --  [1..*]  Social_Need
+}
+category Activity 
+kind Performance_Evaluation 
+category Social_Need 
+category Object {
+    [1] -- Constituent -- [1]  Performance_Evaluation
+    [1] -- hasSatisfied -- [1]  Social_Need
+     [1..*] -- pact --  [1..*]  Activity
+}
+kind CnA  specializes Object
+kind PoP  specializes Object
+kind Core  specializes Object
+kind Counter  specializes Object
+subkind Community_Development  specializes Activity
+subkind Organizational_Governance  specializes Activity
+subkind Labor_Practices  specializes Activity
+subkind Social_Assistance_Service  specializes Activity
+

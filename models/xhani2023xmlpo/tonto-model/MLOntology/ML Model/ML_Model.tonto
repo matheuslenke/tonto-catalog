@@ -1,0 +1,74 @@
+import Explanation
+import Data_Input_and_Preprocessing
+import General_Module
+
+package ML_Model
+
+subkind SupervisedLearningApproach  specializes MLApproach{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  SupervisedLearningApproachImplemenation
+}
+subkind UnsupervisedLearningApproach  specializes MLApproach{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  UnsupervisedLearningApproachImplemenation
+}
+kind MLApproach {
+    @characterization
+    [1] -- [1]  MLApproachCharacteristic( {const } )
+}
+subkind RegressionAlgorithm  specializes SupervisedLearningApproach
+subkind ClassificationAlgorithm  specializes SupervisedLearningApproach
+subkind LabeledDataset  specializes Dataset{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  SupervisedLearningApproachImplemenation
+}
+subkind UnlabeledDataset  specializes Dataset{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  UnsupervisedLearningApproachImplemenation
+}
+event SupervisedLearningApproachImplemenation  specializes Implementation
+event UnsupervisedLearningApproachImplemenation  specializes Implementation
+subkind ClusteringAlgorithm  specializes UnsupervisedLearningApproach
+category Library {
+    @participation
+    ( {const } ) [1..*] --  [0..*]  ImportLibraries
+}
+kind PythonLibrary  specializes Library
+subkind Pandas  specializes PythonLibrary
+subkind ScikitLearn  specializes PythonLibrary
+event ImportLibraries {
+    @participational
+    ( {const } ) [1..*]  --<o> [1]  MLModelImplementation( {const } )
+    @characterization
+    [1] -- [1]  LibraryCharacteristic( {const } )
+}
+event MLModelImplementation  specializes Implementation{
+    @creation
+    ( {const } )[1] -- [1]  BlackboxMLmodel( {const } )
+    @creation
+    ( {const } )[1] -- [1]  Result( {const } )
+}
+event MLModelEvaluation 
+subkind BlackboxMLmodel  specializes MLModel{
+    @participation
+    ( {const } ) [1..*] --  [0..*]  MLModelEvaluation
+    @participation
+    ( {const } ) [1..*] --  [0..*]  PosthocImplementation
+    @mediation
+     [0..*] -- [1]  Vizualization( {const } )
+}
+category ModelVisualization {
+    @mediation
+     [0..*] -- [1]  Vizualization( {const } )
+}
+kind Graphs  specializes ModelVisualization
+kind Image  specializes ModelVisualization
+relator Vizualization {
+    @characterization
+    [1] -- [1]  VizualizationCharacteristic( {const } )
+}
+quality MLApproachCharacteristic 
+quality LibraryCharacteristic 
+quality VizualizationCharacteristic 
+kind Result  specializes Output
+

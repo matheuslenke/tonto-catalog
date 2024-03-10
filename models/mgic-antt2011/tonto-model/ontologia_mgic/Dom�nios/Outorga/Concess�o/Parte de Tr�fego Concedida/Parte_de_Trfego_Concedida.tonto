@@ -1,0 +1,8 @@
+import Infraestrutura_Rodoviria
+import Via_de_Trnsito_Rodovirio
+import Trecho_Ferrovirio
+
+package Parte_de_Trfego_Concedida
+
+mixin Parte_de_Trfego_Concedida  specializes Via_de_Trfego_Rodovirio, Trecho_Rodovirio_Fsico, Trecho_Ferrovirio
+

@@ -1,0 +1,87 @@
+import Fiscalizaes_de_Servios_de_Transportes_Terrestres
+
+package Gerais
+
+relator Fiscalizao_Apurativa  specializes Fiscalizao
+relator Fiscalizao_Indireta  specializes Fiscalizao{
+    @mediation
+     [1..*] --  [1..*]  Objeto_Fiscalizado_Indiretamente( {const } )
+}
+roleMixin Pessoa_Fiscalizada  specializes Objeto_Fiscalizado
+roleMixin Veculo_Fiscalizado  specializes Objeto_Fiscalizado
+relator Fiscalizao_Individual  specializes Fiscalizao{
+    local : undefined
+}
+role Fiscal_em_Fiscalizao_Individual  specializes Fiscal{
+    @mediation
+    [1] --  [1..*]  Fiscalizao_Individual( {const } )
+}
+mode Objetivo_de_Fiscalizao 
+role Ato_Normativo_Base_de_Fiscalizao {
+    @mediation
+     [1..*] --  [1..*]  Fiscalizao( {const } )
+}
+role Fiscal_da_ANTT  specializes Fiscal
+role Fiscal 
+roleMixin Objeto_Fiscalizado 
+mode Meta_de_Fiscalizao 
+role Equipe_Componente_de_Fiscalizao_Composta  specializes Equipe_Simples_de_Fiscalizao{
+    @componentOf
+    [1] <o>--  [0..1]  Coordenador_de_Fiscalizao_Composta
+    @mediation
+    ( {const } ) [2..*] -- [1]  Fiscalizao_em_Equipe_Composta
+}
+role Fiscal_Lder_de_Equipe  specializes Fiscal_Participante_de_Equipe
+relator Fiscalizao_Constante  specializes Fiscalizao_de_Rotina
+role Coordenador_de_Fiscalizao_Composta  specializes Fiscal_Lder_de_Equipe
+relator Fiscalizao {
+    data : undefined
+    perodo : undefined
+    valor : undefined
+    @mediation
+     [1..*] --  [1..*]  rgo_Responsvel_por_Fiscalizao( {const } orgo )
+    @mediation
+     [1..*] -- fiscaliza --  [1..*]  Objeto_Fiscalizado( {const } )
+    @characterization
+    ( {const } )[1] --  [0..*]  Meta_de_Fiscalizao
+    @characterization
+    ( {const } )[1] --  [1..*]  Objetivo_de_Fiscalizao
+}
+relator Fiscalizao_Programada  specializes Fiscalizao
+relator Fiscalizao_de_Rotina  specializes Fiscalizao{
+    regularidade : undefined
+}
+relator Fiscalizao_Preventiva  specializes Fiscalizao
+kind Equipe_Simples_de_Fiscalizao {
+    @componentOf
+     [1..*] <o>--  [1..*]  Fiscal_Integrante_de_Equipe
+    @componentOf
+     [1..*] <o>-- [1]  Fiscal_Lder_de_Equipe
+}
+relator Fiscalizao_Eventual  specializes Fiscalizao
+relator Fiscalizao_Peridica  specializes Fiscalizao_de_Rotina
+relator Fiscalizao_Direta  specializes Fiscalizao
+role Fiscal_Participante_de_Equipe  specializes Fiscal
+role Fiscal_Conveniado  specializes Fiscal
+roleMixin Veculo_Fiscalizado_em_Plataforma  specializes Veculo_Fiscalizado
+roleMixin Objeto_Fiscalizado_Indiretamente  specializes Objeto_Fiscalizado
+relator Fiscalizao_em_Equipe_Composta  specializes Fiscalizao{
+    local : undefined
+    @mediation
+     [0..1] --  [2..*]  Fiscalizao_em_Equipe_Simples( {const } )
+}
+relator Fiscalizao_Apurativa_e_Punitiva  specializes Fiscalizao_Apurativa
+relator Fiscalizao_em_Equipe_Simples  specializes Fiscalizao{
+    local : undefined
+    @mediation
+     [1..*] -- [1]  Equipe_Simples_de_Fiscalizao( {const } )
+}
+role Fiscal_Integrante_de_Equipe  specializes Fiscal_Participante_de_Equipe
+roleMixin Objeto_Fiscalizado_Diretamente  specializes Objeto_Fiscalizado
+relator Abordagem {
+    @mediation
+    [1] -- [1]  Objeto_Fiscalizado_Diretamente( {const } )
+    @mediation
+     [1..*] -- [1]  Fiscalizao_Direta( {const } )
+}
+

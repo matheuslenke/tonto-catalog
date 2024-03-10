@@ -1,0 +1,38 @@
+import Transport_Functions
+import General_Elements
+import Complementary_Categorizations
+import Termination_Vertical_Connections
+import Matrix_Vertical_Connections
+
+package Matrices
+
+kind Bidirectional_Matrix  specializes Matrix
+subkind Bidirectional_SinkSource_Matrix  specializes Bidirectional_Matrix
+role Connected_Unidirectional_Matrix  specializes Unidirectional_Matrix
+category Matrix  specializes Transport_Function, Geographical_Element
+kind Matrix_Input  specializes Input{
+    @componentOf
+    ( {const } composed ) [1..*]  --<o> [1]  Unidirectional_Matrix( {const } composeUM )
+}
+kind Matrix_Output  specializes Output{
+    @componentOf
+    ( {const } isComposedO ) [1..*]  --<o> [1]  Unidirectional_Matrix( {const } composeUM )
+}
+subkind Path_Bidirectional_Matrix  specializes Bidirectional_Matrix
+role Sink_Matrix  specializes M__Termination_Sink_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_Sk_Connected
+role Sk_Matrix_Bi_Component  specializes Sink_Matrix{
+    @componentOf
+    ( {const } composedSk )[1]  --<o> [1]  Path_Bidirectional_Matrix( {const } composePBM )
+}
+role So_Matrix_Bi_Component  specializes Source_Matrix{
+    @componentOf
+    ( {const } composedSo )[1]  --<o> [1]  Path_Bidirectional_Matrix( {const } composePBM )
+}
+role Source_Matrix  specializes M__Termination_Source_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_So_Connected
+role Uni_SkSo_Matrix_Bi_Component  specializes Unidirectional_SinkSource_Matrix{
+    @componentOf
+    ( {const } composed )[2]  --<o> [1]  Bidirectional_SinkSource_Matrix( {const } composeBSSM )
+}
+kind Unidirectional_Matrix  specializes Matrix
+role Unidirectional_SinkSource_Matrix  specializes Connected_Unidirectional_Matrix, Uni_Matrix__A_Sk_Connected, Uni_Matrix__A_So_Connected
+

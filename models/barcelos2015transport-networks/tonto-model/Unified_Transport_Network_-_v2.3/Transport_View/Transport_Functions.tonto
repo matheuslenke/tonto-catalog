@@ -1,0 +1,7 @@
+import Architectural_Components
+
+package Transport_Functions
+
+kind Forwarding_Function  specializes Transport_Function
+category Transport_Function  specializes Architectural_Component
+

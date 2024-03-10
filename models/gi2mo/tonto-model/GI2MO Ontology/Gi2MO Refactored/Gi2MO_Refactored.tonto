@@ -1,0 +1,220 @@
+package Gi2MO_Refactored
+
+phase Accepted  specializes Idea
+role Access_Authorized_Group  specializes User_Group
+relator Account_Ownership {
+    @mediation
+     [1..*] -- [1]  Online_Account( {const } online_Account )
+    @mediation
+     [1..*] -- [1]  User_with_Account( {const } user_with_Account )
+    @derivation
+    [1] -- [1]  
+}
+relator Authorization {
+    @mediation
+     [1..*] -- [1]  Access_Authorized_Group( {const } access_Authorized_Group )
+    @mediation
+     [1..*] -- [1]  Contest_with_Access_Authorization( {const } contest_with_Access_Authorization )
+    @derivation
+    [1] -- [1]  
+}
+type Category 
+role Commented_Contest  specializes Idea_Contest
+role Contest_with_Access_Authorization  specializes Idea_Contest{
+    @material
+     [1..*] --  [1..*]  Access_Authorized_Group
+}
+role Contest_with_Idea  specializes Idea_Contest
+relator Creation {
+    @mediation
+     [1..*] -- [1]  Idea( {const } idea )
+    @mediation
+     [1..*] --  [1..*]  User_with_Idea( {const } user_with_Ideas )
+}
+phase Deployed  specializes Idea
+role Described  specializes Idea
+role Describee  specializes Idea{
+    @material
+     [1..*] --  [1..*]  Described
+}
+relator Describes_Part {
+    @mediation
+     [1..*] -- [1]  Described( {const } described )
+    @mediation
+     [1..*] -- [1]  Describee( {const } describee )
+    @derivation
+    [1] -- [1]  
+}
+phase Draft  specializes Idea
+relator Edited {
+    VersionDate : undefined
+    @mediation
+     [1..*] -- [1]  Updated_Contest( {const } updated_Contest )
+    @mediation
+     [1..*] -- [1]  User_Editor( {const } user_Editor )
+    @derivation
+    [1] -- [1]  
+}
+kind Idea {
+    Description : undefined
+    @formal
+     [0..*] -- Has_equal_content --  [0..*]  Idea
+}
+mode Idea_Attachment {
+     [0..*] -- [1]  Idea
+}
+type Idea_Category  specializes Category{
+     [1..*] --  [0..*]  Idea
+}
+relator Idea_Comment {
+    @mediation
+     [1..*] -- [1]  User_with_Comment( {const } user_with_Comment )
+    @mediation
+     [1..*] -- [1]  Idea_with_a_Comment( {const } idea_with_a_Comment )
+    @derivation
+    [1] -- [1]  
+}
+kind Idea_Contest 
+mode Idea_Contest_Attachment {
+    @characterization
+     [0..*] -- [1]  Idea_Contest( {const } idea_Contest )
+}
+relator Idea_Contest_Comment {
+    @mediation
+     [1..*] -- [1]  Commented_Contest( {const } commented_Contest )
+    @mediation
+     [1..*] -- [1]  User_with_Idea_Contest_Comment( {const } user_with_Idea_Contest_Comment )
+    @derivation
+    [1] -- [1]  
+}
+relator Idea_Relationship {
+    @mediation
+     [1..*] --  [1..*]  Related_Idea( {const } related_Ideas )
+    @mediation
+     [1..*] --  [1..*]  Relatee( {const } relatees )
+}
+role Idea_Updater_User  specializes User
+role Idea_with_a_Comment  specializes Idea
+phase Implemented  specializes Idea
+role Merged  specializes Idea
+role Merged_1  specializes Idea{
+     [1..*] --  [1..*]  Merged
+}
+relator Merging {
+    @mediation
+     [1..*] --  [1..*]  Merged( {const } mergeds )
+    @mediation
+     [1..*] -- [merged_1s]  Merged_1( {const } )
+    @derivation
+    [1] -- [1]  
+}
+kind Online_Account 
+phase Partially_Implemented  specializes Idea
+relator Rating_Review  specializes Review
+relator Read_Authorization  specializes Authorization
+phase Rejected  specializes Idea
+role Related_Idea  specializes Idea
+role Relatee  specializes Idea
+relator Review {
+    @mediation
+     [1..*] -- [1]  Revised_Idea( {const } revised_Idea )
+    @mediation
+     [1..*] -- [1]  Reviewer( {const } reviewer )
+    @derivation
+    [1] -- [1]  
+}
+type Review_Category  specializes Category{
+     [1..*] --  [0..*]  Review
+}
+mode Review_Rating {
+    @characterization
+     [0..1] -- [1]  Rating_Review( {const } rating_Review )
+}
+role Reviewer  specializes User
+role Revised_Idea  specializes Idea{
+    @material
+     [1..*] --  [1..*]  Reviewer
+}
+role Similar_Idea  specializes Idea
+role Similaree  specializes Idea{
+    @material
+     [1..*] --  [1..*]  Similar_Idea
+}
+relator Similarity {
+    @mediation
+     [1..*] --  [1..*]  Similar_Idea( {const } similar_Ideas )
+    @mediation
+     [1..*] --  [1..*]  Similaree( {const } similarees )
+    @derivation
+    [1] -- [1]  
+}
+type SubCategory  specializes Category{
+     [0..*] -- subcategory_of --  [1..*]  Category
+}
+relator Submission {
+    @mediation
+     [1..*] -- [1]  Contest_with_Idea( {const } contest_with_Idea )
+    @mediation
+     [1..*] -- [1]  Submitting_User( {const } submitting_User )
+    @mediation
+     [1..*] -- [1]  Submitted_Idea( {const } submitted_Idea )
+    @derivation
+    [1] -- [1]  
+}
+mode Submited_by_Method {
+    @characterization
+    [1] -- [1]  Submission( {const } submission )
+}
+role Submitted_Idea  specializes Idea
+role Submitting_User  specializes User{
+    @material
+     [1..*] --  [1..*]  Submitted_Idea
+}
+relator Textual_Review  specializes Review
+relator Update_Idea {
+    @mediation
+     [1..*] -- [1]  Idea_Updater_User( {const } idea_Updater_User )
+    @mediation
+     [1..*] -- [1]  Updated_Idea( {const } updated_Idea )
+    @derivation
+    [1] -- [1]  
+}
+role Updated_Contest  specializes Idea_Contest
+role Updated_Idea  specializes Idea{
+    @material
+     [1..*] --  [1..*]  Idea_Updater_User
+}
+kind User 
+role User_Editor  specializes User{
+    @material
+     [1..*] --  [1..*]  Updated_Contest
+}
+collective User_Group 
+collective User_Group_in_a_Group  specializes User_Group{
+    @subCollectionOf
+     [0..*]  --<o> [1]  User_Group
+}
+role User_in_a_Group  specializes User{
+    @memberOf
+     [2..*]  --<o> [1]  User_Group
+}
+role User_with_Account  specializes User{
+    @material
+     [1..*] --  [1..*]  Online_Account
+}
+role User_with_Comment  specializes User{
+    @material
+     [1..*] --  [1..*]  Idea_with_a_Comment
+}
+role User_with_Idea  specializes User
+role User_with_Idea_Contest_Comment  specializes User{
+    @material
+     [1..*] --  [1..*]  Commented_Contest
+}
+relator Write_Authorization  specializes Authorization
+datatype Metric
+datatype MinMax_Rating_Range
+datatype Rating_Range
+datatype Submission_Method
+datatype Up_Down_Rating_Range
+

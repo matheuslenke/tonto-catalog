@@ -1,0 +1,27 @@
+import Reajuste_e_Reviso_Tarifria_Rodoviria
+import Leilo_de_Licitao
+import Outorga
+import Pessoa_Jurdica
+
+package Permisso
+
+subkind Contrato_de_Permisso  specializes Contrato_de_Outorga
+role Permissionria  specializes Sociedade_de_Propsito_Especfico, Outorgado_Contigencialmente{
+    @mediation
+    ( {const } )[1] --  [1..*]  Outorga_de_Permisso
+    @material
+    [1] -- explora --  [1..*]  Linha_de_nibus_Permissionada
+}
+relator Outorga_de_Permisso  specializes Outorga_com_Licitao{
+    @mediation
+    [1] -- [1]  Linha_de_nibus_Permissionada( {const } )
+    @mediation
+    [1] -- [1]  Leilo_de_Licitao( {const } )
+    @mediation
+    [1] -- [1]  Contrato_de_Permisso( {const } )
+}
+role Linha_de_nibus_Permissionada  specializes Linha_de_nibus_Outorgada{
+    @Formal
+    [1] -- taxada_por --  [1..*]  Tarifa_de_nibus
+}
+

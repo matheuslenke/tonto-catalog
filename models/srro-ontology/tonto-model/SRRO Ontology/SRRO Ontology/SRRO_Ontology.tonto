@@ -1,0 +1,50 @@
+package SRRO_Ontology
+
+kind Project {
+     [0..1] -- producedIn --  [0..*]  Artifact
+}
+category Artifact 
+kind TestCase  specializes Artifact
+kind EntityType  specializes Artifact{
+     [0..*] -- usedIn --  [0..*]  UseCase
+}
+kind UseCase  specializes Artifact{
+    description : undefined
+    identifier : undefined
+     [0..*] -- alocatedFor --  [0..1]  Module
+     [0..*] -- fulfills --  [1..*]  Requirement
+    [1] <o>--  [1..*]  EventFlow
+    [1] <o>--  [1..*]  BasicFlow
+    [1] <o>--  [0..*]  AlternativeFlow
+}
+kind Module  specializes Artifact
+kind Requirement  specializes Artifact{
+     [0..*] -- dependsOn --  [0..*]  Requirement
+     [0..*] -- conflictsWith --  [0..*]  Requirement
+}
+subkind NonFunctionalRequirement  specializes Requirement
+subkind FunctionalRequirement  specializes Requirement
+subkind BusinessRule  specializes Requirement
+subkind Class  specializes EntityType
+role RequirementTestCase  specializes TestCase{
+     [0..*] --  [1..*]  Requirement
+}
+role UseTestCase  specializes TestCase{
+     [0..*] --  [1..*]  UseCase
+}
+role ClassTestCase  specializes TestCase{
+     [0..*] --  [1..*]  Class
+}
+mode EventFlow {
+     [1..*] --  [0..*]  Precondition
+}
+mode BasicFlow  specializes EventFlow{
+     [0..*] -- regarding --  [1..*]  AlternativeFlow
+}
+mode AlternativeFlow  specializes EventFlow
+kind Condition 
+role Postcondition  specializes Condition{
+     [0..*] --  [1..*]  EventFlow
+}
+role Precondition  specializes Condition
+

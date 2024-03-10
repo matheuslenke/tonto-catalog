@@ -1,0 +1,10 @@
+import TDO
+
+package UFO
+
+category Social_Object  specializes Object
+category Physical_Object  specializes Object
+category Object {
+    <>--  Component_Part
+}
+

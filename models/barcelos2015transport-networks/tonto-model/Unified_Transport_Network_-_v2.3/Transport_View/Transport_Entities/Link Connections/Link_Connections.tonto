@@ -1,0 +1,68 @@
+import Layer_Network
+import Forwarding_Function
+import Forwarding_End_Points
+import Complementary_Categorizations
+import Transport_Entities
+
+package Link_Connections
+
+role Active_Bidirectional_PMFEP__PM_LC_Connected  specializes Bidirectional_PMFEP, Connected_Reference_Point
+roleMixin Active_Possible_Bi_LC_Connected_RP  specializes Possible_Bi_LC_Connected_RP, Connected_Reference_Point
+role Active_Sk_PMFEP__PM_LC_connected  specializes Sink_PMFEP, Connected_Reference_Point
+role Active_So_PMFEP__PM_LC_connected  specializes Source_PMFEP, Connected_Reference_Point{
+    @material
+    [1] -- Forwarding_PM_LC -- [1]  Active_Sk_PMFEP__PM_LC_connected
+}
+subkind Bi_PM_LC  specializes Bidirectional_LC{
+    @material
+     [1..*] -- Forwarding_Bidirectional_PM_FEP -- [2]  Active_Bidirectional_PMFEP__PM_LC_Connected
+}
+subkind Bi_Path_LC  specializes Bidirectional_LC{
+    @material
+     [1..*] -- Forwarding_Bidirectional_Path_LC -- [2]  Active_Possible_Bi_LC_Connected_RP
+}
+subkind Bidirectional_LC  specializes Link_Connection
+roleMixin LC_Connected_RP  specializes Possible_LC_Connected_RP
+kind Link_Connection  specializes Transport_Entity{
+    @componentOf
+     [1..*]  --<o> [1]  LC_Composed_Layer_Network( {const } compose )
+}
+subkind PM_LC  specializes Unidirectional_LC
+role PM_LC_Bi_Component  specializes PM_LC{
+    @componentOf
+    ( {const } composed )[2]  --<o> [1]  Bi_PM_LC( {const } compose )
+}
+relator PM_LC_Forwarding  specializes Forwarding{
+    @mediation
+    [1] -- is_represented_by_PM_LC -- [1]  PM_LC( {const } represented )
+    @mediation
+    [1] -- Forwarding_from_PM_LC -- [1]  Active_So_PMFEP__PM_LC_connected( {const } transfersSo )
+    @mediation
+    [1] -- Forwarding_to_PM_LC -- [1]  Active_Sk_PMFEP__PM_LC_connected( {const } transfersSk )
+}
+subkind Path_LC  specializes Unidirectional_LC
+role Path_LC_Bi_Component  specializes Path_LC{
+    @componentOf
+    ( {const } composed )[2]  --<o> [1]  Bi_Path_LC( {const } compose )
+}
+relator Path_LC_Forwarding  specializes Forwarding{
+    @mediation
+     [1..*] -- Forwarding_to_Path_LC -- [1]  Sink_Active_RP__Path_LC_connected( {const } transfersSk )
+    @mediation
+     [1..*] -- Forwarding_from_Path_LC -- [1]  Source_Active_RP__Path_LC_connected( {const } transfersSo )
+    @mediation
+    [1] -- is_represented_by_Path_LC -- [1]  Path_LC( {const } represented )
+    @mediation
+    [1] -- is_configured_by -- [1]  Forwarding_Function_LC_Connected( {const } )
+}
+category Possible_Bi_LC_Connected_RP 
+roleMixin Possible_Egress_LC 
+roleMixin Possible_Ingress_LC 
+category Possible_LC_Connected_RP 
+roleMixin Sink_Active_RP__Path_LC_connected  specializes LC_Connected_RP, Connected_Reference_Point
+roleMixin Source_Active_RP__Path_LC_connected  specializes LC_Connected_RP, Connected_Reference_Point{
+    @material
+     [1..*] -- Forwarding_Path_LC --  [1..*]  Sink_Active_RP__Path_LC_connected
+}
+subkind Unidirectional_LC  specializes Link_Connection
+

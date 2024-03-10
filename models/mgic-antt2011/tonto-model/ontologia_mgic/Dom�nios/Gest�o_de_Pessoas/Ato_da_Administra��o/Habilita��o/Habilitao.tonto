@@ -1,0 +1,11 @@
+import Agente_Administrativo
+import Ato_da_Administrao
+
+package Habilitao
+
+relator Habilitao_em_Estgio_Probatrio  specializes Ato_da_Administrao{
+    notaFinal : undefined
+    @mediation
+    [1] -- [1]  Servidor_Pblico_Estvel( {const } )
+}
+

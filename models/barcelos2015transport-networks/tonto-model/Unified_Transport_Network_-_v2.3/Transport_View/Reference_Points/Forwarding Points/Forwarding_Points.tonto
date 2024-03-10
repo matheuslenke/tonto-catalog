@@ -1,0 +1,150 @@
+import Adaptation_Function
+import Link_Connections
+import Complementary_Categorizations
+import Reference_Points
+import Layer_Processor_Function
+import Matrices
+import Subnetworks
+
+package Forwarding_Points
+
+role A_Sk_Output__AFP_Bound  specializes Adaptation_Sink_Output, Possible_Ingress_LC, Bound_InputOutput{
+    @material
+    [1] -- binds_AFP -- [1]  A_So_Input__AFP_Bound
+}
+role A_Sk_Output__Sk_LPFP_Bound  specializes Adaptation_Sink_Output
+role A_Sk_Output__Sk_MFP_Bound  specializes Adaptation_Sink_Output, Possible_Egress_LC, Bound_InputOutput
+role A_Sk_Output__Sk_SNFP_Bound  specializes Adaptation_Sink_Output, Bound_InputOutput
+role A_So_Input__AFP_Bound  specializes Adaptation_Source_Input, Possible_Egress_LC, Bound_InputOutput
+role A_So_Input__So_LFP_Bound  specializes Adaptation_Source_Input
+role A_So_Input__So_MFP_Bound  specializes Adaptation_Source_Input, Bound_InputOutput
+role A_So_Input__So_SNFP_Bound  specializes Adaptation_Source_Input, Bound_InputOutput
+category AFP  specializes Forwarding_Point
+relator AFP_Binding  specializes Binding{
+    @mediation
+    [1] -- is_represented_by_AFP -- [1]  Unidirectional_AFP( {const } isRepresentedBy )
+    @mediation
+    [1] -- binds_AFP_to -- [1]  A_So_Input__AFP_Bound( {const } bindsASI )
+    @mediation
+    [1] -- binds_AFP_from -- [1]  A_Sk_Output__AFP_Bound( {const } bindsAS )
+}
+kind Bidirectional_AFP  specializes AFP, Possible_Bi_LC_Connected_RP
+kind Bidirectional_LPFP 
+kind Bidirectional_MFP  specializes MFP, Possible_Bi_LC_Connected_RP
+kind Bidirectional_SNFP  specializes SNFP, Possible_Bi_LC_Connected_RP
+category Forwarding_Point  specializes Reference_Point
+role LP_Input__Sk_LPFP_Bound  specializes Layer_Processor_Sink_Input, Possible_Egress_LC{
+    @material
+    [1] -- binds_So_LFP -- [1]  A_Sk_Output__Sk_LPFP_Bound
+}
+category LPFP  specializes Forwarding_Point
+role LPF_Output__So_LFP_Bound  specializes Layer_Processor_Source_Output, Possible_Ingress_LC{
+    @material
+     [1..*] -- binds_So_LFP -- [1]  A_So_Input__So_LFP_Bound
+}
+role M_Input__Sk_MFP_Bound  specializes Matrix_Input, Bound_InputOutput{
+    @material
+    [1] -- binds_Sk_MFP -- [1]  A_Sk_Output__Sk_MFP_Bound
+}
+role M_Output__So_MFP_Bound  specializes Matrix_Output, Possible_Ingress_LC, Bound_InputOutput{
+    @material
+    [1] -- binds_So_MFP -- [1]  A_So_Input__So_MFP_Bound
+}
+category MFP  specializes Forwarding_Point
+role SN_Intput__Sk_SNFP_Bound  specializes Subnetwork_Input, Possible_Egress_LC, Bound_InputOutput{
+    @material
+    [1] -- binds_Sk_SNFP --  [1..*]  A_Sk_Output__Sk_SNFP_Bound
+}
+role SN_Outtput__So_SNFP_Bound  specializes Subnetwork_Output, Possible_Ingress_LC, Bound_InputOutput{
+    @material
+    [1] -- binds_So_SNFP --  [1..*]  A_So_Input__So_SNFP_Bound
+}
+category SNFP  specializes Forwarding_Point
+kind Sink_LPFP  specializes LPFP, Possible_LC_Connected_RP
+role Sink_LPFP_Bi_Component  specializes Sink_LPFP{
+    @componentOf
+    ( {const } )[1]  --<o> [1]  Bidirectional_LPFP
+}
+relator Sink_LPFP_Binding {
+    @mediation
+    [1] -- is_represented_by_Sk_LFP -- [1]  Sink_LPFP( {const } )
+    @mediation
+    [1] -- binds_Sk_LFP_from -- [1]  LP_Input__Sk_LPFP_Bound( {const } )
+    @mediation
+    [1] -- binds_Sk_LFP_to -- [1]  A_Sk_Output__Sk_LPFP_Bound( {const } )
+    @derivation
+    [1] -- [1]  binds_So_LFP
+}
+kind Sink_MFP  specializes MFP, Possible_LC_Connected_RP
+role Sink_MFP_Bi_Component  specializes Sink_MFP{
+    @componentOf
+    ( {const } isComposedSkM )[1]  --<o> [1]  Bidirectional_MFP
+}
+relator Sink_MFP_Binding  specializes Binding{
+    @mediation
+    [1] -- is_represented_by_Sk_MFP -- [1]  Sink_MFP( {const } isRepresentedBy )
+    @mediation
+    [1] -- binds_Sk_MFP_from -- [1]  M_Input__Sk_MFP_Bound( {const } bindsMI )
+    @mediation
+    [1] -- binds_Sk_MFP_to -- [1]  A_Sk_Output__Sk_MFP_Bound( {const } bindsAS )
+}
+kind Sink_SNFP  specializes SNFP, Possible_LC_Connected_RP
+role Sink_SNFP_Bi_Component  specializes Sink_SNFP{
+    @componentOf
+    ( {const } isComposedSkSNCP )[1]  --<o> [1]  Bidirectional_SNFP
+}
+relator Sink_SNFP_Binding  specializes Binding{
+    @mediation
+    [1] -- is_represented_by_Sk_SNFP -- [1]  Sink_SNFP( {const } isRepresentedBy )
+    @mediation
+     [1..*] -- binds_Sk_SNFP_from -- [1]  SN_Intput__Sk_SNFP_Bound( {const } bindsSN )
+    @mediation
+    [1] -- binds_Sk_SNFP_to -- [1]  A_Sk_Output__Sk_SNFP_Bound( {const } bindsAS )
+}
+relator Source_LFP_Binding  specializes Binding{
+    @mediation
+    [1] -- is_represented_by_So_LFP -- [1]  Source_LPFP( {const } )
+    @mediation
+    [1] -- binds_So_LFP_from -- [1]  LPF_Output__So_LFP_Bound( {const } bindsLP )
+    @mediation
+     [1..*] -- binds_So_LFP_to -- [1]  A_So_Input__So_LFP_Bound( {const } bindsAS )
+    @derivation
+    [1] -- [1]  binds_So_LFP
+}
+kind Source_LPFP  specializes LPFP, Possible_LC_Connected_RP
+role Source_LPFP_Bi_Component  specializes Source_LPFP{
+    @componentOf
+    ( {const } )[1]  --<o> [1]  Bidirectional_LPFP
+}
+kind Source_MFP  specializes MFP, Possible_LC_Connected_RP
+role Source_MFP_Bi_Component  specializes Source_MFP{
+    @componentOf
+    ( {const } isComposedSoM )[1]  --<o> [1]  Bidirectional_MFP
+}
+relator Source_MFP_Binding  specializes Binding{
+    @mediation
+    [1] -- is_represented_by_So_MFP -- [1]  Source_MFP( {const } isRepresentedBy )
+    @mediation
+    [1] -- binds_So_MFP_from -- [1]  M_Output__So_MFP_Bound( {const } bindsMO )
+    @mediation
+    [1] -- binds_So_MFP_to -- [1]  A_So_Input__So_MFP_Bound( {const } bindsAS )
+}
+kind Source_SNFP  specializes SNFP, Possible_LC_Connected_RP
+role Source_SNFP_Bi_Component  specializes Source_SNFP{
+    @componentOf
+    ( {const } isComposedSoSNCP )[1]  --<o> [1]  Bidirectional_SNFP
+}
+relator Source_SNFP_Binding  specializes Binding{
+    @mediation
+    [1] -- is_represented_by_So_SNFP -- [1]  Source_SNFP( {const } isRepresentedBy )
+    @mediation
+     [1..*] -- binds_So_SNFP_from -- [1]  SN_Outtput__So_SNFP_Bound( {const } bindsSN )
+    @mediation
+    [1] -- binds_So_SNFP_to -- [1]  A_So_Input__So_SNFP_Bound( {const } bindsAS )
+}
+role Uni_AFP_Bi_Component  specializes Unidirectional_AFP{
+    @componentOf
+    ( {const } isComposedACp )[2]  --<o> [1]  Bidirectional_AFP
+}
+kind Unidirectional_AFP  specializes AFP, Possible_LC_Connected_RP
+

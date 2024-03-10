@@ -1,0 +1,29 @@
+package Example__Bird_Species
+
+type Bird_Species (instanceOf Bird){
+    population : undefined
+    average_height : undefined
+    life_expectancy : undefined
+    migration_period : undefined
+}
+phase Least_Concern_Species  specializes Bird_Species
+phase Threatened_Species  specializes Bird_Species
+phase Extinct_Species  specializes Bird_Species
+role Recognized_Species  specializes Bird_Species
+kind Bird {
+    age : undefined
+    height : undefined
+    @instantiation
+    [*] -- [1]  Bird_Species
+}
+subkind Emperor_Penguin  specializes Bird
+subkind Golden_Eagle  specializes Bird
+kind Person 
+role Discoverer  specializes Person
+relator Discovery_Entitlement {
+    @mediation
+     [1..*] -- [1]  Recognized_Species( {const } )
+    @mediation
+     [1..*] -- [1]  Discoverer( {const } )
+}
+

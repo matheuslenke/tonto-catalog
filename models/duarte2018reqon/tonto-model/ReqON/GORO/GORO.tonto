@@ -1,0 +1,9 @@
+import RSRO
+
+package GORO
+
+class Requirement  specializes Requirements{
+     [0..*] -- alternativeGoal --  [0..1]  Requirement
+     [0..*]  -- subGoal --<o>  [0..1]  Requirement
+}
+

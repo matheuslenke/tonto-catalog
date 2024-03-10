@@ -1,0 +1,132 @@
+package GerenciamentoEstacionamentos
+
+collective Estacionamento {
+    @Formal
+    [1] --  [1..*]  TabelaPreco
+    @memberOf
+    [1] <o>--  [2..*]  Vaga
+}
+kind Vaga {
+    @Formal
+     [1..*] -- [1]  Tipo_de_Vaga
+}
+roleMixin Cliente 
+kind Pessoa 
+kind Empresa 
+role ClientePF  specializes Pessoa, Cliente
+role ClientePJ  specializes Empresa, Cliente
+relator UsodeVaga {
+    HorarioEntrada : undefined
+    @mediation
+     [1..*] -- [1]  VeiculoEstacionado( {const } )
+    @mediation
+     [1..*] -- [1]  ProvedorVaga( {const } )
+}
+kind Veculo {
+    @Formal
+     [1..*] -- [1]  Tipo_de_Veiculo
+}
+relator ReservaVaga {
+    dataHoraReserva : undefined
+    valor : undefined
+    DataHoraInicio : undefined
+    DataHoraFim : undefined
+    @mediation
+     [1..*] -- [1]  Cliente( {const } )
+    @mediation
+     [1..*] -- [1]  ProvedorVaga( {const } )
+    @Formal
+    [1] -- [1]  Pagamento
+    @mediation
+     [1..*] -- [1]  TabelaDePrecoUtilizadaReserva( {const } )
+}
+relator ReservaTipoVaga 
+relator ReservaVagaEspecifica  specializes ReservaVaga{
+    @mediation
+     [1..*] -- [1]  VagaReservada( {const } )
+}
+relator ReservaUsoUnico  specializes ReservaVaga
+relator ReservaDiaria  specializes ReservaVaga
+role VeiculoEstacionado  specializes Veculo{
+    placa : undefined
+}
+role ProvedorVaga  specializes Estacionamento
+subkind PasseioSUV  specializes Veculo
+subkind OnibusCaminhao  specializes Veculo
+phase UsoDeVagaFinalizado  specializes UsodeVaga{
+    HorarioSaida : undefined
+}
+phase UsoDeVagaAtivo  specializes UsodeVaga
+relator ReservaTipoVaga_2  specializes ReservaVaga{
+    @mediation
+     [1..*] -- [1]  TipoDeVagaReservada( {const } )
+}
+relator UsoComReservaUsoUnico  specializes UsoComReserva
+phase ReservaUsoUnicoUtilizada  specializes ReservaUsoUnico{
+    @mediation
+    [1] -- [1]  UsoComReservaUsoUnico( {const } )
+}
+phase ReservaVariosUsosUtilizada  specializes ReservaVariosUsos{
+    @mediation
+    [1] --  [1..*]  UsoComReservaPeriodo( {const } )
+}
+relator UsoComReserva  specializes UsodeVaga
+relator UsoComReservaPeriodo  specializes UsoComReserva
+relator UtilizacaoReserva 
+kind TabelaPreco {
+    valorDiaria : undefined
+    valorMensalidade : undefined
+    dataInicioVigencia : undefined
+    @Formal
+    [1] -- aplicavel_a -- [1]  Tipo_de_Vaga
+    @Formal
+    [1] --  [1..*]  ValorPeriodoCurto
+}
+type Tipo_de_Veiculo 
+type Tipo_de_Vaga {
+    @Formal
+    [1] --  [1..*]  Tipo_de_Veiculo
+}
+role VagaReservada  specializes Vaga
+role TabelaDePrecoUtilizadaReserva  specializes TabelaPreco
+role TipoDeVagaReservada  specializes Tipo_de_Vaga
+kind ValorPeriodoCurto {
+    ordem : undefined
+    periodo : undefined
+    preco : undefined
+    qtdRepeticoes : undefined
+}
+relator ReservaMensal  specializes ReservaVaga
+phase TabelaPrecoExpirada  specializes TabelaPreco{
+    dataFimVigencia : undefined
+}
+kind Pagamento 
+subkind PagamentoEspecie  specializes Pagamento
+subkind PagamentoCredito  specializes Pagamento{
+    idTransacao : undefined
+}
+subkind PagamentoDebito  specializes Pagamento{
+    idTransacao : undefined
+}
+phase TabelaPrecoValida  specializes TabelaPreco
+role TabelaPrecoUtilizada  specializes TabelaPreco
+relator UsodeVagaEspecfica  specializes UsodeVaga{
+    @mediation
+     [1..*] -- [1]  VagaUtilizada( {const } )
+}
+role VagaUtilizada  specializes Vaga
+relator UsoSemReserva  specializes UsodeVaga
+relator UsoGeradorDeDebito  specializes UsodeVaga{
+    @Formal
+    [1] -- [1]  Pagamento
+    @mediation
+     [1..*] -- [1]  TabelaPrecoUtilizada( {const } )
+}
+relator ReservaVariosUsos  specializes ReservaVaga
+subkind EmpresaEstacionamento  specializes Empresa{
+    @componentOf
+    [1] <o>--  [1..*]  Estacionamento
+}
+relator ReservaHorasMinutos  specializes ReservaVaga
+subkind Motocicleta  specializes Veculo
+

@@ -1,0 +1,126 @@
+package Model
+
+kind Object_of_Contract {
+    @Formal
+    [1] -- part_of -- [1]  Social_Contract
+}
+relator Social_Contract {
+    @Formal
+    [1] -- prescribes --  [1..*]  Claim
+    @Formal
+    [1] -- defines --  [1..*]  Commitment
+}
+collective Claim 
+collective Commitment 
+role Rulee  specializes Individual{
+    @mediation
+    ( {const } rulees ) [1..*] -- sign -- [1]  Social_Contract( {const } )
+}
+role Ruler  specializes Individual{
+    @material
+     [1..*] -- waives_the_right_of_private_revenge --  [1..*]  Rulee
+    @mediation
+    ( {const } rulers ) [1..*] -- sign -- [1]  Social_Contract( {const } )
+}
+kind Individual {
+    @componentOf
+     [1..*]  --<o> [1]  Society
+}
+kind Society 
+collective State_Claim {
+    @subCollectionOf
+    [1]  --<o>  [1..*]  Claim
+}
+collective Society_Claim {
+    @subCollectionOf
+    [1]  --<o>  [1..*]  Claim
+}
+collective State_Commitment {
+    @subCollectionOf
+    [1]  --<o>  [1..*]  Commitment
+}
+collective Society_Commitment {
+    @subCollectionOf
+    [1]  --<o>  [1..*]  Commitment
+}
+subkind Familiar_Society  specializes Society{
+    @componentOf
+    [1]  --<o> [1]  Society
+}
+subkind Religious_Society  specializes Society{
+    @componentOf
+    [1]  --<o> [1]  Society
+}
+subkind Educational_Society  specializes Society{
+    @componentOf
+    [1]  --<o> [1]  Society
+}
+subkind Political_Society  specializes Society{
+    @componentOf
+    [1]  --<o> [1]  Society
+}
+kind State {
+    @Formal
+    [1] -- holds -- [1]  Supremacy_of_Power
+    @material
+    [1] -- subjects -- [1]  Society
+}
+relator Public_Asset {
+    @mediation
+    [1] -- [1]  State( {const } )
+    @mediation
+    [1] -- [1]  Society( {const } )
+}
+relator Legal_System {
+    @mediation
+    [1] -- [1]  State( {const } )
+    @mediation
+    [1] -- [1]  Society( {const } )
+    @mediation
+     [1..*] --  [1..*]  Norm( {const } )
+    @mediation
+     [1..*] --  [1..*]  Rule( {const } )
+    @mediation
+     [1..*] --  [1..*]  Principal( {const } )
+    @derivation
+    [1] -- [1]  subjects
+}
+collective Principal 
+collective Rule 
+collective Norm 
+kind Population {
+    @componentOf
+    [1]  -- population_composes_state --<o> [1]  State
+}
+kind Independent_Goverment {
+    @componentOf
+    [1]  -- independent_goverment_composes_state --<o> [1]  State
+}
+kind Territory {
+    @componentOf
+    [1]  -- territriocompeEstado --<o> [1]  State
+}
+kind Land_Part {
+    @componentOf
+    [1]  --<o> [1]  Territory
+}
+kind Aerial_Part {
+    @componentOf
+    [1]  --<o> [1]  Territory
+}
+kind Terrritorial_Waters_Part {
+    @componentOf
+     [1..*]  --<o> [1]  Territory
+}
+kind Border_Part {
+    @componentOf
+     [1..*]  --<o>  [1..*]  Territory
+}
+subkind Sketched_Border  specializes Border_Part
+subkind Live_Border  specializes Border_Part
+subkind Dead_Border  specializes Border_Part
+kind Supremacy_of_Power {
+    @Formal
+    [1] -- is_part_of -- [1]  Object_of_Contract
+}
+

@@ -1,0 +1,79 @@
+package SC_ITInfrastructure_English
+
+kind Channel {
+    @componentOf
+     [1..*]  --<o>  [1..*]  Data_Center
+}
+subkind LAN  specializes Channel
+subkind MAN  specializes Channel
+subkind WAN  specializes Channel
+kind Data_Center {
+    @componentOf
+    [1] <o>--  [1..*]  Server
+}
+kind Switchcore {
+    @componentOf
+     [1..*]  --<o> [1]  Data_Center
+}
+kind Server {
+    @componentOf
+     [1..*] <o>-- [*]  IT_Service
+}
+kind Communication_Module {
+    @componentOf
+     [1..*]  --<o> [1]  Switchcore
+}
+phase Functional_Module  specializes Communication_Module
+phase Defective_Module  specializes Communication_Module
+kind Communication_Port {
+    @componentOf
+     [1..*]  --<o> [1]  Communication_Module
+}
+subkind 1_Gbps_Port  specializes Communication_Port
+subkind 10_Gbps_Port  specializes Communication_Port
+kind IT_Service 
+subkind DBMS  specializes IT_Service
+subkind Email  specializes IT_Service
+subkind Application_System  specializes IT_Service
+kind Database {
+    @componentOf
+     [1..*]  --<o> [1]  DBMS
+}
+role Database_File  specializes File_in_Disk{
+    @componentOf
+     [1..*]  --<o> [1]  Database
+}
+role Executable_File  specializes File_in_Disk
+role Conventional_File  specializes File_in_Disk
+kind File_in_Disk {
+    @componentOf
+    [*]  --<o> [*]  Disk
+}
+kind Mailbox {
+    @componentOf
+     [1..*]  --<o> [1]  Email
+}
+kind Storage {
+    @componentOf
+     [1..*]  --<o> [1]  Data_Center
+}
+kind Disk {
+    @componentOf
+     [1..*]  --<o> [1]  Storage
+}
+phase Functional_Disk  specializes Disk
+phase Defective_Disk  specializes Disk
+collective IT_Team {
+    @Formal
+     [1..*] --  [1..*]  Data_Center
+}
+role Technician  specializes Person{
+    @memberOf
+     [1..*]  --<o> [1]  IT_Team
+}
+role Manager  specializes Person{
+    @memberOf
+    [1]  --<o> [1]  IT_Team
+}
+kind Person 
+

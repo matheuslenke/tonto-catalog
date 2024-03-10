@@ -1,0 +1,49 @@
+package heart
+
+kind HumanHeart  specializes Chamber, Muscle{
+    @componentOf
+    [1]  --<o> [1]  HumanBody
+}
+kind LeftVentricle  specializes Chamber, Muscle{
+    @componentOf
+    ( {const } )[1]  --<o> [1]  HumanHeart( {const } )
+}
+kind RightVentricle  specializes Chamber, Muscle{
+    @componentOf
+    ( {const } )[1]  --<o> [1]  HumanHeart( {const } )
+}
+kind RightAtrium  specializes Chamber, Muscle{
+    @componentOf
+    ( {const } )[1]  --<o> [1]  HumanHeart( {const } )
+}
+kind LeftAtrium  specializes Chamber, Muscle{
+    @componentOf
+    ( {const } )[1]  --<o> [1]  HumanHeart( {const } )
+}
+kind HumanBody  specializes Chamber
+category Muscle 
+category Chamber 
+collective SANodeMyocytes {
+    @subCollectionOf
+    ( {const } ) --<o>  CSAMyocytes
+}
+collective CSAMyocytes 
+collective CSVMyocytes 
+phase SANodeMyocytesPolarized  specializes SANodeMyocytes
+phase SANodeMyocytesDepolarized  specializes SANodeMyocytes
+phase CSAMyocytesPolarized  specializes CSAMyocytes
+phase CSAMyocytesDepolarized  specializes CSAMyocytes
+phase CSVMyocytesPolarized  specializes CSVMyocytes
+phase CSVMyocytesDepolarized  specializes CSVMyocytes
+quantity ECMOfSANode 
+quantity ECMOfCSA 
+quantity ECMOfCSV 
+collective PacemakerSANodeMyocytes {
+    @subCollectionOf
+     --<o>  SANodeMyocytes
+}
+collective TransitionalSANodeMyocytes {
+    @subCollectionOf
+     --<o>  SANodeMyocytes
+}
+

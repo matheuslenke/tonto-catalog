@@ -1,0 +1,28 @@
+import CrimeOntology
+import UFOA
+import UFOB
+
+package UFOC
+
+mixin Object 
+mixin Agent 
+kind Physical_Object  specializes Object
+kind Social_Object  specializes Object
+category Physical_Agent  specializes Agent
+category Social_Agent  specializes Agent
+class Normative_Description  specializes Social_Object
+category Institutional_Agent  specializes Social_Agent
+category Collective_Social_Agent  specializes Social_Agent
+class Intention  specializes Mental_Moment
+class Social_Commitment  specializes Commitment{
+     [1..*] -- present_in --  [1..*]  Mandatory_Situation
+}
+class Agent_Participation  specializes Event
+class Commitment 
+class Unfulfilled  specializes Commitment
+class Desire 
+kind Society  specializes Collective_Social_Agent
+class Action_Contribution  specializes Agent_Participation
+class Intrinsic_Moment 
+class Social_Relator 
+

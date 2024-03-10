@@ -1,0 +1,13 @@
+import jobDrop
+import Price_Discovery
+import Price_set_by_Provider
+
+package Digital_Platform_Ontology
+
+subkind Highest_Price_Offer  specializes Offering_Price
+mode Location 
+subkind Job_Fee  specializes Price_set_by_Provider{
+    [*] -- depends_on -- [*]  Transportation_Cost
+    [*] -- [*]  Money_Receivement
+}
+

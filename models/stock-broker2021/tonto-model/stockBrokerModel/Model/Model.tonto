@@ -1,0 +1,31 @@
+package Model
+
+kind Person 
+role Stockholder_Person  specializes Person, StockHolder
+role StockholderOrganization  specializes Organization, StockHolder
+roleMixin StockHolder 
+relator Contract {
+    @mediation
+    [1] -- [1]  StockHolder( {const } )
+    @mediation
+    [1] -- [1]  Hired_Brokerage( {const } )
+}
+role Hired_Brokerage  specializes Brokerage
+kind Organization 
+subkind Brokerage  specializes Organization
+subkind Stock_Exchange  specializes Organization
+role Buyer  specializes Brokerage
+role Seller  specializes Brokerage
+relator Stock {
+    @mediation
+    [1] -- [1]  Buyer( {const } )
+    @mediation
+    [1] -- [1]  Seller( {const } )
+    @mediation
+    [1] -- [1]  Public_Traded_Company( {const } )
+    @mediation
+    [1] -- [1]  Stock_Keeper( {const } )
+}
+role Public_Traded_Company  specializes Organization
+role Stock_Keeper  specializes Stock_Exchange
+

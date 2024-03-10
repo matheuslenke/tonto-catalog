@@ -1,0 +1,38 @@
+import Reajuste_e_Reviso_Tarifria_Rodoviria
+import Permisso
+import Via_de_Trnsito_Rodovirio
+
+package Esquema_Operacional_de_Linha_de_nibus
+
+relator Esquema_Operacional {
+    @mediation
+     [0..*] --  [1..*]  Seo_de_Linha_de_nibus( {const } )
+    @mediation
+     [0..*] --  [0..*]  Ponto_de_Apoio( {const } )
+    @mediation
+     [0..1] -- [1]  Linha_de_nibus_Permissionada( {const } )
+    @mediation
+     [0..1] -- [1]  Itinerrio_para_Transporte_Regular( {const } )
+    @mediation
+     [0..*] --  [0..*]  Ponto_de_Parada( {const } )
+}
+role Itinerrio_para_Transporte_Regular  specializes Itinerrio
+kind Seo_de_Linha_de_nibus {
+    tempoViagemPrevisto : undefined
+    @Formal
+     [0..1] -- precede --  [0..1]  Seo_de_Linha_de_nibus
+    @Formal
+    [1] -- possui --  [1..*]  Valor_Base_de_Seo
+}
+role Ponto_de_Apoio 
+role Itinerrio_para_Fretamento_Contnuo  specializes Itinerrio
+collective Itinerrio {
+    @componentOf
+    [1] <o>--  [1..*]  Trecho_de_Itinerrio
+}
+role Ponto_de_Parada 
+role Trecho_de_Itinerrio  specializes Trecho_Rodovirio_Fsico{
+    @Formal
+     [0..1] -- antecede_ --  [0..1]  Trecho_de_Itinerrio
+}
+

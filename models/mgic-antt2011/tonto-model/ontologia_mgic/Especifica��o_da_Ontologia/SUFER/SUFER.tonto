@@ -1,0 +1,218 @@
+import GECOF
+import GEAFI
+import GEROF
+
+package SUFER
+
+class Delegao_dos_servios_de_infraestrutura_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Monitoramento_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_4
+}
+class Delegao_dos_servios_de_transporte_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Normatizao_dos_servios_de_transporte_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Fiscalizao_dos_servios_de_infraestrutura_realizada {
+    @Why
+    [*] -- [*]  Fiscalizao_dos_servios_de_infraestrutura_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Delegao_dos_servios_de_infraestrutura_realizada_2 {
+    @Why
+    [*] -- [*]  Delegao_dos_servios_de_infraestrutura_realizada_fromSUFER_2
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT 
+class Delegao_dos_servios_de_transporte_realizada_2 {
+    @Why
+    [*] -- [*]  Delegao_dos_servios_de_transporte_realizada_fromSUFER_2
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_5
+}
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_2 
+class Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT
+}
+class Controle_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_4
+}
+class Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_3
+}
+class Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_3 {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_3
+}
+class Monitoramento_dos_servios_de_transporte_realizada {
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_realizadafromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class SUFER 
+class Normatizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Regulamentao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Controle_dos_servios_de_infraestrutura_realizada {
+    @Why
+    [*] -- [*]  Controle_dos_servios_de_infraestrutura_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Delegao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Regulamentao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_5
+}
+class Normatizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Regulamentao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_3
+}
+class Normatizao_dos_servios_de_transporte_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_4 {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_4
+}
+class Fiscalizao_dos_servios_de_infraestrutura_de_transporte_de_carga_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Mediao_dos_servios_de_transporte_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Monitoramento_dos_servios_de_infraestrutura_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Normatizao_dos_servios_de_infraestrutura_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Mediao_dos_servios_de_infraestrutura_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Delegao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Regulamentao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_3
+}
+class Controle_dos_servios_de_infraestrutura_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Normatizao_dos_servios_de_infraestrutura_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class SUFER_2 
+class Concessionria_ferroviria 
+class Monitoramento_dos_servios_de_infraestrutura_realizada_2 {
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_de_infraestrutura_realizada_fromSUFER_2
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Regulamentao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_7
+}
+class Monitoramento_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Regulamentao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_2
+}
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_3 
+class Monitoramento_dos_servios_de_transporte_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class SUFER_3 
+class SUFER_4 
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_4 {
+    @Dependency_Link
+    [*] -- [*]  SUFER_2
+}
+class Controle_dos_servios_de_transporte_realizada {
+    @Why
+    [*] -- [*]  Controle_dos_servios_de_transporte_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Controle_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_de_carga_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_5 
+class Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_4
+}
+class Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_4
+}
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_6 
+class SUFER_5 
+class Mediao_dos_servios_de_infraestrutura_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada
+}
+class SUFER_6 
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_7 
+class Fiscalizao_dos_servios_de_transporte_realizada {
+    @Why
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Superviso_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_5 {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_6
+}
+class SUFER_7 
+class SUFER_8 
+class Controle_dos_servios_de_transporte_de_cargas_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Mediao_dos_servios_de_transporte_realizada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Regulamentao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_3 {
+    @Decomposition_AND
+    [*] -- [*]  Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_fromANTT_4
+}
+

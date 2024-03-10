@@ -1,0 +1,9 @@
+package UFOA
+
+category Endurant 
+category Substantial  specializes Endurant
+category Trope 
+category Quality  specializes Trope
+category Mode  specializes Trope
+category Relator 
+

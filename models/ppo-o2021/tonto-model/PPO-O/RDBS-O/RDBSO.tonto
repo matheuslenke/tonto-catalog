@@ -1,0 +1,25 @@
+import PPOO
+import ML_Schema
+
+package RDBSO
+
+kind Line  specializes Data{
+    [*] <o>--  [1..*]  Column_Value
+    [*] -- instance_of -- [1]  Line_Type
+}
+kind Column {
+    [*] -- defined_by -- [1]  Data_Type
+    [*] -- is_characterized_by --  [1..*]  Column_Characteristic
+    [*] -- executed_over -- [*]  Operator_Execution
+    @material
+    [*] -- [*]  Data_Preprocessing_Executable_Operator
+    @participation
+    ( {const } ) [1..*] -- [*]  Exploratory_Data_Analysis
+    @participation
+    ( {const } ) [1..*] -- [*]  Data_Preprocessing_Operator_Execution
+}
+kind Line_Type {
+    [*] <o>--  [1..*]  Column
+}
+kind Data_Type 
+

@@ -1,0 +1,10 @@
+import Transaction
+
+package Productoriented
+
+event ProductOriented_Delivery  specializes Delivery{
+    @participation
+     [0..*] -- involves --  [1..*]  Good( {const } )
+}
+kind Good 
+

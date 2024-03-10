@@ -1,0 +1,100 @@
+import Pessoa
+
+package Parentesco
+
+role Parente_por_Afinidade  specializes Parente{
+    @material
+     [1..*] -- _parente_por_afinidade_de_ --  [1..*]  Parente_por_Afinidade
+}
+subkind Mulher  specializes Pessoa_Fsica
+role Av  specializes Parente_em_Linha_Reta, Parente_Direto
+role Irmo  specializes Parente_Direto, Parente_em_Linha_Colateral{
+    @material
+     [1..*] -- _irmo_de_ --  [1..*]  Irmo
+}
+role Tio  specializes Parente_em_Linha_Colateral, Parente_Direto
+relator Registro_de_Adoo  specializes Reconhecimento_de_Paternidade
+role Filho  specializes Parente_Direto, Parente_em_Linha_Reta{
+    @material
+     [1..*] -- _pai_de_ --  [1..2]  Pai
+    @mediation
+    ( {const } )[1] -- [1]  Reconhecimento_de_Paternidade
+}
+role Parente_de_4_Grau_ou_Maior  specializes Parente{
+    @material
+     [1..*] -- _parente_de_4_grau_de_ --  [1..*]  Parente_de_4_Grau_ou_Maior
+}
+role Primo  specializes Parente_em_Linha_Colateral{
+    @material
+     [1..*] -- _primo_de --  [1..*]  Primo
+}
+role Sobrinho  specializes Parente_Direto, Parente_em_Linha_Colateral{
+    @material
+     [1..*] -- _tio_de_ --  [1..*]  Tio
+}
+role Parente_de_3_Grau  specializes Parente{
+    @material
+     [1..*] -- _parente_de_3_grau_ --  [1..*]  Parente_de_3_Grau
+}
+relator Certido_de_Casamento {
+    @mediation
+    [1] -- [2]  Companheiro( {const } )
+    @mediation
+    [1] -- cancela_ --  [0..1]  Certido_de_Divrcio( {const } )
+}
+role Bisav  specializes Parente_em_Linha_Reta, Parente_Direto
+role Parente  specializes Pessoa_Fsica{
+    @material
+     [1..*] -- _parente_de_ --  [1..*]  Parente
+}
+role Companheiro  specializes Pessoa_Fsica{
+    @material
+    [1] -- casado_com_ -- [1]  Companheiro
+}
+role Excompanheiro  specializes Pessoa_Fsica{
+    @mediation
+    ( {const } )[2] -- [1]  Certido_de_Divrcio
+    @material
+     [1..*] -- _excompanheiro_de_ --  [1..*]  Excompanheiro
+}
+relator Reconhecimento_de_Paternidade {
+    @mediation
+     [1..*] --  [1..2]  Pai( {const } )
+}
+role Parente_Direto  specializes Parente, Primo
+role Parente_em_Linha_Colateral  specializes Parente{
+    @material
+     [1..*] -- _parente_em_linha_colateral_de_ --  [1..*]  Parente_em_Linha_Colateral
+}
+role Parente_de_2_Grau  specializes Parente{
+    @material
+     [1..*] -- _parente_de_2_grau_ --  [1..*]  Parente_de_2_Grau
+}
+subkind Homem  specializes Pessoa_Fsica
+role Pai  specializes Parente_em_Linha_Reta, Parente_Direto
+role Tioav  specializes Parente_em_Linha_Colateral, Parente_Direto
+role Parente_em_Linha_Reta  specializes Parente{
+    @material
+     [1..*] -- _parente_em_linha_reta_d_ --  [1..*]  Parente_em_Linha_Reta
+    @material
+     [1..*] -- _ascendente_d_ --  [1..*]  Parente_em_Linha_Reta
+}
+relator Certido_de_Divrcio 
+relator Certido_de_Nascimento  specializes Reconhecimento_de_Paternidade
+role Sobrinhoneto  specializes Parente_em_Linha_Colateral, Parente_Direto{
+    @material
+     [1..*] -- _tio_av_de_ --  [1..*]  Tioav
+}
+role Neto  specializes Parente_em_Linha_Reta, Parente_Direto{
+    @material
+     [1..*] -- __av_de --  [1..4]  Av
+}
+role Bisneto  specializes Parente_em_Linha_Reta, Parente_Direto{
+    @material
+     [1..*] -- _bisav_de_ --  [1..8]  Bisav
+}
+role Parente_de_1_Grau  specializes Parente{
+    @material
+     [1..*] -- _parente_de_1_grau_de_ --  [1..*]  Parente_de_1_Grau
+}
+

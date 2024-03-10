@@ -1,0 +1,6 @@
+import Revenue_Stream
+
+package Provider_Source
+
+subkind Revenue_Stream_Payed_by_Provider  specializes Revenue_Stream
+

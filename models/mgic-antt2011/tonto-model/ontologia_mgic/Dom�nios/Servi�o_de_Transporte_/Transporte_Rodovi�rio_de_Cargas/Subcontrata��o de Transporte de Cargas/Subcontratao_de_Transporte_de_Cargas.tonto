@@ -1,0 +1,23 @@
+import Transportador_Rodovirio_de_Cargas
+import ValePedgio
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+
+package Subcontratao_de_Transporte_de_Cargas
+
+relator Acordo_Formal_de_Subcontratao_de_TAC_Agregado_Exclusivo  specializes Acordo_Formal_de_Subcontratao
+role Subcontratado_de_Prestao_de_Servio_de_Transporte_de_Cargas  specializes Transportador_Rodovirio_de_Carga_Registrado
+role TACAgregado  specializes Transportador_Autnomo_de_Carga, Subcontratado_de_Prestao_de_Servio_de_Transporte_de_Cargas{
+    @mediation
+    [1] -- [1]  Acordo_Formal_de_Subcontratao_de_TAC_Agregado_Exclusivo( {const } )
+}
+role ETC_Subcontratado  specializes Empresa_de_Transporte_de_Carga, Subcontratado_de_Prestao_de_Servio_de_Transporte_de_Cargas{
+    @mediation
+    [1] -- [1]  Acordo_Formal_de_Subcontratao_de_ETC( {const } )
+}
+role Empresa_Contratante_de_Subcontratao  specializes Embarcador_Equiparado, Empresa_de_Transporte_de_Carga, Contratado_de_Prestao_de_Servio_de_Transporte_Rodovirio_Nacional_de_Cargas{
+    @mediation
+    [1] --  [1..*]  Acordo_Formal_de_Subcontratao( {const } )
+}
+relator Acordo_Formal_de_Subcontratao_de_ETC  specializes Acordo_Formal_de_Subcontratao
+relator Acordo_Formal_de_Subcontratao 
+

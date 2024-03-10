@@ -1,0 +1,8 @@
+package UFOB
+
+class Event {
+     [0..*] -- framed_by -- [1]  Time_Interval
+}
+class Participation  specializes Event
+class Time_Interval 
+

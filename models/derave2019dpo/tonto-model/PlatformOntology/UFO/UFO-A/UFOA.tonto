@@ -1,0 +1,24 @@
+import UFOC
+import UFOB
+
+package UFOA
+
+kind Object_A {
+    @mediation
+    ( {const } ) [1..*] --  [1..*]  Relator( {const } )
+}
+subkind Subobject_A  specializes Object_A
+kind Object_B {
+    @mediation
+    ( {const } ) [1..*] --  [1..*]  Relator( {const } )
+}
+roleMixin Object {
+    @participation
+    ( {const } ) [1..*] --  [1..*]  Event( {const } )
+}
+phase Class_C {
+    @instantiation
+    ( {const } ) [1..*] --  [0..*]  Object_C( {const } )
+}
+phase Object_C (instanceOf Class_C)
+

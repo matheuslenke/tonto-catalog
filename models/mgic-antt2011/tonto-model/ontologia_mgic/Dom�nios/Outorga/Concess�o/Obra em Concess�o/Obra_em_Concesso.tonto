@@ -1,0 +1,74 @@
+import Projeto_Bsico
+import Tarifa_Bsica_de_Pedgio
+import Seguro_em_Concesso
+import Plano_de_Investimentos
+import Documento
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Convnio_de_Realizao_de_Obra
+import Estado_da_Obra_em_Concesso
+
+package Obra_em_Concesso
+
+relator Projeto_de_Obra_em_Concesso {
+    @mediation
+    [1] --  [1..*]  Item_de_Servio_da_Obra_( {const } obra )
+    @mediation
+    [1] --  [1..*]  Documento_de_Projeto_de_Obra_( {const } )
+    @mediation
+    [1] -- [1]  Concessionria_com_Plano_de_Trabalho( {const } )
+    @mediation
+    [1] --  [0..1]  Projeto_Bsico_de_Concesso( {const } )
+}
+role Obra_com_Inexecuo  specializes Obra_de_Concesso_{
+    @mediation
+    ( {const } )[1] --  [1..*]  Inexecuo
+}
+role Concessionria_com_Plano_de_Trabalho 
+role Demandante_de_Obra 
+category Item_de_Investimento  specializes Item_do_Plano_Trienal_de_Investimentos
+subkind Item_de_Servio_de_Obra_Complementar  specializes Item_de_Servio_da_Obra_
+subkind rea_de_Possvel_Obra_de_Concesso 
+relator Realizao_de_Obra_para_Item_de_Investimento {
+    @mediation
+     [1..*] --  [1..*]  Item_de_Investimento_com_Obra( {const } )
+    @mediation
+    [1] --  [1..*]  Obra_de_Concesso_( {const } )
+}
+role Obra_com_Licena_Ambiental  specializes Obra_de_Concesso_
+relator Licenciamento_Ambiental {
+    gasto : undefined
+    @mediation
+     [1..*] -- [1]  Obra_com_Licena_Ambiental( {const } )
+}
+phase reas_de_Desvio_Desnecessrio_  specializes rea_de_Possvel_Obra_de_Concesso
+phase reas_de_Desvio_Necessrio_  specializes rea_de_Possvel_Obra_de_Concesso
+roleMixin Item_de_Investimento_com_Obra  specializes Item_de_Investimento
+kind Item_de_Servio_da_Obra_ {
+    valor : undefined
+}
+subkind Item_de_Servio_de_Obra__Indireto  specializes Item_de_Servio_da_Obra_
+role rea_com_Obra_de_Concesso  specializes rea_de_Possvel_Obra_de_Concesso
+relator Projeto_de_Obra__de_Interesse_da_Concessionria  specializes Projeto_de_Obra_em_Concesso
+subkind Obra_de_Reparao  specializes Obra_de_Concesso_
+kind Documento_de_Projeto_de_Obra_  specializes Documento
+subkind Item_de_Servio_de_Obra_Direto  specializes Item_de_Servio_da_Obra_
+phase reas_de_Desvio_Negocivel_  specializes rea_de_Possvel_Obra_de_Concesso
+subkind Obra_de_Construo  specializes Obra_de_Concesso_
+phase reas_de_Desvio_Preferencial_  specializes rea_de_Possvel_Obra_de_Concesso
+relator Projeto_de_Obra__de_Interesse_de_Terceiro  specializes Projeto_de_Obra_em_Concesso{
+    @mediation
+     [1..*] --  [1..*]  Demandante_de_Obra( {const } )
+}
+subkind Obra_de_Recuperao  specializes Obra_de_Concesso_
+kind Obra_de_Concesso_  specializes Obra_com_Desapropriao, Obra_Conveniada, Obra_Iniciada, Obra_Concluda{
+    capex : undefined
+    data_incio : undefined
+    data_trmino : undefined
+    @mediation
+    ( {const } ) [1..*] -- [1]  Seguro_de_Obra
+    @mediation
+    ( {const } )[1] -- [1]  Projeto_de_Obra_em_Concesso
+    @Formal
+    [1] -- est_em --  [1..*]  rea_com_Obra_de_Concesso
+}
+

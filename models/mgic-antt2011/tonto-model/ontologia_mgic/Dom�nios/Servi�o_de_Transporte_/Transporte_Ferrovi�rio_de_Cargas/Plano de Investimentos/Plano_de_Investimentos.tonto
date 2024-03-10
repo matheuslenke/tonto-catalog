@@ -1,0 +1,17 @@
+package Plano_de_Investimentos
+
+subkind ReformaModernizao_de_Material_Rodante  specializes Item_do_Plano_Trienal_de_Investimentos
+subkind ReformaModernizao_de_Equipamento_Ferrovirio  specializes Item_do_Plano_Trienal_de_Investimentos
+subkind Aquisio_de_Material_Rodante  specializes Item_do_Plano_Trienal_de_Investimentos
+kind Item_do_Plano_Trienal_de_Investimentos 
+subkind Aquisio_de_Equipamento_Ferrovirio  specializes Item_do_Plano_Trienal_de_Investimentos
+subkind Obra_de_RecuperaoModernizao_Ferroviria  specializes Item_do_Plano_Trienal_de_Investimentos
+subkind Modernizao_de_Sistema_Ferrovirio  specializes Item_do_Plano_Trienal_de_Investimentos
+kind Plano_Trienal_de_Investimento  specializes Plano_de_Investimento{
+    @componentOf
+    [1] <o>--  [2..*]  Item_do_Plano_Trienal_de_Investimentos
+}
+subkind Obra_de_Ampliao_Ferroviria  specializes Item_do_Plano_Trienal_de_Investimentos
+kind Plano_de_Explorao_Ferroviria  specializes Plano_de_Investimento
+category Plano_de_Investimento 
+

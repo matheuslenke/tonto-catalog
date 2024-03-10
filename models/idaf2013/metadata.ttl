@@ -1,0 +1,31 @@
+@prefix fdpo: <https://w3id.org/fdp/fdp-o#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix lcc: <http://id.loc.gov/authorities/classification/>.
+@prefix mod: <https://w3id.org/mod#>.
+@prefix ocmv: <https://w3id.org/ontouml-models/vocabulary#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://w3id.org/ontouml-models/model/291e45be-4c9d-41b1-a237-f3f47714226d/> a dcat:Dataset, mod:SemanticArtefact, dcat:Resource;
+    dct:isPartOf <https://w3id.org/ontouml-models/catalog/b663ca18-8085-44a7-bcfe-2c2b5ba1faa8>;
+    dct:title "Structure of the IDAF Ontology";
+    dct:issued "2013"^^xsd:gYear;
+    dct:modified "2013"^^xsd:gYear;
+    dcat:theme lcc:H;
+    skos:editorialNote "Model about the structure of the Agricultural and Forestry Defense Institute of Espírito Santo (in Portuguse, Instituto de Defesa Agropecuária e Florestal do Espírito Santo (IDAF)). It was developed by a PhD student in the context of a postgraduate course in ontology modeling. The model was built using information from IDAF's website (https://idaf.es.gov.br), an informal interview with a IDAF's employee, and the laws Lei Complementar 245 - Plano de Cargos e Salários and Lei Complementar 197 - Estrutura";
+    dct:language "en";
+    dct:license <https://creativecommons.org/licenses/by/4.0/>;
+    dct:contributor <https://dblp.org/pid/304/6836>;
+    dcat:keyword "organizational structures"@en;
+    mod:designedForTask ocmv:Learning;
+    ocmv:context ocmv:Classroom;
+    ocmv:representationStyle ocmv:OntoumlStyle;
+    ocmv:ontologyType ocmv:Domain;
+    ocmv:storageUrl "https://github.com/OntoUML/ontouml-models/tree/master/models/idaf2013"^^xsd:anyURI ;
+    fdpo:metadataIssued "2023-04-14T17:54:51.504258676Z"^^xsd:dateTime;
+    fdpo:metadataModified "2023-04-14T17:54:51.504258676Z"^^xsd:dateTime .
+    <https://w3id.org/ontouml-models/model/291e45be-4c9d-41b1-a237-f3f47714226d> dcat:distribution <https://w3id.org/ontouml-models/distribution/e21e8a3e-17dd-40e0-9c26-5f643723fcd7/>, <https://w3id.org/ontouml-models/distribution/d2a2f8be-4b30-4c50-a6e8-c16a7637d7ca/>, <https://w3id.org/ontouml-models/distribution/5c6adab4-ec1d-4071-b912-33c9947840b6/>, <https://w3id.org/ontouml-models/distribution/5987276c-5365-4213-ba1e-01685aff9a1c>, <https://w3id.org/ontouml-models/distribution/cf0b86f0-aadc-471a-b7b5-37c1f5ed8e70>, <https://w3id.org/ontouml-models/distribution/34a28f7f-c532-40ee-9091-1103eb8e6ac0>, <https://w3id.org/ontouml-models/distribution/c5641404-6c78-46c7-a931-66fbe5699123>.

@@ -1,0 +1,86 @@
+import Human_Mind
+import Mental_natural_language
+import buridan_ontology
+
+package Conventional_spoken_written_language
+
+subkind Inscription  specializes Token{
+    language : undefined
+}
+subkind Utterance  specializes Token{
+    language : undefined
+}
+mode Convention {
+    @characterization
+    [1] -- [1]  ProperSense( {const } )
+}
+kind Token {
+    @material
+     [1..*] -- [1]  TokenType
+}
+kind TokenType 
+subkind ProperSuppositon  specializes SuppositionInConventionalLanguage
+subkind MaterialSupposition  specializes Supposition, ProperSuppositon{
+    @mediation
+     [0..1] -- [2]  CategorematicTerm( {const } )
+}
+subkind SimpleSupposition  specializes ProperSuppositon
+subkind ImproperSupposition  specializes SuppositionInConventionalLanguage
+subkind SuppositionInConventionalLanguage  specializes Supposition{
+    @mediation
+    [1] -- [1]  SpokenWrittenTerm( {const } )
+    @mediation
+    [1] -- [1]  SpokenWrittenSuppositum( {const } )
+}
+role SpokenWrittenSuppositum  specializes SpokenWrittenTerm
+subkind MaterialSuppositionForSyncatogramaticTerm  specializes Supposition{
+    @mediation
+    [1] -- [2]  SyncategorematicTerm( {const } )
+}
+subkind SpokenWrittenTerm  specializes Term, Term, Term, Term{
+    @material
+    [1] -- refers_to -- [1]  SpokenWrittenSuppositum
+    [1] -- [*]  Concept
+     [1..*] -- [1]  Concept
+    [1] -- signifies -- [1]  Concept
+    @componentOf
+     [2..*]  --<o> [1]  Expression
+    @componentOf
+     [1..*]  --<o> [1]  SpokenWrittenProposition
+}
+subkind SyncategorematicTerm  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm{
+    [*] -- [1]  SyncategorematicConcept
+    [1] -- signifies -- [1]  SyncategorematicConcept
+}
+subkind PersonalSupposition  specializes Supposition, ProperSuppositon{
+    @mediation
+     [0..1] -- [1]  CategorematicTerm( {const } 2 )
+}
+subkind CategorematicTerm  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm{
+     [1..*] -- [*]  CategorematicConcept
+     [1..*] -- [1]  Object
+     [1..*] -- signifies -- [1]  CategorematicConcept
+}
+mixin MixedTerm 
+subkind SpokenWrittenProposition  specializes Proposition{
+     [1..*] -- signifies_fine_grained -- [1]  MentalProposition
+}
+subkind SemanticallyComplexSpokenWrittenTerm  specializes SpokenWrittenTerm{
+    [1] -- signifies -- [1]  ComplexConcept
+}
+subkind Expression  specializes SpokenWrittenTerm
+role SemanticallyComplexExpression  specializes Expression{
+    [1] -- signifies -- [1]  ComplexConcept
+}
+role SemanticallySimple_Expression  specializes Expression{
+    [1] -- signifies -- [1]  Concept
+}
+mode SyntacticallyComplex {
+    @characterization
+    [1] -- [1]  Expression( {const } )
+}
+mode SyntacticallySimple {
+    @characterization
+    [1] -- [1]  SpokenWrittenTerm( {const } )
+}
+

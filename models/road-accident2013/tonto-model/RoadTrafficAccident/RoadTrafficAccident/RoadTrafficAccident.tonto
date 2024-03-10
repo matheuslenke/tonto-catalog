@@ -1,0 +1,36 @@
+package RoadTrafficAccident
+
+relator RoadTrafficAccident {
+    fatalvictims : undefined
+    @mediation
+     [1..*] -- occurs_on -- [1]  RoadwayWithAccident( {const } )
+    @mediation
+    [1] -- has --  [1..*]  Victim( {const } victims )
+    @mediation
+    [1] -- involves --  [1..*]  CrashedVehicle( {const } vehicles )
+}
+role TravelingVehicle  specializes Vehicle
+kind Vehicle 
+relator Travel {
+    @mediation
+    [1] -- made_by -- [1]  TravelingVehicle( {const } vehicle )
+    @mediation
+    [1] -- has --  [0..*]  Passenger( {const } passengers )
+    @mediation
+    [1] -- has -- [1]  Driver( {const } drivers )
+}
+role CrashedVehicle  specializes TravelingVehicle{
+    @material
+     [1..*] -- crashes_on -- [1]  RoadwayWithAccident
+}
+relator RearEndCollision  specializes RoadTrafficAccident
+role Traveler  specializes Person
+kind Roadway 
+role Victim  specializes Traveler
+role RoadwayWithAccident  specializes Roadway
+kind Person 
+phase LivingPerson  specializes Person
+phase DeceasedPerson  specializes Person
+role Passenger  specializes Traveler
+role Driver  specializes Traveler
+

@@ -1,0 +1,83 @@
+import Complementares
+import Pessoa
+import Cesso_de_Bem
+import Compra
+import Agente_Administrativo
+import Estgio
+import Fretamento_Contnuo
+import Tipos_de_Autorizatrias_Detentoras_de_CRF
+import Obrigao_Financeira
+import Operador_Ferrovirio_Independente
+import Contrato_Operacional_Especfico
+import Infrao_Prevista
+import Reajuste_Tarifrio
+import Contratao_via_Banco_Mundial
+import Fonte_de_Receita
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Subcontratao_de_Transporte_de_Cargas
+
+package Contratos_e_Convnios
+
+mixin Agente_Social  specializes Pessoa, Entidade_Pblica_Cedente, Fornecedor_de_Compra, Contratado_de_Terceirizado, PJDPI_com_Servidor, Contratante_de_Terceirizado, Supervisor_de_Estgio, Parte_Concedente_de_Estgio, Professor_Orientador, Autorizadora_de_Estgio, Estagirio, Contratante_Fretamento_Contnuo, Autorizatria_com_Autorizao_para_Fretamento_Contnuo
+kind Anexo 
+relator Acordo_Testemunhado  specializes Acordo_Formal{
+    @mediation
+    [1] --  [1..*]  Testemunha_em_Contrato( {const } )
+}
+mode Reivindicao {
+    @characterization
+     [1..*] -- [1]  Acordo_Social( {const } )
+}
+relator Acordo_por_Prazo_Determinado  specializes Acordo_Formal, Fretamento_Contnuo{
+    prazo : undefined
+}
+relator Representao_em_Contrato {
+    @mediation
+     [1..*] --  [1..*]  Representante_em_Contrato( {const } )
+    @mediation
+     [2..*] -- [1]  Acordo_Formal( {const } )
+    @mediation
+     [1..*] -- [1]  Agente_Social( {const } )
+}
+role Representante_em_Contrato 
+mode Compromisso {
+    @characterization
+     [1..*] -- [1]  Acordo_Social( {const } )
+}
+kind Contrato  specializes Contrato_como_Fundamento_Legal, Contrato_de_Subcesso_Onerosa_de_Direito_de_Uso_, Contrato_de_Operao_Especfica{
+    @componentOf
+    [1] <o>-- essential_inseparable --  [1..*]  Clusula_Contratual
+    @componentOf
+    [1] <o>-- inseparable -- [*]  Anexo
+}
+kind Clusula_Contratual  specializes Clusula_Contratual_com_Infrao_Definida, Clusula_Contratual_Utilizada_Como_Base_Para_Documento_de_Advertncia, Clusula_de_Contrato_de_Concesso_Ferroviria{
+    numero : undefined
+    texto : undefined
+}
+relator Acordo_Social {
+    data_de_estabelecimento : undefined
+    local : undefined
+    @mediation
+     [1..*] --  [2..*]  Agente_Social( {const } )
+}
+relator Acordo_Formal  specializes Contratao_de_Empresa_Terceirizada, Vnculo_de_Servio_Pblico, Estgio, Acordo_de_Emprstimo, Acordo_Social, Receita_Rodoviria_Extraordinria, Acordo_Formal_de_Contratao_de_Servio_de_Transporte_Rodovirio_de_Cargas, Acordo_Formal_de_Subcontratao{
+    @mediation
+    [1] -- [1]  Contrato( {const } contrato )
+}
+role Testemunha_em_Contrato 
+role Concessionria_com_Documento_de_Advertncia {
+    @mediation
+    [1] --  [1..*]  Lavratura_do_Documento_de_Advertncia( {const } )
+}
+relator Convnio  specializes Acordo_por_Prazo_Determinado{
+    data : undefined
+    nmero : undefined
+    tempo : Unidade de Tempo
+    @mediation
+     [1..*] --  [2..*]  Convenente( {const } conevente )
+}
+role Convenente  specializes Agente_Social{
+    @material
+     [1..*] -- em_convenio_com --  [1..*]  Convenente
+}
+

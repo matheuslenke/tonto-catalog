@@ -1,0 +1,11 @@
+package UFOB
+
+class Time_Point {
+     [0..1] -- [*]  Time_Interval
+}
+class Time_Interval  specializes Temporal_Structure{
+    [*] --  [0..1]  Time_Point
+     [1..*] -- is_subinterval_of --  [1..*]  Time_Interval
+}
+class Temporal_Structure 
+

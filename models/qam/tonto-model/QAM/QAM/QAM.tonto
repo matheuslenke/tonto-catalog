@@ -1,0 +1,94 @@
+package QAM
+
+kind Standard_Process {
+    @formal
+     [1..*] -- defined_for -- [1]  Organization
+    @formal
+     [0..1] -- tailors --  [0..*]  Project_Process
+}
+mode Process_Occurrence {
+    @characterization
+    [1] -- caused_by -- [1]  Project_Process( {const } )
+}
+kind Evaluation_Criteria {
+    @formal
+     [0..*] -- defined_for -- [1]  Project_Process
+    @memberOf
+     [2..*]  --<o>  [1..*]  Evaluation_Checklist
+}
+phase Identified_NC  specializes Noncompliance
+kind Person 
+subkind Work_Product_Evaluation_Criteria  specializes Evaluation_Criteria
+phase Registered_NC  specializes Noncompliance
+role NC_Issue  specializes Issue
+kind Organization 
+relator Employment {
+    @mediation
+     [1..*] -- [1]  Human_Resource( {const } )
+    @mediation
+     [1..*] -- [1]  Organization( {const } )
+}
+role NC_Cause  specializes Cause
+collective Evaluation_Checklist 
+phase Finished_Issue  specializes Issue
+phase Planned_Issue  specializes Issue
+subkind Process_Evaluation_Criteria  specializes Evaluation_Criteria
+subkind Preventive_Action  specializes Issue
+subkind Improvement_Suggestion  specializes Issue
+relator Item_Evaluation {
+    @mediation
+     [1..*] -- assesses -- [1]  Evaluation_Criteria( {const } )
+    @formal
+     [0..*] -- composes -- [1]  Objective_Evaluation
+    @mediation
+     [1..*] -- finds --  [1..*]  Evaluation_Find( {const } )
+}
+kind Issue 
+role Appraiser  specializes Human_Resource
+kind Project_Process {
+    @formal
+     [1..*] -- defined_for -- [1]  Project
+}
+phase Implementing_Issue  specializes Issue
+relator Objective_Evaluation {
+    @mediation
+     [1..*] -- aplies --  [1..*]  Evaluation_Checklist( {const } )
+    @mediation
+     [1..*] -- allocates -- [1]  Appraiser( {const } )
+    @mediation
+     [1..*] -- assesses -- [1]  Project( {const } )
+}
+kind Lesson_Learned  specializes Evaluation_Find
+phase Non_Effective_Issue  specializes Finished_Issue
+relator NC_Action_Item {
+    @mediation
+     [1..*] -- [1]  NC_Issue( {const } )
+    @mediation
+     [1..*] -- [1]  Registered_NC( {const } )
+}
+role Finished_NC  specializes Registered_NC
+subkind Corretive_Action  specializes Issue
+kind Cause 
+kind Noncompliance  specializes Evaluation_Find
+role Human_Resource  specializes Person
+role Resolving_NC  specializes Registered_NC
+role Planned_NC  specializes Registered_NC
+kind Problem  specializes Evaluation_Find
+phase Canceled_NC  specializes Noncompliance
+category Evaluation_Find 
+relator Cause_Identification {
+    @mediation
+     [1..*] -- [1]  NC_Cause( {const } )
+    @mediation
+     [1..*] -- [1]  Registered_NC( {const } )
+}
+kind Project 
+phase Effective_Issue  specializes Finished_Issue
+relator Problem_Action_Item {
+    @mediation
+     [1..*] -- [1]  Problem( {const } )
+    @mediation
+     [1..*] -- [1]  Problem_Issue( {const } )
+}
+role Problem_Issue  specializes Issue
+

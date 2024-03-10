@@ -1,0 +1,33 @@
+import Airbnb
+import Uber_eats
+import GDPO_part_1
+import Registration
+
+package P2P
+
+event Manual_Affiliation_Check  specializes Platform_Company_Action{
+     [1..*]  -- is_part_of --<o> [1]  ManuallyChecked_Affiliation_Action
+}
+event Automated_Affiliation_Action  specializes User_Affiliation_Action, Registration_Action{
+    @participation
+     [1..*] -- performed_by -- [1]  Peer_User( {const } )
+    @participation
+    [1] -- performed_by -- [1]  Airbnb_Homeowner( {const } )
+    @participation
+    [1] -- performed_by -- [1]  Airbnb_Home_Seeker( {const } )
+    @participation
+    [1] -- performed_by -- [1]  Uber_Eats_Rider( {const } )
+}
+event ManuallyChecked_Affiliation_Action  specializes User_Affiliation_Action, Platform_Company_Action{
+    @participation
+     [1..*] -- performed_by -- [1]  NonPeer_User( {const } )
+}
+roleMixin Peer_Creator  specializes Peer_User
+roleMixin Peer_Consumer  specializes Peer_User
+roleMixin Peer_User  specializes Platform_User{
+    @participation
+    ( {const } ) [1..*] -- performed_by --  [0..*]  Peer_Action( {const } )
+}
+roleMixin NonPeer_User  specializes Platform_User
+event Peer_Action  specializes User_Action
+

@@ -1,0 +1,44 @@
+import Service
+import Payment
+import Conversation_System
+import Transaction
+import Commission
+
+package jobDrop
+
+roleMixin jobDropper  specializes Platform_Provider{
+    [*] -- [*]  Booking
+    [*] -- [*]  Payment_Action
+}
+roleMixin Worker  specializes Platform_Customer
+event Add_Filter {
+    Location : undefined
+    job_type : undefined
+    date_and_time : undefined
+}
+event Job_Interest {
+    [*] -- [*]  Worker
+    [*] -- [*]  Job_acceptance
+    @historicalDependence
+     [0..*] -- [1]  Listing_Conversation( {const } )
+}
+event Job_acceptance  specializes Transaction_Creation
+event Job_done  specializes Delivery{
+    [*] -- [*]  Favorite_worker_selection
+}
+event Favorite_worker_selection {
+    [*] -- [*]  jobDropper
+    [*] -- [*]  Worker
+    [*] -- [*]  Favorite_List
+}
+collective Favorite_List {
+    [*] -- [*]  Worker
+    [*] -- [*]  jobDropper
+}
+subkind Transportation_Cost  specializes Commission_Fee
+event Money_Receivement {
+    [*] -- [*]  Worker
+    @historicalDependence
+     [0..*] -- [1]  Job_done( {const } )
+}
+

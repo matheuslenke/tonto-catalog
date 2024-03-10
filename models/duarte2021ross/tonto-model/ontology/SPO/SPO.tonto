@@ -1,0 +1,13 @@
+import ROSS
+import EO
+import UFO
+
+package SPO
+
+class Artifact 
+class Hardware_Equipment  specializes System_Element
+class Stakeholder  specializes Agent{
+    [1] -- has_goal -- [*]  Stakeholder_Requirement
+     [1..*] -- member_of -- [1]  Organization
+}
+

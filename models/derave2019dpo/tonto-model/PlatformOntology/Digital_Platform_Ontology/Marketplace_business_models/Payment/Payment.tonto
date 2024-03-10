@@ -1,0 +1,21 @@
+import Transaction
+import Digital_Platform_Ontology
+import GDPO_part_1
+import Price_Discovery
+import Price_Calculation
+
+package Payment
+
+event Transaction_Payment  specializes Payment_Action{
+     [0..*] -- towards -- [1]  Platform_Provider
+}
+event Payment_Action  specializes User_Action, Platform_Supported_Action{
+    [*] -- [*]  Job_Fee
+}
+subkind Paid_Transaction_Price  specializes Price, Transaction_Price{
+    [1] -- [1]  Transaction_Payment
+}
+subkind Received_Transaction_Price  specializes Transaction_Price{
+    [*] -- [*]  Platform_Provider
+}
+

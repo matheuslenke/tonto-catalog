@@ -1,0 +1,71 @@
+import UFO
+import COVER
+
+package Security
+
+roleMixin Security_Mechanism {
+    [*] -- countermeasure_to -- [*]  Risk_Event_Type
+     [1..*] -- designed_by --  [1..*]  Security_Designer
+}
+roleMixin Control_Capability {
+    @characterization
+     [1..*] -- [1]  Security_Mechanism( {const } )
+    @manifestation
+    ( {const } ) [1..*] -- [*]  Protection_Event
+}
+type Risk_Event_Type 
+type Control_Event_Type (instanceOf Control_Event){
+    [*] -- prevention --  [1..*]  Risk_Event_Type
+    [*] -- bringing_about_of -- [1]  Controlled_Situation_Type
+}
+type Threat_Event_Type  specializes Risk_Event_Type{
+     [1..*] -- causation --  [1..*]  Loss_Event_Type
+}
+type Loss_Event_Type  specializes Risk_Event_Type
+type Threat_Capability_Type (instanceOf Threat_Capability){
+     [1..*] -- mutual_activation_partnership --  [1..*]  Vulnerability_Type
+    [*] -- mutual_activation_partnership -- [*]  Intention_Type
+}
+type Vulnerability_Type (instanceOf Vulnerability)
+event Control_Event  specializes Protection_Event{
+    @bringsAbout
+    ( {const } )[*] -- [1]  Controlled_Situation( {const } )
+    @instantiation
+    [*] --  [1..*]  Control_Event_Type
+}
+situation Controlled_Situation {
+    @instantiation
+    [*] --  [1..*]  Controlled_Situation_Type
+    [*] -- impacts --  [1..*]  Intention
+}
+roleMixin Attacker  specializes Threat_Object, Agent{
+    -- creates --  Attack
+}
+type Intention_Type (instanceOf Intention)
+roleMixin Security_Designer 
+type Controlled_Situation_Type (instanceOf Controlled_Situation){
+    [*] -- incompatible_with -- [*]  Threatening_Situation_Type
+    [*] -- incompatible_with -- [*]  Loss_Triggering_Situation_Type
+}
+type Threatening_Situation_Type {
+    [1] -- triggering -- [*]  Threat_Event_Type
+}
+type Loss_Triggering_Situation_Type {
+    [1] -- triggering -- [*]  Loss_Event_Type
+}
+event Control_Chain_Event  specializes Protection_Event{
+    @historicalDependence
+    [*] -- causes -- [*]  Control_Event( {const } )
+}
+event Protection_Event 
+situation Protection_Trigger {
+    @triggers
+    ( {const } )[1] -- [*]  Protection_Event
+}
+event Attack  specializes Threat_Event, Action{
+    [*] -- caused_by -- [1]  Intention
+}
+roleMixin Protected_Subject 
+category Generic_Intention  specializes Intention
+category Specific_Intention  specializes Intention
+

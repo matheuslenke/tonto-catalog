@@ -1,0 +1,21 @@
+title: FreshBZ Application UML
+acronym:
+issued: 2023
+modified:
+contributor:
+keyword:
+ - university
+ - information system
+theme: Class T - Technology
+editorialNote: Sent by the modeler who chose to remain anonymous.
+ontologyType:
+ - application
+language: en
+designedForTask:
+ - software engineering
+context:
+ - classroom
+representationStyle:
+ - ontouml
+landingPage:
+license: https://creativecommons.org/licenses/by/4.0

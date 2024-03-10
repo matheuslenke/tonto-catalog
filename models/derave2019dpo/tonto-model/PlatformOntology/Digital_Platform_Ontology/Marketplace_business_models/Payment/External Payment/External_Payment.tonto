@@ -1,0 +1,12 @@
+import SafaRide
+import Payment
+import FOAF
+
+package External_Payment
+
+event External_Payment  specializes Transaction_Payment{
+     [1..*] -- intermediates -- [1]  Payment_Provider
+     [0..*] -- [1]  SafaRide_Customer
+}
+subkind Payment_Provider  specializes Organization
+

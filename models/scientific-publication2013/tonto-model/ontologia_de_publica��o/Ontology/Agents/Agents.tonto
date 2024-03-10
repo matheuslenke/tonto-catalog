@@ -1,0 +1,18 @@
+package Agents
+
+kind Person  specializes Agent
+kind Organization  specializes Agent
+category Agent 
+roleMixin Colaborator  specializes Agent
+kind Country {
+    @componentOf
+    [1] <o>--  [2..*]  City
+}
+kind City 
+relator Address {
+    @mediation
+     [1..*] -- [1]  Organization( {const } )
+    @mediation
+     [1..*] -- [1]  City( {const } )
+}
+

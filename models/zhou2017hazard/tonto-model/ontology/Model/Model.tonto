@@ -1,0 +1,47 @@
+package Model
+
+class Situation 
+class Event 
+class Initiating_Condition  specializes Situation{
+    [1] -- trigger --  [1..*]  Initiating_Event
+}
+class Initiating_Event  specializes Event{
+     [1..*] -- cause --  [0..1]  Initiating_Event
+     [0..*] -- trigger -- [1]  Hazard
+}
+class Initiating_Role {
+     [1..*] -- existIn -- [1]  Initiating_Condition
+    [*] -- instOf -- [*]  Role
+}
+class Kind 
+class Environment_Object {
+    [1] -- play --  [1..*]  Initiating_Role
+    [*] -- instOf -- [*]  Kind
+    [1] -- play --  [1..*]  Hazard_Element
+}
+class Initiator_Factor  specializes Disposition{
+     [1..*] -- characterize -- [1]  Initiating_Role
+}
+class Mishap  specializes Event
+class Hazard  specializes Situation{
+     [1..*] -- trigger --  [1..*]  Mishap
+    [1] -- bringAbout --  [1..*]  Initiating_Event
+}
+class Relator 
+class Exposure  specializes Relator{
+    [1] -- mediation --  [1..*]  Hazard_Element
+    [1] -- mediation --  [1..*]  Mishap_Victim
+     [1..*] -- existIn -- [1]  Hazard
+}
+class Hazard_Element {
+    [*] -- instOf -- [*]  Role
+}
+class Mishap_Victim  specializes Hazard_Element{
+     [1..*] -- participate -- [1]  Mishap
+}
+class Harm_TruthMaker  specializes Disposition{
+     [1..*] -- characterize -- [1]  Hazard_Element
+}
+class Role 
+class Disposition 
+

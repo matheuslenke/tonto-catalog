@@ -1,0 +1,15 @@
+import Architectural_Components
+
+package Reference_Points
+
+category Directly_Bound_Reference_Point  specializes Reference_Point
+roleMixin Path_Connected_Reference_Point  specializes Directly_Bound_Reference_Point{
+    @material
+     [1..*] -- path --  [1..*]  Path_Connected_Reference_Point
+}
+category Reference_Point  specializes Architectural_Component
+roleMixin TE_Connected_Reference_Point  specializes Directly_Bound_Reference_Point{
+    @material
+     [1..*] -- te_connected --  [1..*]  TE_Connected_Reference_Point
+}
+

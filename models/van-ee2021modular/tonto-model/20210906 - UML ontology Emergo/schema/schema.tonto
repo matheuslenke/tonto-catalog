@@ -1,0 +1,106 @@
+import qudt
+import bpo
+import dice
+import BPO_ontology
+
+package schema
+
+category ProductModel 
+quality PropertyValue {
+    @material
+    [1] -- qudtunit -- [1]  Unit
+}
+quality StructuredValue 
+quality value 
+event Event {
+    Description : string
+    @material
+     [0..*] -- schemaEventSchedule --  [0..*]  Schedule
+    @material
+     [0..*] -- schemaabout --  [0..*]  Component
+    @material
+     [0..*] -- schemalocation --  [0..*]  Place
+    @material
+     [0..*] -- schemasubEvent --  [0..*]  Event
+    @material
+     [0..*] -- schemaactor --  [0..*]  person
+    @material
+     [0..*] -- schemacontributor --  [0..*]  organisation
+    @bringsAbout
+    ( {const } )[1] -- dicehasActivity -- [1]  activity( {const } )
+}
+kind Schedule {
+    description : string
+    id : string
+    startDate : undefined
+    endDate : undefined
+    @material
+     [0..*] -- schemasubjectOf --  [0..*]  Event
+    @material
+     [0..*] -- emgtransformSchedule --  [0..*]  Schedule
+}
+category Place {
+    description : string
+    @material
+     [0..*] -- schemasubjectOf --  [0..*]  Event
+    @material
+     [0..*] -- schemaaddress --  [0..*]  postalAdress
+}
+kind postalAdress {
+    addressCountry : string
+    addressLocality : string
+    addressRegion : string
+    postOfficeBoxNumber : string
+    postalCode : string
+    streetAddress : string
+}
+kind person  specializes Agent{
+    name : string
+    email : string
+    telephone : string
+    jobTitle : string
+    @material
+     [0..*] -- schemaperformerIn --  [0..*]  Event
+}
+kind organisation  specializes Agent{
+    name : string
+    id : string
+    email : string
+    telephone : string
+    @material
+     [0..*] -- schemaaddress --  [0..*]  postalAdress
+    @material
+     [0..*] -- schemasubjectOf --  [0..*]  Event
+}
+quality priceSpecification {
+    price : string
+    priceCurrency : string
+    validFrom : undefined
+    validThrough : undefined
+    valueAddedTextIncluded : boolean
+    @characterization
+    [1] -- schemaeligibleQuantity -- [1]  QuantitativeValue( {const } )
+}
+quality QuantitativeValue {
+    value_ : undefined
+    unitText : string
+    unitCode : string
+}
+category WebAPI {
+    URL : string
+    @material
+     [0..*] -- schemadocumentation --  [0..*]  creativeWork
+}
+kind DigitalDocument  specializes creativeWork{
+    [*] -- schemahasDigitalDocumentPermission -- [*]  DigitalDocumentPermission
+}
+mode DigitalDocumentPermission 
+category creativeWork {
+    fileFormat : string
+    @material
+     [0..*] -- schemaabout -- [1]  ClassifiedObject( {const } )
+}
+kind drawing  specializes creativeWork
+class Property 
+class Agent 
+

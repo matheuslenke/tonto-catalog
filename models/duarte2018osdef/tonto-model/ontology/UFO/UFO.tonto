@@ -1,0 +1,24 @@
+package UFO
+
+class Mental_Moment {
+     [0..*] -- inheres_in -- [1]  Agent
+}
+class Belief  specializes Mental_Moment
+class Intention  specializes Mental_Moment
+class Agent {
+    [1] -- performs --  [0..*]  Action
+}
+class Action  specializes Event_Perdurant
+class Event_Perdurant {
+     [0..*] -- causes --  [0..*]  Event_Perdurant
+     [0..*] -- brings_about -- [1]  Situation
+     [0..*] -- manifestation_of -- [1]  Disposition
+}
+class Situation {
+    [1] -- triggers --  [0..*]  Event_Perdurant
+     [0..*] -- activates --  [0..*]  Disposition
+}
+class Disposition 
+class Object  specializes Endurant
+class Endurant 
+

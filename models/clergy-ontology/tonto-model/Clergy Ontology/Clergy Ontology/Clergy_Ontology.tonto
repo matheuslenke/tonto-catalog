@@ -1,0 +1,116 @@
+package Clergy_Ontology
+
+collective Clergy 
+collective Secular_Clergy {
+    @subCollectionOf
+    [1]  --<o> [1]  Clergy
+}
+collective Regular_Clergy {
+    @subCollectionOf
+    [1]  --<o> [1]  Clergy
+}
+kind Person 
+role Clergy_Member  specializes Person
+role Secular_Clergy_Member  specializes Clergy_Member{
+    @memberOf
+     [2..*]  --<o> [1]  Secular_Clergy
+    @material
+    [1] -- baptizes --  [1..*]  Clergy_Member
+}
+role Regular_Clergy_Member  specializes Clergy_Member{
+    @memberOf
+     [2..*]  --<o> [1]  Regular_Clergy
+}
+relator Baptism {
+    @mediation
+     [1..*] -- performed_by -- [1]  Secular_Clergy_Member( {const } )
+    @mediation
+    [1] -- receives -- [1]  Clergy_Member( {const } )
+    @derivation
+    [1] -- [1]  baptizes
+}
+role Layman  specializes Regular_Clergy_Member
+role Clergyman  specializes Regular_Clergy_Member{
+    @material
+     [1..*] -- makes_vows_with -- [1]  Witness_of_Profession
+}
+role Witness_of_Profession  specializes Clergyman
+relator Religious_Profession {
+    @mediation
+    [1] -- performs -- [1]  Clergyman( {const } )
+    @mediation
+     [1..*] -- wtinesess -- [1]  Witness_of_Profession( {const } )
+    @derivation
+    [1] -- [1]  makes_vows_with
+}
+role Deacon  specializes Secular_Clergy_Member{
+    @material
+     [1..*] -- ordinated_by -- [1]  Ordinator_of_Deacon
+}
+role Bishop  specializes Secular_Clergy_Member
+role Priest  specializes Secular_Clergy_Member
+role Cardinal  specializes Secular_Clergy_Member{
+    @memberOf
+    [1]  -- member_of --<o> [1]  College_of_Cardinals
+}
+relator Ordination_of_Deacon {
+    @mediation
+    [1] -- received_by -- [1]  Deacon( {const } )
+    @mediation
+     [1..*] -- performed_by -- [1]  Ordinator_of_Deacon( {const } )
+    @derivation
+    [1] -- [1]  ordinated_by
+}
+relator Bishop_Ordination {
+    @mediation
+    [1] -- received_by -- [1]  Ordained_Bishop( {const } )
+    @mediation
+     [1..*] -- performed_by --  [3..*]  Ordinator_of_Bishop( {const } )
+    @derivation
+    [1] -- [1]  ordinated_by
+}
+relator Ordination_of_Priest {
+    @mediation
+    [1] -- received_by -- [1]  Priest( {const } )
+    @mediation
+     [1..*] -- performed_by -- [1]  Ordinator_of_Priest( {const } )
+}
+role Ordinator_of_Deacon  specializes Bishop
+role Ordained_Bishop  specializes Bishop{
+    @material
+     [1..*] -- ordinated_by --  [3..*]  Ordinator_of_Bishop
+}
+role Ordinator_of_Bishop  specializes Bishop
+role Ordinator_of_Priest  specializes Bishop{
+    @material
+    [1] -- ordinated_by --  [1..*]  Priest
+}
+relator Nomination {
+    @mediation
+    [1] -- given_to -- [1]  Cardinal( {const } )
+    @mediation
+    [1] -- performed_by -- [1]  Cardinal_Nominator( {const } )
+    @derivation
+    [1] -- [1]  nominates
+}
+role Cardinal_Nominator  specializes Pope{
+    @material
+    [1] -- nominates -- [1]  Cardinal
+}
+role Pope  specializes Cardinal
+relator Election {
+    @mediation
+    [1] -- nominates -- [1]  Pope( {const } )
+    @mediation
+     [1..*] -- voter_of -- [1]  Electorate_of_the_Cadinal_School( {const } )
+    @derivation
+    [1] -- [1]  Grupo_Elege_Papa
+}
+collective College_of_Cardinals 
+collective Electorate_of_the_Cadinal_School {
+    @material
+    [1] -- Grupo_Elege_Papa --  [1..*]  Pope
+    @subCollectionOf
+    [1]  -- part_of --<o> [1]  College_of_Cardinals
+}
+

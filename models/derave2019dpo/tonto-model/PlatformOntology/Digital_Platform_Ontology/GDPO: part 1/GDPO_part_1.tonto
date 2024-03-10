@@ -1,0 +1,73 @@
+import GDPO_User_Roles
+import Typology
+import Review_System
+import Registration
+import Airbnb
+import FOAF
+
+package GDPO_part_1
+
+roleMixin Target_Platform_User  specializes Agent{
+    @memberOf
+     [1..*]  -- is_part_of --<o>  [1..*]  Target_Platform_User_Community
+}
+subkind Target_Platform_User_Community 
+subkind Platform_Software  specializes Software
+kind Software 
+subkind Digital_Platform_Offering {
+    @mediation
+     [1..*] -- designed_for -- [1]  Target_Platform_User_Community( {const } )
+    @mediation
+    [1] -- supported_by -- [1]  Platform_Software( {const } )
+    @mediation
+     [1..*] -- offered_by -- [1]  Platform_Company( {const } )
+    @mediation
+     [1..*] -- relates_to -- [1]  Platform_Company( {const } )
+    @instantiation
+     [1..*] -- categorizes --  [1..*]  Digital_Platform_Type
+}
+roleMixin Platform_Company  specializes Agent{
+    [1] -- defines --  [1..*]  User_Role_Type
+    @mediation
+    ( {const } )[1] -- bounds --  [1..*]  Registration( {const } )
+}
+roleMixin Platform_User  specializes Target_Platform_User, Platform_Visitor{
+    @participation
+    ( {const } ) [1..*] -- performed_by --  [0..*]  Offline_Action( {const } )
+    [*] -- [*]  Review_Creation
+}
+event Digital_Communication 
+subkind User_Affiliation_Agreement {
+    @mediation
+    [1] -- bounds_user -- [1]  Platform_User( {const } )
+    @mediation
+     [0..*] -- conforms_to -- [1]  Digital_Platform_Offering( {const } )
+    @mediation
+     [0..*] -- bounds_platform -- [1]  Platform_Company( {const } )
+    [1] -- is_followed_by --  [1..*]  User_Affiliation_Action
+}
+event User_Action  specializes Platform_Supported_Action{
+    @participation
+     [1..*] -- performed_by -- [1]  Platform_User( {const } )
+    @instantiation
+     [0..*] -- [1]  User_Action_Type
+     [1..*] -- enables -- [1]  Airbnb_Software
+    [1] -- enables --  [1..*]  Platform_Software
+}
+event Digital_Content_Creation  specializes User_Action
+event Digital_Content_Consumption  specializes User_Action
+event Platform_Software_Action  specializes Platform_Supported_Action
+event Platform_Supported_Action {
+    @participation
+    [1] -- enables --  [1..*]  Platform_Software( {const } )
+}
+event Platform_Company_Action  specializes Platform_Supported_Action{
+    @participation
+     [0..*] -- performed_by -- [1]  Platform_Company( {const } )
+}
+event User_Affiliation_Action  specializes User_Action
+event Offline_Action 
+roleMixin Platform_Visitor  specializes Target_Platform_User{
+    [1] -- can_initiate --  [0..1]  User_Affiliation_Action
+}
+

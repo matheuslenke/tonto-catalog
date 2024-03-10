@@ -1,0 +1,34 @@
+import Transport_Entities
+import Reference_Points
+import General_Elements
+
+package Complementary_Categorizations
+
+relator Binding {
+    @mediation
+     [1..*] -- is_binding -- [2]  Bound_InputOutput( {const } binded )
+    @mediation
+    [1] -- binding_is_represented_by -- [1]  Directly_Bound_Reference_Point( {const } )
+}
+roleMixin Bound_InputOutput {
+    @material
+    [1] -- binds -- [1]  Bound_InputOutput
+}
+roleMixin Bound_Transport_Function {
+    @material
+     [1..*] -- tf_connection --  [1..*]  Bound_Transport_Function
+}
+roleMixin Connected_Reference_Point {
+    @material
+     [1..*] -- has_forwarding --  [1..*]  Connected_Reference_Point
+}
+relator Forwarding {
+    @mediation
+     [1..*] -- is_connecting -- [2]  Connected_Reference_Point( {const } )
+    @mediation
+    [1] -- IT_is_represented_by -- [1]  Directly_Connected_Transport_Entity( {const } )
+}
+category Input  specializes Geographical_Element
+category Output  specializes Geographical_Element
+category Unidirectional_Port 
+

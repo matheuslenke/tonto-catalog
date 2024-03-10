@@ -1,0 +1,83 @@
+import competence_ontology
+
+package competence_ontology
+
+kind Person  specializes Physical_Agent{
+    @instantiation
+    [*] --  [1..*]  Capabilityrequiring_Role
+}
+subkind Personal_Competence  specializes Human_Capability{
+     [0..*]  --<o>  [0..*]  Personal_Competence
+}
+situation Competence_Context {
+    @triggers
+    ( {const } ) [0..*] -- activates --  [0..*]  Personal_Competence
+}
+event Task {
+    @bringsAbout
+    ( {const } )[1] -- [1]  Competence_Outcome( {const } )
+    @instantiation
+    [*] --  [1..*]  Task_Type
+}
+type Competence_Type  specializes Human_Capability_Type
+subkind Skill  specializes Human_Capability{
+     [1..*]  --<o>  [0..*]  Personal_Competence
+}
+mode Attitude  specializes Human_Aspect{
+     [1..*]  --<o>  [0..*]  Personal_Competence
+}
+mode Knowledge  specializes Human_Aspect{
+     [1..*]  --<o>  [0..*]  Personal_Competence
+}
+category Artifact {
+    @creation
+    ( {const } )[1] -- [1]  Task( {const } )
+    @participation
+    ( {const } ) [1..*] --  [0..*]  Task
+    @instantiation
+    [*] --  [1..*]  Artifact_Type
+}
+situation Competence_Outcome 
+type Capabilityrequiring_Role (instanceOf Person){
+     [0..*] -- is_defined_by --  [1..*]  Human_Capability_Type
+     [0..*] -- depends_on --  [0..*]  Capabilityrequiring_Role
+     [0..*] -- specializes --  [0..*]  Capabilityrequiring_Role
+}
+type Human_Capability_Type  specializes Human_Aspect_Type{
+     [0..*] -- defined_in_terms_of --  [0..*]  Task_Type
+}
+type Skill_Type  specializes Human_Capability_Type
+type Human_Aspect_Type (instanceOf Human_Aspect){
+     [0..*] -- constitutes --  [0..*]  Human_Aspect_Type
+     [0..*] -- depends_on --  [0..*]  Human_Aspect_Type
+     [0..*] -- specializes --  [0..*]  Human_Aspect_Type
+}
+type Human_Aspect_Phase (instanceOf Human_Aspect) specializes Human_Aspect_Type
+mode Human_Capability  specializes Capability, Human_Aspect{
+    @manifestation
+    ( {const } )[1] --  [0..*]  Task
+    @characterization
+    [1] -- [1]  Person( {const } )
+}
+category Human_Aspect {
+    @characterization
+     [0..*] -- inheres_in -- [1]  Person( {const } )
+    @instantiation
+     [0..*] -- [1]  Human_Aspect_Type
+    @instantiation
+    [*] --  [1..*]  Human_Aspect_Phase
+}
+mode Human_Characteristic  specializes Human_Aspect{
+     [0..*]  --<o>  [0..*]  Personal_Competence
+     [0..*] -- contributes_to --  [0..*]  Personal_Competence
+}
+type Task_Type (instanceOf Task){
+     [0..*] -- concerns --  [0..*]  Artifact_Type
+     [0..*] -- depends_on --  [0..*]  Task_Type
+     [0..*] -- specializes --  [0..*]  Task_Type
+}
+type Artifact_Type (instanceOf Artifact){
+     [0..*] -- depends_on --  [0..*]  Artifact_Type
+     [0..*] -- specializes --  [0..*]  Artifact_Type
+}
+

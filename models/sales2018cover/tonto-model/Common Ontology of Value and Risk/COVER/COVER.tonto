@@ -1,0 +1,159 @@
+import UFOB
+import UFOC
+import UFOA
+
+package COVER
+
+roleMixin Vulnerability  specializes Disposition{
+    @characterization
+     [1..*] --  [0..1]  Risk_Enabler( {const } )
+    @manifestation
+    ( {const } )[*] --  [1..*]  Risk_Event
+    @characterization
+     [1..*] --  [0..1]  Object_at_Risk( {const } )
+     [1..*]  --<o>  [1..*]  Experience_Risk_Assessment
+}
+situation Hazardous_Situation {
+    @triggers
+    ( {const } ) [1..*] --  [1..*]  Threat_Event
+}
+event Threat_Event  specializes Risk_Event, Trigger_Event{
+    @historicalDependence
+     [1..*] -- causes --  [1..*]  Loss_Event( {const } )
+}
+event Loss_Event  specializes Risk_Event, Impact_Event{
+    @bringsAbout
+    ( {const } ) [1..*] --  [0..1]  Loss_Situation( {const } )
+}
+situation Loss_Situation 
+roleMixin Risk_Subject  specializes Value_Subject{
+    @participation
+    ( {const } ) [1..*] --  [1..*]  Risk_Experience
+}
+roleMixin Threat_Object  specializes Value_Object{
+    @participation
+    ( {const } )[*] --  [1..*]  Threat_Event
+    @participation
+    ( {const } )[*] --  [1..*]  Risk_Experience
+}
+event Risk_Experience  specializes Value_Experience
+event Risk_Event  specializes Value_Event{
+     [2..*]  --<o>  [1..*]  Risk_Experience
+    @historicalDependence
+    [*] -- directly_caused -- [*]  Risk_Event( {const } )
+}
+roleMixin Risk_Enabler  specializes Value_Enabler{
+    @participation
+    ( {const } )[*] --  [1..*]  Risk_Event
+    @participation
+    ( {const } )[*] --  [1..*]  Risk_Experience
+}
+roleMixin Object_at_Risk  specializes Value_Object{
+    @participation
+    ( {const } ) [0..1] --  [1..*]  Loss_Event
+    @participation
+    ( {const } ) [0..1] --  [1..*]  Risk_Experience
+}
+roleMixin Threat_Capability  specializes Capability{
+    @characterization
+     [1..*] -- [1]  Threat_Object( {const } )
+    @manifestation
+    ( {const } )[*] --  [1..*]  Threat_Event
+}
+roleMixin Value_Object  specializes Endurant{
+    @participation
+    ( {const } ) [0..1] --  [1..*]  Value_Experience
+}
+roleMixin Value_Enabler  specializes Endurant{
+    @participation
+    ( {const } )[*] --  [1..*]  Value_Experience
+    @participation
+    ( {const } )[*] --  [1..*]  Value_Event
+}
+roleMixin Threat_Agent  specializes Agent, Threat_Object
+roleMixin Value_Assessor  specializes Agent
+roleMixin Value_Subject  specializes Agent{
+    @participation
+    ( {const } ) [1..*] --  [1..*]  Value_Experience
+}
+roleMixin Risk_Assessor  specializes Value_Assessor
+event Value_Experience  specializes Event
+event Value_Event  specializes Event{
+     [2..*]  --<o>  [1..*]  Value_Experience
+    @historicalDependence
+    [*] -- directly_causes -- [*]  Value_Event( {const } )
+}
+event Valuation  specializes Action
+event Impact_Event  specializes Value_Event{
+    @bringsAbout
+    ( {const } ) [1..*] -- brings_about_impactful_outcome --  [0..1]  Impactful_Outcome( {const } )
+    [*] -- impacts -- [*]  Intention
+}
+event Trigger_Event  specializes Value_Event{
+    @historicalDependence
+     [1..*] -- causes --  [1..*]  Impact_Event( {const } )
+}
+event Gain_Event  specializes Impact_Event
+event Opportunity_Event  specializes Trigger_Event
+event Root_Cause_Event  specializes Threat_Event
+event Attack  specializes Action, Threat_Event
+category Likelihood  specializes Quality
+quality Value  specializes Quality{
+    @characterization
+    [1] -- [1]  Value_Ascription( {const } )
+}
+subkind Risk  specializes Value{
+    @characterization
+    [1] -- [1]  Risk_Assessment( {const } )
+}
+quality Triggering_Likelihood  specializes Likelihood{
+    @characterization
+    [*] -- [1]  Situation_Type( {const } )
+    @externalDependence
+    [*] -- [1]  Event_Type( {const } )
+}
+quality Causal_Likelihood  specializes Likelihood{
+    @characterization
+    [*] -- [1]  Event_Type( {const } )
+    @externalDependence
+    [*] -- [1]  Event_Type( {const } )
+}
+roleMixin Capability  specializes Disposition
+relator Value_Ascription  specializes Relator{
+    @mediation
+     [1..*] -- [1]  Value_Assessor( {const } )
+}
+relator Value_Asc_Component  specializes Relator
+subkind Value_Asc_Ex_Ante  specializes Value_Ascription
+subkind Value_Asc_Ex_Post  specializes Value_Ascription
+subkind Object_Value_Asc  specializes Value_Ascription{
+    @mediation
+     [1..*] -- [1]  Value_Object( {const } )
+}
+subkind Experience_Value_Asc  specializes Value_Ascription{
+     [1..*]  --<o>  [0..1]  Object_Value_Asc
+    @mediation
+     [1..*] -- [1]  Value_Experience( {const } )
+}
+subkind Value_Perception  specializes Value_Ascription
+subkind Value_Assertion  specializes Value_Ascription
+subkind Gain_Ascription  specializes Value_Asc_Component
+subkind Loss_Ascription  specializes Value_Asc_Component
+subkind Risk_Assessment  specializes Value_Asc_Ex_Ante{
+    @mediation
+     [1..*] -- [1]  Risk_Assessor( {const } )
+}
+subkind Object_Risk_Assess  specializes Object_Value_Asc, Risk_Assessment{
+    @mediation
+     [1..*] -- [1]  Object_at_Risk( {const } )
+}
+subkind Experience_Risk_Assessment  specializes Experience_Value_Asc, Risk_Assessment{
+     [1..*]  --<o>  [0..1]  Object_Risk_Assess
+    @mediation
+     [1..*] -- [1]  Risk_Experience( {const } )
+     [1..*] <>-- [*]  Threat_Capability
+}
+situation Impactful_Outcome {
+    [*] -- impacts --  [1..*]  Intention
+}
+

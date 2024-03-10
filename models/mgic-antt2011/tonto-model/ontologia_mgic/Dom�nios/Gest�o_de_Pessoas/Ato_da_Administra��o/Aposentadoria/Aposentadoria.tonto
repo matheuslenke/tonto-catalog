@@ -1,0 +1,21 @@
+import Agente_Administrativo
+
+package Aposentadoria
+
+kind Junta_Mdica_Oficial {
+    @mediation
+    ( {const } )[1] --  [1..*]  Aposentadoria_por_Invalidez
+}
+relator Aposentadoria_por_Doena  specializes Aposentadoria_por_Invalidez
+relator Aposentadoria_por_Invalidez  specializes Aposentadoria
+relator Aposentadoria_Compulsria  specializes Aposentadoria
+relator Aposentadoria {
+    data : undefined
+    valor_bruto : undefined
+    @mediation
+    [1] -- [1]  Aposentado_Pblico( {const } )
+}
+relator Aposentadoria_por_Molstia_Profissional  specializes Aposentadoria_por_Invalidez
+relator Aposentadoria_por_Acidente_em_Servio  specializes Aposentadoria_por_Invalidez
+relator Aposentadoria_Voluntria  specializes Aposentadoria
+

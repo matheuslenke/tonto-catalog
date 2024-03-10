@@ -1,0 +1,16 @@
+import Ativo_Permanente
+import Imvel_Contbil
+
+package Construo
+
+relator _Construo_de_Intangvel 
+relator _Construo_de_Imobilizado 
+relator Construo  specializes _Construo_de_Imobilizado, _Construo_de_Intangvel{
+    data_fim : undefined
+    data_incio : undefined
+}
+category Bem_Construdo  specializes Obra_da_Concesso, Imvel_Edificado_Construdo{
+    @mediation
+    ( {const } )[1] -- [1]  Construo
+}
+

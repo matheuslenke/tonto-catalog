@@ -1,0 +1,14 @@
+import Subscription
+import Revenue_Stream
+import Payment
+
+package Subscription
+
+subkind Subscription_Fee  specializes Revenue_Stream{
+    [1] -- [1]  Subscription_Payment
+}
+event Subscription_Payment  specializes Payment_Action{
+    @participational
+    ( {const } )[1]  -- includes --<o> [1]  Subscription_Action( {const } )
+}
+

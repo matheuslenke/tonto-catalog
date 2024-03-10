@@ -1,0 +1,15 @@
+import SPO
+
+package SWO
+
+kind Software_System  specializes Software_Item{
+     [0..*] -- constituted_of --  [1..*]  Program
+}
+kind Program  specializes Software_Item{
+     [0..1] -- constituted_of --  [1..*]  Code
+}
+kind Code  specializes Software_Item
+subkind Source_Code  specializes Code{
+     [0..*] -- represented_in --  [1..*]  Programming_Language
+}
+

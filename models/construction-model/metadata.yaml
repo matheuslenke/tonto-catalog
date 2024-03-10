@@ -1,0 +1,22 @@
+title: The Construction Model
+acronym:
+issued: 2013
+modified:
+contributor:
+keyword:
+ - construction
+theme: Class T - Technology
+editorialNote: Model created by students for a university project. The authors asked to remain anonymous.
+ontologyType:
+ - domain
+language: en
+designedForTask:
+ - learning
+ - conceptual clarification
+context:
+ - classroom
+source:
+representationStyle:
+ - ontouml
+landingPage:
+license: https://creativecommons.org/licenses/by/4.0/

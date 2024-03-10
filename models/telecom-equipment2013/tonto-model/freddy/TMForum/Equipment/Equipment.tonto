@@ -1,0 +1,59 @@
+import TP
+
+package Equipment
+
+role Rack_Composed_Of_Shelf  specializes Rack{
+    @material
+    [1] -- rackHoldsShelf --  [1..*]  Shelf
+    @mediation
+    ( {const } )[1] -- suffers --  [1..*]  Fitting_ShelfRack
+}
+role Shelf_Composed_Of_Slot  specializes Shelf{
+    @material
+    [1] -- shelfHoldsSlot --  [1..*]  Slot
+    @mediation
+    ( {const } )[1] -- suffers --  [1..*]  Fitting_SlotShelf
+}
+role Slot_Composed_Of_SubSlot  specializes Slot{
+    @material
+    [1] -- slotHoldsSubSlot --  [1..*]  SubSlot
+    @mediation
+    ( {const } )[1] -- suffers --  [1..*]  Fitting_SubSlotSlot
+}
+roleMixin Socket_Composed_Of_Equipment  specializes Socket{
+    @mediation
+    ( {const } )[1] -- suffers -- [1]  Fitting_SocketEquipment
+}
+kind Equipment {
+    @material
+    [1] -- socketHoldsEquipment -- [1]  Socket_Composed_Of_Equipment
+    @mediation
+    ( {const } )[1] -- fit_in -- [1]  Fitting_SocketEquipment
+    @mediation
+    ( {const } )[1] -- endsEquipment --  [1..*]  Physical_Termination
+}
+mixin EquipmentHolder 
+relator Fitting_ShelfRack 
+relator Fitting_SlotShelf 
+relator Fitting_SocketEquipment 
+relator Fitting_SubSlotSlot 
+kind Rack  specializes EquipmentHolder{
+    @mediation
+    ( {const } ) [1..*] -- is_in -- [1]  Abstraction_Of_CoLocalization
+}
+kind Shelf  specializes EquipmentHolder{
+    @mediation
+    ( {const } )[1] -- fit_in -- [1]  Fitting_ShelfRack
+}
+kind Slot  specializes Socket{
+    @mediation
+    ( {const } )[1] -- fit_in -- [1]  Fitting_SlotShelf
+}
+mixin Socket  specializes EquipmentHolder
+kind SubSlot  specializes Socket{
+    @mediation
+    ( {const } )[1] -- fit_in -- [1]  Fitting_SubSlotSlot
+}
+relator Abstraction_Of_CoLocalization 
+relator SNC_Termination 
+

@@ -1,0 +1,8 @@
+import UFO
+
+package SPO
+
+class Stakeholder  specializes Agent
+class Artifact  specializes Object
+class Hardware_Equipment  specializes Object
+

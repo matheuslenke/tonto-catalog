@@ -1,0 +1,52 @@
+package antipatterns
+
+kind Kind1 
+kind ST1 {
+    [*] -- SR -- [*]  ST2
+}
+kind ST2 
+subkind T1  specializes ST1{
+    [*] -- R -- [*]  T2
+}
+subkind T2  specializes ST2
+kind ST 
+role T1_2  specializes ST{
+    [*] -- R -- [*]  T2_2
+}
+role T2_2  specializes ST
+kind T {
+    @Formal
+    [1] -- R -- [1]  T
+}
+kind T1_3 {
+    @componentOf
+    [1] <o>-- R3 --  [1..*]  T3
+    @componentOf
+    [1] <o>-- R1 --  [1..*]  T2_3
+}
+kind T2_3 {
+    @Formal
+    [*] -- R2 -- [*]  T3
+}
+kind T3 
+relator R1 {
+    @mediation
+     [1..*] -- M2 -- [1]  T2_4( {const } )
+    @mediation
+     [1..*] -- M1 -- [1]  T1_4( {const } )
+    @mediation
+     [1..*] -- M3 -- [1]  T3_2( {const } )
+}
+role T1_4  specializes ST_2
+role T3_2  specializes ST_2
+role T2_4  specializes ST_2
+kind ST_2 
+kind T2_5 
+subkind SBT1  specializes T2_5
+subkind SBT2  specializes T2_5
+subkind SBT3  specializes T2_5
+kind Kind2 
+kind T1_5 {
+    [*] -- R -- [*]  T2_5
+}
+

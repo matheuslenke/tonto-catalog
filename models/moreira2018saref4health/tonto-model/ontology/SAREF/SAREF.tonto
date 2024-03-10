@@ -1,0 +1,28 @@
+package SAREF
+
+kind Device {
+    sarefhasManufacturer : undefined
+    [1] <o>-- sarefconsistOf --  [0..*]  Device
+    @formal
+    [1] -- sarefmakesMeasurement --  [0..*]  Measurement
+    @characterization
+    ( {const } )[1] -- sarefmeasuresProperty --  [1..*]  Property( {const } )
+    @formal
+     [0..*] -- sarefaccomplishes --  [1..*]  Task
+}
+kind Measurement {
+    sarefhasValue : float[1] 
+    sarefhasTimestamp : undefined
+    @formal
+     [0..*] -- sarefisMeasuredIn -- [1]  UnitOfMeasurement
+    @characterization
+    ( {const } ) [0..*] -- sarefrelatesToProperty -- [1]  Property( {const } )
+}
+kind Sensor  specializes Device
+category UnitOfMeasurement 
+quality Property 
+class Task {
+    hasStart : undefined
+    hasEnd : undefined
+}
+

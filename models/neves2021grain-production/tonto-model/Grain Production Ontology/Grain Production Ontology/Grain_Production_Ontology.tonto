@@ -1,0 +1,46 @@
+package Grain_Production_Ontology
+
+kind Digital_Images 
+subkind Satellite_Images  specializes Digital_Images{
+    [*] <>-- [*]  NDVI_Index
+    [*] -- Georef_ImagesTIFF -- [*]  TIFF
+}
+category NDVI_Index 
+datatype TIFF
+kind Oher_Variables {
+    [*] <>-- [*]  Production_Evolution_States
+}
+category Production_Evolution_States 
+subkind Geolocation  specializes Crop
+kind Crop {
+    [*] -- CropDigital_Images -- [*]  Digital_Images
+    [*] -- CropOther_Variables -- [*]  Oher_Variables
+    [*] -- CropClimate_Station -- [*]  Climate_Station
+}
+kind Climate_Station {
+    [*] <>-- [*]  Leaf_Wetting_Duration
+    [*] <>-- [*]  Air_Relative_Humidity
+    [*] <>-- [*]  Accumulated_Precipitation
+    [*] <>-- [*]  Maximum_Temperature
+    [*] <>-- [*]  Minimum_Temperature
+}
+category Leaf_Wetting_Duration {
+    [*] <o>-- [*]  Hoursday
+}
+category Air_Relative_Humidity {
+    [*] <o>-- [*]  Percentage
+}
+category Accumulated_Precipitation {
+    [*] <o>-- [*]  Milimeters
+}
+category Maximum_Temperature {
+    [*] <o>-- [*]  Degrees_Celsius
+}
+category Minimum_Temperature {
+    [*] <o>-- [*]  Degrees_Celsius
+}
+datatype Hoursday
+datatype Percentage
+datatype Milimeters
+datatype Degrees_Celsius
+

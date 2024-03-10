@@ -1,0 +1,8 @@
+import Communication
+
+package Collaboration_Ontology
+
+category Agent {
+     [0..*] -- knows --  [0..*]  Language
+}
+

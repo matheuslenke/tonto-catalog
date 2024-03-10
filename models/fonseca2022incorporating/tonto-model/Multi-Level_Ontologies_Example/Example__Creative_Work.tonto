@@ -1,0 +1,41 @@
+package Example__Creative_Work
+
+category Creative_Work 
+category Agent 
+roleMixin License_Holder  specializes Agent
+roleMixin Author  specializes Agent
+role Writer  specializes Person, Author
+role Sculptor  specializes Person, Author
+roleMixin Publisher  specializes Agent
+type Book (instanceOf Book_Copy) specializes Creative_Work
+kind Sculpture  specializes Creative_Work
+kind Book_Copy {
+    @instantiation
+    [*] -- [1]  Book
+}
+kind Person  specializes Agent
+kind Organization  specializes Agent
+kind Painting  specializes Creative_Work
+role Painter  specializes Person, Author
+roleMixin Awarded_Work  specializes Creative_Work
+phaseMixin Copyrighted_Work  specializes Creative_Work
+phaseMixin Public_Domain_Work  specializes Creative_Work
+relator Licensing {
+    @mediation
+     [0..*] -- [1]  Creative_Work( {const } )
+    @mediation
+     [1..*] -- [1]  License_Holder( {const } )
+}
+relator Edition_Publishing {
+    @mediation
+     [1..*] -- [1]  Publisher( {const } )
+    @mediation
+     [0..*] -- [1]  Book( {const } )
+}
+relator Book_Authorship {
+    @mediation
+     [1..*] -- [1]  Writer( {const } )
+    @mediation
+     [0..*] -- [1]  Book( {const } )
+}
+

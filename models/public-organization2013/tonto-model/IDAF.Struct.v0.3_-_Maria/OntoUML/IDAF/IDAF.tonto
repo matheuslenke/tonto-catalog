@@ -1,0 +1,119 @@
+package IDAF
+
+category Estrutura 
+category EstruturaOrganizacional  specializes Estrutura
+category EstruturaOcupacional  specializes Estrutura{
+    @memberOf
+    [1]  -- PartGO --<o>  [2..*]  GrupoOcupacional
+}
+kind EstruturaAdministrativa  specializes EstruturaOrganizacional{
+    @componentOf
+    [1] <o>-- PartDir -- [1]  Diretoria
+    @componentOf
+    [1] <o>-- PartAsses --  [1..*]  Assessoria
+    @componentOf
+    [1] <o>-- PartDepto --  [1..*]  Departamento
+}
+kind EstruturaOperacional  specializes EstruturaOrganizacional{
+    @componentOf
+    [1] <o>-- PartLabDiag --  [1..*]  LaboratorioDiagnostico
+    @componentOf
+    [1] <o>-- PartEscrit --  [1..*]  Escritorio
+}
+kind Organizacao 
+subkind Diretoria  specializes OrganizacaoAdministrativa
+subkind Assessoria  specializes OrganizacaoAdministrativa
+subkind Departamento  specializes OrganizacaoAdministrativa{
+    @componentOf
+    [1] <o>-- PartSec --  [2..*]  Secao
+}
+subkind Secao  specializes OrganizacaoAdministrativa
+subkind DepartamentoTecnico  specializes Departamento
+subkind DepartamentoAdminstrativo  specializes Departamento
+subkind Escritorio  specializes OrganizacaoOperacional
+subkind UnidadeVolante  specializes OrganizacaoOperacional
+subkind Posto  specializes OrganizacaoOperacional
+subkind LaboratorioDiagnostico  specializes OrganizacaoOperacional
+kind Pessoa 
+relator Lotacao {
+    @mediation
+     [1..*] -- UnitParaLot -- [1]  UnidadeLotacao( {const } )
+    @mediation
+    [1] -- ServParaLot -- [1]  Servidor( {const } )
+}
+role Servidor  specializes Pessoa{
+    @material
+     [1..*] -- ehLotadoEm -- [1]  UnidadeLotacao
+    @material
+     [1..*] -- ehDesignadoEm --  [1..*]  CargoDesignado
+}
+role UnidadeLotacao 
+kind Cargo 
+relator Designacao {
+    @mediation
+     [1..*] -- CargoParaDesig -- [1]  CargoDesignado( {const } )
+    @mediation
+    [1] -- ServParaDesig -- [1]  Servidor( {const } )
+}
+role CargoDesignado  specializes Cargo
+collective GrupoOcupacional 
+phase ServicoAuxiliar  specializes GrupoOcupacional{
+    @memberOf
+    [1] <o>-- PartAuxServ --  [2..*]  AuxiliarServicos
+}
+phase ApoioTecnicoAdministrativo  specializes GrupoOcupacional{
+    @memberOf
+    [1] <o>-- PartSupAdm --  [1..*]  SuporteAdministrativo
+    @memberOf
+    [1] <o>-- PartSupTec --  [1..*]  SuporteTecnico
+}
+phase Finalistico  specializes GrupoOcupacional{
+    @memberOf
+    [1] <o>-- PartTecLab --  [1..*]  TecnicoLaboratorio
+    @memberOf
+    [1] <o>-- PartTecDesFund --  [1..*]  TecnicoDesenvolvimentoFundiario
+    @memberOf
+    [1] <o>-- PartTecRecNat --  [1..*]  TecnicoRecursosNaturais
+    @memberOf
+    [1] <o>-- PartTecCart --  [1..*]  TecnicoCartografia
+    @memberOf
+    [1] <o>-- PartTecSanInspVeg --  [1..*]  TecnicoSanidadeInspecaoVegetal
+    @memberOf
+    [1] <o>-- PartTecSanInspAni --  [1..*]  TecnicoSanidadeInspecaoAnimal
+}
+subkind TecnicoSanidadeInspecaoAnimal  specializes Cargo
+subkind TecnicoSanidadeInspecaoVegetal  specializes Cargo
+subkind TecnicoCartografia  specializes Cargo
+subkind TecnicoRecursosNaturais  specializes Cargo
+subkind TecnicoDesenvolvimentoFundiario  specializes Cargo
+subkind TecnicoLaboratorio  specializes Cargo
+subkind SuporteAdministrativo  specializes Cargo
+subkind SuporteTecnico  specializes Cargo
+subkind AuxiliarServicos  specializes Cargo
+phase Atendimento  specializes Posto
+phase Fronteira  specializes Posto
+phase Central  specializes Escritorio
+phase Regional  specializes Escritorio{
+    @componentOf
+    [1] <o>-- PartLocal --  [1..*]  Local
+    @componentOf
+    [1] <o>-- PartUnitVol --  [1..*]  UnidadeVolante
+}
+phase Local  specializes Escritorio{
+    @componentOf
+    [1] <o>-- PartPosto --  [2..*]  Posto
+}
+relator LotacaoDepartamento {
+    @mediation
+     [1..*] -- MedEscrLot -- [1]  EscritorioLotacao( {const } )
+    @mediation
+    [1] -- MedDeptLot -- [1]  DepartamentoLotacao( {const } )
+}
+role DepartamentoLotacao  specializes Departamento{
+    @material
+     [1..*] -- LotDeptoEscr --  [1..*]  EscritorioLotacao
+}
+role EscritorioLotacao  specializes Central
+subkind OrganizacaoAdministrativa  specializes Organizacao
+subkind OrganizacaoOperacional  specializes Organizacao
+

@@ -1,0 +1,127 @@
+package Model
+
+role tourist  specializes user{
+    @material
+     [1..*] -- booking --  [1..*]  offer
+    @mediation
+    ( {const } ) [1..*] -- write_a_feedback -- [1]  feedback( {const } )
+}
+relator certification {
+    @mediation
+     [0..*] -- [1]  itinerary( {const } )
+    @mediation
+     [1..*] -- [1]  Tourist_Guide( {const } )
+     [1..*] -- need --  [1..*]  plan
+    @derivation
+    [1] -- [1]  certification
+}
+kind cultural_visit  specializes activity
+kind sport_activity  specializes activity
+kind food_and_wine_tour  specializes activity
+role Tourist_Guide  specializes user{
+    @mediation
+    ( {const } create )[1] --  [1..*]  plan( {const } )
+    [1] -- define --  [1..*]  offer
+}
+category location  specializes path{
+    touristAttraction : undefined
+    adress : Adress
+    how_to_arrive : string
+    @material
+    [*] -- [*]  location
+}
+kind user 
+category activity 
+relator booking {
+    @material
+     [1..*] -- [1]  offer( {const } )
+    @mediation
+     [1..*] -- [1]  tourist( {const } )
+    @derivation
+    [1] -- 1 -- [1]  booking
+}
+subkind museum_visit  specializes cultural_visit
+subkind city_center_visit  specializes cultural_visit
+subkind church_visit  specializes cultural_visit
+subkind castel_visit  specializes cultural_visit
+subkind Winery_visit  specializes food_and_wine_tour
+subkind resturant_visit  specializes food_and_wine_tour
+subkind Hiking  specializes sport_activity
+subkind Cycling  specializes sport_activity
+subkind Climbing  specializes sport_activity
+subkind Skiing  specializes sport_activity
+role language_certificate  specializes certification{
+    language : string
+}
+role activity_certificate  specializes certification{
+    [1] -- specific_for -- [1]  activity
+}
+kind payment 
+phase completed  specializes booking
+phase being_processed  specializes booking
+role paid  specializes completed{
+    [1] -- paid_by --  [1..*]  payment
+}
+subkind online_payment  specializes payment
+subkind creditdebit_card_payment  specializes payment
+kind receipt {
+    [1] -- for -- [1]  payment
+}
+datatype Adress {
+    street : string
+    ciy : string
+    distric : string
+    zip_code : string
+}
+datatype time {
+    year : int
+    month : int
+    day : int
+    hours : int
+    minute : int
+}
+kind itinerary {
+    duration : long
+    title : string
+    price : float
+    @material
+     [1..*] -- certification -- [1]  Tourist_Guide
+     [1..*] -- is_defined -- [1]  offer
+}
+quality offer {
+    identifier : long
+    language : string
+    date : long
+    starting_time : long
+}
+relator feedback {
+    @mediation
+    [1] -- [1]  finish( {const } written_on )
+}
+relator plan {
+    @mediation
+     [1..*] -- [1]  itinerary( {const } create )
+}
+category path {
+    points : point
+    starting_point : Adress
+    end_point : Adress
+    [1] -- compose -- [1]  itinerary
+}
+datatype point {
+    latitude : float
+    longitude : float
+}
+quality geometry {
+    coordinate : Point [1..*] 
+    @characterization
+     [1..*] -- [1]  path( {const } )
+}
+subkind Point  specializes geometry
+subkind Multi_point  specializes geometry
+subkind Line_String  specializes geometry
+subkind Multi_Line_String  specializes geometry
+phase finish  specializes offer
+phase in_progres  specializes offer
+phase planed  specializes offer
+

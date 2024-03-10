@@ -1,0 +1,8 @@
+import UFOA
+
+package UFOB
+
+class Event {
+    [1] -- hasPreSituation -- [1]  Situation
+}
+

@@ -1,0 +1,5 @@
+package SPO
+
+category Artifact 
+category Software_Item  specializes Artifact
+

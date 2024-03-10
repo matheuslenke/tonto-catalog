@@ -1,0 +1,33 @@
+import Transaction
+import GDPO_part_1
+import P2P
+import FOAF
+import UnderUtilisation
+import Service
+import Useroriented
+import Customer_Type
+
+package Airbnb
+
+roleMixin Airbnb_Home_Seeker  specializes Platform_User, Platform_Customer, Peer_User, Person
+subkind Accommodation  specializes Physical_Good{
+    @material
+     [0..*] -- personally_uses --  [0..1]  Private_Airbnb_Homeowner
+}
+event Rent_Home  specializes OuterPlatform_Delivery, Service_Delivery, UserOriented_Delivery{
+    @participation
+     [0..*] -- made_possible_by -- [1]  Airbnb_Homeowner( {const } )
+    @participation
+     [0..*] -- by -- [1]  Airbnb_Home_Renter( {const } )
+    @participation
+     [0..*] -- rented -- [1]  Accommodation( {const } )
+}
+role Private_Airbnb_Homeowner  specializes Airbnb_Homeowner, Person
+kind Product 
+roleMixin Airbnb_Homeowner  specializes Offering_Creator, Peer_User{
+    @participation
+    ( {const } )[1] -- accepted_by --  [1..*]  Transaction_Creation( {const } )
+}
+subkind Airbnb_Software  specializes Platform_Software
+roleMixin Airbnb_Home_Renter  specializes Airbnb_Home_Seeker, Private_Customer
+

@@ -1,0 +1,24 @@
+package UFO
+
+class Intention 
+class Belief 
+class Agent {
+    [1] -- performs -- [*]  Action
+}
+class Event {
+    [*] -- causes -- [*]  Event
+    [*] -- brings_about -- [1]  Situation
+}
+class Disposition {
+    [1] -- is_manifested_by -- [*]  Event
+}
+class Object 
+class Action {
+     [1..*] -- satisfy --  [1..*]  Goal
+     [1..*] -- postsituation --  [1..*]  Situation
+}
+class Goal 
+class Situation {
+     [1..*] -- activates --  [1..*]  Disposition
+}
+

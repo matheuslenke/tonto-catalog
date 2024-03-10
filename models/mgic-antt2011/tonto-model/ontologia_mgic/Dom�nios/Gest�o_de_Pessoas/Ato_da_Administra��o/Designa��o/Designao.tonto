@@ -1,0 +1,30 @@
+import Comisso_de_Outorga
+import Agente_Administrativo
+import Ato_da_Administrao
+import Contratao_via_Termo_de_Cooperao
+
+package Designao
+
+role Membro_de_Comisso  specializes Servidor_Pblico_Ativo, Objeto_do_Ato_da_Administrao, Integrante_de_CAP{
+    @memberOf
+     [2..*]  --<o>  [1..*]  Comisso
+}
+role Titular  specializes Objeto_do_Ato_da_Administrao
+relator Designao_de_Substituio  specializes Designao{
+    @mediation
+    [1] -- [1]  Titular( {const } )
+}
+role Substituto  specializes Objeto_do_Ato_da_Administrao{
+    @material
+    [1] -- substitui --  [1..*]  Titular
+    @mediation
+    [1] --  [1..*]  Designao_de_Substituio( {const } )
+}
+relator Desginao_para_Comisso  specializes Designao, Designao_para_CAP{
+    @mediation
+     [2..*] -- [1]  Comisso( {const } )
+    @mediation
+     [1..*] -- [1]  Membro_de_Comisso( {const } )
+}
+relator Designao 
+

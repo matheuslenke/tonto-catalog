@@ -1,0 +1,45 @@
+package Model
+
+category Agent 
+event Value_Ascription {
+     [0..*] -- by -- [1]  Agent
+     [0..*] -- for -- [1]  Agent
+     [0..*] -- with -- [1]  Value_Quale
+     [0..*] -- precedes --  [0..*]  Value_Ascription
+     [0..*] -- accordingTo -- [1]  Value_Protocol
+}
+event SoA_Value_Ascription  specializes Value_Ascription{
+     [1..*] --  [0..*]  VO_Value_Ascription
+     [0..*] -- to -- [1]  Focused_State_of_Affairs
+}
+event VO_Value_Ascription  specializes Value_Ascription{
+     [0..*] -- to -- [1]  Value_Object
+}
+class Value_Quale {
+    @memberOf
+     [1..*]  --<o> [1]  Value_Structure
+}
+class Value_Protocol {
+    [*] <o>-- [*]  Comparison_Frame
+    [*] <o>-- [*]  Context_Frame
+    [*] <>-- [*]  Value_Structure
+}
+class Comparison_Frame {
+    @memberOf
+     [0..*]  --<o>  [1..*]  Value_Object
+}
+class Context_Frame {
+    @memberOf
+     [0..*]  --<o>  [1..*]  Context
+}
+class Value_Structure {
+    [1] -- usedToDefine --  [1..*]  Value_Dimension
+}
+class Value_Object 
+situation Context 
+class Value_Dimension 
+situation Focused_State_of_Affairs {
+    [*] <>-- [*]  Context
+    [*] <>-- [*]  Value_Object
+}
+

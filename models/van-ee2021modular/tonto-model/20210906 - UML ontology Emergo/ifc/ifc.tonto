@@ -1,0 +1,12 @@
+import BPO_ontology
+import bpo
+
+package ifc
+
+kind BuildingElement  specializes Assembly{
+    @componentOf
+     [1..*]  --<o> [1]  House
+    @componentOf
+     [1..*]  --<o> [1]  Module
+}
+

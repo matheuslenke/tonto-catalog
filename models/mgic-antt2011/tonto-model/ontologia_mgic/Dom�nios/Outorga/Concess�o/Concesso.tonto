@@ -1,0 +1,9 @@
+import Outorga
+import Concesso_Rodoviria
+
+package Concesso
+
+relator Outorga_de_Concesso  specializes Outorga_com_Licitao, Outorga_Precedida_de_Obra_Pblica, Outorga_de_Concesso_Ferroviria, Outorga_de_Concesso_Rodoviria{
+    valor : undefined
+}
+

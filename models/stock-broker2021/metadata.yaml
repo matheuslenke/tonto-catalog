@@ -1,0 +1,21 @@
+title: Stock Brokerage Model
+acronym:
+issued: 2013
+modified:
+contributor:
+keyword:
+ - stock brokerage
+theme: Class H - Social Sciences
+editorialNote: The ontology was created by a student as a course assignment.
+ontologyType:
+ - domain
+language: en
+designedForTask:
+ - conceptual clarification
+context:
+ - classroom
+source:
+representationStyle:
+ - ontouml
+landingPage:
+license: https://creativecommons.org/licenses/by/4.0

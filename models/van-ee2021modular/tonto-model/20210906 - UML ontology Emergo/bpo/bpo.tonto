@@ -1,0 +1,104 @@
+import schema
+import omg
+import ifc
+import BPO_ontology
+import gr
+
+package bpo
+
+category Component  specializes ClassifiedObject{
+    type_ : string
+    id : string
+    NLSFB : string
+    level : undefined
+    description : string
+    length : undefined
+    width : undefined
+    height : undefined
+    weight : undefined
+    @material
+     [2..*] -- isPartOf -- [1]  Assembly
+    @material
+     [0..*] -- has_Attribute --  [0..*]  PropertyValue
+    @material
+     [0..*] -- schema_subjectOf --  [0..*]  Event
+}
+category Assembly  specializes Component{
+    @material
+    [1] -- consistsOf --  [2..*]  Component
+    @material
+     [0..*] -- isComposedOfEntity --  [0..*]  Entity
+}
+kind element  specializes Component{
+    @componentOf
+     [1..*]  --<o> [1]  BuildingElement
+    @componentOf
+     [1..*]  --<o> [1]  Module
+}
+category Product  specializes Component, ProductOrServiceModel, ProductModel{
+    releaseVersion : double
+    premoduOption : boolean
+    stockProduct : boolean
+    @material
+     [0..*] -- schemaprice --  [0..*]  priceSpecification
+}
+category Entity {
+    Supplier : string
+    SupplierInvoiceDescription : string
+    SupplierArticleCode : string
+    @material
+    [1] -- realises_Object -- [1]  Component
+    @material
+     [0..*] -- has_Outgoing_Connection --  [0..*]  componentConnection
+    @material
+     [0..*] -- is_Connected_From --  [0..*]  Entity
+    @material
+     [0..*] -- is_Connected_To --  [0..*]  Entity
+    @material
+     [0..*] -- is_Connected_With --  [0..*]  Entity
+    @material
+     [0..*] -- omghasGeometry --  [0..*]  Geometry
+}
+kind DynamicEntity  specializes Entity{
+    hasQuantity : undefined
+}
+kind SingularEntity  specializes Entity
+relator componentConnection  specializes ClassifiedObject{
+    @material
+     [0..*] -- connects_Input_Of --  [0..*]  Entity
+}
+subkind RangedAttribute  specializes Property, ClassifiedObject, PropertyValue{
+    value_ : undefined
+    permittedStepSize : undefined
+    maxValue : undefined
+    minValue : undefined
+    @material
+     [0..*] -- has_2D_Disordered_List --  [0..*]  List2D
+    @material
+     [0..*] -- has_Interval --  [0..*]  Interval
+}
+subkind Attribute  specializes Property, ClassifiedObject, PropertyValue{
+    value_ : undefined
+}
+category ClassifiedObject {
+    has_bsDD_globally_unique_identifier : string
+    @material
+     [0..*] -- schemasubjectOf -- [1]  creativeWork( {const } )
+}
+subkind Entry2D  specializes StructuredValue{
+    hasFirstValue : undefined
+    hasSecondValue : undefined
+    @material
+     [0..*] -- describes_Attribute_At_First_Value --  [0..*]  RangedAttribute
+    @material
+     [0..*] -- describes_Attribute_At_Second_Value --  [0..*]  RangedAttribute
+    @material
+     [0..*] -- is_Part_Of_List --  [0..*]  List2D
+}
+subkind Interval  specializes StructuredValue, value
+subkind List2D  specializes StructuredValue{
+    @material
+     [0..*] -- has_Entry --  [0..*]  Entry2D
+    [*] -- decribesAttribute -- [*]  RangedAttribute
+}
+

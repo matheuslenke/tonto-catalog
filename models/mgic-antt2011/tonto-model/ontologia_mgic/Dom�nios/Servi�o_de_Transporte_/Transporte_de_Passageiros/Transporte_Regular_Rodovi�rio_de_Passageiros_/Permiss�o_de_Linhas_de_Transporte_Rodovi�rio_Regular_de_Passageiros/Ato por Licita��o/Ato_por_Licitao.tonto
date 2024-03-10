@@ -1,0 +1,44 @@
+import Permisso
+import Comisso_de_Outorga
+import Permisso_por_Licitao
+import Publicao
+import Compra
+
+package Ato_por_Licitao
+
+role Licitao_Suspensa  specializes Licitao_em_Fase_Externa
+role Licitao_em_Fase_Interna  specializes Licitao{
+    @mediation
+    ( {const } )[1] -- [1]  Audincia_Pblica_para_Licitao
+}
+role Licitao_em_Habilitao  specializes Licitao_em_Fase_Externa
+role Licitao_Deserta  specializes Licitao_sem_Seleo
+subkind Licitao_de_Permisso  specializes Licitao{
+    prazo : undefined
+    @Formal
+     [0..*] -- coordena_ -- [1]  Comisso_de_Outorga
+}
+subkind Licitao_de_Concesso  specializes Licitao
+subkind Licitao_de_Obra  specializes Licitao
+subkind Licitao_de_Servio  specializes Licitao
+role Licitao_em_Julgamento  specializes Licitao_em_Fase_Externa
+role Licitao_sem_Seleo  specializes Licitao_Concluda
+role Licitao_com_Seleo  specializes Licitao_Concluda{
+    @mediation
+    ( {const } )[1] -- [1]  Outorga_de_Permisso
+}
+subkind Licitao_de_Locao  specializes Licitao
+role Licitao_em_Fase_Externa  specializes Licitao
+subkind Licitao_de_Alientao  specializes Licitao
+role Licitao_Concluda  specializes Licitao
+subkind Licitao_de_Compra  specializes Licitao
+kind Licitao 
+role Licitao_em_Convocao  specializes Licitao_em_Fase_Externa, Contexto_de_Publicao
+role Licitao_em_Homologao_e_Adjudicao  specializes Licitao_em_Fase_Externa
+role Licitao_Fracassada  specializes Licitao_sem_Seleo
+role Licitao_Anulada  specializes Licitao_Concluda
+relator Compra_por_Licitao  specializes Compra_de_Item{
+    @mediation
+    [1] -- [1]  Licitao_de_Compra( {const } )
+}
+

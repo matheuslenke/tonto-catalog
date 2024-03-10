@@ -1,0 +1,14 @@
+import DC_5_MLT_UFO_DCAT_Relationship_Instances
+
+package DC_2_DCAT_UFO_BaseModel
+
+category skosConceptScheme 
+category skosConcept {
+    [*] -- skosinScheme -- [*]  skosConceptScheme
+}
+category foafAgent 
+type dcatRelationShip {
+    [*] -- dctrelation -- [*]  dcatResource
+     [1..*] -- dcathadRole -- [1]  dcatRole
+}
+

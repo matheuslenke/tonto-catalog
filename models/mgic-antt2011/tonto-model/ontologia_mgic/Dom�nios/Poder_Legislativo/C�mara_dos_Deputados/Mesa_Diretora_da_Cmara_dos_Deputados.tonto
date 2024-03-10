@@ -1,0 +1,23 @@
+import Cmara_dos_Deputados
+import Projeto_de_Ato_Normativo
+
+package Mesa_Diretora_da_Cmara_dos_Deputados
+
+role Suplente_de_Secretrio_da_Cmara  specializes Membro_da_Mesa_Diretora_da_Cmara
+role Membro_da_Mesa_Diretora_da_Cmara  specializes Deputado_Federal
+role Secretrio_da_Cmara  specializes Membro_da_Mesa_Diretora_da_Cmara
+collective Mesa_Diretora_da_Cmara_dos_Deputados  specializes Agente_Legislativo{
+    @memberOf
+    [1] <o>-- [1]  Presidente_da_Cmara
+    @memberOf
+    [1] <o>--  [4..*]  Membro_da_Mesa_Diretora_da_Cmara
+    @memberOf
+    [1] <o>-- [1]  Secretrio_da_Cmara
+    @memberOf
+    [1] <o>-- [1]  Suplente_de_Secretrio_da_Cmara
+    @memberOf
+    [1] <o>-- [1]  Vice_Presidente_da_Cmara
+}
+role Presidente_da_Cmara  specializes Membro_da_Mesa_Diretora_da_Cmara
+role Vice_Presidente_da_Cmara  specializes Membro_da_Mesa_Diretora_da_Cmara
+

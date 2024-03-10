@@ -1,0 +1,6 @@
+package UFOA
+
+class Thing 
+class Urelement  specializes Thing
+class Set  specializes Thing
+

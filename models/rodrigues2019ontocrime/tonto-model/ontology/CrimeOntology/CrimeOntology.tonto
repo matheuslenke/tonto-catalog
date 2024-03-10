@@ -1,0 +1,198 @@
+import UFOC
+import UFOA
+
+package CrimeOntology
+
+roleMixin Legal_Object  specializes Object
+roleMixin Crime_Object  specializes Legal_Object{
+     [1..*] -- associated_to --  [1..*]  Passive_Agent
+}
+role Material_Object  specializes Physical_Object, Crime_Object
+role Abstract_Object  specializes Social_Object, Crime_Object
+kind Natural_Person  specializes Physical_Agent, Agent
+phase Criminally_Liable  specializes Mentally_Healthy, Adult
+phase Criminally_Incapable  specializes Natural_Person
+roleMixin Passive_Agent  specializes Crime_Agent, Legal_Agent
+role Active_Agent  specializes Crime_Agent, Natural_Person, Legal_Agent{
+     [1..*] -- injures --  [1..*]  Passive_Agent
+}
+phase Underage  specializes Natural_Person
+phase Mentally_Sick  specializes Natural_Person
+kind State  specializes Institutional_Agent
+kind Juridical_Person  specializes Institutional_Agent
+class Positive_Law  specializes Legal_Normative_Description{
+     [1..*] -- recognized_by -- [1]  Jurisdictional_State
+    [1] <o>--  [1..*]  Legal_Norm
+}
+class Legal_Act  specializes Action_Contribution, Legal_Event{
+     [1..*] -- performance_of --  [1..*]  Legal_Agent
+}
+role Qualified_Situation  specializes Situation{
+     [1..*] <>--  [0..*]  Circumstance
+}
+role Allowed_Situation  specializes Qualified_Situation
+role Disallowed_Situation  specializes Qualified_Situation
+role Mandatory_Situation  specializes Situation, Qualified_Situation
+class Legal_Norm  specializes Legal_Normative_Description
+class Qualification  specializes Legal_Relator{
+    @mediation
+     [1..*] --  [1..*]  Qualified_Situation( {const } )
+}
+class Permission  specializes Qualification
+class Prohibition  specializes Permission
+class Obligation  specializes Permission
+class Non_Incriminating  specializes Legal_Rule{
+     [1..*] -- allows --  [1..*]  Allowed_Situation
+}
+class Incriminating  specializes Legal_Rule{
+     [1..*] -- disallows --  [1..*]  Disallowed_Situation
+     [1..*] -- allows --  [1..*]  Mandatory_Situation
+}
+class Able_Agent_Participation  specializes Legal_Event{
+    [1] -- participation_of --  [1..*]  Able_Person
+}
+phase Able_Person  specializes Natural_Person{
+     [1..*] -- bears --  [1..*]  Ability
+}
+class Ability  specializes Intrinsic_Moment
+class Duty_to_Act  specializes Social_Commitment{
+     [1..*] -- inheres_in --  [1..*]  Agent
+}
+role Guarantor_Able_Person  specializes Guarantor, Able_Person
+class Legal_Care_Relator  specializes Legal_Relator{
+    @mediation
+     [1..*] -- [1]  Guarantor( {const } )
+    @mediation
+     [1..*] -- [1]  Guaranteed( {const } )
+    @derivation
+    [1] -- [1]  protects
+}
+role Guarantor  specializes Natural_Person{
+     [1..*] -- protects --  [1..*]  Guaranteed
+}
+role Guaranteed  specializes Physical_Agent
+class Specific_Duty_to_Act  specializes Duty_to_Act{
+     [1..*] -- inheres_in --  [1..*]  Guarantor
+}
+class Crime  specializes TypicalEvent, UnlawfulEvent, CulpableEvent
+class Comissive_Crime  specializes Crime, Criminal_Act
+class Pure_Omissive_Crime  specializes CulpableEvent, LegalOmission, UnlawfulEvent
+class Felony_Omission  specializes LegalFelonyOmission, UnlawfulEvent, CulpableEvent{
+    [1] -- match -- [1]  Comissive_Crime
+}
+class Punishment_Act  specializes Legal_Act{
+     [0..*] -- performance_of --  [1..*]  Jurisdictional_State
+}
+class Deprive_Liberty  specializes Punishment_Act
+class Restrict_Right  specializes Punishment_Act
+class Fine  specializes Punishment_Act
+class Circumstance  specializes Qualified_Situation
+class Aggravating  specializes Circumstance
+class Mitigating  specializes Circumstance
+class Norm_Relator  specializes Legal_Relator{
+     [0..*] -- dependence_of --  [1..*]  Principle
+}
+class Lex_Posterior_Relator  specializes Norm_Relator{
+    @mediation
+     [1..*] --  [1..*]  Recent_Rule( {const } )
+    @mediation
+     [1..*] --  [1..*]  Ancient_Rule( {const } )
+    @derivation
+    [1] -- [1]  updates
+}
+role Specific_Rule  specializes Legal_Rule{
+     [1..*] -- specializes --  [1..*]  General_Rule
+}
+role General_Rule  specializes Legal_Rule
+role Ancient_Rule  specializes Legal_Rule
+role Recent_Rule  specializes Legal_Rule{
+     [1..*] -- updates --  [1..*]  Ancient_Rule
+}
+role Superior_Rule  specializes Legal_Rule{
+     [1..*] -- overrules --  [1..*]  Inferior_Rule
+}
+role Inferior_Rule  specializes Legal_Rule
+role Passive_Person  specializes Passive_Agent, Natural_Person
+role Passive_Juridical_Person  specializes Juridical_Person, Passive_Agent
+role Passive_Society  specializes Society, Passive_Agent
+class Register  specializes Social_Object
+class CPF  specializes Register
+class CNPJ  specializes Register
+class Legal_Normative_Description  specializes Normative_Description{
+     [1..*] -- defines --  [1..*]  Legal_Object
+     [1..*] -- defines --  [1..*]  Legal_Agent
+     [1..*] -- defines --  [1..*]  Legal_Relator
+}
+roleMixin Legal_Agent  specializes Agent
+roleMixin Crime_Agent  specializes Legal_Agent
+class Principle  specializes Legal_Norm
+class Legal_Rule  specializes Legal_Norm{
+     [1..*] <o>-- hasPunishment --  [0..*]  Punishment_Act
+    @mediation
+     [1..*] -- [1]  Qualification( {const } )
+     [1..*] <o>-- primary_precept --  [1..*]  Qualified_Situation
+}
+class Unfulfilled_Duty_to_Act  specializes Unfulfilled, Duty_to_Act{
+     [1..*] -- present_in --  [1..*]  Mandatory_Situation
+}
+class Unfulfilled_Specific_Duty_to_Act  specializes Unfulfilled, Specific_Duty_to_Act{
+     [1..*] -- present_in -- [1]  Mandatory_Situation
+}
+class Able_Guarantor_Participation  specializes Able_Agent_Participation{
+     [1..*] -- participation_of --  [1..*]  Guarantor_Able_Person
+     [1..*] -- caused_by --  [1..*]  Desire
+}
+phase Adult  specializes Natural_Person
+phase Mentally_Healthy  specializes Natural_Person
+role Crime_Author  specializes Active_Agent, Criminally_Liable
+class Legal_Event  specializes Agent_Participation{
+     [1..*] -- participation_of --  [1..*]  Legal_Agent
+}
+class TypicalEvent  specializes Legal_Event{
+    [1] -- hasPosSituation -- [1]  Disallowed_Situation
+}
+class CulpableEvent  specializes Legal_Event{
+     [1..*] -- participation_of --  [1..*]  Crime_Author
+}
+class UnlawfulEvent  specializes Legal_Event{
+     [1..*] -- violation --  [1..*]  Crime_Object
+}
+class LegalOmission  specializes TypicalEvent, Able_Agent_Participation{
+    [1] -- hasPreSituation -- [1]  Mandatory_Situation
+}
+class LegalFelonyOmission  specializes Able_Guarantor_Participation, TypicalEvent{
+    [*] -- [1]  Mandatory_Situation
+}
+class Legal_Relator  specializes Social_Relator
+class Criminal_Act  specializes Legal_Act, TypicalEvent{
+     [1..*] -- caused_by --  [1..*]  Intention
+     [1..*] -- performance_of --  [1..*]  Active_Agent
+    [1] -- hasDisallowedSituation -- [1]  Disallowed_Situation
+}
+roleMixin Jurisdiction_Agent  specializes Legal_Agent
+role Jurisdictional_State  specializes Jurisdiction_Agent, State
+class Crime_Relator {
+    @mediation
+     [1..*] -- [1]  Passive_Agent( {const } )
+    @mediation
+     [1..*] -- [1]  Active_Agent( {const } )
+    @derivation
+    [1] -- [1]  injures
+}
+class Lex_Specialis_Relator  specializes Norm_Relator{
+    @mediation
+     [1..*] --  [1..*]  Specific_Rule( {const } )
+    @mediation
+     [1..*] --  [1..*]  General_Rule( {const } )
+    @derivation
+    [1] -- [1]  specializes
+}
+class Lex_Superior_Relator  specializes Norm_Relator{
+    @mediation
+     [1..*] --  [1..*]  Superior_Rule( {const } )
+    @mediation
+     [1..*] --  [1..*]  Inferior_Rule( {const } )
+    @derivation
+    [1] -- [1]  overrules
+}
+

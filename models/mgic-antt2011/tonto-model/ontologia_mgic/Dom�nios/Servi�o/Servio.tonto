@@ -1,0 +1,45 @@
+import Outorga
+import Servio_em_Concesso
+import Convnio_de_Manuteno
+import Transporte_Rodovirio_de_Cargas
+import Servio_de_Transporte_Rodovirio_de_Passageiros
+import Permisso
+
+package Servio
+
+relator Provimento_de_Servio 
+category Servio  specializes Linha_de_nibus, Servio_em_Concesso_{
+    @mediation
+    ( {const } )[1] -- [1]  Provimento_de_Servio
+    @material
+     [1..*] -- prov -- [1]  Provedor_de_Servio
+}
+roleMixin Servio_Delegado  specializes Servio, Linha_de_nibus_Outorgada, Servio_de_Manuteno_Delegado
+relator Execuo_de_Servio  specializes Execuo_de_Servio2, Operao_de_Transporte_Rodovirio_de_Cargas, Transporte_Rodovirio_de_Passageiros{
+    inicio : undefined
+    trmino : undefined
+    @mediation
+     [1..*] --  [1..*]  Produtor_de_Servio( {const } )
+}
+relator Delegao  specializes Delegao_em_Convnio_de_Manuteno, Outorga_de_Permisso{
+    @mediation
+    [1] --  [1..*]  Servio_Delegado( {const } servio )
+}
+roleMixin Servio_Executado  specializes Servio, Servio_Executado_em_Concesso{
+    @material
+    [1] -- [1]  Produtor_de_Servio
+    @mediation
+    ( {const } servio_executado )[1] --  [1..*]  Execuo_de_Servio
+}
+mixin Produtor_de_Servio 
+mixin Responsvel_por_Servio_Delegado  specializes Convenente_Responsvel_por_Servio_Delegado, Permissionria{
+    @mediation
+    ( {const } responsvel )[1] --  [1..*]  Delegao
+    @material
+    [1] -- [1]  Servio_Delegado
+}
+mixin Provedor_de_Servio  specializes Concessionria_Provedora_de_Servio{
+    @mediation
+    ( {const } )[1] --  [1..*]  Provimento_de_Servio
+}
+

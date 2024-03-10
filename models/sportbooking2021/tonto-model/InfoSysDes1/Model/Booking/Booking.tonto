@@ -1,0 +1,47 @@
+import Model
+import Employment
+
+package Booking
+
+relator Purchase {
+    @mediation
+     [1..*] -- [1]  Customer( {const } )
+    [*] -- for_purchase -- [*]  Payment
+    @mediation
+     [0..*] -- [1]  Single_Booking( {const } )
+    @mediation
+     [0..*] --  [0..*]  Shared_Booking( {const } )
+    @derivation
+    [1] -- [1]  Books
+}
+relator Store {
+    @mediation
+     [0..*] -- involves_facility_booking --  [0..*]  FacilityBooking( {const } )
+    @mediation
+     [0..*] -- involves_booking_history -- [1]  Booking_history( {const } )
+    @mediation
+     [0..*] -- DependsOn -- [1]  Confirmation( {const } )
+}
+relator Game {
+    @mediation
+     [1..*] -- played_by -- [1]  Customer( {const } )
+    @mediation
+     [0..*] -- played_at -- [1]  Physical_building( {const } )
+    @mediation
+     [0..*] -- DependsOn -- [1]  Purchase( {const } )
+}
+relator Confirmation {
+    @mediation
+     [1..*] -- confirmed_by -- [1]  Mediated_by_Confirmation( {const } )
+    @mediation
+     [0..*] -- of -- [1]  FacilityBooking( {const } )
+}
+relator Instructor_confirmation {
+    @mediation
+     [1..*] -- confirmed_by -- [1]  Instructor( {const } )
+    @mediation
+     [0..*] -- received_by -- [1]  Instructor_Booking( {const } )
+}
+phase Accepted  specializes Instructor_confirmation
+phase Cancelled  specializes Instructor_confirmation
+

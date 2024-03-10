@@ -1,0 +1,7 @@
+import UFO
+
+package ASMP
+
+class World_Assumption  specializes Proposition
+class Machine_Assumption  specializes Proposition
+

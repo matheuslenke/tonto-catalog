@@ -1,0 +1,74 @@
+import Georreferenciamento
+import Cmara_dos_Deputados
+import Senado_Federal
+import Projeto_de_Ato_Normativo
+import Sesso_do_Plenrio
+
+package Poder_Legislativo
+
+role Governador  specializes Agente_Poltico_Eleito
+relator Mandato {
+    posse : undefined
+    prazo : undefined
+    @mediation
+     [1..*] -- [1]  Responsvel_por_Empossar_Eleito( {const } )
+    @mediation
+    [1] -- [1]  Agente_Poltico_Eleito( {const } )
+}
+role Ministro  specializes Agente_Poltico_de_Livre_Nomeao
+relator Mandato_de_Nvel_Estadual  specializes Mandato, Mandato_de_Senador, Mandato_de_Deputado_Federal{
+    @mediation
+     [1..*] -- [1]  Unidade_Federativa( {const } uf )
+}
+relator Mandato_de_Deputado_Estadual  specializes Mandato_de_Nvel_Estadual{
+    @mediation
+    [1] -- [1]  Deputado_Estadual( {const } )
+    @mediation
+     [1..*] -- [1]  Unidade_Federativa( {const } )
+}
+collective Congresso_Nacional  specializes Agente_Legislativo{
+    @subCollectionOf
+    [1] <o>-- [1]  Cmara_dos_Deputados
+    @subCollectionOf
+    [1] <o>-- [1]  Senado_Federal
+}
+role Presidente  specializes Agente_Poltico_Eleito, Agente_Legislativo
+role Responsvel_por_Empossar_Eleito  specializes Agente_Poltico
+role Deputado_Estadual  specializes Agente_Poltico_Eleito
+role Agente_Poltico_Eleito  specializes Agente_Poltico
+collective Bloco_Parlamentar {
+    membros : undefined
+    nome : undefined
+}
+relator Mandato_de_Vereador  specializes Mandato_de_Nvel_Municipal{
+    @mediation
+    [1] -- [1]  Vereador( {const } )
+}
+relator Mandato_de_Presidente  specializes Mandato{
+    @mediation
+    [1] -- [1]  Presidente( {const } )
+}
+role Agente_Poltico_de_Livre_Nomeao  specializes Agente_Poltico
+relator Mandato_de_Prefeito  specializes Mandato_de_Nvel_Municipal{
+    @mediation
+    [1] -- [1]  Municpio( {const } )
+    @mediation
+    [1] -- [1]  Prefeito( {const } )
+}
+role Secretrio_Estadual  specializes Agente_Poltico_de_Livre_Nomeao
+role Secretrio_Municipal  specializes Agente_Poltico_de_Livre_Nomeao
+role Vereador  specializes Agente_Poltico_Eleito
+role Prefeito  specializes Agente_Poltico_Eleito
+relator Mandato_de_Governador  specializes Mandato_de_Nvel_Estadual{
+    @mediation
+    [1] -- [1]  Unidade_Federativa( {const } )
+    @mediation
+    [1] -- [1]  Governador( {const } )
+}
+role Parlamentar  specializes Agente_Poltico_Eleito, Autor_de_Pronunciamento, Agente_Legislativo
+relator Mandato_de_Nvel_Municipal  specializes Mandato{
+    @mediation
+    [1] --  [1..*]  Municpio( {const } municipio )
+}
+role Agente_Poltico 
+

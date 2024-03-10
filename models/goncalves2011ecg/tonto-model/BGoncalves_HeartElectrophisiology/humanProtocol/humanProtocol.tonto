@@ -1,0 +1,36 @@
+import ecg
+import heart
+
+package humanProtocol
+
+kind Person {
+    [1] -- constitutedOf -- [1]  HumanBody
+}
+role Patient  specializes Person{
+    @material
+     [0..*] -- treats --  [1..*]  Physician
+    @participation
+    ( {const } )[1] --  [0..*]  ECGRecordingSession
+}
+role Physician  specializes Person
+relator Treatment {
+    @mediation
+     [1..*] -- [1]  Patient( {const } )
+    @mediation
+     [0..*] -- [1]  Physician( {const } )
+    @derivation
+    [1] -- [1]  treats
+}
+kind EPR {
+    [1] <>--  [0..*]  ECGRecord
+    [1] -- has -- [1]  Patient
+}
+kind BodySurface {
+    @componentOf
+     [1..*]  --<o> [1]  HumanBody( {const } )
+}
+kind BodySurfaceRegion {
+    @componentOf
+     [1..*]  --<o> [1]  BodySurface( {const } )
+}
+

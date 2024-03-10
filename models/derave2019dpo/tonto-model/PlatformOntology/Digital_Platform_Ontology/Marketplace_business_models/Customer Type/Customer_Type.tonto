@@ -1,0 +1,6 @@
+import FOAF
+
+package Customer_Type
+
+subkind Private_Customer  specializes Person
+

@@ -1,0 +1,10 @@
+import Bem_da_Concesso
+import Outorga
+
+package Reverso_de_Bem_Ferrovirio
+
+relator Outorga_de_Concesso_Ferroviria_Finalizada_com_Reverso_de_Ativos  specializes Outorga_de_Concesso_Ferroviria{
+    @mediation
+    [1] --  [1..*]  Ativo_Ferrovirio_Prprio_Revertido( {const } )
+}
+

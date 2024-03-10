@@ -1,0 +1,31 @@
+import IDENTITY
+import STAKEHOLDERS
+
+package COMMUNICATION
+
+category Noise {
+    @formal
+    [*] -- [*]  Communication
+}
+kind Environmental_Influences  specializes Noise{
+    [*] -- [*]  Identity
+}
+relator Communication {
+    @formal
+     [1..*] --  [1..*]  Behaviors
+    @formal
+     [1..*] -- [*]  Value_Proposition
+    @formal
+    [*] -- [*]  Expression
+    @formal
+     [1..*] --  [1..*]  Visual_components
+    @mediation
+     [0..*] -- [1]  Identity( {const } )
+    @mediation
+     [1..*] --  [1..*]  Stakeholders( {const } )
+}
+kind Behaviors 
+kind Value_Proposition 
+kind Expression 
+kind Visual_components 
+

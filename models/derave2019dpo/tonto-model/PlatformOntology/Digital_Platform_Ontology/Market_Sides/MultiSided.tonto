@@ -1,0 +1,40 @@
+import GDPO_part_1
+import Subscription
+import Investment
+import OneSided
+import GDPO_Interaction
+
+package MultiSided
+
+roleMixin MS_Platform_User  specializes Platform_Visitor{
+    @memberOf
+     [1..*]  -- is_part_of --<o>  [1..*]  MS_Platform_User_Side
+}
+collective Target_MS_Platform_User_Side {
+    @subCollectionOf
+     [2..*]  -- is_part_of --<o> [1]  Target_Platform_User_Community
+}
+collective MS_Platform_User_Side {
+    @subCollectionOf
+     [1..*]  -- is_part_of --<o>  [1..*]  Target_MS_Platform_User_Side
+}
+subkind MS_User_Affiliation  specializes User_Affiliation_Agreement{
+    @mediation
+     [1..*] -- bounds_user --  [1..*]  MS_Platform_User( {const } )
+}
+subkind Subscription  specializes User_Affiliation_Agreement, MS_User_Affiliation, OneSided_Platform_User_Affiliation{
+    @mediation
+     [1..*] -- bounds_user -- [1]  Subscribed_Platform_User( {const } )
+}
+subkind Investment  specializes MS_User_Affiliation{
+    @mediation
+     [1..*] -- bounds_investee -- [1]  CapitalSeeking_Agent( {const } )
+    @mediation
+     [1..*] -- bounds_investor -- [1]  CapitalGiving_Agent( {const } )
+    [1] <o>-- is_part_of --  [1..*]  Resource_Claim
+}
+event MS_Platform_Supported_Interaction  specializes Platform_Supported_Interaction{
+    @participation
+     [0..*] -- involves --  [2..*]  MS_Platform_User_Side( {const } )
+}
+

@@ -1,0 +1,135 @@
+package Library
+
+kind Person 
+event Registration 
+role Registered_Person  specializes Person, Client
+quality Age {
+    @characterization
+    [1] -- [1]  Person( {const } )
+}
+role Librarian  specializes Employee{
+    @participation
+    ( {const } )[1] -- [*]  Registration
+}
+subkind Library  specializes Organization{
+    [1] -- provides_access_to --  [1..*]  Artifact
+    @memberOf
+     [1..*]  --<o> [1]  Librarian
+}
+relator Work_Contract {
+    @mediation
+    [1] -- [1]  Employee( {const } )
+    @mediation
+    [1] -- [1]  Organization( {const } )
+}
+kind Artifact {
+    @memberOf
+     [2..*]  --<o> [*]  Artifact
+}
+subkind Work  specializes Artifact
+subkind Digitized  specializes Edition
+subkind Document  specializes Work
+subkind Sound_Recording  specializes Recording
+subkind Object  specializes Artifact
+relator Library_Account {
+     --<o>  Loan
+    @creation
+    ( {const } )[1] -- [1]  Registration( {const } )
+    @mediation
+    [1] -- [1]  Client( {const } )
+    @mediation
+    [1] -- [1]  Library( {const } )
+}
+roleMixin Client {
+    @participation
+    ( {const } )[1] -- [1]  Registration
+    [1] -- owns -- [1]  Library_Card
+}
+role Employee  specializes Person
+subkind Publisher  specializes Organization{
+    @participation
+    ( {const } )[1] --  [1..*]  Publication
+}
+quality Library_Number {
+    @characterization
+    [1] -- [1]  Library_Account( {const } )
+    @externalDependence
+    [1] -- [1]  Library_Card( {const } )
+}
+collective Series 
+phase Suspended_Account  specializes Library_Account
+kind Organization {
+    @memberOf
+     [1..*]  --<o> [1]  Employee
+}
+relator Loan {
+    @mediation
+    [1] -- [1]  Client( {const } )
+    @mediation
+    [1] -- [1]  Lent_Copy( {const } )
+}
+quality Access_Clearance {
+    @characterization
+    [1] -- [1]  Object( {const } )
+}
+subkind Recording  specializes Work
+subkind Video_Recording  specializes Recording
+quality Data_Medium {
+    @characterization
+     [1..*] -- [1]  Recording( {const } )
+}
+subkind Article  specializes Document{
+     [2..*]  --<o>  Proceedings
+}
+subkind Patent  specializes Document
+subkind Book  specializes Document
+subkind Chapter  specializes Document{
+     [2..*]  --<o>  Book
+}
+subkind Proceedings  specializes Document
+subkind Newspaper  specializes Document
+role Registered_Organization  specializes Organization, Client
+subkind Man  specializes Person
+subkind Woman  specializes Person
+quality Address {
+    @characterization
+    [1] -- [1]  Client( {const } )
+}
+kind Library_Card 
+phase Active_Account  specializes Library_Account
+phase Finished  specializes Loan
+role Translator  specializes Person
+relator Authorship {
+    @mediation
+     [1..*] -- [1]  Writer( {const } )
+    @mediation
+     [1..*] -- [1]  Work( {const } )
+}
+relator Translation {
+    @mediation
+     [1..*] -- [1]  Translator( {const } )
+    @mediation
+     [1..*] -- [1]  Translated_Edition( {const } )
+}
+subkind Translated_Edition  specializes Edition
+mode Edition {
+    @creation
+    ( {const } )[1] -- [1]  Publication( {const } )
+    @characterization
+     [1..*] -- [1]  Work( {const } )
+}
+event Publication 
+phase Ongoing  specializes Loan
+mode Copy {
+    @characterization
+     [1..*] -- [1]  Edition( {const } )
+}
+role Lent_Copy  specializes Copy
+phase Borrowed  specializes Copy
+phase Discarded  specializes Copy
+phase Available  specializes Copy
+phase Undamaged  specializes Copy
+phase Damaged  specializes Copy
+phase Destroyed  specializes Copy
+role Writer  specializes Person
+

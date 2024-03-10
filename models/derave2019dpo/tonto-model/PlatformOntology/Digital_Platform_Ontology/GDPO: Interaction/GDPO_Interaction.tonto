@@ -1,0 +1,33 @@
+import GDPO_part_1
+
+package GDPO_Interaction
+
+roleMixin Content_Consumer  specializes Platform_User
+event Platform_Supported_Interaction 
+roleMixin Content_Creator  specializes Platform_User
+kind Digital_Content 
+subkind Main_Digital_Content  specializes Digital_Content
+event Main_Digital_Content_Creation  specializes Digital_Content_Creation, User_Affiliation_Action, User_Action{
+    @participation
+    [1] -- created -- [1]  Main_Digital_Content( {const } )
+    @participation
+     [1..*] -- performed_by -- [1]  Content_Creator( {const } )
+    @participational
+    ( {const } ) [1..*]  -- is_part_of --<o>  [0..*]  Platform_Supported_Communication( {const } )
+}
+subkind Personal_Data  specializes Main_Digital_Content
+subkind Digital_Message  specializes Main_Digital_Content
+subkind Digital_File  specializes Main_Digital_Content
+event Platform_Supported_Communication {
+    @participational
+    ( {const } ) [2..*]  -- is_part_of --<o>  [0..*]  Platform_Supported_Interaction( {const } )
+}
+event Main_Digital_Content_Consumption  specializes Digital_Content_Consumption, User_Action{
+    @participational
+    ( {const } ) [1..*]  -- is_part_of --<o>  [1..*]  Platform_Supported_Communication( {const } )
+    @participation
+     [1..*] -- performed_by -- [1]  Content_Consumer( {const } )
+    @participation
+     [0..*] -- consumed --  [1..*]  Main_Digital_Content( {const } )
+}
+

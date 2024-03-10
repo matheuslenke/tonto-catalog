@@ -1,0 +1,10 @@
+package opm
+
+phase CurrentPropertyState  specializes PropertyState
+quality PropertyState {
+    generatedAtTime : undefined
+}
+phase deleted  specializes PropertyState
+phase OutdatedPropertyState  specializes PropertyState
+class Property 
+

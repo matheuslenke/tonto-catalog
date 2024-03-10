@@ -1,0 +1,8 @@
+import Transaction
+import FOAF
+
+package B2B
+
+role B2B_Platform_Customer  specializes Platform_Customer, Organization
+role B2B_Platform_Provider  specializes Platform_Provider, Organization
+

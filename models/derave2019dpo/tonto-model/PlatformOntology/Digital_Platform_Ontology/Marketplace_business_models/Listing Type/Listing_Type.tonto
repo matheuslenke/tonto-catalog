@@ -1,0 +1,13 @@
+import Productoriented
+import Transaction
+
+package Listing_Type
+
+subkind Offering_description_of_Ownership_transfer  specializes Offering_Description{
+    available_quantity : undefined
+}
+event Ownership_Transfer  specializes Delivery{
+    @participation
+     [0..*] -- involves --  [1..*]  Good( {const } )
+}
+

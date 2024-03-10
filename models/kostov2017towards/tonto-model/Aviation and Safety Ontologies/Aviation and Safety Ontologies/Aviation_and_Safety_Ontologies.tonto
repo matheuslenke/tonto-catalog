@@ -1,0 +1,126 @@
+package Aviation_and_Safety_Ontologies
+
+event Event {
+     [0..*] -- has_participant --  [1..*]  Object
+}
+event Flight  specializes Event{
+    [*] <o>-- has_part -- [*]  Flight_Stage
+}
+event Process  specializes Event{
+    [*] -- is_prescribed_by -- [*]  Procedure
+}
+event Reportable_Event  specializes Event
+event Action  specializes Event{
+    [*] -- is_performed_by -- [*]  Agent
+}
+event Handling  specializes Action{
+    [*] -- is_handling_of -- [*]  Event
+}
+event Coordination  specializes Action
+event Use  specializes Action
+event Decision  specializes Action
+event Provision  specializes Action{
+    [*] -- is_provision_of -- [*]  Function
+}
+class Flight_Stage {
+    [*] <>-- has_part -- [*]  Landing
+    [*] <>-- has_part -- [*]  Takeoff
+    [*] <>-- has_part -- [*]  Approach
+}
+event Landing 
+class Takeoff 
+event Approach 
+class Procedure  specializes Regulation
+class Safety_Event  specializes Reportable_Event
+event Deviation  specializes Safety_Event
+event Collision  specializes Safety_Event
+event Near_collision  specializes Safety_Event
+event Warning_System_Alarm  specializes Safety_Event
+event Loss_of_function  specializes Safety_Event{
+    [*] -- is_loss_of_function_of -- [*]  Technical_System
+}
+event Regulation_Violation_Event  specializes Safety_Event{
+    [*] -- violates -- [*]  Regulation
+     [0..*] -- has_responsible_person -- [*]  Person
+}
+class Regulation  specializes Object
+kind Agent  specializes Object{
+    [*] -- perceive -- [*]  Event
+}
+class Object {
+    [*] <>-- has_object_part -- [*]  Object
+}
+class Impact  specializes Trope{
+    [*] -- is_impact_of -- [*]  Safety_Event
+}
+class Trope {
+     [1..*] -- inheres_in -- [1]  Object
+}
+class Damage  specializes Impact{
+    [*] -- inheres_in -- [*]  Technical_System
+}
+class Injury  specializes Impact{
+    [*] -- inheres_in -- [*]  Person
+}
+class Service  specializes Function{
+    [*] -- is_provided_by -- [*]  Agent
+}
+class Function  specializes Object{
+    @material
+     [0..*] -- is_provided_to --  [0..*]  Agent
+    [*] -- is_provided_by -- [*]  Object
+}
+category Technical_System  specializes Object{
+    @material
+     [0..*] -- operates --  [0..*]  Agent
+}
+kind Organization  specializes Agent{
+    @has_part
+    [*]  -- has_organizational_unit --<o> [*]  Organization
+}
+kind Person  specializes Agent
+class Aircraft_Part  specializes Technical_System
+kind Aircraft  specializes Technical_System{
+    [*] <>-- has_part --  [1..*]  Aircraft_Part
+}
+class Aerodrome_part  specializes Technical_System
+role Aerodrome  specializes Technical_System{
+    [*] <>-- has_part --  [1..*]  Aerodrome_part
+    [*] -- has_location -- [*]  Aerodromes_Operation
+}
+kind Vehicle  specializes Technical_System
+kind Equipment  specializes Technical_System
+event Operation  specializes Use
+event Aerodromes_Operation  specializes Operation
+role Air_traffic_management  specializes Agent
+kind Physical_Object 
+subkind Spatial_Object  specializes Physical_Object
+role TransportObject  specializes Spatial_Object
+role Flight_Participant  specializes TransportObject
+role Crew  specializes Flight_Participant{
+    [*] -- Participant_of -- [*]  Flight
+}
+event Incident 
+event Audit {
+    [*] -- is_observation_of -- [*]  Incident
+    [*] -- is_observation_of -- [*]  Operation
+    [*] <>-- has_event_part -- [*]  Audit_Finding
+}
+event Audit_Finding {
+    [*] -- classified_by -- [*]  Aviation_Safety_Event_Type
+}
+class Aviation_Safety_Event_Type  specializes Term_Type{
+    [*] -- classified_by -- [*]  Incident
+    [*] -- has_typical_factor -- [*]  Factor_Type
+}
+class Taxonomy {
+    [*] -- defines_type -- [*]  Term_Type
+}
+type Term_Type 
+type Object_Type  specializes Term_Type{
+    [*] -- is_factor_subject_of -- [*]  Factor_Type
+}
+role Factor_Type  specializes Aviation_Safety_Event_Type
+role Risk  specializes Aviation_Safety_Event_Type
+role Incident_Type  specializes Aviation_Safety_Event_Type
+

@@ -1,0 +1,189 @@
+package DC_PublicTender_English
+
+relator Nomination_of_Representative {
+    @mediation
+    [1] -- [1]  Company_Participant_of_Public_Auction( {const } )
+    @mediation
+    [1] -- [1]  Legal_Representative( {const } )
+}
+role Qualification_in_General_Proposal  specializes Qualification
+relator Publication {
+    @mediation
+    [1] -- publishes -- [1]  Published_Object( {const } published )
+    @mediation
+     [1..*] -- [1]  Publication_Context( {const } context )
+}
+relator Public_Auction  specializes Auction
+role Tender_in_Internal_Phase  specializes Tender
+role Grant_Committee_Nomination_Ordinance {
+    @mediation
+     [1..*] -- formalized_by -- [1]  Grant_Committee_Nomination( {const } )
+}
+role Grant_Committee  specializes Committee{
+    @mediation
+    ( {const } )[1] -- conducts -- [1]  Auction_for_Public_Tender( {const } )
+}
+collective Committee 
+role Suspended_Tender  specializes Tender_in_External_Phase
+role Empty_Tender  specializes Tender_Without_Winner
+role Tender_in_Qualification  specializes Tender_in_External_Phase
+relator Proposal {
+    @mediation
+    [1] --  [1..*]  Specific_Proposal( {const } )
+    @mediation
+    [1] -- [1]  General_Proposal( {const } )
+    @mediation
+    [1] -- [1]  Auction_for_Public_Tender( {const } )
+    @mediation
+    [1] -- presents -- [1]  Legal_Representative_in_Tender_Process( {const } )
+}
+subkind Concession_Tender  specializes Tender
+kind Proof_of_Fleet 
+subkind Permission_Tender  specializes Tender{
+    term : undefined
+    @Formal
+     [0..*] -- coordinates -- [1]  Grant_Committee
+}
+roleMixin Publication_Context 
+subkind Service_Tender  specializes Tender
+kind Warranty 
+relator Bidder_Registration {
+    @mediation
+     [1..*] -- [1]  Tender_in_Call_for_Tender( {const } )
+}
+subkind Construction_Tender  specializes Tender
+role Tender_Without_Winner  specializes Completed_Tender
+role Bidder_in_Auction  specializes Company_Participant_of_Public_Auction, Bidder
+role Economic_Proposal_in_Specific_Proposal  specializes Economic_Proposal
+role Permission_Tender_in_External_Phase  specializes Tender_in_External_Phase
+kind Person {
+    CPF : undefined
+    RG : undefined
+    address : undefined
+    marital : undefined
+    age : undefined
+    nationality : undefined
+    profession : undefined
+    name : undefined
+}
+role Tender_in_Proposal_Reviewing  specializes Tender_in_External_Phase
+relator General_Proposal {
+    @mediation
+    [1] --  [1..*]  Service_Batch_in_Auction( {const } serviceBatch )
+    @mediation
+    [1] -- [1]  Proof_of_Fleet_in_General_Proposal( {const } )
+    @mediation
+    [1] -- [1]  Warranty_in_General_Proposal( {const } )
+    @mediation
+    [1] -- [1]  Qualification_in_General_Proposal( {const } )
+}
+kind Bussiness_Plan 
+relator Call_for_Tender_Republication  specializes Republication{
+    @mediation
+    [1] -- modifies -- [1]  Published_Call_for_Tender( {const } callForTender )
+}
+kind Call_for_Tender 
+relator Specific_Proposal {
+    @mediation
+    [1] -- [1]  Bussiness_Plan_in_Specific_Proposal( {const } )
+    @mediation
+    [1] -- [1]  Service_Batch_in_Auction( {const } ServiceBatch )
+    @mediation
+    [1] -- [1]  Economic_Proposal_in_Specific_Proposal( {const } )
+}
+role Legal_Representative  specializes Person
+subkind Permission_Grant_Contract 
+subkind Lease_Tender  specializes Tender
+relator Auction {
+    @mediation
+    [1] -- auctions -- [1]  Batch_in_Auction( {const } batch )
+}
+relator Permission_Grant {
+    @mediation
+    [1] -- [1]  Auction_for_Public_Tender( {const } )
+    @mediation
+    [1] -- formaliza -- [1]  Permission_Grant_Contract( {const } )
+}
+role Tended_With_Winner  specializes Completed_Tender{
+    @mediation
+    ( {const } )[1] -- [1]  Permission_Grant
+}
+role Permission_Tender_in_Auction  specializes Permission_Tender
+subkind Disposal_Tender  specializes Tender
+role Power_of_Attorney {
+    @mediation
+     [0..1] -- [1]  Nomination_of_Representative( {const } )
+}
+kind Economic_Proposal 
+role Bussiness_Plan_in_Specific_Proposal  specializes Bussiness_Plan
+relator Public_Hearing {
+    @mediation
+    [1] -- requests -- [1]  Tender_in_Internal_Phase( {const } )
+}
+role Tender_in_External_Phase  specializes Tender
+relator Republication  specializes Publication{
+    @mediation
+    [1] -- modifies -- [1]  Published_Object( {const } modifiedObject )
+}
+relator Session_of_Public_Auction {
+    @mediation
+     [0..*] -- participates_in --  [1..*]  Legal_Representative( {const } )
+    @mediation
+    [1] -- [1]  Public_Auction( {const } )
+}
+roleMixin Batch_in_Auction 
+subkind Purchase_Tender  specializes Tender
+collective Batch_Group {
+    @componentOf
+    [1] <o>--  [1..*]  Service_Batch
+}
+roleMixin Winner_of_Public_Auction  specializes Company_Participant_of_Public_Auction
+role Proof_of_Fleet_in_General_Proposal  specializes Proof_of_Fleet
+role Completed_Tender  specializes Tender
+role Tender_in_Call_for_Tender  specializes Tender_in_External_Phase, Publication_Context
+collective Service_Batch {
+    lines : undefined
+    companies : undefined
+    reserveFleet : undefined
+}
+role Published_Call_for_Tender  specializes Published_Object, Call_for_Tender
+kind Tender 
+role Bidder  specializes Company{
+    @mediation
+    [1] --  [1..*]  Bidder_Registration( {const } )
+}
+kind Qualification 
+role Failed_Tender  specializes Tender_Without_Winner
+role Legal_Representative_in_Tender_Process  specializes Legal_Representative
+subkind Company 
+relator Homologation_of_Public_Auction {
+    @mediation
+    [1] -- declares --  [1..*]  Winner_of_Public_Auction( {const } )
+    @mediation
+    [1] -- [1]  Public_Auction( {const } )
+}
+roleMixin Published_Object 
+relator Auction_for_Public_Tender  specializes Public_Auction{
+    @mediation
+    [1] -- auctions --  [1..*]  Service_Batch_in_Auction( {const } serviceBatch )
+    @mediation
+    [1] -- decides -- [1]  Permission_Tender_in_Auction( {const } )
+}
+role Tender_in_Homologation_Process  specializes Tender_in_External_Phase
+relator Call_for_Tender_Publication  specializes Publication{
+    @mediation
+    [1] -- publishes -- [1]  Published_Call_for_Tender( {const } callForTender )
+    @mediation
+     [1..*] -- [1]  Tender_in_Call_for_Tender( {const } tender )
+}
+role Service_Batch_in_Auction  specializes Service_Batch, Batch_in_Auction
+relator Grant_Committee_Nomination {
+    @mediation
+    [1] -- [1]  Permission_Tender_in_External_Phase( {const } )
+    @mediation
+    [1] -- [1]  Grant_Committee( {const } )
+}
+role Anulled_Tender  specializes Completed_Tender
+roleMixin Company_Participant_of_Public_Auction 
+role Warranty_in_General_Proposal  specializes Warranty
+

@@ -1,0 +1,19 @@
+import Movimentao_de_Ativo_Ferrovirio
+
+package Reclamao_de_Usurio
+
+role Usurio_de_Transporte_Ferrovirio_de_Cargas_com_Reclamao  specializes Requerente_de_Transporte_Ferrovirio_de_Carga{
+    @characterization
+    [1] --  [1..*]  Reclamao_de_Transporte_Ferrovirio( {const } )
+}
+mode Motivo_de_Reclamao 
+mode Reclamao_de_Relao_Comercial_em_Transporte_Ferrovirio_de_Carga  specializes Motivo_de_Reclamao
+mode Reclamao_de_Volume_de_Transporte__de_Carga_Ferrovirio  specializes Motivo_de_Reclamao
+mode Reclamao_de_Transporte_Ferrovirio {
+    descrio : undefined
+    @characterization
+    [1] --  [1..*]  Motivo_de_Reclamao( {const } )
+}
+mode Reclamao_de_Transit_Time_em_Transporte_Ferrovirio_de_Carga  specializes Motivo_de_Reclamao
+mode Reclamao_de_Tarifa_Ferroviria  specializes Motivo_de_Reclamao
+

@@ -1,0 +1,35 @@
+package Infological_Ontology
+
+category Business_Artifact_Type {
+     [1..*] -- represents --  [0..*]  Process_Contract
+}
+kind Business_Artifact  specializes Business_Artifact_Type{
+    [1] -- associated_with --  [0..*]  Business_Artifact
+    [1] -- is_a --  [1..*]  Lifecycle_Stage
+    [1] -- associated_with --  [1..*]  Data_Object
+}
+phaseMixin Lifecycle_Stage {
+    [1] -- characterizes -- [1]  State
+}
+kind Data_Object {
+    [1] -- characterizes -- [1]  State
+}
+class State {
+     [2..*] -- controls --  [0..*]  Process_Contract
+     [2..*] -- guards --  [0..*]  Business_Rule
+}
+kind Process_Contract {
+    [1] -- contains --  [0..*]  Business_Rule
+     [0..*] -- interacts_with --  [1..*]  Agent
+     [0..*] -- prescribes --  [1..*]  Service
+}
+kind Business_Rule {
+     [0..*] -- bound_by --  [1..*]  Service
+}
+roleMixin Agent {
+    [1] -- invokes --  [1..*]  Service
+}
+event Service 
+role Human_Agent  specializes Agent
+role Artificial_Agent  specializes Agent
+

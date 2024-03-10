@@ -1,0 +1,38 @@
+import Transaction
+import Digital_Good_Transfer
+import UnderUtilisation
+import Offline_Good_Transfer
+import GDPO_part_1
+import Listing_Type
+import Price_Discovery
+
+package Marketplace_business_models
+
+event Digital_Good_Upload {
+     [0..*] <o>-- [*]  Offering_Creation
+    [1] -- [1]  Digital_Good
+}
+event Offline_Good_Transfer  specializes Offline_Action, Ownership_Transfer{
+    @participation
+     [0..*] -- involves --  [1..*]  Physical_Good( {const } )
+     [0..*] -- [1]  Platform_Customer_of_Offline_Physical_Good
+}
+event Request_Quote  specializes User_Action{
+    @creation
+    ( {const } )[1] -- [1]  Quote( {const } )
+}
+kind Quote {
+     [0..*] -- [1]  Offering_On_The_Platform
+}
+event Price_Proposal  specializes User_Action
+subkind Proposed_Price  specializes Price{
+    [*] -- [*]  Price_Proposal
+}
+event Price_Acceptance  specializes User_Action{
+    [1] -- [1]  Accepted_Quote_Price
+}
+subkind Accepted_Quote_Price  specializes Proposed_Price{
+    [1] -- [1]  Quoted_Transaction
+}
+subkind Quoted_Transaction  specializes Transaction
+

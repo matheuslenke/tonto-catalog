@@ -1,0 +1,37 @@
+package Audincia_Interna
+
+role PJDPI_Solicitado_ 
+kind Ata_de_Audincia_Interna 
+phase Solicitao_Atendida  specializes Solicitao_de_Audincia_Interna
+role Solicitante_de_Audincia_Interna 
+relator Solicitao_de_Audincia_Interna {
+    data_da_solicitao : undefined
+    data_solicitada_audincia : undefined
+    @mediation
+     [1..*] -- [1]  Convidado_Para_Audincia_Interna( {const } )
+    @mediation
+     [1..*] -- [1]  Solicitante_de_Audincia_Interna( {const } )
+    @mediation
+     [1..*] -- [1]  PJDPI_Solicitado_( {const } )
+}
+role Participanete_de_Audincia_Interna 
+phase Solicitao_com_Audincia_Agendada  specializes Solicitao_de_Audincia_Interna{
+    data_agendada : undefined
+}
+mode Motivo_de_Audincia_Interna {
+    descrio : undefined
+    @characterization
+     [1..*] -- [1]  Solicitao_de_Audincia_Interna( {const } )
+}
+relator Audincia_Interna {
+    local : undefined
+    realizao : undefined
+    @mediation
+    [1] -- [1]  Solicitao_Atendida( {const } )
+    @mediation
+     [1..*] --  [2..*]  Participanete_de_Audincia_Interna( {const } )
+    @mediation
+    [1] -- [1]  Ata_de_Audincia_Interna( {const } )
+}
+role Convidado_Para_Audincia_Interna 
+

@@ -1,0 +1,10 @@
+import platoontology
+
+package Human
+
+subkind HumanBeing  specializes LivingThing
+kind HumanBody {
+    @componentOf
+    [1]  --<o> [1]  HumanBeing
+}
+

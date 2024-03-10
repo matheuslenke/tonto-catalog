@@ -1,0 +1,6 @@
+package FOAF
+
+category Agent 
+kind Organization  specializes Agent
+kind Person  specializes Agent
+

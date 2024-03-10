@@ -1,0 +1,10 @@
+import Price_Discovery
+
+package Price_set_by_Provider
+
+subkind Price_set_by_Provider  specializes Price, Offering_Price
+event Price_Setting_action_by_Provider {
+    setPricePerSeat : undefined
+    [1] -- sets --  [1..*]  Price_set_by_Provider
+}
+

@@ -1,0 +1,53 @@
+package Recommendation_Ontology
+
+subkind Indirectly_Recommendation_Referencing_Recomendation  specializes Recommendation_Referencing_Recomendation{
+    @formal
+     [1..*] -- indirectlyReferencesRecommendation --  [1..*]  Indirectly_Recommendation_Referenced_Recomendation
+}
+subkind Indirectly_Recommendation_Referenced_Recomendation  specializes Recommendation_Referenced_Recomendation
+subkind Recommendation_Referencing_Recomendation  specializes Recommendation_Version{
+    @formal
+     [1..*] -- directlyReferencesRecommendation --  [1..*]  Recommendation_Referenced_Recomendation
+}
+subkind Recommendation_Referenced_Recomendation  specializes Recommendation_Version
+subkind Possibly_Problematic_Recommendation  specializes Recommendation_Referencing_Recomendation
+subkind Problematic_Recommendation  specializes Recommendation_Version
+kind Recommendation_Version {
+    @material
+     [1..*] -- usesConcept --  [1..*]  Concept
+}
+relator Publication {
+    PublicationDate : undefined
+    @mediation
+    [1] -- publishesVersion -- [1]  Recommendation_Version( {const } )
+    @mediation
+     [1..*] -- hasPublication -- [1]  Recommendation( {const } )
+    @derivation
+    [1] -- [1]  hasVersion
+}
+kind Recommendation {
+    Number : int
+    Series : char
+    Title : undefined
+    @material
+    [1] -- hasVersion --  [1..*]  Recommendation_Version
+}
+subkind Concept_Defining_Recommendation  specializes Recommendation_Version
+subkind Concept_Referencing_Recommendation  specializes Recommendation_Version{
+    @formal
+     [1..*] -- referencesConcept --  [1..*]  Referenced_Concept
+}
+relator Concept_Definition {
+    definition : undefined
+    @mediation
+     [1..*] -- hasDefinition -- [1]  Concept_Defining_Recommendation( {const } )
+    @mediation
+    [1] -- defines -- [1]  Concept( {const } )
+}
+kind Concept {
+    Abbreviation : undefined
+}
+subkind Referenced_Concept  specializes Concept
+subkind Problematic_Concetp  specializes Concept
+subkind Correct_Concept  specializes Concept
+

@@ -1,0 +1,21 @@
+import Autorizao_Regular
+import Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+import Servio_de_Transporte_Rodovirio_de_Passageiros
+
+package Tipos_de_Fretamento
+
+relator TRP_Sob_Regime_de_Fretamento_Eventual_ou_Turstico_Internacional  specializes TRP_Sob_Regime_de_Fretamento_Eventual_ou_Turstico
+relator TRP_Sob_Regime_de_Fretamento_Contnuo  specializes TRP_Sob_Regime_de_Fretamento
+relator TRP_Sob_Regime_de_Fretamento_Eventual_ou_Turstico  specializes TRP_Sob_Regime_de_Fretamento
+relator TRP_Sob_Regime_de_Fretamento_Eventual_ou_Turstico_Interestadual  specializes TRP_Sob_Regime_de_Fretamento_Eventual_ou_Turstico
+relator TRP_Sob_Regime_de_Fretamento_Contnuo_Internacional  specializes TRP_Sob_Regime_de_Fretamento_Contnuo
+relator TRP_Sob_Regime_de_Fretamento_Contnuo_Interestadual  specializes TRP_Sob_Regime_de_Fretamento_Contnuo
+relator TRP_Sob_Regime_de_Fretamento  specializes Transporte_Rodovirio_de_Passageiros{
+    @material
+     [1..*] -- explora_ -- [1]  Autorizatria
+    @mediation
+    [1] --  [1..2]  Motorista_de_TRP_Sob_Regime_de_Fretamento( {const } )
+    @mediation
+     [1..*] -- [1]  Outorga_de_Autorizao( {const } )
+}
+

@@ -1,0 +1,14 @@
+import Service
+
+package Recurring
+
+phase Available_time_slot  specializes Time_Slot
+phase Booked_Time_Slot  specializes Time_Slot
+quality Time_Slot 
+class Start_Time  specializes Time{
+    [1] --  [0..*]  Time_Slot
+}
+class End_Time  specializes Time{
+    [1] --  [0..*]  Time_Slot
+}
+

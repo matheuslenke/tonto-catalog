@@ -1,0 +1,11 @@
+package General_Elements
+
+category Defined_Geographical_Element  specializes Geographical_Element{
+    latitude : undefined
+    longitude : undefined
+}
+category Geographical_Element 
+category Geographical_Element_With_Alias  specializes Geographical_Element{
+    location : undefined
+}
+

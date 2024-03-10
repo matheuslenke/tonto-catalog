@@ -1,0 +1,32 @@
+import COVER
+import UFOA
+
+package UFOB
+
+category Disposition  specializes Mode{
+     [1..*]  --<o> [*]  Experience_Value_Asc
+    @characterization
+     [1..*] --  [0..1]  Value_Object( {const } )
+    @characterization
+     [1..*] --  [0..1]  Value_Enabler( {const } )
+    @manifestation
+    ( {const } ) [1..*] -- [*]  Value_Event
+}
+event Event {
+    @historicalDependence
+    [*] -- causes -- [*]  Event( {const } )
+    @bringsAbout
+    ( {const } )[*] -- [1]  Situation( {const } )
+    @instantiation
+    [*] -- categorizes --  [1..*]  Event_Type
+}
+event Action  specializes Event
+situation Situation {
+    @triggers
+    ( {const } )[1] -- [*]  Event
+    @instantiation
+    [*] -- categorizes --  [1..*]  Situation_Type
+}
+type Event_Type (instanceOf Event)
+type Situation_Type (instanceOf Situation)
+

@@ -1,0 +1,16 @@
+package COVER
+
+situation Hazardous_Situation {
+    @triggers
+    ( {const } ) [1..*] -- contributed_to_trigger_threat_event --  [1..*]  Threat_Event
+}
+event Threat_Event {
+    @historicalDependence
+     [1..*] -- caused_loss_event --  [1..*]  Loss_Event( {const } )
+}
+event Loss_Event {
+    @bringsAbout
+    ( {const } ) [1..*] -- brought_about_loss_situation --  [0..1]  Loss_Situation( {const } )
+}
+situation Loss_Situation 
+
