@@ -1,0 +1,13 @@
+Validating...
+- Total of errors: 5
+[error] Not unique class stereotype:
+The class User must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Exploratory_Data_Analysis must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Data_Preprocessing must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Data_Processing_Ability must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of User are not among the allowed ontological natures of its superclass Person
+Validation finished

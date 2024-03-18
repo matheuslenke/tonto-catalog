@@ -1,0 +1,7 @@
+Validating...
+- Total of errors: 18
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Rental_Insurance is specializing other classes that represent ultimate sortals: «relator»
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Car_Rental_Agreement are not among the allowed ontological natures of its superclass Insurable_Item
+Validation finished

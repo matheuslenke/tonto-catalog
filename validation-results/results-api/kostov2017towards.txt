@@ -1,0 +1,101 @@
+Validating...
+- Total of errors: 23
+[error] Not unique class stereotype:
+The class Flight_Stage must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Takeoff must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Procedure must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Safety_Event must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Regulation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Impact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Trope must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Damage must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Injury must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Service must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Function must have a unique OntoUML stereotype.
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Organization is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Person is specializing other classes that represent ultimate sortals: «kind»
+[error] Not unique class stereotype:
+The class Aircraft_Part must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Aerodrome_part must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Aerodrome must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Aerodrome must specify the possible ontological natures of its instances
+[error] Not unique class stereotype:
+The class Aviation_Safety_Event_Type must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Taxonomy must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Factor_Type must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Factor_Type must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Risk must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Risk must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Incident_Type must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Incident_Type must specify the possible ontological natures of its instances
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Procedure are not among the allowed ontological natures of its superclass Regulation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Safety_Event are not among the allowed ontological natures of its superclass Reportable_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Deviation are not among the allowed ontological natures of its superclass Safety_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Collision are not among the allowed ontological natures of its superclass Safety_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Near_collision are not among the allowed ontological natures of its superclass Safety_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Warning_System_Alarm are not among the allowed ontological natures of its superclass Safety_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Loss_of_function are not among the allowed ontological natures of its superclass Safety_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Regulation_Violation_Event are not among the allowed ontological natures of its superclass Safety_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Regulation are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Agent are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Impact are not among the allowed ontological natures of its superclass Trope
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Damage are not among the allowed ontological natures of its superclass Impact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Injury are not among the allowed ontological natures of its superclass Impact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Service are not among the allowed ontological natures of its superclass Function
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Function are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Technical_System are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aircraft_Part are not among the allowed ontological natures of its superclass Technical_System
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aerodrome_part are not among the allowed ontological natures of its superclass Technical_System
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aerodrome are not among the allowed ontological natures of its superclass Technical_System
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aviation_Safety_Event_Type are not among the allowed ontological natures of its superclass Term_Type
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Factor_Type are not among the allowed ontological natures of its superclass Aviation_Safety_Event_Type
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Risk are not among the allowed ontological natures of its superclass Aviation_Safety_Event_Type
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Incident_Type are not among the allowed ontological natures of its superclass Aviation_Safety_Event_Type
+Validation finished

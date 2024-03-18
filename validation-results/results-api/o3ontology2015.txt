@@ -1,0 +1,819 @@
+Validating...
+- Total of errors: 313
+Warning: Could not create specialization between class Atomic_Plan and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Belief and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Change and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Claim and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Collective_Social_Agent and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Complex_Plan and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Creation and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegatee and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegator and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegatum and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Desire and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Goal and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Individual_Social_Agent and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Internal_Regiment and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Law and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Documental_Resource and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Automated_Resource and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Atomic_Plan and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Belief and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Change and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Claim and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Collective_Social_Agent and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Complex_Plan and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Creation and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegatee and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegator and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegatum and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Desire and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Goal and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Individual_Social_Agent and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Internal_Regiment and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Law and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Documental_Resource and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Automated_Resource and 
+                undefined not found in context module OntoUML)
+Warning: Could not create specialization between class Atomic_Plan and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Belief and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Change and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Claim and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Collective_Social_Agent and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Complex_Plan and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Creation and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegatee and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegator and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Delegatum and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Desire and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Goal and 
+                undefined not found in context module UFOC)
+Warning: Could not create specialization between class Individual_Social_Agent and 
+                undefined not found in context module UFOC)
+[error] Not unique class stereotype:
+The class Cognitive_Skill must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Physic_Skill must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCBelief must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCSociety must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCCollective_Social_Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class National_Society must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Formal_Society must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Council must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Elective_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Effective_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Appointment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Designative_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Direct_Appointment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Indirect_Appointment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Missionary_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Functional_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Law must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Internal_Regiment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Election must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Alocation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Mandate_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Board must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Admission_Contract must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Admission_Contract_With_Term must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Social_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Recognition_Contract must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Descriptive_Business_Social_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCUsage must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Allocation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCOrganization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Formal_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Non_Formal_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Organization_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Staff must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Working_Group must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Artifact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Infrastructure_Component must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Location must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Skill must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCResource must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class SkillMetric must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Constraint must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Interface must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class BusinessCollaboration must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Behavioral_Element must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCHuman_Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCSocial_Relator must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCNormative_Description must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Natural_Person must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Employee must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Responsability must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Structural_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Missionary_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCSocial_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Duty must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Permission must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Holding must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Authority_Designation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Societary_Participation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Commission must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCAction must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Committee must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Resource_Dependence must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Appoitment_Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Apt must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Apt must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Inapt must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Inapt must specify the possible ontological natures of its instances
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Missionary_Assignment_by_Appointment is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Missionary_Assignment_by_Election is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Missionary_Assignment_by_Allocation is specializing other classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Formal_Organization_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Functional_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Missionary_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Structural_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Missionary_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Staff_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Documental_Resource must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Automated_Resource must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Appointed_Organization_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Ellected_Organization_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Effective_Organization_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Employer must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Structural_Unit_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Appointed_Unit_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Ellected_Unit_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Allocated_Unit_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Missionary_Allocation_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Line_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Missionary_Unit_Member must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Social_Agent_External_Collaborator must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Physical_Agent_External_Collaborator must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Physical_Agent_Internal_Collaborator must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Social_Agent_Internal_Collaborator must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Structural_Allocation_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class MultiFunctional_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Standalone_Functional_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Simple_Standalone_Functional_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Complex_Standalone_Functional_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Simple_Missionary_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Complex_Missionary_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Physical_Owner must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Social_Owner must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Pesquisa_Energtica must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Gesto_Corporativa must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Sistemas must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_Ambiental must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Desenvolvimento_Regional must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Gerente_de_Riscos must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Gerente_de_Escopo must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Gerente_de_Projeto must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Not unique class stereotype:
+The class Appoitment_Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Apt must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Apt must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Inapt must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Inapt must specify the possible ontological natures of its instances
+[error] Not unique class stereotype:
+The class Cognitive_Skill must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Physic_Skill must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCBelief must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCSociety must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCCollective_Social_Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class National_Society must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Formal_Society must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Council must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Elective_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Effective_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Appointment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Designative_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Direct_Appointment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Indirect_Appointment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Missionary_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Functional_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Law must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Internal_Regiment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Election must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Alocation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Mandate_Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Board must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Admission_Contract must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Admission_Contract_With_Term must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Social_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Recognition_Contract must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Descriptive_Business_Social_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCUsage must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Allocation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCOrganization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Formal_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Non_Formal_Organization must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Organization_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Staff must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Working_Group must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Artifact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Infrastructure_Component must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Position must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Location must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Skill must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCResource must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class SkillMetric must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Constraint must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Interface must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class BusinessCollaboration must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Behavioral_Element must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCHuman_Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCSocial_Relator must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCNormative_Description must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Natural_Person must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Employee must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Responsability must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Structural_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Missionary_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCSocial_Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Duty must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Permission must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Holding must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Unit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Authority_Designation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Societary_Participation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Commission must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class UFOCAction must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Committee must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Resource_Dependence must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cognitive_Skill are not among the allowed ontological natures of its superclass Skill
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cognitive_Skill are not among the allowed ontological natures of its superclass UFOCBelief
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Physic_Skill are not among the allowed ontological natures of its superclass Skill
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of UFOCSociety are not among the allowed ontological natures of its superclass UFOCCollective_Social_Agent
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of National_Society are not among the allowed ontological natures of its superclass Formal_Society
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Formal_Society are not among the allowed ontological natures of its superclass UFOCSociety
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Council are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Elective_Position are not among the allowed ontological natures of its superclass Mandate_Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Effective_Position are not among the allowed ontological natures of its superclass Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appointment are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Designative_Position are not among the allowed ontological natures of its superclass Mandate_Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Direct_Appointment are not among the allowed ontological natures of its superclass Appointment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Indirect_Appointment are not among the allowed ontological natures of its superclass Appointment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Missionary_Organization are not among the allowed ontological natures of its superclass Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Functional_Organization are not among the allowed ontological natures of its superclass Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Law are not among the allowed ontological natures of its superclass UFOCNormative_Description
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Internal_Regiment are not among the allowed ontological natures of its superclass UFOCNormative_Description
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Election are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Alocation are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mandate_Position are not among the allowed ontological natures of its superclass Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Board are not among the allowed ontological natures of its superclass Structural_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Admission_Contract are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Admission_Contract_With_Term are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Social_Role are not among the allowed ontological natures of its superclass UFOCSocial_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Recognition_Contract are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Descriptive_Business_Social_Role are not among the allowed ontological natures of its superclass Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Allocation are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Formal_Organization are not among the allowed ontological natures of its superclass UFOCOrganization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Non_Formal_Organization are not among the allowed ontological natures of its superclass UFOCOrganization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Organization_Unit are not among the allowed ontological natures of its superclass Structural_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Staff are not among the allowed ontological natures of its superclass Structural_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Working_Group are not among the allowed ontological natures of its superclass Missionary_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Artifact are not among the allowed ontological natures of its superclass UFOCResource
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Infrastructure_Component are not among the allowed ontological natures of its superclass UFOCResource
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Position are not among the allowed ontological natures of its superclass Descriptive_Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Role are not among the allowed ontological natures of its superclass Descriptive_Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Behavioral_Element are not among the allowed ontological natures of its superclass UFOCAction
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Natural_Person are not among the allowed ontological natures of its superclass UFOCHuman_Agent
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Employee are not among the allowed ontological natures of its superclass Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Responsability are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Structural_Unit are not among the allowed ontological natures of its superclass Non_Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Missionary_Unit are not among the allowed ontological natures of its superclass Non_Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Duty are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Permission are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Holding are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Unit are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Authority_Designation are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Societary_Participation are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Commission are not among the allowed ontological natures of its superclass Missionary_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Committee are not among the allowed ontological natures of its superclass Missionary_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Resource_Dependence are not among the allowed ontological natures of its superclass UFOCUsage
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cognitive_Skill are not among the allowed ontological natures of its superclass Skill
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cognitive_Skill are not among the allowed ontological natures of its superclass UFOCBelief
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Physic_Skill are not among the allowed ontological natures of its superclass Skill
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of UFOCSociety are not among the allowed ontological natures of its superclass UFOCCollective_Social_Agent
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of National_Society are not among the allowed ontological natures of its superclass Formal_Society
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Formal_Society are not among the allowed ontological natures of its superclass UFOCSociety
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Council are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Elective_Position are not among the allowed ontological natures of its superclass Mandate_Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Effective_Position are not among the allowed ontological natures of its superclass Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appointment are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Designative_Position are not among the allowed ontological natures of its superclass Mandate_Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Direct_Appointment are not among the allowed ontological natures of its superclass Appointment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Indirect_Appointment are not among the allowed ontological natures of its superclass Appointment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Missionary_Organization are not among the allowed ontological natures of its superclass Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Functional_Organization are not among the allowed ontological natures of its superclass Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Law are not among the allowed ontological natures of its superclass UFOCNormative_Description
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Internal_Regiment are not among the allowed ontological natures of its superclass UFOCNormative_Description
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Election are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Alocation are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mandate_Position are not among the allowed ontological natures of its superclass Position
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Board are not among the allowed ontological natures of its superclass Structural_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Admission_Contract are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Admission_Contract_With_Term are not among the allowed ontological natures of its superclass Admission_Contract
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Social_Role are not among the allowed ontological natures of its superclass UFOCSocial_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Recognition_Contract are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Descriptive_Business_Social_Role are not among the allowed ontological natures of its superclass Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Allocation are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Formal_Organization are not among the allowed ontological natures of its superclass UFOCOrganization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Non_Formal_Organization are not among the allowed ontological natures of its superclass UFOCOrganization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Organization_Unit are not among the allowed ontological natures of its superclass Structural_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Staff are not among the allowed ontological natures of its superclass Structural_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Working_Group are not among the allowed ontological natures of its superclass Missionary_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Artifact are not among the allowed ontological natures of its superclass UFOCResource
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Infrastructure_Component are not among the allowed ontological natures of its superclass UFOCResource
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Position are not among the allowed ontological natures of its superclass Descriptive_Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Role are not among the allowed ontological natures of its superclass Descriptive_Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Behavioral_Element are not among the allowed ontological natures of its superclass UFOCAction
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Natural_Person are not among the allowed ontological natures of its superclass UFOCHuman_Agent
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Employee are not among the allowed ontological natures of its superclass Business_Social_Role
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Responsability are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Structural_Unit are not among the allowed ontological natures of its superclass Non_Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Missionary_Unit are not among the allowed ontological natures of its superclass Non_Formal_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Duty are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Permission are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Holding are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Unit are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Authority_Designation are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business are not among the allowed ontological natures of its superclass Functional_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Societary_Participation are not among the allowed ontological natures of its superclass UFOCSocial_Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Commission are not among the allowed ontological natures of its superclass Missionary_Organization
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Committee are not among the allowed ontological natures of its superclass Missionary_Unit
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Resource_Dependence are not among the allowed ontological natures of its superclass UFOCUsage
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Admission_With_Term is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Admission_by_Appointment is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Admission_by_Election is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Cognitive_Skill is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Physical_Skill is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Structural_Assignment_by_Appointment is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Structural_Assignment_by_Election is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Effective_Admission is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Structural_Assignment_by_Allocation is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Structural_Assignment is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Missionary_Assignment is specializing other classes that represent ultimate sortals: «relator»
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Group_Member cannot specialize the sortal class Missionary_Unit_Member
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Group_Member cannot specialize the sortal class Structural_Unit_Member
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Group_Member cannot specialize the sortal class Missionary_Unit_Member
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Group_Member cannot specialize the sortal class Structural_Unit_Member
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Pesquisa_Energtica must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Gesto_Corporativa must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Sistemas must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_Ambiental must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Analista_de_Desenvolvimento_Regional must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Gerente_de_Riscos must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Gerente_de_Escopo must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Gerente_de_Projeto must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Not unique class stereotype:
+The class Appoitment_Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action are not among the allowed ontological natures of its superclass Event_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appointment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appoitment_Goal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Action are not among the allowed ontological natures of its superclass Atomic_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Commitment are not among the allowed ontological natures of its superclass Atomic_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Closed_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Action are not among the allowed ontological natures of its superclass Complex_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Commitment are not among the allowed ontological natures of its superclass Whole_Complex_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action are not among the allowed ontological natures of its superclass Event_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appointment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appoitment_Goal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Action are not among the allowed ontological natures of its superclass Atomic_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Commitment are not among the allowed ontological natures of its superclass Atomic_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Closed_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Action are not among the allowed ontological natures of its superclass Complex_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Commitment are not among the allowed ontological natures of its superclass Whole_Complex_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action are not among the allowed ontological natures of its superclass Event_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appointment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Appoitment_Goal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Action are not among the allowed ontological natures of its superclass Atomic_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Commitment are not among the allowed ontological natures of its superclass Atomic_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Closed_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Action are not among the allowed ontological natures of its superclass Complex_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Commitment are not among the allowed ontological natures of its superclass Whole_Complex_Individual
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Apt must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Apt must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Inapt must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Inapt must specify the possible ontological natures of its instances
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Paricipation_Individual are not among the allowed ontological natures of its superclass Event_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Apt are not among the allowed ontological natures of its superclass Substance
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Inapt are not among the allowed ontological natures of its superclass Substance
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Paricipation_Individual are not among the allowed ontological natures of its superclass Event_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Apt are not among the allowed ontological natures of its superclass Substance
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Inapt are not among the allowed ontological natures of its superclass Substance
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Paricipation_Individual are not among the allowed ontological natures of its superclass Event_Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Apt are not among the allowed ontological natures of its superclass Substance
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Inapt are not among the allowed ontological natures of its superclass Substance
+Validation finished

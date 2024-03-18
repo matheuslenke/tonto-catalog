@@ -3,16 +3,19 @@
   "version": "1.0.0",
   "description": "A Catalog of Ontologies in Tonto",
   "main": "dist/main.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
     "start": "node dist/main.js",
-    "clean": "node dist/clean.js"
+    "clean": "node dist/clean.js",
+    "validate": "node dist/validate.js"
   },
   "author": "Matheus Lenke Coutinho",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.25",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "tonto-cli": "file:../Tonto/packages/tonto"
   }
 }

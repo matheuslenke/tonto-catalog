@@ -1,0 +1,13 @@
+Validating...
+- Total of errors: 39
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Rating_Review is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Read_Authorization is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Textual_Review is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class User_Group_in_a_Group is specializing other classes that represent ultimate sortals: «collective»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Write_Authorization is specializing other classes that represent ultimate sortals: «relator»
+Validation finished

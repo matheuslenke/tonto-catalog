@@ -1,0 +1,77 @@
+Validating...
+- Total of errors: 40
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Administrative_Department must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Administrative_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Administrative_Support must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Advisory must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Allocated_Department must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Allocated_Office must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Allocation_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Allocation_Unit must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Ancillary_Server must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Ancillary_Service must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Animal_Health_Inspector must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Board must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Border_Station must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Cartography_Technician must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Central_Office must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Department must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Diagnostic_Laboratory must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Finalistico must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Laboratory_Technician must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Land_Development_Technician must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Local_Office must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Mobile_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Natural_Resources_Technician must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Occupied_Position must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Office must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Operational_Organization must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Plant_Health_Inspector must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Regional_Office must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Section must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Server must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Service_Station must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Station must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Technical_Admnistrative_Support must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Technical_Department must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Technical_Support must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Allocation_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Allocation_Unit must specify the possible ontological natures of its instances
+Validation finished

@@ -1,0 +1,21 @@
+Validating...
+- Total of errors: 0
+[error] Not unique class stereotype:
+The class Intention must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Belief must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Event must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Disposition must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Action must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Situation must have a unique OntoUML stereotype.
+Validation finished

@@ -1,0 +1,69 @@
+Validating...
+- Total of errors: 36
+Warning: Could not create specialization between class Authored_Document and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Cited and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Citing_Document and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Thesis and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Book and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Journal_Issue and 
+                undefined not found in context module Journal)
+Warning: Could not create specialization between class Article and 
+                undefined not found in context module Journal)
+Warning: Could not create specialization between class Journal_Issue and 
+                undefined not found in context module Journal)
+Warning: Could not create specialization between class Article and 
+                undefined not found in context module Journal)
+Warning: Could not create specialization between class Authored_Document and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Cited and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Citing_Document and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Thesis and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Book and 
+                undefined not found in context module Publication)
+Warning: Could not create specialization between class Journal_Issue and 
+                undefined not found in context module Journal)
+Warning: Could not create specialization between class Article and 
+                undefined not found in context module Journal)
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Publisher must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Editor must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Editored_Book must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Cited must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Cited must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Host_Event must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Colocated_Event must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Publisher must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Compound_Authorship is specializing other classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Cited must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Cited must specify the possible ontological natures of its instances
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Conference is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Workshop is specializing other classes that represent ultimate sortals: «kind»
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Event_Type cannot specialize the sortal class Conference_Type
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Event_Type cannot specialize the sortal class Workshop_Type
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Event_Type cannot specialize the sortal class Conference_Type
+[error] Prohibited generalization: non-sortal specializing a sortal:
+The non-sortal class Event_Type cannot specialize the sortal class Workshop_Type
+Validation finished

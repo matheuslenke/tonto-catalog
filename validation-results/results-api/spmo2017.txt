@@ -1,0 +1,119 @@
+Validating...
+- Total of errors: 32
+[error] Not unique class stereotype:
+The class Work_Package must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Practical_Result must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Tracked_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Tracked_Activity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Tracked_Stakeholder_Participation must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Software_Project must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Software_Project must specify the possible ontological natures of its instances
+[error] Not unique class stereotype:
+The class General_Project_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Specific_Project_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Project_Activity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Performed_Project_Activity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Cost_Estimated_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Duration_Estimated_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Estimated_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Work_Package must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Practical_Result must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Work_Package are not among the allowed ontological natures of its superclass Deliverable
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Practical_Result are not among the allowed ontological natures of its superclass Deliverable
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Work_Package are not among the allowed ontological natures of its superclass Deliverable
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Practical_Result are not among the allowed ontological natures of its superclass Deliverable
+[error] Not unique class stereotype:
+The class Tracked_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Tracked_Activity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Tracked_Stakeholder_Participation must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Tracked_Process are not among the allowed ontological natures of its superclass Performed_Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Tracked_Activity are not among the allowed ontological natures of its superclass Performed_Project_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Tracked_Stakeholder_Participation are not among the allowed ontological natures of its superclass Stakeholder_Participation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Tracked_Process are not among the allowed ontological natures of its superclass Performed_Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Tracked_Activity are not among the allowed ontological natures of its superclass Performed_Project_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Tracked_Stakeholder_Participation are not among the allowed ontological natures of its superclass Stakeholder_Participation
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Software_Project must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Software_Project must specify the possible ontological natures of its instances
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Project_Process is specializing other classes that represent ultimate sortals: «mode»
+[error] Not unique class stereotype:
+The class General_Project_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Specific_Project_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Project_Activity must have a unique OntoUML stereotype.
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class General_Intended_Process is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Specific_Intended_Process is specializing other classes that represent ultimate sortals: «mode»
+[error] Not unique class stereotype:
+The class Performed_Project_Activity must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of General_Project_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Specific_Project_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Project_Activity are not among the allowed ontological natures of its superclass Intended_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Performed_Project_Activity are not among the allowed ontological natures of its superclass Performed_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of General_Project_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Specific_Project_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Project_Activity are not among the allowed ontological natures of its superclass Intended_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Performed_Project_Activity are not among the allowed ontological natures of its superclass Performed_Activity
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Scheduled_Process is specializing other classes that represent ultimate sortals: «mode»
+[error] Not unique class stereotype:
+The class Cost_Estimated_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Duration_Estimated_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Estimated_Process must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cost_Estimated_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Duration_Estimated_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Estimated_Process are not among the allowed ontological natures of its superclass Scheduled_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Estimated_Process are not among the allowed ontological natures of its superclass Cost_Estimated_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cost_Estimated_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Duration_Estimated_Process are not among the allowed ontological natures of its superclass Project_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Estimated_Process are not among the allowed ontological natures of its superclass Scheduled_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Estimated_Process are not among the allowed ontological natures of its superclass Cost_Estimated_Process
+Validation finished

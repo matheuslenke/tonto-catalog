@@ -1,0 +1,83 @@
+Validating...
+- Total of errors: 2
+[error] Not unique class stereotype:
+The class Trope must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Event must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Action must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Agent must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Agent are not among the allowed ontological natures of its superclass Object
+[error] Not unique class stereotype:
+The class Flight must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Accident must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Handling must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Landing must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Data must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Physical_Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Spatial_Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Technical_System must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Aerodrome must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Aircraft must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Vehicle must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Ground_Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Aerodrome_Part must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Crew must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Cabin_Crew must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Aircraft_Parti must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Flight are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Accident are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Handling are not among the allowed ontological natures of its superclass Action
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Landing are not among the allowed ontological natures of its superclass Action
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Data are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Physical_Object are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Spatial_Object are not among the allowed ontological natures of its superclass Physical_Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Technical_System are not among the allowed ontological natures of its superclass Physical_Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Technical_System are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aerodrome are not among the allowed ontological natures of its superclass Ground_Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aerodrome are not among the allowed ontological natures of its superclass Technical_System
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aircraft are not among the allowed ontological natures of its superclass Technical_System
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Vehicle are not among the allowed ontological natures of its superclass Technical_System
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Ground_Object are not among the allowed ontological natures of its superclass Spatial_Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aerodrome_Part are not among the allowed ontological natures of its superclass Ground_Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Crew are not among the allowed ontological natures of its superclass Cabin_Crew
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Crew are not among the allowed ontological natures of its superclass Agent
+Validation finished

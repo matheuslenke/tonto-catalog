@@ -1,0 +1,117 @@
+Validating...
+- Total of errors: 8
+[error] Not unique class stereotype:
+The class Software_System must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Program must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Loaded_Program_Copy must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Program_Copy_Execution must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Machine must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Program_Specification must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class System_Requirements_Specification must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Software_System are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Program are not among the allowed ontological natures of its superclass System_Element
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Loaded_Program_Copy are not among the allowed ontological natures of its superclass Disposition
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Program_Copy_Execution are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Machine are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Program_Specification are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of System_Requirements_Specification are not among the allowed ontological natures of its superclass Artifact
+[error] Not unique class stereotype:
+The class Event must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Disposition must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Normative_Description must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Proposition must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Stakeholder_Requirement must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class System_Requirement must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Requirement must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Internal_Business_Rule must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Program_Requirement must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class External_Business_Regulations must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Requirements_Specification must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class System_Component must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class System_Element must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class SubSystem must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Stakeholder_Requirements_Specification must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Business_Constraint must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Internal_Business_Rule are not among the allowed ontological natures of its superclass Business_Constraint
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of External_Business_Regulations are not among the allowed ontological natures of its superclass Business_Constraint
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Stakeholder_Requirement are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of System_Requirement are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Requirement are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Internal_Business_Rule are not among the allowed ontological natures of its superclass Business_Constraint
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Program_Requirement are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of External_Business_Regulations are not among the allowed ontological natures of its superclass Business_Constraint
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Requirements_Specification are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of System_Component are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of System_Element are not among the allowed ontological natures of its superclass System_Component
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of SubSystem are not among the allowed ontological natures of its superclass Software_System
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of SubSystem are not among the allowed ontological natures of its superclass System_Component
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Business_Constraint are not among the allowed ontological natures of its superclass Normative_Description
+[error] Not unique class stereotype:
+The class Artifact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Hardware_Equipment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Stakeholder must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Hardware_Equipment are not among the allowed ontological natures of its superclass System_Element
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Stakeholder are not among the allowed ontological natures of its superclass Agent
+[error] Not unique class stereotype:
+The class World_Assumption must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Machine_Assumption must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of World_Assumption are not among the allowed ontological natures of its superclass Proposition
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Machine_Assumption are not among the allowed ontological natures of its superclass Proposition
+[error] Not unique class stereotype:
+The class Organization must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Organization are not among the allowed ontological natures of its superclass Agent
+Validation finished

@@ -1,0 +1,19 @@
+Validating...
+- Total of errors: 10
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Sell_Event must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Sell_Event must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Cash_Event must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Cash_Event must specify the possible ontological natures of its instances
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Sell_Event are not among the allowed ontological natures of its superclass Economic_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cash_Event are not among the allowed ontological natures of its superclass Economic_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Sell_Event are not among the allowed ontological natures of its superclass Economic_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cash_Event are not among the allowed ontological natures of its superclass Economic_Event
+Validation finished

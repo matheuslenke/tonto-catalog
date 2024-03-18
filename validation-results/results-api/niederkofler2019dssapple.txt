@@ -1,0 +1,76 @@
+Validating...
+Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
+<manifestation, (> may appears as a prefix path in all these alternatives.
+See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
+For Further details.
+- Total of errors: 15
+Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
+<manifestation, (> may appears as a prefix path in all these alternatives.
+See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
+For Further details.
+Could not create relation named (hasValue) between PhysicalQualityState and PhysicalQualitySpace because one or both of them was not created.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class AppleExocarp must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class AppleExocarp must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class AplleEndocarp must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class AplleEndocarp must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class InfectedAppleSubstance must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class InfectedAppleSubstance must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class PathologicalAppleSubstance must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class PathologicalAppleSubstance must specify the possible ontological natures of its instances
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class AppleLowNutritionalFactor is specializing other classes that represent ultimate sortals: «quality»
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of PressureMarkInApple are not among the allowed ontological natures of its superclass AppleFeature
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of PressureMarkInApple are not among the allowed ontological natures of its superclass ApplePathologyEnablingFactor
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of HoleInApple are not among the allowed ontological natures of its superclass AppleFeature
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleStain are not among the allowed ontological natures of its superclass AppleFeature
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleExocarp are not among the allowed ontological natures of its superclass ApplePart
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AplleEndocarp are not among the allowed ontological natures of its superclass ApplePart
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleTaste are not among the allowed ontological natures of its superclass AppleQuality
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleColor are not among the allowed ontological natures of its superclass AppleQuality
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleNutritionalFactor are not among the allowed ontological natures of its superclass AppleQuality
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleQualityState are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleHandlingActivity are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of PhysicalQualityState are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Temperature are not among the allowed ontological natures of its superclass PysicalQuality
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Humidity are not among the allowed ontological natures of its superclass PysicalQuality
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of GasConcentration are not among the allowed ontological natures of its superclass PysicalQuality
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of InfectedAppleSubstance are not among the allowed ontological natures of its superclass PathologicalAppleSubstance
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of PathogenSign are not among the allowed ontological natures of its superclass AppleAspect
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of PathologicalAppleSubstance are not among the allowed ontological natures of its superclass AppleSubstance
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of ApplePathology are not among the allowed ontological natures of its superclass AppleDisposition
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of InsectStingInApple are not among the allowed ontological natures of its superclass AppleFeature
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of InsectStingInApple are not among the allowed ontological natures of its superclass ApplePathologyEnablingFactor
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AppleLowNutritionalFactor are not among the allowed ontological natures of its superclass ApplePreHarvestPathologyEnablingFactor
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of InadequatePhysicalQualityStateOfSpatialEntityDuringAppleHandling are not among the allowed ontological natures of its superclass ApplePostHarvestPathologyEnablingFactor
+Validation finished

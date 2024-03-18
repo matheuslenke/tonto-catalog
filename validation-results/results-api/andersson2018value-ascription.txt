@@ -1,0 +1,17 @@
+Validating...
+- Total of errors: 4
+[error] Not unique class stereotype:
+The class Value_Quale must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Protocol must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Comparison_Frame must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Context_Frame must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Structure must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Dimension must have a unique OntoUML stereotype.
+Validation finished

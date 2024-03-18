@@ -1,0 +1,5 @@
+Validating...
+- Total of errors: 8
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Aspectual_Belief are not among the allowed ontological natures of its superclass Belief
+Validation finished
