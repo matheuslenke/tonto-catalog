@@ -91,4 +91,24 @@ relator Problem_Action_Item {
      [1..*] -- [1]  Problem_Issue( {const } )
 }
 role Problem_Issue  specializes Issue
+disjoint complete genset dlloI76AUB2ySAuZ{
+    general Evaluation_Find
+    specifics Noncompliance, Problem, Lesson_Learned 
+}
+disjoint complete genset mv3bm36D.AAAARhF{
+    general Noncompliance
+    specifics Registered_NC, Identified_NC, Canceled_NC 
+}
+disjoint complete genset ouk7m36D.AAAARhp{
+    general Registered_NC
+    specifics Resolving_NC, Finished_NC, Planned_NC 
+}
+disjoint complete genset mAZMMP6GAqACBS0J{
+    general Issue
+    specifics Preventive_Action, Corretive_Action, Improvement_Suggestion 
+}
+disjoint complete genset klLMMP6GAqACBS1E{
+    general Issue
+    specifics Finished_Issue, Planned_Issue, Implementing_Issue 
+}
 

@@ -1,0 +1,371 @@
+import GEFAE
+import GEROT
+import ontologia_mgic
+import GERPA
+
+package SUPAS
+
+class Normatizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Why
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Normatizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada
+}
+class Delegao_dos_servios_de_transporte_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Regulamentao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Delegao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Delegao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Conflitos_entre_empresas_de_transporte_de_passageiros_resolvidos {
+    @Decomposition_AND
+    [*] -- [*]  Conflitos_envolvendo_empresas_de_transporte_de_passageiros_resolvidos
+    @Dependency_Link
+    [*] -- [*]  SUPAS
+}
+class Regulamentao_dos_servios_de_transporte_de_passageiros_realizada 
+class Fiscalizao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Conflitos_entre_empresas_de_transporte_de_passageiros_e_governo_resolvidos {
+    @Dependency_Link
+    [*] -- [*]  SUPAS
+    @Decomposition_AND
+    [*] -- [*]  Conflitos_envolvendo_empresas_de_transporte_de_passageiros_resolvidos
+}
+class Controle_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class SUPAS_1 
+class Mediao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Normatizao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Normatizao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Normatizao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Normatizao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+}
+class Resultados_operacionais_das_empresas_reguladas_fornecidos_peridicamente 
+class Delegao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+    @Why
+    [*] -- [*]  Delegao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada_fromSUPAS
+}
+class Controle_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Normatizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+    @Why
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+}
+class Normatizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Why
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Controle_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class SUPAS_2 
+class Mediao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Controle_dos_servios_de_transporte_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Delegao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Delegao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Why
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Delegao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Delegao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Controle_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Delegao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada
+}
+class Normatizao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Normatizao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Why
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Controle_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Superviso_dos_servios_de_transporte_de_passageiros_realizada 
+class Fiscalizao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Normatizao_dos_servios_de_transporte_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Regulamentao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Delegao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Why
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada
+}
+class Empresa_de_transporte_trerrestre_de_passageiros 
+class Autorizada_transporte_por_fretamento 
+class Conflitos_envolvendo_empresas_de_transporte_de_passageiros_resolvidos 
+class Delegao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada_fromSUPAS
+}
+class Monitoramento_dos_servios_de_transporte_rodovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Why
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Controle_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Controle_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Normatizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Mediao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Normatizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada {
+    @Why
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Permissionria_transporte_regular 
+class Delegao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Delegao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Controle_dos_servios_de_transporte_rodovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Empresa_de_transporte_rodovirio_de_passageiros 
+class Controle_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+    @Why
+    [*] -- [*]  Controle_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada_fromSUPAS
+}
+class Conflitos_entre_empresas_de_transporte_de_passageiros_e_sociedade_resolvidos {
+    @Dependency_Link
+    [*] -- [*]  SUPAS
+    @Decomposition_AND
+    [*] -- [*]  Conflitos_envolvendo_empresas_de_transporte_de_passageiros_resolvidos
+}
+class Empresa_de_transporte_ferrovirio_de_passageiros 
+class Controle_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada
+}
+class Normatizao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Normatizao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada
+}
+class Monitoramento_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Mediao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Fiscalizao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_no_regular_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_rodovirio_de_passageiros_realizada
+}
+class Mediao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Delegao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Delegao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_de_transporte_ferrovirio_interestadual_de_passageiros_realizada
+}
+class Controle_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada {
+    @Why
+    [*] -- [*]  Controle_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_realizada
+}
+class Controle_dos_servios_de_transporte_ferrovirio_de_passageiros_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_de_passageiros_realizada
+}
+

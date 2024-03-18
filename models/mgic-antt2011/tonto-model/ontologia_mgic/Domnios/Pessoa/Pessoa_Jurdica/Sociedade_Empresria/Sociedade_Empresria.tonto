@@ -1,0 +1,43 @@
+import Imposto
+import Ativo_Permanente
+import Capital_Prprio
+import Balano_Patrimonial
+import Pessoa_Jurdica
+import Capital_de_Terceiros
+
+package Sociedade_Empresria
+
+relator Exerccio_Social {
+    dataFim : undefined
+    dataIncio : undefined
+    despesaAdministrativa : undefined
+    EBITDA : undefined
+    patrimnioLquido : undefined
+    resultadoBruto : undefined
+    resultadoLquido : undefined
+    @mediation
+    [1] --  [1..*]  Ativo( {const } )
+    @material
+    [1] -- _recolhe_ --  [1..*]  Imposto_sobre_Resultado
+    @mediation
+    [1] --  [1..*]  Passivo( {const } )
+    @mediation
+    [1] --  [1..*]  Pagamento_de_Imposto_sobre_Resultado( {const } )
+}
+role Sociedade_Empresria_Fiscalizada  specializes Sociedade_Empresria, Empresa_com_Capital_de_Terceiros{
+    adiantamento : undefined
+    capitalPrprio : undefined
+    capitalSocial : undefined
+    resultadoAcumulado : undefined
+    @mediation
+    ( {const } )[1] --  [1..*]  Pagamento_de_Imposto_sobre_Resultado
+    @material
+    [1] -- _controla_ --  [1..*]  Ativo_Permanente
+    @mediation
+    ( {const } )[1] --  [1..*]  Aporte_de_Capital
+    @material
+     [1..*] -- _aporta_capital_em_ --  [1..*]  Responsvel_por_Aporte
+    @mediation
+    ( {const } )[1] --  [1..*]  Exerccio_Social
+}
+

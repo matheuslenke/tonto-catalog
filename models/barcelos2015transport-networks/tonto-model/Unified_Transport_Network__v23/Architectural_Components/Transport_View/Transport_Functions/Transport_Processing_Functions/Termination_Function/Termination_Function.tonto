@@ -1,0 +1,70 @@
+import Layer_Network
+import Transport_Processing_Functions
+import Complementary_Categorizations
+
+package Termination_Function
+
+subkind Bidirectional_Termination  specializes Termination_Function
+subkind Path_Layer_Termination  specializes Termination_Function{
+    @componentOf
+    ( {const } IsComposed ) [2..*]  --<o> [1]  Path_Layer_Network_2( {const } compose )
+}
+subkind Physical_Media_Layer_Termination  specializes Transmission_Media_Layer_Termination{
+    @componentOf
+    ( {const } isComposed ) [2..*]  --<o> [1]  Physical_Media_Layer_Network( {const } compose )
+}
+subkind Section_Layer_Termination  specializes Transmission_Media_Layer_Termination{
+    @componentOf
+    ( {const } isComposed ) [2..*]  --<o> [1]  Section_Layer_Network( {const } compose )
+}
+kind Termination_Function  specializes Transport_Processing_Function{
+    type_ : undefined
+}
+subkind Termination_Sink  specializes Termination_Function
+kind Termination_Sink_Input  specializes Unidirectional_Port, Input{
+    @componentOf
+    ( {const } isComposedTTSI ) [1..*]  --<o> [1]  Termination_Sink( {const } composeTTS )
+}
+kind Termination_Sink_Output  specializes Output{
+    @componentOf
+    ( {const } isComposedTTSO )[1]  --<o> [1]  Termination_Sink( {const } composeTTS )
+}
+kind Termination_Sink_Process {
+    @componentOf
+    ( {const } )[1]  --<o> [1]  Termination_Sink( {const } )
+}
+subkind Termination_Sk_Bidirectional_Component  specializes Termination_Sink{
+    @componentOf
+    ( {const } isComposedSk )[1]  --<o> [1]  Bidirectional_Termination( {const } composeBTT )
+}
+subkind Termination_So_Bidirectional_Component  specializes Termination_Source{
+    @componentOf
+    ( {const } isComposedSo )[1]  --<o> [1]  Bidirectional_Termination( {const } composeBTT )
+}
+subkind Termination_Source  specializes Termination_Function
+kind Termination_Source_Input  specializes Input{
+    @componentOf
+    ( {const } isComposedTTSI )[1]  --<o> [1]  Termination_Source( {const } composeTTS )
+}
+kind Termination_Source_Output  specializes Unidirectional_Port, Output{
+    @componentOf
+    ( {const } isComposedTTSO ) [1..*]  --<o> [1]  Termination_Source( {const } composeTTS )
+}
+kind Termination_Source_Process {
+    @componentOf
+    ( {const } )[1]  --<o> [1]  Termination_Source( {const } )
+}
+subkind Transmission_Media_Layer_Termination  specializes Termination_Function
+disjoint complete genset RhRFnb6GAqBwATYM{
+    general Transmission_Media_Layer_Termination
+    specifics Section_Layer_Termination, Physical_Media_Layer_Termination 
+}
+disjoint complete genset R6lFnb6GAqBwATYe{
+    general Termination_Function
+    specifics Transmission_Media_Layer_Termination, Path_Layer_Termination 
+}
+disjoint complete genset A5hlnb6GAqBwATZz{
+    general Termination_Function
+    specifics Termination_Source, Termination_Sink, Bidirectional_Termination 
+}
+

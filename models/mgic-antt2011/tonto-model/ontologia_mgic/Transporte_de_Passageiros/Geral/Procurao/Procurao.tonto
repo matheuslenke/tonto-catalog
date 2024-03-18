@@ -1,0 +1,12 @@
+package Procurao
+
+subkind Procurao_Especial  specializes Procurao
+subkind Procurao_Ampla  specializes Procurao
+kind Procurao 
+subkind Procurao_Privada  specializes Procurao
+subkind Procurao_Pblica  specializes Procurao
+subkind Procurao_Extrajudicial  specializes Procurao
+subkind Procurao_Restrita  specializes Procurao
+subkind Procurao_Geral  specializes Procurao
+subkind Procurao_Judicial  specializes Procurao
+

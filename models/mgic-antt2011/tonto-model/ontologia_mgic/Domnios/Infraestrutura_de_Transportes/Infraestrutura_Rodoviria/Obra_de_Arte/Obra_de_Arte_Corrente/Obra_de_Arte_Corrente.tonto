@@ -1,0 +1,26 @@
+import Infraestrutura_Ferroviria
+import Ativo_Ferrovirio
+
+package Obra_de_Arte_Corrente
+
+kind Bueiro  specializes Obra_de_Arte_Corrente_Pontual
+category Obra_de_Arte_Corrente_Pontual  specializes Obra_de_Arte_Corrente
+category Obra_de_Arte_Corrente 
+kind Dreno  specializes Obra_de_Arte_Corrente_Pontual
+subkind Drenagem_de_Travessia_Urbana  specializes Sistema_de_Drenagem
+kind Sistema_de_Drenagem  specializes Obra_de_Arte_Corrente_Linear
+kind Dissipador_de_Energia  specializes Obra_de_Arte_Corrente_Pontual
+category Obra_de_Arte_Corrente_Linear  specializes Obra_de_Arte_Corrente
+kind Meio_Fio  specializes Obra_de_Arte_Corrente_Linear
+kind Muro  specializes Obra_de_Arte_Corrente_Linear
+subkind Drenagem_do_Pavimento  specializes Sistema_de_Drenagem
+subkind Drenagem_Subterrnea  specializes Sistema_de_Drenagem
+kind Pontilho  specializes Obra_de_Arte_Corrente_Pontual
+subkind Drenagem_Superficial  specializes Sistema_de_Drenagem
+subkind Drenagem_de_Transposio_de_Talvegues  specializes Sistema_de_Drenagem
+kind Espinhas_de_Peixe  specializes Obra_de_Arte_Corrente_Pontual
+category Obra_de_Arte_Corrente_Ferroviria  specializes Infraestrutura_Ferroviria, Obra_de_Arte_Corrente, Obra_de_Arte_Ferroviria
+kind Valeta  specializes Obra_de_Arte_Corrente_Pontual
+kind Sarjeta  specializes Obra_de_Arte_Corrente_Pontual
+kind Descida_Dgua  specializes Obra_de_Arte_Corrente_Pontual
+

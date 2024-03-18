@@ -1,0 +1,6 @@
+import Trecho_Ferrovirio
+
+package Trecho
+
+category Trecho  specializes Trecho_Ferrovirio
+

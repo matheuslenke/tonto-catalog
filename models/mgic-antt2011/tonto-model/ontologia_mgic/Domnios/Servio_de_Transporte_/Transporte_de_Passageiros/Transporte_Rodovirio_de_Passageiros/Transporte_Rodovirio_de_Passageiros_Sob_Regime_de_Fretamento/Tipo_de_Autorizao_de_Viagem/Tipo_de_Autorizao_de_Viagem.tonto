@@ -1,0 +1,31 @@
+import Tipos_de_Fretamento
+
+package Tipo_de_Autorizao_de_Viagem
+
+relator Autorizao_de_Viagem_para_Fretamento_Contnuo_Interestadual  specializes Autorizao_de_Viagem_para_Fretamento_Contnuo{
+    @mediation
+    [1] -- [1]  TRP_Sob_Regime_de_Fretamento_Contnuo_Interestadual( {const } )
+}
+relator Autorizao_de_Viagem {
+    @mediation
+    [1] -- [1]  TRP_Sob_Regime_de_Fretamento( {const } )
+}
+relator Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico_Especial  specializes Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico
+relator Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico_Comum  specializes Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico
+relator Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico_Interestadual  specializes Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico{
+    @mediation
+     [1..*] -- [1]  TRP_Sob_Regime_de_Fretamento_Eventual_ou_Turstico_Interestadual( {const } )
+}
+relator Autorizao_de_Viagem_para_Fretamento_Contnuo_Internacional  specializes Autorizao_de_Viagem_para_Fretamento_Contnuo{
+    @mediation
+    [1] -- [1]  TRP_Sob_Regime_de_Fretamento_Contnuo_Internacional( {const } )
+}
+relator Autorizao_de_Viagem_para_Fretamento  specializes Autorizao_de_Viagem
+relator Autorizao_de_Viagem_Especial  specializes Autorizao_de_Viagem
+relator Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico  specializes Autorizao_de_Viagem_para_Fretamento
+relator Autorizao_de_Viagem_para_Fretamento_Contnuo  specializes Autorizao_de_Viagem_para_Fretamento
+relator Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico_Internacional  specializes Autorizao_de_Viagem_para_Fretamento_Eventual_ou_Turstico{
+    @mediation
+     [1..*] -- [1]  TRP_Sob_Regime_de_Fretamento_Eventual_ou_Turstico_Internacional( {const } )
+}
+

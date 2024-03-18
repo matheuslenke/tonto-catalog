@@ -1,0 +1,14 @@
+import Contratao_de_Transporte_Multimodal_de_Cargas
+
+package Transporte_Multimodal_de_Cargas
+
+relator Transporte_Aerovirio_de_Carga  specializes Modal_de_Transporte
+relator Transporte_Aquavirio_de_Carga  specializes Modal_de_Transporte
+relator Modal_de_Transporte 
+relator Transporte_Multimodal_de_Cargas {
+    @componentOf
+     [0..1] <o>--  [2..*]  Modal_de_Transporte
+    @mediation
+    [1] -- [1]  Contratao_de_Transporte_Multimodal_de_Cargas( {const } )
+}
+

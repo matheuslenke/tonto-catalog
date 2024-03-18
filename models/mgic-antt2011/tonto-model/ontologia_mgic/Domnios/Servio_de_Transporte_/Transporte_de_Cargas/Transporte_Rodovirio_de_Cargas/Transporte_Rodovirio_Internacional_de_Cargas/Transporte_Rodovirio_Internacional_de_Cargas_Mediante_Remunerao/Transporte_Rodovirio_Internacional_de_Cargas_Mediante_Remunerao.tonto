@@ -1,0 +1,24 @@
+import Licena_Originria
+import Transportador_Rodovirio_de_Cargas
+import Transporte_Rodovirio_Internacional_de_Cargas
+import Gerao_de_CIOT
+
+package Transporte_Rodovirio_Internacional_de_Cargas_Mediante_Remunerao
+
+role Veculo_Habilitado_Internacionalmente_em_Transporte  specializes Veculo_Exclusivo_de_Carga_Habilitado_Internacionalmente
+relator Operao_de_Transporte_Rodovirio_Internacional_de_Cargas_Mediante_Remunerao  specializes Operao_de_Transporte_Rodovirio_Internacional_de_Cargas{
+    @mediation
+     [1..*] -- [1]  Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas( {const } )
+    @mediation
+     [1..*] -- [1]  Contratado_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas( {const } )
+    @mediation
+     [0..*] --  [1..*]  Licena_Originria( {const } )
+    @mediation
+    [1] -- [1]  Veculo_Habilitado_Internacionalmente_em_Transporte( {const } )
+}
+relator Operao_de_Transporte_Rodovirio_Internacional_de_Cargas_Mediante_Remunerao_com_Autorizao_de_Carter_Ocasional  specializes Operao_de_Transporte_Rodovirio_Internacional_de_Cargas_Mediante_Remunerao
+role Contratado_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas  specializes Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente
+roleMixin Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas  specializes Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_de_Cargas
+role Pessoa_Jurdica_Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas  specializes Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas
+role Pessoa_Fsica_Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas  specializes Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_Internacional_de_Cargas
+

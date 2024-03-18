@@ -67,4 +67,20 @@ kind Uncertainty_Sample_Space {
 event Plan_Event_Tree {
      [0..*] --  [0..*]  Economic_Resource
 }
+disjoint complete genset rHAJG06GAqACHQo4{
+    general Derivative_Instrument
+    specifics Off_Balance, Liability, Equity, Asset 
+}
+disjoint complete genset eEa5G06GAqACHQrm{
+    general Economic_Event
+    specifics Debit_Event, Credit_Event 
+}
+disjoint complete genset aeHlG06GAqACHQyY{
+    general Economic_Commitment
+    specifics Credit_Commitment, Debit_Commitment 
+}
+disjoint complete genset UDDV._6AUB1CSi3Z{
+    general Economic_Resource
+    specifics Asset, Liability, Equity, Off_Balance 
+}
 

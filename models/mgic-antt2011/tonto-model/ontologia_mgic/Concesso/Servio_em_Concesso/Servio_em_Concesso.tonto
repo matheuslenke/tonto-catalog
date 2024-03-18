@@ -1,0 +1,24 @@
+package Servio_em_Concesso
+
+role Parte_de_Trfego_Concedida_com_Servio {
+    @mediation
+     [1..*] --  [1..*]  Execuo_de_Servio2( {const } )
+}
+kind Servio_em_Concesso_ 
+relator Execuo_de_Servio_Programado  specializes Execuo_de_Servio2{
+    data : undefined
+}
+relator Execuo_de_Servio2 {
+    @mediation
+     [1..*] --  [1..*]  Servio_Executado_em_Concesso( {const } )
+}
+role Servio_em_Concesso_Provido_por_Concessionria_  specializes Servio_em_Concesso_{
+    @material
+     [1..*] -- prov -- [1]  Concessionria_Provedora_de_Servio
+}
+role Concessionria_Provedora_de_Servio 
+role Servio_Executado_em_Concesso  specializes Servio_em_Concesso_{
+    @material
+     [1..*] -- _realizado_em_ --  [1..*]  Parte_de_Trfego_Concedida_com_Servio
+}
+

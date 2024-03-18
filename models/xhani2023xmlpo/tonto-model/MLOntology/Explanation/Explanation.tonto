@@ -53,4 +53,8 @@ quality XAIMetricCharacteristic {
     @characterization
     [1] -- [1]  XAIEvaluationMetric( {const } )
 }
+genset {disjoint,complete}{
+    general ExplanationApproach
+    specifics AntehocAprroach, PosthocApproach 
+}
 

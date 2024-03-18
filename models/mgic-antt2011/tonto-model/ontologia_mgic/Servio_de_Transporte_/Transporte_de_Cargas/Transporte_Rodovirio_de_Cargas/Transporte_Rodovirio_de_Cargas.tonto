@@ -1,0 +1,44 @@
+import Transporte_Rodovirio_de_Produtos_Perigosos
+import Transporte_Rodovirio_Internacional_de_Carga_Prpria
+import Transporte_Rodovirio_Internacional_de_Cargas_Mediante_Remunerao
+import Transporte_Multimodal_de_Cargas
+import Via_de_Trnsito_Rodovirio
+
+package Transporte_Rodovirio_de_Cargas
+
+role Carga_Geral_em_Transporte  specializes Produto_Comum, Carga_em_Transporte_Rodovirio
+kind Produto_Comum 
+role Veculo_em_Transporte_de_Cargas  specializes Veculo_Habilitado_Internacionalmente_em_Transporte
+kind Produto_Perigoso 
+relator Operao_de_Transporte_Rodovirio_de_Produto_Perigoso  specializes Operao_de_Transporte_Rodovirio_de_Cargas{
+    @mediation
+    [1] -- [1]  Certificado_de_Inspeo_para_o_Transporte_de_Produtos_Perigosos_Emitido( {const } )
+    @mediation
+     [0..1] -- [1]  Ficha_de_Emergncia( {const } )
+    @mediation
+    [1] --  [1..*]  Licena_Ambiental_para_Transporte_de_Cargas_Emitida( {const } )
+    @mediation
+    [1] -- [1]  Documento_Comprobatrio_de_Qualificao_do_Motorista_Emitido( {const } )
+    @mediation
+    [1] --  [0..*]  Licena_Especfica_de_Autoridades_para_Transporte_de_Cargas_Emitida( {const } )
+    @mediation
+    [1] -- [1]  Veculo_em_Transporte_de_Produtos_Perigosos( {const } veiculo )
+    @mediation
+    [1] --  [1..*]  Produto_Perigoso_em_Transporte( {const } )
+}
+relator Operao_de_Transporte_Rodovirio_de_Cargas  specializes Modal_de_Transporte{
+    @mediation
+    [1] --  [1..*]  Motorista_em_Transporte_de_Cargas( {const } )
+    @mediation
+     [1..*] --  [1..*]  Trecho_Percorrido_por_Transporte_Rodovirio_de_Cargas( {const } )
+    @mediation
+    [1] -- [1]  Veculo_em_Transporte_de_Cargas( {const } veiculoCargas )
+}
+role Trecho_Percorrido_por_Transporte_Rodovirio_de_Cargas  specializes Trecho_Rodovirio_Fsico
+role Produto_Perigoso_em_Transporte  specializes Produto_Perigoso, Carga_em_Transporte_Rodovirio
+role Motorista_em_Transporte_de_Cargas 
+relator Operao_de_Transporte_Rodovirio_de_Carga_Geral  specializes Operao_de_Transporte_Rodovirio_de_Cargas{
+    @mediation
+    [1] --  [1..*]  Carga_Geral_em_Transporte( {const } )
+}
+

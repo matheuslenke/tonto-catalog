@@ -1,0 +1,397 @@
+import SUROC
+
+package GERAR
+
+class Cadastro_de_Sistemas_de_Dutovias_mantido {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_dutovirio_nacional_realizado_fromSUROC
+}
+class Operaes_de_transporte_registradas {
+    @Decomposition_OR
+    [*] -- [*]  Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC
+}
+class Monitoramento_dos_servios_de_transporte_dutovirio_nacional_realizado_fromSUROC {
+    @Dependency_Link
+    [*] -- [*]  GERAR
+    @Contribution
+    [*] -- [+]  Monitoramento_do_mercado_de_transporte_multimodal_de_cargas_realizado_fromSUROC
+}
+class Experincia_como_Scio_ou_Diretor_de_ETC_ou_CTC_comprovada {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_responsvel_tcnico_pela_ETC_de_pelo_menos_3_anos_na_rea_comprovada
+}
+class Resoluo_3000_Art_73B_V 
+class Certificado_do_RNTRC_emitido {
+    @Decomposition_AND
+    [*] -- [*]  Registro_Nacional_de_Transportadores_Rodovirios_de_Cargas_RNTRC_efetuado
+}
+class Veculo_de_propriedade_do_TAC {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pelo_TAC
+}
+class Fiscalizao_de_fornecedoras_de_valepedgio_obrigatrio_realizada_fromSUROC {
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class Atividade_econmica_da_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado
+}
+class Aprovao_do_responsvel_tcnico_pela_ETC_em_curso_especfico_comprovada {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_responsvel_tcnico_pela_ETC_compravada
+}
+class Scios_diretores_e_administradores_da_ETC_verificados {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado
+}
+class Sistema_de_Controle_de_Frotas_SCF 
+class Autorizao_de_operao_para_fornecedoras_de_valepedgio_obrigatrio_concedida {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_nacional_de_cargas_realizado_fromSUROC
+}
+class Autorizao_de_Carter_Ocasional_de_Transportadores_Rodovirios_Internacionais_de_Cargas_proposta 
+class Credenciamento_de_entidades_cadastradoras_de_RNTRC {
+    @Decomposition_AND
+    [*] -- [*]  Registro_Nacional_de_Transportadores_Rodovirios_de_Cargas_RNTRC_efetuado
+}
+class Experincia_do_TAC_compravada {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Transportadores_Autnomos_de_Cargas_TAC_realizado
+}
+class Capacidade_de_carga_til_CCU_do_veculo_da_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_ETC_registrada
+}
+class Habilitao_dos_transportadores_rodovirios_nacionais_de_cargas_efetuada_ {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC
+}
+class Habilitao_das_administradoras_de_meios_de_pagamento_eletrnico_de_frete_PEF_efetuada {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC
+}
+class Experincia_do_TAC_de_pelo_menos_3_anos_na_rea_comprovada {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_TAC_compravada
+}
+class Fiscalizao_de_administradoras_de_meios_de_pagamento_eletrnico_de_frete_PEF_realizada_fromSUROC {
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class Atualizao_do_cadastro_de_Frota_de_Transportadores_Rodovirios_Internacionais_de_Cargas_garantida 
+class Categoria_do_veculo_da_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_ETC_registrada
+}
+class Resoluo_3000_Art_73B_I 
+class Cdigo_Identificador_da_Operao_de_Transporte_CIOT_emitido {
+    @Decomposition_AND
+    [*] -- [*]  Operaes_de_transporte_registradas
+}
+class Resoluo_3000_Art_73B_VI 
+class GERAR 
+class Controle_dos_servios_de_transporte_rodovirio_nacional_de_cargas_realizado_fromSUROC {
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class TAC_com_registro_anterior_no_RNTRC {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_TAC_de_pelo_menos_3_anos_na_rea_comprovada
+}
+class Veculo_em_contrato_de_aluguel {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pelo_TAC
+}
+class Resoluo_n_79404 
+class Unidades_da_ANTT_e_Postos_Credenciados_para_Pontos_de_Cadastramento_no_RNTRC_estabelecidos {
+    @Decomposition_OR
+    [*] -- [*]  Meios_de_cadastramento_no_RNTRC_disponibilizados
+}
+class Aprovao_de_Modelos_e_Sistemas_Operacionais_das_Fornecedoras_de_ValePedgio_Obrigatrio_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_de_fornecedoras_de_valepedgio_obrigatrio_efetuada
+}
+class Espcie_do_veculo_do_TAC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_TAC_registrada
+}
+class Quando_a_dutovia_x_foi_construda 
+class Licena_Complementar_de_Transportadores_Rodovirios_Internacionais_de_Cargas_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Habilitao_de_transportadores_rodovirios_internacionais_de_cargas_efetuada
+}
+class Monitoramento_do_mercado_de_transporte_rodovirio_de_nacional_de_cargas_realizado {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC
+}
+class Registro_de_transportadores_rodovirios_de_produtos_perigosos_efetuado {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_de_transportadores_rodovirios_de_produtos_perigosos_realizada
+}
+class Contratos_de_transporte_rodovirio_de_cargas_registrados {
+    @Decomposition_OR
+    [*] -- [*]  Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC
+}
+class Registro_de_Cooperativas_Transportadoras_de_Cargas_CTC_realizado {
+    @Decomposition_OR
+    [*] -- [*]  Registro_Nacional_de_Transportadores_Rodovirios_de_Cargas_RNTRC_efetuado
+}
+class Resoluo_3000_Art_73B_IV 
+class Habilitao_de_transportadores_rodovirios_internacionais_de_cargas_efetuada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_de_transportadores_rodovirios_internacionais_de_cargas_realizadas
+}
+class Idoneidade_do_responsvel_tcnico_pela_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Responsvel_tcnico_pela_ETC_verificado
+}
+class Veculo_em_contrato_de_comodato_com_a_ETC {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pela_ETC
+}
+class Resoluo_3000_Art_73B_VII 
+class Registro_de_transportadores_rodovirios_internacionais_de_cargas_TRIC_efetuado {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_de_transportadores_rodovirios_internacionais_de_cargas_realizadas
+}
+class Declarao_de_Operao_de_Transporte {
+    @Meansends
+    [*] -- [*]  Operaes_de_transporte_registradas
+}
+class Delegao_de_transportadores_rodovirios_de_produtos_perigosos_realizada {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC
+}
+class Quais_os_operadores_de_transporte_multimodal_OTM_habilitados 
+class Aprovao_do_TAC_em_curso_especfico_comprovada {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_TAC_compravada
+}
+class Veculo_em_contrato_de_arrendamento {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pelo_TAC
+}
+class Frota_da_TAC_registrada {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Transportadores_Autnomos_de_Cargas_TAC_realizado
+}
+class Conhecimentos_de_transporte_rodovirio_de_cargas_registrados {
+    @Decomposition_OR
+    [*] -- [*]  Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC
+}
+class CNPJ_da_ETC_registrado {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado
+}
+class Atuao_como_responsvel_tcnico_de_ETC_ou_CTC_comprovada_pelo_TAC {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_TAC_de_pelo_menos_3_anos_na_rea_comprovada
+}
+class Posse_veicular_comprovada_pelo_TAC {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_TAC_registrada
+}
+class Servio_online_de_cadastramento_no_RNTRC_mantido {
+    @Decomposition_OR
+    [*] -- [*]  Meios_de_cadastramento_no_RNTRC_disponibilizados
+}
+class Experincia_do_responsvel_tcnico_pela_ETC_de_pelo_menos_3_anos_na_rea_comprovada {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_responsvel_tcnico_pela_ETC_compravada
+}
+class Registro_de_Transportadores_Autnomos_de_Cargas_TAC_realizado {
+    @Decomposition_OR
+    [*] -- [*]  Registro_Nacional_de_Transportadores_Rodovirios_de_Cargas_RNTRC_efetuado
+}
+class Registro_Nacional_de_Transportadores_Rodovirios_de_Cargas_RNTRC_efetuado {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC
+}
+class Idoneidade_dos_scios_administradores_e_diretores_da_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Scios_diretores_e_administradores_da_ETC_verificados
+}
+class Veculo_em_contrato_de_arrendamento_com_a_ETC {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pela_ETC
+}
+class Capacidade_de_carga_til_CCU_do_veculo_do_TAC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_TAC_registrada
+}
+class Meios_de_cadastramento_no_RNTRC_disponibilizados {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_dos_transportadores_rodovirios_nacionais_de_cargas_efetuada_
+}
+class Resoluo_3000_Art_73B_VIII 
+class Monitoramento_dos_Postos_de_Fronteira_do_Transporte_Internacional_de_Cargas_TRIC_realizado {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_do_mercado_de_transporte_rodovirio_internacional_de_cargas_realizado
+    @Dependency_Link
+    [*] -- [*]  Sistema_de_Controle_de_Frotas_SCF
+}
+class Operao_de_Transporte_para_Viagem_de_TACAgregado_cadastrada {
+    @Decomposition_OR
+    [*] -- [*]  Operaes_de_transporte_registradas
+}
+class Sistema_de_infraestrutura_dutoviria_cadastrado {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_dutovirio_nacional_realizado_fromSUROC
+}
+class Qual_a_natureza_da_empresa_operadora_de_transporte_multimodal 
+class Quais_localidades_a_dutovia_x_conecta 
+class Situao_cadastral_do_CPF_do_TAC_verificado {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Transportadores_Autnomos_de_Cargas_TAC_realizado
+}
+class Habilitao_de_transportadores_rodovirios_de_produtos_perigosos_efetuada {
+    @Decomposition_AND
+    [*] -- [*]  Delegao_de_transportadores_rodovirios_de_produtos_perigosos_realizada
+}
+class Frota_da_ETC_registrada {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado
+}
+class Autorizao_de_operao_para_administradoras_de_meios_de_pagamento_eletrnico_de_frete_concedida {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_rodovirio_nacional_de_cargas_realizado_fromSUROC
+}
+class Quais_as_empresas_proprietrias_de_dutovias 
+class Licena_Originria_de_Transportadores_Rodovirios_Internacionais_de_Cargas_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Habilitao_de_transportadores_rodovirios_internacionais_de_cargas_efetuada
+}
+class Atividades_equivalentes_comprovadas_pelo_TAC {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_TAC_de_pelo_menos_3_anos_na_rea_comprovada
+}
+class Veculo_em_contrato_de_aluguel_com_a_ETC {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pela_ETC
+}
+class Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado {
+    @Decomposition_OR
+    [*] -- [*]  Registro_Nacional_de_Transportadores_Rodovirios_de_Cargas_RNTRC_efetuado
+}
+class Monitoramento_do_mercado_de_transporte_multimodal_de_cargas_realizado_fromSUROC {
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class Quais_operadores_de_transporte_multimodal_registrados 
+class Resoluo_3000_Art_73B_II 
+class Conhecimento_de_Transporte_Multimodal_de_Cargas_CTMC_registrados {
+    @Decomposition_OR
+    [*] -- [*]  Monitoramento_do_mercado_de_transporte_multimodal_de_cargas_realizado_fromSUROC
+}
+class Situao_cadastral_do_CPF_do_responsvel_tcnico_pela_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Responsvel_tcnico_pela_ETC_verificado
+}
+class Habilitao_de_fornecedoras_de_valepedgio_obrigatrio_efetuada {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC
+}
+class Contribuio_sindical_do_TAC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Transportadores_Autnomos_de_Cargas_TAC_realizado
+}
+class Qual_a_abrangncia_de_atuao_da_OTM_x 
+class Experincia_do_responsvel_tcnico_pela_ETC_compravada {
+    @Decomposition_AND
+    [*] -- [*]  Responsvel_tcnico_pela_ETC_verificado
+}
+class RG_do_TAC_registrado {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Transportadores_Autnomos_de_Cargas_TAC_realizado
+}
+class Identificao_do_Nmero_de_Inscrio_no_RNTRC_para_as_Laterais_dos_Veculos_fornecida {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_dos_transportadores_rodovirios_nacionais_de_cargas_efetuada_
+}
+class Responsvel_tcnico_pela_ETC_verificado {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado
+}
+class Espcie_do_veculo_da_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_ETC_registrada
+}
+class Quitao_das_contribuies__Previdncia_Social_como_Motorista_profissional_comprovada_pelo_TAC {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_TAC_de_pelo_menos_3_anos_na_rea_comprovada
+}
+class Contribuio_sindical_da_ETC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado
+}
+class Monitoramento_do_mercado_de_transporte_rodovirio_internacional_de_cargas_realizado {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC
+}
+class Quais_as_dutovias_no_territrio_brasileiro 
+class Atuaao_como_TAC_comprovada_pelo_ETC {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_responsvel_tcnico_pela_ETC_de_pelo_menos_3_anos_na_rea_comprovada
+}
+class Veculo_de_propriedade_da_ETC {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pela_ETC
+}
+class Normatizao_para_habilitao_de_operadores_de_transporte_multimodal_realizada_fromSUROC {
+    @Contribution
+    [*] -- [+ +]  Operadores_de_transporte_multimodal_OTM_habilitados
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC {
+    @Contribution
+    [*] -- [+]  Monitoramento_do_mercado_de_transporte_multimodal_de_cargas_realizado_fromSUROC
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class Veculo_em_contrato_de_comodato_com_o_TAC {
+    @Decomposition_OR
+    [*] -- [*]  Posse_veicular_comprovada_pelo_TAC
+}
+class Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC {
+    @Contribution
+    [*] -- [+]  Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class Operao_de_Transporte_para_ViagemPadro_cadastrada {
+    @Decomposition_OR
+    [*] -- [*]  Operaes_de_transporte_registradas
+}
+class Categoria_do_veculo_do_TAC_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_TAC_registrada
+}
+class Atividades_equivalentes_comprovadas_pelo_responsvel_tcnico {
+    @Decomposition_OR
+    [*] -- [*]  Experincia_do_responsvel_tcnico_pela_ETC_de_pelo_menos_3_anos_na_rea_comprovada
+}
+class Habilitao_da_prestao_de_servios_de_transporte_multimodal_de_cargas_realizada_fromSUROC {
+    @Dependency_Link
+    [*] -- [*]  GERAR
+}
+class Delegao_de_transportadores_rodovirios_internacionais_de_cargas_realizadas {
+    @Decomposition_AND
+    [*] -- [*]  Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC
+}
+class Situao_cadastral_do_CPF_dos_scios_diretores_e_administradores_verificada {
+    @Decomposition_AND
+    [*] -- [*]  Scios_diretores_e_administradores_da_ETC_verificados
+}
+class A_empresa_x__dona_de_qual_rodovia 
+class Qual_a_extenso_da_dutovia_x 
+class Empresas_proprietrias_de_infraestrutura_dutoviria_cadastradas {
+    @Decomposition_AND
+    [*] -- [*]  Monitoramento_dos_servios_de_transporte_dutovirio_nacional_realizado_fromSUROC
+}
+class Posse_veicular_comprovada_pela_ETC {
+    @Decomposition_AND
+    [*] -- [*]  Frota_da_ETC_registrada
+}
+

@@ -1,0 +1,22 @@
+import Obra_de_Arte_Especial
+import Infraestrutura_Ferroviria
+
+package Ponte
+
+subkind Ponte_Suspensa  specializes Ponte
+subkind Ponte_em_Trelia  specializes Ponte_em_Viga
+kind Infraestrutura_de_Ponte 
+subkind Ponte_em_Laje  specializes Ponte_em_Viga
+kind Superestrutura_de_Ponte 
+subkind Ponte_em_Arco  specializes Ponte
+kind Estrado 
+subkind Ponte_Estaiada  specializes Ponte_Suspensa
+subkind Ponte_em_Viga  specializes Ponte
+subkind Ponte_Mvel  specializes Ponte
+subkind Passarela  specializes Ponte
+subkind Ponte_em_Caixo  specializes Ponte_em_Viga
+subkind Ponte_Ferroviria  specializes Obra_de_Arte_Especial_Ferroviria, Ponte
+subkind Ponte_Esttica  specializes Ponte
+subkind Ponte_Rodoviria  specializes Ponte
+subkind Ponte_Utilitria  specializes Ponte
+

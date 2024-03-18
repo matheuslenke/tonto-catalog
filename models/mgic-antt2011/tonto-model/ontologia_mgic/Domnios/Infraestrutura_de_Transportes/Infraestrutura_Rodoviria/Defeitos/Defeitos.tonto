@@ -1,0 +1,97 @@
+import Posto_de_Pesagem
+import Componente_Trecho_Fsico
+import Trecho_Rodovirio_Fsico
+import Obra_de_Arte_Corrente
+import Interseo
+import Complementares
+import Obra_de_Arte_Especial
+import Via_de_Trnsito_Rodovirio
+
+package Defeitos
+
+phase Balana_com_Defeito  specializes Balana{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_na_Balana
+}
+mode Desnvel  specializes Defeito_no_Pavimento
+phase Sinalizao_Rodoviria_com_Defeito  specializes Sinalizao_Rodoviria{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_na_Sinalizao_Rodoviria
+}
+phase Pavimento_Rodovirio_Ideal  specializes Pavimento_Rodovirio
+phase Faixa_de_Domnio_com_Defeito  specializes Faixa_de_Domnio_Rodoviria{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_na_Faixa_de_Domnio
+}
+phase Componente_de_Iluminao_Ideal  specializes Componente_de_Iluminao
+mode Fenda  specializes Defeito_no_Pavimento
+mode Defeito_na_Interseo  specializes Defeito_de_Trecho_Rodovirio
+phase Sinalizao_Rodoviria_Ideal  specializes Sinalizao_Rodoviria
+mode Defeito_na_Sinalizao_Rodoviria  specializes Defeito_de_Trecho_Rodovirio
+mode Defeito_no_Canteiro_Central  specializes Defeito_de_Trecho_Rodovirio
+phase Sistema_de_Drenagem_com_Defeito  specializes Sistema_de_Drenagem{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_na_Drenagem
+}
+mode Trilha_de_Roda  specializes Depresso
+phase Interseo_Ideal  specializes Interseo
+mode Defeito_na_Ponte  specializes Defeito_de_Trecho_Rodovirio
+phase Canteiro_Central_Ideal  specializes Canteiro_Central
+mode Trinca  specializes Defeito_no_Pavimento
+mode Causa_de_Defeito {
+    @characterization
+     [1..*] -- [1]  Defeito_de_Trecho_Rodovirio( {const } )
+}
+mode Fissura  specializes Defeito_no_Pavimento
+mode Defeito_de_Trecho_Rodovirio  specializes Ocorrncia_de_Transporte{
+    ocorrncia : undefined
+    @characterization
+     [1..*] -- [1]  Trecho_Rodovirio_Fsico_com_Defeito( {const } )
+}
+phase Tnel_com_Defeito  specializes Tnel{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_no_Tnel
+}
+phase Ponte_Ideal  specializes Ponte
+mode Buraco  specializes Defeito_no_Pavimento
+phase Balana_Ideal  specializes Balana
+phase Trecho_Rodovirio_Fsico_Ideal  specializes Trecho_Rodovirio_Fsico
+mode Escalonamento  specializes Defeito_no_Pavimento
+phase Trecho_Rodovirio_Fsico_com_Defeito  specializes Trecho_Rodovirio_Fsico
+phase Canteiro_Central_com_Defeito  specializes Canteiro_Central{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_no_Canteiro_Central
+}
+mode Ondulao  specializes Defeito_no_Pavimento
+phase Pavimento_Rodovirio_com_Defeito  specializes Pavimento_Rodovirio{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_no_Pavimento
+}
+mode Defeito_na_Drenagem  specializes Defeito_de_Trecho_Rodovirio
+phase Sistema_de_Drenagem_Ideal  specializes Sistema_de_Drenagem
+mode Defeito_no_Componente_de_Iluminao  specializes Defeito_de_Trecho_Rodovirio
+mode Defeito_no_Tnel  specializes Defeito_de_Trecho_Rodovirio
+mode Defeito_no_Pavimento  specializes Defeito_de_Trecho_Rodovirio
+mode Defeito_na_Balana  specializes Defeito_de_Trecho_Rodovirio
+mode Defeito_na_Faixa_de_Domnio  specializes Defeito_de_Trecho_Rodovirio
+mode Quebra  specializes Defeito_no_Pavimento
+mode Assentamento  specializes Depresso
+mode Desgaste  specializes Defeito_no_Pavimento
+mode Degradao  specializes Defeito_no_Pavimento
+phase Tnel_Ideal  specializes Tnel
+mode Escorregamento  specializes Defeito_no_Pavimento
+phase Faixa_de_Domnio_Ideal  specializes Faixa_de_Domnio_Rodoviria
+phase Ponte_com_Defeito  specializes Ponte{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_na_Ponte
+}
+phase Componente_de_Iluminao_com_Defeito  specializes Componente_de_Iluminao{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_no_Componente_de_Iluminao
+}
+mode Depresso  specializes Defeito_no_Pavimento
+phase Interseo_com_Defeito  specializes Interseo{
+    @characterization
+    ( {const } )[1] --  [1..*]  Defeito_na_Interseo
+}
+

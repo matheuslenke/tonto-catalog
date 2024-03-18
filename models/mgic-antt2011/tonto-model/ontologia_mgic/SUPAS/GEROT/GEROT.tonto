@@ -1,0 +1,231 @@
+import ontologia_mgic
+import GERPA
+
+package GEROT
+
+class Qual__a_estratificao_por_volume_de_normas_dos_temas_da_agenda_regulatria_para_transportes_regulares_rodovirio_interestadual 
+class Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_promovida_fromSUPAS {
+    @Contribution
+    [*] -- [+]  Delegao_da_prestao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+    @Dependency_Link
+    [*] -- [*]  GEROT
+    @Contribution
+    [*] -- [+]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_execidos_por_terceiros_proposta
+}
+class Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_promovida {
+    @Decomposition_AND
+    [*] -- [*]  Compatibilizao_dos_instrumentos_de_regulao_dos_servios_de_transporte_de_passageiros_promovida
+    @Why
+    [*] -- [*]  Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_promovida_fromSUPAS
+}
+class Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_promovida {
+    @Why
+    [*] -- [*]  Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_promovida_fromSUPAS
+    @Decomposition_AND
+    [*] -- [*]  Compatibilizao_dos_instrumentos_de_regulao_dos_servios_de_transporte_de_passageiros_promovida
+}
+class Estudos_e_pesquisas_referentes_aos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_produzidos {
+    @Contribution
+    [*] -- [+]  Normatizao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+    @Contribution
+    [*] -- [+]  Delegao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Edital_de_licitao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Normatizao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS {
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Propostas_de_alterao_do_regramento_vigente_que_impactam_em_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_analisados {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_execidos_por_terceiros_proposta
+}
+class Normatizao_dos_temas_da_agenda_regulatria_referentes_aos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_produzida {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_execidos_por_terceiros_proposta
+}
+class Delegao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS {
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class GEROT {
+    @Dependency_Link
+    [*] -- [*]  Apoio_s_atividades_de_regulamentao_dos_servios_regulares_de_transporte_rodovirio_interestadual_e_internacional_de_passageiros_fornecido
+    @Dependency_Link
+    [*] -- [*]  Apoio_s_atividades_de_regulamentao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_fornecido
+}
+class Normativos_em_funo_de_demandas_externas_referentes_aos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_adaptados {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_execidos_por_terceiros_proposta
+}
+class Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_promovida_fromSUPAS {
+    @Contribution
+    [*] -- [+]  Normatizao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+    @Contribution
+    [*] -- [+]  Delegao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Normativos_em_funo_de_demandas_externas_referentes_aos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_adaptados {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_execidos_por_terceiros_proposta
+}
+class Normatizao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS {
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Delegao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Regulamentao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_produzida
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS
+}
+class Plano_de_outorga_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_execidos_por_terceiros_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Regulamentao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_produzida
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS
+}
+class Quais_os_contratos_em_vigncia_que_esto_relacionados__legislao_anterior__data_presente 
+class Edital_de_licitao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class GEROT_2 
+class Contrato_de_permisso_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Plano_de_outorga_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Normatizao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Regulamentao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_de_passageiros_exercidos_por_terceiros_proposta
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada_fromSUPAS
+}
+class Lei_da_transparncia_ou_documento_especfico 
+class Propostas_de_alterao_do_regramento_vigente_que_impactam_em_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_analisados {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Medidas_para_inibir_e_coibir_o_transporte_rodovirio_clandestino_interestadual_de_passageiros_propostas {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_da_execuo_dos_servios_de_transporte_rodovirio_interestadual_de_passageiros_sob_regime_de_fretamento_exercidos_por_terceiros_realizada
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Quais_contratos_possuem_discrepncias_com_a_legislao_atual_e_necessitam_ser_compatibilizados 
+class Normatizao_dos_temas_da_agenda_regulatria_referentes_aos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_produzida {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_execidos_por_terceiros_proposta
+}
+class Delegao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Regulamentao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_de_passageiros_exercidos_por_terceiros_proposta
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada_fromSUPAS
+}
+class Edital_de_licitao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Normativos_em_funo_de_demandas_externas_referentes_aos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_adaptados {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Medidas_para_inibir_e_coibir_o_transporte_rodovirio_clandestino_internacional_de_passageiros_propostas {
+    @Decomposition_AND
+    [*] -- [*]  Superviso_da_execuo_dos_servios_de_transporte_rodovirio_internacional_de_passageiros_sob_o_regime_de_fretamento_exercidos_por_terceiros_realizada
+}
+class Delegao_dos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_realizada_fromSUPAS {
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Reunio 
+class Contrato_de_permisso_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Propostas_de_alterao_do_regramento_vigente_que_impactam_em_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_analisados {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_execidos_por_terceiros_proposta
+}
+class Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_execidos_por_terceiros_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Regulamentao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_produzida
+    @Decomposition_AND
+    [*] -- [*]  Normatizao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS
+}
+class Qual_a_durao_em_mdia_do_treinamento_de_atualizao_dos_fiscais_aps_modificao_do_marco_regulatrio_ 
+class Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_promovida_fromSUPAS {
+    @Contribution
+    [*] -- [+]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_execidos_por_terceiros_proposta
+    @Contribution
+    [*] -- [+]  Delegao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_proposta
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Contrato_de_permisso_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Estudos_e_pesquisas_referentes_aos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_produzidos {
+    @Contribution
+    [*] -- [+]  Delegao_da_prestao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+    @Contribution
+    [*] -- [+]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_execidos_por_terceiros_proposta
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Delegao_dos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_realizada_fromSUPAS {
+    @Dependency_Link
+    [*] -- [*]  GEROT
+}
+class Estudos_e_pesquisas_referentes_aos_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_produzidos {
+    @Contribution
+    [*] -- [+]  Normatizao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_execidos_por_terceiros_proposta
+    @Contribution
+    [*] -- [+]  Delegao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Qual__o_volume_de_alteraes_no_marco_regulatrio_para_transportes_regulares_rodovirio_interestadual 
+class Delegao_da_prestao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta {
+    @Decomposition_OR
+    [*] -- [*]  Regulamentao_da_prestao_de_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_exercidos_por_terceiros_produzida
+    @Dependency_Link
+    [*] -- [*]  GEROT
+    @Dependency_Link
+    [*] -- [*]  GEROT
+    @Decomposition_AND
+    [*] -- [*]  Delegao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_realizada_fromSUPAS
+}
+class Plano_de_outorga_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_proposto {
+    @Decomposition_OR
+    [*] -- [*]  Delegao_da_prestao_de_servios_regulares_de_transporte_rodovirio_internacional_de_passageiros_exercidos_por_terceiros_proposta
+}
+class Compatibilizao_dos_instrumentos_de_regulao_dos_servios_de_transporte_de_passageiros_promovida 
+class Carderno_10_pag_23 
+class Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_promovida {
+    @Decomposition_AND
+    [*] -- [*]  Compatibilizao_dos_instrumentos_de_regulao_dos_servios_de_transporte_de_passageiros_promovida
+    @Dependency_Link
+    [*] -- [*]  GEROT
+    @Dependency_Link
+    [*] -- [*]  GEROT
+    @Why
+    [*] -- [*]  Compatibilizao_dos_instrumentos_de_regulao_dos_servios_regulares_de_transporte_rodovirio_interestadual_de_passageiros_promovida_fromSUPAS
+}
+class Resoluo_3000_Art_63_Inciso_XVI 
+class Normatizao_dos_temas_da_agenda_regulatria_referentes_aos_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_produzida {
+    @Decomposition_OR
+    [*] -- [*]  Normatizao_da_prestao_de_servios_regulares_de_transporte_ferrovirio_interestadual_de_passageiros_exercidos_por_terceiros_proposta
+}
+

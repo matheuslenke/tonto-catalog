@@ -1,0 +1,23 @@
+import Ativo_Ferrovirio
+import Concesso_Ferroviria
+
+package Estado_de_Ativo_Ferrovirio
+
+relator Manuteno_Ferroviria_Preventiva_Geral  specializes Manuteno_Ferroviria_Preventiva
+roleMixin Ativo_Ferrovirio_Parado  specializes Ativo_Ferrovirio
+relator Manuteno_Ferroviria_Preventiva_Peridica  specializes Manuteno_Ferroviria_Preventiva
+relator Manuteno_Ferroviria_Corretiva  specializes Manuteno_Ferroviria
+role Provedor_de_Manuteno_Ferroviria  specializes Concessionria_Ferroviria{
+    @mediation
+    [1] --  [1..*]  Manuteno_Ferroviria( {const } )
+}
+roleMixin Ativo_Ferrovirio_sem_Manuteno  specializes Ativo_Ferrovirio
+roleMixin Ativo_Ferrovirio_com_Manuteno  specializes Ativo_Ferrovirio
+relator Manuteno_Ferroviria {
+    data : undefined
+    @mediation
+     [1..*] -- [1]  Ativo_Ferrovirio_com_Manuteno( {const } )
+}
+relator Manuteno_Ferroviria_Preventiva  specializes Manuteno_Ferroviria
+roleMixin Ativo_Ferrovirio_em_Uso  specializes Ativo_Ferrovirio
+

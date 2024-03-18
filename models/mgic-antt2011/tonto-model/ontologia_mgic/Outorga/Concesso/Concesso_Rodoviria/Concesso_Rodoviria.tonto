@@ -1,0 +1,43 @@
+import Servio_em_Concesso
+import Trecho_de_Concesso
+import Programa_de_Explorao
+import Financiamento
+import Outorga
+import Extino_de_Concesso
+import Fiscalizaes_Especficas
+import Complementares
+
+package Concesso_Rodoviria
+
+roleMixin Bem_da_Concesso_Rodoviria  specializes Direito_Emergente{
+    @material
+     [1..*] -- possui -- [1]  Outorga_de_Concesso_Rodoviria
+}
+mode Meta_da_Concesso {
+    @characterization
+     [1..*] -- [1]  Outorga_de_Concesso_Rodoviria( {const } )
+}
+subkind Contrato_de_Concesso_Rodoviria  specializes Contrato_de_Outorga{
+    @mediation
+    ( {const } )[1] -- [1]  Outorga_de_Concesso_Rodoviria
+    @componentOf
+    [1] <o>-- [1]  Programa_de_Explorao_da_Rodovia
+}
+relator Outorga_de_Concesso_Rodoviria  specializes Concesso_Rodoviria__Extinta{
+    prazo : undefined
+    RDT : undefined
+    @mediation
+    [1] -- [1]  Concessionria_Rodoviria( {const } )
+    @mediation
+    [1] -- [1]  Lote_Rodovirio_Concedido( {const } )
+}
+mixin Garantia_de_Execuo {
+    valor : undefined
+    @mediation
+    ( {const } ) [1..*] -- [1]  Outorga_de_Concesso_Rodoviria
+}
+subkind Concessionria_Rodoviria  specializes Concessionria_Rodoviria_Fiscalizada_por_VP, Concessionria_Rodoviria_com_TRO{
+    @material
+    [1] -- responsvel_por --  [1..*]  Servio_em_Concesso_
+}
+

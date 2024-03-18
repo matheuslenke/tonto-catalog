@@ -1,0 +1,23 @@
+import Debnture
+import Pessoa
+import Arrendamento
+import Contratos_e_Convnios
+import Financiamento
+
+package Capital_de_Terceiros
+
+role Empresa_com_Capital_de_Terceiros  specializes Emissora_de_Debnture{
+    capitalDeTerceiros : undefined
+}
+roleMixin Fonte_de_Capital  specializes Pessoa, Arrendador_Financeiro, Agente_Social
+relator Emprstimo  specializes Obrigao_Financeira
+relator Obrigao_Financeira  specializes Financiamento, Emisso_de_Debnture, Acordo_por_Prazo_Determinado{
+    despesaEmJuros : undefined
+    juros : undefined
+    vencimento : undefined
+    @mediation
+     [1..*] -- [1]  Fonte_de_Capital( {const } )
+    @mediation
+     [1..*] -- [1]  Empresa_com_Capital_de_Terceiros( {const } )
+}
+

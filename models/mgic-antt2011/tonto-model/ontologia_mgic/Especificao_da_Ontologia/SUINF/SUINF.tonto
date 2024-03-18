@@ -1,0 +1,53 @@
+package SUINF
+
+class Conflitos_entre_concessionrias_rodovirias_e_governo_conciliados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_e_governo_resolvidos
+}
+class Conflitos_entre_concessionrias_rodovirias_arbitrados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_resolvidos
+}
+class Conflitos_entre_concessionrias_rodovirias_e_governo_arbitrados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_e_governo_resolvidos
+}
+class Conflitos_entre_concessionrias_rodovirias_mediados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_resolvidos
+}
+class Conflitos_entre_concessionrias_rodovirias_conciliados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_resolvidos
+}
+class Conflitos_entre_concessionrias_rodovirias_e_governo_mediados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_e_governo_resolvidos
+}
+class Conflitos_entre_concessionrias_rodovirias_resolvidos {
+    @Dependency_Link
+    [*] -- [*]  SUINF
+}
+class Conflitos_entre_concessionrias_rodovirias_e_sociedade_arbitrados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_e_sociedade_resolvidos
+}
+class SUINF 
+class Conflitos_entre_concessionrias_rodovirias_e_sociedade_mediados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_e_sociedade_resolvidos
+}
+class Concessionria_rodoviria 
+class Conflitos_entre_concessionrias_rodovirias_e_governo_resolvidos {
+    @Dependency_Link
+    [*] -- [*]  SUINF
+}
+class Conflitos_entre_concessionrias_rodovirias_e_sociedade_conciliados {
+    @Decomposition_OR
+    [*] -- [*]  Conflitos_entre_concessionrias_rodovirias_e_sociedade_resolvidos
+}
+class Conflitos_entre_concessionrias_rodovirias_e_sociedade_resolvidos {
+    @Dependency_Link
+    [*] -- [*]  SUINF
+}
+

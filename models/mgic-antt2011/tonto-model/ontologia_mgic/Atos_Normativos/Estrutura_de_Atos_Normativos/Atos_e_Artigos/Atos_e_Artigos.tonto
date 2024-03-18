@@ -1,0 +1,73 @@
+import Marco_Regulatrio
+import Infrao_Prevista
+import Geral
+import Gerais
+import Complementares
+import Agrupamento_e_Composio
+
+package Atos_e_Artigos
+
+subkind Artigo_Ordinrio  specializes Artigo{
+    @componentOf
+     [1..*]  -- essential_inseparable --<o> [1]  Ato_Normativo
+}
+subkind Decreto_Legislativo  specializes Ato_Normativo
+subkind Artigo_Legal  specializes Artigo, Artigo_Legal_com_Infrao_Definida
+kind Ementa {
+    @componentOf
+    [1]  -- essential_inseparable --<o> [1]  Ato_Normativo
+}
+subkind Constituio  specializes Ato_Normativo
+subkind Lei_Ordinria  specializes Ato_Normativo
+subkind Clusula_de_Vigncia  specializes Artigo{
+    @componentOf
+    [1]  -- essential_inseparable --<o> [1]  Resoluo_da_ANTT
+    @componentOf
+     [0..*]  -- inseparable --<o> [1]  Ato_Normativo
+}
+subkind Portaria  specializes Ato_Normativo
+subkind Apostila  specializes Ato_Normativo
+kind Ato_Normativo  specializes Elemento_Altervel, Ato_Normativo_Base_de_Fiscalizao{
+    numero : undefined
+    vigncia : undefined
+    tema : undefined
+    data : undefined
+    hierarquia : undefined
+    @Formal
+     [1..*] -- regulado_por --  [1..*]  rea_Regulada
+    @memberOf
+     [2..*]  -- essential --<o>  [1..*]  Regramento_de_rea_Simples
+    @memberOf
+     [2..*]  -- essential --<o>  [1..*]  Regramento_de_Subrea
+}
+subkind Artigo_Regulamentar  specializes Artigo, Artigo_Regulamentar_com_Infrao_Definida, Artigo_Regulamentar_Utilizado_Como_Base_Para_Documento_de_Advertncia
+subkind Lei_Delegada  specializes Ato_Normativo
+kind Prembulo {
+    @componentOf
+    [1]  -- essential_inseparable --<o> [1]  Ato_Normativo
+}
+subkind Decreto_Singular  specializes Decreto
+subkind Emenda__Constituio  specializes Ato_Normativo
+subkind Medida_Provisria  specializes Ato_Normativo
+subkind Clusula_de_Revogao  specializes Artigo{
+    @componentOf
+     [0..*]  -- inseparable --<o> [1]  Ato_Normativo
+}
+subkind Resoluo  specializes Ato_Normativo
+kind Epgrafe {
+    @componentOf
+    [1]  -- essential_inseparable --<o> [1]  Ato_Normativo
+}
+subkind Decreto_Regulamentar  specializes Decreto
+subkind Lei_Complementar  specializes Ato_Normativo
+subkind Resoluo_da_ANTT  specializes Resoluo
+kind Artigo  specializes Artigo_Composto, Artigo_Componente_de_Seo_de_Ato_Normativo, Artigo_Simples, Artigo_Componente_de_Captulo_de_Ato_Normativo, Elemento_Componente_de_Ato_Normativo{
+    nmero : undefined
+    texto : undefined
+    tema : undefined
+    @componentOf
+     [1..*]  --<o> [1]  Ato_Normativo
+}
+subkind Decreto_Autnomo  specializes Decreto
+subkind Decreto  specializes Ato_Normativo
+

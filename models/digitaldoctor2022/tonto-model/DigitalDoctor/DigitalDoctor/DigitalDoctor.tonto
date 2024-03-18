@@ -238,4 +238,36 @@ role PrescribedDoseSchedule  specializes DoseSchedule{
     @material
     [1] -- [1]  PrescribedDrug
 }
+disjoint complete genset UserRole{
+    general User
+    specifics Doctor, Patient 
+}
+disjoint complete genset Severity{
+    general Symptom
+    specifics SevereSymptom, MildSymptom 
+}
+disjoint complete genset ReportType{
+    general PatientReport
+    specifics Symptom, VisitRequest 
+}
+complete genset DoctorType{
+    general Doctor
+    specifics SpecialistDoctor, GeneralPractitioner 
+}
+genset ProcedureType{
+    general PresenceMedicalProcedure
+    specifics PalliativeProcedure, DiagnosticProcedure, PhysicalExam, TherapeuticProcedure, SurgicalProcedure 
+}
+disjoint complete genset Severity{
+    general MedicalProcedureOutcome
+    specifics NonSevereOutcome, SevereOutcome 
+}
+complete genset RemoteProcedureType{
+    general RemoteMedicalProcedure
+    specifics DiagnosticProcedure, TherapeuticProcedure 
+}
+genset MedicalProcedureMode{
+    general MedicalProcedure
+    specifics PresenceMedicalProcedure, RemoteMedicalProcedure 
+}
 

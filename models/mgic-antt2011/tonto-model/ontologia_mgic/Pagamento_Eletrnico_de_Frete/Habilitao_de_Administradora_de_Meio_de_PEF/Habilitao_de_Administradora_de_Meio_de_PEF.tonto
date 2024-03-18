@@ -1,0 +1,16 @@
+import Documento
+
+package Habilitao_de_Administradora_de_Meio_de_PEF
+
+role Administradora_de_PEF  specializes Administradora_de_Meios_Eletrnicos_de_Pagamento{
+    @mediation
+    [1] -- [1]  Habilitao_de_Administradora_de_Meio_de_PEF( {const } )
+}
+relator Habilitao_de_Administradora_de_Meio_de_PEF {
+    @mediation
+    [1] -- [1]  Documento_de_Habilitao_de_Administradora_de_Meio_de_PEF( {const } )
+}
+kind Formulrio_de_Habilitao_de_Administradora_de_Meio_de_PEF  specializes Documento
+role Documento_de_Habilitao_de_Administradora_de_Meio_de_PEF  specializes Formulrio_de_Habilitao_de_Administradora_de_Meio_de_PEF
+role Administradora_de_Meios_Eletrnicos_de_Pagamento 
+

@@ -1,0 +1,24 @@
+import Compra
+import Imveis_Produtos_e_Servios
+import Veculo
+import Transporte_Dutovirio_de_Cargas
+import Movimentao_de_Ativo_Ferrovirio
+import Transporte_Rodovirio_de_Cargas
+
+package Produto
+
+category Produto  specializes Item, Veculo, Produto_Dutovirio, Carga_em_Transporte, Produto_Perigoso, Produto_Comum{
+    classificao : undefined
+    @Formal
+    [1] -- de_um_ -- [-1]  Item_de_Compra
+    @material
+     [1..*] -- produzido_por --  [1..*]  Produtor
+}
+roleMixin Produtor 
+relator Produo {
+    @mediation
+    [1] -- [1]  Produto( {const } )
+    @mediation
+     [1..*] --  [1..*]  Produtor( {const } )
+}
+

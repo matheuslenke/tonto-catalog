@@ -1,0 +1,37 @@
+import Concesso_Rodoviria
+import Via_de_Trnsito_Rodovirio
+import Convnio_de_Cooperao_Tcnica
+import Convnio_de_Manuteno
+import Parte_de_Trfego_Concedida
+
+package Trecho_de_Concesso
+
+collective Trecho_de_Monitorao {
+    tipo_de_monitorao : undefined
+    @memberOf
+    [*] <o>--  [2..*]  Trecho_Rodovirio_Concedido
+}
+role Lote_Rodovirio_Concedido  specializes Lote_Rodovirio{
+    @material
+    [1] -- explora -- [1]  Concessionria_Rodoviria
+    @memberOf
+    [1] <o>--  [2..*]  Trecho_Rodovirio_Concedido
+}
+role Trecho_Rodovirio_em_Lote  specializes Trecho_Rodovirio_Fsico
+collective Lote_Rodovirio {
+    @memberOf
+    [1] <o>--  [2..*]  Trecho_Rodovirio_em_Lote
+}
+role Trecho_Rodovirio_Concedido  specializes Trecho_Rodovirio_em_Lote, Trecho_com_Cooperao_Tcnica, Trecho_com_Manuteno_Conveniada, Parte_de_Trfego_Concedida{
+    @memberOf
+     [2..*]  --<o> [1]  Subtrecho_de_Concesso
+    @memberOf
+     [2..*]  --<o> [*]  Segmento_Homogneo
+}
+collective Trecho_de_Concesso 
+collective Subtrecho_de_Concesso {
+    @subCollectionOf
+     [2..*]  --<o> [1]  Trecho_de_Concesso
+}
+collective Segmento_Homogneo 
+

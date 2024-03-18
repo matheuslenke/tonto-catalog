@@ -1,0 +1,42 @@
+import Imposto
+import Sociedade_Empresria
+import Ativo_Permanente
+import Pessoa
+
+package Receita
+
+mixin Ativo_Vendido  specializes Ativo_Permanente
+roleMixin Comprador_Sucata  specializes Pessoa{
+    @mediation
+    ( {const } )[1] --  [1..*]  Venda_de_Sucata
+}
+relator Atividade_No_Operacional  specializes Atividade_{
+    despesaNoOperacional : undefined
+}
+relator Atividade_Financeira  specializes Atividade_No_Operacional
+relator Venda_de_Sucata  specializes Atividade_No_Operacional
+roleMixin Comprador_de_Ativo  specializes Pessoa{
+    @material
+    [1] -- compra_ --  [1..*]  Ativo_Vendido
+}
+relator Atividade_Operacional  specializes Atividade_{
+    custoOperacional : undefined
+    despesaOperacional : undefined
+}
+relator Atividade_ {
+    receitaBruta : undefined
+    receitaLquida : undefined
+    @material
+    [1] -- recolhido_em_ --  [1..*]  Imposto_sobre_Servio
+    @mediation
+     [1..*] -- [1]  Exerccio_Social( {const } )
+}
+relator Atividade_Ordinria  specializes Atividade_Operacional
+relator Atividade_Extraordinria  specializes Atividade_Operacional
+relator Venda_de_Ativo  specializes Atividade_No_Operacional{
+    @mediation
+    [1] --  [1..*]  Ativo_Vendido( {const } )
+    @mediation
+     [1..*] -- [1]  Comprador_de_Ativo( {const } )
+}
+

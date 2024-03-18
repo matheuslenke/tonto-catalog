@@ -1,0 +1,25 @@
+import Pessoa_Jurdica
+import Ativo_Permanente
+import Financiamento
+
+package Sociedade_Annima
+
+roleMixin Acionista_Votante 
+relator Posse_de_Ao {
+    @mediation
+    [1] --  [1..*]  Ao( {const } )
+}
+kind Ao  specializes Ao_como_Ativo, Ao_como_Garantia{
+    valor : undefined
+    @mediation
+    ( {const } ) [1..*] --  [1..*]  Estatuto_Social
+}
+relator Estatuto_Social {
+    @mediation
+     [1..*] -- [1]  Sociedade_Annima( {const } )
+}
+subkind Ao_Ordinria  specializes Ao{
+    @material
+     [1..*] -- possui_ao_ordinria -- [1]  Acionista_Votante
+}
+

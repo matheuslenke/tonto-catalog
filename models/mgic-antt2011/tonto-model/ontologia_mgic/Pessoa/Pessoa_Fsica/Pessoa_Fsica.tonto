@@ -1,0 +1,11 @@
+import Pessoa
+import Gerais
+
+package Pessoa_Fsica
+
+subkind Agente  specializes Pessoa_Fsica
+subkind Responsavel_Tcnico  specializes Pessoa_Fsica
+subkind Agente_da_ANTT  specializes Agente, Fiscal_da_ANTT
+role Engenheiro_Responsvel  specializes Pessoa_Fsica
+subkind Agente_de_rgo_Conveniado  specializes Agente, Fiscal_Conveniado
+

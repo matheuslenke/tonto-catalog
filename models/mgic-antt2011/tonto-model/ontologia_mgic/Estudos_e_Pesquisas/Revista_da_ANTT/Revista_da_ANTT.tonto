@@ -1,0 +1,355 @@
+import Operador_de_Transporte_Multimodal
+import Modificao_de_Frota
+import Gesto_Ambiental
+import Escolaridade
+import Contratao_via_Termo_de_Cooperao
+import Transporte_Rodovirio_Nacional_de_Cargas
+import Autorizao_de_Carter_Ocasional
+
+package Revista_da_ANTT
+
+roleMixin Recurso_Bibliogrfico_Distribudo  specializes Recurso_Bibliogrfico
+role Editora 
+roleMixin _DTC_Aceito_Condicionalmente  specializes DTC_Avaliado_Tcnicamente
+role Parecerista_do_Ncleo_Editorial  specializes Membro_de_Ncleo_Editorial
+kind Artigo_TcnicoCientfico  specializes Artigo
+roleMixin Recurso_Bibliogrfico_com_Editora  specializes Recurso_Bibliogrfico
+role CDR_com_Parecer  specializes Conselho_Deliberativo_de_Revista
+role Livro_de_Srie  specializes Livro_Simples
+roleMixin Autor_de_Documento 
+category Produto_de_Evento 
+relator Ressubmisso_de_DTC  specializes Submisso_de_DTC{
+    @mediation
+    [1] -- [1]  DTC_Ressubmetido( {const } ressubmetido )
+}
+roleMixin DTC_Aceito_Pelo_Conselho  specializes DTC_Avaliado_Pelo_Conselho
+kind Artigo_Especial  specializes Artigo, Contedo_de_Peridico, Documento_TcnicoCientfico
+relator Citao {
+    @mediation
+     [1..*] -- [1]  Documento_Citador( {const } )
+    @mediation
+     [1..*] -- [1]  Documentado_Citado( {const } )
+}
+subkind Subseo_de_DTC  specializes Seo_de_DTC
+kind Editorial {
+    contedo : undefined
+}
+role Tradutor 
+roleMixin DTC_Submetido  specializes Documento_TcnicoCientfico
+roleMixin _DTC_Aceito  specializes DTC_Avaliado_Tcnicamente
+subkind Seo_de_DTC_Simples  specializes Seo_de_DTC
+mode Direito_Autoral {
+    @characterization
+    [1] -- [1]  Recurso_Bibliogrfico( {const } )
+}
+role Membro_de_Ncleo_Editorial 
+subkind Seo_de_DTC_Composta  specializes Seo_de_DTC{
+    @componentOf
+    [1] <o>--  [2..*]  Subseo_de_DTC
+}
+kind Seo_de_Referncia_de_DTC 
+role Revista_com_Submisso  specializes Revista_Cientfica
+roleMixin _DTC_Recusado  specializes DTC_Avaliado_Tcnicamente
+subkind Artigo_TcnicoCientfico_em_Peridico  specializes Documento_TcnicoCientfico, Contedo_de_Peridico, Artigo_TcnicoCientfico
+category Recurso_Bibliogrfico {
+    criao : undefined
+    doi : undefined
+    idioma : Idioma
+    resumo : undefined
+    subttulo : undefined
+    ttulo : undefined
+}
+roleMixin DTC_Ressubmetido  specializes _DTC_Aceito_Condicionalmente
+roleMixin Documento_Revisor  specializes Documento
+kind Resenha_Bibliogrfica  specializes Documento_TcnicoCientfico, Contedo_de_Peridico, Artigo
+relator Evento_Simples  specializes Evento
+category Publicao_Seriada  specializes Coleo{
+    issn : undefined
+}
+relator Retratao_de_Pessoa_em_Imagem {
+    @mediation
+     [1..*] -- [1]  Imagem_com_Retratado( {const } )
+    @mediation
+     [1..*] -- [1]  Retratado_em_Imagem( {const } )
+}
+kind Reportagem  specializes Contedo_de_Peridico, Artigo{
+    contedo : undefined
+}
+relator Parecer_do_Conselho_Deliberativo {
+    @mediation
+     [1..*] -- [1]  Edio_de_Peridico_em_Parecer_Deliberativo( {const } )
+    @mediation
+    [1] -- [1]  DTC_Avaliado_Pelo_Conselho( {const } )
+    @mediation
+     [1..*] -- [1]  CDR_com_Parecer( {const } )
+}
+kind Padro_Documentado  specializes Documento
+kind Conjuntura_Profissional  specializes Artigo, Documento_TcnicoCientfico, Contedo_de_Peridico
+roleMixin Documento_Fonte_de_Traduo  specializes Documento
+role Parecerista_de_DTC  specializes Membro_de_Corpo_Tcnico
+category Documento_Composto  specializes Documento
+subkind Anais_de_Eventos  specializes Livro_Simples, Produto_de_Evento{
+    @componentOf
+    [1] <o>--  [2..*]  Artigo_Acadmico_em_Evento
+}
+category Documento_Legal  specializes Documento, Certificado_de_Operador_de_Transporte_Multimodal, Requerimento_de_Habilitao_de_Transporte_Multimodal, Documento_de_Modificao_de_Frota
+relator Paracer_do_Ncleo_Editorial {
+    @mediation
+    [1] -- [1]  DTC_Avaliado_Pelo_Ncleo_Editorial( {const } )
+    @mediation
+     [1..*] -- [1]  Parecerista_do_Ncleo_Editorial( {const } )
+}
+kind Parecer_Tcnico  specializes Documento, Parecer_Tcnico_de_Pedido_de_Complementao_de_Estudo_em_Licena
+role Imagem_com_Retratado  specializes Imagem{
+    @material
+     [1..*] --  [1..*]  Retratado_em_Imagem
+}
+kind Documento_de_udio  specializes Documento{
+    durao : undefined
+}
+enum Idioma {
+}
+role Distribuidor_de_Recurso_Bibliogrfico 
+kind Manual  specializes Documento
+kind Registro_de_Entrevista  specializes Artigo, Contedo_de_Peridico, Produto_de_Evento{
+    @componentOf
+    [1] <o>--  [2..*]  Item_de_Entrevista
+}
+kind Patente  specializes Documento
+relator Workshop  specializes Evento_Com_Anais
+role Autor_Corporativo  specializes Autor_de_Documento
+roleMixin Documentado_Citado  specializes Documento
+role Stio_Eletrnico_com_Proprietrio  specializes Stio_Eletrnico
+category Trabalho_Acadmico  specializes Projeto_de_Graduao, Dissertao_de_Mestrado, Tese_de_Doutorado, Documento
+kind Nota  specializes Documento
+kind Documento_Audio_Visual  specializes Documento{
+    durao : undefined
+}
+kind Pgina_Eletrnica  specializes Documento
+category Parte_de_Documento  specializes Documento
+relator Evento {
+    fim : undefined
+    incio : undefined
+    @mediation
+    [1] --  [1..*]  Produto_de_Evento( {const } produto )
+}
+relator Evento_Composto  specializes Evento{
+    @Formal
+     [0..1] --  [1..*]  Evento
+}
+collective Ncleo_Editorial {
+    @memberOf
+     [1..*] <>--  [1..*]  Membro_de_Ncleo_Editorial
+}
+role Remetente_de_DTC {
+    email : undefined
+}
+collective Corpo_Tcnico {
+    @memberOf
+     [1..*] <>--  [1..*]  Membro_de_Corpo_Tcnico
+}
+kind Seo_de_DTC {
+    contedo : undefined
+    nmero : undefined
+}
+relator Traduo {
+    @mediation
+    [1] -- [1]  Documento_Traduzido( {const } traduo )
+    @mediation
+     [1..*] -- [1]  Documento_Fonte_de_Traduo( {const } original )
+    @mediation
+     [1..*] -- [1]  Tradutor( {const } )
+}
+kind Excerto  specializes Parte_de_Documento
+collective Conselho_Deliberativo_de_Revista {
+    @memberOf
+     [1..*] <>--  [1..*]  Membro_de_Conselho_Deliberativo_de_Revista
+}
+role Documento_Audio_Visual_com_Diretor_de_Video  specializes Documento_Audio_Visual{
+    @material
+     [1..*] --  [1..*]  Diretor_de_Vdeo
+}
+roleMixin Documento_Citador  specializes Documento{
+    @material
+     [1..*] -- cita --  [1..*]  Documentado_Citado
+}
+role Membro_de_Corpo_Tcnico 
+relator Evento_Com_Anais  specializes Evento{
+    @mediation
+    [1] --  [1..*]  Artigo_Acadmico_em_Evento( {const } artigo )
+    @mediation
+    [1] -- [1]  Anais_de_Eventos( {const } anais )
+}
+relator Parecer_de_DTC {
+    aceito : undefined
+    condicional : undefined
+    contedo : undefined
+    @mediation
+     [1..3] -- [1]  DTC_Avaliado_Tcnicamente( {const } dtc )
+    @mediation
+     [1..*] -- [1]  Parecerista_de_DTC( {const } parecerista )
+}
+relator Edio_de_Recurso_Bibliogrfico {
+    @mediation
+    [1] -- [1]  Recurso_Bibliogrfico_com_Editora( {const } )
+    @mediation
+     [1..*] --  [1..*]  Editora( {const } )
+}
+kind Livro_Composto  specializes Livro, Documento_Composto
+category Documento_TcnicoCientfico {
+    palavrachave : undefined
+    @componentOf
+    [1] <o>--  [2..*]  Seo_de_DTC
+    @componentOf
+    [1] <o>-- [1]  Seo_de_Referncia_de_DTC
+}
+kind Relatrio  specializes Relatrio_Tcnico_em_Peridico, Documento, Relatrio_de_Complementao_de_Estudo_Ambiental_em_Licena, Relatrio_de_Esclarecimento_de_Autorizao_Ambiental
+category Coleo  specializes Recurso_Bibliogrfico
+collective Revista_Cientfica  specializes Peridico
+kind Imagem  specializes Documento
+kind Item_de_Entrevista {
+    pergunta : undefined
+    resposta : undefined
+}
+kind Apresentao_de_Slides  specializes Documento{
+    @componentOf
+    [1] <o>--  [2..*]  Slide
+}
+relator Autoria_de_Documento {
+    @mediation
+     [1..*] -- [1]  Documento( {const } )
+    @mediation
+     [1..*] -- [1]  Autor_de_Documento( {const } )
+}
+role Entrevistador {
+    @material
+     [1..*] --  [1..*]  Registro_de_Entrevista
+}
+roleMixin DTC_Avaliado_Tcnicamente  specializes Documento_TcnicoCientfico
+roleMixin DTC_Recusado_Pelo_Conselho  specializes DTC_Avaliado_Pelo_Conselho
+kind Slide  specializes Parte_de_Documento{
+    nmero : undefined
+}
+relator Direito_de_Propriedade_de_Stio_Eletrnico {
+    @mediation
+     [1..*] -- [1]  Pessoa_com_Stio_Eletrnico( {const } )
+    @mediation
+    [1] -- [1]  Stio_Eletrnico_com_Proprietrio( {const } )
+}
+roleMixin Reprovado_Pelo_Ncleo_Editorial  specializes DTC_Avaliado_Pelo_Ncleo_Editorial
+relator Edio_de_Recurso_Bibliogrfico_2 {
+    @mediation
+    [1] -- [1]  Recurso_Bibliogrfico_Editado( {const } )
+    @mediation
+     [1..*] --  [1..*]  Editor( {const } )
+}
+relator Conferncia  specializes Evento_Com_Anais
+category Livro {
+    isbn : undefined
+}
+subkind Livro_com_Sesso  specializes Livro_Simples{
+    @componentOf
+    [1] <o>--  [2..*]  Seo_de_Livro
+}
+relator Direo_de_Documento_Audio_Visual {
+    @mediation
+     [1..*] -- [1]  Diretor_de_Vdeo( {const } )
+    @mediation
+     [1..*] -- [1]  Documento_Audio_Visual_com_Diretor_de_Video( {const } )
+}
+role Autor_Fsico_de_Documento  specializes Entrevistador, Autor_de_Documento, Autor_de_Nota_Tcnica
+kind Livro_Simples  specializes Documento, Livro
+subkind Artigo_Acadmico_em_Evento  specializes Produto_de_Evento, Artigo_TcnicoCientfico
+collective Jornal  specializes Peridico
+role Editor 
+kind Edio_de_Peridico  specializes Documento_Composto{
+    nmero : undefined
+    volume : undefined
+    @componentOf
+    [1] <o>--  [2..*]  Contedo_de_Peridico
+    @componentOf
+    [1] <o>-- [1]  Editorial
+    @componentOf
+    [1] <o>--  [2..*]  DTC_Aceito_Pelo_Conselho
+}
+role Membro_de_Conselho_Deliberativo_de_Revista 
+collective Srie  specializes Publicao_Seriada{
+    @memberOf
+    [1] <o>--  [2..*]  Livro_de_Srie
+}
+roleMixin Recurso_Bibliogrfico_Editado  specializes Recurso_Bibliogrfico
+roleMixin DTC_Avaliado_Pelo_Ncleo_Editorial  specializes Documento_TcnicoCientfico
+relator Reviso_de_Recurso_Bibliogrfico {
+    @mediation
+     [1..*] --  [1..*]  Recurso_Bibliogrfico_Revisado( {const } )
+    @mediation
+    [1] -- [1]  Documento_Revisor( {const } )
+}
+roleMixin Documento_Traduzido  specializes Documento{
+    @material
+     [1..*] -- traduo_de -- [1]  Documento_Fonte_de_Traduo
+}
+collective Stio_Eletrnico  specializes Coleo{
+    @memberOf
+    [1] <o>--  [2..*]  Pgina_Eletrnica
+}
+kind Seo_de_Livro  specializes Parte_de_Documento{
+    nmero : undefined
+}
+category Peridico  specializes Publicao_Seriada{
+    frequncia : undefined
+    @memberOf
+    [1] <o>--  [0..*]  Edio_de_Peridico
+}
+kind Documento_de_Referncia  specializes Documento
+subkind Relatrio_Tcnico_em_Peridico  specializes Contedo_de_Peridico, Documento_TcnicoCientfico
+category Artigo  specializes Documento
+relator Submisso_de_DTC {
+    @mediation
+     [1..*] -- [1]  Remetente_de_DTC( {const } )
+    @mediation
+     [1..*] -- [1]  Revista_com_Submisso( {const } )
+    @mediation
+    [1] -- [1]  DTC_Submetido( {const } dtc )
+}
+roleMixin Recurso_Bibliogrfico_Revisado  specializes Recurso_Bibliogrfico
+role Edio_de_Peridico_em_Parecer_Deliberativo  specializes Edio_de_Peridico
+collective Revista_TcnicoCientfica  specializes Peridico{
+    @componentOf
+    [1] <o>-- [1]  Conselho_Deliberativo_de_Revista
+    @componentOf
+    [1] <o>-- [1]  Corpo_Tcnico
+    @componentOf
+    [1] <o>-- [1]  Ncleo_Editorial
+}
+roleMixin Aprovado_Pelo_Ncleo_Editorial  specializes DTC_Avaliado_Pelo_Ncleo_Editorial
+role Diretor_de_Vdeo 
+category Documento  specializes Recurso_Bibliogrfico, Termo_de_Referncia, Nota_Tcnica, Contrato_de_Prestao_de_Servio_de_Transporte_Rodovirio_Nacional_de_Cargas, Autorizao_de_Carter_Ocasional{
+    @material
+     [1..*] --  [1..*]  Autor_de_Documento
+}
+relator Entrevista  specializes Evento{
+    ttuloEntrevistado : undefined
+    @mediation
+     [1..*] --  [1..*]  Entrevistado( {const } )
+    @mediation
+     [1..*] --  [1..*]  Entrevistador( {const } )
+    @mediation
+    [1] -- [1]  Registro_de_Entrevista( {const } )
+}
+roleMixin Pessoa_com_Stio_Eletrnico {
+    @material
+    [1] --  [1..*]  Stio_Eletrnico_com_Proprietrio
+}
+roleMixin DTC_Avaliado_Pelo_Conselho  specializes Documento_TcnicoCientfico
+role Entrevistado 
+collective Revista  specializes Peridico
+roleMixin Retratado_em_Imagem 
+relator Distribuio_de_Recurso_Bibliogrfico {
+    @mediation
+     [1..*] --  [1..*]  Distribuidor_de_Recurso_Bibliogrfico( {const } )
+    @mediation
+    [1] -- [1]  Recurso_Bibliogrfico_Distribudo( {const } )
+}
+category Contedo_de_Peridico  specializes Documento
+

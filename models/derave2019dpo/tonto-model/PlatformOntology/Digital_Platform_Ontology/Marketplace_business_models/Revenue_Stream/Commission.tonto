@@ -1,8 +1,0 @@
-import Revenue_Stream
-
-package Commission
-
-subkind Commission_Fee  specializes Revenue_Stream{
-     [0..*] -- collects -- [1]  Marketplace_Company
-}
-

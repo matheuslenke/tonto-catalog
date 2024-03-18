@@ -1,0 +1,28 @@
+import Componente_Trecho_Fsico
+import Ponte
+
+package Obra_de_Arte_Especial
+
+kind Ponte  specializes Obra_de_Arte_Especial_Rodovirio{
+    extenso_do_vo : undefined
+    @componentOf
+    [1] <o>-- [1]  Infraestrutura_de_Ponte
+    @componentOf
+    [1] <o>-- [1]  Superestrutura_de_Ponte
+    @componentOf
+    [1] <o>-- [1]  Estrado
+}
+quantity Material_da_Obra_de_Arte_Especial {
+    @Formal
+     [1..*] -- feito_de_ -- [1]  Obra_de_Arte_Especial_Rodovirio
+}
+quantity Solo {
+    @Formal
+    [1] -- feito_de_ -- [1]  Obra_de_Arte_Especial_Rodovirio
+}
+kind Tnel  specializes Obra_de_Arte_Especial_Rodovirio
+kind Obstculo_Sobreposto {
+    @Formal
+     [1..*] -- supera -- [1]  Obra_de_Arte_Especial_Rodovirio
+}
+

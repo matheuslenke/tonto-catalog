@@ -1,0 +1,104 @@
+import SUFER
+
+package GEAFI
+
+class Reajuste_e_reviso_de_tarifas_para_a_explorao_de_infraestruturas_implementados {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_infraestrutura_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_infraestrutura_realizada
+}
+class Reajuste_e_reviso_de_tarifas_para_a_explorao_de_infraestruturas_implementados_2 
+class Quais_os_casos_de_mediao_que_ocorreram_em_2013 
+class GEAFI 
+class Aplicao_de_reajuste_de_tarifas_para_a_prestao_de_servios_fiscalizados {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class GEAFI_2 
+class Fiscalizao_dos_servios_de_transporte_de_carga_realizada_fromSUFER 
+class Transporte_Ferrovirio_mediado {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Mediao_dos_servios_de_infraestrutura_realizadafromSUFER 
+class Reajuste_e_reviso_de_tarifas_das_outorgadas_para_a_prestao_de_servios_elaborada 
+class Aplicao_de_reajuste_e_tarifas_para_a_explorao_de_infraestruturas_fiscalizados {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Transporte_Ferrovirio_mediado_2 {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_realizadafromSUFER
+}
+class Aplicao_de_reajuste_e_tarifas_para_a_explorao_de_infraestruturas_fiscalizados_2 {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_infraestrutura_de_transporte_de_carga_realizadafromSUFER
+}
+class Reajuste_e_reviso_de_tarifas_das_outorgadas_para_a_prestao_de_servios_elaborada_2 {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_realizada
+}
+class GEAFI_3 
+class Reajuste_e_reviso_de_tarifas_para_a_explorao_de_infraestruturas_elaborados {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_infraestrutura_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_infraestrutura_realizada
+}
+class Resoluo_3953_Art_3__73D_XIV 
+class Normas_contratos_de_concesso_e_clusulas_econmicofinanceiras_das_outorgas_fiscalizadas {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Controle_dos_servios_de_transporte_realizada_fromSUFER {
+    @Dependency_Link
+    [*] -- [*]  GEAFI_3
+}
+class Aplicao_de_reajuste_de_tarifas_para_a_prestao_de_servios_fiscalizados_2 
+class Transporte_Ferrovirio_mediado_3 {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_infraestrutura_realizadafromSUFER
+}
+class Transporte_Ferrovirio_arbitrado {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_infraestrutura_realizadafromSUFER
+}
+class Resoluo_3953_Art_3__73D__XV_ 
+class Reajuste_e_reviso_de_tarifas_para_a_explorao_de_infraestruturas_elaborados_2 
+class Reajuste_e_reviso_de_tarifas_das_outorgadas_para_a_prestao_de_servios_implementada {
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_realizada_fromSUFER
+    @Decomposition_AND
+    [*] -- [*]  Controle_dos_servios_de_transporte_realizada
+}
+class Transporte_Ferrovirio_mediado_4 
+class Normas_contratos_de_concesso_e_clusulas_econmicofinanceiras_das_outorgas_fiscalizadas_2 
+class Reajuste_e_reviso_de_tarifas_das_outorgadas_para_a_prestao_de_servios_implementada_2 
+class Actor1 
+class Transporte_Ferrovirio_arbitrado_2 {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios_realizada_2
+}
+class Resoluo_3953_Art_3__73D_XIV_2 
+class Mediao_dos_servios_de_transporte_realizadafromSUFER 
+class Controle_dos_servios_de_infraestrutura_realizada_fromSUFER {
+    @Dependency_Link
+    [*] -- [*]  GEAFI_3
+}
+class Transporte_Ferrovirio_arbitrado_3 {
+    @Decomposition_AND
+    [*] -- [*]  Mediao_dos_servios_de_transporte_realizadafromSUFER
+}
+class Aplicao_de_reajuste_de_tarifas_para_a_prestao_de_servios_fiscalizados_3 {
+    @Decomposition_AND
+    [*] -- [*]  Fiscalizao_dos_servios_de_transporte_de_carga_realizada_fromSUFER
+}
+class GEAFI_4 
+class Transporte_Ferrovirio_arbitrado_4 
+class Aplicao_de_reajuste_e_tarifas_para_a_explorao_de_infraestruturas_fiscalizados_3 
+class Fiscalizao_dos_servios_de_infraestrutura_de_transporte_de_carga_realizadafromSUFER 
+class Quais_tarifas_so_praticadas_por_uma_outorga 
+

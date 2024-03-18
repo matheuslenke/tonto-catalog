@@ -28,4 +28,16 @@ relator Stock {
 }
 role Public_Traded_Company  specializes Organization
 role Stock_Keeper  specializes Stock_Exchange
+disjoint genset tJClsf6GAqAAbwrg{
+    general Brokerage
+    specifics Seller, Buyer 
+}
+disjoint genset 2TGlsf6GAqAAbwsS{
+    general Organization
+    specifics Public_Traded_Company, Brokerage, Stock_Exchange 
+}
+disjoint genset trBlsf6GAqAAbws6{
+    general StockHolder
+    specifics StockholderOrganization, Stockholder_Person 
+}
 

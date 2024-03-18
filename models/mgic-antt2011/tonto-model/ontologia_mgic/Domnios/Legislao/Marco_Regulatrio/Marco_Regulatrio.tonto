@@ -1,0 +1,41 @@
+package Marco_Regulatrio
+
+collective Regramento_de_rea {
+    contexto : undefined
+    @subCollectionOf
+     [2..*]  -- essential_inseparable --<o> [1]  Marco_Regulatrio
+}
+collective Setor {
+    @material
+    [1] -- regula_setor -- [1]  Marco_Regulatrio
+}
+collective Regramento_de_Subrea {
+    @subCollectionOf
+     [2..*]  -- essential_inseparable --<o> [1]  Regramento_de_rea_Composta
+}
+subkind rea_Composta  specializes rea_Regulada{
+    @material
+    [1] -- regula_rea_composta -- [1]  Regramento_de_rea_Composta
+}
+subkind rea_Simples  specializes rea_Regulada{
+    tema : undefined
+    @material
+    [1] -- regula_rea_simples -- [1]  Regramento_de_rea_Simples
+}
+subkind Regramento_de_rea_Composta  specializes Regramento_de_rea
+subkind Regramento_de_rea_Simples  specializes Regramento_de_rea
+kind Subrea {
+    tema : undefined
+    @componentOf
+     [2..*]  -- essential_inseparable --<o> [1]  rea_Composta
+    @material
+    [1] -- regula_subrea -- [1]  Regramento_de_Subrea
+}
+kind rea_Regulada {
+    @componentOf
+     [2..*]  -- essential_inseparable --<o> [1]  Setor
+    @material
+    [1] -- _regula_rea -- [1]  Regramento_de_rea
+}
+collective Marco_Regulatrio 
+

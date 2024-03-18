@@ -1,0 +1,21 @@
+import Agrupamento_e_Composio
+import Atos_e_Artigos
+
+package Geral
+
+subkind Alnea_Vetada  specializes Alnea, Elemento_Vetado
+category Elemento_de_Agrupamento  specializes Elemento_Componente_de_Ato_Normativo{
+    ttulo : undefined
+}
+subkind Inciso_Vetado  specializes Inciso, Elemento_Vetado
+category Elemento_de_Discriminao  specializes Elemento_Componente_de_Ato_Normativo{
+    texto : undefined
+}
+category Elemento_Altervel 
+category Elemento_Vetado 
+subkind Artigo_Vetado  specializes Artigo, Elemento_Vetado
+category Elemento_Componente_de_Ato_Normativo  specializes Elemento_Altervel
+category Elemento_Modificado  specializes Elemento_Altervel
+category Elemento_Original  specializes Elemento_Altervel
+subkind Pargrafo_Vetado  specializes Pargrafo, Elemento_Vetado
+

@@ -1,0 +1,25 @@
+import Contratos_e_Convnios
+import Convnio_em_Concesso_Rodoviria
+
+package Convnio_de_Manuteno
+
+relator Delegao_em_Convnio_de_Manuteno {
+    @mediation
+    [1] -- [1]  Convnio_de_Manuteno( {const } )
+}
+role Convenente_Responsvel_por_Servio_Delegado  specializes Convenente{
+    @mediation
+    [1] --  [1..*]  Convnio_de_Manuteno( {const } )
+    @mediation
+    [1] --  [1..*]  Delegao_em_Convnio_de_Manuteno( {const } )
+}
+role Servio_de_Manuteno_Delegado {
+    @mediation
+     [1..*] --  [1..*]  Delegao_em_Convnio_de_Manuteno( {const } delegao )
+}
+role Trecho_com_Manuteno_Conveniada {
+    @mediation
+     [1..*] -- [1]  Convnio_de_Manuteno( {const } )
+}
+relator Convnio_de_Manuteno  specializes Convnio_com_Participao_da_Concessionria
+

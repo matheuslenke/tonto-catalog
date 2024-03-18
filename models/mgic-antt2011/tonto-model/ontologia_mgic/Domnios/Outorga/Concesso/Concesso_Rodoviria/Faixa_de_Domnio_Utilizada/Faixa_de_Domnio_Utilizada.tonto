@@ -1,0 +1,57 @@
+import Georreferenciamento
+import Imvel
+import Receita_Rodoviria_Extraordinria
+import Trecho_Rodovirio_Fsico
+import Interseo
+
+package Faixa_de_Domnio_Utilizada
+
+relator Explorao_de_FD_com_Projeto_de_Engenharia  specializes Explorao_de_Faixa_de_Domnio{
+    @mediation
+    [1] --  [2..*]  Elemento_de_Projeto_de_Engenharia_de_Faixa_de_Domnio( {const } )
+    @mediation
+    [1] -- [1]  Contrato_de_Receita_Extraordinria_com_Projeto_de_Engenharia( {const } )
+}
+relator Explorao_de_Acesso  specializes Explorao_de_Faixa_de_Domnio_sem_Receita, Explorao_de_FD_com_Projeto_de_Engenharia{
+    @mediation
+     [1..*] --  [1..*]  Interseco_Explorada( {const } )
+    @mediation
+     [1..*] --  [1..*]  Imvel( {const } )
+}
+role Contrato_de_Receita_Extraordinria_com_Projeto_de_Engenharia  specializes Contrato_de_Receita_Extraodrinria
+role Faixa_de_Domnio_Utilizada  specializes Faixa_de_Domnio_Rodoviria
+relator Explorao_Utilidades  specializes Explorao_de_Faixa_de_Domnio
+kind Projeto_da_Ocupao_da_FD  specializes Elemento_de_Projeto_de_Engenharia_de_Faixa_de_Domnio{
+    @characterization
+    ( {const } ) [1..*] --  [1..*]  Elemento_na_Faixa_de_Domnio
+}
+mode Anotao_de_Responsabilidade_Tcnica {
+    CREA_do_Engenheiro_Responsvel : undefined
+}
+relator Explorao_de_Faixa_de_Domnio  specializes Explorao_da_Faixa_de_Domnio_com_Receita{
+    @mediation
+     [1..*] -- [1]  Faixa_de_Domnio_Utilizada( {const } )
+}
+role Interseco_Explorada  specializes Interseo
+relator Explorao_de_Faixa_de_Domnio_Especial  specializes Explorao_de_Faixa_de_Domnio
+relator Explorao_de_Faixa_de_Domnio_sem_Receita  specializes Explorao_de_Faixa_de_Domnio
+relator Autorizao_de_Uso {
+    Documento_de_Autorizao : undefined
+    @mediation
+     [0..*] -- [1]  Contrato_de_Receita_Extraordinria_com_Projeto_de_Engenharia( {const } )
+    @mediation
+    [1] -- [1]  Explorao_de_FD_com_Projeto_de_Engenharia( {const } )
+}
+relator Explorao_de_Publicidade  specializes Explorao_da_Faixa_de_Domnio_com_Receita
+kind Memorial_Descritivo_de_Obra_na_FD  specializes Elemento_de_Projeto_de_Engenharia_de_Faixa_de_Domnio
+mode Elemento_na_Faixa_de_Domnio {
+    @componentOf
+    [1] <o>--  [2..*]  Elemento_com_Projeo_Espacial
+    @Formal
+     [1..*] -- est_contido_ --  [1..*]  Faixa_de_Domnio_Utilizada
+}
+category Elemento_de_Projeto_de_Engenharia_de_Faixa_de_Domnio {
+    @characterization
+    ( {const } ) [0..*] -- [1]  Anotao_de_Responsabilidade_Tcnica
+}
+

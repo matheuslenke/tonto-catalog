@@ -1,0 +1,14 @@
+import Transporte_Rodovirio_Nacional_de_Cargas
+import Transportador_Rodovirio_de_Cargas
+
+package Transporte_Rodovirio_Nacional_de_Cargas_Prpria
+
+role Veculo_em_Transporte_Rodovirio_Nacional_de_Carga_Prpria 
+relator Operao_de_Transporte_Rodovirio_Nacional_de_Carga_Prpria  specializes Operao_de_Transporte_Rodovirio_Nacional_de_Cargas{
+    @mediation
+    [1] -- [1]  Veculo_em_Transporte_Rodovirio_Nacional_de_Carga_Prpria( {const } )
+    @mediation
+     [1..*] -- [1]  Transportador_de_Carga_Prpria_em_Territrio_Nacional( {const } )
+}
+role Transportador_de_Carga_Prpria_em_Territrio_Nacional  specializes Transportador_de_Carga_Prpria
+

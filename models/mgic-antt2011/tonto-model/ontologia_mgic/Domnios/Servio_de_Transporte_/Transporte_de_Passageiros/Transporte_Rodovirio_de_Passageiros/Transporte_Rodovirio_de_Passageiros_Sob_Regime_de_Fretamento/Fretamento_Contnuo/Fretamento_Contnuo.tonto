@@ -1,0 +1,18 @@
+import Tipos_de_Fretamento
+import Tipo_de_Autorizao_de_Viagem
+
+package Fretamento_Contnuo
+
+role Agncia_Reguladora_Emissora_de_Autorizao_para_Fretamento_Contnuo {
+    @mediation
+    [1] --  [1..*]  Autorizao_de_Viagem_para_Fretamento_Contnuo( {const } )
+}
+role Contratante_Fretamento_Contnuo {
+    @mediation
+    [1] --  [1..*]  Fretamento_Contnuo( {const } )
+}
+relator Fretamento_Contnuo {
+    @mediation
+    [1] -- [1]  TRP_Sob_Regime_de_Fretamento_Contnuo( {const } trp )
+}
+

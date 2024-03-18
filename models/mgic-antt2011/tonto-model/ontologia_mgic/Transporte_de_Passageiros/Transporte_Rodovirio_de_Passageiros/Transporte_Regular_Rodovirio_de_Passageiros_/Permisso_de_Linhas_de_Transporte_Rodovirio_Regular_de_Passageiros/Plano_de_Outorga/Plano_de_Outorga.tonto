@@ -1,0 +1,38 @@
+import Documento
+import Instrumentos_de_Outorga
+
+package Plano_de_Outorga
+
+kind Estudo_de_Demanda  specializes Parte_de_Documento
+relator Pesquisa_Operacional  specializes Pesquisa_de_Campo
+kind Estudo_de_Viabilidade_EconmicoFinanceira  specializes Parte_de_Documento
+role Municpio_Pesquisado  specializes Regio_Pesquisada
+role Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional  specializes Plano_de_Outorga{
+    @mediation
+    ( {const } ) [1..*] --  [1..*]  Pesquisa_Operacional
+}
+subkind Metodologia_de_Estudo  specializes Metodologia
+role Regio_Administrativa_Pesquisada  specializes Regio_Pesquisada
+subkind Metodologia_de_Plano_de_Outorga  specializes Metodologia
+relator Pesquisa_de_Ativos_e_Custos  specializes Pesquisa_de_Campo{
+    @mediation
+     [1..*] --  [1..*]  Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos( {const } )
+}
+kind Metodologia  specializes Parte_de_Documento
+roleMixin Regio_Pesquisada {
+    amostra : undefined
+    @mediation
+    ( {const } ) [1..*] --  [1..*]  Pesquisa_de_Campo
+}
+relator Pesquisa_de_Campo {
+    dataInicio : undefined
+    dataTrmino : undefined
+    descrio : undefined
+    objetivo : undefined
+    @mediation
+     [1..*] -- [1]  Executora_de_Pesquisa_de_Campo( {const } )
+}
+role Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos  specializes Plano_de_Outorga
+role Executora_de_Pesquisa_de_Campo 
+kind Estudo_de_Oferta  specializes Parte_de_Documento
+

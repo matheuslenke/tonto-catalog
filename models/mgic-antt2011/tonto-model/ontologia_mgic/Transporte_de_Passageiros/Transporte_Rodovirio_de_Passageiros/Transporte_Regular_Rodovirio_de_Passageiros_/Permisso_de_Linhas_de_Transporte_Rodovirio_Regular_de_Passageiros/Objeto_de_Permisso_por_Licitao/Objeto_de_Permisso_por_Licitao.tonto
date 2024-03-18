@@ -1,0 +1,40 @@
+import Outorga
+import Projeto_Bsico_de_Permisso
+
+package Objeto_de_Permisso_por_Licitao
+
+relator Descrio_de_Quota_de_Explorao {
+    @mediation
+    [1] -- [1]  Itinerrio_para_Linha_de_Transporte_Regular_em_Implantao( {const } )
+    @mediation
+    [1] -- [1]  Linha_de_nibus_em_Implantao( {const } )
+    @mediation
+    [1] --  [1..*]  Seo_de_Linha_de_nibus_em_Estudo( {const } )
+}
+role Minicpio_Ligado  specializes Regio_Ligada
+role Regio_Administrativa_Ligada  specializes Regio_Ligada
+collective Ligao {
+    @memberOf
+     [0..*] <o>-- [2]  Regio_Ligada
+}
+role Quota_de_Explorao  specializes Ligao{
+    destino : undefined
+    origem : undefined
+    passageiros : undefined
+    @mediation
+    ( {const } )[1] --  [1..*]  Descrio_de_Quota_de_Explorao
+}
+relator Efetivao_de_Ligao {
+    @mediation
+     [1..*] -- [1]  Linha_de_nibus_Outorgada( {const } )
+}
+roleMixin Regio_Ligada 
+role Ligao_Efetivada  specializes Ligao{
+    @mediation
+    ( {const } )[1] --  [1..*]  Efetivao_de_Ligao
+}
+role Linha_de_nibus_em_Implantao {
+    frequenciaMinimaViagens : undefined
+    frotaOperacionalMinima : undefined
+}
+

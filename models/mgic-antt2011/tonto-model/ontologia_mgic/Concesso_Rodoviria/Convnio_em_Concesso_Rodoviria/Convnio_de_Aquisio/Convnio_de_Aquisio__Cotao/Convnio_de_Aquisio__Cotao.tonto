@@ -1,0 +1,15 @@
+import Convnio_de_Aquisio__Aquisio_de_Bem
+import Compra
+import Convnio_em_Concesso_Rodoviria
+
+package Convnio_de_Aquisio__Cotao
+
+relator Cotao_em_CA  specializes Cotao{
+    @mediation
+    [1] --  [0..*]  Aquisio_para_Convnio( {const } )
+}
+role Concessionria_Rodoviria_Cotadora_  specializes Concessionria_Rodoviria_Convenente{
+    @mediation
+    [1] --  [1..*]  Cotao_em_CA( {const } )
+}
+

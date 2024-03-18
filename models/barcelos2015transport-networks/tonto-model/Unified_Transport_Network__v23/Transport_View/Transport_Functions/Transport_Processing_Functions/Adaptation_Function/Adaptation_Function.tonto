@@ -1,0 +1,53 @@
+import Transport_Processing_Functions
+import Complementary_Categorizations
+
+package Adaptation_Function
+
+kind Adaptation_Function  specializes Transport_Processing_Function
+subkind Adaptation_Sink  specializes Adaptation_Function
+kind Adaptation_Sink_Input  specializes Input{
+    @componentOf
+    ( {const } ASASKI ) [1..*]  --<o> [1]  Adaptation_Sink( {const } composeAS )
+}
+kind Adaptation_Sink_Output  specializes Output{
+    @componentOf
+    ( {const } ASASKO ) [1..*]  --<o> [1]  Adaptation_Sink( {const } composeAS )
+}
+kind Adaptation_Sink_Process {
+    @componentOf
+    ( {const } )[1]  --<o> [1]  Adaptation_Sink( {const } )
+}
+subkind Adaptation_Sk_Bidirectional_Component  specializes Adaptation_Sink{
+    @componentOf
+    ( {const } IsComposedAFSk )[1]  --<o> [1]  Bidirectional_Adaptation( {const } composeBA )
+}
+subkind Adaptation_So_Bidirectional_Component  specializes Adaptation_Source{
+    @componentOf
+    ( {const } isComposedAFSo )[1]  --<o> [1]  Bidirectional_Adaptation( {const } composeBA )
+}
+subkind Adaptation_Source  specializes Adaptation_Function
+kind Adaptation_Source_Input  specializes Input{
+    @componentOf
+    ( {const } ASASI ) [1..*]  --<o> [1]  Adaptation_Source( {const } composeAS )
+}
+kind Adaptation_Source_Output  specializes Output{
+    @componentOf
+    ( {const } ASASO ) [1..*]  --<o> [1]  Adaptation_Source( {const } composeAS )
+}
+kind Adaptation_Source_Process {
+    @componentOf
+    ( {const } )[1]  --<o> [1]  Adaptation_Source( {const } )
+}
+subkind Bidirectional_Adaptation  specializes Adaptation_Function
+subkind PathPath_Layers_AF  specializes Adaptation_Function
+subkind PathSection_Layers_AF  specializes Adaptation_Function
+subkind SectionPhysical_Media_Layers_AF  specializes Adaptation_Function
+disjoint complete genset c5YOnb6GAqBwAS05{
+    general Adaptation_Function
+    specifics SectionPhysical_Media_Layers_AF, PathPath_Layers_AF, PathSection_Layers_AF 
+}
+disjoint complete genset cv.Onb6GAqBwAS2N{
+    general Adaptation_Function
+    specifics Adaptation_Source, Bidirectional_Adaptation, Adaptation_Sink 
+}
+

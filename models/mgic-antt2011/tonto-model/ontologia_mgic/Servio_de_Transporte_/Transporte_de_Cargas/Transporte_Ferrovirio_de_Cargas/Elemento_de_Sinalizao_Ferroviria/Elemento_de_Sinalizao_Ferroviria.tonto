@@ -1,0 +1,22 @@
+package Elemento_de_Sinalizao_Ferroviria
+
+kind Intertravamento  specializes Elemento_de_Sinalizao_Ferroviria
+subkind Circuito_de_Via_de_Corrente_Alternada  specializes Circuito_de_Via
+subkind Semforo_de_Cabine  specializes Semforo_Ferrovirio
+kind Campainha  specializes Sinalizao_Ativa
+kind Cancela  specializes Sinalizao_Ativa
+subkind Semforo_Externo  specializes Semforo_Ferrovirio
+kind Circuito_de_Via  specializes Elemento_de_Sinalizao_Ferroviria
+category Sinalizao_Ativa  specializes Elemento_de_Sinalizao_Ferroviria
+subkind Circuito_de_Via_Codificado  specializes Circuito_de_Via
+category Sinalizao_Passiva  specializes Elemento_de_Sinalizao_Ferroviria
+kind Semforo_Ferrovirio  specializes Sinalizao_Ativa
+subkind Circuito_de_Via_de_AudioFrequncia  specializes Circuito_de_Via
+subkind Circuito_de_Via_de_Corrente_Contnua  specializes Circuito_de_Via
+subkind Placa_de_Indicao  specializes Placa_de_Sinalizao_Ferroviria_
+category Elemento_de_Sinalizao_Ferroviria 
+kind Placa_de_Sinalizao_Ferroviria_  specializes Sinalizao_Ativa
+subkind Placa_de_Regulamentao  specializes Placa_de_Sinalizao_Ferroviria_
+subkind Placa_de_Advertncia  specializes Placa_de_Sinalizao_Ferroviria_
+kind Tranponder  specializes Elemento_de_Sinalizao_Ferroviria
+

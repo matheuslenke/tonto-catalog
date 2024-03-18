@@ -1,9 +1,0 @@
-import Review_System
-
-package Review_by_Provider
-
-event Review_Creation_by_Provider  specializes Review_Creation{
-    [1] -- [1]  Provider_Review
-}
-subkind Provider_Review  specializes Review
-

@@ -38,4 +38,12 @@ quality Utility_Value {
 }
 datatype Utility_Value_Magnitude
 situation Successful_Situation  specializes Resulting_Situation
+complete genset 4UYzsf6GAqAAbx0q{
+    general Value_Event
+    specifics Impact_Event, Trigger_Event 
+}
+complete genset nQSzsf6GAqAAbx1i{
+    general Impact_Event
+    specifics Loss_Event, Gain_Event 
+}
 

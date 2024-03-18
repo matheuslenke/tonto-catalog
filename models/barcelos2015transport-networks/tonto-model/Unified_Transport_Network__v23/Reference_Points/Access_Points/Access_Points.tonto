@@ -1,0 +1,50 @@
+import Adaptation_Function
+import Complementary_Categorizations
+import Reference_Points
+import Termination_Function
+
+package Access_Points
+
+role A_Sk_Input__Sk_AP_Bound  specializes Adaptation_Sink_Input, Bound_InputOutput{
+    @material
+    [1] -- binds_Sk_AP -- [1]  T_Sk_Output__Sk_AP_Bound
+}
+role A_So_Output__So_AP_Bound  specializes Adaptation_Source_Output, Bound_InputOutput{
+    @material
+    [1] -- binds_So_AP -- [1]  T_So_Input__So_AP_Bound
+}
+category Access_Point  specializes Reference_Point
+kind Bidirectional_AP  specializes Access_Point
+kind Sink_AP  specializes Access_Point
+role Sink_AP_Bi_Component  specializes Sink_AP{
+    @componentOf
+    [1]  --<o> [1]  Bidirectional_AP( {const } compose )
+}
+relator Sink_AP_Binding  specializes Binding{
+    @mediation
+    [1] -- binds_Sk_AP_to -- [1]  T_Sk_Output__Sk_AP_Bound( {const } bindsTT )
+    @mediation
+    [1] -- is_represented_by_Sk_AP -- [1]  Sink_AP( {const } represented )
+    @mediation
+    [1] -- binds_Sk_AP_from -- [1]  A_Sk_Input__Sk_AP_Bound( {const } bindsASI )
+}
+kind Source_AP  specializes Access_Point
+role Source_AP_Bi_Component  specializes Source_AP{
+    @componentOf
+    [1]  --<o> [1]  Bidirectional_AP( {const } compose )
+}
+relator Source_AP_Binding  specializes Binding{
+    @mediation
+    [1] -- binds_So_AP_to -- [1]  T_So_Input__So_AP_Bound( {const } BindsTT )
+    @mediation
+    [1] -- is_represented_by_So_AP -- [1]  Source_AP( {const } isRepresentedBy )
+    @mediation
+    [1] -- binds_So_AP_from -- [1]  A_So_Output__So_AP_Bound( {const } bindsAS )
+}
+role T_Sk_Output__Sk_AP_Bound  specializes Termination_Sink_Output, Bound_InputOutput
+role T_So_Input__So_AP_Bound  specializes Termination_Source_Input, Bound_InputOutput
+disjoint complete genset oDMIXb6GAqBwAUxM{
+    general Access_Point
+    specifics Bidirectional_AP, Sink_AP 
+}
+

@@ -1,0 +1,100 @@
+import Poder_Legislativo
+import Sesso_do_Plenrio
+import Projeto_de_Ato_Normativo
+
+package Comisso_do_Congresso_Nacional
+
+mode Atribuio_da_Comisso {
+    descrio : undefined
+    @characterization
+     [1..*] -- [1]  Comisso_Permanente( {const } )
+}
+subkind Comisso_do_Senado_Federal  specializes Comisso_do_Congresso_Nacional
+subkind Comisso_da_Cmara_dos_Deputados  specializes Comisso_do_Congresso_Nacional
+role Participante_de_Reunio_de_CCN  specializes Membro_de_CCN
+subkind Comisso_Parlamentar_Mista_de_Inqurito_CPMI  specializes Comisso_Parlamentar_de_Inqurito_CPI, Comisso_Mista
+mode Inteo_de_Comisso_Temporria {
+    objetivo : undefined
+    @characterization
+     [1..*] -- [1]  Comisso_Temporria( {const } )
+}
+role CCN_com_Reunio  specializes Comisso_do_Congresso_Nacional
+role Relator_de_CCN  specializes Titular_de_CCN
+role Presidente_de_Turma_de_Comisso  specializes Membro_Titular_de_Turma_de_Comisso, Vice_Presidente_de_CCN
+phase Comisso_em_Funcionamento  specializes Comisso_Temporria
+role Titular_de_CCN  specializes Membro_de_CCN
+role Comisso_Permanente_Dividida_em_Subcomisses  specializes Comisso_Permanente{
+    @subCollectionOf
+    [1] <o>--  [0..6]  Subcomisso
+    @subCollectionOf
+    [1] <o>--  [0..3]  Subcomisso_Permanente
+    @subCollectionOf
+    [1] <o>--  [0..3]  Subcomisso_Especial
+}
+role Membro_Titular_de_Turma_de_Comisso  specializes Membro_de_Turma_de_Comisso
+subkind Comisso_Permanente  specializes Comisso_do_Congresso_Nacional
+relator Reunio_de_CCN {
+    data : undefined
+    local : undefined
+    @mediation
+     [1..*] --  [1..*]  Relator_de_Reunio_de_CCN( {const } )
+    @mediation
+     [1..*] -- [1]  CCN_com_Reunio( {const } )
+    @mediation
+     [1..*] --  [1..*]  Participante_de_Reunio_de_CCN( {const } participante )
+}
+role Membro_de_CCN  specializes Parlamentar
+role Presidente_de_CCN  specializes Titular_de_CCN
+role Vice_Presidente_de_CCN  specializes Titular_de_CCN
+role Comisso_Permanente_Dividia_em_Turmas  specializes Comisso_Permanente{
+    @subCollectionOf
+    [1] <o>-- [2]  Turma_de_Comisso_Permanente
+}
+role Suplente_de_CCN  specializes Membro_de_CCN
+subkind Comisso_Mista  specializes Comisso_do_Congresso_Nacional
+phase Comisso_Encerrada  specializes Comisso_Temporria
+subkind Comisso_Parlamentar_de_Inqurito_CPI  specializes Comisso_Temporria
+subkind Subcomisso_Permanente  specializes Subcomisso
+subkind Subcomisso_Especial  specializes Subcomisso
+subkind Comisso_Temporria  specializes Comisso_do_Congresso_Nacional{
+    prazo : undefined
+}
+collective Comisso_do_Congresso_Nacional  specializes Responsvel_por_Sesso_Extraordinria, Agente_Legislativo{
+    instalao : undefined
+    nome : undefined
+    sigla : undefined
+    suplentes : undefined
+    titulares : undefined
+    vagasSuplente : undefined
+    vagasTitular : undefined
+    @memberOf
+     [1..*] <>--  [0..*]  Suplente_de_CCN
+    @memberOf
+     [1..*] <>--  [0..3]  Vice_Presidente_de_CCN
+    @memberOf
+     [1..*] <>--  [2..*]  Membro_de_CCN
+    @memberOf
+     [1..*] <>-- [1]  Presidente_de_CCN
+    @memberOf
+     [1..*] <>--  [2..*]  Titular_de_CCN
+    @memberOf
+     [1..*] <>--  [0..1]  Relator_de_CCN
+}
+subkind Comisso_Especial  specializes Comisso_Temporria
+role Membro_Suplente_de_Turma_de_Comisso  specializes Membro_de_Turma_de_Comisso
+role Membro_de_Turma_de_Comisso  specializes Titular_de_CCN
+role Relator_de_Reunio_de_CCN  specializes Participante_de_Reunio_de_CCN
+collective Turma_de_Comisso_Permanente {
+    @memberOf
+    [1] <o>--  [0..*]  Membro_Suplente_de_Turma_de_Comisso
+    @memberOf
+    [1] <o>--  [2..*]  Membro_de_Turma_de_Comisso
+    @memberOf
+    [1] <o>--  [2..*]  Membro_Titular_de_Turma_de_Comisso
+    @memberOf
+    [1] <o>-- [1]  Presidente_de_Turma_de_Comisso
+}
+phase Comisso_Aguardando_Instalao  specializes Comisso_Temporria
+subkind Comisso_Externa  specializes Comisso_Temporria
+subkind Subcomisso  specializes Comisso_do_Congresso_Nacional
+

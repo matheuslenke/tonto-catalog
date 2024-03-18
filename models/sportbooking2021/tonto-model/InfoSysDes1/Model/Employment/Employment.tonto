@@ -28,4 +28,12 @@ relator Building_managnement {
 }
 role Mediated_by_building_management  specializes Company
 role Mediated_by_Confirmation  specializes Company
+genset uMHRnb6AUB0wdgvY{
+    general Company
+    specifics Mediated_by_employment_contract, Mediated_by_Company_ownership 
+}
+genset YcnJE76AUB0wdhAV{
+    general Company
+    specifics Mediated_by_Confirmation, Mediated_by_building_management 
+}
 

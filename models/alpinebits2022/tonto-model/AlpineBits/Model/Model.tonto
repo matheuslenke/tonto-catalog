@@ -254,4 +254,44 @@ phase InPerson_Event  specializes Event_Plan
 phase Hybrid_Event  specializes Event_Plan
 kind Streaming_Platform 
 collective Target_Audience 
+disjoint complete genset Agent Type{
+    general Agent
+    specifics Organization, Person 
+}
+disjoint genset Object Type{
+    general Media_Object
+    specifics Image_Object, Video_Object, Audio_Object 
+}
+disjoint complete genset Event Status{
+    general Event_Plan
+    specifics Cancelled, Published 
+}
+disjoint complete genset Event Structure{
+    general Event_Plan
+    specifics Simple_Event, Composite_Event 
+}
+disjoint complete genset Geometry Type{
+    general Geometry
+    specifics MultiPoint, Polygon, Point, Multi_Line_String, Line_String, MultiPolygon 
+}
+disjoint genset Trail Type{
+    general Trail
+    specifics Snowpark, Ski_Slope 
+}
+disjoint genset Place Type{
+    general Place
+    specifics Lift, Mountain_Area, Trail 
+}
+disjoint complete genset Place Structure{
+    general Mountain_Area
+    specifics Composite_Area, SimpleArea 
+}
+disjoint complete genset Operational Status{
+    general Place
+    specifics Permanently_Closed, Operational 
+}
+disjoint complete genset Event Attendance{
+    general Event_Plan
+    specifics InPerson_Event, Hybrid_Event, Virtual_Event 
+}
 

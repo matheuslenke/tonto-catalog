@@ -163,4 +163,28 @@ role BodySurfaceRegionAsObjectOfMeasure  specializes BodySurfaceRegion{
     @participation
     ( {const } )[1] --  [0..*]  Observation
 }
+disjoint genset {disjoint}{
+    general FilteringTecnique
+    specifics LowpassFilter, BandpassFilter 
+}
+disjoint complete genset weE_OiGFS_j2pA_a{
+    general ECGForm
+    specifics NonElementaryForm, ElementaryForm 
+}
+disjoint complete genset tpS_OiGFS_j2pBAf{
+    general ElementaryForm
+    specifics Abnormal, Normal 
+}
+complete genset {complete}{
+    general ElementaryForm
+    specifics Baseline, QRSComplex, Wave, Segment, Cycle 
+}
+disjoint genset {disjoint}{
+    general Wave
+    specifics TWave, SWave, RWave, PWave, QWave 
+}
+disjoint complete genset {disjoint, complete}{
+    general Segment
+    specifics PRSegment, TPSegment, STSegment 
+}
 

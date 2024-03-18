@@ -1,0 +1,176 @@
+import UFOC
+
+package ROME
+
+roleMixin Monetary_Object (instanceOf Monetary_Object_Type) specializes Object{
+    nominal_value : undefined
+}
+type Monetary_Object_Type  specializes Object_Type{
+    @instantiation
+    [1] -- instantiates_moinetary_object --  [0..*]  Monetary_Object
+     [0..*] -- admits -- [1]  Currency
+}
+category Money_Status_Function_Description  specializes Normative_Description{
+    [1] -- defines --  [0..*]  Monetary_Object_Type
+    [1] -- defines -- [1]  Currency_Quality_Space_Structure
+    [1] -- defines -- [1]  Currency
+}
+roleMixin Physical_Monetary_Object  specializes Monetary_Object
+roleMixin Digital_Monetary_Object  specializes Monetary_Object{
+    exchange_value : undefined
+}
+phaseMixin Valid_Monetary_Object  specializes Physical_Monetary_Object{
+    exchange_value : undefined
+}
+phaseMixin Not_Valid_Monetary_Object  specializes Physical_Monetary_Object
+kind Currency  specializes Social_Object
+kind Currency_Quality_Space_Structure  specializes Social_Object{
+    [1] -- admits -- [1]  Currency
+    [1] -- structures -- [1]  Currency_Quality_Space
+}
+datatype Currency_Quality_Space
+kind Monetary_System 
+relator Control {
+    @mediation
+    [1] -- is_controled -- [1]  Digital_Monetary_Object( {const } )
+    @mediation
+    [1] -- is_controled --  [0..1]  Valid_Monetary_Object( {const } )
+    @characterization
+     [0..*] -- inheres_in -- [1]  Agent( {const } )
+    @mediation
+    [1] -- [1]  Objectbased_CreditDebt( {const } )
+}
+relator Monetary_Authority_CreditDebt_Relation {
+    @mediation
+     [1..*] -- is_debtor -- [1]  Monetary_Authority( {const } )
+    @mediation
+     [0..*] -- is_creditor -- [1]  Agent( {const } )
+}
+quality Monetary_Credit {
+    credit_value : undefined
+    @componentOf
+    [1]  --<o> [1]  Monetary_Authority_CreditDebt_Relation
+    @characterization
+     [0..*] -- inheres_in -- [1]  Agent( {const } )
+}
+quality Monetary_Debt {
+    debt_value : undefined
+    @componentOf
+    [1]  --<o> [1]  Monetary_Authority_CreditDebt_Relation
+    @characterization
+     [0..*] -- inheres_in -- [1]  Monetary_Authority( {const } )
+}
+roleMixin Monetary_Authority  specializes Agent
+subkind Objectbased_CreditDebt  specializes Monetary_Authority_CreditDebt_Relation
+subkind Registrybased_CreditDebt  specializes Monetary_Authority_CreditDebt_Relation
+relator Financial_Institution_CreditDebt_Relation {
+    @mediation
+     [0..*] -- is_creditor --  [1..*]  Agent( {const } )
+    @mediation
+     [0..*] -- is_debtor --  [1..*]  Financial_Institution( {const } )
+}
+quality FI_Monetary_Credit {
+    credit_value : undefined
+    @componentOf
+    [1]  --<o> [1]  Financial_Institution_CreditDebt_Relation
+    @characterization
+     [0..*] -- inheres_in -- [1]  Agent( {const } )
+}
+quality FI_Monetary_Debt {
+    debt_value : undefined
+    @componentOf
+    [1]  --<o> [1]  Financial_Institution_CreditDebt_Relation
+    @characterization
+     [0..*] -- inhers_in -- [1]  Financial_Institution( {const } )
+}
+roleMixin Financial_Institution  specializes Agent
+relator Pricing {
+    @mediation
+     [0..*] -- [1]  Object( {const } )
+     [1..*] -- [1]  Agent
+}
+quality Price {
+    price_value : undefined
+    @characterization
+    [1] -- inheres_in -- [1]  Pricing( {const } )
+}
+mode Purchasing_Power {
+    @externalDependence
+     [0..*] --  [1..*]  Price( {const } )
+    @characterization
+     [0..*] -- inheres_in -- [1]  Agent( {const } )
+}
+mode Exchange_Power {
+    exchange_power_value : undefined
+    @externalDependence
+    [1] -- grounded_on -- [1]  Monetary_Authority_CreditDebt_Relation( {const } )
+    @externalDependence
+    [1] -- grounded_on -- [1]  Financial_Institution_CreditDebt_Relation( {const } )
+    @componentOf
+     [1..*]  --<o> [1]  Aggregated_Exchange_Power
+}
+mode Aggregated_Exchange_Power {
+    aggregated_exchange_power_value : undefined
+    @externalDependence
+    [1] -- grounded_on --  [1..*]  Purchasing_Power( {const } )
+    @characterization
+     [0..1] -- inheres_in -- [1]  Agent( {const } )
+}
+roleMixin Virtual_Currency_Token (instanceOf Virtual_Currency_Token_Type) specializes Object{
+    vc_token_value : undefined
+    @mediation
+    ( {const } )[1] -- [1]  VC_Control( {const } )
+}
+type Virtual_Currency_Token_Type  specializes Object_Type{
+    @instantiation
+    [1] -- instantiates_virtual_currency_token --  [0..*]  Virtual_Currency_Token
+     [1..*] -- admits -- [1]  Virtual_currency
+}
+category Virtual_Currency_Scheme_Description  specializes Normative_Description{
+    [1] -- defines -- [1]  Virtual_Currency_Quality_Structure
+    [1] -- defines -- [1]  Virtual_currency
+    [1] -- defines -- [1]  Virtual_Currency_Token_Type
+}
+kind Virtual_Currency_Quality_Structure  specializes Social_Object{
+    [1] -- structures -- [1]  Virtual_Currency_Quality_Space
+    [1] -- admits -- [1]  Virtual_currency
+}
+datatype Virtual_Currency_Quality_Space
+kind Virtual_currency  specializes Social_Object
+kind Virtual_Currency_System 
+roleMixin Purchaseble_VC_Token  specializes Virtual_Currency_Token{
+    vc_token_price : undefined
+}
+roleMixin Closed_VC_Token  specializes Virtual_Currency_Token
+roleMixin Unidirectional_Flow_VC_Token  specializes Purchaseble_VC_Token
+roleMixin Bidirectional_Flow_VC_Token  specializes Purchaseble_VC_Token{
+    @mediation
+    ( {const } )[1] -- [1]  Bidirectional_VC_Control( {const } )
+}
+relator VC_Control {
+    @mediation
+     [0..*] -- [1]  Agent( {const } )
+}
+mode Exchange_Power_in_VC {
+    exchange_power_in_vc_value : undefined
+    [1] -- grounded_on -- [1]  VC_Control
+    @characterization
+     [0..*] -- inheres_in -- [1]  Agent( {const } )
+}
+subkind Bidirectional_VC_Control  specializes VC_Control{
+    @mediation
+     [0..*] -- [1]  Agent( {const } )
+}
+mode Exchange_Power_in_Currency {
+    exchange_power_in_currency_value : undefined
+    [1] -- grounded_on -- [1]  Bidirectional_VC_Control
+}
+disjoint complete genset 1DsZpe6GAqACBDl7{
+    general Monetary_Object
+    specifics Digital_Monetary_Object, Physical_Monetary_Object 
+}
+disjoint complete genset 1ce5pe6GAqACBDod{
+    general Physical_Monetary_Object
+    specifics Valid_Monetary_Object, Not_Valid_Monetary_Object 
+}
+

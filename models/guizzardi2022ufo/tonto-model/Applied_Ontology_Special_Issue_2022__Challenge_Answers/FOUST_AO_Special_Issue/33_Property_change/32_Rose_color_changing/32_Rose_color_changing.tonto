@@ -1,0 +1,17 @@
+package 32_Rose_color_changing
+
+kind Flower 
+subkind Rose  specializes Flower
+quality Color 
+subkind Flower_Color  specializes Color{
+    @characterization
+    [1] -- inheres_in -- [1]  Flower( {const } )
+     [0..*] -- has_value -- [1]  Flower_Color_Values
+}
+enum Flower_Color_Values {
+    Red,
+    Brown,
+    Yellow,
+    White
+}
+

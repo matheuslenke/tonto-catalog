@@ -1,0 +1,55 @@
+import Arbitragem_e_Mediao
+
+package Contrato_Operacional_Especfico
+
+mode Produo_Anual_Mnima_do_Servio_de_Transporte_Ferrovirio {
+    volume : undefined
+    @characterization
+    [2] -- [1]  Contrato_de_Operao_Especfica( {const } )
+}
+mode Capacidade_de_Trecho  specializes Definio_de_Caracterstica_da_Via_Permanente
+mode Penalidade_em_Caso_de_Descumprimento_de_Produo_Anual_Estimada {
+    @characterization
+     [1..*] -- [1]  Produo_Anual_Estimada_do_Servio_de_Transporte_Ferrovirio( {const } )
+}
+mode Produo_Anual_Estimada_do_Servio_de_Transporte_Ferrovirio {
+    margem_de_tolerncia : undefined
+    quantidade_de_faixas_dirias : Unidade de Tempo
+    volume : undefined
+}
+mode Penalidade_em_Caso_de_Descumprimento_de_Requisito_de_Desempenho_Operacional 
+mode Condio_de_Manuteno_de_Ativos {
+    @characterization
+    [1] -- [1]  Contrato_de_Operao_Especfica( {const } )
+}
+mode Sistema_de_Sinalizao_e_Comunicao  specializes Definio_de_Caracterstica_da_Via_Permanente
+mode Capacidade_de_Material_Rodante_  specializes Definio_de_Caracterstica_da_Via_Permanente
+mode Tipo_de_Bitola  specializes Definio_de_Caracterstica_da_Via_Permanente
+mode Requisitos_de_Desempenho_Operacional {
+    margem_de_tolerncia : undefined
+    tempo_de_descarga : Unidade de Tempo
+    tempo_de_licenciamento : Unidade de Tempo
+    tempo_de_manobra : Unidade de Tempo
+    @characterization
+    [1] --  [1..*]  Penalidade_em_Caso_de_Descumprimento_de_Requisito_de_Desempenho_Operacional( {const } )
+}
+subkind Contrato_de_Operao_Especfica  specializes COE_Usado_em_Viagem{
+    prazo_de_vigncia : undefined
+    @characterization
+    [1] --  [1..*]  Requisitos_de_Desempenho_Operacional( {const } )
+    @characterization
+    [1] -- [2]  Produo_Anual_Estimada_do_Servio_de_Transporte_Ferrovirio( {const } )
+}
+mode Penalidade_em_Caso_de_Descumprimento_de_Condio_de_Manuteno_de_Ativos {
+    @characterization
+     [1..*] -- [1]  Condio_de_Manuteno_de_Ativos( {const } )
+}
+mode Demanda_Firme {
+    @characterization
+     [0..1] -- [1]  Contrato_de_Operao_Especfica( {const } )
+}
+mode Definio_de_Caracterstica_da_Via_Permanente {
+    @characterization
+     [1..*] -- [1]  Contrato_de_Operao_Especfica( {const } )
+}
+

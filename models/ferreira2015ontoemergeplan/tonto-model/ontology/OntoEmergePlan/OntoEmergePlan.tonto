@@ -403,4 +403,80 @@ type Identified_Type_of_Hazardous_Event  specializes Hazardous_Event_Type{
     @formal
     [*] -- manifested_by --  [1..*]  Identified_Risk
 }
+disjoint complete genset H5kQGf6GAqAACiq5{
+    general Environmental_Component
+    specifics Environmental_Physical_Component, Environmental_Social_Component 
+}
+disjoint complete genset fgmQGf6GAqAACird{
+    general Environmental_Physical_Component
+    specifics Natural_Component, Built_Component 
+}
+disjoint complete genset 60RQGf6GAqAACir7{
+    general Natural_Component
+    specifics Biotic_Component, Abiotic_Component 
+}
+disjoint complete genset TEJ0Gf6GAqAACizi{
+    general Under_Protection_Component
+    specifics Safe_Component, Endangered_Component 
+}
+disjoint genset vy4SGf6GAqAACi63{
+    general Spatial_Location
+    specifics Geographical_Point, Geographical_Region 
+}
+disjoint complete genset qyaSGf6GAqAACi8D{
+    general Geographical_Region
+    specifics Non_Political_Region, Political_Region 
+}
+disjoint genset v3ZSGf6GAqAACi9J{
+    general Political_Region
+    specifics Macro_Political_Region, Micro_Political_Region 
+}
+disjoint complete genset nsBFWf6GAqAAaA9J{
+    general Agent
+    specifics Social_Agent, Physical_Agent 
+}
+disjoint complete genset F3AVWf6GAqAAaBBc{
+    general User
+    specifics Business_Non_Emergency_Human_Resource, Visitor 
+}
+complete genset hQUVWf6GAqAAaBCC{
+    general Business_Human_Resource
+    specifics Business_Non_Emergency_Human_Resource, Business_Emergency_Human_Resource 
+}
+disjoint complete genset 0911Wf6GAqAAaBbY{
+    general Human_Resource
+    specifics Business_Human_Resource, Public_Emergency_Human_Resource 
+}
+disjoint complete genset cybNWf6GAqAAaBe3{
+    general Material_Resource
+    specifics Public_Emergency_Material_Resource, Business_Emergency_Material_Resource 
+}
+disjoint complete genset nRaTWf6GAqAAaBlO{
+    general Holder
+    specifics Organization_Holder, Person_Holder 
+}
+complete genset D8pTWf6GAqAAaBmB{
+    general Holder
+    specifics Businessman, Owner 
+}
+disjoint complete genset hswzWf6GAqAAaBnr{
+    general Business_Activitiy
+    specifics Primary_Business_Activity, Secondary_Business_Activity 
+}
+disjoint complete genset cO7bWf6GAqAAaBt.{
+    general Acess_Infrastructure
+    specifics Vertical_Acess, Horizontal_Acess 
+}
+disjoint complete genset OgGnWf6GAqAAaB19{
+    general E_Standard_Activity
+    specifics Atomic_E_Standard_Activity, Complex_E_Standard_Activity 
+}
+disjoint complete genset MDwXWf6GAqAAaB3.{
+    general Commitment
+    specifics Complex_Commitment, Atomic_Commitment 
+}
+disjoint complete genset N4QI2f6GAqAAaCN4{
+    general Vulnerability
+    specifics Environmental_Vulnerability, Individual_Vulnerability 
+}
 

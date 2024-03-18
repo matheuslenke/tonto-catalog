@@ -1,0 +1,6 @@
+import Componente_de_Estrutura_Ferroviria
+
+package Componente_de_Trecho
+
+mixin Componente_de_Trecho  specializes Componente_de_Trecho_Ferrovirio
+

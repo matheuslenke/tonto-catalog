@@ -124,4 +124,44 @@ subkind Multi_Line_String  specializes geometry
 phase finish  specializes offer
 phase in_progres  specializes offer
 phase planed  specializes offer
+complete genset {complete}{
+    general user
+    specifics Tourist_Guide, tourist 
+}
+disjoint complete genset {complete,disjuncted}{
+    general activity
+    specifics sport_activity, food_and_wine_tour, cultural_visit 
+}
+disjoint complete genset {complete,disjuncted}{
+    general cultural_visit
+    specifics church_visit, museum_visit, city_center_visit, castel_visit 
+}
+genset {complete,disjuncted}{
+    general food_and_wine_tour
+    specifics resturant_visit, Winery_visit 
+}
+genset {complete,disjuncted}{
+    general sport_activity
+    specifics Hiking, Cycling, Climbing, Skiing 
+}
+disjoint complete genset {complete,disjuncted}{
+    general booking
+    specifics completed, being_processed 
+}
+disjoint complete genset {complete,disjuncted}{
+    general payment
+    specifics online_payment, creditdebit_card_payment 
+}
+disjoint complete genset GeometryType {complete, disjuncted}{
+    general geometry
+    specifics Multi_point, Point, Line_String, Multi_Line_String 
+}
+disjoint complete genset {complete;disjouncted}{
+    general offer
+    specifics in_progres, finish, planed 
+}
+disjoint complete genset {completed,disjuncted}{
+    general certification
+    specifics language_certificate, activity_certificate 
+}
 

@@ -55,4 +55,16 @@ kind Document {
     @Formal
     [*] -- hasType -- [1]  DocumentType
 }
+disjoint genset Set{
+    general Person
+    specifics Elder, Teenager, Adult, Child 
+}
+disjoint genset Set2{
+    general Person
+    specifics Woman, Man 
+}
+disjoint genset Set3{
+    general ICD
+    specifics NervousSystem, DigestiveSystem, MetabolicDisease, RespiratorySystem, CirculatorySystem 
+}
 

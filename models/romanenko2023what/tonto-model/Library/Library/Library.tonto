@@ -132,4 +132,48 @@ phase Undamaged  specializes Copy
 phase Damaged  specializes Copy
 phase Destroyed  specializes Copy
 role Writer  specializes Person
+disjoint complete genset ContentType{
+    general Recording
+    specifics Video_Recording, Sound_Recording 
+}
+disjoint genset OrganizationType{
+    general Organization
+    specifics Library, Publisher 
+}
+disjoint genset ResourceType{
+    general Document
+    specifics Patent, Newspaper, Book, Chapter, Article, Proceedings 
+}
+disjoint complete genset Sex{
+    general Person
+    specifics Woman, Man 
+}
+disjoint complete genset ClientType{
+    general Client
+    specifics Registered_Person, Registered_Organization 
+}
+disjoint complete genset AccountStatus{
+    general Library_Account
+    specifics Suspended_Account, Active_Account 
+}
+genset EditionType{
+    general Edition
+    specifics Digitized, Translated_Edition 
+}
+disjoint complete genset ArtifactType{
+    general Artifact
+    specifics Work, Object 
+}
+disjoint complete genset LoanStatus{
+    general Loan
+    specifics Finished, Ongoing 
+}
+disjoint complete genset CopyStatus{
+    general Copy
+    specifics Borrowed, Available, Discarded 
+}
+disjoint complete genset CopyState{
+    general Copy
+    specifics Undamaged, Damaged, Destroyed 
+}
 

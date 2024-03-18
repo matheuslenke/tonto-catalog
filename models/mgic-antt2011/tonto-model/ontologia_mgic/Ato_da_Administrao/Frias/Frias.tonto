@@ -1,0 +1,12 @@
+import Agente_Administrativo
+import Ato_da_Administrao
+
+package Frias
+
+role Agente_Administrativo_em_Frias  specializes Agente_Administrativo, Objeto_do_Ato_da_Administrao
+relator Concesso_de_Frias  specializes Ato_da_Administrao{
+    retorno : undefined
+    @mediation
+     [1..*] -- [1]  Agente_Administrativo_em_Frias( {const } )
+}
+

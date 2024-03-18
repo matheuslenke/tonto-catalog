@@ -1,0 +1,38 @@
+import Tipo_de_Veculo
+import Transporte_Rodovirio_de_Cargas
+import Transportador_Rodovirio_de_Cargas
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Transporte_Rodovirio_Nacional_de_Cargas_Prpria
+import Gerao_de_CIOT_para_TACAgregado
+import Transporte_Rodovirio_Internacional_de_Carga_Prpria
+import MICDTA
+
+package Espcie_e_Categoria
+
+role Veculo_de_Trao  specializes Veculo_Rodovirio, Potencial_Veculo_de_Trao
+subkind Potencial_Veculo_Misto 
+subkind Veculo_de_Carga 
+role Veculo_de_Aprendizagem  specializes Veculo_Rodovirio
+role Veculo_de_Competio  specializes Veculo_Rodovirio
+subkind Potencial_Veculo_Especial 
+role Veculo_Particular  specializes Veculo_Rodovirio
+subkind Potencial_Veculo_de_Trao 
+role Veculo_de_Passageiro {
+    capacidade : undefined
+}
+role Veculo_de_Representao  specializes Veculo_Rodovirio
+role Veculo_Especial  specializes Veculo_Rodovirio, Potencial_Veculo_Especial
+role Veculo_Exclusivamente_de_Passageiro  specializes Veculo_Rodovirio, Potencial_Veculo_de_Passageiro, Veculo_de_Passageiro
+role Veculo_de_Coleo  specializes Veculo_Rodovirio
+subkind Potencial_Veculo_de_Passageiro 
+subkind Potencial_Veculo_de_Carga  specializes Veculo_em_Transporte_de_Cargas
+role Veculo_de_Aluguel  specializes Veculo_Rodovirio
+role Veculo_Exclusivamente_de_Carga  specializes Veculo_Rodovirio, Potencial_Veculo_de_Carga, Veculo_de_Carga, Veculo_Exclusivo_de_Carga_em_Frota, Veculo_Exclusivamente_de_Carga_em_Transporte_de_Cargas, Veculo_em_Transporte_Rodovirio_Nacional_de_Carga_Prpria, Veculo_Contratado, Veculo_em_Transporte_Rodovirio_Internacional_de_Carga_Prpria, Veculo_Original, Veculo_Substituto
+role Veculo_Misto  specializes Veculo_Rodovirio, Veculo_de_Passageiro, Potencial_Veculo_Misto, Veculo_de_Carga
+subkind Veculo_Importado  specializes Veculo_Rodovirio{
+    codigo_srf : undefined
+    desembarao_di : undefined
+    nmero_di : undefined
+}
+role Veculo_Oficial  specializes Veculo_Rodovirio
+

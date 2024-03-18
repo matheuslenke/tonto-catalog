@@ -1,0 +1,43 @@
+package 34_Event_change
+
+kind Person 
+role Walker  specializes Person
+mode Walk {
+    @externalDependence
+     [1..*] -- [1]  Originally_Intended_Destination( {const } )
+    @characterization
+     [1..*] -- [1]  Walker( {const } )
+}
+phase Ongoing_Walk  specializes Walk
+phase Finalized_Walk  specializes Walk
+phase Sucessful_Walk  specializes Finalized_Walk{
+    @formal
+     [0..*] -- arrived_at -- [1]  Originally_Intended_Destination( {const } )
+}
+phase Redirected_Walk  specializes Finalized_Walk{
+    @material
+     [0..*] -- arrived_at --  [1..*]  Redirected_Destination( {const } )
+}
+mode Redirected_Destination_Intention {
+    @externalDependence
+     [0..*] --  [1..*]  Redirected_Destination( {const } )
+    @characterization
+    [1] -- [1]  Redirected_Walk( {const } )
+}
+role Redirected_Destination  specializes Destination
+role Originally_Intended_Destination  specializes Destination
+role Destination  specializes Place
+kind Place 
+disjoint complete genset rCP3BV6GAqACDClK{
+    general Walk
+    specifics Finalized_Walk, Ongoing_Walk 
+}
+disjoint complete genset TO8PBV6GAqACDCnj{
+    general Finalized_Walk
+    specifics Sucessful_Walk, Redirected_Walk 
+}
+complete genset gMVPBV6GAqACDCq5{
+    general Destination
+    specifics Redirected_Destination, Originally_Intended_Destination 
+}
+

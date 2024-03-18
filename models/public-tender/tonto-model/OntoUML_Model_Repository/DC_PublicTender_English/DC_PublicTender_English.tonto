@@ -186,4 +186,20 @@ relator Grant_Committee_Nomination {
 role Anulled_Tender  specializes Completed_Tender
 roleMixin Company_Participant_of_Public_Auction 
 role Warranty_in_General_Proposal  specializes Warranty
+disjoint complete genset Set{
+    general Tender
+    specifics Tender_in_External_Phase, Service_Tender, Disposal_Tender, Completed_Tender, Concession_Tender, Purchase_Tender, Lease_Tender, Construction_Tender, Permission_Tender, Tender_in_Internal_Phase 
+}
+disjoint complete genset Set2{
+    general Tender_Without_Winner
+    specifics Empty_Tender, Failed_Tender 
+}
+disjoint complete genset Set3{
+    general Completed_Tender
+    specifics Anulled_Tender, Tended_With_Winner, Tender_Without_Winner 
+}
+disjoint complete genset Set4{
+    general Tender_in_External_Phase
+    specifics Tender_in_Qualification, Suspended_Tender, Tender_in_Homologation_Process, Tender_in_Proposal_Reviewing, Tender_in_Call_for_Tender 
+}
 

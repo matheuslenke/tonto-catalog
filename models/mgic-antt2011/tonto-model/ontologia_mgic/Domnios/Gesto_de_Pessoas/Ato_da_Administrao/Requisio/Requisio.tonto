@@ -1,0 +1,24 @@
+import Agente_Administrativo
+import Posio_Pblica
+
+package Requisio
+
+role rgo_Requerinte 
+relator Requisio {
+    data : undefined
+    @mediation
+    [1] -- [1]  Servidor_Efetivo_Requisitado( {const } )
+    @mediation
+     [1..*] -- [1]  rgo_Requerido( {const } )
+    @mediation
+     [1..*] -- [1]  rgo_Requerinte( {const } )
+}
+relator Requisio_Recusvel  specializes Requisio
+role rgo_Requerido 
+role Cargo_em_Comisso_em_Requisio  specializes Cargo_em_Comisso
+relator Requisio_para_Cargo_em_Comisso  specializes Requisio{
+    @mediation
+    [1] -- [1]  Cargo_em_Comisso_em_Requisio( {const } )
+}
+relator Requisio_Irrecusvel  specializes Requisio
+

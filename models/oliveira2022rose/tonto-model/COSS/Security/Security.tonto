@@ -68,4 +68,20 @@ event Attack  specializes Threat_Event, Action{
 roleMixin Protected_Subject 
 category Generic_Intention  specializes Intention
 category Specific_Intention  specializes Intention
+complete genset WrXvg_6AUB2wihI5{
+    general Protection_Event
+    specifics Control_Event, Control_Chain_Event 
+}
+genset LOMop_6AUB2wihDU{
+    general Risk_Event_Type
+    specifics Threat_Event_Type, Loss_Event_Type 
+}
+genset UytAQgGAUB2yOBsF{
+    general Agent
+    specifics Risk_Subject, Attacker, Risk_Assessor, Value_Subject 
+}
+disjoint complete genset PgyqMgGAUB2yOA3n{
+    general Intention
+    specifics Specific_Intention, Generic_Intention 
+}
 

@@ -1,0 +1,50 @@
+import Permisso_por_Licitao
+import Leilo_de_Licitao
+import Atos_e_Artigos
+import Programa_de_Capacitao
+import Instrumentos_de_Outorga
+
+package Comisso_de_Outorga
+
+role Portaria_para_Constituio_de_Comisso_de_Outorga  specializes Portaria{
+    @mediation
+    ( {const } ) [1..*] -- [1]  Instituio_de_Comisso_de_Outorga
+}
+role Licitante_Interessado_em_Impugnao_de_Edital  specializes Licitante, Interessado_em_Impugnao
+collective Comisso  specializes Comit_Gestor_de_Capacitao
+subkind Comisso_de_Outorga  specializes Comisso{
+    @mediation
+    ( {const } )[1] -- [1]  Leilo_de_Licitao
+}
+relator Pedido_de_Esclarecimento_sobre_o_Edital {
+    @mediation
+     [1..*] -- [1]  Eidtal_com_Pedido_de_Esclarecimento( {const } )
+    @mediation
+     [0..*] -- [1]  Comisso_de_Outorga( {const } )
+}
+role Edital_com_Pedido_de_Impugnao  specializes Edital_de_Licitao
+role Licitante_Interessado_em_Esclarecimentos  specializes Licitante, Interessado_em_Esclarecimentos
+role Cidado_Interessado_em_Esclarecimentos  specializes Interessado_em_Esclarecimentos
+roleMixin Interessado_em_Impugnao {
+    @mediation
+    ( {const } )[1] --  [1..*]  Pedido_de_Impugnao_ao_Edital
+}
+role Cidado_Interessado_em_Impugnao_de_Edital  specializes Interessado_em_Impugnao
+relator Pedido_de_Impugnao_ao_Edital {
+    @mediation
+    [1] -- [1]  Edital_com_Pedido_de_Impugnao( {const } )
+    @mediation
+     [0..*] -- [1]  Comisso_de_Outorga( {const } )
+}
+roleMixin Interessado_em_Esclarecimentos {
+    @mediation
+    ( {const } )[1] --  [1..*]  Pedido_de_Esclarecimento_sobre_o_Edital
+}
+role Eidtal_com_Pedido_de_Esclarecimento  specializes Edital_de_Licitao
+relator Instituio_de_Comisso_de_Outorga {
+    @mediation
+    [1] -- [1]  Licitao_de_Permisso_em_Fase_Externa( {const } )
+    @mediation
+    [1] -- [1]  Comisso_de_Outorga( {const } )
+}
+

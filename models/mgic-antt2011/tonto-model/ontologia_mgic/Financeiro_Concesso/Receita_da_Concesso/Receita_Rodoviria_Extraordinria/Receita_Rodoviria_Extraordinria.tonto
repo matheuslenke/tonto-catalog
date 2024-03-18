@@ -1,0 +1,19 @@
+import Fonte_de_Receita
+import Contratos_e_Convnios
+import Concesso_Rodoviria
+
+package Receita_Rodoviria_Extraordinria
+
+relator Receita_Complementar  specializes Receita_Rodoviria_Extraordinria
+subkind Contrato_de_Receita_Extraodrinria  specializes Contrato
+relator Receita_de_Projeto_Associado  specializes Receita_Rodoviria_Extraordinria
+role Agncia_Reguladora_que_Autoriza_Receita_Extraordinria  specializes Agente_Social
+relator Receita_Acessria  specializes Receita_Rodoviria_Extraordinria
+relator Explorao_da_Faixa_de_Domnio_com_Receita  specializes Receita_Rodoviria_Extraordinria{
+    custo_de_oportunidade : undefined
+    custo_mnimo_de_manuteno : undefined
+}
+relator Receita_de_Convnio  specializes Receita_Rodoviria_Extraordinria
+relator Receita_Alternativa  specializes Receita_Rodoviria_Extraordinria
+role Concessionria_com_Receita_Extraordinria  specializes Concessionria_Rodoviria
+

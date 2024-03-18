@@ -1,0 +1,26 @@
+import Fonte_de_Receita
+import Concesso
+
+package Extino_de_Concesso
+
+relator Resciso_do_Contrato  specializes Extino_da_Concesso_Indenizvel
+role Entidade_Responsvel_por_Extino {
+    @mediation
+    [1] --  [1..*]  Extino_de_Concesso( {const } )
+}
+relator Advento_do_Termo_Contratual  specializes Extino_da_Concesso_No_Indenizvel
+relator Extino_de_Concesso {
+    @mediation
+    [1] -- [1]  Concesso_Rodoviria__Extinta( {const } )
+}
+relator Indenizao_de_Extino_de_Concesso  specializes Fonte_de_Receita_Rodoviria{
+    @mediation
+    [1] -- [1]  Extino_da_Concesso_Indenizvel( {const } )
+}
+relator Extino_da_Concesso_No_Indenizvel  specializes Extino_de_Concesso
+relator Anulao_do_Contrato  specializes Extino_da_Concesso_Indenizvel
+role Concesso_Rodoviria__Extinta  specializes Outorga_de_Concesso
+relator Caducidade  specializes Extino_da_Concesso_Indenizvel
+relator Falncia_da_Concessionria  specializes Extino_da_Concesso_No_Indenizvel
+relator Extino_da_Concesso_Indenizvel  specializes Extino_de_Concesso
+

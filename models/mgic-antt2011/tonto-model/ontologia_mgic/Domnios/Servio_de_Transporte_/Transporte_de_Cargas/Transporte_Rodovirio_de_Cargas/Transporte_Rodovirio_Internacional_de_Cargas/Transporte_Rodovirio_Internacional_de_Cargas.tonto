@@ -1,0 +1,13 @@
+import Transporte_Rodovirio_Internacional_de_Carga_Prpria
+import Transporte_Rodovirio_de_Cargas
+import Transporte_Rodovirio_Nacional_de_Cargas
+
+package Transporte_Rodovirio_Internacional_de_Cargas
+
+relator Operao_de_Transporte_Rodovirio_Internacional_de_Carga_Prpria_para_Fins_Comerciais  specializes Operao_de_Transporte_Rodovirio_Internacional_de_Carga_Prpria
+relator Operao_de_Transporte_Rodovirio_Internacional_de_Cargas  specializes Operao_de_Transporte_Rodovirio_de_Cargas{
+    @mediation
+    [1] --  [1..*]  Nota_Fiscal_Emitida_para_Transporte_Rodovirio_Internacional_de_Cargas( {const } )
+}
+role Nota_Fiscal_Emitida_para_Transporte_Rodovirio_Internacional_de_Cargas  specializes Nota_Fiscal_Emitida
+

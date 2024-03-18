@@ -31,4 +31,8 @@ class Business_Constraint  specializes Normative_Description{
     [*] -- constrains -- [*]  Business_Requirement
     [*] -- recognized_by -- [*]  Organization
 }
+disjoint complete genset JUq7rf6GAqACBzQk{
+    general Business_Constraint
+    specifics Internal_Business_Rule, External_Business_Regulations 
+}
 

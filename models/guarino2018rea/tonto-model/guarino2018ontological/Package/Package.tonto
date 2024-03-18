@@ -33,4 +33,8 @@ subkind Sell_Event  specializes Economic_Event{
 subkind Cash_Event  specializes Economic_Event{
      [0..1] -- fulfills -- [1]  Money_Transfer_Conditional_Commitment
 }
+disjoint complete genset QNd9G06GAqACHRa3{
+    general Economic_Event
+    specifics Sell_Event, Cash_Event 
+}
 

@@ -1,9 +1,0 @@
-import Transaction
-import P2P
-import FOAF
-
-package C2C
-
-role C2C_Platform_Customer  specializes Platform_Customer, Peer_User, Person
-role C2C_Platform_Provider  specializes Platform_Provider, Peer_User, Person
-

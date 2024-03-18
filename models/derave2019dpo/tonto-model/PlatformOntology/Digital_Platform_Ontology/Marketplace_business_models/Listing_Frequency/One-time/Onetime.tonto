@@ -1,9 +1,0 @@
-import Service
-import Decentralized
-
-package Onetime
-
-subkind Onetime_listing  specializes Listing{
-     [0..*] -- [1]  Time
-}
-

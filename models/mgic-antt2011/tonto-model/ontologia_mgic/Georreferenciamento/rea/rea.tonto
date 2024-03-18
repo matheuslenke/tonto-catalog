@@ -1,0 +1,25 @@
+import Imvel
+import Georreferenciamento
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Obra_em_Concesso
+
+package rea
+
+phase rea_Municipal  specializes rea_Pblica
+subkind rea_Livre  specializes rea
+subkind Unidade_de_Conservao  specializes Elemento_com_Projeo_Pontual, rea_de_Preservao_Ambiental
+phase rea_Estadual  specializes rea_Pblica
+subkind rea_de_Preservao_Ambiental  specializes rea_Protegida
+subkind rea_Indgena  specializes Elemento_com_Projeo_Pontual, rea_Protegida
+subkind rea_Quilombola  specializes Elemento_com_Projeo_Pontual, rea_Protegida
+phase rea_Pblica  specializes rea
+phase rea_Privada  specializes rea
+subkind rea_Protegida  specializes rea
+subkind rea_Destinada_a_Reforma_Agrria  specializes rea
+kind rea  specializes Elemento_com_Projeo_Espacial, rea_de_Interesse_Pblico, rea_de_Possvel_Obra_de_Concesso{
+    @Formal
+    [*] -- _est_dentro_de_ -- [*]  Imvel
+}
+subkind rea_de_Preservao_Permanente  specializes rea_de_Preservao_Ambiental
+phase rea_da_Unio  specializes rea_Pblica
+

@@ -1,0 +1,20 @@
+import Via_de_Trnsito_Rodovirio
+
+package Infraestrutura_Rodoviria
+
+category Via {
+    extenso : undefined
+}
+subkind Via_Fluvial  specializes Via_Aqutica
+category Via_Terrestre  specializes Via
+kind Via_de_Trfego_Rodovirio  specializes Via_Terrestre{
+    @componentOf
+     [1..*] <o>--  [2..*]  Trecho_Rodovirio_Fsico
+}
+subkind Via_Martima  specializes Via_Aqutica
+kind Via_Aqutica  specializes Via
+subkind Via_Lacustre  specializes Via_Aqutica
+kind Via_Area  specializes Via
+role Via_com_Projeo_Linear  specializes Via
+kind Via_de_Trfego_Ferrovirio  specializes Via_Terrestre
+

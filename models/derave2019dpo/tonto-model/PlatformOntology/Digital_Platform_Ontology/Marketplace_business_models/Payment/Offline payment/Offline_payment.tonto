@@ -1,7 +1,0 @@
-import GDPO_part_1
-import Payment
-
-package Offline_payment
-
-event Offline_Payment  specializes Offline_Action, Transaction_Payment
-

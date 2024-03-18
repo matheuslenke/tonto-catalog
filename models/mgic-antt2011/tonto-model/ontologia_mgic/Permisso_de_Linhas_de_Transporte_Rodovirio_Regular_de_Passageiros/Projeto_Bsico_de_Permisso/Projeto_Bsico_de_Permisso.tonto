@@ -1,0 +1,10 @@
+import Esquema_Operacional_de_Linha_de_nibus
+
+package Projeto_Bsico_de_Permisso
+
+role Seo_de_Linha_de_nibus_em_Estudo  specializes Seo_de_Linha_de_nibus{
+    numeroPassageirosEstimado : undefined
+    tarifaMaximaReferencia : undefined
+}
+role Itinerrio_para_Linha_de_Transporte_Regular_em_Implantao  specializes Itinerrio_para_Transporte_Regular
+

@@ -1,0 +1,78 @@
+import GERES
+import GERPE
+import GERPA
+
+package SUEPE
+
+class Promover_Pesquisas 
+class Coordenao_da_publicao_da_revista_eletrnica_da_Agncia {
+    @Decomposition_AND
+    [*] -- [*]  Coordenao_de_Publicaes_da_Agncia
+}
+class Organizao_do_banco_de_informaes_tcnicas_de_transporte_de_interesse_da_Agncia {
+    @Why
+    [*] -- [*]  Organizao_do_banco_de_informaes_tcnicas_de_transporte_de_interesse_da_Angncia_fromSUEPE
+}
+class Promover_Pesquisas_para_definio_de_um_modelo_de_anlise {
+    @Why
+    [*] -- [*]  Promover_Pesquisas_para_definio_de_um_modelo_de_anlise_fromSUEPE
+    @Meansends
+    [*] -- [*]  Definio_de_um_modelo_para_anlise_permanente_dos_sistemas_de_transportes_sujeitos_a_regulao_da_ANTT
+    @Decomposition_AND
+    [*] -- [*]  Promover_Pesquisas
+}
+class Desenvolvimento_de_anlises_comparativas_sobre_o_mercado_de_transportes {
+    @Why
+    [*] -- [*]  Desenvolvimento_de_anlises_comparativas_sobre_o_mercado_de_transportes_fromSUEPE
+}
+class Desenvolvimento_de_Estudos_poara_definio_de_um_modelo_de_anlise {
+    @Why
+    [*] -- [*]  Desenvolvimento_de_Estudos_para_definio_de_um_modelo_de_anlise_fromSUEPE
+    @Meansends
+    [*] -- [*]  Definio_de_um_modelo_para_anlise_permanente_dos_sistemas_de_transportes_sujeitos_a_regulao_da_ANTT
+}
+class Promover_Pesquisas_no_setor_de_transporte_terrestres {
+    @Why
+    [*] -- [*]  Promover_Pesquisas_no_setor_de_transporte_terrestre_fromSUEPE
+    @Decomposition_AND
+    [*] -- [*]  Promover_Pesquisas
+}
+class Definio_de_um_modelo_para_anlise_permanente_dos_sistemas_de_transportes_sujeitos_a_regulao_da_ANTT 
+class Coordenao_de_outras_publicaes_tcnicas_de_interesse_da_Agncia {
+    @Decomposition_AND
+    [*] -- [*]  Coordenao_de_Publicaes_da_Agncia
+}
+class Desenvolvimento_de_Pesquisas_sobre_custos_do_transporte_terrestre {
+    @Why
+    [*] -- [*]  Desenvolvimento_de_Pesquisas_sobre_custos_do_transporte_terrestre_fromSUEPE
+    @Decomposition_AND
+    [*] -- [*]  Desenvolvimento_de_Pesquisas_para_definio_de_um_modelo_de_anlise
+}
+class SUEPE {
+    @Dependency_Link
+    [*] -- [*]  Dados_da_SUPAS_fornecidos_a_fim_de_subsidiar_a_elaborao_do_Anurio_Estatstico_da_SUEPE
+}
+class Elaborao_do_Anurio_Estatstico_da_Agncia {
+    @Why
+    [*] -- [*]  Elaborao_do_Anurio_Estatstico_da_Agncia_fromSUEPE
+}
+class Coordenao_de_Estudos_para_a_Gesto_Ambiental_na_Agncia {
+    @Why
+    [*] -- [*]  Coordenao_de_Estudos_para_a_Gesto_Ambiental_na_Agncia_fromSUEPE
+}
+class Coordenao_de_Publicaes_da_Agncia 
+class Manter_banco_de_informaes_tcnicas_de_transporte_de_interesse_da_Agncia {
+    @Why
+    [*] -- [*]  Manter_banco_de_informaes_tcnicas_de_transporte_de_interesse_da_Agncia_fromSUEPE
+}
+class Promover_Pesquisas_no_mercado_de_movimentao_de_pessoas_e_bens {
+    @Why
+    [*] -- [*]  Promover_Pesquisas_no_mercado_de_movimentao_de_pessoas_e_bens_fromSUEPE
+    @Decomposition_AND
+    [*] -- [*]  Promover_Pesquisas
+}
+class Desenvolvimento_de_Pesquisas_para_definio_de_um_modelo_de_anlise {
+    @Meansends
+    [*] -- [*]  Definio_de_um_modelo_para_anlise_permanente_dos_sistemas_de_transportes_sujeitos_a_regulao_da_ANTT
+}
+

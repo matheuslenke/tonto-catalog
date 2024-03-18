@@ -1,0 +1,79 @@
+import Service_Offer
+import Service_Delivery
+
+package Service_Negotiation
+
+roleMixin ClaimedHiredProvider  specializes HiredServiceProvider
+roleMixin CommittedServiceCustomer  specializes ServiceCustomer
+mode HiredProviderClaim {
+    @characterization
+     [1..*] -- externallydependenton -- [1]  CommittedServiceCustomer( {const } co_servicecustomer )
+    @characterization
+     [1..*] -- inheres_in -- [1]  ClaimedHiredProvider( {const } cl_hiredprovider )
+}
+mode HiredProviderCommitment {
+    @characterization
+     [1..*] -- inheres_in -- [1]  HiredServiceProvider( {const } hiredprovider )
+    @characterization
+     [1..*] -- externallydependenton -- [1]  ServiceCustomer( {const } servicecustomer )
+    @Formal
+    [1] -- counterpart_of -- [1]  ServiceCustomerClaim
+}
+roleMixin HiredServiceProvider  specializes ServiceProviderOnNegotiation{
+    @Formal
+    [1] -- performed_by --  [0..*]  HiredProvider_ServiceCustomer_Interaction
+}
+relator ServiceAgreement {
+    @componentOf
+    [1] <o>--  [1..*]  ServiceCustomerClaim
+    @Formal
+     [0..*] -- conforms_to -- [1]  ServiceOffering
+    @mediation
+     [1..*] -- is_bound_to --  [1..*]  ServiceCustomer( {const } servicecustomer )
+    @mediation
+     [1..*] -- is_bound_to -- [1]  HiredServiceProvider( {const } hiredprovider )
+    @componentOf
+    [1] <o>--  [1..*]  HiredProviderCommitment
+}
+category ServiceAgreementDescription {
+    @Formal
+     [0..*] -- describes --  [1..*]  ServiceAgreement
+}
+roleMixin ServiceCustomer  specializes TargetCustomerOnNegotiation
+mode ServiceCustomerClaim {
+    @characterization
+     [1..*] -- inheres_in -- [1]  ServiceCustomer( {const } servicecustomer )
+    @characterization
+     [1..*] -- externallydependenton -- [1]  HiredServiceProvider( {const } hiredprovider )
+}
+mode ServiceCustomerCommitment {
+    @Formal
+    [1] -- counterpart_of -- [1]  HiredProviderClaim
+    @characterization
+     [1..*] -- inheres_in -- [1]  CommittedServiceCustomer( {const } co_servicecustomer )
+    @characterization
+     [1..*] -- externallydependenton -- [1]  ClaimedHiredProvider( {const } cl_hiredprovider )
+}
+relator ServiceNegotiation {
+    @mediation
+     [1..*] -- participates_in -- [1]  ServiceProviderOnNegotiation( {const } provider )
+    @mediation
+     [1..*] -- participates_in --  [1..*]  TargetCustomerOnNegotiation( {const } customers )
+    @Formal
+     [0..*] -- refers_to -- [1]  ServiceOffering
+    @Formal
+    [1] -- results_in --  [0..1]  ServiceAgreement
+}
+roleMixin ServiceProviderOnNegotiation  specializes ServiceProvider
+relator SpecializedServiceAgreement  specializes ServiceAgreement{
+    @componentOf
+    [1] <o>--  [1..*]  ServiceCustomerCommitment
+    @componentOf
+    [1] <o>--  [1..*]  HiredProviderClaim
+    @mediation
+     [1..*] -- is_bound_to --  [1..*]  CommittedServiceCustomer( {const } co_servicecustomer )
+    @mediation
+     [1..*] -- is_bound_to -- [1]  ClaimedHiredProvider( {const } cl_hiredprovider )
+}
+roleMixin TargetCustomerOnNegotiation  specializes TargetCustomer
+

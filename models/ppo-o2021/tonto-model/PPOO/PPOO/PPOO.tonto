@@ -1,0 +1,159 @@
+import DMOP
+import RDBSO
+import ML_Schema
+
+package PPOO
+
+quality Parameter {
+    @characterization
+     [1..*] -- parameterized_by -- [1]  Operator( {const } )
+}
+subkind Data_Preprocessing_Operator  specializes Operator
+subkind Data_Transformation_Preprocessing_Operator  specializes Data_Preprocessing_Operator
+subkind Data_Cleaning_Preprocessing_Operator  specializes Data_Preprocessing_Operator
+subkind Data_Type_Convert  specializes Data_Transformation_Preprocessing_Operator
+subkind Data_Discretization  specializes Data_Transformation_Preprocessing_Operator
+subkind Data_Create  specializes Data_Transformation_Preprocessing_Operator
+subkind Data_Normalization  specializes Data_Transformation_Preprocessing_Operator
+subkind Data_Coding  specializes Data_Transformation_Preprocessing_Operator
+subkind Data_Standardization  specializes Data_Normalization
+subkind Data_Partition_Preprocessing_Operator  specializes Data_Preprocessing_Operator
+subkind Holdout  specializes Data_Partition_Preprocessing_Operator
+subkind Cross_Validation  specializes Data_Partition_Preprocessing_Operator
+subkind Data_Outlier_Treatment  specializes Data_Cleaning_Preprocessing_Operator
+subkind Data_Missing_Imputation  specializes Data_Cleaning_Preprocessing_Operator
+subkind Data_Reduction_Preprocessing_Operator  specializes Data_Preprocessing_Operator
+subkind Line_Selection  specializes Data_Reduction_Preprocessing_Operator
+subkind Column_Selection  specializes Data_Reduction_Preprocessing_Operator
+subkind Data_Sampling_Correction_Preprocessing_Operator  specializes Data_Preprocessing_Operator
+subkind Oversampling  specializes Data_Sampling_Correction_Preprocessing_Operator
+subkind Undersampling  specializes Data_Sampling_Correction_Preprocessing_Operator
+kind Dataset  specializes Data{
+    [*] <o>-- [*]  Line
+    [*] -- is_characterized_by --  [1..*]  Dataset_Characteristic
+    [1] -- defines -- [1]  Line_Type
+}
+kind Column_Value  specializes Data{
+    [*] -- instance_of -- [1]  Column
+}
+quality Column_Characteristic 
+subkind Labeled_Dataset  specializes Dataset{
+    [1] -- processed_by -- [1]  Supervised_Learning_Task
+    [1] -- has -- [1]  Target_Column
+}
+quality Dataset_Characteristic 
+kind Supervised_Learning_Task 
+subkind Target_Column  specializes Column{
+    [1] -- predict -- [1]  Supervised_Learning_Classification_Task
+    [*] -- defined_by -- [1]  Nominal_Qualitative_Data_Type
+}
+subkind Supervised_Learning_Classification_Task  specializes Supervised_Learning_Task
+subkind Qualitative_Data_Type  specializes Data_Type
+subkind Quantitative_Data_Type  specializes Data_Type
+subkind Nominal_Qualitative_Data_Type  specializes Qualitative_Data_Type
+subkind Ordinal_Quantitative_Data_Type  specializes Qualitative_Data_Type
+subkind Discreet_Quantitative_Data_Type  specializes Quantitative_Data_Type
+subkind Continuous_Quantitative_Data_Type  specializes Quantitative_Data_Type
+kind Data_Transformation {
+    [1] -- implements --  [1..*]  Data_Preprocessing_Executable_Operator
+}
+kind Data_Preprocessing_Workflow_Plan {
+    [*] <o>-- hasPart --  [2..*]  Data_Transformation
+    [1] -- implements -- [1]  Data_Preprocessing_Executable_Workflow
+}
+class User  specializes Person{
+    [*] -- executed_by -- [*]  Operator_Execution
+    @participation
+    ( {const } ) [1..*] -- [*]  Exploratory_Data_Analysis
+    @participation
+    ( {const } ) [1..*] -- [*]  Data_Preprocessing_Operator_Execution
+}
+relator Operator_Execution 
+kind Person 
+kind Data_Preprocessing_Assistant  specializes Software{
+    [1] -- supports --  [1..*]  Data_Preprocessing_Workflow_Plan
+}
+category Software 
+subkind Data_Preprocessing_Executable_Operator  specializes Operator{
+    [*] -- executed_by -- [*]  Operator_Execution
+    @participation
+    ( {const } ) [1..*] -- [*]  Exploratory_Data_Analysis
+    @participation
+    ( {const } )[1] -- [*]  Data_Preprocessing_Operator_Execution
+}
+kind Data_Preprocessing_Executable_Workflow {
+    [*] <o>-- hasPart --  [2..*]  Data_Preprocessing_Executable_Operator
+}
+kind Operator 
+situation Column_Characteristic_Initial {
+    @triggers
+    ( {const } )[1] -- [*]  Exploratory_Data_Analysis
+}
+class Exploratory_Data_Analysis {
+    [*] -- cause -- [*]  Data_Preprocessing_Operator_Execution
+    @bringsAbout
+    ( {const } )[1] --  [1..*]  Column_Characteristic_Identified( {const } )
+}
+class Data_Preprocessing {
+    [*] <o>-- [*]  Exploratory_Data_Analysis
+    [*] <o>-- [*]  Data_Preprocessing_Operator_Execution
+}
+event Data_Preprocessing_Operator_Execution {
+    @bringsAbout
+    ( {const } )[1] --  [1..*]  Processed_Column( {const } )
+}
+situation Processed_Column 
+situation Column_Characteristic_Identified {
+    @triggers
+    ( {const } )[1] -- [*]  Data_Preprocessing_Operator_Execution
+    [*] -- activates -- [*]  Data_Processing_Ability
+}
+class Data_Processing_Ability {
+    [*] -- inheresin -- [*]  Data_Preprocessing_Executable_Operator
+    [*] -- manifestedBy -- [*]  Data_Preprocessing_Operator_Execution
+}
+disjoint genset 9qK5G36D.AAAARcv{
+    general Operator
+    specifics Data_Preprocessing_Operator 
+}
+disjoint genset c9r5G36D.AAAARdz{
+    general Data_Cleaning_Preprocessing_Operator
+    specifics Data_Outlier_Treatment, Data_Missing_Imputation 
+}
+disjoint genset cXIFG36D.AAAAReV{
+    general Data_Reduction_Preprocessing_Operator
+    specifics Line_Selection, Column_Selection 
+}
+disjoint genset KJ8FG36D.AAAARe9{
+    general Data_Sampling_Correction_Preprocessing_Operator
+    specifics Oversampling, Undersampling 
+}
+disjoint genset MeDFG36D.AAAARgf{
+    general Data_Partition_Preprocessing_Operator
+    specifics Cross_Validation, Holdout 
+}
+disjoint genset 0MnFG36D.AAAARhL{
+    general Data_Normalization
+    specifics Data_Standardization 
+}
+disjoint genset 8aglG36D.AAAARhg{
+    general Data_Transformation_Preprocessing_Operator
+    specifics Data_Normalization, Data_Discretization, Data_Type_Convert, Data_Coding, Data_Create 
+}
+disjoint genset 0l4VG36D.AAAARlP{
+    general Supervised_Learning_Task
+    specifics Supervised_Learning_Classification_Task 
+}
+disjoint genset KwyVG36D.AAAARmF{
+    general Qualitative_Data_Type
+    specifics Ordinal_Quantitative_Data_Type, Nominal_Qualitative_Data_Type 
+}
+disjoint complete genset dOhVG36D.AAAARm.{
+    general Quantitative_Data_Type
+    specifics Continuous_Quantitative_Data_Type, Discreet_Quantitative_Data_Type 
+}
+disjoint complete genset ceNVG36D.AAAARnt{
+    general Data_Type
+    specifics Qualitative_Data_Type, Quantitative_Data_Type 
+}
+

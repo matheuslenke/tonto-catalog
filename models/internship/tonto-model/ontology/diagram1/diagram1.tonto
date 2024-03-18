@@ -68,4 +68,20 @@ relator Personal_Injury_Insurance {
     [1] -- [1]  Insurance_Policy( {const } )
 }
 kind Insurance_Policy 
+disjoint complete genset QrXGe36D.AAAATwW{
+    general Student
+    specifics College_Student, High_School_Student, Post_Graduate_Student 
+}
+disjoint complete genset eVdWe36D.AAAAT2o{
+    general Legal_Person
+    specifics Juridical_Person, Natural_Person 
+}
+disjoint complete genset qVTue36D.AAAAUB9{
+    general Internship
+    specifics Voluntary_Internship, Obligatory_Internship 
+}
+disjoint complete genset bBs.e36D.AAAAUGv{
+    general Internship
+    specifics Part_Time_Internship, Full_Time_Internship 
+}
 

@@ -51,4 +51,20 @@ class Fault_Manifestation_Failure  specializes Failure{
 class Defect  specializes Vulnerability
 class Usage_Limit_Vulnerability  specializes Vulnerability
 class Fault_Runtime_Defect  specializes Defect
+disjoint complete genset oPeFx36GAqACBRZr{
+    general Usergenerated_Failure
+    specifics Nonintentional_Usergenerated_Failure, Intentional_Usergenerated_Failure 
+}
+disjoint complete genset ezNFx36GAqACBRaM{
+    general Failure
+    specifics Fault_Manifestation_Failure, Usergenerated_Failure 
+}
+disjoint genset bKwVx36GAqACBReZ{
+    general Vulnerability
+    specifics Defect, Usage_Limit_Vulnerability 
+}
+disjoint genset YDBVx36GAqACBRgs{
+    general Vulnerability
+    specifics Hardware_Vulnerability, Loaded_Program_Vulnerability 
+}
 

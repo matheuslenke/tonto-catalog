@@ -132,4 +132,16 @@ kind ConductingSystemOfVentricles {
 role CSVAsCEIConductor  specializes ConductingSystemOfVentricles, CEIConductor
 role CSVAsEPsAccumulator  specializes ConductingSystemOfVentricles, EPsAccumulator
 roleMixin EPsAccumulator 
+disjoint genset {disjoint}{
+    general HisPurkinjeElectricalImpulse
+    specifics PurkinjeElectircalImpulse, HisElectricalImpulse 
+}
+disjoint genset {disjoint}{
+    general PacemakerCells
+    specifics SANodeCells, AVNodeCells 
+}
+disjoint complete genset {disjoint, complete}{
+    general HeartCells
+    specifics PacemakerCells, NonPacemakerCells 
+}
 

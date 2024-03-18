@@ -1,0 +1,32 @@
+package Pleito
+
+role Responsvel_por_Anlise_de_Pleito 
+relator Pleito_para_Solicitao_de_Informao  specializes Pleito
+role Destino_do_Pleito 
+phase Pleito_em_Anlise_Tcnica  specializes Pleito{
+    encaminhamento : undefined
+    @mediation
+     [1..*] -- [1]  Responsvel_por_Anlise_de_Pleito( {const } )
+}
+subkind Ofcio_de_Resposta_a_Pleito {
+    @mediation
+    [1] -- [1]  Pleito_Respondido( {const } )
+}
+role Autor_de_Pleito 
+relator Pleito {
+    contedo : undefined
+    recebimento : undefined
+    @mediation
+    [1] -- [1]  Ofcio_para_Pleito( {const } )
+    @mediation
+     [1..*] -- [1]  Autor_de_Pleito( {const } )
+    @mediation
+     [1..*] -- [1]  Destino_do_Pleito( {const } )
+}
+relator Pleito_para_Indagao  specializes Pleito
+subkind Ofcio_para_Pleito 
+phase Pleito_Respondido  specializes Pleito{
+    resposta : undefined
+}
+phase Pleito_Recebido  specializes Pleito
+

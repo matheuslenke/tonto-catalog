@@ -1,0 +1,8 @@
+import Obra_em_Concesso
+
+package Documento_de_Projeto_de_Obra
+
+subkind Projeto_Executivo  specializes Documento_de_Projeto_de_Obra_
+subkind Anteprojeto  specializes Documento_de_Projeto_de_Obra_
+subkind Projeto_Bsico_de_Obra  specializes Documento_de_Projeto_de_Obra_
+

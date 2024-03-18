@@ -102,4 +102,60 @@ class Scent_Sensory_Effect_Description  specializes Lingering_Sensory_Effect_Des
 class Taste_Sensory_Effect_Description  specializes Lingering_Sensory_Effect_Description
 class Temperature_Sensory_Effect_Description  specializes Lingering_Sensory_Effect_Description
 class Fog_Sensory_Effect_Description  specializes Lingering_Sensory_Effect_Description
+disjoint complete genset :origin{
+    general Medium
+    specifics Directly_Transmitted_Medium 
+}
+disjoint complete genset :temporal nature{
+    general Medium
+    specifics Continuous_Medium 
+}
+disjoint complete genset L2z7kn6D.AAAARYL{
+    general Discrete_Medium
+    specifics Graphic_Medium 
+}
+disjoint complete genset o9tHkn6D.AAAARcO{
+    general Continuous_Medium
+    specifics Audio_Medium 
+}
+disjoint complete genset NIsXkn6D.AAAARiR{
+    general Creation_Work
+    specifics Sound 
+}
+complete genset FagYGf6GAqACCxkB{
+    general Output_Device
+    specifics Auditory_Output_Device, Gustatory_Output_Device, Visual_Output_Device, Olfactory_Output_Device, Haptic_Output_Device 
+}
+disjoint genset Iph4Gf6GAqACCxoU{
+    general Visual_Output_Device
+    specifics Projector_Output_Device, LED_Lighting_Output_Device, Holographic_Output_Device, Screen_Output_Device, HeadMounted_Display_Output_Device, Lightbulb_Output_Device 
+}
+disjoint genset zIH4Gf6GAqACCxqw{
+    general Auditory_Output_Device
+    specifics Rumble_Output_Device, Headphone_Output_Device, Earbud_Output_Device, Box_Speaker_Output_Device 
+}
+disjoint genset OmZ0Gf6GAqACCxWp{
+    general Olfactory_Output_Device
+    specifics Scent_Diffuser_Output_Device, Electric_Smell_Interface_Output_Device 
+}
+disjoint genset JGgMGf6GAqACCxXd{
+    general Gustatory_Output_Device
+    specifics Lollipop_Output_Device, Beverage_Output_Device 
+}
+disjoint genset uGzMGf6GAqACCxex{
+    general Haptic_Output_Device
+    specifics Spraying_Output_Device, Vibration_Output_Device, Temperature_Output_Device, Motion_Chair_Output_Device, Wind_Turbine_Output_Device, Fog_Output_Device 
+}
+disjoint genset 6ajSGf6GAqACCxr1{
+    general Prompt_Sensory_Effect_Description
+    specifics Light_Sensory_Effect_Description, Spraying_Sensory_Effect_Description, Tactile_Sensory_Effect_Description, Kinesthetic_Sensory_Effect_Description, Vibration_Sensory_Effect_Description 
+}
+disjoint genset hEnSGf6GAqACCxsT{
+    general Lingering_Sensory_Effect_Description
+    specifics Scent_Sensory_Effect_Description, Fog_Sensory_Effect_Description, Taste_Sensory_Effect_Description, Wind_Sensory_Effect_Description, Temperature_Sensory_Effect_Description 
+}
+complete genset TCfSGf6GAqACCxsl{
+    general Sensory_Effect_Description
+    specifics Prompt_Sensory_Effect_Description, Lingering_Sensory_Effect_Description 
+}
 

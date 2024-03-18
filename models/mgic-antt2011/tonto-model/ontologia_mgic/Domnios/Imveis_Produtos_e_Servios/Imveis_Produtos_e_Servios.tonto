@@ -1,0 +1,6 @@
+import Servio
+
+package Imveis_Produtos_e_Servios
+
+category Item  specializes Servio
+

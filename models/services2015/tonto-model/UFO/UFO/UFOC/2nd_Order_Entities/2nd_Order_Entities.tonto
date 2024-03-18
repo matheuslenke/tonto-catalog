@@ -1,0 +1,6 @@
+import 1st_Order_Entities
+
+package 2nd_Order_Entities
+
+class Action_Universal_Plan  specializes Event_Universal
+

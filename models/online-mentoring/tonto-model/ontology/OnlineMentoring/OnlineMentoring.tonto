@@ -70,4 +70,28 @@ role CharacterizingTopic  specializes Topic{
      [1..*] -- characterizes --  [1..*]  CharacterizedQuestion
 }
 role NonCharacterizingTopic  specializes Topic
+disjoint complete genset nature{
+    general Agent
+    specifics Organization, Person 
+}
+complete genset function{
+    general Participant
+    specifics Student, Professor 
+}
+disjoint complete genset tutoring{
+    general Discipline
+    specifics NonTutoredDiscipline, TutoredDiscipline 
+}
+disjoint complete genset characterization{
+    general Topic
+    specifics CharacterizingTopic, NonCharacterizingTopic 
+}
+disjoint complete genset characterization{
+    general Question
+    specifics CharacterizedQuestion, NonCharacterizedQuestion 
+}
+disjoint complete genset status{
+    general Question
+    specifics AnsweredQuestion, OpenQuestion 
+}
 

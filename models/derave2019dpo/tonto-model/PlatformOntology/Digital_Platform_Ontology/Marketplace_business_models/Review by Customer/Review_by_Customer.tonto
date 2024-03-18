@@ -1,9 +1,0 @@
-import Review_System
-
-package Review_by_Customer
-
-event Review_Creation_by_Customer  specializes Review_Creation{
-    [1] -- [1]  Customer_Review
-}
-subkind Customer_Review  specializes Review
-

@@ -1,0 +1,8 @@
+package WBS
+
+mode Deliverable 
+class Work_Package  specializes Deliverable
+class Practical_Result  specializes Deliverable{
+     [0..*] <o>--  [2..*]  Deliverable
+}
+

@@ -282,4 +282,12 @@ historicalRole Assembling_Laboratory  specializes Research_Laboratory{
     @participation
     ( {const } ) [1..*] --  [1..*]  Genome_Assembly
 }
+disjoint genset dD.h_6GGAqAAERHL{
+    general Amino_acid
+    specifics Proline, Leucine, Arginine, Threonine 
+}
+disjoint complete genset BwUR_6GGAqAAERIq{
+    general Nucleotide
+    specifics Uracil, Adenine, Thymine, Guanine, Cytosine 
+}
 

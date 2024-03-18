@@ -1,0 +1,17 @@
+import Scios
+import Pessoa_Jurdica
+
+package Scio_Cooperado
+
+kind Livro_de_Matrcula 
+relator Matrcula_na_Sociedade_Cooperativa {
+    admisso : undefined
+    demisso : undefined
+    @mediation
+    [1] -- [1]  Scio_Cooperado( {const } )
+    @mediation
+     [1..*] -- [1]  Livro_de_Matrcula( {const } )
+    @mediation
+     [1..*] -- [1]  Sociedade_Cooperativa( {const } )
+}
+

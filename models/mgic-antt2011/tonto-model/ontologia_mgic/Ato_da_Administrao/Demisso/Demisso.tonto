@@ -1,0 +1,37 @@
+import Gerais
+import Agente_Administrativo
+import Ato_da_Administrao
+import Atos_e_Artigos
+
+package Demisso
+
+mode Conduta_escandalosa_na_Repartio_  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Revelao_de_Segredo_  specializes Causa_da_Sano_Disciplinar_em_Demisso
+role Servidor_Pblico_Demitido  specializes Servidor_Pblico_Ativo, Objeto_do_Ato_da_Administrao
+roleMixin Fundamento_Legal_da_Demisso 
+mode Abandono_de_Cargo  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Dilapidao_do_Patrimnio_Nacional  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Cumulao_Ilegal_de_Cargos_Empregos_ou_Funes_pblicas  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Iimprobidade_Administrativa  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Ofensa_Fsica_em_Servio  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Corrupo  specializes Causa_da_Sano_Disciplinar_em_Demisso
+relator Ato_de_Demisso {
+    @mediation
+    [1] -- [1]  Demisso( {const } )
+    @mediation
+    [1] --  [1..*]  Fundamento_Legal_da_Demisso( {const } )
+    @mediation
+    [1] -- [1]  Servidor_Pblico_Demitido( {const } )
+}
+mode Causa_da_Sano_Disciplinar_em_Demisso {
+    @characterization
+     [1..*] -- [1]  Ato_de_Demisso( {const } )
+}
+mode Incontinncia_Pblica_na_Repartio  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Aplicao_Irregular_de_Dinheiros_Pblicos  specializes Causa_da_Sano_Disciplinar_em_Demisso
+role Ato_Normativo_como_Fundamento_Legal_da_Demisso  specializes Ato_Normativo, Fundamento_Legal_da_Demisso
+mode Inassiduidade_Habitual  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Insubordinao_Grave_em_Servio  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Crime_contra_a_Administrao_Pblica  specializes Causa_da_Sano_Disciplinar_em_Demisso
+mode Leso_aos_Cofres_Pblicos  specializes Causa_da_Sano_Disciplinar_em_Demisso
+

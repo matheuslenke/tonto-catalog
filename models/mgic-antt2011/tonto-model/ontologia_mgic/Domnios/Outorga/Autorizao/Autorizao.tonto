@@ -1,0 +1,7 @@
+import Outorga
+
+package Autorizao
+
+relator Outorga_sem_Licitao  specializes Outorga
+subkind Contrato_de_Autorizao  specializes Contrato_de_Outorga
+

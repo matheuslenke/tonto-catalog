@@ -1,0 +1,6 @@
+import SPO
+
+package RSRO
+
+subkind Requirements_Document  specializes Document
+

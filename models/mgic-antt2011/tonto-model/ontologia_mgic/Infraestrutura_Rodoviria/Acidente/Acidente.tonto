@@ -1,0 +1,51 @@
+import Georreferenciamento
+import Via_de_Trnsito_Rodovirio
+
+package Acidente
+
+relator Choque_com_Veculo_Estacionado  specializes Choque
+relator Atropelamento  specializes Acidente_de_Trnsito{
+    nmero_de_animais : undefined
+    nmero_de_pessoas : undefined
+}
+relator Coliso_Transversal  specializes Coliso
+relator Acidente_de_Trnsito {
+    causa : undefined
+    clima : undefined
+    data : undefined
+    km_final : undefined
+    km_inicio : undefined
+    @Formal
+     [0..*] -- causa_ --  [0..*]  Acidente_de_Trnsito
+    [-1] -- [1]  Elemento_com_Projeo_Pontual
+    @mediation
+     [1..*] -- [1]  Trecho_Rodovirio_com_Acidente( {const } )
+}
+relator Tombamento  specializes Acidente_de_Trnsito
+relator Choque  specializes Acidente_de_Trnsito
+relator Sada_de_Pista  specializes Acidente_de_Trnsito
+relator Coliso_Frontal  specializes Coliso
+relator Acidente_de_Trnsito_com_Vtima  specializes Acidente_de_Trnsito{
+    numero_de_feridos : undefined
+    numero_de_mortos : undefined
+}
+role Trecho_Rodovirio_com_Acidente  specializes Trecho_Rodovirio_Fsico{
+    @material
+     [1..*] -- _envolvese_em_acidente_ --  [1..*]  Veculo_Acidentado
+}
+relator Queda  specializes Acidente_de_Trnsito
+relator Coliso  specializes Acidente_de_Trnsito
+relator Abalroamento  specializes Coliso
+relator Engavetamento  specializes Acidente_de_Trnsito
+relator Capotagem  specializes Acidente_de_Trnsito
+relator Coliso_Lateral  specializes Coliso
+role Veculo_Acidentado {
+    @mediation
+     [1..*] --  [1..*]  Acidente_de_Trnsito( {const } )
+}
+relator Atropelamento_e_Fuga  specializes Atropelamento
+relator Coliso_Traseira  specializes Coliso
+relator Choque_com_Objeto_Fixo  specializes Choque{
+    objeto : undefined
+}
+

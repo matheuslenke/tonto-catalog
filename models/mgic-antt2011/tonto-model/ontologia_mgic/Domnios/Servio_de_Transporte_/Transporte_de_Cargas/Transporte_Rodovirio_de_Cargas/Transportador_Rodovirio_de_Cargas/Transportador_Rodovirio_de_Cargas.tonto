@@ -1,0 +1,68 @@
+import Licena_Originria
+import Espcie_e_Categoria
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_Nacional_de_Cargas
+
+package Transportador_Rodovirio_de_Cargas
+
+mixin Posto_de_Cadastramento_de_RNTRC 
+role Transportador_Equiparado_a_TAC 
+role Empresa_de_Transporte_de_Carga  specializes Transportador_Rodovirio_de_Carga_Registrado, Empresa_Potencial_para_Habilitao_Internacional, Emitente_do_Conhecimento_de_Transporte
+roleMixin Transportador_Rodovirio_de_Carga 
+kind Nota_Fiscal  specializes Nota_Fiscal_Emitida
+relator Credenciamento_de_Entidade_RNTRC {
+    @mediation
+    [1] -- [1]  Entidade_Credenciada_RNTRC( {const } )
+    @mediation
+    [1] -- [1]  Entidade_Credenciadora_de_Entidade_RNTRC( {const } )
+}
+role Entidade_Credenciadora_de_Entidade_RNTRC 
+role Entidade_Credenciada_RNTRC  specializes Posto_de_Cadastramento_de_RNTRC
+role Transportador_Rodovirio_de_Carga_Estrangeiro_Habilitado_Internacionalmente  specializes Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente
+roleMixin Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente  specializes Empresa_Nacional_Indicadora_de_Representante
+role Transportador_de_Carga_Prpria  specializes Transportador_Rodovirio_de_Carga{
+    @material
+     [1..*] -- proprietrio_de --  [1..*]  Veculo_Exclusivamente_de_Carga
+}
+role Transportador_Autnomo_de_Carga_Cooperado  specializes Transportador_Autnomo_de_Carga
+role Frota_com_Capacidade_Mnima_para_Operao_Internacional  specializes Frota_de_Veculos_de_Carga
+role Veculo_Exclusivo_de_Carga_em_Frota 
+relator Certificado_de_RNTRC {
+    cadastramento : undefined
+    nmero : undefined
+    validade : undefined
+    @mediation
+    [1] -- [1]  Transportador_Rodovirio_de_Carga_Registrado( {const } )
+    @mediation
+    [1] -- [1]  Local_de_Registro_de_RNTRC( {const } )
+}
+role Transportador_Rodovirio_de_Carga_Nativo_Habilitado_Internacionalmente  specializes Transportador_Rodovirio_de_Carga_Registrado_com_Frota, Empresa_Potencial_para_Habilitao_Internacional, Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente{
+    @material
+    [1] -- proprietrio_de -- [1]  Frota_de_Veculos_de_Carga_Habilitada_Internacionalmente
+    @material
+    [1] -- proprietrio_de_ --  [2..*]  Veculo_Exclusivo_de_Carga_Habilitado_Internacionalmente
+}
+kind MDFe 
+role Cooperativa_de_Transportadores_de_Carga  specializes Transportador_Rodovirio_de_Carga_Registrado, Empresa_Potencial_para_Habilitao_Internacional, Transportador_Equiparado_a_TAC, Emitente_do_Conhecimento_de_Transporte{
+    @memberOf
+    [1] <o>--  [20..*]  Transportador_Autnomo_de_Carga_Cooperado
+}
+roleMixin Transportador_Rodovirio_de_Carga_No_Registrado  specializes Transportador_Rodovirio_de_Carga
+collective Frota_de_Veculos_de_Carga {
+    @memberOf
+    [1] <o>--  [2..*]  Veculo_Exclusivo_de_Carga_em_Frota
+}
+roleMixin Local_de_Registro_de_RNTRC  specializes Posto_de_Cadastramento_de_RNTRC
+kind Posto_da_ANTT  specializes Posto_de_Cadastramento_de_RNTRC
+role Pessoa_Jurdica_Transportadora_Rodoviria_de_Carga_No_Registrada  specializes Transportador_Rodovirio_de_Carga_No_Registrado
+role ETC_Equiparada  specializes Empresa_de_Transporte_de_Carga, Transportador_Equiparado_a_TAC
+role Transportador_Rodovirio_de_Carga_Registrado_com_Frota  specializes Transportador_Rodovirio_de_Carga_Registrado{
+    @material
+    [1] -- proprietrio_de -- [1]  Frota_de_Veculos_de_Carga
+}
+role Pessoa_Fsica_Transportadora_Rodoviria_de_Carga_No_Registrada  specializes Transportador_Rodovirio_de_Carga_No_Registrado
+role Transportador_Autnomo_de_Carga  specializes Transportador_Rodovirio_de_Carga_Registrado
+roleMixin Transportador_Rodovirio_de_Carga_Registrado  specializes Transportador_Rodovirio_de_Carga
+role Veculo_Exclusivo_de_Carga_Habilitado_Internacionalmente  specializes Veculo_Exclusivo_de_Carga_em_Frota
+roleMixin Empresa_Potencial_para_Habilitao_Internacional 
+

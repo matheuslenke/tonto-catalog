@@ -1,0 +1,10 @@
+import Pessoa_Jurdica
+
+package Consrcio
+
+role Empresa_Participante_em_Consrcio  specializes Sociedade_Empresria{
+    @mediation
+    ( {const } ) [2..*] --  [1..*]  Constituio_de_Consrcio
+}
+relator Constituio_de_Consrcio 
+

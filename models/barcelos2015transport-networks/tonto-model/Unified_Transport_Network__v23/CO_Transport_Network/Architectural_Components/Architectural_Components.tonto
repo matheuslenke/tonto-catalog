@@ -1,0 +1,8 @@
+package Architectural_Components
+
+category Architectural_Component 
+disjoint complete genset qS3inb6GAqBwASfJ{
+    general Architectural_Component
+    specifics Reference_Point, Transport_Function, Topological_Component, Transport_Entity 
+}
+

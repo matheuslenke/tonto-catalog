@@ -1,0 +1,65 @@
+import Arbitragem_e_Mediao
+import Transporte_Multimodal_de_Cargas
+import Ativo_Ferrovirio
+
+package Movimentao_de_Ativo_Ferrovirio
+
+relator Transporte_Ferrovirio_de_Carga  specializes Modal_de_Transporte, Viagem_Ferroviria{
+    @mediation
+     [1..*] --  [1..*]  Carga_em_Transporte( {const } carga )
+    @mediation
+     [1..*] -- [1]  Requerente_de_Transporte_Ferrovirio_de_Carga( {const } )
+    @mediation
+    [1] --  [1..*]  Fluxo_Ferrovirio_de_Carga( {const } )
+}
+roleMixin Carga_em_Transporte_por_Volume  specializes Carga_em_Transporte{
+    volume : Unidade de Volume
+}
+subkind Descarregamento_de_Carga_Ferroviria  specializes Operao_Acessria
+relator Viagem_Ferroviria  specializes Viagem_Ferroviria_Sem_Interseo, Viagem_Ferroviria_com_Interseo{
+    distncia : Unidade de Comprimento
+    partida : Unidade de Tempo
+    @mediation
+    [1] --  [1..*]  Centro_de_Controle_Operacional_Controlador_da_Viagem( {const } centro )
+    @mediation
+     [1..*] -- [1]  Terminal_Ferrovirio_de_Destino( {const } destino )
+    @mediation
+     [0..*] --  [0..*]  Terminal_Ferrovirio_Intermedirio( {const } )
+    @mediation
+     [1..*] -- [1]  Terminal_Ferrovirio_de_Origem( {const } origem )
+    @mediation
+    [1] --  [0..*]  Operao_Acessria( {const } )
+}
+role Pessoa_Fsica_Requerente_de_Transporte_Ferrovirio_de_Carga  specializes Requerente_de_Transporte_Ferrovirio_de_Carga
+roleMixin Carga_em_Transporte_por_Peso  specializes Carga_em_Transporte{
+    peso : Unidade de Massa
+}
+role Terminal_Ferrovirio_Intermedirio  specializes Terminal_Ferrovirio
+role Concessionria_Ferroviria_que_Realiza_Viagem_sem_Interseo {
+    @mediation
+    [1] -- [1]  Viagem_Ferroviria_Sem_Interseo( {const } viagem )
+}
+role Terminal_Ferrovirio_de_Origem  specializes Terminal_Ferrovirio
+roleMixin Carga_em_Transporte_por_Unidade  specializes Carga_em_Transporte{
+    unidade : undefined
+}
+subkind Manobra_de_Carga_Ferroviria  specializes Operao_Acessria
+role Sociedade_Empresria_Requerente_de_Transporte_Ferrovirio_de_Carga  specializes Requerente_de_Transporte_Ferrovirio_de_Carga
+kind Operao_Acessria {
+    tarifa_de_operao_acessria : undefined
+}
+role Trem_em_Viagem {
+    @mediation
+    [1] -- [1]  Viagem_Ferroviria( {const } )
+}
+subkind Centro_de_Controle_Operacional 
+subkind Carregamento_de_Carga_Ferroviria  specializes Operao_Acessria
+roleMixin Carga_em_Transporte 
+roleMixin Requerente_de_Transporte_Ferrovirio_de_Carga 
+role Centro_de_Controle_Operacional_Controlador_da_Viagem  specializes Centro_de_Controle_Operacional
+subkind Armazenagem_de_Carga_Ferroviria  specializes Operao_Acessria
+role Terminal_Ferrovirio_de_Destino  specializes Terminal_Ferrovirio
+kind Fluxo_Ferrovirio_de_Carga {
+    tarifa_de_fluxo : undefined
+}
+

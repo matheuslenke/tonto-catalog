@@ -1,0 +1,14 @@
+import Movimentao_de_Ativo_Ferrovirio
+
+package Transporte_Ferrovirio_de_Passageiros
+
+relator Transporte_Ferrovirio_de_Passageiro  specializes Viagem_Ferroviria{
+    @mediation
+    [1] --  [1..*]  Passageiros_em_Viagem_Ferroviria( {const } )
+}
+role Passageiros_em_Viagem_Ferroviria 
+kind Boletim_de_Viagem {
+    @mediation
+    ( {const } )[1] -- [1]  Transporte_Ferrovirio_de_Passageiro
+}
+

@@ -1,0 +1,22 @@
+import Contratos_e_Convnios
+
+package Financiamento
+
+kind Carta_de_Fiana  specializes Garantia
+mixin Garantia 
+mixin Direito_Emergente 
+kind Receita_Futura  specializes Direito_Emergente
+subkind Contrato_de_Financiamento  specializes Contrato{
+    @mediation
+    ( {const } )[1] -- [1]  Financiamento
+}
+relator Financiamento {
+    dataAssinatura : undefined
+    dvida : undefined
+    valor : undefined
+    @mediation
+     [1..*] --  [1..*]  Garantia( {const } )
+}
+roleMixin Direito_como_Garantia  specializes Direito_Emergente, Garantia
+role Ao_como_Garantia  specializes Garantia
+

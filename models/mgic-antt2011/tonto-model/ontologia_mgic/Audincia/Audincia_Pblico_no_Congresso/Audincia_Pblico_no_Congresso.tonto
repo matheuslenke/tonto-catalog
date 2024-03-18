@@ -1,0 +1,19 @@
+import Participao_da_Sociedade
+import Poder_Legislativo
+import Comisso_do_Congresso_Nacional
+
+package Audincia_Pblico_no_Congresso
+
+relator Audincia_Pblica_no_Congresso_Nacional  specializes Audincia_Pblica{
+    @mediation
+     [1..*] -- [1]  Autor_de_Audincia_Pblica( {const } autor )
+    @mediation
+     [1..*] -- [1]  Comisso_Responsvel_por_Audincia_Pblica( {const } comissao )
+}
+role Autor_de_Audincia_Pblica  specializes Participante_Representante_Pblico, Parlamentar
+role Comisso_Responsvel_por_Audincia_Pblica  specializes Comisso_do_Congresso_Nacional
+role Requerimento_de_Audincia_Pblica_Atendido {
+    @Formal
+    [1] -- [1]  Audincia_Pblica_no_Congresso_Nacional
+}
+

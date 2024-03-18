@@ -1,0 +1,38 @@
+import Atos_e_Artigos
+import Geral
+
+package Gesto_de_Atos_Normativos
+
+roleMixin Elemento_Includo  specializes Elemento_Modificado, Elemento_Componente_de_Ato_Normativo{
+    @material
+     [1..*] -- inclui_ --  [1..*]  Artigo_de_Incluso
+    @mediation
+    ( {const } ) [1..*] -- [1]  Entrada_em_Vigncia_de_Incluso
+}
+relator Entrada_em_Vigncia_de_Alterao 
+subkind Artigo_de_Alterao  specializes Artigo{
+    @mediation
+    ( {const } ) [1..*] -- [1]  Entrada_em_Vigncia_de_Alterao
+}
+roleMixin Elemento_Alterado  specializes Elemento_Componente_de_Ato_Normativo, Elemento_Modificado{
+    @material
+     [1..*] -- altera_ --  [1..*]  Artigo_de_Alterao
+    @mediation
+    ( {const } ) [1..*] -- [1]  Entrada_em_Vigncia_de_Alterao
+}
+subkind Artigo_de_Incluso  specializes Artigo{
+    @mediation
+    ( {const } ) [1..*] -- [1]  Entrada_em_Vigncia_de_Incluso
+}
+roleMixin Elemento_Revogado  specializes Elemento_Modificado{
+    @material
+     [1..*] -- revoga_ --  [1..*]  Clusula_de_Revogao
+    @mediation
+    ( {const } ) [1..*] -- [1]  Entrada_em_Vigncia_de_Revogao
+}
+relator Entrada_em_Vigncia_de_Revogao {
+    @mediation
+    [1] --  [1..*]  Clusula_de_Revogao( {const } )
+}
+relator Entrada_em_Vigncia_de_Incluso 
+

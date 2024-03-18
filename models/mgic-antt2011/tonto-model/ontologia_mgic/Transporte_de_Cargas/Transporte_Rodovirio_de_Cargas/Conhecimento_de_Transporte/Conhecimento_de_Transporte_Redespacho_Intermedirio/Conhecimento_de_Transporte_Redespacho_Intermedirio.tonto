@@ -1,0 +1,13 @@
+import Tipos_de_Conhecimento_de_Transporte
+
+package Conhecimento_de_Transporte_Redespacho_Intermedirio
+
+relator Conhecimento_de_Transporte_de_Redespacho_Intermedirio_de_CT_Normal  specializes Conhecimento_de_Transporte_Redespacho_Intermedirio{
+    @mediation
+    [1] -- [1]  Conhecimento_de_Transporte_Normal( {const } )
+}
+relator Conhecimento_de_Transporte_de_Redespacho_Intermedirio_de_CTRI  specializes Conhecimento_de_Transporte_Redespacho_Intermedirio{
+    @mediation
+    [1] -- [1]  Conhecimento_de_Transporte_Redespacho_Intermedirio( {const } )
+}
+

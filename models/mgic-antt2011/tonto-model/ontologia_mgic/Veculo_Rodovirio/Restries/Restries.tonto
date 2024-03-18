@@ -1,0 +1,18 @@
+import Tipo_de_Veculo
+
+package Restries
+
+role Veculo_com_Restrio_Tributria  specializes Veculo_Rodovirio
+role Veculo_com_Restrio_Administrativa  specializes Veculo_Rodovirio
+role Veculo_com_Restrio_Judicial  specializes Veculo_Rodovirio
+role Veculo_Definitivamente_Desmontado  specializes Veculo_Baixado
+role Veculo_com_Alienao_Fiduciria  specializes Veculo_Rodovirio
+role Veculo_Roubado  specializes Veculo_Rodovirio
+role Veculo_em_Reserva_de_Domnio  specializes Veculo_Rodovirio
+role Veculo_Arrendado  specializes Veculo_Rodovirio
+role Veculo_em_Perda_Total  specializes Veculo_Baixado
+role Veculo_Irrecupervel  specializes Veculo_Baixado
+role Veculo_com_Baixa_na_Alienao_por_Ordem_Judiciria  specializes Veculo_Rodovirio
+role Veculo_Baixado  specializes Veculo_Rodovirio
+role Veculo_Penhorado  specializes Veculo_Rodovirio
+

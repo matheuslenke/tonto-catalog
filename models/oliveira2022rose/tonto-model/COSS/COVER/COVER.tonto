@@ -138,4 +138,20 @@ quality Triggering_Likelihood {
     @externalDependence
     [*] -- [1]  Event_Type( {const } )
 }
+disjoint complete genset {complete, disjoint}{
+    general Value_Event
+    specifics Trigger_Event, Impact_Event 
+}
+disjoint complete genset {disjoint, complete}{
+    general Value_Ascription
+    specifics Experience_Value_Asc, Object_Value_Asc 
+}
+disjoint complete genset {disjoint, complete}{
+    general Risk_Assessment
+    specifics Object_Risk_Assesment, Experience_Risk_Assesment 
+}
+genset 60vRcf6AUB2wihAM{
+    general Risk_Event
+    specifics Loss_Event, Threat_Event 
+}
 

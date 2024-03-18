@@ -1,0 +1,17 @@
+import Journal
+import Agents
+
+package Publisher
+
+category Published_Document 
+role Publisher  specializes Organization{
+    @material
+    [1] --  [0..*]  Journal
+}
+relator PublicationRELATOR {
+    @mediation
+    [1] -- [1]  Published_Document( {const } )
+    @mediation
+     [1..*] --  [1..*]  Publisher( {const } )
+}
+

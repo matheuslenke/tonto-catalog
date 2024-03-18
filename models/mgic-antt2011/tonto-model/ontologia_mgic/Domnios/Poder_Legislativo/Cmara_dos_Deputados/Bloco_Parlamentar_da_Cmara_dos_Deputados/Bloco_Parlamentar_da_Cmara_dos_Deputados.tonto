@@ -1,0 +1,31 @@
+import Cmara_dos_Deputados
+import Poder_Legislativo
+
+package Bloco_Parlamentar_da_Cmara_dos_Deputados
+
+subkind Bloco_Parlamentar_da_Cmara  specializes Bloco_Parlamentar, Representao_Parlamentar{
+    @memberOf
+    [1] <o>--  [1..*]  Vice_Lder_de_BPC
+    @memberOf
+    [1] <o>-- [1]  Lder_de_BPC
+    @memberOf
+     [0..1] <o>--  [2..*]  Deputado_Federal
+    @subCollectionOf
+     [0..1] <o>-- [1]  Bloco_Partidrio_na_Cmara
+}
+roleMixin Maioria_da_Cmara  specializes Representao_Parlamentar
+role Vice_Lder_Partidrio_na_Cmara  specializes Deputado_Federal
+role Lder_de_BPC  specializes Deputado_Federal
+collective Bloco_Partidrio_na_Cmara  specializes Representao_Parlamentar{
+    @memberOf
+    [1] <o>-- [1]  Lder_Partidrio_na_Cmara
+    @memberOf
+    [1] <o>--  [1..*]  Deputado_Federal
+    @memberOf
+    [1] <o>--  [1..*]  Vice_Lder_Partidrio_na_Cmara
+}
+category Representao_Parlamentar 
+role Vice_Lder_de_BPC  specializes Deputado_Federal
+roleMixin Minoria_da_Cmara  specializes Representao_Parlamentar
+role Lder_Partidrio_na_Cmara  specializes Deputado_Federal
+

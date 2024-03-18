@@ -1,0 +1,23 @@
+import Projeto_de_Ato_Normativo
+import Senado_Federal
+
+package Mesa_Diretora_do_Senado
+
+role Suplente_de_Secretrio_do_Senado  specializes Membro_da_Mesa_Diretora_do_Senado
+role Presidente_do_Senado  specializes Membro_da_Mesa_Diretora_do_Senado
+collective Mesa_Diretora_do_Senado  specializes Agente_Legislativo{
+    @memberOf
+    [1] <o>--  [4..*]  Membro_da_Mesa_Diretora_do_Senado
+    @memberOf
+    [1] <o>--  [1..4]  Secretrio_do_Senado
+    @memberOf
+    [1] <o>--  [1..2]  Vice_Presidente_do_Senado
+    @memberOf
+    [1] <o>-- [1]  Presidente_do_Senado
+    @memberOf
+    [1] <o>--  [1..*]  Suplente_de_Secretrio_do_Senado
+}
+role Secretrio_do_Senado  specializes Membro_da_Mesa_Diretora_do_Senado
+role Vice_Presidente_do_Senado  specializes Membro_da_Mesa_Diretora_do_Senado
+role Membro_da_Mesa_Diretora_do_Senado  specializes Senador
+

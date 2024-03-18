@@ -1,0 +1,36 @@
+package 31_CompositionConstitution
+
+kind Wooden_Table 
+role Left_Rear_Leg  specializes Table_Leg_Component{
+    @componentOf
+    [1]  --<o> [1]  Wooden_Table
+}
+role Right_Front_Leg  specializes Table_Leg_Component{
+    @componentOf
+    [1]  --<o> [1]  Wooden_Table
+}
+role Right_Rear_Leg  specializes Table_Leg_Component{
+    @componentOf
+    [1]  --<o> [1]  Wooden_Table
+}
+kind Wooden_Table_Component {
+    @formal
+    [1] -- constituted_by -- [1]  Wood_Component_Constituent
+}
+subkind Table_Leg_Component  specializes Wooden_Table_Component
+subkind Table_Top_Component  specializes Wooden_Table_Component
+quantity Wood_Portion 
+role Top_Component  specializes Table_Top_Component{
+    @componentOf
+    [1]  --<o> [1]  Wooden_Table
+}
+role Wood_Component_Constituent  specializes Wood_Portion
+role Left_Front_Leg  specializes Table_Leg_Component{
+    @componentOf
+    [1]  --<o> [1]  Wooden_Table
+}
+disjoint genset component function{
+    general Wooden_Table_Component
+    specifics Table_Leg_Component, Table_Top_Component 
+}
+

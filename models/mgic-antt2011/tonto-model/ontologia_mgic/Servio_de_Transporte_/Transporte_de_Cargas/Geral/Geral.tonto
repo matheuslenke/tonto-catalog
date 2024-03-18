@@ -1,0 +1,16 @@
+import Complementares
+import Documento
+
+package Geral
+
+kind Termo_de_Registro_de_Ocorrncia  specializes Documento_de_Advertncia
+category Documento_de_Advertncia  specializes Documento{
+    data_de_emisso : undefined
+    prazo_final : undefined
+    @mediation
+    ( {const } )[1] -- [1]  Lavratura_do_Documento_de_Advertncia
+    @characterization
+    ( {const } )[1] --  [1..*]  Ocorrncia_Originadora_de_Documento_de_Advertncia
+}
+kind Advertncia  specializes Documento_de_Advertncia
+

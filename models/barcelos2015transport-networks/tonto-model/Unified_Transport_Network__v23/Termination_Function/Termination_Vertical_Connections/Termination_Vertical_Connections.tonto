@@ -1,0 +1,86 @@
+import Adaptation_Function
+import Complementary_Categorizations
+import Physical_Media
+import Matrices
+import Subnetworks
+import Layer_Processor_Function
+import Termination_Function
+
+package Termination_Vertical_Connections
+
+role A_Sk__Termination_Sink_Connected  specializes Adaptation_Sink, Bound_Transport_Function
+role A_So__Termination_Source_Connected  specializes Adaptation_Source, Bound_Transport_Function
+role Ag_PM__Bidirectional_Termination_Connected  specializes Aggregated_Physical_Media, Bound_Transport_Function
+role Bi_A__Bidirectional_Termination_Connected  specializes Bidirectional_Adaptation, Bound_Transport_Function
+role Bi_M__Bidirectional_Termination_Connected  specializes Bidirectional_Matrix, Bound_Transport_Function
+role Bi_SN__Bidirectional_Termination_Connected  specializes Bidirectional_Connected_Subnetwork, Bound_Transport_Function
+role Bidirectional_LPF__Bi_Termination_Connected  specializes Bidirectional_Layer_Processor_Function
+role Bidirectional_Termination__Ag_PM_Connected  specializes Bidirectional_Termination, Bound_Transport_Function{
+    @material
+     [1..*] -- TPM_Bidirectional_Connection --  [1..*]  Ag_PM__Bidirectional_Termination_Connected
+}
+role Bidirectional_Termination__Bi_A_Connected  specializes Bidirectional_Termination, Bound_Transport_Function{
+    @material
+     [1..*] -- TA_Bidirectional_Connection --  [1..*]  Bi_A__Bidirectional_Termination_Connected
+}
+role Bidirectional_Termination__Bi_LPF_Connection  specializes Bidirectional_Termination{
+    @material
+    [1] -- TL_Bidirectional_Connection --  [1..*]  Bidirectional_LPF__Bi_Termination_Connected
+}
+role Bidirectional_Termination__Bi_M_Connected  specializes Bidirectional_Termination, Bound_Transport_Function{
+    @material
+     [1..*] -- TM_Bidirectional_Connection --  [1..*]  Bi_M__Bidirectional_Termination_Connected
+}
+role Bidirectional_Termination__Bi_SN_Connected  specializes Bidirectional_Termination, Bound_Transport_Function{
+    @material
+     [1..*] -- TSN_Bidirectional_Connection --  [1..*]  Bi_SN__Bidirectional_Termination_Connected
+}
+role LPF__Termination_Sink_Connected  specializes Layer_Processor_Function_Sink, Bound_Transport_Function
+role LPF__Termination_Source_Connected  specializes Layer_Processor_Function_Source, Bound_Transport_Function
+role M__Termination_Sink_Connected  specializes Unidirectional_Matrix, Bound_Transport_Function
+role M__Termination_Source_Connected  specializes Unidirectional_Matrix, Bound_Transport_Function
+role PM__Termination_Sink_Connected  specializes Single_Physical_Media, Bound_Transport_Function
+role PM__Termination_Source_Connected  specializes Single_Physical_Media, Bound_Transport_Function
+role SN__Termination_Sink_Connected  specializes Unidirectional_Subnetwork
+role SN__Termination_Source_Connected  specializes Unidirectional_Subnetwork
+role Termination_Sink__A_Sk_Connected  specializes Termination_Sink, Bound_Transport_Function{
+    @material
+     [1..*] -- TA_Sink_Connection --  [1..*]  A_Sk__Termination_Sink_Connected
+}
+role Termination_Sink__LPF_Connected  specializes Termination_Sink, Bound_Transport_Function{
+    @material
+    [1] -- TL_Sink_Connection --  [1..*]  LPF__Termination_Sink_Connected
+}
+role Termination_Sink__M_Connected  specializes Path_Layer_Termination, Termination_Sink, Bound_Transport_Function{
+    @material
+     [1..*] -- TM_Sink_Connection --  [1..*]  M__Termination_Sink_Connected
+}
+role Termination_Sink__PM_Connected  specializes Physical_Media_Layer_Termination, Termination_Sink, Bound_Transport_Function{
+    @material
+     [1..*] -- TPM_Sink_Connection --  [1..*]  PM__Termination_Sink_Connected
+}
+role Termination_Sink__SN_Connected  specializes Termination_Sink, Path_Layer_Termination, Bound_Transport_Function{
+    @material
+     [1..*] -- TSN_Sink_Connection --  [1..*]  SN__Termination_Sink_Connected
+}
+role Termination_Source__A_So_Connected  specializes Termination_Source, Bound_Transport_Function{
+    @material
+     [1..*] -- TA_Source_Connection --  [1..*]  A_So__Termination_Source_Connected
+}
+role Termination_Source__LPF_Connected  specializes Termination_Source, Bound_Transport_Function{
+    @material
+    [1] -- TL_Source_Connection --  [1..*]  LPF__Termination_Source_Connected
+}
+role Termination_Source__M_Connected  specializes Termination_Source, Path_Layer_Termination, Bound_Transport_Function{
+    @material
+     [1..*] -- TM_Source_Connection --  [1..*]  M__Termination_Source_Connected
+}
+role Termination_Source__PM_Connected  specializes Termination_Source, Physical_Media_Layer_Termination, Bound_Transport_Function{
+    @material
+     [1..*] -- TPM_Source_Connection --  [1..*]  PM__Termination_Source_Connected
+}
+role Termination_Source__SN_Connected  specializes Path_Layer_Termination, Termination_Source, Bound_Transport_Function{
+    @material
+     [1..*] -- TSN_Source_Connection --  [1..*]  SN__Termination_Source_Connected
+}
+

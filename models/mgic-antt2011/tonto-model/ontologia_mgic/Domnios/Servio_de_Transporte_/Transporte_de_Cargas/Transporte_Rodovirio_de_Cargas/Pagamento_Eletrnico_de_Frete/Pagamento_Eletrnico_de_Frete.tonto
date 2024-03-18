@@ -1,0 +1,17 @@
+import Conhecimento_de_Transporte
+
+package Pagamento_Eletrnico_de_Frete
+
+relator Pagamento_de_Frete 
+relator Pagamento_Eletrnico_de_Frete  specializes Pagamento_de_Frete{
+    INSS : undefined
+    IRRF : undefined
+    PagamentoCombustvel : undefined
+    PagamentoDespesas : undefined
+    PagamentoFrete : undefined
+    SESTSENAT : undefined
+    @mediation
+     [1..*] -- [1]  Administradora_de_PEF_Emissora( {const } )
+}
+relator Pagamento_Direto_de_Frete  specializes Pagamento_de_Frete
+

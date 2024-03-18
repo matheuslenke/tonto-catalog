@@ -1,0 +1,27 @@
+package Operador_de_Transporte_Multimodal
+
+role Documento_Habilitador_de_Transporte_Multimodal  specializes Certificado_de_Operador_de_Transporte_Multimodal
+relator Habilitao_de_Transporte_Multimodal_Nacional_e_Internacional_de_Cargas  specializes Habilitao_de_Transporte_Multimodal{
+    @mediation
+    [1] -- [1]  Representante_Legal_de_OTM( {const } )
+}
+role Pessoa_Jurdica_Representante_Legal_de_OTM  specializes Representante_Legal_de_OTM
+role Documento_de_Requerimento_para_Habilitao_de_Transporte_Multimodal  specializes Requerimento_de_Habilitao_de_Transporte_Multimodal
+relator Habilitao_de_Transporte_Multimodal_Mercosul  specializes Habilitao_de_Transporte_Multimodal
+roleMixin Representante_Legal_de_OTM 
+role Pessoa_Fsica_Representante_Legal_de_OTM  specializes Representante_Legal_de_OTM
+role Operador_de_Transporte_Multimodal {
+    @material
+    [1] -- representa -- [1]  Representante_Legal_de_OTM
+}
+relator Habilitao_de_Transporte_Multimodal {
+    @mediation
+    [1] -- [1]  Operador_de_Transporte_Multimodal( {const } )
+    @mediation
+    [1] -- [1]  Documento_de_Requerimento_para_Habilitao_de_Transporte_Multimodal( {const } )
+    @mediation
+    [1] -- [1]  Documento_Habilitador_de_Transporte_Multimodal( {const } )
+}
+kind Certificado_de_Operador_de_Transporte_Multimodal 
+kind Requerimento_de_Habilitao_de_Transporte_Multimodal 
+

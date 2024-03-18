@@ -1,0 +1,24 @@
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Pagamento_Eletrnico_de_Frete
+import Conhecimento_de_Transporte
+
+package Gerao_de_CIOT
+
+relator Gerao_de_CIOT_Referente_a_Viagem  specializes Gerao_de_CIOT{
+    @mediation
+    [1] -- [1]  Operao_de_Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Frete( {const } )
+}
+relator Gerao_de_CIOT {
+    CIOT : undefined
+    @mediation
+    [1] -- [1]  Pagamento_de_Frete( {const } )
+    @mediation
+     [1..*] -- [1]  Administradora_de_PEF_Emissora( {const } )
+}
+roleMixin Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_de_Cargas {
+    @mediation
+    ( {const } )[1] -- [1]  Pagamento_de_Frete
+    @mediation
+    ( {const } )[1] -- emite -- [1]  Gerao_de_CIOT
+}
+

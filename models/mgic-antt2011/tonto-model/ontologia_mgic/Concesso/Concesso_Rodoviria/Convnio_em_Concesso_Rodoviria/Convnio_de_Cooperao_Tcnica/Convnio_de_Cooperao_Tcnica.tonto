@@ -1,0 +1,45 @@
+import Contratos_e_Convnios
+import Convnio_em_Concesso_Rodoviria
+
+package Convnio_de_Cooperao_Tcnica
+
+mode Destaque_Oramentrio_e_Financeiro {
+    data : undefined
+    valorDaRestituio : undefined
+    @mediation
+    ( {const } ) [1..*] -- [1]  Convnio_de_Cooperao_Tcnica
+}
+role Trecho_com_Cooperao_Tcnica {
+    @mediation
+     [1..*] -- [1]  Convnio_de_Cooperao_Tcnica( {const } )
+}
+relator CCT_com_Compartilhamento_de_Receita  specializes Convnio_de_Cooperao_Tcnica{
+    percentual_ANTT : undefined
+    percentual_conveniada : undefined
+}
+role Entidade_Pblica_em_CCT  specializes Convenente{
+    @mediation
+     [1..*] --  [1..*]  Convnio_de_Cooperao_Tcnica( {const } )
+}
+role Agncia_Reguladora_Convenente  specializes Convenente{
+    @mediation
+    [1] --  [1..*]  Convnio_de_Cooperao_Tcnica( {const } )
+}
+relator Convnio_de_Cooperao_Tcnica  specializes Convnio_em_Concesso_Rodoviria{
+    receita : undefined
+    recursoFinanceiro : undefined
+    @characterization
+    ( {const } )[1] --  [1..*]  Estimativa_de_Receita
+    @characterization
+    ( {const } )[1] --  [1..*]  Dotao_Oramentria
+}
+mode Dotao_Oramentria {
+    Ao_Oramentria : undefined
+    dotaoOramentria : undefined
+    Natureza_de_Despesa : undefined
+}
+mode Estimativa_de_Receita {
+    data : undefined
+    estimativaDeReceita : undefined
+}
+

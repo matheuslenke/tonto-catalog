@@ -1,0 +1,42 @@
+import Obra_em_Concesso
+import Praa_de_Pedgio
+
+package Tarifa_Bsica_de_Pedgio
+
+role Reviso_da_TBP_com_Reviso_do_PER  specializes Reviso_da_Tarifa_Bsica_de_Pedgio{
+    @mediation
+    ( {const } ) [1..*] -- [1]  Reviso_do_PER
+}
+role Tarifa_de_Pedgio_Reajustada  specializes Tarifa_de_Pedgio
+subkind Reviso_Extraordinria_da_TBP  specializes Reviso_da_Tarifa_Bsica_de_Pedgio
+role Reviso_Ordinria_Ensejada_por_Receita_Extraordinria  specializes Reviso_Ordinria_da_TBP
+relator Reajuste_de_Tarifa_de_Pedgio {
+    Nmero_do_Documento_de_Autorizao : undefined
+    @mediation
+    [1] -- [1]  ndice_de_Inflao( {const } )
+    @mediation
+     [1..*] -- [1]  Tarifa_de_Pedgio_Reajustada( {const } )
+}
+subkind Reviso_Ordinria_da_TBP  specializes Reviso_da_Tarifa_Bsica_de_Pedgio
+relator Inexecuo {
+    @mediation
+     [1..*] -- [1]  Reviso_Ordinria_Ensejada_por_Inexecuo( {const } )
+}
+relator Reviso_do_PER 
+kind Reviso_da_Tarifa_Bsica_de_Pedgio 
+kind ndice_de_Inflao {
+    tempo : undefined
+    variao : undefined
+    @material
+     [1..*] -- _reajusta_ -- [1]  Tarifa_de_Pedgio_Reajustada
+}
+subkind Reviso_Quinquenal_da_TBP  specializes Reviso_da_Tarifa_Bsica_de_Pedgio
+role Tarifa_Bsica_de_Pedgio_Revisada  specializes Tarifa_Bsica_de_Pedgio{
+    @mediation
+    ( {const } )[1] --  [1..*]  Reviso_do_PER
+}
+role Reviso_Ordinria_Ensejada_por_Inexecuo  specializes Reviso_Ordinria_da_TBP{
+    @material
+     [1..*] -- _reflete --  [1..*]  Obra_com_Inexecuo
+}
+

@@ -1,0 +1,48 @@
+import Faixa_de_Domnio_Ferroviria
+import Acidente
+import Concesso_Ferroviria
+
+package Acidente_Ferrovirio
+
+role Via_Frrea_com_Acidente  specializes Via_Frrea
+relator Acidente_Ferrovirio_na_Prpria_Malha_Ferroviria  specializes Acidente_Ferrovirio
+mode Causa_do_Acidente_Ferrovirio {
+    descrio : undefined
+    sigla : undefined
+}
+relator Coliso_entre_Trem  specializes Coliso_Ferroviria{
+    @mediation
+    [1] --  [2..*]  Trem_Acidentado( {const } trem )
+}
+relator Coliso_entre_Trem_e_Veculo_Rodovirio  specializes Coliso_Ferroviria{
+    @mediation
+    [1] --  [1..*]  Veculo_Acidentado_em_Coliso_Ferroviria( {const } )
+}
+mode Gravidade 
+relator Descarrilamento  specializes Acidente_Ferrovirio
+relator Coliso_Ferroviria  specializes Acidente_Ferrovirio
+relator Acidente_Ferrovirio_com_Vtima  specializes Acidente_Ferrovirio{
+    @mediation
+    [1] --  [1..*]  Vtima_de_Acidente_Ferroviria( {const } )
+}
+relator Acidente_Ferrovirio {
+    @mediation
+     [1..*] --  [1..*]  Concessionria_Ferroviria_Acidentada( {const } concessionria )
+    @mediation
+    [1] --  [1..*]  Trem_Acidentado( {const } trem )
+    @characterization
+    ( {const } )[1] -- [1]  Gravidade
+    @characterization
+    ( {const } )[1] -- [1]  Causa_do_Acidente_Ferrovirio
+    @mediation
+    [1] -- [1]  Via_Frrea_com_Acidente( {const } viaferrea )
+}
+relator Atropelamento_em_Linha_Frrea_  specializes Acidente_Ferrovirio_com_Vtima, Acidente_Ferrovirio
+role Veculo_Acidentado_em_Coliso_Ferroviria  specializes Veculo_Acidentado
+role Concessionria_Ferroviria_Acidentada  specializes Concessionria_Ferroviria
+role Trem_Acidentado {
+    @material
+     [1..*] -- envolvese_em_ -- [1]  Via_Frrea_com_Acidente
+}
+roleMixin Vtima_de_Acidente_Ferroviria 
+

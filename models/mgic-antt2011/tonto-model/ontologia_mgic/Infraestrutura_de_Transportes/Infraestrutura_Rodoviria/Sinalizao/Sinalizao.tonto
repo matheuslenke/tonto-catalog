@@ -1,0 +1,38 @@
+import Obra_com_Interveno
+import Componente_Trecho_Fsico
+
+package Sinalizao
+
+subkind Sinalizao_Semafrica  specializes Sinalizao_Rodoviria
+subkind Sinalizao_Horizontal  specializes Sinalizao_Rodoviria
+subkind Sinalizao_Temporria  specializes Sinalizao_Rodoviria
+subkind Marca_Transversal  specializes Marca_de_Sinalizao
+subkind Marca_de_Canalizao  specializes Marca_de_Sinalizao
+subkind Sinalizao_Vertical  specializes Sinalizao_por_Placa
+subkind Sinalizao_Turstica  specializes Sinalizao_por_Placa
+subkind Seta_Direcional  specializes Inscrio_no_Pavimento
+subkind Sinalizao_por_Placa  specializes Sinalizao_Rodoviria
+subkind Linha_Contnua  specializes Marca_Longitudinal
+subkind Sinalizao_de_Regulamentao  specializes Sinalizao_por_Placa
+subkind Inscrio_no_Pavimento  specializes Sinalizao_Horizontal
+subkind Sinalizao_de_Advertncia  specializes Sinalizao_por_Placa
+subkind Marca_Longitudinal  specializes Marca_de_Sinalizao
+subkind Sinalizao_de_Indicao  specializes Sinalizao_por_Placa
+subkind Legenda  specializes Inscrio_no_Pavimento
+subkind Sinalizao_de_Obra  specializes Sinalizao_por_Placa{
+    @mediation
+    ( {const } ) [1..*] -- [1]  Interveno_para_Obra
+}
+subkind Sinalizao_de_Servio_Auxiliar  specializes Sinalizao_por_Placa
+quantity Material_de_Sinalizao {
+    @Formal
+     [1..*] -- feito_de -- [1]  Sinalizao_Rodoviria
+}
+subkind Sinalizao_de_Educao  specializes Sinalizao_por_Placa
+subkind Sinalizao_Area  specializes Sinalizao_por_Placa
+subkind Marca_de_Sinalizao  specializes Sinalizao_Horizontal
+subkind Smbolo  specializes Inscrio_no_Pavimento
+subkind Linha_Tracejada  specializes Marca_Longitudinal
+subkind Marca_de_Delimitao  specializes Marca_de_Sinalizao
+subkind Sinalizao_Permanente  specializes Sinalizao_Rodoviria
+

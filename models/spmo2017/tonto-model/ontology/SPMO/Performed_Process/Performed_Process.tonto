@@ -1,0 +1,65 @@
+import WBS
+
+package Performed_Process
+
+subkind Software_Project {
+    [1] -- has --  [0..*]  Deliverable
+}
+mode Intended_Process 
+mode Project_Process  specializes Intended_Process{
+     [0..*] -- defined_for -- [1]  Software_Project
+}
+class General_Project_Process  specializes Project_Process{
+    [1] <o>--  [2..*]  Specific_Project_Process
+}
+class Specific_Project_Process  specializes Project_Process{
+    [1] <o>--  [2..*]  Project_Activity
+}
+class Project_Activity  specializes Intended_Activity{
+     [0..*] -- defined_for -- [1]  Software_Project
+}
+mode Intended_Activity 
+roleMixin Stakeholder 
+relator Stakeholder_Allocation {
+    @mediation
+     [0..*] -- allocates -- [1]  Stakeholder( {const } )
+}
+event Performed_Project_Process  specializes Performed_Process{
+     [0..*] -- performed_in -- [1]  Software_Project
+     [0..1] -- caused_by --  [0..1]  Project_Process
+}
+event Performed_Process {
+    startDate : undefined
+    endDate : undefined
+     [0..1] -- caused_by --  [0..1]  Intended_Process
+}
+event Performed_General_Process  specializes Performed_Process{
+    [1] <o>--  [2..*]  Performed_Specific_Process
+}
+event Performed_Specific_Process  specializes Performed_Process{
+     [1..*] <o>--  [2..*]  Performed_Activity
+}
+mode General_Intended_Process  specializes Intended_Process{
+    [1] <o>--  [2..*]  Specific_Intended_Process
+}
+mode Specific_Intended_Process  specializes Intended_Process{
+    [1] <o>--  [2..*]  Intended_Activity
+}
+event Performed_Activity {
+    startDate : undefined
+    endDate : undefined
+     [0..*] -- depends_on --  [0..*]  Performed_Activity
+     [0..*] -- caused_by --  [0..1]  Intended_Activity
+    [1] <o>--  [1..*]  Stakeholder_Participation
+}
+class Performed_Project_Activity  specializes Performed_Activity{
+     [0..*] -- caused_by --  [0..1]  Project_Activity
+     [0..*] -- performed_in -- [1]  Software_Project
+}
+event Stakeholder_Participation {
+    startDate : undefined
+    endDate : undefined
+     [0..*] -- refers_to --  [0..1]  Stakeholder_Allocation
+     [0..*] -- participation_of -- [1]  Stakeholder
+}
+

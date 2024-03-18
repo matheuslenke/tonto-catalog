@@ -195,4 +195,40 @@ class Lex_Superior_Relator  specializes Norm_Relator{
     @derivation
     [1] -- [1]  overrules
 }
+disjoint complete genset u1vYBf6GAqAAaBjh{
+    general Natural_Person
+    specifics Underage, Adult 
+}
+disjoint complete genset 6Kc4Bf6GAqAAaBkv{
+    general Natural_Person
+    specifics Mentally_Sick, Mentally_Healthy 
+}
+disjoint complete genset fMvEBf6GAqAAaBrb{
+    general Passive_Agent
+    specifics Passive_Juridical_Person, Passive_Person, Passive_Society 
+}
+disjoint genset U8zUBf6GAqAAaByi{
+    general Register
+    specifics CPF, CNPJ 
+}
+disjoint complete genset uh2iBf6GAqAAaCPf{
+    general Legal_Rule
+    specifics Incriminating, Non_Incriminating 
+}
+complete genset I.8yBf6GAqAAaCYb{
+    general Qualified_Situation
+    specifics Disallowed_Situation, Allowed_Situation, Mandatory_Situation 
+}
+disjoint genset K.j2Bf6GAqAAaChp{
+    general Punishment_Act
+    specifics Fine, Deprive_Liberty, Restrict_Right 
+}
+disjoint genset 2fP2Bf6GAqAAaCiW{
+    general Circumstance
+    specifics Mitigating, Aggravating 
+}
+disjoint complete genset vJKOBf6GAqAAaCkK{
+    general Legal_Norm
+    specifics Principle, Legal_Rule 
+}
 

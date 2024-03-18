@@ -1,0 +1,18 @@
+import Ativo_Permanente
+import Compra
+import Arrendamento
+import Construo
+import Cesso_de_Bem
+import Contratos_e_Convnios
+
+package Aquisio
+
+relator _Investimento_em_Imobilizado  specializes _Compra__Imobilizado, _Arrendamento_Financeiro_Imobilizado, _Construo_de_Imobilizado{
+    @mediation
+    [1] -- adquirido_em --  [1..*]  Ativo_Imobilizado( {const } )
+}
+relator _Investimento_em_Intangvel  specializes _Compra_Intangvel, Arrendamento_Mercantil_Operacional, _Arrendamento_Financeiro_Intangvel, _Construo_de_Intangvel
+relator Aquisio_de_Permanente  specializes Cesso_de_Bens, Compra_de_Bem, Arrendamento_Mercantil, Construo, Acordo_Formal{
+    valor : undefined
+}
+

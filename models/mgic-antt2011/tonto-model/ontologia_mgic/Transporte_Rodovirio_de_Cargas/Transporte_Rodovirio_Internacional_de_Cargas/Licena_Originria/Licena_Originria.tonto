@@ -1,0 +1,33 @@
+import Transportador_Rodovirio_de_Cargas
+
+package Licena_Originria
+
+role Pas_Origem_de_Licena_Originria 
+role Frota_de_Veculos_de_Carga_Habilitada_Internacionalmente  specializes Frota_com_Capacidade_Mnima_para_Operao_Internacional{
+    @memberOf
+    [1] <o>--  [2..*]  Veculo_Exclusivo_de_Carga_Habilitado_Internacionalmente
+}
+role Pas_Destino_de_Licena_Originria 
+relator Licena_Originria {
+    validade : undefined
+    @mediation
+    [1] -- [1]  Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente( {const } )
+    @mediation
+     [1..*] -- [1]  Pas_Destino_de_Licena_Originria( {const } )
+    @mediation
+     [1..*] -- [1]  Pas_Origem_de_Licena_Originria( {const } )
+    @mediation
+    [1] -- [1]  Frota_de_Veculos_de_Carga_Habilitada_Internacionalmente( {const } )
+}
+role Empresa_Nacional_Indicadora_de_Representante 
+relator Indicao_de_Representante_para_Pedido_de_Licena_Originria {
+    @mediation
+    [1] -- [1]  Procurao_para_Indicao_de_Representante_para_Pedido_de_Licena_Originria( {const } )
+    @mediation
+    [1] -- [1]  Empresa_Nacional_Indicadora_de_Representante( {const } empresaNacionalIndicadoraRepresentante )
+    @mediation
+    [1] -- [1]  Representante_Legal_de_Empresa_de_Transporte_( {const } representanteLegalEmpresaTransporte )
+}
+role Representante_Legal_de_Empresa_de_Transporte_ 
+role Procurao_para_Indicao_de_Representante_para_Pedido_de_Licena_Originria 
+

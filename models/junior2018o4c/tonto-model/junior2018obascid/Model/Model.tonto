@@ -30,4 +30,12 @@ relator Contribution  specializes Relationship{
     ct : ContributionType [0..*] 
 }
 relator Composition  specializes Relationship
+disjoint complete genset aW0Mm06GAqACHSH7{
+    general Relationship
+    specifics Dependency, Composition, Contribution 
+}
+disjoint complete genset 9zyMm06GAqACHSIK{
+    general Concern
+    specifics FunctionalConcern, NonFunctionalConcern 
+}
 

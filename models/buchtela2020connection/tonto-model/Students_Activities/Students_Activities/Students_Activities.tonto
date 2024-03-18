@@ -1,0 +1,62 @@
+package Students_Activities
+
+kind Person 
+role Teacher  specializes Person{
+     [1..*] -- teaches --  [1..*]  Course
+    [1] -- evaluates --  [1..*]  Projectp
+    [1] -- evaluates --  [1..*]  Testt
+    [1] -- evaluates --  [1..*]  Exerciseci
+}
+role Student  specializes Person{
+     [1..*] -- study --  [1..*]  Course
+     [1..*] -- learns --  [1..10]  Chapterki
+     [1..*] -- submits -- [1]  Projectp
+     [1..*] -- takes_attempt -- [1]  Testt
+     [1..*] -- goes_to --  [1..14]  Exerciseci
+}
+phase Course_started  specializes Course
+phase Credit_passed  specializes Course
+phase Credit_non_passed  specializes Course
+kind Course {
+    [*] <>-- [*]  Chapterki
+    [*] <>-- [*]  Projectp
+    [*] <>-- [*]  Testt
+    [*] <>-- [*]  Exerciseci
+}
+kind Chapterki 
+kind Projectp 
+kind Testt 
+kind Exerciseci 
+phase ki_passed  specializes Chapterki
+phase ki_non_passed  specializes Chapterki
+phase p_passed  specializes Projectp
+phase p_non_passed  specializes Projectp
+phase t_passed  specializes Testt
+phase t_non_passed  specializes Testt
+phase ci_passed  specializes Exerciseci
+phase ci_non_passed  specializes Exerciseci
+disjoint genset KveELH6AUAgInApv{
+    general Person
+    specifics Student, Teacher 
+}
+disjoint complete genset jG1ELH6AUAgInAqZ{
+    general Course
+    specifics Credit_non_passed, Course_started, Credit_passed 
+}
+disjoint complete genset VL1ULH6AUAgInAxv{
+    general Chapterki
+    specifics ki_passed, ki_non_passed 
+}
+disjoint complete genset QNtULH6AUAgInAx3{
+    general Projectp
+    specifics p_non_passed, p_passed 
+}
+disjoint complete genset xD9ULH6AUAgInAx_{
+    general Testt
+    specifics t_passed, t_non_passed 
+}
+disjoint complete genset h3jULH6AUAgInAyH{
+    general Exerciseci
+    specifics ci_non_passed, ci_passed 
+}
+

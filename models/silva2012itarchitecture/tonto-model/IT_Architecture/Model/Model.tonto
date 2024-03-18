@@ -1,0 +1,183 @@
+package Model
+
+category IT_Component {
+    @material
+     [0..*] -- Single_Point_of_Failure_removal --  [0..*]  Service_Continuity
+    ( {const } ) [1..*]  --<o> [1]  IT_Architecture( {const } )
+}
+kind Site  specializes IT_Component
+category Platform  specializes IT_Component
+kind System  specializes IT_Component
+kind Data_Storage  specializes IT_Component
+kind Service_Continuity 
+relator Replication {
+    @mediation
+     [0..*] -- [1]  IT_Component( {const } )
+    @mediation
+     [0..*] -- [1]  Service_Continuity( {const } )
+}
+category IT_Architecture 
+category ITSC_Component {
+    ( {const } ) [1..*]  --<o> [1]  Service_Continuity( {const } )
+}
+kind Site_Model  specializes ITSC_Component
+kind Data_Replication  specializes ITSC_Component
+category Resilient_Network  specializes ITSC_Component
+kind Location {
+    [1] -- Installed_in -- [1]  Site
+}
+relator Installation {
+    [1] -- [1]  Site
+    [1] -- [1]  Location
+}
+subkind Local  specializes Location
+subkind Remote  specializes Location
+role Online  specializes Site{
+    @material
+    [1] -- Suspension_of_Operation -- [1]  Offline
+}
+role Offline  specializes Site
+relator Incident {
+    @mediation
+    [1] -- [1]  Online( {const } )
+    @mediation
+    [1] -- [1]  Offline( {const } )
+}
+role Active  specializes Online, Site
+role Backup  specializes Offline, Site
+role Contingency  specializes Offline, Site
+role Passive  specializes Offline, Site
+category Replication_Technology {
+    ( {const } ) [1..*]  --<o> [1]  Data_Replication( {const } )
+}
+kind Mirroring  specializes Replication_Technology
+kind Snapshot  specializes Replication_Technology
+kind Cluster  specializes Replication_Technology
+kind Appliance  specializes Replication_Technology
+kind RAID  specializes Replication_Technology
+subkind Synchronous  specializes Mirroring{
+    distance : undefined
+}
+subkind Asynchronous  specializes Mirroring{
+    distance : undefined
+}
+subkind Local_Replication  specializes Data_Replication
+subkind Remote_Replication  specializes Data_Replication
+subkind Media_BackupRestore  specializes Data_Replication
+subkind DBMSbased  specializes Data_Replication
+subkind Applicationbased  specializes Data_Replication
+subkind Hostbased  specializes Data_Replication
+subkind Storagebased  specializes Data_Replication
+kind Network_Component  specializes Platform
+kind Cooling  specializes Platform
+kind Power  specializes Platform
+kind Warranty_And_Support  specializes Platform{
+    [1] -- maintenance_and_troubleshooting --  [1..*]  Computer_System
+}
+kind Computer_System  specializes Platform{
+     [1..*] -- failure --  [1..*]  Monitoring
+}
+kind Monitoring  specializes Platform
+subkind Peripheral  specializes Computer_System
+subkind Dual_Network_Device  specializes Computer_System
+subkind Cooling_Fan  specializes Computer_System
+subkind Redundant_Power_Supply  specializes Computer_System
+subkind Dual_Power_Inlet  specializes Computer_System
+subkind Network_Provider  specializes Network_Component
+subkind Physical_Media  specializes Network_Component
+subkind Link  specializes Network_Component
+subkind Telecom_Asset  specializes Network_Component
+relator Appropriate_Level_of_Warranty {
+    [1] --  [1..*]  Warranty_And_Support
+    [1] --  [1..*]  Computer_System
+}
+relator Warning {
+     [1..*] --  [1..*]  Computer_System
+     [1..*] -- [1]  Monitoring
+}
+subkind Monitoring_Software  specializes Monitoring
+subkind Management_Suite  specializes Monitoring
+subkind Power_Distributor  specializes Power{
+     [1..*] -- Power_failure --  [1..*]  UPS
+}
+subkind Bank_of_Battery  specializes Power
+subkind Generator  specializes Power
+subkind UPS_Standby  specializes UPS
+subkind UPS_Online  specializes UPS
+relator Automatic_Switching {
+     [1..*] --  [1..*]  Power_Distributor
+     [1..*] --  [1..*]  UPS
+}
+kind UPS {
+    [1] --  [1..*]  Bank_of_Battery
+    [1] --  [1..*]  Generator
+}
+relator UPSBattery_Switching {
+    [1] -- [1]  UPS
+    [1] --  [1..*]  Bank_of_Battery
+}
+relator UPSGenerator_Switching {
+    [1] --  [1..*]  Generator
+    [1] -- [1]  UPS
+}
+disjoint complete genset EEODUn6GAqACBxPa{
+    general IT_Component
+    specifics Platform, System, Data_Storage, Site 
+}
+disjoint complete genset rF2TUn6GAqACBxcf{
+    general ITSC_Component
+    specifics Data_Replication, Resilient_Network, Site_Model 
+}
+disjoint complete genset HmqLUn6GAqACBxqA{
+    general Location
+    specifics Local, Remote 
+}
+disjoint complete genset 8iVLUn6GAqACBxrm{
+    general Site
+    specifics Online, Offline 
+}
+disjoint complete genset SW8bUn6GAqACBxzp{
+    general Site
+    specifics Passive, Active, Backup, Contingency 
+}
+complete genset uYM7Un6GAqACBx8S{
+    general Replication_Technology
+    specifics Appliance, Snapshot, RAID, Mirroring, Cluster 
+}
+disjoint complete genset OLc7Un6GAqACBx8j{
+    general Mirroring
+    specifics Synchronous, Asynchronous 
+}
+complete genset fIS7Un6GAqACBx8w{
+    general Data_Replication
+    specifics Remote_Replication, Local_Replication 
+}
+complete genset ZPK7Un6GAqACBx87{
+    general Data_Replication
+    specifics Hostbased, DBMSbased, Applicationbased, Storagebased, Media_BackupRestore 
+}
+disjoint complete genset o.bnUn6GAqACByL8{
+    general Platform
+    specifics Warranty_And_Support, Monitoring, Cooling, Network_Component, Computer_System, Power 
+}
+disjoint complete genset l5iXUn6GAqACByOl{
+    general Network_Component
+    specifics Telecom_Asset, Physical_Media, Network_Provider, Link 
+}
+disjoint complete genset 2YD3Un6GAqACByXU{
+    general Computer_System
+    specifics Dual_Network_Device, Cooling_Fan, Peripheral, Dual_Power_Inlet, Redundant_Power_Supply 
+}
+complete genset kkEPUn6GAqACByaL{
+    general Monitoring
+    specifics Monitoring_Software, Management_Suite 
+}
+disjoint complete genset TJrPUn6GAqACBzGJ{
+    general Power
+    specifics Generator, Power_Distributor, Bank_of_Battery 
+}
+disjoint complete genset IXbvUn6GAqACBzJ9{
+    general UPS
+    specifics UPS_Online, UPS_Standby 
+}
+

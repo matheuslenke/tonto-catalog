@@ -1,0 +1,81 @@
+package Example__Ship_Type
+
+type Ship_Type (instanceOf Ship){
+    fleet : undefined
+}
+kind Ship {
+    @instantiation
+     [0..*] --  [1..*]  Ship_Type specializes Ship.
+    @instantiation
+     [0..*] --  [0..*]  Ship_Class_by_Size
+}
+subkind Panamaclass_Ship  specializes Ship{
+    max_length : undefined
+    max_weight : undefined
+    max_draft : undefined
+}
+subkind Ship_Class_by_Size (instanceOf Ship) specializes Ship_Type{
+    max_length : undefined
+    max_weight : undefined
+    max_draft : undefined
+}
+subkind Suezclass_Ship  specializes Ship{
+    max_length : undefined
+    max_weight : undefined
+    max_draft : undefined
+}
+kind Person 
+role Captain  specializes Person
+mode Captain_License {
+    @characterization
+     [1..*] -- [1]  Captain( {const } )
+    @externalDependence
+     [0..*] -- [1]  Licensed_Ship_Type( {const } )
+}
+phase Commissioned  specializes Ship
+phase On_Route  specializes Ship
+phase Decommissioned  specializes Ship
+phase Current_Ship_Type  specializes Ship_Type
+phase Discontinued_Ship_Type  specializes Ship_Type
+relator Assignment {
+    @mediation
+     [0..*] -- [1]  Captain( {const } )
+    @mediation
+     [0..*] -- [1]  Ship( {const } )
+}
+kind Canal 
+relator Canal_Restrictions {
+    @mediation
+     [1..*] -- [1]  Ship_Class_by_Size( {const } )
+    @mediation
+     [0..*] -- [1]  Canal( {const } )
+}
+role Licensed_Ship_Type  specializes Ship_Type
+quality Size {
+    length : undefined
+    weight : undefined
+    draft : undefined
+    @characterization
+    [1] --  [0..1]  Ship( {const } )
+    @characterization
+    [1] --  [0..1]  Ship_Class_by_Size( {const } )
+}
+phase Temporary  specializes Assignment
+phase Permanent  specializes Assignment
+genset SEC8wgGGAqACHRi.{
+    general Ship
+    specifics Panamaclass_Ship, Suezclass_Ship 
+}
+disjoint complete genset {disjoint, complete}{
+    general Ship
+    specifics Commissioned, Decommissioned 
+}
+disjoint complete genset {disjoint, complete}{
+    general Ship_Type
+    specifics Current_Ship_Type, Discontinued_Ship_Type 
+}
+disjoint complete genset {disjoint, complete}{
+    general Assignment
+    specifics Temporary, Permanent 
+}
+

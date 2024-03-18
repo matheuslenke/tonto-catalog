@@ -1,9 +1,0 @@
-import Digital_Platform_Ontology
-import Service
-
-package Offline_Service
-
-event Offline_Service_Delivery  specializes Service_Delivery{
-    [*] -- at -- [*]  Location
-}
-

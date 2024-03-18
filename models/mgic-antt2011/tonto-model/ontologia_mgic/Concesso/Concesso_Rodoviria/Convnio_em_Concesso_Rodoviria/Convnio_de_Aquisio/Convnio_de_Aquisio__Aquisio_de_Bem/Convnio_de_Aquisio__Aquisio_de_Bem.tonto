@@ -1,0 +1,17 @@
+import Compra
+import Convnio_em_Concesso_Rodoviria
+import Produto
+
+package Convnio_de_Aquisio__Aquisio_de_Bem
+
+role Concessionria_Rodoviria_Compradora  specializes Comprador, Concessionria_Rodoviria_Convenente
+roleMixin Item_Adquirido_em_Convnio  specializes Produto, Servio_em_Convnio
+relator Aquisio_para_Convnio  specializes Compra_por_Cotao, Compra_Solicitada{
+    Nmero_do_Termo_de_Doao : undefined
+    Nmero_do_Termo_de_Entrega : undefined
+    @mediation
+     [1..*] -- [1]  Item_Adquirido_em_Convnio( {const } )
+    @mediation
+     [1..*] -- [1]  Concessionria_Rodoviria_Compradora( {const } )
+}
+

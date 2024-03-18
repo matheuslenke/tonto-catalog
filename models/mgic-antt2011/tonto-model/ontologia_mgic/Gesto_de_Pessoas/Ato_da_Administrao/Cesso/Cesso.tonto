@@ -1,0 +1,25 @@
+import Agente_Administrativo
+import Posio_Pblica
+
+package Cesso
+
+relator Cesso_com_nus  specializes Cesso
+relator Cesso_Sem_nus  specializes Cesso
+relator Cesso_para_Cargo_em_Comisso  specializes Cesso{
+    @mediation
+    [1] -- [1]  Cargo_em_Comisso_em_Cesso( {const } )
+}
+role Cargo_em_Comisso_em_Cesso  specializes Cargo_em_Comisso
+role Orgo_Cedente 
+role Orgo_Cessionrio 
+relator Cesso {
+    dataInicial : undefined
+    prazo : undefined
+    @mediation
+     [1..*] -- [1]  Orgo_Cessionrio( {const } )
+    @mediation
+    [1] -- [1]  Servidor_Efetivo_Cedido( {const } )
+    @mediation
+     [1..*] -- [1]  Orgo_Cedente( {const } )
+}
+

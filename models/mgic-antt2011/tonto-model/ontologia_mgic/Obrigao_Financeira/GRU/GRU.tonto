@@ -1,0 +1,57 @@
+import Obrigao_Financeira
+
+package GRU
+
+subkind GRU_SPB  specializes Guia_de_Recolhimento_da_Unio
+kind Unidade_Favorecida {
+    @material
+    [1] --  [1..*]  Guia_de_Recolhimento_da_Unio
+}
+subkind GRU_DOCTED  specializes Guia_de_Recolhimento_da_Unio
+relator Emisso_de_GRU  specializes Emisso_de_GRU_para_Obrigao_Financeira{
+    data : undefined
+    @mediation
+     [1..*] -- [1]  Recolhedor( {const } )
+    @mediation
+    [1] --  [1..*]  Local_de_Recolhimento_de_GRU( {const } )
+    @mediation
+    [1] -- [1]  Guia_de_Recolhimento_da_Unio( {const } gru )
+    @mediation
+     [1..*] -- [1]  Unidade_Favorecida( {const } )
+}
+subkind GRU_Eletrnica  specializes Guia_de_Recolhimento_da_Unio
+role GRU_Paga  specializes Guia_de_Recolhimento_da_Unio
+subkind GRU_Cobrana  specializes Guia_de_Recolhimento_da_Unio
+subkind GRU_Simples 
+relator Pagamento_de_GRU {
+    @mediation
+     [1..*] -- [1]  Local_de_Pagamento_de_GRU( {const } )
+    @mediation
+    [1] -- [1]  GRU_Paga( {const } )
+}
+roleMixin Recolhedor {
+    @material
+    [1] --  [1..*]  Guia_de_Recolhimento_da_Unio
+}
+subkind GRU_Depsito  specializes Guia_de_Recolhimento_da_Unio
+kind Guia_de_Recolhimento_da_Unio  specializes GRU_Simples{
+    acrscimo : undefined
+    cdigo_do_recolhimento : undefined
+    cdigo_gru : undefined
+    competncia : undefined
+    deduo : undefined
+    desconto : undefined
+    gesto : undefined
+    juros : undefined
+    mora : undefined
+    nosso_nmero : undefined
+    principal : undefined
+    referncia : undefined
+    total : undefined
+    unidade_gestora : undefined
+    vencimento : undefined
+    @material
+     [1..*] --  [0..1]  Obrigao_Financeira_com_GRU_Emitida
+}
+role Local_de_Recolhimento_de_GRU 
+

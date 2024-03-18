@@ -1,3 +1,51 @@
 package test
 
+disjoint complete genset {disjoint, complete}{
+    general postCreation
+    specifics postLabeling, postEditing, postDeletion 
+}
+disjoint complete genset {disjoint, complete}{
+    general sportLocation
+    specifics outdoor, indoor 
+}
+complete genset {complete}{
+    general sportActivity
+    specifics summerSport, neutralSport, winterSport 
+}
+genset {joined}{
+    general user
+    specifics postInteractor, postAuthor 
+}
+disjoint genset {disjoined}{
+    general creativeWork
+    specifics audio, video, text, image 
+}
+disjoint complete genset {disjoint, complete}{
+    general product
+    specifics productDiscount, productRegularPrice 
+}
+disjoint genset {disjoint}{
+    general amenity
+    specifics bathroomAmenity, entertainmentAmentity, bedroomAmentity, kitchenAmenity 
+}
+disjoint genset {disjoint}{
+    general nearbyHouseFacilities
+    specifics parkArea, hospital, school, pub 
+}
+disjoint genset {disjoint}{
+    general othersProfileInteraction
+    specifics profileMessage, profileSearch, profileView 
+}
+disjoint genset {disjoint}{
+    general person
+    specifics masterStudent, bachelorStudent, professor 
+}
+genset {joint}{
+    general person
+    specifics teachingAssistant, phdStudent 
+}
+disjoint genset {disjoint}{
+    general postInteraction
+    specifics postRating, postSearch, postComment 
+}
 

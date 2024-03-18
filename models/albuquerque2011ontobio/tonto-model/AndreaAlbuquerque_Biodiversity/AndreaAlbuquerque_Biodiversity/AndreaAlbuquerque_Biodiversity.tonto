@@ -276,4 +276,92 @@ category CostalRegion  specializes PhytophysiognomicRegion
 category CocaisRegion  specializes PhytophysiognomicRegion
 category AraucariasRegion  specializes PhytophysiognomicRegion
 category FieldsRegion  specializes PhytophysiognomicRegion
+disjoint complete genset disjoint, complete{
+    general Person
+    specifics ObjectClassifier, Researcher, ParticipantInCollection 
+}
+disjoint complete genset complete, disjoint{
+    general ParticipantInCollection
+    specifics ResearcherParticipant, AssistantInCollection 
+}
+genset 1nP7Ry6GAqACAxbC{
+    general EntityInStudy
+    specifics ClassifiedEntity, CollectedEntity 
+}
+genset Set{
+    general CollectionInstrument
+    specifics EtimologicalUmbrellaCollection, NetCollection, TrapCollection 
+}
+disjoint complete genset complete, disjoint{
+    general Ecosystem
+    specifics MicorEcosystem, MesoEcosystem, MacroEcosystem 
+}
+disjoint complete genset disjoint, complete{
+    general Biome
+    specifics Amazonia, MataAtlantica, CostalZone, Cerrado, Pantanal, Caatinga 
+}
+genset Set2{
+    general MaterialEntity
+    specifics AbioticEntity, Ecosystem, BioticEntity 
+}
+genset Set3{
+    general Taxon
+    specifics Family, Genus, Species 
+}
+genset AMLpJy6GAqACAxDU{
+    general Vegetation
+    specifics Lowland, Field, Restinga, Capoeira, Forest, Cerrado, Caatinga, Igapo 
+}
+genset eeYFJy6GAqACAxG0{
+    general Gender
+    specifics Hermaphrodite, Female, Unknown, Male, Asexual, Bisexual, NonExamined 
+}
+genset MiGlJy6GAqACAxKb{
+    general LifeStage
+    specifics Adult, Embryo, Pupa, Egg, Maggot, Juvenile, Unknown_ 
+}
+genset pNFVJy6GAqACAxMp{
+    general AbioticEntity
+    specifics Air, Water, Soil 
+}
+genset _sy1Jy6GAqACAxPi{
+    general Freshwater
+    specifics Clearwater, BlackWater, WhiteWater 
+}
+genset D.a1Jy6GAqACAxPy{
+    general Water
+    specifics BrackishWater, Freshwater, Saltwater 
+}
+genset MRL1Jy6GAqACAxSb{
+    general Soil
+    specifics Hydromorphic, Litholic, Sandy, Rocky, Clayey, Humous 
+}
+disjoint complete genset disjoint, complete{
+    general SpatialLocation
+    specifics GeographicPoint, GeographicSpace 
+}
+disjoint complete genset disjoint, complete{
+    general ClimateRegion
+    specifics TropicalWetAndDry, Semiarid, Temperate, Equatorial, HumidSubtropical, Tropical 
+}
+disjoint complete genset disjoint, complete{
+    general SocialPoliticalRegion
+    specifics City, Location, Country, State 
+}
+disjoint complete genset disjoint, complete,{
+    general Location
+    specifics PublicLocation, PrivateLocation, ConservationUnity, Village, Thorp, Community, Settlement 
+}
+disjoint complete genset disjoint, complete{
+    general PublicLocation
+    specifics CityLand, StateLand, FederalArea, IndiandLand 
+}
+disjoint complete genset disjoint, complete{
+    general FederalArea
+    specifics FederalLand, DevoluteLand 
+}
+disjoint complete genset disjoint, complete{
+    general PhytophysiognomicRegion
+    specifics CocaisRegion, CerradoRegion, AtlanticRegion, PatanalRegion, CostalRegion, AmazonicRegion, FieldsRegion, CaatingaRegion, AraucariasRegion 
+}
 

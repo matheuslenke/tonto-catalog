@@ -212,4 +212,20 @@ type Simple_Method_Activity  specializes Method_Activity
 type Composite_Method_Activity  specializes Method_Activity{
      [0..*] <>--  [2..*]  Method_Activity
 }
+disjoint complete genset QhDp736GAqACBSE5{
+    general Performed_Process
+    specifics Performed_Organizational_Process, Performed_Project_Process 
+}
+disjoint complete genset wxfp736GAqACBSFs{
+    general Performed_Process
+    specifics Performed_General_Process, Performed_Specific_Process 
+}
+disjoint complete genset :mereological structure{
+    general Artifact
+    specifics Simple_Artifact, Composite_Artifact 
+}
+disjoint genset :nature{
+    general Artifact
+    specifics Software_Item, Model, Document, Software_Product, Information_Item 
+}
 

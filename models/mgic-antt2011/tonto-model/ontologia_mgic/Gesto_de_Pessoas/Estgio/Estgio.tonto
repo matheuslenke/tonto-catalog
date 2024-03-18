@@ -1,0 +1,93 @@
+import Agente_Administrativo
+
+package Estgio
+
+role Estagirio  specializes Estagirio_do_Servio_Pblico, Estudante, Segurado_SCAP
+enum Escolaridade {
+    fundamental,
+    mdio,
+    superior,
+    tcnico,
+    ps_graduao,
+    mestrado,
+    doutorado
+}
+kind Termo_de_Compromisso_de_Estgio 
+role Instituio_de_Ensino 
+role Estudante_de_Ensino_Mdio  specializes Estudante
+role Autorizadora_de_Estgio  specializes Instituio_de_Ensino_com_Convnio_de_Estgio
+roleMixin Contratante_do_Seguro 
+role Estudante_de_Educao_Profissional  specializes Estudante
+role Instituio_de_Ensino_com_Convnio_de_Estgio  specializes Instituio_de_Ensino{
+    @material
+     [1..*] -- em_convnio_de_estgio_com_ --  [1..*]  Concedente_de_Estgio_com_Convnio
+}
+relator Seguro_contra_Acidentes_Pessoais {
+    nmero_aplice : undefined
+    valor : undefined
+    @mediation
+     [1..*] -- [1]  Segurado_SCAP( {const } )
+    @mediation
+     [1..*] -- [1]  Seguradora_com_SCAP_( {const } )
+    @mediation
+     [1..*] -- [1]  Contratante_do_Seguro( {const } )
+}
+role UO_com_Estagirio 
+role Segurado_SCAP 
+role Estudante_de_Ensino_Fundamental  specializes Estudante
+role Professor_Orientador 
+role Estudante  specializes Menor_Aprendiz
+role Estudante_de_Ensino_Superior  specializes Estudante
+relator Estgio_No_Obrigatrio  specializes Estgio
+relator Convnio_de_Concesso_de_Estgio {
+    @mediation
+     [1..*] -- [1]  Concedente_de_Estgio_com_Convnio( {const } )
+    @mediation
+     [1..*] -- [1]  Instituio_de_Ensino_com_Convnio_de_Estgio( {const } )
+}
+relator Estgio_Obrigatrio_  specializes Estgio
+kind Curso {
+    nvel : undefined
+    nome : undefined
+}
+relator Matrcula_ {
+    @mediation
+     [1..*] -- [1]  Curso( {const } )
+    @mediation
+     [1..*] -- [1]  Estudante( {const } )
+    @mediation
+     [1..*] -- [1]  Instituio_de_Ensino( {const } )
+}
+role Seguradora_com_SCAP_ 
+relator Estgio  specializes Estgio_Pblico{
+    auxlio_alimentao : undefined
+    auxlio_de_transporte : undefined
+    auxlio_sade : undefined
+    bolsa : undefined
+    carga_horria : undefined
+    durao : undefined
+    incio : undefined
+    @mediation
+    [1] -- [1]  Plano_de_Atividades_do_Estagirio( {const } )
+    @mediation
+     [1..*] -- [1]  Supervisor_de_Estgio( {const } supervisor )
+    @mediation
+     [1..*] -- [1]  Parte_Concedente_de_Estgio( {const } )
+    @mediation
+     [1..*] -- [1]  Professor_Orientador( {const } )
+    @mediation
+     [1..*] -- [1]  UO_com_Estagirio( {const } )
+    @mediation
+     [1..*] -- [1]  Autorizadora_de_Estgio( {const } )
+    @mediation
+    [1] -- [1]  Termo_de_Compromisso_de_Estgio( {const } )
+    @mediation
+    [1] -- [1]  Estagirio( {const } estagiario )
+}
+role Parte_Concedente_de_Estgio  specializes Parte_Concedente_de_Estgio_Pblico
+role Estudante_de_Educao_Especial  specializes Estudante
+kind Plano_de_Atividades_do_Estagirio 
+role Supervisor_de_Estgio  specializes Supervisor_de_Estagirio_Pblico
+role Estudante_de_Ps_Graduao  specializes Estudante
+role Concedente_de_Estgio_com_Convnio 
+

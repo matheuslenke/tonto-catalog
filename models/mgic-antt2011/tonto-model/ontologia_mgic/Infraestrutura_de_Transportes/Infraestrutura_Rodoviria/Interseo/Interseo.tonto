@@ -1,0 +1,38 @@
+import Infraestrutura_Rodoviria
+import Componente_Trecho_Fsico
+
+package Interseo
+
+subkind Cruzamento_Esconso  specializes Cruzamento
+subkind Acesso  specializes Interseo
+subkind Cruzamento_Ortogonal  specializes Cruzamento
+subkind Interseo_em_Nvel  specializes Interseo
+subkind Trevo_Completo  specializes Trevo
+subkind Entroncamento_em_Y  specializes Entroncamento
+kind Interseo  specializes Componente_Rodovirio{
+    @Formal
+    [*] -- conecta --  [2..*]  Via
+}
+subkind Entroncamento_em_T  specializes Entroncamento
+subkind Cruzamento_com_Ilhas  specializes Cruzamento
+subkind Trevo_Incompleto  specializes Trevo
+subkind Interseo_Ferroviria  specializes Interseo{
+    @Formal
+    [*] -- conecta --  [2..*]  Via_de_Trfego_Ferrovirio
+}
+subkind Interseo_Rodoferroviria  specializes Interseo{
+    @Formal
+    [*] -- conecta --  [1..*]  Via_de_Trfego_Ferrovirio
+    @Formal
+    [*] -- conecta --  [1..*]  Via_de_Trfego_Rodovirio
+}
+subkind Interseo_Rodoviria  specializes Interseo{
+    @Formal
+    [*] -- conecta --  [2..*]  Via_de_Trfego_Rodovirio
+}
+subkind Entroncamento  specializes Interseo
+subkind Interseo_em_Desnvel  specializes Interseo
+subkind Trevo  specializes Interseo
+subkind Rotatria  specializes Interseo
+subkind Cruzamento  specializes Interseo
+

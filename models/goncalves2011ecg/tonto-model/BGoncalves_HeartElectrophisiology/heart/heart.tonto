@@ -46,4 +46,24 @@ collective TransitionalSANodeMyocytes {
     @subCollectionOf
      --<o>  SANodeMyocytes
 }
+disjoint genset {disjoint}{
+    general Muscle
+    specifics LeftVentricle, RightAtrium, LeftAtrium, RightVentricle 
+}
+disjoint genset {disjoint}{
+    general Chamber
+    specifics LeftAtrium, RightAtrium, RightVentricle, LeftVentricle 
+}
+disjoint genset {disjoint}{
+    general SANodeMyocytes
+    specifics SANodeMyocytesPolarized, SANodeMyocytesDepolarized 
+}
+disjoint genset {disjoint}{
+    general CSAMyocytes
+    specifics CSAMyocytesPolarized, CSAMyocytesDepolarized 
+}
+disjoint genset {disjoint}{
+    general CSVMyocytes
+    specifics CSVMyocytesPolarized, CSVMyocytesDepolarized 
+}
 

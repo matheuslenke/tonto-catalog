@@ -1,0 +1,10 @@
+import Pessoa
+
+package Situao_Cadastral
+
+phase Pessoa_Jurdica_Nula  specializes Pessoa_Jurdica
+phase Pessoa_Jurdica_Ativa  specializes Pessoa_Jurdica
+phase Pessoa_Jurdica_Baixada  specializes Pessoa_Jurdica
+phase Pessoa_Jurdica_Inapta  specializes Pessoa_Jurdica
+phase Pessoa_Jurdica_Suspensa  specializes Pessoa_Jurdica
+

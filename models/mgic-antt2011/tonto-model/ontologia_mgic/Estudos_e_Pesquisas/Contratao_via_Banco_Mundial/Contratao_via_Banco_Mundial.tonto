@@ -1,0 +1,395 @@
+import Contratos_e_Convnios
+import Forma_de_Contato_de_Manifestao
+
+package Contratao_via_Banco_Mundial
+
+mode Motivo_de_Rejeia_da_Proposta {
+    @characterization
+    [1] -- [1]  Proposta_Rejeitada( {const } )
+}
+role Muturrio_Solicitador_de_Lista_de_Consultores  specializes Muturio_em_Publicao_de_Interesse
+subkind Contrato_via_Banco_Mundial_para_Aquisio_de_Bens  specializes Contrato_via_Banco_Mundial
+subkind Contrato_com_Honorrios  specializes Contrato_via_Banco_Mundial
+role Contrato_de_Emprstimo  specializes Contrato
+kind Servio_de_Consultoria_Requerido {
+    descrio : undefined
+}
+role Lista_Curta_de_Consultores  specializes Lista_de_Consultores
+relator Submisso_de_Proposta_Financeira {
+    @mediation
+     [1..*] -- [1]  Muturio_Receptor_de_Proposta_Financeira( {const } )
+    @mediation
+     [1..*] -- [1]  Consultor_com_Proposta_Financeira_Submetida( {const } )
+    @mediation
+    [1] -- [1]  Proposta_Financeira_Submetida( {const } )
+}
+relator Manifestao_de_Interesse {
+    @mediation
+     [1..*] -- [1]  Expresso_em_Manifestao_de_Interesse( {const } )
+    @mediation
+    [1] -- [1]  Carta_de_Manifestao_de_Interesse( {const } )
+}
+mode Crtrios_de_Avaliao_Tcnica {
+    peso : undefined
+}
+collective Lista_de_Consultores {
+    @memberOf
+    [1] <o>-- isShareable --  [1..*]  Consultor_em_Lista
+}
+mode Critrio_de_Qualificao_do_Consultor_Individual {
+    nome : undefined
+    peso : undefined
+}
+role Carta_de_Manifestao_de_Interesse  specializes Carta
+role Proposta_de_Preo_em_Avaliao_de_Custo  specializes Proposta_de_Preo
+kind Portal_Eletrnico_de_Acesso_Gratuito  specializes Fonte_de_Publicao_de_Interesse
+role Empresa_Habilitada_para_Prestao_de_Servios_de_Consultorias  specializes Consultor_Empresarial
+role Banco_Mundial_em_Submisso_de_Projeto_de_Financiamento  specializes Banco_Mundial
+role Expresso_em_Manifestao_de_Interesse  specializes Expresso_de_Interesse_Publicada
+role Muturio_em_Submisso_de_Relatrio_de_Avaliao_Financeira  specializes Muturio_Receptor_de_Proposta_Financeira
+role Muturio_Receptor_de_Proposta_Tcnica  specializes Muturio_em_Publicao_de_Interesse
+kind Plano_de_Aquisies 
+relator Avaliao_de_Manifestao_de_Interesse {
+    @mediation
+     [1..*] -- [1]  CEL_em_Avaliao_de_Interesse( {const } )
+    @mediation
+     [1..*] -- [1]  Consultor_Empresarial_em_Avaliao_de_Interesse( {const } )
+    @mediation
+    [1] -- [1]  Carta_de_Manifestao_de_Interesse_em_Avaliao( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_Avaliador_de_Manifestao_de_Interesse( {const } )
+}
+kind Carta_Convite_COI {
+    data_de_entrega : undefined
+    detalhes_do_cliente : undefined
+    endereo_de_entrega : undefined
+    fonte_de_recursos : undefined
+    hora_de_entrega : undefined
+}
+role Muturio_Avaliador_de_Proposta_Financeira  specializes Muturio_Receptor_de_Proposta_Financeira
+role Lista_Curta_de_Consultores_Avaliada  specializes Lista_Curta_de_Consultores
+mode Objetivo_Geral_de_Termo_de_Referncia 
+role Plano_de_Aquisies_em_Aprovao  specializes Plano_de_Aquisies
+role Muturio_em_Publicao_de_Interesse  specializes Muturio
+subkind Termo_de_Referncia_TOR_com_Treinamento_de_Conhecimento  specializes Termo_de_Referncia_TOR{
+    descrio : undefined
+    num_de_pessoas : undefined
+}
+role Banco_Mundial_em_Acordo_de_Emprstimo  specializes Banco_Mundial
+role Consultor_em_Contratao_Antecipada  specializes Consultor
+kind Minuta_de_Aviso_de_Manifestao_de_Interesse {
+    @Formal
+    [1] -- referese_a -- [1]  Expresso_de_Interesse
+}
+subkind Contrato_por_Percentual  specializes Contrato_via_Banco_Mundial
+relator Submisso_de_Proposta_Tcnica {
+    data : undefined
+    @mediation
+    [1] -- [1]  Proposta_Tcnica_Submetida( {const } )
+    @mediation
+     [1..*] -- [1]  Consultor_com_Proposta_Tcnica_Submetida( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_Receptor_de_Proposta_Tcnica( {const } )
+}
+kind Condio_Geral_do_Contrato {
+    descrio : undefined
+}
+subkind Termo_de_Referncia_TOR_com_Transferncia_de_Conhecimento  specializes Termo_de_Referncia_TOR{
+    descrio : undefined
+}
+role Minuta_do_Aviso_de_Licitao_Publicada_em_Site  specializes Minuta_do_Aviso_Geral_de_Licitao_Publicada
+kind Relatrio_de_Avaliao_Financeira 
+kind Estimativa_de_Custo 
+relator Acordo_de_Emprstimo {
+    @mediation
+     [1..*] --  [1..*]  Muturio_em_Acordo_de_Emprstimo( {const } )
+    @mediation
+     [1..*] -- [1]  Banco_Mundial_em_Acordo_de_Emprstimo( {const } )
+    @mediation
+    [1] -- [1]  Contrato_de_Emprstimo( {const } )
+}
+mode Rejeio_por_Prtica_Colusiva  specializes Motivo_de_Rejeia_da_Proposta
+role Relatrio_de_Avaliao_Tcnica_Submetido  specializes Relatrio_de_Avaliao_Tcnica
+role Banco_Mundial_Avaliador_de_Plano_de_Aquisio  specializes Banco_Mundial
+mode Rejeio_por_No_Conformidade_ao_TOR  specializes Motivo_de_Rejeia_da_Proposta
+relator Submiso_do_Relatrio_de_Avaliao_Tcnica {
+    @mediation
+     [1..*] -- [1]  Muturio_em_Submisso_de_Relatrio_de_Avaliao_Tcnica( {const } )
+    @mediation
+     [1..*] -- [1]  Banco_Mundial_Avaliador_de_Relatrio_de_Avaliao_Tcnica( {const } )
+    @mediation
+     [1..*] -- [1]  Relatrio_de_Avaliao_Tcnica_Submetido( {const } )
+}
+relator Avaliao_da_Proposta 
+role Banco_Mundial_Fornecedor_de_Lista_de_Consultores  specializes Banco_Mundial
+relator Publicao_de_Interesse {
+    @mediation
+     [1..*] -- [1]  Expresso_de_Interesse_Publicada( {const } )
+    @mediation
+    [1] -- [1]  Projeto_em_Publicao_de_Interesse( {const } )
+    @mediation
+     [1..*] -- [1]  Fonte_de_Publicao_de_Interesse( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_em_Publicao_de_Interesse( {const } )
+}
+mode Rejeio_por_Prtica_Coercitiva  specializes Motivo_de_Rejeia_da_Proposta
+subkind Contrato_por_Preo_Global  specializes Contrato_via_Banco_Mundial
+role Consultor_Individual_em_Interesse 
+mode Rejeio_por_Nota_Mnima  specializes Motivo_de_Rejeia_da_Proposta
+relator Emisso_de_No_Objeo {
+    @mediation
+    [1] -- [1]  Banco_Mundial_em_Emisso_de_No_Objeo( {const } )
+    @mediation
+    [1] -- [1]  Lista_de_Consultores_em_No_Objeo_( {const } )
+}
+kind Termo_de_Referncia_TOR {
+    abrangncia : undefined
+    info_de_referncia : undefined
+    @characterization
+    ( {const } )[1] --  [1..*]  Meta_de_Termo_de_Referncia
+    @characterization
+    ( {const } )[1] --  [1..*]  Obrigao_do_Muturio
+    @characterization
+    ( {const } )[1] --  [1..*]  Obrigao_do_Consultor
+    @characterization
+    ( {const } )[1] --  [1..*]  Objetivo_Geral_de_Termo_de_Referncia
+}
+role Banco_Mundial_em_Emisso_de_No_Objeo  specializes Banco_Mundial
+role Banco_Mundial_Avaliador_de_Relatrio_de_Avaliao_Tcnica  specializes Banco_Mundial
+subkind Contrato_com_Honorrios_Fixos  specializes Contrato_com_Honorrios
+kind Relatrio_de_Avaliao_Tcnica 
+subkind Termo_de_Referncia_para_Aquisiao_de_Bens  specializes Termo_de_Referncia_TOR
+role Banco_Mundial_em_Publicao_no_UNDB  specializes Banco_Mundial
+role Lista_de_Consultores_em_No_Objeo_  specializes Lista_Curta_de_Consultores
+category Fonte_de_Publicao_de_Interesse 
+kind Proposta_Tcnica  specializes Proposta
+role Consultor_com_Proposta_Tcnica_Submetida  specializes Consultor_Empresarial_em_Interesse
+role Banco_Mundial_em_Submisso_de_Aviso_de_Licitao  specializes Banco_Mundial
+role Muturio_em_Submisso_de_Aviso_de_Licitao  specializes Muturio
+role Muturio 
+kind Condio_Especial_de_Contrato {
+    descrio : undefined
+}
+role Minuta_do_Aviso_de_Licitao_Publicada_no_dgMarket  specializes Minuta_do_Aviso_Geral_de_Licitao_Publicada
+role Muturio_em_Acordo_de_Emprstimo  specializes Muturio
+role Banco_Mundial 
+role Muturio_em_Reviso_de_Lista_de_Consultores  specializes Muturio_em_Publicao_de_Interesse
+category Proposta 
+collective Comisso_Especial_de_Licitao_ {
+    @memberOf
+    [1] <o>--  [1..*]  Membro_de_Comisso_Especial_de_Licitao
+}
+mode Critrio_de_Avaliao {
+    nome : undefined
+    peso : undefined
+    pontuao : undefined
+}
+role Proposta_Financeira_Submetida  specializes Proposta_de_Preo
+mode Obrigao_do_Consultor 
+kind Jornal_Internacional  specializes Fonte_de_Publicao_de_Interesse
+role Proposta_de_Preo_Aprovada  specializes Proposta_de_Preo
+kind Expresso_de_Interesse 
+role Consultor_Empresarial_em_Interesse  specializes Consultor_Empresarial{
+    @mediation
+    [1] --  [1..*]  Manifestao_de_Interesse( {const } )
+}
+kind Aviso_Geral_de_Licitao {
+    @Formal
+    [1] -- referese_a -- [1]  Minuta_do_Aviso_Geral_de_Licitao
+    @componentOf
+    [1] <o>--  [1..*]  Servio_de_Consultoria_Requerido
+}
+role Lista_de_Consultores_Solicitada  specializes Lista_Longa_de_Consultores
+relator Avaliao_de_Qualidade  specializes Avaliao_da_Proposta{
+    ponto_forte : undefined
+    ponto_fraco : undefined
+    @mediation
+     [1..*] -- [1]  Comisso_Especial_de_Licitao_em_Avaliao_de_Qualidade( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_Avaliador_de_Proposta_Tcnica( {const } )
+    @mediation
+    [1] -- [1]  Proposta_Tcnica_em_Avaliao_de_Qualidade( {const } )
+    @characterization
+    ( {const } )[1] --  [1..*]  Critrio_de_Avaliao
+}
+role Muturio_em_Aprovao_de_Plano_de_Aquisio  specializes Muturio
+subkind Contrato_com_Honorrios_de_xito  specializes Contrato_com_Honorrios
+relator Contratao_Antecipada {
+    @mediation
+    [1] --  [1..*]  Consultor_em_Contratao_Antecipada( {const } )
+    @mediation
+    [1] -- [1]  Muturio_em_Contratao_Antecipada( {const } )
+}
+role Banco_Mundial_em_Publicao_no_dgMarket  specializes Banco_Mundial
+mode Rejeio_por_Prtica_Corrupta  specializes Motivo_de_Rejeia_da_Proposta
+mode Obrigao_do_Muturio 
+role Consultor_Individual  specializes Consultor, Consultor_Individual_em_Interesse
+role Projeto_em_Publicao_de_Interesse 
+role Consultor_com_Proposta_Financeira_Submetida  specializes Consultor_com_Proposta_Tcnica_Submetida
+relator Publicao_do_Aviso_de_Licitao_no_UNDB_online {
+    data : undefined
+    @mediation
+    [1] -- [1]  Minuta_do_Aviso_de_Licitao_Publicada_no_dgMarket( {const } )
+    @mediation
+    [1] -- [1]  Banco_Mundial_em_Publicao_no_UNDB( {const } )
+}
+role Termo_de_Cooperao_Tcnica_em_Financiamento_com_Banco_Mundial 
+role Proposta_Aprovada  specializes Proposta
+role Comisso_Especial_de_Licitao_em_Avaliao_de_Qualidade  specializes Comisso_Especial_de_Licitao_
+roleMixin Consultor 
+relator Submisso_de_Projeto_para_Financiamento {
+    @mediation
+     [1..*] -- [1]  Muturio_em_Submisso_de_Projeto_para_Financiamento( {const } )
+    @mediation
+    [1] -- [1]  Termo_de_Cooperao_Tcnica_em_Financiamento_com_Banco_Mundial( {const } )
+    @mediation
+     [1..*] -- [1]  Banco_Mundial_em_Submisso_de_Projeto_de_Financiamento( {const } )
+}
+role Consultor_Inelegvel  specializes Consultor_com_Proposta_Tcnica_Submetida
+subkind Contrato_via_Banco_Mundial  specializes Contrato{
+    @componentOf
+    [1] <o>-- [1]  Condio_Especial_de_Contrato
+    @componentOf
+    [1] <o>-- [1]  Condio_Geral_do_Contrato
+}
+relator Publicao_do_Aviso_Geral_de_Licitao_em_Site {
+    data : undefined
+    site : undefined
+    @mediation
+    [1] -- [1]  Banco_Mundial_em_Publicao_no_dgMarket( {const } )
+    @mediation
+    [1] -- [1]  Minuta_do_Aviso_de_Licitao_Publicada_em_Site( {const } )
+}
+subkind Instruo_ao_Consultor_com_Oramento_Total  specializes Instruo_ao_Consultor_ITC{
+    oramento_total : undefined
+}
+role Projeto_em_Solicitao_de_Lista_de_Consultores 
+subkind Contrato_via_Banco_Mundial_com_Compromisso_Contra_Fraude_e_Corrupo  specializes Contrato_via_Banco_Mundial
+relator Solicitao_de_Lista_de_Consultores {
+    @mediation
+    [1] -- [1]  Projeto_em_Solicitao_de_Lista_de_Consultores( {const } )
+    @mediation
+    [1] -- [1]  Lista_de_Consultores_Solicitada( {const } )
+    @mediation
+    [1] -- [1]  Banco_Mundial_Fornecedor_de_Lista_de_Consultores( {const } )
+    @mediation
+    [1] -- [1]  Muturrio_Solicitador_de_Lista_de_Consultores( {const } )
+}
+role Banco_Mundial_Avaliador_de_Lista_de_Consultores  specializes Banco_Mundial
+role Proposta_de_Preo_Rejeitada  specializes Proposta_de_Preo
+role Consultor_Empresarial_em_Avaliao_de_Interesse  specializes Consultor_Empresarial
+type Tipo_de_Rejeio_da_Proposta {
+    @Formal
+    [1] -- referese_a_ -- [1]  Motivo_de_Rejeia_da_Proposta
+}
+role Muturio_Avaliador_de_Proposta_Tcnica  specializes Muturio_Receptor_de_Proposta_Tcnica
+role Muturio_em_Submisso_de_Projeto_para_Financiamento  specializes Muturio
+role Muturio_Receptor_de_Proposta_Financeira  specializes Muturio_em_Publicao_de_Interesse
+role Carta_de_Manifestao_de_Interesse_em_Avaliao  specializes Carta_de_Manifestao_de_Interesse
+role Proposta_Rejeitada  specializes Proposta{
+    @Formal
+    [1] -- [1]  Tipo_de_Rejeio_da_Proposta
+}
+kind Dirio_Oficial_da_Unio  specializes Fonte_de_Publicao_de_Interesse
+role Minuta_do_Aviso_Geral_de_Licitao_Publicada  specializes Minuta_do_Aviso_Geral_de_Licitao
+relator Reviso_da_Lista_Curta_de_Consultores {
+    @mediation
+     [1..*] -- [1]  Banco_Mundial_Avaliador_de_Lista_de_Consultores( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_em_Reviso_de_Lista_de_Consultores( {const } )
+    @mediation
+     [1..*] -- [1]  Lista_Curta_de_Consultores_Avaliada( {const } )
+}
+role Minuta_do_Aviso_Geral_de_Licitao_Submetida  specializes Minuta_do_Aviso_Geral_de_Licitao
+role Expresso_de_Interesse_Publicada  specializes Expresso_de_Interesse
+subkind Instruo_ao_Consultor_com_Carga_Estimada  specializes Instruo_ao_Consultor_ITC{
+    carga_de_trabalho_estimada : undefined
+}
+relator Avaliao_de_Custo_  specializes Avaliao_da_Proposta{
+    @mediation
+    [1] -- [1]  Muturio_Avaliador_de_Proposta_Financeira( {const } )
+    @mediation
+    [1] -- [1]  Proposta_de_Preo_em_Avaliao_de_Custo( {const } )
+}
+relator Aprovao_do_Plano_de_Aquisies {
+    @mediation
+     [1..*] -- [1]  Muturio_em_Aprovao_de_Plano_de_Aquisio( {const } )
+    @mediation
+    [1] -- [1]  Banco_Mundial_Avaliador_de_Plano_de_Aquisio( {const } )
+    @mediation
+     [1..*] -- [1]  Plano_de_Aquisies_em_Aprovao( {const } )
+}
+role Lista_Longa_de_Consultores  specializes Lista_de_Consultores
+subkind Acordo_de_Preo_  specializes Contrato_via_Banco_Mundial
+role CEL_em_Avaliao_de_Interesse  specializes Comisso_Especial_de_Licitao_
+subkind Contrato_com_Base_no_Tempo  specializes Contrato_via_Banco_Mundial
+role Consultor_em_Lista  specializes Empresa_Habilitada_para_Prestao_de_Servios_de_Consultorias
+kind Proposta_de_Preo  specializes Proposta
+role Proposta_Tcnica_em_Avaliao_de_Qualidade  specializes Proposta_Tcnica
+role Contrato_de_Emprstimo_para_Aquisio_de_Bens  specializes Contrato_de_Emprstimo
+role Muturio_em_Submisso_de_Relatrio_de_Avaliao_Tcnica  specializes Muturio_Receptor_de_Proposta_Tcnica
+role Membro_de_Comisso_Especial_de_Licitao 
+role Consultor_Empresarial  specializes Consultor
+role Consultor_Individual_Avaliado_para_o_Servio  specializes Consultor_Individual_em_Interesse
+role Muturio_Avaliador_de_Consultor_Individual  specializes Muturio_em_Publicao_de_Interesse
+mode Rejeio_por_Prtica_Fraudulenta  specializes Motivo_de_Rejeia_da_Proposta
+relator Submisso_da_Minuta_do_Aviso_Geral_de_Licitao {
+    @mediation
+     [1..*] -- [1]  Minuta_do_Aviso_Geral_de_Licitao_Submetida( {const } )
+    @mediation
+     [1..*] -- [1]  Banco_Mundial_em_Submisso_de_Aviso_de_Licitao( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_em_Submisso_de_Aviso_de_Licitao( {const } )
+}
+role Proposta_Tcnica_Submetida  specializes Proposta_Tcnica
+role Banco_Mundial_Avaliador_de_Relatrio_de_Avaliao_Financeira  specializes Banco_Mundial
+kind Solicitao_de_Proposta_RFP {
+    idioma : undefined
+    @componentOf
+    [1] <o>-- [1]  Instruo_ao_Consultor_ITC
+    @componentOf
+    [1] <o>-- [1]  Proposta_de_Preo
+    @componentOf
+    [1] <o>-- [1]  Contrato_via_Banco_Mundial
+    @componentOf
+    [1] <o>-- [1]  Proposta_Tcnica
+    @componentOf
+    [1] <o>-- [1]  Termo_de_Referncia_TOR
+    @componentOf
+    [1] <o>-- [1]  Estimativa_de_Custo
+    @componentOf
+    [1] <o>-- [1]  Carta_Convite_COI
+}
+mode Meta_de_Termo_de_Referncia 
+relator Submiso_do_Relatrio_de_Avaliao_Financeira {
+    @mediation
+     [1..*] -- [1]  Relatrio_de_Avaliao_Financeira_Submetido( {const } )
+    @mediation
+     [1..*] -- [1]  Banco_Mundial_Avaliador_de_Relatrio_de_Avaliao_Financeira( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_em_Submisso_de_Relatrio_de_Avaliao_Financeira( {const } )
+}
+kind Jornal_de_Circulao_Nacional  specializes Fonte_de_Publicao_de_Interesse
+role Muturio_Avaliador_de_Manifestao_de_Interesse  specializes Muturio
+kind Revista_Tcnica  specializes Fonte_de_Publicao_de_Interesse
+kind Instruo_ao_Consultor_ITC {
+    avaliao_financeira : undefined
+    descrio_do_processo : undefined
+    descrio_do_trabalho : undefined
+    nota_mnima : undefined
+    validade_da_proposta : undefined
+    @characterization
+    ( {const } )[1] --  [1..*]  Crtrios_de_Avaliao_Tcnica
+}
+relator Avaliao_de_Qualificao_do_Consultor_Individual {
+    @mediation
+    [1] -- [1]  Consultor_Individual_Avaliado_para_o_Servio( {const } )
+    @mediation
+     [1..*] -- [1]  Muturio_Avaliador_de_Consultor_Individual( {const } )
+    @characterization
+    ( {const } )[1] -- [1]  Critrio_de_Qualificao_do_Consultor_Individual
+}
+kind Minuta_do_Aviso_Geral_de_Licitao 
+role Relatrio_de_Avaliao_Financeira_Submetido  specializes Relatrio_de_Avaliao_Financeira
+role Muturio_em_Contratao_Antecipada  specializes Muturio
+

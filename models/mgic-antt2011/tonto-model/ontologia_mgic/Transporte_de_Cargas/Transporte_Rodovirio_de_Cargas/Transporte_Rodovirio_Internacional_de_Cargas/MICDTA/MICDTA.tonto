@@ -1,0 +1,27 @@
+import Transporte_Rodovirio_Internacional_de_Cargas
+import Transportador_Rodovirio_de_Cargas
+import Conhecimento_de_Transporte
+
+package MICDTA
+
+role Pas_de_Origem_no_Manifesto_Internacional_de_Carga_Rodoviria 
+role Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente_Contratado  specializes Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente
+relator Manifesto_Internacional_de_Carga_Rodoviria  specializes Conhecimento_de_Transporte{
+    @mediation
+    [1] -- [1]  Pas_de_Destino_no_Manifesto_Internacional_de_Carga_Rodoviria( {const } )
+    @mediation
+     [0..1] -- [1]  Veculo_Original( {const } )
+    @mediation
+     [0..*] --  [0..1]  Veculo_Substituto( {const } )
+    @mediation
+     [0..1] -- [1]  Operao_de_Transporte_Rodovirio_Internacional_de_Cargas( {const } )
+    @mediation
+     [0..*] -- [1]  Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente_Contratado( {const } )
+    @mediation
+    [1] -- [1]  Pas_de_Origem_no_Manifesto_Internacional_de_Carga_Rodoviria( {const } )
+}
+role Pas_de_Destino_no_Manifesto_Internacional_de_Carga_Rodoviria 
+kind Posto_de_Alfndega 
+role Veculo_Original 
+role Veculo_Substituto 
+
