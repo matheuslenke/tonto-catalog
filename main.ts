@@ -4,62 +4,65 @@ import { join } from "path";
 
 // Function to execute a shell command and return its output as a promise
 const execPromise = (cmd: string, cwd: string): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    console.log(`Running command in: ${cwd}`);
-    exec(cmd, { cwd }, (error, stdout, stderr) => {
-      if (error) {
-        reject(error);
-        return;
-      }
-      if (stderr) {
-        reject(stderr);
-        return;
-      }
-      resolve(stdout);
+    return new Promise((resolve, reject) => {
+        console.log(`Running command in: ${cwd}`);
+        exec(cmd, { cwd }, (error, stdout, stderr) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+            if (stderr) {
+                reject(stderr);
+                return;
+            }
+            resolve(stdout);
+        });
     });
-  });
 };
 
 // Recursive function to navigate through directories and run the command
 const navigateAndRunCommand = async (dir: string): Promise<void> => {
-  try {
-    const files = fs.readdirSync(dir, {
-      recursive: false,
-    });
+    try {
+        const files = fs.readdirSync(dir, {
+            recursive: false,
+        });
 
-    for (const file of files as string[]) {
-      const ontologyPath = join(dir, file);
-      // Run the command in the current directory
-      await execPromise(
-        "tonto-cli import ontology.json -d tonto-model",
-        ontologyPath
-      );
+        for (const file of files as string[]) {
+            const ontologyPath = join(dir, file);
+            // Run the command in the current directory
+            await execPromise(
+                "tonto-cli import ontology.json -d tonto-model",
+                ontologyPath
+            );
+        }
+    } catch (error) {
+        console.error(`Error processing directory ${dir}: ${error}`);
     }
-  } catch (error) {
-    console.error(`Error processing directory ${dir}: ${error}`);
-  }
 };
 
 const navigateAndRunCommandPromises = async (dir: string): Promise<void> => {
-  try {
-    const files = fs.readdirSync(dir, {
-      recursive: false,
-    });
-    const promises: Promise<string>[] = []
+    try {
+        const files = fs.readdirSync(dir, {
+            recursive: false,
+        });
+        const promises: Promise<string>[] = []
 
-    for (const file of files as string[]) {
-      const ontologyPath = join(dir, file);
-      // Run the command in the current directory
-      promises.push(execPromise(
-        "tonto-cli import ontology.json -d tonto-model",
-        ontologyPath
-      ));
+        for (const file of files as string[]) {
+            if (file === "mgic-antt2011") {
+                continue;
+            }
+            const ontologyPath = join(dir, file);
+            // Run the command in the current directory
+            promises.push(execPromise(
+                "tonto-cli import ontology.json -d tonto-model",
+                ontologyPath
+            ));
+        }
+
+        await Promise.all(promises);
+    } catch (error) {
+        console.error(`Error processing directory ${dir}: ${error}`);
     }
-
-    await Promise.all(promises);
-  } catch (error) {
-    console.error(`Error processing directory ${dir}: ${error}`);
-  }
 }
 
 // Example usage: replace 'yourFolderPath' with the path of your selected folder

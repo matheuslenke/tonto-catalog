@@ -15,7 +15,10 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.25",
-    "typescript": "^5.4.2",
-    "tonto-cli": "file:../Tonto/packages/tonto"
+    "tonto-cli": "file:../Tonto/packages/tonto",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }
