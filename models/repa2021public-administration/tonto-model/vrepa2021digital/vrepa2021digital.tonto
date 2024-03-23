@@ -1,0 +1,67 @@
+
+package vrepa2021digital
+
+kind PA_Client
+
+subkind Company of functional-complexes  specializes PA_Client 
+
+subkind Citizen of functional-complexes  specializes PA_Client 
+
+role Enterpreneur specializes Citizens_Role 
+
+role Company_Pensioner specializes Citizens_Role 
+
+role Employee specializes Citizens_Role 
+
+class Citizens_Role
+
+role Old_Age_Pensioner specializes Citizens_Role 
+
+role Student specializes Citizens_Role 
+
+phase Secondary_School_Student specializes Student 
+
+phase Bachelor_Degree_Student specializes Student 
+
+phase On_an_Exchange_Stay specializes Student 
+
+phase Master_Degree_Student specializes Student 
+
+phase Study_Interrupted specializes Student 
+
+phase Doctoral_Degree_Student specializes Student 
+
+role Offspring specializes Citizens_Role 
+
+role Parent specializes Citizens_Role 
+
+relator Parenthood
+
+phase Child of functional-complexes  specializes Citizen {
+    [*] -- [*] Citizens_Role 
+}
+
+phase Pupil of functional-complexes  specializes Citizen {
+    [*] -- [*] Citizens_Role 
+}
+
+phase Employed of functional-complexes  specializes Citizen {
+    [*] -- [*] Citizens_Role 
+}
+
+phase Unemployed of functional-complexes  specializes Citizen {
+    [*] -- [*] Citizens_Role 
+}
+
+phase Senior of functional-complexes  specializes Citizen {
+    [*] -- [*] Citizens_Role 
+}
+
+phase Seeking_for_employment of functional-complexes  specializes Unemployed {
+    [*] -- [*] Citizens_Role 
+}
+
+phase In_requalification of functional-complexes  specializes Unemployed {
+    [*] -- [*] Citizens_Role 
+}
+

@@ -1,0 +1,15 @@
+import PlatformOntology
+
+package Price_set_by_Provider
+
+subkind Price_set_by_Provider of intrinsic-modes  specializes Price, Offering_Price {
+    [0..*] -- has -- [1] Listing 
+    [1] -- has -- [0..*] Time_Slot 
+    @subQuantityOf 
+    [1..*] -- used_in -- [0..*] Booking_Price 
+}
+
+event Price_Setting_action_by_Provider{
+    setPricePerSeat: undefined  
+}
+

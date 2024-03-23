@@ -1,0 +1,102 @@
+import InfoSysDes1
+import Booking
+import Employment
+
+package Model
+
+role Customer of functional-complexes  specializes Account {
+    customerId: int  
+    location: undefined  
+}
+
+role Instructor of functional-complexes  specializes Employee {
+    instructorId: int  
+    specialization: undefined  
+    @material 
+    [0..*] -- Works_at -- [1..*] Physical_building 
+    [1..*] -- Hired -- [1..*] Company 
+    @material 
+    [1..*] -- [1..*] Mediated_by_employment_contract 
+}
+
+role Owner of functional-complexes  specializes ManagementUsers {
+    ownerId: int  
+}
+
+role Employee of functional-complexes  specializes ManagementUsers {
+    employeeId: int  
+}
+
+role ManagementUsers of functional-complexes  specializes Account {
+    manUserId: int  
+    manRole: undefined  
+}
+
+role User of functional-complexes  specializes Person {
+    userId: int  
+    password: undefined  
+    role_: undefined  
+}
+
+category Physical_building of collectives {
+    facilityId: int  
+    location: undefined  
+    sportType: string_  
+}
+
+category FacilityBooking of functional-complexes {
+    bookingId: int  
+    place: undefined  
+    timeStamp: undefined  
+    facilityId: int  
+}
+
+kind Payment{
+    paymentId: undefined  
+    bookingId: int  
+}
+
+kind Booking_history{
+    Payment: float  
+    timeStamp: undefined  
+    values: float  
+    isCanceled: undefined  
+}
+
+kind Shared_Booking specializes FacilityBooking {
+    noOfCustomers: int  
+    [1] -- Get_payment -- [1] Payment 
+}
+
+collective Company{
+    companID: int  
+    companyName: undefined  
+    mainOfficeAddress: undefined  
+}
+
+kind Single_Booking specializes FacilityBooking {
+    idBoookingId: int  
+    bookingID: int  
+    [1] -- Get_payment -- [1] Payment 
+}
+
+kind Instructor_Booking specializes FacilityBooking {
+    [1] -- Get_payment -- [1] Payment 
+}
+
+relator Account_creation
+
+kind Person
+
+kind Account
+
+phase Inactive of functional-complexes  specializes User {
+    @material 
+    [0..*] -- creating -- [0..*] Account 
+}
+
+phase Active of functional-complexes  specializes User {
+    @material 
+    [0..*] -- creating -- [0..*] Account 
+}
+

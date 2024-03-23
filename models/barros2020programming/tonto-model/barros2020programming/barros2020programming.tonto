@@ -1,0 +1,27 @@
+
+package barros2020programming
+
+relator Nacionalidade_Brasileira
+
+subkind Nacionalidade_brasileira_nata of relators  specializes Nacionalidade_Brasileira 
+
+subkind Jus_solis_art_12Ia of relators  specializes Nacionalidade_brasileira_nata 
+
+subkind Jus_sanguinis of relators  specializes Nacionalidade_brasileira_nata 
+
+subkind A_requerimento_art_12Ic_segunda_parte of relators  specializes Jus_sanguinis 
+
+subkind Registro_no_exterior_art_12Ic_primeira_parte of relators  specializes Jus_sanguinis 
+
+subkind Suspensvel of relators  specializes Jus_sanguinis 
+
+subkind Definitiva_art_12Ib of relators  specializes Jus_sanguinis 
+
+subkind Nacionalidade_brasileira_naturalizada of relators  specializes Nacionalidade_Brasileira 
+
+subkind Estrangeiros_de_qualquer_nacionalidade of relators  specializes Nacionalidade_brasileira_naturalizada 
+
+subkind Origem_pas_de_lngua_portuguesa of relators  specializes Nacionalidade_brasileira_naturalizada 
+
+subkind Na_forma_de_lei of relators  specializes Nacionalidade_brasileira_naturalizada 
+

@@ -1,0 +1,63 @@
+
+package ontology
+
+category Transport_Processing_Function of functional-complexes 
+
+kind Adaptation_Function specializes Transport_Processing_Function 
+
+kind Flow_Termination_Function specializes Transport_Processing_Function 
+
+subkind Adaptation_Source of functional-complexes  specializes Adaptation_Function 
+
+subkind Adaptation_Sink of functional-complexes  specializes Adaptation_Function 
+
+subkind Flow_Termination_Sink of functional-complexes  specializes Flow_Termination_Function 
+
+subkind Flow_Termination_Source of functional-complexes  specializes Flow_Termination_Function 
+
+kind Adaptation_Source_Output
+
+kind Adaptation_Source_Input
+
+kind Adaptation_Sink_Input
+
+kind Adaptation_Sink_Output
+
+kind Flow_Termination_Sink_Output
+
+kind Flow_Termination_Sink_Input
+
+kind Flow_Termination_Source_Output
+
+kind Flow_Termination_Source_Input
+
+role A_Sk_Input__Sk_AP_Binded of functional-complexes  specializes Adaptation_Sink_Input {
+    @componentOf 
+    [1] -- [1] Adaptation_Sink 
+}
+
+role FT_Sk_Output__Sk_AP_Binded of functional-complexes  specializes Flow_Termination_Sink_Output {
+    @componentOf 
+    [1] -- [1] Flow_Termination_Sink 
+}
+
+relator Sink_AP_Binding
+
+kind AP
+
+role Sink_AP of functional-complexes  specializes AP 
+
+role Source_AP of functional-complexes  specializes AP 
+
+relator Source_AP_Binding
+
+role FT_So_Input__So_AP_Binded of functional-complexes  specializes Flow_Termination_Source_Input {
+    @componentOf 
+    [1] -- [1] Flow_Termination_Source 
+}
+
+role A_So_Output__So_AP_Binding of functional-complexes  specializes Adaptation_Source_Output {
+    @componentOf 
+    [1] -- [1] Adaptation_Source 
+}
+

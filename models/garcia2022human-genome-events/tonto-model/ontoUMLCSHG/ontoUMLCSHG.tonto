@@ -1,0 +1,66 @@
+
+package ontoUMLCSHG
+
+category biological_entity of functional-complexes {
+    id: string_  
+    name: string_  
+    description: string_  
+    creation_: undefined  
+}
+
+historicalRoleMixin Entity_in_process of functional-complexes  specializes biological_entity 
+
+historicalRoleMixin output of functional-complexes  specializes Entity_in_process {
+    @participation 
+    [1] -- [1..*] participation_in_biological_event 
+    @instantiation 
+    [*] -- [1..*] role_in_biological_event 
+}
+
+historicalRoleMixin input of functional-complexes  specializes Entity_in_process {
+    @participation 
+    [1] -- [1..*] participation_in_biological_event 
+    @instantiation 
+    [*] -- [1..*] role_in_biological_event 
+}
+
+historicalRoleMixin regulator of functional-complexes  specializes Entity_in_process {
+    @participation 
+    [1] -- [1..*] participation_in_biological_event 
+    @instantiation 
+    [*] -- [1..*] role_in_biological_event 
+}
+
+event process_ specializes biological_event {
+    @historicalDependence 
+    [*] -- [*] biological_event 
+}
+
+event biological_event specializes event_ {
+    id: int  
+    type_: string_  
+    name: string_  
+    start: undefined  
+    end: undefined  
+}
+
+event pathway specializes biological_event {
+    @historicalDependence 
+    [*] -- [*] biological_event 
+}
+
+phaseMixin degraded_entity of functional-complexes  specializes biological_entity 
+
+phaseMixin active_entity of functional-complexes  specializes biological_entity 
+
+event event_{
+    start: undefined  
+    end: undefined  
+}
+
+event participation_in_biological_event specializes event_ 
+
+type role_in_biological_event
+
+datatype string_
+datatype int

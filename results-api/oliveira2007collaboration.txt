@@ -1,0 +1,41 @@
+Validating...
+- Total of errors: 2
+Could not create relation named ((No name)) between Objective and PriorityLevel because one or both of them was not created.
+Could not create relation named ((No name)) between Objective and PriorityLevel because one or both of them was not created.
+[error] Not unique class stereotype:
+The class Participation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class CollaborativeAction must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class RealSite must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class VirtualSite must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Not unique class stereotype:
+The class Send must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Receive must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class VerbalLanguage must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class NonVerbalLanguage must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Not unique class stereotype:
+The class Participation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class CollaborativeAction must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of CollaborativeAction are not among the allowed ontological natures of its superclass Participation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of CollaborativeAction are not among the allowed ontological natures of its superclass Participation
+[error] Not unique class stereotype:
+The class Send must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Receive must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Send are not among the allowed ontological natures of its superclass Participation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Receive are not among the allowed ontological natures of its superclass Participation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Send are not among the allowed ontological natures of its superclass Participation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Receive are not among the allowed ontological natures of its superclass Participation
+Validation finished

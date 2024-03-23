@@ -1,17 +1,9 @@
-import UFOC
-import OntoEmergePlan
 
 package UFOB
 
-category Complex_Event 
-type Plan_Action_Universal {
-    @formal
-    [1] -- based_on --  [0..*]  Closed_Commitment
-}
-category Situation_Individual {
-    @formal
-     [1..*] -- satisfies --  [1..*]  EP_Main_Goal
-    @formal
-    [1] -- creates -- [1]  Protection_Action
-}
+category Complex_Event of functional-complexes 
+
+type Plan_Action_Universal
+
+category Situation_Individual of functional-complexes 
 

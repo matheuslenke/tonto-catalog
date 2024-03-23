@@ -1,9 +1,16 @@
+import Common_Ontology_of_Value_and_Risk
+
 package UFOA
 
-category Endurant 
-category Substantial  specializes Endurant
-category Trope 
-category Quality  specializes Trope
-category Mode  specializes Trope
-category Relator 
+category Endurant
+
+category Substantial specializes Endurant 
+
+category Trope
+
+category Quality of qualities  specializes Trope 
+
+category Mode specializes Trope 
+
+category Relator of relators 
 

@@ -1,0 +1,177 @@
+
+package ontology
+
+class Performed_Process
+
+class Performed_General_Process specializes Performed_Process 
+
+class Performed_Specific_Process specializes Performed_Process 
+
+class Stakeholder
+
+class Performed_Activity
+
+class Artifact
+
+class Team_Stakeholder specializes Stakeholder {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+class Person_Stakeholder specializes Stakeholder {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+class Performed_Composite_Activity specializes Performed_Activity {
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+class Performed_Simple_Activity specializes Performed_Activity {
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+class Simple_Artifact specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Composite_Artifact specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Software_Product specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Software_Item specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Document specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Model specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Information_Item specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Project_Manager specializes Person_Stakeholder {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+role Quality_Auditor specializes Person_Stakeholder {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+event Quality_Assurance_Process specializes Performed_Specific_Process 
+
+event Quality_Assurance_Planning specializes Performed_Composite_Activity {
+    [0..*] -- [2..*] Performed_Activity 
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+event Adherence_Evaluation specializes Performed_Composite_Activity {
+    [0..*] -- [2..*] Performed_Activity 
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+class Project_Team specializes Team_Stakeholder {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+role Noncompliance_Responsible specializes Person_Stakeholder {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+event Noncompliance_Control specializes Performed_Composite_Activity {
+    [0..*] -- [2..*] Performed_Activity 
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+event Noncompliance_Resolution specializes Performed_Simple_Activity {
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+event Noncompliance_Closing specializes Performed_Simple_Activity {
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+event Noncompliance_Identification specializes Performed_Simple_Activity {
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+event Process_Evaluation specializes Performed_Simple_Activity {
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+event Artifact_Evaluation specializes Performed_Simple_Activity {
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+}
+
+class Project_Plan specializes Document {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+subkind Quality_Assurance_Plan specializes Document {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+subkind Evaluation_Report specializes Document {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+role Evaluated_Artifact specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+role Evaluated_Process specializes Performed_Process 
+
+subkind Noncompliance_Register specializes Information_Item {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Corrective_Action_Register specializes Information_Item {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+

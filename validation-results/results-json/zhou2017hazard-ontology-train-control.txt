@@ -1,0 +1,22 @@
+Total Errors: 20
+ 
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned

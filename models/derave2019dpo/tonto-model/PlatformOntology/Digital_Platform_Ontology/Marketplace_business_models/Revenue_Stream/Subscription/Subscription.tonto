@@ -1,0 +1,21 @@
+import PlatformOntology
+
+package Subscription
+
+subkind Subscription_Fee of intrinsic-modes  specializes Revenue_Stream {
+    [0..*] -- [1] Marketplace_Company 
+    [0..*] -- [1] Marketplace_Company 
+}
+
+event Subscription_Payment specializes Payment_Action {
+    [*] -- [*] Job_Fee 
+    @participation 
+    [1..*] -- performed_by -- [1] Platform_User 
+    @instantiation 
+    [0..*] -- [1] User_Action_Type 
+    [1..*] -- enables -- [1] Airbnb_Software 
+    [1] -- enables -- [1..*] Platform_Software 
+    @participation 
+    [1] -- enables -- [1..*] Platform_Software 
+}
+

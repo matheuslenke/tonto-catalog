@@ -1,0 +1,45 @@
+
+package guarino2016towards
+
+quality Perceived_value
+
+quality Theoretical_value
+
+relator Theoretical_valuation_relationship
+
+quality Cost_value
+
+quality Benefit_value
+
+relator Costspecific_valuation
+
+relator Benefitspecific_valuation
+
+roleMixin Value_Object of functional-complexes 
+
+category Agent of functional-complexes 
+
+relator Context_involvement_relationship
+
+mixin Context of functional-complexes 
+
+quality Desire
+
+quality VOs_quality
+
+role VOs_nonfunctional_quality of qualities  specializes VOs_quality {
+    @characterization 
+    [1..*] -- [1] Value_Object 
+}
+
+role VOs_functional_quality of qualities  specializes VOs_quality {
+    @characterization 
+    [1..*] -- [1] Value_Object 
+}
+
+category Quality_domain of functional-complexes 
+
+category Object_kind of functional-complexes 
+
+quality Preference
+

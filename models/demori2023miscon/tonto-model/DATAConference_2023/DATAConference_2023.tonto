@@ -1,0 +1,92 @@
+
+package DATAConference_2023
+
+kind MilitaryOrganization
+
+role CommDeviceOperator of functional-complexes  specializes MilitaryPerson {
+    @material 
+    [1..*] -- [1] MilitaryOrganization 
+}
+
+kind CommDevice specializes OperationalElement 
+
+role MilitaryPerson of functional-complexes  specializes OperationalElement, Person 
+
+relator MilitaryEmployment
+
+kind WirelessNetwork
+
+role Subordinate of functional-complexes  specializes MilitaryOrganization {
+     -- hasMOPowerType --  MilitaryOrganizationPowerType 
+}
+
+role Commander of functional-complexes  specializes MilitaryOrganization {
+     -- hasMOPowerType --  MilitaryOrganizationPowerType 
+}
+
+mixin CommDeviceCarrier of functional-complexes 
+
+category MilitaryPlatform of functional-complexes  specializes CommDeviceCarrier, OperationalElement {
+     -- carries --  CommDevice 
+}
+
+category Armored of functional-complexes  specializes Vehicle {
+     -- belongsTo --  MilitaryOrganization 
+     -- carries --  CommDevice 
+}
+
+kind MilitaryOrganizationPowerType
+
+kind Interface
+
+kind InterfacePowerType
+
+mode DataTransferMethod
+
+category OperationalElement of functional-complexes 
+
+role HierarchicallyEquivalentDuringCommunication of functional-complexes  specializes MilitaryOrganization {
+     -- hasMOPowerType --  MilitaryOrganizationPowerType 
+}
+
+category Vehicle of functional-complexes  specializes MilitaryPlatform {
+     -- belongsTo --  MilitaryOrganization 
+     -- carries --  CommDevice 
+}
+
+role MilitaryPersonAsPassenger of functional-complexes  specializes MilitaryPerson {
+    @material 
+    [1..*] -- [1] MilitaryOrganization 
+}
+
+kind Person
+
+role MilitaryPersonAsCarrier of functional-complexes  specializes CommDeviceCarrier, MilitaryPerson {
+     -- carries --  CommDevice 
+    @material 
+    [1..*] -- [1] MilitaryOrganization 
+}
+
+kind Guarani specializes Armored {
+     -- belongsTo --  MilitaryOrganization 
+     -- carries --  CommDevice 
+}
+
+kind AccessPoint
+
+quality Range
+
+quality AntennaGain
+
+quality AmphibiousSpeed
+
+quality Frequency
+
+quality Txpower
+
+quality MinSpeed
+
+quality VisibilityRange
+
+quality MaxSpeedLand
+

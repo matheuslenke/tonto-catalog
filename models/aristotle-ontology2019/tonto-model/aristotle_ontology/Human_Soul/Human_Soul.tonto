@@ -2,22 +2,27 @@ import aristotle_ontology
 
 package Human_Soul
 
-subkind BeforeAfterInTime  specializes BeforeAfter{
-    @characterization
-    [1] -- [1]  Time( {const } )
+subkind BeforeAfterInTime of intrinsic-modes  specializes BeforeAfter 
+
+phase Future of quantities  specializes Time {
+    mode_: undefined  
+    @participation 
+    [1] -- [1] Change 
 }
-phase Future  specializes Time{
-    mode_ : undefined
+
+phase Past of quantities  specializes Time {
+    mode_: undefined  
+    @participation 
+    [1] -- [1] Change 
 }
-phase Past  specializes Time{
-    mode_ : undefined
+
+quantity Number
+
+phase Present of quantities  specializes Time {
+    mode_: undefined  
+    @participation 
+    [1] -- [1] Change 
 }
-quantity Number 
-phase Present  specializes Time{
-    mode_ : undefined
-}
-subkind Time  specializes Number{
-    @participation
-    ( {const } )[1] -- [1]  Change
-}
+
+subkind Time of quantities  specializes Number 
 

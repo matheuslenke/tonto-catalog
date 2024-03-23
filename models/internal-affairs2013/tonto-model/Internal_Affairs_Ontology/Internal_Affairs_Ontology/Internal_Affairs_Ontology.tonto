@@ -1,239 +1,254 @@
+
 package Internal_Affairs_Ontology
 
-subkind Composed  specializes system
-subkind organization  specializes Composed{
-    @formal
-    [1] -- arePartOf -- [1]  organizationalPart
+subkind Composed of functional-complexes  specializes system {
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-subkind organizationalPart  specializes Composed
-subkind Atomic  specializes system
-subkind individual  specializes Atomic{
-    @memberOf
-     [2..*]  --<o>  [1..*]  team
-    @componentOf
-     [2..*]  --<o> [1]  organization
+
+subkind organization of functional-complexes  specializes Composed {
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-collective team 
-kind system {
-    @material
-     [1..*] -- abides --  [1..*]  norm
+
+subkind organizationalPart of functional-complexes  specializes Composed {
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-relator phenomenon {
-    @mediation
-     [1..*] -- subsume -- [1]  norm( {const } )
-    @mediation
-     [1..*] -- [1]  system( {const } )
-    @derivation
-    [1] -- [1]  generates
+
+subkind Atomic of functional-complexes  specializes system {
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-relator commitment {
-    @mediation
-     [1..*] -- [1]  system( {const } )
-    @mediation
-     [1..*] -- [1]  norm( {const } )
-    @derivation
-    [1] -- [1]  abides
+
+subkind individual of functional-complexes  specializes Atomic {
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-kind norm {
-    @material
-    [1] -- generates -- [1]  system
+
+collective team
+
+kind system
+
+relator phenomenon
+
+relator commitment
+
+kind norm
+
+role major_premisse of functional-complexes  specializes norm {
+    @material 
+    [1] -- generates -- [1] system 
 }
-role major_premisse  specializes norm
-relator applicationNorm {
-    @mediation
-     [1..*] -- [1]  conclusion( {const } )
-    @mediation
-     [1..*] -- [1]  secondary_premisse( {const } )
-    @mediation
-     [1..*] -- [1]  major_premisse( {const } )
+
+relator applicationNorm
+
+role secondary_premisse of functional-complexes  specializes facto 
+
+kind facto
+
+kind sanction
+
+role conclusion of functional-complexes  specializes sanction 
+
+subkind penalty of functional-complexes  specializes sanction 
+
+subkind reward of functional-complexes  specializes sanction 
+
+role civil of functional-complexes  specializes individual {
+    @memberOf 
+    [2..*] -- [1..*] team 
+    @componentOf 
+    [2..*] -- [1] organization 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role secondary_premisse  specializes facto
-kind facto 
-kind sanction 
-role conclusion  specializes sanction
-subkind penalty  specializes sanction
-subkind reward  specializes sanction
-role civil  specializes individual{
-    @material
-     [1..*] -- [1]  civilServiceUnit
+
+relator civilCommitment
+
+role civilServiceUnit of functional-complexes  specializes policeIAD {
+    @formal 
+    [1] -- arePartOf -- [1] organizationalPart 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-relator civilCommitment {
-    @mediation
-     [1..*] -- [1]  civilServiceUnit( {const } )
-    @mediation
-    [1] -- [1]  civil( {const } )
-    @derivation
-    [1] -- [1]  
+
+subkind policeIAD of functional-complexes  specializes internalAffairDepartment {
+    @formal 
+    [1] -- arePartOf -- [1] organizationalPart 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role civilServiceUnit  specializes policeIAD
-subkind policeIAD  specializes internalAffairDepartment
-subkind internalAffairDepartment  specializes organization
-subkind section  specializes organizationalPart{
-    @formal
-     [1..*] -- arePartOfPoliceIAD -- [1]  policeIAD
+
+subkind internalAffairDepartment of functional-complexes  specializes organization {
+    @formal 
+    [1] -- arePartOf -- [1] organizationalPart 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-subkind registry  specializes organizationalPart{
-    @formal
-     [0..1] -- isPartOf -- [1]  section
+
+subkind section of functional-complexes  specializes organizationalPart {
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role commandUnit  specializes policeIAD{
-    @material
-     [1..*] --  [1..*]  generalInspector
+
+subkind registry of functional-complexes  specializes organizationalPart {
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-relator command {
-    @mediation
-     [1..*] -- [1]  commandUnit( {const } )
-    @mediation
-    [1] -- [1]  generalInspector( {const } )
-    @derivation
-    [1] -- [1]  
+
+role commandUnit of functional-complexes  specializes policeIAD {
+    @formal 
+    [1] -- arePartOf -- [1] organizationalPart 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role generalInspector  specializes military{
-    @material
-    [1] -- canSubstitute -- [1]  viceInspector
+
+relator command
+
+role generalInspector of functional-complexes  specializes military {
+    @memberOf 
+    [2..*] -- [1..*] team 
+    @componentOf 
+    [2..*] -- [1] organization 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-relator substitution {
-    @mediation
-     [1..*] -- [1]  generalInspector( {const } )
-    @mediation
-     [1..*] -- [1]  viceInspector( {const } )
-    @derivation
-    [1] -- [1]  canSubstitute
+
+relator substitution
+
+role viceInspector of functional-complexes  specializes military {
+    @memberOf 
+    [2..*] -- [1..*] team 
+    @componentOf 
+    [2..*] -- [1] organization 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role viceInspector  specializes military
-relator designationResponsabilitySection {
-    @mediation
-     [1..*] -- [1]  designatedSection( {const } )
-    @mediation
-     [1..*] -- [1]  sectionResponsible( {const } )
-    @derivation
-    [1] -- [1]  
+
+relator designationResponsabilitySection
+
+role serviceUnit of functional-complexes  specializes policeIAD {
+    @formal 
+    [1] -- arePartOf -- [1] organizationalPart 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role serviceUnit  specializes policeIAD{
-    @material
-     [1..*] --  [1..*]  military
+
+role military of functional-complexes  specializes individual {
+    @memberOf 
+    [2..*] -- [1..*] team 
+    @componentOf 
+    [2..*] -- [1] organization 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role military  specializes individual
-relator militaryCommitment {
-    @mediation
-     [1..*] -- [1]  serviceUnit( {const } )
-    @mediation
-    [1] -- [1]  military( {const } )
-    @derivation
-    [1] -- [1]  
+
+relator militaryCommitment
+
+role designatedSection of functional-complexes  specializes section {
+    @formal 
+    [1..*] -- arePartOfPoliceIAD -- [1] policeIAD 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role designatedSection  specializes section{
-    @material
-     [1..*] -- [1]  sectionResponsible
+
+role sectionResponsible of functional-complexes  specializes military {
+    @memberOf 
+    [2..*] -- [1..*] team 
+    @componentOf 
+    [2..*] -- [1] organization 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role sectionResponsible  specializes military
-role registryResponsible  specializes military
-relator designationResponsabilityRegistry {
-    @mediation
-     [1..*] -- [1]  designatedRegistry( {const } )
-    @mediation
-     [1..*] -- [1]  registryResponsible( {const } )
-    @derivation
-    [1] -- [1]  
+
+role registryResponsible of functional-complexes  specializes military {
+    @memberOf 
+    [2..*] -- [1..*] team 
+    @componentOf 
+    [2..*] -- [1] organization 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-role designatedRegistry  specializes registry{
-    @material
-     [1..*] --  [1..*]  registryResponsible
+
+relator designationResponsabilityRegistry
+
+role designatedRegistry of functional-complexes  specializes registry {
+    @formal 
+    [0..1] -- isPartOf -- [1] section 
+    @material 
+    [1..*] -- abides -- [1..*] norm 
 }
-relator action {
-    @mediation
-     [1..*] -- [1]  individual( {const } )
-    @mediation
-     [1..*] -- [1]  activity( {const } )
-    @mediation
-    [1] -- [1]  document( {const } )
+
+relator action
+
+kind activity
+
+subkind create of functional-complexes  specializes activity 
+
+subkind update of functional-complexes  specializes activity 
+
+subkind delete_ of functional-complexes  specializes activity 
+
+subkind search of functional-complexes  specializes activity 
+
+kind document
+
+collective keywordSet
+
+kind keyword
+
+kind subject
+
+kind content
+
+kind title
+
+kind attachment
+
+kind destiny
+
+subkind message of functional-complexes  specializes document {
+    @formal 
+    [0..*] -- isRelated -- [0..*] document 
+    @formal 
+    [1..*] -- isPartOfDoc2 -- [1] keywordSet 
+    @formal 
+    [1] -- isPartOfDoc -- [0..1] title 
 }
-kind activity 
-subkind create  specializes activity
-subkind update  specializes activity
-subkind delete  specializes activity
-subkind search  specializes activity
-kind document {
-    @formal
-     [0..*] -- isRelated --  [0..*]  document
-    @formal
-     [1..*] -- isPartOfDoc2 -- [1]  keywordSet
-    @formal
-    [1] -- isPartOfDoc --  [0..1]  title
+
+subkind experience of functional-complexes  specializes document {
+    @formal 
+    [0..*] -- isRelated -- [0..*] document 
+    @formal 
+    [1..*] -- isPartOfDoc2 -- [1] keywordSet 
+    @formal 
+    [1] -- isPartOfDoc -- [0..1] title 
 }
-collective keywordSet 
-kind keyword {
-    @memberOf
-     [2..5]  --<o>  [1..*]  keywordSet
+
+kind source
+
+phase public_ of functional-complexes  specializes document {
+    @formal 
+    [0..*] -- isRelated -- [0..*] document 
+    @formal 
+    [1..*] -- isPartOfDoc2 -- [1] keywordSet 
+    @formal 
+    [1] -- isPartOfDoc -- [0..1] title 
 }
-kind subject {
-    @componentOf
-    [1]  --<o> [1]  document
+
+phase personal of functional-complexes  specializes document {
+    @formal 
+    [0..*] -- isRelated -- [0..*] document 
+    @formal 
+    [1..*] -- isPartOfDoc2 -- [1] keywordSet 
+    @formal 
+    [1] -- isPartOfDoc -- [0..1] title 
 }
-kind content {
-    @componentOf
-    [1]  --<o> [1]  document
-}
-kind title 
-kind attachment {
-    @componentOf
-     [0..*]  --<o> [1]  message
-}
-kind destiny {
-    @componentOf
-     [1..*]  --<o> [1]  message
-}
-subkind message  specializes document
-subkind experience  specializes document
-kind source {
-    @componentOf
-    [1]  --<o> [1]  message
-}
-phase public  specializes document{
-    @memberOf
-     [2..*]  --<o> [1]  organizationalBase
-}
-phase personal  specializes document{
-    @memberOf
-     [2..*]  --<o> [1]  individualBase
-}
-phase organizationalBase  specializes base
-phase individualBase  specializes base
-collective base 
-complete genset GSComposed{
-    general Composed
-    specifics organization, organizationalPart 
-}
-complete genset GSSystem{
-    general system
-    specifics Atomic, Composed 
-}
-complete genset GSSanction{
-    general sanction
-    specifics penalty, reward 
-}
-genset GSOrgPart{
-    general organizationalPart
-    specifics section, registry 
-}
-complete genset GSIndividual{
-    general individual
-    specifics civil, military 
-}
-complete genset GSActivity{
-    general activity
-    specifics search, create, delete, update 
-}
-genset GSDocType{
-    general document
-    specifics experience, message 
-}
-complete genset GSDoc{
-    general document
-    specifics personal, public 
-}
-complete genset GSBase{
-    general base
-    specifics individualBase, organizationalBase 
-}
+
+phase organizationalBase of collectives  specializes base 
+
+phase individualBase of collectives  specializes base 
+
+collective base
 

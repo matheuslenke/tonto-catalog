@@ -1,19 +1,46 @@
-import Equipment
+import Unified_Transport_Network__v23
 
 package Switch_OTN
 
-subkind Switch_OTN  specializes Equipment
-subkind Module_Switch_OTN  specializes Module{
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Switch_OTN( {const } )
+subkind Switch_OTN of functional-complexes  specializes Equipment 
+
+subkind Module_Switch_OTN of functional-complexes  specializes Module {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-subkind CIC  specializes Module_Switch_OTN
-subkind NIC  specializes Module_Switch_OTN
-subkind ODU_Switch  specializes Module_Switch_OTN
-subkind WSS  specializes Module_Switch_OTN
-subkind OIC  specializes Module_Switch_OTN
-disjoint complete genset CGW8kn6AUAgInB0t{
-    general Module_Switch_OTN
-    specifics CIC, WSS, ODU_Switch, OIC, NIC 
+
+subkind CIC of functional-complexes  specializes Module_Switch_OTN {
+    @componentOf 
+    [1..*] -- [1] Switch_OTN 
+    @componentOf 
+    [1..*] -- [1] Equipment 
+}
+
+subkind NIC of functional-complexes  specializes Module_Switch_OTN {
+    @componentOf 
+    [1..*] -- [1] Switch_OTN 
+    @componentOf 
+    [1..*] -- [1] Equipment 
+}
+
+subkind ODU_Switch of functional-complexes  specializes Module_Switch_OTN {
+    @componentOf 
+    [1..*] -- [1] Switch_OTN 
+    @componentOf 
+    [1..*] -- [1] Equipment 
+}
+
+subkind WSS of functional-complexes  specializes Module_Switch_OTN {
+    @componentOf 
+    [1..*] -- [1] Switch_OTN 
+    @componentOf 
+    [1..*] -- [1] Equipment 
+}
+
+subkind OIC of functional-complexes  specializes Module_Switch_OTN {
+    @componentOf 
+    [1..*] -- [1] Switch_OTN 
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
 

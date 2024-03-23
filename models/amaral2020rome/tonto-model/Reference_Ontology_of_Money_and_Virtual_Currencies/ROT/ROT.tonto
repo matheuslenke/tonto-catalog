@@ -1,14 +1,5 @@
-import UFOC
-import ROME
 
 package ROT
 
-mode Institutionbased_Trust {
-    @characterization
-     [1..*] -- inheres_in -- [1]  Agent( {const } )
-    @externalDependence
-     [1..*] -- externaly_dependent_on --  [1..*]  Monetary_System( {const } )
-    @externalDependence
-     [1..*] -- [1]  Virtual_Currency_System( {const } )
-}
+mode Institutionbased_Trust
 

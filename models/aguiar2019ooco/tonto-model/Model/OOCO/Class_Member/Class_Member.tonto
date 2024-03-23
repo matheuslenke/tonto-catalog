@@ -1,67 +1,78 @@
+import Model
 import Class
 import Core
 
 package Class_Member
 
-subkind Method_Variable  specializes Variable
-subkind Overridable_Method  specializes Method_Member_Function{
-    @componentOf
-     [0..*]  --<o> [1]  Extendable_Class
+subkind Method_Variable of functional-complexes  specializes Variable 
+
+subkind Overridable_Method of functional-complexes  specializes Method_Member_Function {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-subkind NonOverridable_Method  specializes Method_Member_Function
-subkind Class_Method  specializes NonOverridable_Method, Concrete_Method
-subkind Instance_Method  specializes Concrete_Method
-subkind Abstract_Method  specializes Overridable_Method, Method_Member_Function{
-    @componentOf
-     [0..*]  --<o> [1]  Abstract_Class
+
+subkind NonOverridable_Method of functional-complexes  specializes Method_Member_Function {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-subkind Concrete_Method  specializes Method_Member_Function
-subkind Generic_Method  specializes Method_Member_Function
-subkind Class_Variable  specializes Attribute_Member_Variable
-subkind Instance_Variable  specializes Attribute_Member_Variable
-subkind Parameter_Variabe  specializes Method_Variable{
-    @componentOf
-    ( {ordered } ) [0..*]  --<o> [1]  Method_Member_Function
+
+subkind Class_Method of functional-complexes  specializes NonOverridable_Method, Concrete_Method {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-subkind Local_Variable  specializes Method_Variable{
-    @componentOf
-     [0..*]  --<o> [1]  Block
+
+subkind Instance_Method of functional-complexes  specializes Concrete_Method {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-kind Type_Parameter {
-    @componentOf
-     [1..*]  --<o> [1]  Generic_Method
+
+subkind Abstract_Method of functional-complexes  specializes Overridable_Method, Method_Member_Function {
+    @componentOf 
+    [0..*] -- [1] Extendable_Class 
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-kind Block {
-    @componentOf
-    [1]  --<o> [1]  Concrete_Method
-    @componentOf
-     [0..*]  --<o>  [0..1]  Block
+
+subkind Concrete_Method of functional-complexes  specializes Method_Member_Function {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-subkind Constructor_Method  specializes NonOverridable_Method, Instance_Method
-subkind Destructor_Method  specializes Instance_Method
-subkind Accessor_Method  specializes Instance_Method
-disjoint complete genset :Sharing{
-    general Attribute_Member_Variable
-    specifics Instance_Variable, Class_Variable 
+
+subkind Generic_Method of functional-complexes  specializes Method_Member_Function {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-disjoint complete genset nejYe36D.AAAAS9_{
-    general Method_Variable
-    specifics Parameter_Variabe, Local_Variable 
+
+subkind Class_Variable of functional-complexes  specializes Attribute_Member_Variable {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-disjoint complete genset :Override{
-    general Method_Member_Function
-    specifics Overridable_Method, NonOverridable_Method 
+
+subkind Instance_Variable of functional-complexes  specializes Attribute_Member_Variable {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-disjoint complete genset :Implementation{
-    general Method_Member_Function
-    specifics Concrete_Method, Abstract_Method 
+
+subkind Parameter_Variabe of functional-complexes  specializes Method_Variable 
+
+subkind Local_Variable of functional-complexes  specializes Method_Variable 
+
+kind Type_Parameter
+
+kind Block
+
+subkind Constructor_Method of functional-complexes  specializes NonOverridable_Method, Instance_Method {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-disjoint genset nub4e36D.AAAATB6{
-    general Instance_Method
-    specifics Destructor_Method, Constructor_Method, Accessor_Method 
+
+subkind Destructor_Method of functional-complexes  specializes Instance_Method {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-genset :Parametrization{
-    general Method_Member_Function
-    specifics Generic_Method 
+
+subkind Accessor_Method of functional-complexes  specializes Instance_Method {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
 

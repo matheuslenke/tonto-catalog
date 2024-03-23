@@ -1,41 +1,48 @@
+import junior2018obascid
+
 package Model
 
-enum ContributionType {
-}
-enum SourceType {
-}
-kind Concern {
-    @material
-     [0..*] -- isRelatedTo --  [0..*]  Concern
-}
-subkind NonFunctionalConcern  specializes Concern
-subkind FunctionalConcern  specializes Concern
-kind Keyword {
-    @componentOf
-    [*]  -- isKwOf --<o> [1]  Concern
-}
-kind Source {
-    st : SourceType [0..*] 
-    @componentOf
-    [*]  -- isSourceOf --<o> [1]  Concern
-}
-relator Relationship {
-    @mediation
-     [0..*] -- source -- [1]  Concern( {const } )
-    @mediation
-     [0..*] -- target -- [1]  Concern( {const } )
-}
-relator Dependency  specializes Relationship
-relator Contribution  specializes Relationship{
-    ct : ContributionType [0..*] 
-}
-relator Composition  specializes Relationship
-disjoint complete genset aW0Mm06GAqACHSH7{
-    general Relationship
-    specifics Dependency, Composition, Contribution 
-}
-disjoint complete genset 9zyMm06GAqACHSIK{
-    general Concern
-    specifics FunctionalConcern, NonFunctionalConcern 
+kind Concern
+
+subkind NonFunctionalConcern of functional-complexes  specializes Concern {
+    @material 
+    [0..*] -- isRelatedTo -- [0..*] Concern 
 }
 
+subkind FunctionalConcern of functional-complexes  specializes Concern {
+    @material 
+    [0..*] -- isRelatedTo -- [0..*] Concern 
+}
+
+kind Keyword
+
+kind Source{
+    st: SourceType [0..*] 
+}
+
+relator Relationship
+
+relator Dependency specializes Relationship {
+    @mediation 
+    [0..*] -- source -- [1] Concern 
+    @mediation 
+    [0..*] -- target -- [1] Concern 
+}
+
+relator Contribution specializes Relationship {
+    ct: ContributionType [0..*] 
+    @mediation 
+    [0..*] -- source -- [1] Concern 
+    @mediation 
+    [0..*] -- target -- [1] Concern 
+}
+
+relator Composition specializes Relationship {
+    @mediation 
+    [0..*] -- source -- [1] Concern 
+    @mediation 
+    [0..*] -- target -- [1] Concern 
+}
+
+enum ContributionType {}
+enum SourceType {}

@@ -1,0 +1,250 @@
+import Human
+
+package platoontology
+
+subkind Temperance of intrinsic-modes  specializes CardinalVirtue {
+    @characterization 
+    [1..4] -- [1] HumanSoul 
+}
+
+subkind Justice of intrinsic-modes  specializes CardinalVirtue {
+    @characterization 
+    [1..4] -- [1] HumanSoul 
+}
+
+subkind Courage of intrinsic-modes  specializes CardinalVirtue {
+    @characterization 
+    [1..4] -- [1] HumanSoul 
+}
+
+subkind Wisdom of intrinsic-modes  specializes CardinalVirtue {
+    @characterization 
+    [1..4] -- [1] HumanSoul 
+}
+
+mode CardinalVirtue
+
+kind Spirit
+
+kind Reason
+
+kind Appetite
+
+kind HumanSoul
+
+role Philosopherking of functional-complexes  specializes GuardianPerson {
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+kind NobleLie
+
+kind Education
+
+subkind StateProperty of functional-complexes  specializes Property 
+
+subkind PrivateProperty of functional-complexes  specializes Property 
+
+collective Family
+
+role ProducerPerson of functional-complexes  specializes Citizen {
+    sex: undefined  
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+role AuxiliaryPerson of functional-complexes  specializes Citizen {
+    sex: undefined  
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+role GuardianPerson of functional-complexes  specializes Citizen {
+    sex: undefined  
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+role Citizen of functional-complexes  specializes HumanBeing {
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+kind IdealCity
+
+mode Constitution
+
+collective Producers specializes Class 
+
+collective Auxiliaries specializes Class 
+
+collective Guardians specializes Class 
+
+mode PsychologicalConstitution
+
+subkind Tyrannical of intrinsic-modes  specializes PsychologicalConstitution {
+    motivation: undefined  
+    attribute: undefined  
+    @characterization 
+    [1] -- [1] HumanSoul 
+}
+
+subkind Democratic of intrinsic-modes  specializes PsychologicalConstitution {
+    motivation: undefined  
+    attribute: undefined  
+    @characterization 
+    [1] -- [1] HumanSoul 
+}
+
+subkind Oligarchic of intrinsic-modes  specializes PsychologicalConstitution {
+    motivation: undefined  
+    attribute: undefined  
+    @characterization 
+    [1] -- [1] HumanSoul 
+}
+
+subkind Timocratic of intrinsic-modes  specializes PsychologicalConstitution {
+    motivation: undefined  
+    @characterization 
+    [1] -- [1] HumanSoul 
+}
+
+subkind Aristocratic of intrinsic-modes  specializes PsychologicalConstitution {
+    motivation: undefined  
+    @characterization 
+    [1] -- [1] HumanSoul 
+}
+
+relator Being
+
+kind Particular{
+    name: string_  
+    composite: boolean_  
+    temporal: boolean_  
+    spatial: boolean_  
+    sensible: boolean_  
+}
+
+mode Good
+
+kind Essence
+
+category God of functional-complexes 
+
+kind Demiurge specializes God 
+
+subkind Universe of functional-complexes  specializes LivingThing {
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+kind WorldsBody
+
+subkind LivingThing of functional-complexes  specializes Particular {
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+subkind Earth of functional-complexes  specializes Element {
+    @componentOf 
+    [1..*] -- [1] HumanBody 
+    @componentOf 
+    [1..*] -- [1] WorldsBody 
+}
+
+subkind Fire of functional-complexes  specializes Element {
+    @componentOf 
+    [1..*] -- [1] HumanBody 
+    @componentOf 
+    [1..*] -- [1] WorldsBody 
+}
+
+subkind Water of functional-complexes  specializes Element {
+    @componentOf 
+    [1..*] -- [1] HumanBody 
+    @componentOf 
+    [1..*] -- [1] WorldsBody 
+}
+
+subkind Air of functional-complexes  specializes Element {
+    @componentOf 
+    [1..*] -- [1] HumanBody 
+    @componentOf 
+    [1..*] -- [1] WorldsBody 
+}
+
+kind WorldsSoul
+
+kind Sameness
+
+kind Receptacle
+
+kind Intellect
+
+subkind LesserGod of functional-complexes  specializes LivingThing, God {
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+kind Element
+
+subkind Isosceles of functional-complexes  specializes Triangle 
+
+subkind Scalene of functional-complexes  specializes Triangle 
+
+kind Triangle
+
+kind HeavenlyBody
+
+subkind Name of functional-complexes  specializes Particular {
+    language: string_  
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+subkind NameBearerObject of functional-complexes  specializes Particular {
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+relator Convention
+
+subkind SpecificFormOfTheName of functional-complexes  specializes Form {
+    @material 
+    [1] -- is_being -- [1] Essence 
+    @componentOf 
+    [1..*] -- [1..*] Particular 
+}
+
+phase PresentName of functional-complexes  specializes Name {
+    @material 
+    [1..*] -- [1] NameBearerObject 
+    [1..*] -- [1] SpecificFormOfTheName 
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+phase OriginalName of functional-complexes  specializes Name {
+    @material 
+    [1..*] -- [1] NameBearerObject 
+    [1..*] -- [1] SpecificFormOfTheName 
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
+}
+
+kind Form{
+    spatial: boolean_  { const }
+    name: string_  
+    composite: boolean_  { const }
+    temporal: boolean_  { const }
+    sensible: boolean_  
+}
+
+kind Difference
+
+kind Property
+
+relator Citiznship
+
+category Class of collectives 
+
+kind SensePerception
+
+kind Imagination
+
+kind Belief
+
+kind Thinking
+
+kind Recollection
+
+datatype string_
+datatype boolean_

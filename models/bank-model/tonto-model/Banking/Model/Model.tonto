@@ -1,63 +1,89 @@
+import Banking
+
 package Model
 
-subkind ATM  specializes Device
-relator Access {
-    @mediation
-     [1..*] -- [1]  Accessing_Device( {const } )
-    @mediation
-     [1..*] -- [1]  Accessed_Account( {const } )
+subkind ATM of functional-complexes  specializes Device 
+
+relator Access
+
+relator Accessed_Account specializes Account {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Client 
+    @mediation 
+    [1..*] -- mantains -- [1] Bank 
+    @derivation 
+    [1] -- [1] Client_Organization.has 
 }
-relator Accessed_Account  specializes Account
-role Accessing_Device  specializes Device{
-    @material
-     [1..*] -- access --  [1..*]  Accessed_Account
+
+role Accessing_Device of functional-complexes  specializes Device 
+
+relator Account
+
+relator Active_Account specializes Account {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Client 
+    @mediation 
+    [1..*] -- mantains -- [1] Bank 
+    @derivation 
+    [1] -- [1] Client_Organization.has 
 }
-relator Account {
-    @mediation
-     [1..*] -- belongs_to -- [1]  Client( {const } holder )
-    @mediation
-     [1..*] -- mantains -- [1]  Bank( {const } )
-    @derivation
-    [1] -- [1]  has
+
+subkind Bank of functional-complexes  specializes Organization 
+
+roleMixin Client of functional-complexes 
+
+role Client_Organization of functional-complexes  specializes Client, Organization {
+    @material 
+    [1..*] -- has -- [1..*] Bank 
 }
-relator Active_Account  specializes Account
-subkind Bank  specializes Organization
-roleMixin Client {
-    @material
-     [1..*] -- has --  [1..*]  Bank
+
+role Client_Person of functional-complexes  specializes Client, Person {
+    @material 
+    [1..*] -- has -- [1..*] Bank 
 }
-role Client_Organization  specializes Client, Organization
-role Client_Person  specializes Client, Person
-kind Device  specializes Spatial_Entity
-collective Group_of_Organizations 
-relator Inactive_Account  specializes Account
-mode Location {
-    latitude : undefined
-    longitude : undefined
-    @characterization
-    [1] -- [1]  Spatial_Entity( {const } )
+
+kind Device specializes Spatial_Entity 
+
+collective Group_of_Organizations
+
+relator Inactive_Account specializes Account {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Client 
+    @mediation 
+    [1..*] -- mantains -- [1] Bank 
+    @derivation 
+    [1] -- [1] Client_Organization.has 
 }
-subkind Mobile  specializes Device
-kind Organization 
-subkind Organization_Member  specializes Organization{
-    @memberOf
-     [2..*]  --<o> [1]  Group_of_Organizations
+
+mode Location{
+    latitude: undefined  
+    longitude: undefined  
 }
-subkind PC  specializes Device
-kind Person 
-category Spatial_Entity 
-relator Withdraw {
-    value_ : undefined
-    @mediation
-     [1..*] -- [1]  Withdrawing_ATM( {const } )
-    @mediation
-     [1..*] -- [1]  Withdrawed_Account( {const } )
-    @derivation
-    [1] -- [1]  withdraw_from
+
+subkind Mobile of functional-complexes  specializes Device 
+
+kind Organization
+
+subkind Organization_Member of functional-complexes  specializes Organization 
+
+subkind PC of functional-complexes  specializes Device 
+
+kind Person
+
+category Spatial_Entity of functional-complexes 
+
+relator Withdraw{
+    value_: undefined  
 }
-relator Withdrawed_Account  specializes Account
-role Withdrawing_ATM  specializes ATM{
-    @material
-     [1..*] -- withdraw_from --  [1..*]  Withdrawed_Account
+
+relator Withdrawed_Account specializes Account {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Client 
+    @mediation 
+    [1..*] -- mantains -- [1] Bank 
+    @derivation 
+    [1] -- [1] Client_Organization.has 
 }
+
+role Withdrawing_ATM of functional-complexes  specializes ATM 
 

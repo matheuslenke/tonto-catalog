@@ -1,0 +1,42 @@
+import Bias
+import Cognitive_Bias
+
+package Intuition_Deliberation_and_Decision
+
+mode Intention specializes Mental_Moment 
+
+mode Cognitive_Bias specializes Mental_Moment 
+
+event Action
+
+event Decision_Resulting_Action specializes Action {
+    @manifestation 
+    [*] -- [1] Intention 
+}
+
+role Decision of intrinsic-modes  specializes Intention {
+    @formal 
+    [*] -- is_satisfied_by -- [0..1] Situation 
+}
+
+mode Intuition specializes Mental_Moment 
+
+role Consequence of functional-complexes  specializes Situation {
+    @creation 
+    [1] -- [1] Action 
+}
+
+kind Situation
+
+event Choice specializes Action {
+    @manifestation 
+    [*] -- [1] Intention 
+}
+
+event Intuitive_Choice specializes Choice {
+    @creation 
+    [1] -- [1] Decision 
+    @manifestation 
+    [*] -- [1] Intention 
+}
+

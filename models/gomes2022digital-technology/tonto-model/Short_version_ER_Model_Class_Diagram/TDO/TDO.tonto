@@ -1,51 +1,61 @@
+import Short_version_ER_Model_Class_Diagram
 import UFO
+import Model
 
 package TDO
 
-collective Digital_Technology  specializes Technology
-collective Technology 
-category Technological_Object {
-    @participation
-    ( {const } ) [1..*] -- [1]  Technology
+collective Digital_Technology specializes Technology 
+
+collective Technology
+
+category Technological_Object of functional-complexes 
+
+category Object_Structure of functional-complexes 
+
+collective Community
+
+category Object_Function of functional-complexes 
+
+relator Technical_Identity_of_Object
+
+category Digital_Object of functional-complexes  specializes Technological_Object {
+    @participation 
+    [1..*] -- [1] Technology 
 }
-category Object_Structure 
-collective Community 
-category Object_Function 
-relator Technical_Identity_of_Object {
-    @mediation
-    [*] -- social_function -- [*]  Object_Function( {const } technical_Identity_of_Objects )
-     [0..1] -- nested --  [1..*]  Technical_Identity_of_Object
-    @mediation
-    [*] -- physical_form -- [*]  Object_Structure( {const } technical_Identity_of_Objects )
-    [*] -- mediates --  [2..*]  Object
-    [1] -- has --  [0..1]  Technology
+
+category Component_Part of functional-complexes  specializes Object {
+    [1] -- [1] Component_Part 
 }
-category Digital_Object  specializes Technological_Object{
-    @characterization
-     [1..*] --  [1..*]  Bitstring( {const } )
-     [0..1] --  [1..*]  Digital_Object
-    @participation
-    ( {const } ) [1..*] -- [1]  Digital_Technology
+
+category Data_File of functional-complexes  specializes Bitstring {
+    [0..1] -- bearer_of -- [1..*] Nonmaterial 
+    [1] -- [1] Component_Part 
 }
-category Component_Part  specializes Object{
-     [0..1] --  [1..*]  Component_Part
-     [1..*] -- is_structured_in --  [0..*]  Object_Structure
-    @characterization
-     [1..*] -- constitutes --  [0..*]  Technological_Object( {const } )
+
+category Program_File of functional-complexes  specializes Bitstring {
+    [0..1] -- bearer_of -- [1..*] Nonmaterial 
+    [1] -- [1] Component_Part 
 }
-category Data_File  specializes Bitstring
-category Program_File  specializes Bitstring
-category Bitstring  specializes Syntactic_Object
-category Syntactic_Object  specializes Nonmaterial
-category Hybrid  specializes Object{
-    [1] -- comprises_component --  [1..*]  Material
-    [1] -- comprises_component --  [1..*]  Nonmaterial
+
+category Bitstring of functional-complexes  specializes Syntactic_Object {
+    [0..1] -- bearer_of -- [1..*] Nonmaterial 
+    [1] -- [1] Component_Part 
 }
-category Material  specializes Object{
-     [1..*] -- bearer_of --  [0..1]  Nonmaterial
-    -- are_synonymous --  Physical_Object
+
+category Syntactic_Object of functional-complexes  specializes Nonmaterial {
+    [0..1] -- bearer_of -- [1..*] Nonmaterial 
+    [1] -- [1] Component_Part 
 }
-category Nonmaterial  specializes Object, Social_Object{
-     [0..1] -- bearer_of --  [1..*]  Nonmaterial
+
+category Hybrid of functional-complexes  specializes Object {
+    [1] -- [1] Component_Part 
+}
+
+category Material of functional-complexes  specializes Object {
+    [1] -- [1] Component_Part 
+}
+
+category Nonmaterial of functional-complexes  specializes Object, Social_Object {
+    [1] -- [1] Component_Part 
 }
 

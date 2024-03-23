@@ -1,100 +1,200 @@
+import ontology
+import DPO
 import RSRO
 import SPO
 
 package DPO
 
-event Design_Process  specializes Performed_Specific_Process{
-    [*] <o>-- [*]  Architectural_Design
-    [*] <o>-- [*]  Detailed_Design
-    [*] <o>-- [*]  Design_Documentation
-    [*] <o>-- [*]  Design_Evaluation
+event Design_Process specializes Performed_Specific_Process {
+    [1..*] -- [2..*] Performed_Activity 
 }
-role Software_Architect  specializes Stakeholder{
-    [*] -- is_in_charge_of -- [*]  Architectural_Design
-    [*] -- participates_in -- [*]  Design_Documentation
-    [*] -- participates_in -- [*]  Design_Evaluation
+
+role Software_Architect specializes Stakeholder {
+    @material 
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    @material 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
 }
-event Architectural_Design  specializes Performed_Composite_Activity{
-    [*] <o>-- [*]  Architecture_Development
-    [*] <o>-- [*]  Interface_Highlevel_Design
-    [*] <o>-- [*]  Data_Highlevel_Design
-    [*] -- uses -- [*]  Requirements_Document
+
+event Architectural_Design specializes Performed_Composite_Activity {
+    [0..*] -- [2..*] Performed_Activity 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Architecture_Development  specializes Performed_Simple_Activity{
-    [*] -- creates -- [*]  Software_Architecture
+
+event Architecture_Development specializes Performed_Simple_Activity {
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Interface_Highlevel_Design  specializes Performed_Simple_Activity{
-    [*] -- creates -- [*]  Interface_Specification
+
+event Interface_Highlevel_Design specializes Performed_Simple_Activity {
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Data_Highlevel_Design  specializes Performed_Simple_Activity{
-    [*] -- creates -- [*]  Data_Definitions
+
+event Data_Highlevel_Design specializes Performed_Simple_Activity {
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Detailed_Design  specializes Performed_Composite_Activity{
-    [*] <o>-- [*]  Component_Design
-    [*] <o>-- [*]  Component_Interface_Design
-    [*] <o>-- [*]  User_Inteface_Design
-    [*] <o>-- [*]  Data_Design
-    [*] -- uses -- [*]  Software_Architecture
-    [*] -- uses -- [*]  Requirements_Document
+
+event Detailed_Design specializes Performed_Composite_Activity {
+    [0..*] -- [2..*] Performed_Activity 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-role Designer  specializes Stakeholder{
-    [*] -- is_in_charge_of -- [*]  Detailed_Design
-    [*] -- participates_in -- [*]  Design_Documentation
-    [*] -- participates_in -- [*]  Design_Evaluation
+
+role Designer specializes Stakeholder {
+    @material 
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    @material 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
 }
-event Component_Design  specializes Performed_Simple_Activity{
-    [*] -- charges -- [*]  Architectural_Component
+
+event Component_Design specializes Performed_Simple_Activity {
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Component_Interface_Design  specializes Performed_Simple_Activity{
-    [*] -- changes -- [*]  Interface_Specification
+
+event Component_Interface_Design specializes Performed_Simple_Activity {
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event User_Inteface_Design  specializes Performed_Simple_Activity{
-    [*] -- creates -- [*]  User_Interface_Specification
+
+event User_Inteface_Design specializes Performed_Simple_Activity {
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Data_Design  specializes Performed_Simple_Activity{
-    [*] -- uses -- [*]  Data_Definitions
-    [*] -- creates -- [*]  Data_Model
+
+event Data_Design specializes Performed_Simple_Activity {
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Design_Documentation  specializes Performed_Composite_Activity{
-    [*] -- creates -- [*]  Design_Document
+
+event Design_Documentation specializes Performed_Composite_Activity {
+    [0..*] -- [2..*] Performed_Activity 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-event Design_Evaluation  specializes Performed_Composite_Activity{
-    [*] -- uses -- [*]  Design_Document
-    [*] -- creates -- [*]  Design_Evaluation_Document
-    [*] -- uses -- [*]  Requirements_Document
+
+event Design_Evaluation specializes Performed_Composite_Activity {
+    [0..*] -- [2..*] Performed_Activity 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    @material 
+    [0..1] -- creates -- [0..*] Artifact 
+    @material 
+    [0..*] -- changes -- [0..*] Artifact 
+    @material 
+    [0..*] -- uses -- [0..*] Artifact 
 }
-subkind Interface_Specification  specializes Information_Item
-subkind Architectural_Element {
-    [1] -- has --  [1..*]  Interface_Specification
+
+subkind Interface_Specification of functional-complexes  specializes Information_Item {
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
 }
-subkind Software_Architecture  specializes Model{
-    [1] <>--  [2..*]  Architectural_Element
+
+subkind Architectural_Element
+
+subkind Software_Architecture of functional-complexes  specializes Model {
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
 }
-subkind Data_Definitions  specializes Information_Item
-subkind Architectural_Component  specializes Architectural_Element{
-     [0..1] <o>--  [0..*]  Architectural_Component
+
+subkind Data_Definitions of functional-complexes  specializes Information_Item {
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
 }
-subkind Architectural_Connector  specializes Architectural_Element{
-     [1..*] -- conects --  [2..*]  Architectural_Component
+
+subkind Architectural_Component specializes Architectural_Element {
+    [1] -- has -- [1..*] Interface_Specification 
 }
-subkind Data_Model  specializes Model
-subkind Design_Document  specializes Document{
-    [*] -- depicts -- [*]  Data_Model
-    [*] -- depicts -- [*]  User_Interface_Specification
-    [*] -- depics -- [*]  Software_Architecture
+
+subkind Architectural_Connector specializes Architectural_Element {
+    [1] -- has -- [1..*] Interface_Specification 
 }
-subkind Design_Evaluation_Document  specializes Document
-subkind User_Interface_Specification  specializes Interface_Specification
-disjoint complete genset L9lnSf6GAqAAbwev{
-    general Performed_Process
-    specifics Performed_Specific_Process, Performed_General_Process 
+
+subkind Data_Model of functional-complexes  specializes Model {
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
 }
-disjoint complete genset mereological structure{
-    general Artifact
-    specifics Simple_Artifact, Composite_Artifact 
+
+subkind Design_Document of functional-complexes  specializes Document {
+    [0..*] -- describes -- [0..*] Artifact 
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
 }
-disjoint complete genset nature{
-    general Artifact
-    specifics Document, Software_Item, Information_Item, Model, Software_Product 
+
+subkind Design_Evaluation_Document of functional-complexes  specializes Document {
+    [0..*] -- describes -- [0..*] Artifact 
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+subkind User_Interface_Specification of functional-complexes  specializes Interface_Specification {
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
 }
 

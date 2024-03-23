@@ -1,49 +1,29 @@
+import ontology
 import UFO
 import COVER
 
 package Model
 
-event Player_Action {
-     [0..*] -- motivated_by -- [1]  Intention
-    @participational
-    ( {const } ) [2..*]  --<o> [1]  Action_Profile( {const } )
-}
-roleMixin Game_Player  specializes Agent{
-    @participation
-    ( {const } )[1] -- performs_action --  [0..*]  Player_Action
-}
-event Action_Profile  specializes Value_Event{
-    [1]  --<o>  [1..*]  Outcome
-}
-event Outcome  specializes Value_Experience
-relator Game {
-    @mediation
-     [1..*] -- participates --  [2..*]  Game_Player( {const } )
-    [1] -- involves --  [1..*]  Outcome
-}
-mode Unity_Value_Ascription {
-     [2..*]  --<o>  [1..*]  Utility
-    @characterization
-     [1..*] -- inheres_in -- [1]  Game_Player( {const } )
-    @externalDependence
-     [1..*] -- ext_dep_on --  [1..*]  Outcome( {const } )
-}
-mode Utility {
-    @characterization
-     [1..*] -- inheres_in -- [1]  Game_Player( {const } )
-}
-quality Utility_Value {
-    @characterization
-    [1] -- inheres_in -- [1]  Unity_Value_Ascription( {const } )
-}
-datatype Utility_Value_Magnitude
-situation Successful_Situation  specializes Resulting_Situation
-complete genset 4UYzsf6GAqAAbx0q{
-    general Value_Event
-    specifics Impact_Event, Trigger_Event 
-}
-complete genset nQSzsf6GAqAAbx1i{
-    general Impact_Event
-    specifics Loss_Event, Gain_Event 
+event Player_Action
+
+roleMixin Game_Player of functional-complexes  specializes Agent 
+
+event Action_Profile specializes Value_Event {
+    [2..*] -- [1..*] Value_Experience 
+    @bringsAbout 
+    [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
 }
 
+event Outcome specializes Value_Experience 
+
+relator Game
+
+mode Unity_Value_Ascription
+
+mode Utility
+
+quality Utility_Value
+
+situation Successful_Situation specializes Resulting_Situation 
+
+datatype Utility_Value_Magnitude

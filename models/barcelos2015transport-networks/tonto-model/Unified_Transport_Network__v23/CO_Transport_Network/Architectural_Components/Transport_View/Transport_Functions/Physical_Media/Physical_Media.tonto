@@ -1,25 +1,16 @@
-import Transport_Functions
-import Complementary_Categorizations
+import Unified_Transport_Network__v23
 
 package Physical_Media
 
-collective Aggregated_Physical_Media  specializes Physical_Media
-category Physical_Media  specializes Transport_Function
-role Physical_Media_Component  specializes Single_Physical_Media{
-    @memberOf
-     [2..*]  --<o> [1]  Aggregated_Physical_Media
-}
-kind Physical_Media_Input  specializes Input{
-    @componentOf
-    ( {const } isComposedPMI )[1]  --<o> [1]  Single_Physical_Media( {const } composeSPM )
-}
-kind Physical_Media_Output  specializes Output{
-    @componentOf
-    ( {const } isComposedPMO )[1]  --<o> [1]  Single_Physical_Media( {const } composeSPM )
-}
-kind Single_Physical_Media  specializes Physical_Media
-disjoint complete genset S29Hnb6GAqBwAUVF{
-    general Physical_Media
-    specifics Aggregated_Physical_Media, Single_Physical_Media 
-}
+collective Aggregated_Physical_Media specializes Physical_Media 
+
+category Physical_Media of functional-complexes  specializes Transport_Function 
+
+role Physical_Media_Component of functional-complexes  specializes Single_Physical_Media 
+
+kind Physical_Media_Input specializes Input 
+
+kind Physical_Media_Output specializes Output 
+
+kind Single_Physical_Media specializes Physical_Media 
 

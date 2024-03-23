@@ -1,0 +1,29 @@
+import Employment
+import Model
+
+package Booking
+
+relator Purchase
+
+relator Store
+
+relator Game
+
+relator Confirmation
+
+relator Instructor_confirmation
+
+phase Accepted of relators  specializes Instructor_confirmation {
+    @mediation 
+    [1..*] -- confirmed_by -- [1] Instructor 
+    @mediation 
+    [0..*] -- received_by -- [1] Instructor_Booking 
+}
+
+phase Cancelled of relators  specializes Instructor_confirmation {
+    @mediation 
+    [1..*] -- confirmed_by -- [1] Instructor 
+    @mediation 
+    [0..*] -- received_by -- [1] Instructor_Booking 
+}
+

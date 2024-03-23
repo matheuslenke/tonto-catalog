@@ -1,0 +1,41 @@
+Validating...
+- Total of errors: 2
+Warning: Could not create specialization between class Decision and 
+                undefined not found in context module KIPO)
+[error] Not unique class stereotype:
+The class Belief must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Intrinsic_Moment_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Participant must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Decision must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Assessor must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Ascription must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Risk must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Subject must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Experience must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Experience_Value_Asc must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Object_Value_Asc must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Value_Object must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Risk are not among the allowed ontological natures of its superclass Value
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Experience_Value_Asc are not among the allowed ontological natures of its superclass Value_Ascription
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Object_Value_Asc are not among the allowed ontological natures of its superclass Value_Ascription
+Validation finished

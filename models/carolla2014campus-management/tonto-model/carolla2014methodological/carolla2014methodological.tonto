@@ -1,0 +1,46 @@
+
+package carolla2014methodological
+
+kind Regulation
+
+role DegreeRegulation of functional-complexes  specializes Regulation 
+
+role VariationReg of functional-complexes  specializes Regulation 
+
+relator Deg_Reg
+
+kind Degree
+
+kind Subject
+
+kind Variant
+
+relator Var_Reg
+
+kind Phase
+
+role UpperPhase of functional-complexes  specializes Phase {
+    @componentOf 
+    [2..*] -- Var_Struct -- [1] Variant 
+}
+
+relator Sub_Phase
+
+role SubPhase of functional-complexes  specializes Phase {
+    @componentOf 
+    [2..*] -- Var_Struct -- [1] Variant 
+}
+
+role PhaseWithModule of functional-complexes  specializes Phase {
+    @componentOf 
+    [2..*] -- Var_Struct -- [1] Variant 
+}
+
+kind Module
+
+relator Module_Phase
+
+kind Element
+
+relator Element_Module
+

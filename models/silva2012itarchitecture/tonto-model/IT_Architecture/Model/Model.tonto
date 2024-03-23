@@ -1,183 +1,309 @@
+import IT_Architecture
+
 package Model
 
-category IT_Component {
-    @material
-     [0..*] -- Single_Point_of_Failure_removal --  [0..*]  Service_Continuity
-    ( {const } ) [1..*]  --<o> [1]  IT_Architecture( {const } )
+category IT_Component of functional-complexes 
+
+kind Site specializes IT_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-kind Site  specializes IT_Component
-category Platform  specializes IT_Component
-kind System  specializes IT_Component
-kind Data_Storage  specializes IT_Component
-kind Service_Continuity 
-relator Replication {
-    @mediation
-     [0..*] -- [1]  IT_Component( {const } )
-    @mediation
-     [0..*] -- [1]  Service_Continuity( {const } )
+
+category Platform of functional-complexes  specializes IT_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-category IT_Architecture 
-category ITSC_Component {
-    ( {const } ) [1..*]  --<o> [1]  Service_Continuity( {const } )
+
+kind System specializes IT_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-kind Site_Model  specializes ITSC_Component
-kind Data_Replication  specializes ITSC_Component
-category Resilient_Network  specializes ITSC_Component
-kind Location {
-    [1] -- Installed_in -- [1]  Site
+
+kind Data_Storage specializes IT_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-relator Installation {
-    [1] -- [1]  Site
-    [1] -- [1]  Location
+
+kind Service_Continuity
+
+relator Replication
+
+category IT_Architecture of functional-complexes 
+
+category ITSC_Component of functional-complexes 
+
+kind Site_Model specializes ITSC_Component {
+    [1..*] -- [1] Service_Continuity 
 }
-subkind Local  specializes Location
-subkind Remote  specializes Location
-role Online  specializes Site{
-    @material
-    [1] -- Suspension_of_Operation -- [1]  Offline
+
+kind Data_Replication specializes ITSC_Component {
+    [1..*] -- [1] Service_Continuity 
 }
-role Offline  specializes Site
-relator Incident {
-    @mediation
-    [1] -- [1]  Online( {const } )
-    @mediation
-    [1] -- [1]  Offline( {const } )
+
+category Resilient_Network of functional-complexes  specializes ITSC_Component {
+    [1..*] -- [1] Service_Continuity 
 }
-role Active  specializes Online, Site
-role Backup  specializes Offline, Site
-role Contingency  specializes Offline, Site
-role Passive  specializes Offline, Site
-category Replication_Technology {
-    ( {const } ) [1..*]  --<o> [1]  Data_Replication( {const } )
+
+kind Location
+
+relator Installation
+
+subkind Local of functional-complexes  specializes Location {
+    [1] -- Installed_in -- [1] Site 
 }
-kind Mirroring  specializes Replication_Technology
-kind Snapshot  specializes Replication_Technology
-kind Cluster  specializes Replication_Technology
-kind Appliance  specializes Replication_Technology
-kind RAID  specializes Replication_Technology
-subkind Synchronous  specializes Mirroring{
-    distance : undefined
+
+subkind Remote of functional-complexes  specializes Location {
+    [1] -- Installed_in -- [1] Site 
 }
-subkind Asynchronous  specializes Mirroring{
-    distance : undefined
+
+role Online of functional-complexes  specializes Site {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-subkind Local_Replication  specializes Data_Replication
-subkind Remote_Replication  specializes Data_Replication
-subkind Media_BackupRestore  specializes Data_Replication
-subkind DBMSbased  specializes Data_Replication
-subkind Applicationbased  specializes Data_Replication
-subkind Hostbased  specializes Data_Replication
-subkind Storagebased  specializes Data_Replication
-kind Network_Component  specializes Platform
-kind Cooling  specializes Platform
-kind Power  specializes Platform
-kind Warranty_And_Support  specializes Platform{
-    [1] -- maintenance_and_troubleshooting --  [1..*]  Computer_System
+
+role Offline of functional-complexes  specializes Site {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-kind Computer_System  specializes Platform{
-     [1..*] -- failure --  [1..*]  Monitoring
+
+relator Incident
+
+role Active of functional-complexes  specializes Online, Site {
+    @material 
+    [1] -- Suspension_of_Operation -- [1] Offline 
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-kind Monitoring  specializes Platform
-subkind Peripheral  specializes Computer_System
-subkind Dual_Network_Device  specializes Computer_System
-subkind Cooling_Fan  specializes Computer_System
-subkind Redundant_Power_Supply  specializes Computer_System
-subkind Dual_Power_Inlet  specializes Computer_System
-subkind Network_Provider  specializes Network_Component
-subkind Physical_Media  specializes Network_Component
-subkind Link  specializes Network_Component
-subkind Telecom_Asset  specializes Network_Component
-relator Appropriate_Level_of_Warranty {
-    [1] --  [1..*]  Warranty_And_Support
-    [1] --  [1..*]  Computer_System
+
+role Backup of functional-complexes  specializes Offline, Site {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-relator Warning {
-     [1..*] --  [1..*]  Computer_System
-     [1..*] -- [1]  Monitoring
+
+role Contingency of functional-complexes  specializes Offline, Site {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-subkind Monitoring_Software  specializes Monitoring
-subkind Management_Suite  specializes Monitoring
-subkind Power_Distributor  specializes Power{
-     [1..*] -- Power_failure --  [1..*]  UPS
+
+role Passive of functional-complexes  specializes Offline, Site {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-subkind Bank_of_Battery  specializes Power
-subkind Generator  specializes Power
-subkind UPS_Standby  specializes UPS
-subkind UPS_Online  specializes UPS
-relator Automatic_Switching {
-     [1..*] --  [1..*]  Power_Distributor
-     [1..*] --  [1..*]  UPS
+
+category Replication_Technology of functional-complexes 
+
+kind Mirroring specializes Replication_Technology {
+    [1..*] -- [1] Data_Replication 
 }
-kind UPS {
-    [1] --  [1..*]  Bank_of_Battery
-    [1] --  [1..*]  Generator
+
+kind Snapshot specializes Replication_Technology {
+    [1..*] -- [1] Data_Replication 
 }
-relator UPSBattery_Switching {
-    [1] -- [1]  UPS
-    [1] --  [1..*]  Bank_of_Battery
+
+kind Cluster specializes Replication_Technology {
+    [1..*] -- [1] Data_Replication 
 }
-relator UPSGenerator_Switching {
-    [1] --  [1..*]  Generator
-    [1] -- [1]  UPS
+
+kind Appliance specializes Replication_Technology {
+    [1..*] -- [1] Data_Replication 
 }
-disjoint complete genset EEODUn6GAqACBxPa{
-    general IT_Component
-    specifics Platform, System, Data_Storage, Site 
+
+kind RAID specializes Replication_Technology {
+    [1..*] -- [1] Data_Replication 
 }
-disjoint complete genset rF2TUn6GAqACBxcf{
-    general ITSC_Component
-    specifics Data_Replication, Resilient_Network, Site_Model 
+
+subkind Synchronous of functional-complexes  specializes Mirroring {
+    distance: undefined [1] 
+    [1..*] -- [1] Data_Replication 
 }
-disjoint complete genset HmqLUn6GAqACBxqA{
-    general Location
-    specifics Local, Remote 
+
+subkind Asynchronous of functional-complexes  specializes Mirroring {
+    distance: undefined [1] 
+    [1..*] -- [1] Data_Replication 
 }
-disjoint complete genset 8iVLUn6GAqACBxrm{
-    general Site
-    specifics Online, Offline 
+
+subkind Local_Replication of functional-complexes  specializes Data_Replication {
+    [1..*] -- [1] Service_Continuity 
 }
-disjoint complete genset SW8bUn6GAqACBxzp{
-    general Site
-    specifics Passive, Active, Backup, Contingency 
+
+subkind Remote_Replication of functional-complexes  specializes Data_Replication {
+    [1..*] -- [1] Service_Continuity 
 }
-complete genset uYM7Un6GAqACBx8S{
-    general Replication_Technology
-    specifics Appliance, Snapshot, RAID, Mirroring, Cluster 
+
+subkind Media_BackupRestore of functional-complexes  specializes Data_Replication {
+    [1..*] -- [1] Service_Continuity 
 }
-disjoint complete genset OLc7Un6GAqACBx8j{
-    general Mirroring
-    specifics Synchronous, Asynchronous 
+
+subkind DBMSbased of functional-complexes  specializes Data_Replication {
+    [1..*] -- [1] Service_Continuity 
 }
-complete genset fIS7Un6GAqACBx8w{
-    general Data_Replication
-    specifics Remote_Replication, Local_Replication 
+
+subkind Applicationbased of functional-complexes  specializes Data_Replication {
+    [1..*] -- [1] Service_Continuity 
 }
-complete genset ZPK7Un6GAqACBx87{
-    general Data_Replication
-    specifics Hostbased, DBMSbased, Applicationbased, Storagebased, Media_BackupRestore 
+
+subkind Hostbased of functional-complexes  specializes Data_Replication {
+    [1..*] -- [1] Service_Continuity 
 }
-disjoint complete genset o.bnUn6GAqACByL8{
-    general Platform
-    specifics Warranty_And_Support, Monitoring, Cooling, Network_Component, Computer_System, Power 
+
+subkind Storagebased of functional-complexes  specializes Data_Replication {
+    [1..*] -- [1] Service_Continuity 
 }
-disjoint complete genset l5iXUn6GAqACByOl{
-    general Network_Component
-    specifics Telecom_Asset, Physical_Media, Network_Provider, Link 
+
+kind Network_Component specializes Platform {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-disjoint complete genset 2YD3Un6GAqACByXU{
-    general Computer_System
-    specifics Dual_Network_Device, Cooling_Fan, Peripheral, Dual_Power_Inlet, Redundant_Power_Supply 
+
+kind Cooling specializes Platform {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-complete genset kkEPUn6GAqACByaL{
-    general Monitoring
-    specifics Monitoring_Software, Management_Suite 
+
+kind Power specializes Platform {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-disjoint complete genset TJrPUn6GAqACBzGJ{
-    general Power
-    specifics Generator, Power_Distributor, Bank_of_Battery 
+
+kind Warranty_And_Support specializes Platform {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
-disjoint complete genset IXbvUn6GAqACBzJ9{
-    general UPS
-    specifics UPS_Online, UPS_Standby 
+
+kind Computer_System specializes Platform {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
 }
+
+kind Monitoring specializes Platform {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Peripheral of functional-complexes  specializes Computer_System {
+    [1..*] -- failure -- [1..*] Monitoring 
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Dual_Network_Device of functional-complexes  specializes Computer_System {
+    [1..*] -- failure -- [1..*] Monitoring 
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Cooling_Fan of functional-complexes  specializes Computer_System {
+    [1..*] -- failure -- [1..*] Monitoring 
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Redundant_Power_Supply of functional-complexes  specializes Computer_System {
+    [1..*] -- failure -- [1..*] Monitoring 
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Dual_Power_Inlet of functional-complexes  specializes Computer_System {
+    [1..*] -- failure -- [1..*] Monitoring 
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Network_Provider of functional-complexes  specializes Network_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Physical_Media of functional-complexes  specializes Network_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Link of functional-complexes  specializes Network_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Telecom_Asset of functional-complexes  specializes Network_Component {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+relator Appropriate_Level_of_Warranty
+
+relator Warning
+
+subkind Monitoring_Software of functional-complexes  specializes Monitoring {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Management_Suite of functional-complexes  specializes Monitoring {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Power_Distributor of functional-complexes  specializes Power {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Bank_of_Battery of functional-complexes  specializes Power {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind Generator of functional-complexes  specializes Power {
+    @material 
+    [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
+    [1..*] -- [1] IT_Architecture 
+}
+
+subkind UPS_Standby of functional-complexes  specializes UPS {
+    [1] -- [1..*] Bank_of_Battery 
+    [1] -- [1..*] Generator 
+}
+
+subkind UPS_Online of functional-complexes  specializes UPS {
+    [1] -- [1..*] Bank_of_Battery 
+    [1] -- [1..*] Generator 
+}
+
+relator Automatic_Switching
+
+kind UPS
+
+relator UPSBattery_Switching
+
+relator UPSGenerator_Switching
 

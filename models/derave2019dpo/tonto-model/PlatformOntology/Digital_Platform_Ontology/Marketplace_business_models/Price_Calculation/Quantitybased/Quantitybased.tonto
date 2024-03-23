@@ -1,0 +1,17 @@
+import PlatformOntology
+
+package Quantitybased
+
+subkind Price_per_Quantity of intrinsic-modes  specializes Offering_Price {
+    [0..*] -- has -- [1] Listing 
+    [1] -- has -- [0..*] Time_Slot 
+    @subQuantityOf 
+    [1..*] -- used_in -- [0..*] Booking_Price 
+}
+
+mode Quantity
+
+subkind Available_Quantity of intrinsic-modes  specializes Quantity 
+
+subkind Booked_Quantity of intrinsic-modes  specializes Quantity 
+

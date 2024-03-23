@@ -1,45 +1,91 @@
+import ontology
 import UFOB
 
 package UFOC
 
-class Action_Universal_Plan {
-     [2..*]  --<o>  [0..*]  Complex_Action_Universal
+class Action_Universal_Plan
+
+class Normative_Description specializes Social_Object {
+    [*] -- instance_of -- [*] Object_Kind 
 }
-class Normative_Description  specializes Social_Object{
-     [0..*] -- recognized_by --  [1..*]  Social_Agent specializes Standard_Process_Definition_Document.recognized_by
+
+class Plan_Description specializes Normative_Description {
+    [0..*] -- recognized_by -- [1..*] Social_Agent 
+    [*] -- instance_of -- [*] Object_Kind 
 }
-class Plan_Description  specializes Normative_Description{
-     [0..1] -- describes --  [1..*]  Atomic_Action_Universal specializes Standard_Process_Definition_Document.describes
-     [0..1] -- describes --  [1..*]  Complex_Action_Universal specializes Method.describes
+
+class Atomic_Action_Universal specializes Action_Universal_Plan {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-class Atomic_Action_Universal  specializes Action_Universal_Plan
-class Complex_Action_Universal  specializes Action_Universal_Plan
-category Social_Agent  specializes Agent
-class Social_Role 
-class Object_Kind 
-class Social_Object  specializes Object
-class Intention  specializes Commitment
-class Commitment 
-class Closed_Commitment  specializes Commitment{
-     [0..*] -- based_on -- [1]  Action_Universal_Plan
+
+class Complex_Action_Universal specializes Action_Universal_Plan {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-category Agent 
-class Social_Relator 
-class Appointment  specializes Commitment
-class Action  specializes Event
-class Atomic_Action  specializes Action
-class Complex_Action  specializes Action
-class Object_Participation  specializes Participation{
-     [0..*] -- participation_of -- [1]  Object specializes Procedure_Participation.participation_of
+
+category Social_Agent of functional-complexes  specializes Agent 
+
+class Social_Role
+
+class Object_Kind
+
+class Social_Object specializes Object {
+    [*] -- instance_of -- [*] Object_Kind 
 }
-class Change  specializes Object_Participation
-class Creation  specializes Object_Participation
-class Usage  specializes Object_Participation
-class Object {
-    [*] -- instance_of -- [*]  Object_Kind
+
+class Intention specializes Commitment 
+
+class Commitment
+
+class Closed_Commitment specializes Commitment 
+
+category Agent of functional-complexes 
+
+class Social_Relator
+
+class Appointment specializes Commitment 
+
+class Action specializes Event {
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-class Agent_Participation  specializes Participation
-class Action_Contribution  specializes Agent_Participation
-kind Person  specializes Physical_Agent
-category Physical_Agent  specializes Agent
+
+class Atomic_Action specializes Action {
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+class Complex_Action specializes Action {
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+class Object_Participation specializes Participation {
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+class Change specializes Object_Participation {
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+class Creation specializes Object_Participation {
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+class Usage specializes Object_Participation {
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+class Object
+
+class Agent_Participation specializes Participation {
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+class Action_Contribution specializes Agent_Participation {
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+kind Person specializes Physical_Agent 
+
+category Physical_Agent of functional-complexes  specializes Agent 
 

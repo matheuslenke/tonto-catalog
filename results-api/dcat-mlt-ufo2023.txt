@@ -1,0 +1,29 @@
+Validating...
+- Total of errors: 16
+Could not create relation named ((No name)) between RelationRole and RelationRole_Value because one or both of them was not created.
+Could not create relation named ((No name)) between AttributionRole and Attribution_RoleValue because one or both of them was not created.
+[error] Not unique class stereotype:
+The class Individual must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class stOT must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class ndOT must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class _Relation_isOwner must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class exCOVID_19_Collection_Descriptor must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class exCOVID19_Hospital1_Item_Descriptor must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of dcatResource are not among the allowed ontological natures of its superclass Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of CataloguedResource_DescriptorType are not among the allowed ontological natures of its superclass stOT
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of dcatRelationship are not among the allowed ontological natures of its superclass stOT
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of dcatRole are not among the allowed ontological natures of its superclass stOT
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of dcatDistribution are not among the allowed ontological natures of its superclass Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of dcatCatalogRecord are not among the allowed ontological natures of its superclass Individual
+Validation finished

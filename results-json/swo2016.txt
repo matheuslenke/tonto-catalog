@@ -1,0 +1,33 @@
+Total Errors: 31
+ 
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values

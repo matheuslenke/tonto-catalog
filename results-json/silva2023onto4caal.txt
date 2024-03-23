@@ -1,0 +1,8 @@
+Total Errors: 6
+ 
+[error]: Not unique class stereotype
+[error]: Prohibited generalization: rigid/semi-rigid specializing an anti-rigid
+[error]: Prohibited generalization: rigid/semi-rigid specializing an anti-rigid
+[error]: Prohibited generalization: rigid/semi-rigid specializing an anti-rigid
+[error]: Prohibited generalization: rigid/semi-rigid specializing an anti-rigid
+[error]: Prohibited generalization: rigid/semi-rigid specializing an anti-rigid

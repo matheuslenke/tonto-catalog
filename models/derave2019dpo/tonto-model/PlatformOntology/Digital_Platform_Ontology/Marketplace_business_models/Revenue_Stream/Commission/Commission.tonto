@@ -1,0 +1,9 @@
+import PlatformOntology
+
+package Commission
+
+subkind Commission_Fee of intrinsic-modes  specializes Revenue_Stream {
+    [0..*] -- [1] Marketplace_Company 
+    [0..*] -- [1] Marketplace_Company 
+}
+

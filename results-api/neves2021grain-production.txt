@@ -1,0 +1,9 @@
+Validating...
+- Total of errors: 0
+Could not create relation named ((No name)) between Satellite_Images and TIFF because one or both of them was not created.
+Could not create relation named ((No name)) between Leaf_Wetting_Duration and Hoursday because one or both of them was not created.
+Could not create relation named ((No name)) between Air_Relative_Humidity and Percentage because one or both of them was not created.
+Could not create relation named ((No name)) between Accumulated_Precipitation and Milimeters because one or both of them was not created.
+Could not create relation named ((No name)) between Maximum_Temperature and Degrees_Celsius because one or both of them was not created.
+Could not create relation named ((No name)) between Minimum_Temperature and Degrees_Celsius because one or both of them was not created.
+Validation finished

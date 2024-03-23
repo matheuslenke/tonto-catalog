@@ -1,0 +1,6 @@
+Total Errors: 4
+ 
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values

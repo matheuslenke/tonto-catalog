@@ -1,32 +1,44 @@
+import ontology
 import UFOA
+import UFOB
 import UFOC
 
 package NFRQ
 
-class Hardgoal  specializes Goal
-class Softgoal  specializes Goal
-class Function {
-    [1] -- refers_to -- [1]  Functional_Requirement
+class Hardgoal specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
 }
-class NFR_Quality_Goal  specializes Goal{
-    [*] -- refers_to -- [1]  Quality_Universal
+
+class Softgoal specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
 }
-class Functional_Requirement  specializes Goal
-class Quality_Constraint  specializes NFR_Quality_Goal{
-    [*] -- requires_value_in -- [1]  Crisp_Quality_Region
+
+class Function
+
+class NFR_Quality_Goal specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
 }
-class Vague_NFR  specializes NFR_Quality_Goal
-class Gradable_NFR  specializes NFR_Quality_Goal{
-    [*] -- requires_value_in -- [1]  Gradable_Quality_Region
+
+class Functional_Requirement specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
 }
-class Crisp_Quality_Region  specializes Quality_Region
-class Gradable_Quality_Region  specializes Quality_Region
-disjoint genset A3L4F36GAqACBQcV{
-    general Goal
-    specifics Softgoal, Hardgoal 
+
+class Quality_Constraint specializes NFR_Quality_Goal {
+    [*] -- refers_to -- [1] Quality_Universal 
+    [1] -- propositional_content_of -- [1..*] Intention 
 }
-disjoint genset 6i1UF36GAqACBQlK{
-    general NFR_Quality_Goal
-    specifics Quality_Constraint, Vague_NFR, Gradable_NFR 
+
+class Vague_NFR specializes NFR_Quality_Goal {
+    [*] -- refers_to -- [1] Quality_Universal 
+    [1] -- propositional_content_of -- [1..*] Intention 
 }
+
+class Gradable_NFR specializes NFR_Quality_Goal {
+    [*] -- refers_to -- [1] Quality_Universal 
+    [1] -- propositional_content_of -- [1..*] Intention 
+}
+
+class Crisp_Quality_Region specializes Quality_Region 
+
+class Gradable_Quality_Region specializes Quality_Region 
 

@@ -1,53 +1,35 @@
+import OntoUML_Model_Repository
+
 package Human_Genome_Ontology
 
-collective Chromosome 
-collective Gene {
-    @subCollectionOf
-     [2..*]  --<o> [1]  Chromosome
+collective Chromosome
+
+collective Gene
+
+collective Alelle
+
+kind Nucleotide
+
+role Inserted_Nucleotide of functional-complexes  specializes Nucleotide {
+    @memberOf 
+    [2..*] -- [1] Alelle 
+    @Formal 
+    [*] -- precedes -- [*] Nucleotide 
 }
-collective Alelle {
-    @subCollectionOf
-     [2..*]  --<o> [1]  Gene
+
+role Allelic_Reference of collectives  specializes Alelle {
+    @subCollectionOf 
+    [2..*] -- [1] Gene 
 }
-kind Nucleotide {
-    @memberOf
-    ( {ordered, const } ) [2..*]  --<o> [1]  Alelle
-    @Formal
-    [*] -- precedes -- [*]  Nucleotide
+
+role Allelic_Variant of collectives  specializes Alelle {
+    @subCollectionOf 
+    [2..*] -- [1] Gene 
 }
-role Inserted_Nucleotide  specializes Nucleotide{
-    @memberOf
-    [*]  --<o> [1]  Allelic_Variant
-}
-role Allelic_Reference  specializes Alelle{
-    @material
-    [1] -- [*]  Allelic_Variant
-    @formal
-    [1] -- overlap --  [1..*]  Allelic_Variant
-}
-role Allelic_Variant  specializes Alelle
-collective RefSeq {
-    @material
-    [1] --  [1..*]  Allelic_Reference
-}
-relator Record {
-    @mediation
-    [1] -- [1]  Allelic_Reference( {const } )
-    @mediation
-    [1] -- [1]  RefSeq( {const } )
-    @derivation
-    [1] -- [1]  
-}
-relator Insertion {
-    @mediation
-    [*] -- [1]  Allelic_Reference( {const } )
-    @mediation
-    [*] -- [1]  Allelic_Variant( {const } )
-    @formal
-    [1] -- constitution --  [1..*]  Inserted_Nucleotide( {const } )
-}
-disjoint complete genset 2qsoWf6GAqACCwxO{
-    general Alelle
-    specifics Allelic_Variant, Allelic_Reference 
-}
+
+collective RefSeq
+
+relator Record
+
+relator Insertion
 

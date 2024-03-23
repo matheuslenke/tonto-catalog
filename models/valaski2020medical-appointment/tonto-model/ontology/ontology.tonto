@@ -1,0 +1,17 @@
+
+package ontology
+
+relator Consulta_Mdica
+
+kind Documento
+
+role Paciente of functional-complexes  specializes Pessoa 
+
+role Profissional_de_Sade of functional-complexes  specializes Pessoa 
+
+kind Pessoa
+
+kind Unidade_de_Sade
+
+kind Regio
+

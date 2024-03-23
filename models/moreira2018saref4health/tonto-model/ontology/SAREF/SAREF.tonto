@@ -1,28 +1,32 @@
+import ontology
+
 package SAREF
 
-kind Device {
-    sarefhasManufacturer : undefined
-    [1] <o>-- sarefconsistOf --  [0..*]  Device
-    @formal
-    [1] -- sarefmakesMeasurement --  [0..*]  Measurement
-    @characterization
-    ( {const } )[1] -- sarefmeasuresProperty --  [1..*]  Property( {const } )
-    @formal
-     [0..*] -- sarefaccomplishes --  [1..*]  Task
+kind Device{
+    sarefhasManufacturer: undefined [0..1] 
 }
-kind Measurement {
-    sarefhasValue : float[1] 
-    sarefhasTimestamp : undefined
-    @formal
-     [0..*] -- sarefisMeasuredIn -- [1]  UnitOfMeasurement
-    @characterization
-    ( {const } ) [0..*] -- sarefrelatesToProperty -- [1]  Property( {const } )
+
+kind Measurement{
+    sarefhasValue: float [1] 
+    sarefhasTimestamp: undefined  
 }
-kind Sensor  specializes Device
-category UnitOfMeasurement 
-quality Property 
-class Task {
-    hasStart : undefined
-    hasEnd : undefined
+
+kind Sensor specializes Device {
+    [1] -- sarefconsistOf -- [0..*] Device 
+    @formal 
+    [1] -- sarefmakesMeasurement -- [0..*] Measurement 
+    @characterization 
+    [1] -- sarefmeasuresProperty -- [1..*] Property 
+    @formal 
+    [0..*] -- sarefaccomplishes -- [1..*] Task 
+}
+
+category UnitOfMeasurement of functional-complexes 
+
+quality Property
+
+class Task{
+    hasStart: undefined [1] 
+    hasEnd: undefined [1] 
 }
 

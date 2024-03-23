@@ -1,68 +1,58 @@
-import Class
+import Model
 import SPO
 import SWO
 
 package Core
 
-subkind ObjectOriented_Programming_Language  specializes Programming_Language
-subkind ObjectOriented_Source_Code  specializes Source_Code{
-     [0..*] -- represented_by --  [1..*]  ObjectOriented_Programming_Language
-     [0..*] -- constituted_of --  [1..*]  Physical_Module
+subkind ObjectOriented_Programming_Language of functional-complexes  specializes Programming_Language 
+
+subkind ObjectOriented_Source_Code of functional-complexes  specializes Source_Code {
+    [0..*] -- represented_in -- [1..*] Programming_Language 
+    [0..*] -- represented_in -- [1..*] Programming_Language 
+    [0..*] -- represented_in -- [1..*] Language 
 }
-kind Module {
-    @componentOf
-     [0..*]  --<o>  [0..1]  Module
+
+kind Module
+
+quality Name
+
+category Named_Element of functional-complexes 
+
+quality Element_Visibility
+
+kind Class specializes Named_Element, Type 
+
+category Member of functional-complexes 
+
+kind Variable specializes Named_Element 
+
+quality Mutability
+
+subkind Primitive_Type specializes Type 
+
+subkind Physical_Module of functional-complexes  specializes Module {
+    @componentOf 
+    [0..*] -- [0..1] Module 
 }
-quality Name {
-    @characterization
-    [1] -- characterized_by -- [1]  Named_Element( {const } )
+
+category Type of functional-complexes 
+
+quality Return_Type
+
+subkind Logical_Module of functional-complexes  specializes Module {
+    @componentOf 
+    [0..*] -- [0..1] Module 
 }
-category Named_Element 
-quality Element_Visibility {
-    @characterization
-     [0..1] -- characterized_by -- [1]  Named_Element( {const } )
+
+kind Method_Member_Function specializes Member, Named_Element {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-kind Class  specializes Named_Element, Type{
-    @componentOf
-     [1..*]  --<o> [1]  Physical_Module
-     [0..*] -- organized_in -- [1]  Logical_Module
-    [1] -- contains --  [0..*]  Nesting
+
+subkind Attribute_Member_Variable of functional-complexes  specializes Member, Variable {
+    @componentOf 
+    [0..*] -- [1] Class 
 }
-category Member {
-    @componentOf
-     [0..*]  --<o> [1]  Class
-}
-kind Variable  specializes Named_Element
-quality Mutability {
-    @characterization
-    [1] -- characterized_by -- [1]  Variable( {const } )
-}
-subkind Primitive_Type  specializes Type
-subkind Physical_Module  specializes Module
-category Type 
-quality Return_Type {
-     [0..*] -- refers_to --  [0..1]  Type
-    @characterization
-     [0..1] -- characterized_by -- [1]  Method_Member_Function( {const } method_Member_Function )
-}
-subkind Logical_Module  specializes Module
-kind Method_Member_Function  specializes Member, Named_Element
-subkind Attribute_Member_Variable  specializes Member, Variable
-quality Value_Type {
-    @characterization
-     [0..1] -- characterized_by -- [1]  Variable( {const } )
-     [0..*] -- refers_to -- [1]  Type
-}
-disjoint complete genset o5Jzu36D.AAAASU0{
-    general Module
-    specifics Logical_Module, Physical_Module 
-}
-disjoint complete genset q3RLu36D.AAAASXT{
-    general Named_Element
-    specifics Class, Variable, Method_Member_Function 
-}
-disjoint complete genset lPGru36D.AAAASZ5{
-    general Type
-    specifics Primitive_Type, Class 
-}
+
+quality Value_Type
 

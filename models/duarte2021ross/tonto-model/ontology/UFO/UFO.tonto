@@ -1,9 +1,15 @@
+
 package UFO
 
-class Event 
-class Agent 
-class Disposition 
-class Normative_Description 
-class Goal 
-class Proposition 
+class Event
+
+class Agent
+
+class Disposition
+
+class Normative_Description
+
+class Goal
+
+class Proposition
 

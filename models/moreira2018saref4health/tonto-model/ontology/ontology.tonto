@@ -1,0 +1,6 @@
+
+package ontology
+
+class BiologicalPerson
+
+datatype float

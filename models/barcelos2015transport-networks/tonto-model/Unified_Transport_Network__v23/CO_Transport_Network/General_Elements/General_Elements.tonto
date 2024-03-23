@@ -1,15 +1,15 @@
+import Unified_Transport_Network__v23
+
 package General_Elements
 
-category Defined_Geographical_Element  specializes Geographical_Element{
-    latitude : undefined
-    longitude : undefined
+category Defined_Geographical_Element of functional-complexes  specializes Geographical_Element {
+    latitude: undefined  
+    longitude: undefined  
 }
-category Geographical_Element 
-category Geographical_Element_With_Alias  specializes Geographical_Element{
-    location : undefined
-}
-complete genset kYJpon6AUBAIKE_u{
-    general Geographical_Element
-    specifics Geographical_Element_With_Alias, Defined_Geographical_Element 
+
+category Geographical_Element of functional-complexes 
+
+category Geographical_Element_With_Alias of functional-complexes  specializes Geographical_Element {
+    location: undefined  
 }
 

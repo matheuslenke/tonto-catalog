@@ -1,0 +1,6 @@
+
+package Normative_Acts
+
+datatype string_
+datatype int
+datatype char

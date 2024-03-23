@@ -1,43 +1,48 @@
-package 34_Event_change
+import Applied_Ontology_Special_Issue_2022__Challenge_Answers
 
-kind Person 
-role Walker  specializes Person
-mode Walk {
-    @externalDependence
-     [1..*] -- [1]  Originally_Intended_Destination( {const } )
-    @characterization
-     [1..*] -- [1]  Walker( {const } )
+package Event_change
+
+kind Person
+
+role Walker of functional-complexes  specializes Person 
+
+mode Walk
+
+phase Ongoing_Walk of intrinsic-modes  specializes Walk {
+    @externalDependence 
+    [1..*] -- [1] Originally_Intended_Destination 
+    @characterization 
+    [1..*] -- [1] Walker 
 }
-phase Ongoing_Walk  specializes Walk
-phase Finalized_Walk  specializes Walk
-phase Sucessful_Walk  specializes Finalized_Walk{
-    @formal
-     [0..*] -- arrived_at -- [1]  Originally_Intended_Destination( {const } )
+
+phase Finalized_Walk of intrinsic-modes  specializes Walk {
+    @externalDependence 
+    [1..*] -- [1] Originally_Intended_Destination 
+    @characterization 
+    [1..*] -- [1] Walker 
 }
-phase Redirected_Walk  specializes Finalized_Walk{
-    @material
-     [0..*] -- arrived_at --  [1..*]  Redirected_Destination( {const } )
+
+phase Sucessful_Walk of intrinsic-modes  specializes Finalized_Walk {
+    @externalDependence 
+    [1..*] -- [1] Originally_Intended_Destination 
+    @characterization 
+    [1..*] -- [1] Walker 
 }
-mode Redirected_Destination_Intention {
-    @externalDependence
-     [0..*] --  [1..*]  Redirected_Destination( {const } )
-    @characterization
-    [1] -- [1]  Redirected_Walk( {const } )
+
+phase Redirected_Walk of intrinsic-modes  specializes Finalized_Walk {
+    @externalDependence 
+    [1..*] -- [1] Originally_Intended_Destination 
+    @characterization 
+    [1..*] -- [1] Walker 
 }
-role Redirected_Destination  specializes Destination
-role Originally_Intended_Destination  specializes Destination
-role Destination  specializes Place
-kind Place 
-disjoint complete genset rCP3BV6GAqACDClK{
-    general Walk
-    specifics Finalized_Walk, Ongoing_Walk 
-}
-disjoint complete genset TO8PBV6GAqACDCnj{
-    general Finalized_Walk
-    specifics Sucessful_Walk, Redirected_Walk 
-}
-complete genset gMVPBV6GAqACDCq5{
-    general Destination
-    specifics Redirected_Destination, Originally_Intended_Destination 
-}
+
+mode Redirected_Destination_Intention
+
+role Redirected_Destination of functional-complexes  specializes Destination 
+
+role Originally_Intended_Destination of functional-complexes  specializes Destination 
+
+role Destination of functional-complexes  specializes Place 
+
+kind Place
 

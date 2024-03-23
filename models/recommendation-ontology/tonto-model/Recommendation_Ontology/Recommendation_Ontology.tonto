@@ -1,0 +1,5 @@
+
+package Recommendation_Ontology
+
+datatype char
+datatype int

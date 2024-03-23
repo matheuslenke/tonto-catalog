@@ -1,167 +1,167 @@
+import project
+
 package Model
 
-role tourist  specializes user{
-    @material
-     [1..*] -- booking --  [1..*]  offer
-    @mediation
-    ( {const } ) [1..*] -- write_a_feedback -- [1]  feedback( {const } )
+role tourist of functional-complexes  specializes user 
+
+relator certification
+
+kind cultural_visit specializes activity 
+
+kind sport_activity specializes activity 
+
+kind food_and_wine_tour specializes activity 
+
+role Tourist_Guide of functional-complexes  specializes user 
+
+category location of functional-complexes  specializes path {
+    touristAttraction: undefined  
+    adress: Adress  
+    how_to_arrive: string_  
+    [1] -- compose -- [1] itinerary 
 }
-relator certification {
-    @mediation
-     [0..*] -- [1]  itinerary( {const } )
-    @mediation
-     [1..*] -- [1]  Tourist_Guide( {const } )
-     [1..*] -- need --  [1..*]  plan
-    @derivation
-    [1] -- [1]  certification
+
+kind user
+
+category activity of functional-complexes 
+
+relator booking
+
+subkind museum_visit of functional-complexes  specializes cultural_visit 
+
+subkind city_center_visit of functional-complexes  specializes cultural_visit 
+
+subkind church_visit of functional-complexes  specializes cultural_visit 
+
+subkind castel_visit of functional-complexes  specializes cultural_visit 
+
+subkind Winery_visit of functional-complexes  specializes food_and_wine_tour 
+
+subkind resturant_visit of functional-complexes  specializes food_and_wine_tour 
+
+subkind Hiking of functional-complexes  specializes sport_activity 
+
+subkind Cycling of functional-complexes  specializes sport_activity 
+
+subkind Climbing of functional-complexes  specializes sport_activity 
+
+subkind Skiing of functional-complexes  specializes sport_activity 
+
+role language_certificate of relators  specializes certification {
+    language: string_  
+    @mediation 
+    [0..*] -- [1] itinerary 
+    @mediation 
+    [1..*] -- [1] Tourist_Guide 
+    [1..*] -- need -- [1..*] plan 
+    @derivation 
+    [1] -- [1] certification 
 }
-kind cultural_visit  specializes activity
-kind sport_activity  specializes activity
-kind food_and_wine_tour  specializes activity
-role Tourist_Guide  specializes user{
-    @mediation
-    ( {const } create )[1] --  [1..*]  plan( {const } )
-    [1] -- define --  [1..*]  offer
+
+role activity_certificate of relators  specializes certification {
+    @mediation 
+    [0..*] -- [1] itinerary 
+    @mediation 
+    [1..*] -- [1] Tourist_Guide 
+    [1..*] -- need -- [1..*] plan 
+    @derivation 
+    [1] -- [1] certification 
 }
-category location  specializes path{
-    touristAttraction : undefined
-    adress : Adress
-    how_to_arrive : string
-    @material
-    [*] -- [*]  location
+
+kind payment
+
+phase completed of relators  specializes booking {
+    @material 
+    [1..*] -- [1] offer 
+    @mediation 
+    [1..*] -- [1] tourist 
+    @derivation 
+    [1] -- one -- [1] booking 
 }
-kind user 
-category activity 
-relator booking {
-    @material
-     [1..*] -- [1]  offer( {const } )
-    @mediation
-     [1..*] -- [1]  tourist( {const } )
-    @derivation
-    [1] -- 1 -- [1]  booking
+
+phase being_processed of relators  specializes booking {
+    @material 
+    [1..*] -- [1] offer 
+    @mediation 
+    [1..*] -- [1] tourist 
+    @derivation 
+    [1] -- one -- [1] booking 
 }
-subkind museum_visit  specializes cultural_visit
-subkind city_center_visit  specializes cultural_visit
-subkind church_visit  specializes cultural_visit
-subkind castel_visit  specializes cultural_visit
-subkind Winery_visit  specializes food_and_wine_tour
-subkind resturant_visit  specializes food_and_wine_tour
-subkind Hiking  specializes sport_activity
-subkind Cycling  specializes sport_activity
-subkind Climbing  specializes sport_activity
-subkind Skiing  specializes sport_activity
-role language_certificate  specializes certification{
-    language : string
+
+role paid of relators  specializes completed {
+    @material 
+    [1..*] -- [1] offer 
+    @mediation 
+    [1..*] -- [1] tourist 
+    @derivation 
+    [1] -- one -- [1] booking 
 }
-role activity_certificate  specializes certification{
-    [1] -- specific_for -- [1]  activity
+
+subkind online_payment of functional-complexes  specializes payment 
+
+subkind creditdebit_card_payment of functional-complexes  specializes payment 
+
+kind receipt
+
+kind itinerary{
+    duration: long  
+    title: string_  
+    price: float  
 }
-kind payment 
-phase completed  specializes booking
-phase being_processed  specializes booking
-role paid  specializes completed{
-    [1] -- paid_by --  [1..*]  payment
+
+quality offer{
+    identifier: long  
+    language: string_  
+    date: long  
+    starting_time: long  
 }
-subkind online_payment  specializes payment
-subkind creditdebit_card_payment  specializes payment
-kind receipt {
-    [1] -- for -- [1]  payment
+
+relator feedback
+
+relator plan
+
+category path of functional-complexes {
+    points: point  
+    starting_point: Adress  
+    end_point: Adress  
 }
-datatype Adress {
-    street : string
-    ciy : string
-    distric : string
-    zip_code : string
+
+quality geometry{
+    coordinate: Point [1..*] 
 }
-datatype time {
-    year : int
-    month : int
-    day : int
-    hours : int
-    minute : int
+
+subkind Point of qualities  specializes geometry {
+    @characterization 
+    [1..*] -- [1] path 
 }
-kind itinerary {
-    duration : long
-    title : string
-    price : float
-    @material
-     [1..*] -- certification -- [1]  Tourist_Guide
-     [1..*] -- is_defined -- [1]  offer
+
+subkind Multi_point of qualities  specializes geometry {
+    @characterization 
+    [1..*] -- [1] path 
 }
-quality offer {
-    identifier : long
-    language : string
-    date : long
-    starting_time : long
+
+subkind Line_String of qualities  specializes geometry {
+    @characterization 
+    [1..*] -- [1] path 
 }
-relator feedback {
-    @mediation
-    [1] -- [1]  finish( {const } written_on )
+
+subkind Multi_Line_String of qualities  specializes geometry {
+    @characterization 
+    [1..*] -- [1] path 
 }
-relator plan {
-    @mediation
-     [1..*] -- [1]  itinerary( {const } create )
-}
-category path {
-    points : point
-    starting_point : Adress
-    end_point : Adress
-    [1] -- compose -- [1]  itinerary
-}
-datatype point {
-    latitude : float
-    longitude : float
-}
-quality geometry {
-    coordinate : Point [1..*] 
-    @characterization
-     [1..*] -- [1]  path( {const } )
-}
-subkind Point  specializes geometry
-subkind Multi_point  specializes geometry
-subkind Line_String  specializes geometry
-subkind Multi_Line_String  specializes geometry
-phase finish  specializes offer
-phase in_progres  specializes offer
-phase planed  specializes offer
-complete genset {complete}{
-    general user
-    specifics Tourist_Guide, tourist 
-}
-disjoint complete genset {complete,disjuncted}{
-    general activity
-    specifics sport_activity, food_and_wine_tour, cultural_visit 
-}
-disjoint complete genset {complete,disjuncted}{
-    general cultural_visit
-    specifics church_visit, museum_visit, city_center_visit, castel_visit 
-}
-genset {complete,disjuncted}{
-    general food_and_wine_tour
-    specifics resturant_visit, Winery_visit 
-}
-genset {complete,disjuncted}{
-    general sport_activity
-    specifics Hiking, Cycling, Climbing, Skiing 
-}
-disjoint complete genset {complete,disjuncted}{
-    general booking
-    specifics completed, being_processed 
-}
-disjoint complete genset {complete,disjuncted}{
-    general payment
-    specifics online_payment, creditdebit_card_payment 
-}
-disjoint complete genset GeometryType {complete, disjuncted}{
-    general geometry
-    specifics Multi_point, Point, Line_String, Multi_Line_String 
-}
-disjoint complete genset {complete;disjouncted}{
-    general offer
-    specifics in_progres, finish, planed 
-}
-disjoint complete genset {completed,disjuncted}{
-    general certification
-    specifics language_certificate, activity_certificate 
-}
+
+phase finish of qualities  specializes offer 
+
+phase in_progres of qualities  specializes offer 
+
+phase planed of qualities  specializes offer 
+
+enum Adress{
+street,ciy,distric,zip_code}
+
+enum time{
+year,month,day,hours,minute}
+
+enum point{
+latitude,longitude}
 

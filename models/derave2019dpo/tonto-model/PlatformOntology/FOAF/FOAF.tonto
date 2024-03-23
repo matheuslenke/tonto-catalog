@@ -1,0 +1,10 @@
+import PlatformOntology
+
+package FOAF
+
+category Agent of functional-complexes 
+
+kind Organization specializes Agent 
+
+kind Person specializes Agent 
+

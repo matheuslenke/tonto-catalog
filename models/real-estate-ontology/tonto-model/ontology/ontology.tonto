@@ -1,0 +1,33 @@
+
+package ontology
+
+role Person_as_Lessor of functional-complexes  specializes Person_as_Owner, Land_Lord_Lessor 
+
+role Company_as_Lessor of functional-complexes  specializes Company_as_Owner, Land_Lord_Lessor 
+
+roleMixin Land_Lord_Lessor of functional-complexes 
+
+kind Person
+
+kind Company
+
+role Company_as_Owner of functional-complexes  specializes Company, Owner 
+
+role Person_as_Owner of functional-complexes  specializes Person, Owner 
+
+roleMixin Owner of functional-complexes 
+
+role Person_as_Tenant of functional-complexes  specializes Person, Tenant_Lessee 
+
+role Company_as_Tenant of functional-complexes  specializes Company, Tenant_Lessee 
+
+roleMixin Tenant_Lessee of functional-complexes 
+
+relator Rental_Agreement_Lease
+
+role Rented_Realty of functional-complexes  specializes Realty 
+
+kind Realty
+
+relator Deed
+

@@ -1,0 +1,151 @@
+
+package fgcs2023
+
+kind EMWave
+
+role Signal of functional-complexes  specializes EMWave 
+
+kind Interface
+
+role Receiver of functional-complexes  specializes Interface 
+
+role Sender of functional-complexes  specializes Interface 
+
+kind FreeSpace
+
+role Medium of functional-complexes  specializes FreeSpace 
+
+mode DetectBond
+
+role WantedSignal of functional-complexes  specializes Signal 
+
+role UnWantedSignal of functional-complexes  specializes Signal 
+
+role WantedSender of functional-complexes  specializes Sender, Sender {
+     -- generates --  Signal 
+}
+
+mode Information
+
+role SelectedSender of functional-complexes  specializes WantedSender {
+     -- generates --  Signal 
+}
+
+role MonitoredSender of functional-complexes  specializes WantedSender {
+     -- generates --  Signal 
+}
+
+mode DecodedBond specializes DetectBond {
+    @characterization 
+    [1] -- [1] Receiver 
+    @externalDependence 
+    [*] -- [1..*] Signal 
+    @externalDependence 
+    [*] -- [1..*] Medium 
+}
+
+role MonitoredBond of intrinsic-modes  specializes DecodedBond {
+    @externalDependence 
+    [*] -- [1..*] WantedSignal 
+    @characterization 
+    [1] -- [1] Receiver 
+    @externalDependence 
+    [*] -- [1..*] Signal 
+    @externalDependence 
+    [*] -- [1..*] Medium 
+}
+
+role SelectedBond of intrinsic-modes  specializes DecodedBond {
+    @externalDependence 
+    [*] -- [1..*] WantedSignal 
+    @characterization 
+    [1] -- [1] Receiver 
+    @externalDependence 
+    [*] -- [1..*] Signal 
+    @externalDependence 
+    [*] -- [1..*] Medium 
+}
+
+role Source of functional-complexes  specializes Interface 
+
+role Sink of functional-complexes  specializes Interface 
+
+relator HandShakeBond
+
+class Interface2 of functional-complexes 
+
+class TXIntfSituation of situations {
+    poweredOn: undefined  
+    ableToTx: undefined  
+    ableToRx: undefined  
+    startAt: undefined  
+    finishAt: undefined  
+}
+
+class EMField
+
+class Sender2 of functional-complexes  specializes Interface2 {
+     -- standsIn --  TXIntfSituation 
+     -- standsIn --  EMWIsGenerated 
+     -- standsIn --  EMWIsDetected 
+     -- standsIn --  RxIntfSituation 
+}
+
+class GenerateEMWave of events 
+
+class EMWIsGenerated of situations {
+    startAt: undefined  
+    finishAt: undefined  
+}
+
+class EMWave2 of functional-complexes {
+    frequency: undefined  
+    bandwidth: undefined  
+    power: undefined  
+}
+
+class Permittivity
+
+class FreeSpace2 of functional-complexes 
+
+class PropagateEMW of events 
+
+class EMWIsPropagated of situations {
+    startAt: undefined  
+    finishAt: undefined  
+}
+
+class Sensitivity
+
+class Receiver2 of functional-complexes  specializes Interface2 {
+     -- standsIn --  TXIntfSituation 
+     -- standsIn --  EMWIsGenerated 
+     -- standsIn --  EMWIsDetected 
+     -- standsIn --  RxIntfSituation 
+}
+
+class DetectEMW of events 
+
+class EMWIsDetected of situations {
+    startAt: undefined  
+    finishAt: undefined  
+}
+
+class Signal2 of functional-complexes  specializes EMWave2 {
+     -- standsIn --  EMWIsGenerated 
+    [1] -- [1] GenerateEMWave 
+    [1] -- [1] EMWIsDetected 
+}
+
+class Medium2 of functional-complexes  specializes FreeSpace2 {
+     -- standsIn --  EMWIsPropagated 
+}
+
+class RxIntfSituation of situations {
+    poweredOn: undefined  
+    ableToTx: undefined  
+    ableToRx: undefined  
+    startAt: undefined  
+    finishAt: undefined  
+}
+

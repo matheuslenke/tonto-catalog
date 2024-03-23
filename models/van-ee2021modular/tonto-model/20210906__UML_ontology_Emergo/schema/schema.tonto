@@ -1,106 +1,110 @@
-import qudt
+import UML_ontology_Emergo
+import Attribute_clases
+import BPO_ontology
+import Entity_classes
+import Geometry_classes
+import Geometry_classes_2
+import UML_ontology_Emergo
+import bot
 import bpo
 import dice
-import BPO_ontology
+import element_class
+import fog
+import gr
+import ifc
+import omg
+import opm
+import product_classes
+import qudt
+import schema
+import seas
 
 package schema
 
-category ProductModel 
-quality PropertyValue {
-    @material
-    [1] -- qudtunit -- [1]  Unit
+category ProductModel of functional-complexes 
+
+quality PropertyValue
+
+quality StructuredValue
+
+quality value_
+
+event Event{
+    Description: string  
 }
-quality StructuredValue 
-quality value 
-event Event {
-    Description : string
-    @material
-     [0..*] -- schemaEventSchedule --  [0..*]  Schedule
-    @material
-     [0..*] -- schemaabout --  [0..*]  Component
-    @material
-     [0..*] -- schemalocation --  [0..*]  Place
-    @material
-     [0..*] -- schemasubEvent --  [0..*]  Event
-    @material
-     [0..*] -- schemaactor --  [0..*]  person
-    @material
-     [0..*] -- schemacontributor --  [0..*]  organisation
-    @bringsAbout
-    ( {const } )[1] -- dicehasActivity -- [1]  activity( {const } )
+
+kind Schedule{
+    description: string  
+    id: string  
+    startDate: undefined  
+    endDate: undefined  
 }
-kind Schedule {
-    description : string
-    id : string
-    startDate : undefined
-    endDate : undefined
-    @material
-     [0..*] -- schemasubjectOf --  [0..*]  Event
-    @material
-     [0..*] -- emgtransformSchedule --  [0..*]  Schedule
+
+category Place of functional-complexes {
+    description: string  
 }
-category Place {
-    description : string
-    @material
-     [0..*] -- schemasubjectOf --  [0..*]  Event
-    @material
-     [0..*] -- schemaaddress --  [0..*]  postalAdress
+
+kind postalAdress{
+    addressCountry: string  
+    addressLocality: string  
+    addressRegion: string  
+    postOfficeBoxNumber: string  
+    postalCode: string  
+    streetAddress: string  
 }
-kind postalAdress {
-    addressCountry : string
-    addressLocality : string
-    addressRegion : string
-    postOfficeBoxNumber : string
-    postalCode : string
-    streetAddress : string
+
+kind person specializes Agent {
+    [*] -- hasAgent -- [*] activity 
+    name: string  
+    email: string  
+    telephone: string  
+    jobTitle: string  
 }
-kind person  specializes Agent{
-    name : string
-    email : string
-    telephone : string
-    jobTitle : string
-    @material
-     [0..*] -- schemaperformerIn --  [0..*]  Event
+
+kind organisation specializes Agent {
+    name: string  
+    id: string  
+    email: string  
+    telephone: string  
+    // TODO: Buggy relation?
+    // [*] -- hasAgent -- [*] activity 
 }
-kind organisation  specializes Agent{
-    name : string
-    id : string
-    email : string
-    telephone : string
-    @material
-     [0..*] -- schemaaddress --  [0..*]  postalAdress
-    @material
-     [0..*] -- schemasubjectOf --  [0..*]  Event
+
+quality priceSpecification{
+    price: string  
+    priceCurrency: string  
+    validFrom: undefined  
+    validThrough: undefined  
+    valueAddedTextIncluded: boolean_  
 }
-quality priceSpecification {
-    price : string
-    priceCurrency : string
-    validFrom : undefined
-    validThrough : undefined
-    valueAddedTextIncluded : boolean
-    @characterization
-    [1] -- schemaeligibleQuantity -- [1]  QuantitativeValue( {const } )
+
+quality QuantitativeValue{
+    value_: undefined  
+    unitText: string  
+    unitCode: string  
 }
-quality QuantitativeValue {
-    value_ : undefined
-    unitText : string
-    unitCode : string
+
+category WebAPI of functional-complexes {
+    URL: string  
 }
-category WebAPI {
-    URL : string
-    @material
-     [0..*] -- schemadocumentation --  [0..*]  creativeWork
+
+kind DigitalDocument specializes creativeWork {
+    @material 
+    [0..*] -- schemaabout -- [1] ClassifiedObject 
 }
-kind DigitalDocument  specializes creativeWork{
-    [*] -- schemahasDigitalDocumentPermission -- [*]  DigitalDocumentPermission
+
+mode DigitalDocumentPermission
+
+category creativeWork of functional-complexes {
+    fileFormat: string  
 }
-mode DigitalDocumentPermission 
-category creativeWork {
-    fileFormat : string
-    @material
-     [0..*] -- schemaabout -- [1]  ClassifiedObject( {const } )
+
+kind drawing specializes creativeWork {
+    @material 
+    [0..*] -- schemaabout -- [1] ClassifiedObject 
 }
-kind drawing  specializes creativeWork
-class Property 
-class Agent 
+
+class Property
+
+class Agent
 

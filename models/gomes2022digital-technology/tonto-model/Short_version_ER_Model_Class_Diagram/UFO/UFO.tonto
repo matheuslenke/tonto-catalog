@@ -1,10 +1,16 @@
+import Short_version_ER_Model_Class_Diagram
+import UFO
 import TDO
 
 package UFO
 
-category Social_Object  specializes Object
-category Physical_Object  specializes Object
-category Object {
-    <>--  Component_Part
+category Social_Object of functional-complexes  specializes Object {
+    [1] -- [1] Component_Part 
 }
+
+category Physical_Object of functional-complexes  specializes Object {
+    [1] -- [1] Component_Part 
+}
+
+category Object of functional-complexes 
 

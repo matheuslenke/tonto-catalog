@@ -1,51 +1,19 @@
-import COVER
-import Security
 
 package UFO
 
-category Agent {
-    [*] -- creates -- [*]  Action specializes Attacker.creates
-}
-category Disposition {
-    @characterization
-     [1..*] --  [0..1]  Value_Object( {const } )
-     [1..*] -- manifested_by -- [*]  Value_Event
-    @characterization
-     [1..*] --  [0..1]  Value_Enabler( {const } )
-}
-category Intention {
-    @characterization
-     [1..*] --  [0..1]  Value_Subject( {const } )
-    @characterization
-     [1..*] -- [*]  Risk_Subject( {const } )
-    @characterization
-     [1..*] -- [1]  Attacker( {const } )
-    @instantiation
-    [*] --  [1..*]  Intention_Type
-    @characterization
-     [1..*] -- [1]  Security_Designer( {const } )
-    @characterization
-     [1..*] -- [1]  Protected_Subject( {const } )
-}
-event Event (instanceOf Event_Type){
-    @historicalDependence
-    [*] -- causes -- [*]  Event( {const } )
-    @bringsAbout
-    ( {const } )[*] -- [1]  Situation( {const } )
-}
-situation Situation (instanceOf Situation_Type){
-    @triggers
-    ( {const } )[1] -- [*]  Event
-}
-type Event_Type {
-    @instantiation
-     [1..*] -- [*]  Event
-}
-type Situation_Type {
-    @instantiation
-     [1..*] -- [*]  Situation
-}
-event Action {
-    [*] -- caused_by -- [1]  Intention specializes Attack.caused_by
-}
+category Agent of functional-complexes 
+
+category Disposition of intrinsic-modes 
+
+category Intention of intrinsic-modes 
+
+event Event
+
+situation Situation
+
+type Event_Type
+
+type Situation_Type
+
+event Action
 

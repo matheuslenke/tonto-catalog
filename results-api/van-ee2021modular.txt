@@ -1,0 +1,18 @@
+Validating...
+- Total of errors: 23
+Could not create relation named ((No name)) between Geometry and ReferencedContent because one or both of them was not created.
+Warning: Could not create specialization between class Component and 
+                undefined not found in context module bpo)
+[error] Not unique class stereotype:
+The class Property must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Property must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Agent must have a unique OntoUML stereotype.
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Property is specializing other classes that represent ultimate sortals: «quality»
+[error] Prohibited generalization: circular generalization:
+Generalizations must be defined between two distinct classes/relations
+[error] Prohibited generalization: circular generalization:
+Generalizations must be defined between two distinct classes/relations
+Validation finished

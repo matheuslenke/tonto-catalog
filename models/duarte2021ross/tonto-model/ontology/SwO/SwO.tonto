@@ -1,33 +1,24 @@
-import ROSS
+import ontology
 import ASMP
+import EO
+import ROSS
 import SPO
+import SwO
 import UFO
 
 package SwO
 
-class Software_System  specializes Artifact{
-    [1] <>--  [2..*]  System_Component
-    [*] -- intends_to_implement -- [1]  System_Requirements_Specification
-}
-class Program  specializes System_Element{
-     [0..1] -- intends_to_implement -- [1]  Program_Specification
-     [1..*] -- intends_to_satisfy --  [1..*]  Program_Requirement
-}
-class Loaded_Program_Copy  specializes Disposition{
-    [*] -- inheres_in -- [1]  Machine
-     [0..*] -- materialization_of -- [1]  Program
-}
-class Program_Copy_Execution  specializes Event{
-    [*] -- execution_of -- [1]  Loaded_Program_Copy
-}
-class Machine  specializes Artifact
-class Program_Specification  specializes Artifact{
-     [1..*] -- describes --  [1..*]  Program_Requirement
-    [*] -- based_on --  [1..*]  Machine_Assumption
-}
-class System_Requirements_Specification  specializes Artifact{
-     [1..*] -- describes --  [1..*]  System_Requirement
-    [*] -- based_on --  [1..*]  World_Assumption
-    [*] -- based_on --  [1..*]  Machine_Assumption
-}
+class Software_System specializes Artifact 
+
+class Program specializes System_Element 
+
+class Loaded_Program_Copy specializes Disposition 
+
+class Program_Copy_Execution specializes Event 
+
+class Machine specializes Artifact 
+
+class Program_Specification specializes Artifact 
+
+class System_Requirements_Specification specializes Artifact 
 

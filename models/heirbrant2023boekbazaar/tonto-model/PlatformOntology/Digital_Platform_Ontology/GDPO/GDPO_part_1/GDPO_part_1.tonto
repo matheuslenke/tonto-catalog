@@ -1,0 +1,7 @@
+
+package GDPO_part_1
+
+roleMixin Platform_Company of functional-complexes 
+
+roleMixin Platform_User of functional-complexes 
+

@@ -1,0 +1,5 @@
+Validating...
+- Total of errors: 4
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Specialized_Service_Agreement is specializing other classes that represent ultimate sortals: «relator»
+Validation finished

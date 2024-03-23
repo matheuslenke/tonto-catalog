@@ -1,125 +1,68 @@
-import Data_Input_and_Preprocessing
 import MLOntology
-import ML_Model
-import Explanation
 
 package General_Module
 
-kind Goal {
-    @participation
-    ( {const } )[1] --  [1..*]  Experiment
+kind Goal
+
+kind EvaluationMeasure
+
+category Output of functional-complexes 
+
+quality ExperimentCharacteristic
+
+quality DataCharacteristic
+
+quality ImplementationCharacteristic
+
+kind ParameterSetting
+
+event Experiment
+
+kind Algorithm
+
+relator SpecifiesParameter
+
+kind Software
+
+kind Data
+
+relator SpecifiesModelEvaluation
+
+quality ParameterCharacteristic
+
+event Implementation
+
+relator Addresses
+
+kind MLModel specializes Output {
+    @creation 
+    [1] -- [1] Operation 
+    @participation 
+    [0..*] -- [0..*] Operation 
 }
-kind EvaluationMeasure 
-category Output {
-    @creation
-    ( {const } )[1] -- [1]  Operation( {const } )
-    @participation
-    ( {const } ) [0..*] --  [0..*]  Operation( {const } )
+
+quality ModelCharacteristic
+
+relator SpecifiesMeasure
+
+quality ModelEvaluationCharacteristic
+
+event Workflow
+
+relator HasParameter
+
+kind ModelEvaluationTechnique specializes Output {
+    @creation 
+    [1] -- [1] Operation 
+    @participation 
+    [0..*] -- [0..*] Operation 
 }
-quality ExperimentCharacteristic {
-    @characterization
-     [1..*] -- [1]  Experiment( {const } )
-}
-quality DataCharacteristic {
-    @characterization
-     [1..*] -- [1]  Data( {const } )
-}
-quality ImplementationCharacteristic {
-    @characterization
-     [1..*] -- [1]  Implementation( {const } )
-}
-kind ParameterSetting {
-    @participation
-    ( {const } ) [0..*] -- [1]  Operation
-}
-event Experiment 
-kind Algorithm {
-    @participation
-    ( {const } ) [1..*] --  [0..*]  FeatureScaling
-    @participation
-    ( {const } ) [1..*] --  [0..*]  DatasetSplit
-    @participation
-    ( {const } ) [1..*] --  [0..*]  FeatureEnconding
-    @characterization
-    [1] -- [1]  AlgorithmCharacteristic( {const } )
-}
-relator SpecifiesParameter {
-    @mediation
-     [0..*] -- [1]  ParameterSetting( {const } )
-    @mediation
-     [0..*] -- specifieInvolvesParam -- [1]  Parameter( {const } )
-}
-kind Software {
-    @participation
-    ( {const } ) [1..*] --  [0..*]  Implementation
-}
-kind Data 
-relator SpecifiesModelEvaluation {
-    @mediation
-     [0..*] -- [1]  EvaluationMeasure( {const } )
-    @mediation
-     [0..*] -- [1]  ModelEvaluationTechnique( {const } )
-}
-quality ParameterCharacteristic {
-    @characterization
-    [1] -- [1]  ParameterSetting( {const } )
-}
-event Implementation {
-    @participation
-    ( {const } )[1] -- ExecutedBy --  [0..*]  Operation
-}
-relator Addresses {
-    @mediation
-     [0..*] -- [1]  Goal( {const } )
-    @mediation
-     [0..*] -- [1]  MLAlgorithm( {const } )
-}
-kind MLModel  specializes Output{
-    @participation
-    ( {const } ) [1..*] --  [0..*]  MLModelImplementation
-    @participation
-    ( {const } ) [1..*] --  [0..*]  AntehocImplementation
-}
-quality ModelCharacteristic {
-    @characterization
-     [1..*] -- [1]  MLModel( {const } )
-}
-relator SpecifiesMeasure {
-    @mediation
-     [0..*] -- [1]  Goal( {const } )
-    @mediation
-     [0..*] -- [1]  EvaluationMeasure( {const } )
-    @mediation
-     [0..*] -- [1]  MLApproach( {const } )
-}
-quality ModelEvaluationCharacteristic {
-    @characterization
-     [1..*] -- [1]  SpecifiesModelEvaluation( {const } )
-}
-event Workflow {
-    @participational
-    ( {const } ) [1..*]  --<o>  [1..*]  Experiment( {const } )
-}
-relator HasParameter {
-    @mediation
-     [1..*] -- [1]  Parameter( {const } )
-    @mediation
-     [0..*] -- [1]  Implementation( {const } )
-}
-kind ModelEvaluationTechnique  specializes Output{
-    @participation
-    ( {const } ) [1..*] --  [0..*]  MLModelEvaluation
-}
-relator Assesses {
-    @mediation
-     [0..*] -- [1]  MLModel( {const } )
-    @mediation
-     [0..*] -- [1]  ModelEvaluationTechnique( {const } )
-}
-quality AlgorithmCharacteristic 
-kind Parameter 
-event Operation {
-    @participational
-    ( {const } ) [1..*]  --<o>  [1..*]  Workflow( {const } )
-}
+
+relator Assesses
+
+quality AlgorithmCharacteristic
+
+kind Parameter
+
+event Operation
 

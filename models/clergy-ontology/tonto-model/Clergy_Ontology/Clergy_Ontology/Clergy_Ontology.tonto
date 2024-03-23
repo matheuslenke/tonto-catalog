@@ -1,120 +1,126 @@
+
 package Clergy_Ontology
 
-collective Clergy 
-collective Secular_Clergy {
-    @subCollectionOf
-    [1]  --<o> [1]  Clergy
+collective Clergy
+
+collective Secular_Clergy
+
+collective Regular_Clergy
+
+kind Person
+
+role Clergy_Member of functional-complexes  specializes Person 
+
+role Secular_Clergy_Member of functional-complexes  specializes Clergy_Member 
+
+role Regular_Clergy_Member of functional-complexes  specializes Clergy_Member 
+
+relator Baptism
+
+role Layman of functional-complexes  specializes Regular_Clergy_Member {
+    @memberOf 
+    [2..*] -- [1] Regular_Clergy 
 }
-collective Regular_Clergy {
-    @subCollectionOf
-    [1]  --<o> [1]  Clergy
+
+role Clergyman of functional-complexes  specializes Regular_Clergy_Member {
+    @memberOf 
+    [2..*] -- [1] Regular_Clergy 
 }
-kind Person 
-role Clergy_Member  specializes Person
-role Secular_Clergy_Member  specializes Clergy_Member{
-    @memberOf
-     [2..*]  --<o> [1]  Secular_Clergy
-    @material
-    [1] -- baptizes --  [1..*]  Clergy_Member
+
+role Witness_of_Profession of functional-complexes  specializes Clergyman {
+    @material 
+    [1..*] -- makes_vows_with -- [1] Witness_of_Profession 
+    @memberOf 
+    [2..*] -- [1] Regular_Clergy 
 }
-role Regular_Clergy_Member  specializes Clergy_Member{
-    @memberOf
-     [2..*]  --<o> [1]  Regular_Clergy
+
+relator Religious_Profession
+
+role Deacon of functional-complexes  specializes Secular_Clergy_Member {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-relator Baptism {
-    @mediation
-     [1..*] -- performed_by -- [1]  Secular_Clergy_Member( {const } )
-    @mediation
-    [1] -- receives -- [1]  Clergy_Member( {const } )
-    @derivation
-    [1] -- [1]  baptizes
+
+role Bishop of functional-complexes  specializes Secular_Clergy_Member {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-role Layman  specializes Regular_Clergy_Member
-role Clergyman  specializes Regular_Clergy_Member{
-    @material
-     [1..*] -- makes_vows_with -- [1]  Witness_of_Profession
+
+role Priest of functional-complexes  specializes Secular_Clergy_Member {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-role Witness_of_Profession  specializes Clergyman
-relator Religious_Profession {
-    @mediation
-    [1] -- performs -- [1]  Clergyman( {const } )
-    @mediation
-     [1..*] -- wtinesess -- [1]  Witness_of_Profession( {const } )
-    @derivation
-    [1] -- [1]  makes_vows_with
+
+role Cardinal of functional-complexes  specializes Secular_Clergy_Member {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-role Deacon  specializes Secular_Clergy_Member{
-    @material
-     [1..*] -- ordinated_by -- [1]  Ordinator_of_Deacon
+
+relator Ordination_of_Deacon
+
+relator Bishop_Ordination
+
+relator Ordination_of_Priest
+
+role Ordinator_of_Deacon of functional-complexes  specializes Bishop {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-role Bishop  specializes Secular_Clergy_Member
-role Priest  specializes Secular_Clergy_Member
-role Cardinal  specializes Secular_Clergy_Member{
-    @memberOf
-    [1]  -- member_of --<o> [1]  College_of_Cardinals
+
+role Ordained_Bishop of functional-complexes  specializes Bishop {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-relator Ordination_of_Deacon {
-    @mediation
-    [1] -- received_by -- [1]  Deacon( {const } )
-    @mediation
-     [1..*] -- performed_by -- [1]  Ordinator_of_Deacon( {const } )
-    @derivation
-    [1] -- [1]  ordinated_by
+
+role Ordinator_of_Bishop of functional-complexes  specializes Bishop {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-relator Bishop_Ordination {
-    @mediation
-    [1] -- received_by -- [1]  Ordained_Bishop( {const } )
-    @mediation
-     [1..*] -- performed_by --  [3..*]  Ordinator_of_Bishop( {const } )
-    @derivation
-    [1] -- [1]  ordinated_by
+
+role Ordinator_of_Priest of functional-complexes  specializes Bishop {
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-relator Ordination_of_Priest {
-    @mediation
-    [1] -- received_by -- [1]  Priest( {const } )
-    @mediation
-     [1..*] -- performed_by -- [1]  Ordinator_of_Priest( {const } )
+
+relator Nomination
+
+role Cardinal_Nominator of functional-complexes  specializes Pope {
+    @memberOf 
+    [1] -- member_of -- [1] College_of_Cardinals 
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-role Ordinator_of_Deacon  specializes Bishop
-role Ordained_Bishop  specializes Bishop{
-    @material
-     [1..*] -- ordinated_by --  [3..*]  Ordinator_of_Bishop
+
+role Pope of functional-complexes  specializes Cardinal {
+    @memberOf 
+    [1] -- member_of -- [1] College_of_Cardinals 
+    @memberOf 
+    [2..*] -- [1] Secular_Clergy 
+    @material 
+    [1] -- baptizes -- [1..*] Clergy_Member 
 }
-role Ordinator_of_Bishop  specializes Bishop
-role Ordinator_of_Priest  specializes Bishop{
-    @material
-    [1] -- ordinated_by --  [1..*]  Priest
-}
-relator Nomination {
-    @mediation
-    [1] -- given_to -- [1]  Cardinal( {const } )
-    @mediation
-    [1] -- performed_by -- [1]  Cardinal_Nominator( {const } )
-    @derivation
-    [1] -- [1]  nominates
-}
-role Cardinal_Nominator  specializes Pope{
-    @material
-    [1] -- nominates -- [1]  Cardinal
-}
-role Pope  specializes Cardinal
-relator Election {
-    @mediation
-    [1] -- nominates -- [1]  Pope( {const } )
-    @mediation
-     [1..*] -- voter_of -- [1]  Electorate_of_the_Cadinal_School( {const } )
-    @derivation
-    [1] -- [1]  Grupo_Elege_Papa
-}
-collective College_of_Cardinals 
-collective Electorate_of_the_Cadinal_School {
-    @material
-    [1] -- Grupo_Elege_Papa --  [1..*]  Pope
-    @subCollectionOf
-    [1]  -- part_of --<o> [1]  College_of_Cardinals
-}
-disjoint complete genset N0os376AUCgIkQxb{
-    general Regular_Clergy_Member
-    specifics Clergyman, Layman 
-}
+
+relator Election
+
+collective College_of_Cardinals
+
+collective Electorate_of_the_Cadinal_School
 

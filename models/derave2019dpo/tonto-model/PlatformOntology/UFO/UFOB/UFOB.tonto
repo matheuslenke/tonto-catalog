@@ -1,0 +1,12 @@
+import PlatformOntology
+
+package UFOB
+
+event Event
+
+event Subevent specializes Event 
+
+event Event_A
+
+event Event_B
+

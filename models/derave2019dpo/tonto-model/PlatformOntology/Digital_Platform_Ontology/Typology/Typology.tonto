@@ -1,0 +1,201 @@
+import PlatformOntology
+
+package Typology
+
+subkind Digital_Marketplace_Tusher_and_Laudien_2018 of relators  specializes MultiSided_Transaction_platform_Evans_and_Gawer_2016 {
+    participation_: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind Sharing_Platform_Frenken_and_Schor_2017 of relators  specializes P2P_Sharing_and_CC_Platform_Chasin_et_al_2018 {
+    under_utilized: undefined  
+    participation_: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind MultiSided_Transaction_platform_Evans_and_Gawer_2016 of relators  specializes MultiSided_Platform_Hagiu_and_Wright_2015 {
+    user_affiliation: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind OnDemand_Platform_Mamonova_2018 of relators  specializes Digital_Marketplace_Tusher_and_Laudien_2018 {
+    centralization: undefined  
+    offering_orientation: undefined  
+    immediate_access: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind P2P_Sharing_and_CC_Platform_Chasin_et_al_2018 of relators  specializes Digital_Marketplace_Tusher_and_Laudien_2018 {
+    centralization: undefined  
+    offering_orientation: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind MultiSided_Platform_Hagiu_and_Wright_2015 of relators  specializes Digital_Platform_Offering {
+    market_sides: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+type Digital_Platform_Type
+
+subkind Investment_Platform_Evans_and_Gawer_2016 of relators  specializes MultiSided_Transaction_platform_Evans_and_Gawer_2016 {
+    user_affiliation: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind Crowdfunding_Platform_Haas_and_Blohm_2014 of relators  specializes Investment_Platform_Evans_and_Gawer_2016 {
+    participation_: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind SecondHand_P2P_platform_Acquier_et_al_2017 of relators  specializes Digital_Marketplace_Tusher_and_Laudien_2018 {
+    centralization: undefined  
+    offering_orientation: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind TwoSided_Platform of relators  specializes MultiSided_Platform_Hagiu_and_Wright_2015 {
+    market_sided: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
+    @mediation 
+    [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+
+subkind OneSided_Platform_Filistrucchi_et_al_2014 of relators  specializes Digital_Platform_Offering {
+    market_sides: undefined  
+    @mediation 
+    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
+    @mediation 
+    [1] -- supported_by -- [1] Platform_Software 
+    @mediation 
+    [1..*] -- offered_by -- [1] Platform_Company 
+    @mediation 
+    [1..*] -- relates_to -- [1] Platform_Company 
+    @instantiation 
+    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+}
+

@@ -1,228 +1,235 @@
+import Trab_1__Engenharia_de_Ontologias
+
 package Licitao
 
-role Procurao_para_Indicao_de_Representante {
-    @mediation
-     [0..1] -- [1]  Indicao_de_Representante( {const } )
+role Procurao_para_Indicao_de_Representante
+
+role Licitao_de_Permisso_em_Leilo of functional-complexes  specializes Licitao_de_Permisso {
+    @Formal 
+    [0..*] -- coordena -- [1] Comisso_de_Outorga 
 }
-role Licitao_de_Permisso_em_Leilo  specializes Licitao_de_Permisso{
-    @mediation
-    ( {const } )[1] -- decide -- [1]  Leilo_de_Licitao
+
+kind Comprovao_de_Frota
+
+role Plano_de_Negcio_em_Proposta_de_Atendimento_Especfica of functional-complexes  specializes Plano_de_Negcio 
+
+roleMixin Empresa_Participante_do_Leilo of functional-complexes 
+
+role Proposta_Econmica_em_Proposta_de_Atendimento_Especfica of functional-complexes  specializes Proposta_Econmica 
+
+kind Garantia_de_Proposta
+
+role Garantia_de_Proposta_em_Proposta_de_Atendimento_Geral of functional-complexes  specializes Garantia_de_Proposta 
+
+collective Grupo_de_Lotes
+
+role Comprovao_de_Frota_em_Proposta_de_Atendimento_Geral of functional-complexes  specializes Comprovao_de_Frota 
+
+relator Homologao_de_Leilo_de_Pblico
+
+role Qualificao_em_Proposta_de_Atendimento_Geral of functional-complexes  specializes Qualificao 
+
+relator Indicao_de_Representante
+
+relator Leilo
+
+relator Leilo_Pblico specializes Leilo {
+    @mediation 
+    [1] -- leiloa -- [1] Lote_em_Leilo 
 }
-kind Comprovao_de_Frota 
-role Plano_de_Negcio_em_Proposta_de_Atendimento_Especfica  specializes Plano_de_Negcio{
-    @mediation
-    ( {const } )[1] -- [1]  Proposta_de_Atendimento_Especfica
+
+relator Leilo_de_Licitao specializes Leilo_Pblico {
+    @mediation 
+    [1] -- leiloa -- [1] Lote_em_Leilo 
 }
-roleMixin Empresa_Participante_do_Leilo {
-    @mediation
-    ( {const } )[1] -- [1]  Indicao_de_Representante
+
+role Licitante_em_Leilo specializes Empresa_Participante_do_Leilo, Licitante {
+    @mediation 
+    [1] -- [1] Indicao_de_Representante 
+    @mediation 
+    [1] -- [1..*] Incluso_de_Licitante 
 }
-role Proposta_Econmica_em_Proposta_de_Atendimento_Especfica  specializes Proposta_Econmica{
-    @mediation
-    ( {const } )[1] -- [1]  Proposta_de_Atendimento_Especfica
+
+collective Lote_de_Servio{
+    numeroLinhas: undefined  
+    numeroEmpresas: undefined  
+    frotaReserva: undefined  
 }
-kind Garantia_de_Proposta 
-role Garantia_de_Proposta_em_Proposta_de_Atendimento_Geral  specializes Garantia_de_Proposta{
-    @mediation
-    ( {const } )[1] -- [1]  Proposta_de_Atendimento_Geral
+
+role Lote_de_Servio_em_Leilo of collectives  specializes Lote_em_Leilo, Lote_de_Servio 
+
+roleMixin Lote_em_Leilo of functional-complexes 
+
+kind Plano_de_Negcio
+
+roleMixin Proponente_Vencedora of functional-complexes  specializes Empresa_Participante_do_Leilo {
+    @mediation 
+    [1] -- [1] Indicao_de_Representante 
 }
-collective Grupo_de_Lotes {
-    @componentOf
-    [1] <o>--  [1..*]  Lote_de_Servio
+
+kind Proposta_Econmica
+
+relator Proposta_de_Atendimento
+
+relator Proposta_de_Atendimento_Especfica
+
+relator Proposta_de_Atendimento_Geral
+
+kind Qualificao
+
+role Representante_Legal of functional-complexes  specializes Pessoa_Fsica 
+
+role Representante_Legal_em_Leilo_de_Licitao of functional-complexes  specializes Representante_Legal 
+
+relator Sesso_Pblica_de_Leilo
+
+subkind Pessoa_Jurdica_de_Direito_Privado_Empresarial
+
+role Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional
+
+role Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos
+
+kind Licitao
+
+role Licitao_Anulada of functional-complexes  specializes Licitao_Concluda 
+
+role Licitao_Concluda of functional-complexes  specializes Licitao 
+
+role Licitao_Deserta of functional-complexes  specializes Licitao_sem_Seleo 
+
+role Licitao_Fracassada of functional-complexes  specializes Licitao_sem_Seleo 
+
+role Licitao_Suspensa of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+role Licitao_com_Seleo of functional-complexes  specializes Licitao_Concluda 
+
+subkind Contrato_de_Permisso
+
+subkind Licitao_de_Alientao of functional-complexes  specializes Licitao 
+
+subkind Licitao_de_Compra of functional-complexes  specializes Licitao 
+
+relator Outorga_de_Permisso
+
+subkind Licitao_de_Concesso of functional-complexes  specializes Licitao 
+
+role Permissionria
+
+subkind Licitao_de_Locao of functional-complexes  specializes Licitao 
+
+subkind Licitao_de_Obra of functional-complexes  specializes Licitao 
+
+subkind Licitao_de_Permisso of functional-complexes  specializes Licitao {
+    prazo: undefined  
 }
-role Comprovao_de_Frota_em_Proposta_de_Atendimento_Geral  specializes Comprovao_de_Frota{
-    @mediation
-    ( {const } )[1] -- [1]  Proposta_de_Atendimento_Geral
+
+subkind Licitao_de_Servio of functional-complexes  specializes Licitao 
+
+role Licitao_em_Convocao of functional-complexes  specializes Contexto_de_Publicao, Licitao_em_Fase_Externa 
+
+role Licitao_em_Fase_Externa of functional-complexes  specializes Licitao 
+
+role Licitao_em_Fase_Interna of functional-complexes  specializes Licitao 
+
+role Licitao_em_Habilitao of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+kind Pessoa_Fsica{
+    CPF: undefined  
+    RG: undefined  
+    endereo: undefined  
+    estado_civil: undefined  
+    idade: undefined  
+    nacionalidade: undefined  
+    profisso: undefined  
+    nome: undefined  
 }
-relator Homologao_de_Leilo_de_Pblico {
-    @mediation
-    [1] -- declara --  [1..*]  Proponente_Vencedora( {const } )
-    @mediation
-    [1] -- [1]  Leilo_Pblico( {const } )
+
+role Licitao_em_Homologao_e_Adjudicao of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+kind Pessoa_Jurdica{
+    CNPJ: undefined  
+    atividade_principal: undefined  
+    atividade_secundria: undefined  
+    nome_fantasia: undefined  
 }
-role Qualificao_em_Proposta_de_Atendimento_Geral  specializes Qualificao{
-    @mediation
-    ( {const } )[1] -- [1]  Proposta_de_Atendimento_Geral
+
+role Licitao_em_Julgamento of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+role Licitao_sem_Seleo of functional-complexes  specializes Licitao_Concluda 
+
+relator Audincia_Pblica
+
+kind Edital_de_Licitao
+
+kind Plano_de_Outorga specializes Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos, Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional 
+
+relator Reunio_Participativa
+
+relator Descrio_de_Quota_de_Explorao
+
+collective Ligao specializes Ligao_Efetivada 
+
+role Ligao_Efetivada
+
+role Linha_de_nibus_em_Implantao{
+    frequenciaMinimaViagens: undefined  
+    frotaOperacionalMinima: undefined  
 }
-relator Indicao_de_Representante {
-    @mediation
-    [1] -- [1]  Representante_Legal( {const } )
+
+role Edital_de_Licitao_Publicado of functional-complexes  specializes Objeto_Publicado, Edital_de_Licitao 
+
+relator Incluso_de_Licitante
+
+role Licitante specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial 
+
+roleMixin Contexto_de_Publicao of functional-complexes 
+
+role Licitao_de_Permisso_em_Fase_Externa of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+roleMixin Objeto_Publicado of functional-complexes 
+
+roleMixin Publicador of functional-complexes 
+
+relator Publicao
+
+relator Publicao_de_Edital specializes Publicao {
+    @mediation 
+    [1..*] -- [1] Publicador 
+    @mediation 
+    [1] -- publica -- [1] Objeto_Publicado 
+    @mediation 
+    [1..*] -- [1] Contexto_de_Publicao 
 }
-relator Leilo {
-    @mediation
-    [1] -- leiloa -- [1]  Lote_em_Leilo( {const } lote )
+
+relator Republicao specializes Publicao {
+    @mediation 
+    [1..*] -- [1] Publicador 
+    @mediation 
+    [1] -- publica -- [1] Objeto_Publicado 
+    @mediation 
+    [1..*] -- [1] Contexto_de_Publicao 
 }
-relator Leilo_Pblico  specializes Leilo
-relator Leilo_de_Licitao  specializes Leilo_Pblico{
-    @mediation
-    [1] -- leiloa --  [1..*]  Lote_de_Servio_em_Leilo( {const } loteServico )
+
+relator Republicao_de_Edital specializes Republicao {
+    @mediation 
+    [1] -- altera -- [1] Objeto_Publicado 
+    @mediation 
+    [1..*] -- [1] Publicador 
+    @mediation 
+    [1] -- publica -- [1] Objeto_Publicado 
+    @mediation 
+    [1..*] -- [1] Contexto_de_Publicao 
 }
-role Licitante_em_Leilo  specializes Empresa_Participante_do_Leilo, Licitante
-collective Lote_de_Servio {
-    numeroLinhas : undefined
-    numeroEmpresas : undefined
-    frotaReserva : undefined
-}
-role Lote_de_Servio_em_Leilo  specializes Lote_em_Leilo, Lote_de_Servio
-roleMixin Lote_em_Leilo 
-kind Plano_de_Negcio 
-roleMixin Proponente_Vencedora  specializes Empresa_Participante_do_Leilo
-kind Proposta_Econmica 
-relator Proposta_de_Atendimento {
-    @mediation
-    [1] --  [1..*]  Proposta_de_Atendimento_Especfica( {const } )
-    @mediation
-    [1] -- [1]  Proposta_de_Atendimento_Geral( {const } )
-    @mediation
-    [1] -- apresenta -- [1]  Representante_Legal_em_Leilo_de_Licitao( {const } )
-    @mediation
-    [1] -- [1]  Leilo_de_Licitao( {const } )
-}
-relator Proposta_de_Atendimento_Especfica {
-    @mediation
-    [1] -- [1]  Lote_de_Servio_em_Leilo( {const } loteServio )
-}
-relator Proposta_de_Atendimento_Geral {
-    @mediation
-    [1] --  [1..*]  Lote_de_Servio_em_Leilo( {const } loteServio )
-}
-kind Qualificao 
-role Representante_Legal  specializes Pessoa_Fsica
-role Representante_Legal_em_Leilo_de_Licitao  specializes Representante_Legal
-relator Sesso_Pblica_de_Leilo {
-    @mediation
-    [1] -- [1]  Leilo_Pblico( {const } )
-    @mediation
-     [0..*] -- participa --  [1..*]  Representante_Legal( {const } )
-}
-subkind Pessoa_Jurdica_de_Direito_Privado_Empresarial 
-role Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional 
-role Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos 
-kind Licitao 
-role Licitao_Anulada  specializes Licitao_Concluda
-role Licitao_Concluda  specializes Licitao
-role Licitao_Deserta  specializes Licitao_sem_Seleo
-role Licitao_Fracassada  specializes Licitao_sem_Seleo
-role Licitao_Suspensa  specializes Licitao_em_Fase_Externa
-role Licitao_com_Seleo  specializes Licitao_Concluda{
-    @mediation
-    ( {const } )[1] -- [1]  Outorga_de_Permisso
-}
-subkind Contrato_de_Permisso 
-subkind Licitao_de_Alientao  specializes Licitao
-subkind Licitao_de_Compra  specializes Licitao
-relator Outorga_de_Permisso {
-    @mediation
-    [1] -- [1]  Leilo_de_Licitao( {const } )
-    @mediation
-    [1] -- formaliza -- [1]  Contrato_de_Permisso( {const } )
-}
-subkind Licitao_de_Concesso  specializes Licitao
-role Permissionria {
-    @mediation
-    [1] -- participa_em --  [1..*]  Outorga_de_Permisso( {const } )
-}
-subkind Licitao_de_Locao  specializes Licitao
-subkind Licitao_de_Obra  specializes Licitao
-subkind Licitao_de_Permisso  specializes Licitao{
-    prazo : undefined
-    @Formal
-     [0..*] -- coordena -- [1]  Comisso_de_Outorga
-}
-subkind Licitao_de_Servio  specializes Licitao
-role Licitao_em_Convocao  specializes Contexto_de_Publicao, Licitao_em_Fase_Externa
-role Licitao_em_Fase_Externa  specializes Licitao
-role Licitao_em_Fase_Interna  specializes Licitao{
-    @mediation
-    ( {const } )[1] -- solicita -- [1]  Audincia_Pblica
-}
-role Licitao_em_Habilitao  specializes Licitao_em_Fase_Externa
-kind Pessoa_Fsica {
-    CPF : undefined
-    RG : undefined
-    endereo : undefined
-    estado_civil : undefined
-    idade : undefined
-    nacionalidade : undefined
-    profisso : undefined
-    nome : undefined
-}
-role Licitao_em_Homologao_e_Adjudicao  specializes Licitao_em_Fase_Externa
-kind Pessoa_Jurdica {
-    CNPJ : undefined
-    atividade_principal : undefined
-    atividade_secundria : undefined
-    nome_fantasia : undefined
-}
-role Licitao_em_Julgamento  specializes Licitao_em_Fase_Externa
-role Licitao_sem_Seleo  specializes Licitao_Concluda
-relator Audincia_Pblica 
-kind Edital_de_Licitao 
-kind Plano_de_Outorga  specializes Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos, Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional{
-    @Formal
-    [1] -- apresenta -- [1]  Projeto_Bsico
-}
-relator Reunio_Participativa 
-relator Descrio_de_Quota_de_Explorao {
-    @mediation
-    [1] -- [1]  Linha_de_nibus_em_Implantao( {const } )
-}
-collective Ligao  specializes Ligao_Efetivada
-role Ligao_Efetivada 
-role Linha_de_nibus_em_Implantao {
-    frequenciaMinimaViagens : undefined
-    frotaOperacionalMinima : undefined
-}
-role Edital_de_Licitao_Publicado  specializes Objeto_Publicado, Edital_de_Licitao
-relator Incluso_de_Licitante {
-    @mediation
-     [1..*] -- [1]  Licitao_em_Convocao( {const } )
-}
-role Licitante  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial{
-    @mediation
-    [1] --  [1..*]  Incluso_de_Licitante( {const } )
-}
-roleMixin Contexto_de_Publicao 
-role Licitao_de_Permisso_em_Fase_Externa  specializes Licitao_em_Fase_Externa
-roleMixin Objeto_Publicado 
-roleMixin Publicador 
-relator Publicao {
-    @mediation
-     [1..*] -- [1]  Publicador( {const } )
-    @mediation
-    [1] -- publica -- [1]  Objeto_Publicado( {const } objetoPublicado )
-    @mediation
-     [1..*] -- [1]  Contexto_de_Publicao( {const } contextoPublicao )
-}
-relator Publicao_de_Edital  specializes Publicao{
-    @mediation
-     [1..*] -- [1]  Licitao_em_Convocao( {const } licitaoConvocao )
-    @mediation
-    [1] -- publica -- [1]  Edital_de_Licitao_Publicado( {const } editalLicitao )
-}
-relator Republicao  specializes Publicao{
-    @mediation
-    [1] -- altera -- [1]  Objeto_Publicado( {const } objetoAlterado )
-}
-relator Republicao_de_Edital  specializes Republicao{
-    @mediation
-    [1] -- altera -- [1]  Edital_de_Licitao_Publicado( {const } editalRepublicado )
-}
-kind Projeto_Bsico  specializes Projeto_Bsico_de_Concesso
-subkind Projeto_Bsico_de_Concesso 
-collective Comisso 
-role Comisso_de_Outorga  specializes Comisso{
-    @mediation
-    ( {const } )[1] -- conduz -- [1]  Leilo_de_Licitao
-}
-relator Instituio_de_Comisso_de_Outorga {
-    @mediation
-    [1] -- [1]  Comisso_de_Outorga( {const } )
-    @mediation
-    [1] -- [1]  Licitao_de_Permisso_em_Fase_Externa( {const } )
-}
-role Portaria_para_Constituio_de_Comisso_de_Outorga {
-    @mediation
-     [1..*] -- formaliza -- [1]  Instituio_de_Comisso_de_Outorga( {const } )
-}
+
+kind Projeto_Bsico specializes Projeto_Bsico_de_Concesso 
+
+subkind Projeto_Bsico_de_Concesso
+
+collective Comisso
+
+role Comisso_de_Outorga of collectives  specializes Comisso 
+
+relator Instituio_de_Comisso_de_Outorga
+
+role Portaria_para_Constituio_de_Comisso_de_Outorga
 

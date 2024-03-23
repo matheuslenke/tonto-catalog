@@ -1,0 +1,121 @@
+
+package despesagovernamental
+
+category Governo of functional-complexes 
+
+kind rgo
+
+kind Governo_Federal specializes Governo 
+
+kind Governo_Estadual specializes Governo 
+
+kind Governo_Municipal specializes Governo 
+
+role Unidade_Gestora of functional-complexes  specializes rgo {
+    @componentOf 
+    [2..*] -- [1] Governo 
+}
+
+relator Processo
+
+relator Processo_Licitatrio specializes Processo 
+
+relator Processo_Execuco specializes Processo 
+
+relator Aco_Licitatria
+
+relator Licitaco specializes Aco_Licitatria {
+    [1] -- estabelece -- [1] Processo_Licitatrio 
+}
+
+relator Dispensa_Licitaco specializes Aco_Licitatria {
+    [1] -- estabelece -- [1] Processo_Licitatrio 
+}
+
+relator Contrato_com_Licitaco specializes Contrato_Inicial {
+    [1..*] -- favorece -- [1] Credor 
+}
+
+relator Contrato_com_Dispensa specializes Contrato_Inicial {
+    [1..*] -- favorece -- [1] Credor 
+}
+
+relator Contrato_Inicial specializes Contrato {
+    [1..*] -- favorece -- [1] Credor 
+}
+
+relator Contrato
+
+relator Contrato_Aditivo specializes Contrato {
+    [1..*] -- favorece -- [1] Credor 
+}
+
+roleMixin Credor of functional-complexes 
+
+kind Pessoa
+
+kind Empresa
+
+role Pessoa_Credor of functional-complexes  specializes Credor, Pessoa {
+    [1] -- realiza -- [1..*] Execuco_Despesa 
+}
+
+role Empresa_Credor of functional-complexes  specializes Credor, Empresa {
+    [1] -- realiza -- [1..*] Execuco_Despesa 
+}
+
+relator Execuco_Despesa
+
+relator Exeuco_com_Contrato specializes Execuco_Despesa 
+
+relator Execuco_sem_Contrato specializes Execuco_Despesa 
+
+relator Empenho specializes Execuco_Despesa 
+
+relator Liquidaco specializes Execuco_Despesa 
+
+relator Pagamento specializes Execuco_Despesa 
+
+role Despesa_Empenhada of functional-complexes  specializes Despesa {
+    [*] -- classifica -- [1] Aco 
+    [*] -- classifica -- [1] SubFunco 
+    [*] -- classifica -- [1] Natureza_Despesa 
+    [*] -- classifica -- [1] Subttulo 
+}
+
+role Despesa_Liquidada of functional-complexes  specializes Despesa {
+    [*] -- classifica -- [1] Aco 
+    [*] -- classifica -- [1] SubFunco 
+    [*] -- classifica -- [1] Natureza_Despesa 
+    [*] -- classifica -- [1] Subttulo 
+}
+
+role Despesa_Paga of functional-complexes  specializes Despesa {
+    [*] -- classifica -- [1] Aco 
+    [*] -- classifica -- [1] SubFunco 
+    [*] -- classifica -- [1] Natureza_Despesa 
+    [*] -- classifica -- [1] Subttulo 
+}
+
+kind Despesa
+
+role Subttulo of functional-complexes  specializes Local 
+
+kind Local
+
+kind Natureza_Despesa
+
+kind Aco
+
+kind Programa
+
+kind SubFunco
+
+kind Funco
+
+kind Grupo_Natureza
+
+kind Categoria_Econmica
+
+kind Modalidade_Aplicaco
+

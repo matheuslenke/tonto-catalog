@@ -1,0 +1,1501 @@
+
+package Full_OntoRights
+
+event UFOB_Event
+
+situation UFOB_Fact specializes UFOB_Situation {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+quality UFOB_Time_Frame
+
+event UFOB_Complex_event specializes UFOB_Event {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+event UFOB_Atomic_event specializes UFOB_Event {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+event UFOL_Legally_Defined_Event specializes UFOB_Event {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+event Legally_Defined_Human_Rights_Violation specializes UFOL_Legally_Defined_Event, Abusive_Event {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+    @material 
+    [0..*] -- violates -- [1..*] Human_Rights_Standard 
+    @comparative 
+    [0..*] -- includes_same_elements_as -- [0..*] Legally_Defined_Human_Rights_Violation 
+    @mediation 
+    [1] -- grounds -- [0..*] Human_Rights_Violation 
+}
+
+kind UFOL_Legal_Normative_Description
+
+kind UFOL_Legal_Norm
+
+subkind Human_Rights_Instrument of functional-complexes  specializes UFOL_Legal_Normative_Description {
+    @componentOf 
+    [1..*] -- _defined_by -- [0..*] UFOL_Legally_Defined_Event 
+    @material 
+    [1..*] -- defines -- [0..*] UFOL_Legal_Agent 
+}
+
+subkind Human_Rights_Standard of functional-complexes  specializes UFOL_Legal_Norm {
+    @componentOf 
+    [1..*] -- _expressed_by -- [0..*] UFOL_Legally_Defined_Event 
+    @material 
+    [1..*] -- is_content_of -- [0..*] UFOL_Legal_Normative_Description 
+}
+
+event UFOB_Action specializes UFOB_Event {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+mode UFOC_Intention
+
+situation UFOC_Goal specializes UFOB_Counterfactual_situation {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+event UFOB_Participation specializes UFOB_Event {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+situation UFOB_Situation
+
+situation UFOB_Counterfactual_situation specializes UFOB_Situation {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+relator Human_Rights_Problem
+
+roleMixin Legal_Perpetrator of functional-complexes  specializes Legal_Dutybearer {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+roleMixin Legal_Victim of functional-complexes  specializes Rightsholder {
+    @material 
+    [1..*] -- has_a_right_against -- [1..*] Dutybearer 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOL_Legal_Agent of functional-complexes  specializes UFOC_Social_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOL_Agentive_Legal_Institution of functional-complexes  specializes UFOL_Legal_Agent, UFOC_Institutional_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOL_Singular_Legal_Agent of functional-complexes  specializes UFOL_Legal_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOC_Human_Agent of functional-complexes  specializes UFOC_Agent {
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOC_Social_Agent of functional-complexes  specializes UFOC_Agent {
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOC_Collective_Social_Agent of functional-complexes  specializes UFOC_Social_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind UFOC_Society specializes UFOC_Collective_Social_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+roleMixin Dutybearer of functional-complexes  specializes UFOL_Legal_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+mode Human_Rights_Responsibility
+
+subkind Consequence_On_Person of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+mode Consequence_For_Resulting_Event_Agent
+
+subkind Reputational_Consequence of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Consequence_On_Collective of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Psychological_Consequence of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Economical_Consequence of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent, Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Territorial_Consequence of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Physical_Consequence of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+event Resulting_Event specializes UFOB_Participation {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+mode Sex
+
+mode Gender_Identity
+
+mode Sexual_Orientation
+
+quality Age
+
+phase Living_Person of functional-complexes  specializes Natural_Person {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+phase Deceased_Person of functional-complexes  specializes Natural_Person {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+phase Child of functional-complexes  specializes Natural_Person {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+phase Adult of functional-complexes  specializes Natural_Person {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+mode Ethnicity
+
+mode Religion
+
+quality Weight
+
+subkind Positive_Consequence_On_Agent of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Negative_Consequence_On_Agent of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Integrity_Consequence of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind State_Authority of functional-complexes  specializes Formal_Organisation {
+    @memberOf 
+    [1..*] -- affiliated_by -- [1..*] EOPL_Organisation 
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Religious_Group of functional-complexes  specializes Identity_Group {
+    @memberOf 
+    [1] -- [1]  UFOC_Collective_Social_Agent 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Ethnic_Group of functional-complexes  specializes Identity_Group {
+    @memberOf 
+    [1] -- [1]  UFOC_Collective_Social_Agent 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Human_Rights_Instrument_Article of functional-complexes  specializes UFOL_Legal_Normative_Description {
+    @componentOf 
+    [1..*] -- _defined_by -- [0..*] UFOL_Legally_Defined_Event 
+    @material 
+    [1..*] -- defines -- [0..*] UFOL_Legal_Agent 
+}
+
+subkind Element_of_Legally_Defined_Human_Rights_Violations of functional-complexes  specializes Human_Rights_Standard {
+    @componentOf 
+    [1..*] -- _expressed_by -- [0..*] UFOL_Legally_Defined_Event 
+    @material 
+    [1..*] -- is_content_of -- [0..*] UFOL_Legal_Normative_Description 
+}
+
+event Monitoring_Event specializes UFOB_Participation {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+kind Monitoring_Process
+
+event Information_Exchange specializes Monitoring_Event {
+    @material 
+    [0..*] -- discovers -- [0..*] UFOB_Fact 
+    @comparative 
+    [1] -- represented_in -- [1] Monitoring_Record 
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+category Media_Object of functional-complexes 
+
+mode Confidentiality
+
+mode Informed_Consent
+
+subkind Goal_Transfer_From_Sender of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Goal_Transfer_From_Sender_To_Influence_Third_Agent of intrinsic-modes  specializes Goal_Transfer_From_Sender {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+mode Communication_Channel
+
+event Disclose_Information specializes Information_Exchange {
+    @material 
+    [0..*] -- discovers -- [0..*] UFOB_Fact 
+    @comparative 
+    [1] -- represented_in -- [1] Monitoring_Record 
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+kind Digital_File specializes Digital_Media_Object {
+    @comparative 
+    [1..*] -- representation_of -- [0..1] Physical_Media_Object 
+}
+
+kind Paper_Document specializes Physical_Media_Object 
+
+kind Other_Physical_Object specializes Physical_Media_Object 
+
+category Physical_Media_Object of functional-complexes  specializes Media_Object 
+
+category Digital_Media_Object of functional-complexes  specializes Media_Object 
+
+kind Digital_Folder specializes Digital_Media_Object {
+    @comparative 
+    [1..*] -- representation_of -- [0..1] Physical_Media_Object 
+}
+
+subkind Information_Exchange_Record of functional-complexes  specializes Monitoring_Record {
+    @componentOf 
+    [0..*] -- [0..*] UFOB_Situation 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Observation_Record of functional-complexes  specializes Monitoring_Record {
+    @componentOf 
+    [0..*] -- [0..*] UFOB_Situation 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+relator Network_Connection
+
+subkind Money_Flow of relators  specializes Network_Connection {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Supply_Flow of relators  specializes Network_Connection {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Goods_Flow of relators  specializes Supply_Flow {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Service_Flow of relators  specializes Supply_Flow {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Information_Flow of relators  specializes Network_Connection {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Has_Influence_On of relators  specializes Network_Connection {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Ownership of relators  specializes Network_Connection {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Partial_Ownership of relators  specializes Ownership {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Complete_Ownership of relators  specializes Ownership {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Support of relators  specializes Has_Influence_On {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Oppose of relators  specializes Has_Influence_On {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+subkind Neutral of relators  specializes Has_Influence_On {
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+    @mediation 
+    [0..*] -- [1] UFOC_Agent 
+}
+
+situation Consequence_For_Agent specializes UFOB_Situation {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+situation Real_Consequence_For_Agent specializes Consequence_For_Agent {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+situation Risk specializes Counterfactual_Consequence_For_Agent {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+category UFOA_Substantial of functional-complexes 
+
+roleMixin Force_At_Work of functional-complexes  specializes UFOA_Substantial {
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind UFOL_Conduct_Legal_Norm of functional-complexes  specializes UFOL_Legal_Norm {
+    @componentOf 
+    [1..*] -- _expressed_by -- [0..*] UFOL_Legally_Defined_Event 
+    @material 
+    [1..*] -- is_content_of -- [0..*] UFOL_Legal_Normative_Description 
+}
+
+subkind UFOL_Power_Legal_Norm of functional-complexes  specializes UFOL_Legal_Norm {
+    @componentOf 
+    [1..*] -- _expressed_by -- [0..*] UFOL_Legally_Defined_Event 
+    @material 
+    [1..*] -- is_content_of -- [0..*] UFOL_Legal_Normative_Description 
+}
+
+subkind Human_Rights_Mechanism of functional-complexes  specializes Formal_Organisation, UFOL_Legal_Agent {
+    @memberOf 
+    [1..*] -- affiliated_by -- [1..*] EOPL_Organisation 
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind Nation_State specializes UFOC_Institutional_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+phase Human_Rights_Violation of relators  specializes Human_Rights_Problem {
+    @mediation 
+    [1..*] -- [1] Rightsholder 
+}
+
+event Abusive_Event specializes UFOB_Event {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+subkind EOPL_Multiorganisation of functional-complexes  specializes EOPL_Organisation {
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind EOPL_Standalone_Organisation of functional-complexes  specializes EOPL_Organisation {
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind EOPL_Complex_Organisation of functional-complexes  specializes EOPL_Standalone_Organisation {
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind EOPL_Simple_Organisation of functional-complexes  specializes EOPL_Standalone_Organisation {
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind EOPL_Organisational_Unit specializes UFOC_Institutional_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind EOPL_Complex_Organisational_Unit of functional-complexes  specializes EOPL_Organisational_Unit {
+    @memberOf 
+    [1..*] -- assigned_to -- [1..*] Organisation_Member 
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind EOPL_Simple_Organisational_Unit of functional-complexes  specializes EOPL_Organisational_Unit {
+    @memberOf 
+    [1..*] -- assigned_to -- [1..*] Organisation_Member 
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+role Organisation_Member of functional-complexes  specializes Natural_Person {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+relator Affiliation
+
+role Head_Member of functional-complexes  specializes Organisation_Member {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+role Common_Member of functional-complexes  specializes Organisation_Member {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Formal_Organisation of functional-complexes  specializes EOPL_Organisation {
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Memory of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+event Recording specializes Resulting_Event {
+    @bringsAbout 
+    [1] -- [0..1] Real_Consequence_For_Agent 
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+event Intentional_Event specializes UFOB_Action {
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+relator Legal_Analysis
+
+kind Monitoring_Record specializes UFOC_Social_Object {
+    @componentOf 
+    [0..*] -- [0..*] UFOB_Situation 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+event Observation_Action specializes Monitoring_Event {
+    @material 
+    [0..*] -- discovers -- [0..*] UFOB_Fact 
+    @comparative 
+    [1] -- represented_in -- [1] Monitoring_Record 
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+quality Height
+
+subkind Site of functional-complexes  specializes Place 
+
+kind Place
+
+quality Geolocation
+
+role Detention_Centre of functional-complexes  specializes Site 
+
+phase Confirmed_Human_Rights_Violation of relators  specializes Human_Rights_Violation {
+    @mediation 
+    [0..*] -- [1..*] Legal_Victim 
+    @mediation 
+    [0..*] -- [1..*] Legal_Perpetrator 
+    @mediation 
+    [0..*] -- concerns_mandate_of -- [0..*] Human_Rights_Mechanism 
+    @mediation 
+    [1..*] -- [1] Rightsholder 
+}
+
+phase Alleged_Human_Rights_Violation of relators  specializes Human_Rights_Violation {
+    @mediation 
+    [0..*] -- [1..*] Legal_Victim 
+    @mediation 
+    [0..*] -- [1..*] Legal_Perpetrator 
+    @mediation 
+    [0..*] -- concerns_mandate_of -- [0..*] Human_Rights_Mechanism 
+    @mediation 
+    [1..*] -- [1] Rightsholder 
+}
+
+phase Possible_Human_Rights_Violation of relators  specializes Human_Rights_Violation {
+    @mediation 
+    [0..*] -- [1..*] Legal_Victim 
+    @mediation 
+    [0..*] -- [1..*] Legal_Perpetrator 
+    @mediation 
+    [0..*] -- concerns_mandate_of -- [0..*] Human_Rights_Mechanism 
+    @mediation 
+    [1..*] -- [1] Rightsholder 
+}
+
+subkind Perpetration_by_commission of intrinsic-modes  specializes Human_Rights_Responsibility {
+    @characterization 
+    [1] -- failed_by -- [1] Legal_Perpetrator 
+}
+
+subkind Perpetration_by_ommission of intrinsic-modes  specializes Human_Rights_Responsibility {
+    @characterization 
+    [1] -- failed_by -- [1] Legal_Perpetrator 
+}
+
+subkind Complex_Place of functional-complexes  specializes Place 
+
+subkind Atomic_Place of functional-complexes  specializes Place 
+
+subkind Informal_Organisation of functional-complexes  specializes EOPL_Organisation {
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind Natural_Person specializes UFOC_Human_Agent {
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOC_Agent of functional-complexes  specializes UFOA_Substantial {
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Criminal_Organisation of functional-complexes  specializes Informal_Organisation {
+    @material 
+    [0..*] -- [0..*] Site 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+roleMixin Rightsholder of functional-complexes  specializes UFOC_Social_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category Group of functional-complexes  specializes UFOC_Collective_Social_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind Identity_Group specializes Group {
+    @memberOf 
+    [1] -- [1] UFOC_Collective_Social_Agent 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind Circumstantial_Group specializes Group {
+    @memberOf 
+    [1] -- [1] UFOC_Collective_Social_Agent 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+class InfluenceList
+
+class OwnerShipList
+
+class SupplyFlowList
+
+category UFOA_NonAgentive_Substantial of functional-complexes  specializes UFOA_Substantial {
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOC_Social_Object of functional-complexes  specializes UFOA_NonAgentive_Substantial {
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOL_Legal_Object of functional-complexes  specializes UFOC_Social_Object {
+    @componentOf 
+    [0..*] -- [0..*] UFOB_Situation 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind Official_Legal_Process specializes UFOL_Legal_Object {
+    @material 
+    [0..*] -- refers_to -- [0..*] UFOA_Substantial 
+    @componentOf 
+    [0..*] -- [0..*] UFOB_Situation 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind Official_Legal_Record specializes UFOL_Legal_Object {
+    @material 
+    [0..*] -- refers_to -- [0..*] UFOA_Substantial 
+    @componentOf 
+    [0..*] -- [0..*] UFOB_Situation 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Legal_Consequence of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+role Monitoring_Event_Participant of functional-complexes  specializes Natural_Person {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+role Monitoring_Staff of functional-complexes  specializes Monitoring_Event_Participant {
+    @participation 
+    [1] -- [0..*] Monitoring_Event 
+    @material 
+    [0..*] -- representing -- [0..1] UFOC_Social_Agent 
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+role Witness of functional-complexes  specializes Monitoring_Event_Participant {
+    @participation 
+    [1] -- [0..*] Monitoring_Event 
+    @material 
+    [0..*] -- representing -- [0..1] UFOC_Social_Agent 
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+role Material_Absuser of functional-complexes  specializes Monitoring_Event_Participant {
+    @participation 
+    [1] -- [0..*] Monitoring_Event 
+    @material 
+    [0..*] -- representing -- [0..1] UFOC_Social_Agent 
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+role Absused_Person of functional-complexes  specializes Monitoring_Event_Participant {
+    @participation 
+    [1] -- [0..*] Monitoring_Event 
+    @material 
+    [0..*] -- representing -- [0..1] UFOC_Social_Agent 
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+role Dutybearer_representative of functional-complexes  specializes Monitoring_Event_Participant {
+    @participation 
+    [1] -- [0..*] Monitoring_Event 
+    @material 
+    [0..*] -- representing -- [0..1] UFOC_Social_Agent 
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+subkind Failed_Responsibility_To_Respect of intrinsic-modes  specializes Human_Rights_Responsibility {
+    @characterization 
+    [1] -- failed_by -- [1] Legal_Perpetrator 
+}
+
+subkind Failed_Responsibility_To_Protect of intrinsic-modes  specializes Human_Rights_Responsibility {
+    @characterization 
+    [1] -- failed_by -- [1] Legal_Perpetrator 
+}
+
+subkind Failed_Responsibility_To_Promote of intrinsic-modes  specializes Human_Rights_Responsibility {
+    @characterization 
+    [1] -- failed_by -- [1] Legal_Perpetrator 
+}
+
+relator Membership
+
+relator Legal_Process_Relation
+
+relator Causation
+
+mode Function_Variation
+
+kind EOPL_Organisation specializes UFOC_Institutional_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+category UFOC_Institutional_Agent of functional-complexes  specializes UFOC_Social_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+kind EOPL_Team specializes UFOC_Institutional_Agent {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+roleMixin Legal_Dutybearer of functional-complexes  specializes Dutybearer {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+roleMixin Moral_Dutybearer of functional-complexes  specializes Dutybearer {
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+}
+
+phase Benign_Human_Rights_Problem of relators  specializes Human_Rights_Problem {
+    @mediation 
+    [1..*] -- [1] Rightsholder 
+}
+
+event Receive_Information specializes Information_Exchange {
+    @material 
+    [0..*] -- discovers -- [0..*] UFOB_Fact 
+    @comparative 
+    [1] -- represented_in -- [1] Monitoring_Record 
+    @bringsAbout 
+    [0..*] -- [1] UFOB_Fact 
+    @bringsAbout 
+    [0..*] -- causes -- [0..*] UFOB_Event 
+    @comparative 
+    [0..*] -- within_a -- [1] Place 
+    @creation 
+    [1] -- [0..1] Official_Legal_Record 
+}
+
+category Original_Media_Object of functional-complexes  specializes Media_Object 
+
+subkind Lead_To of relators  specializes Legal_Process_Relation {
+    @mediation 
+    [0..*] -- [1] Official_Legal_Process 
+    @mediation 
+    [0..*] -- [1] Official_Legal_Process 
+}
+
+subkind Merged_With of relators  specializes Legal_Process_Relation {
+    @mediation 
+    [0..*] -- [1] Official_Legal_Process 
+    @mediation 
+    [0..*] -- [1] Official_Legal_Process 
+}
+
+class MembershipTypeList
+
+relator Assignmnent
+
+relator Person_Relationship
+
+situation Detainment_Conditions specializes UFOB_Situation {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+subkind Truth of intrinsic-modes  specializes Remedy {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Justice of intrinsic-modes  specializes Remedy {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Reparation of intrinsic-modes  specializes Remedy {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Guarantees_Of_NonRepetition of intrinsic-modes  specializes Remedy {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+subkind Remedy of intrinsic-modes  specializes Consequence_For_Resulting_Event_Agent {
+    @characterization 
+    [1..*] -- [1] Consequence_For_Agent 
+}
+
+kind Information_Piece
+
+roleMixin Detained of functional-complexes 
+
+role Detained_person of functional-complexes  specializes Natural_Person, Detained {
+    @material 
+    [0..*] -- has_relation_to -- [0..*] Natural_Person 
+    @comparative 
+    [0..*] -- born_in -- [1] Place 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+    @material 
+    [0..*] -- detained_in -- [1] Detention_Centre 
+}
+
+role Detained_Group of functional-complexes  specializes Circumstantial_Group, Detained {
+    @memberOf 
+    [1] -- [1] UFOC_Collective_Social_Agent 
+    @material 
+    [2..*] -- submits_to -- [0..*] UFOL_Legal_Normative_Description 
+    @material 
+    [0..*] -- connected_to -- [0..*] UFOC_Agent 
+    @material 
+    [1] -- affected_by -- [0..*] Consequence_For_Agent 
+    @comparative 
+     -- active_in -- [0..*] Place 
+    @participation 
+    [1] -- [0..*] UFOB_Participation 
+    @material 
+    [0..*] -- detained_in -- [1] Detention_Centre 
+}
+
+situation Counterfactual_Consequence_For_Agent specializes Consequence_For_Agent {
+    @comparative 
+    [0..*] -- within_a -- [1..*] Place 
+}
+
+subkind Personal_Relationship of relators  specializes Person_Relationship {
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+
+    // TODO: Missing has_relation_to
+    // @derivation 
+    // [1] -- [1] has_relation_to 
+}
+
+subkind Family_Relationship of relators  specializes Personal_Relationship {
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+    // @derivation 
+    // [1] -- [1] has_relation_to 
+}
+
+subkind Affective_Relationship of relators  specializes Personal_Relationship {
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+    // @derivation 
+    // [1] -- [1] has_relation_to 
+}
+
+subkind Professional_Relationship of relators  specializes Person_Relationship {
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+    @mediation 
+    [0..*] -- [1] Natural_Person 
+    // @derivation 
+    // [1] -- [1] has_relation_to 
+}
+
+relator Detainment
+
+subkind De_Facto_Detainment of relators  specializes Detainment {
+    @mediation 
+    [1..*] -- [1..*] Detained 
+    @mediation 
+    [1..*] -- [1..*] Detention_Centre 
+}
+
+subkind De_Jure_Detainment of relators  specializes Detainment {
+    @mediation 
+    [1..*] -- [1..*] Detained 
+    @mediation 
+    [1..*] -- [1..*] Detention_Centre 
+}
+

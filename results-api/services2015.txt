@@ -1,0 +1,53 @@
+Validating...
+- Total of errors: 125
+Warning: Could not create specialization between class ServiceProvider and 
+                undefined not found in context module Service_Offer)
+Warning: Could not create specialization between class TargetCustomer and 
+                undefined not found in context module Service_Offer)
+Warning: Could not create specialization between class ServiceProvider and 
+                undefined not found in context module Service_Offer)
+Warning: Could not create specialization between class TargetCustomer and 
+                undefined not found in context module Service_Offer)
+Warning: Could not create specialization between class ServiceProvider and 
+                undefined not found in context module Service_Offer)
+Warning: Could not create specialization between class TargetCustomer and 
+                undefined not found in context module Service_Offer)
+[error] Not unique class stereotype:
+The class Time_Point must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Time_Interval must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Temporal_Structure must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Thing must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Urelement must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Set must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Time_Point must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Time_Interval must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Temporal_Structure must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Time_Interval are not among the allowed ontological natures of its superclass Temporal_Structure
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Time_Interval are not among the allowed ontological natures of its superclass Temporal_Structure
+[error] Not unique class stereotype:
+The class Thing must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Urelement must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Set must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Urelement are not among the allowed ontological natures of its superclass Thing
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Set are not among the allowed ontological natures of its superclass Thing
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Urelement are not among the allowed ontological natures of its superclass Thing
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Set are not among the allowed ontological natures of its superclass Thing
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class SpecializedServiceAgreement is specializing other classes that represent ultimate sortals: «relator»
+Validation finished

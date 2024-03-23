@@ -1,0 +1,6 @@
+
+package InfoSysDes1
+
+datatype string_
+datatype int
+datatype float

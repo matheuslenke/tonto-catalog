@@ -1,35 +1,52 @@
+import paper_example
+
 package example
 
-kind Person {
-    @material
-    [*] -- knows -- [*]  Person
+kind Person
+
+role Detective of functional-complexes  specializes Person {
+    @material 
+    [*] -- knows -- [*] Person 
 }
-role Detective  specializes Person
-relator Criminal_Investigation {
-    @mediation
-    [1] -- participatesIn --  [2..*]  Detective( {const } detective )
-    @mediation
-     [1..*] -- investigates --  [1..*]  Suspect( {const } suspect )
-    @mediation
-    [1] -- responsibleFor -- [1]  Lead_Detective( {const } leader )
-    @mediation
-     [1..*] -- relatedTo --  [1..*]  Witness( {const } witness )
+
+relator Criminal_Investigation
+
+role Suspect of functional-complexes  specializes Person {
+    @material 
+    [*] -- knows -- [*] Person 
 }
-role Suspect  specializes Person
-role Lead_Detective  specializes Detective
-role Witness  specializes Person
-relator Interrogation {
-    @mediation
-     [1..*] -- targetOf -- [1]  Witness( {const } witness )
-    @mediation
-    [*] -- conducts --  [1..*]  Detective( {const } interrogator )
+
+role Lead_Detective of functional-complexes  specializes Detective {
+    @material 
+    [*] -- knows -- [*] Person 
 }
-role Captain  specializes Detective
-role Officer  specializes Detective
-role Parent  specializes Person{
-    @material
-     [1..2] -- parentOf -- [*]  Child
+
+role Witness of functional-complexes  specializes Person {
+    @material 
+    [*] -- knows -- [*] Person 
 }
-role Child  specializes Person
-role Interrogator 
+
+relator Interrogation
+
+role Captain of functional-complexes  specializes Detective {
+    @material 
+    [*] -- knows -- [*] Person 
+}
+
+role Officer of functional-complexes  specializes Detective {
+    @material 
+    [*] -- knows -- [*] Person 
+}
+
+role Parent of functional-complexes  specializes Person {
+    @material 
+    [*] -- knows -- [*] Person 
+}
+
+role Child of functional-complexes  specializes Person {
+    @material 
+    [*] -- knows -- [*] Person 
+}
+
+role Interrogator
 

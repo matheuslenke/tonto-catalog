@@ -1,47 +1,50 @@
-import opm
+import UML_ontology_Emergo
+import Attribute_clases
+import BPO_ontology
+import Entity_classes
+import Geometry_classes
+import Geometry_classes_2
+import UML_ontology_Emergo
+import bot
 import bpo
+import dice
+import element_class
 import fog
+import gr
+import ifc
+import omg
+import opm
+import product_classes
+import qudt
 import schema
+import seas
 
 package omg
 
-category Geometry {
-    hasReferencedGeometryIdentifier : undefined
-    hasSimpleGeometryDiscription : undefined
-    innobrixRow : undefined
-    innobrixColumn : undefined
-    innobrixColumnCel : undefined
-    @material
-     [0..*] -- omgcomplementsGeometry --  [0..*]  Geometry
-    @comparative
-     [1..*] -- omghasGeometryState --  [1..*]  GeometryState
-    @material
-     [0..*] -- omgisDerivedFromGeometry --  [0..*]  Geometry
-    @participation
-    ( {const } ) [1..*] -- omghasGeometryContext -- [1]  GeometryContext( {const } )
-    @material
-     [0..*] -- omgisPartOfGeometry --  [0..*]  Geometry
-    @material
-     [0..*] -- omgtransformsGeometry --  [0..*]  Geometry
-    @material
-     [0..1] -- foghasReferencedContent -- [1]  ReferencedContent
+category Geometry of collectives {
+    hasReferencedGeometryIdentifier: undefined  
+    hasSimpleGeometryDiscription: undefined  
+    innobrixRow: undefined  
+    innobrixColumn: undefined  
+    innobrixColumnCel: undefined  
 }
-situation GeometryState {
-    hasComplexGeometryDescription : undefined
-    GeneratedAtTime : undefined
-    wasAttributedTo : undefined
-    @material
-    ( {const } ) [0..*] -- omghasGeometryContext --  [0..*]  GeometryContext
-    @material
-     [0..*] -- omgcontainsPropertyState --  [0..*]  PropertyState
-    @material
-     [0..*] -- omgisDerivedFromGeometryState --  [0..*]  GeometryState
-    @material
-     [0..*] -- omgcontainsGeometryObject --  [0..*]  Entity
+
+situation GeometryState{
+    hasComplexGeometryDescription: undefined  
+    GeneratedAtTime: undefined  
+    wasAttributedTo: undefined  
 }
-situation Current_Geometry_State  specializes GeometryState
-event GeometryContext {
-    @material
-     [0..*] -- schemasubjectOf --  [0..*]  Event
+
+situation Current_Geometry_State specializes GeometryState {
+    @material 
+    [0..*] -- omghasGeometryContext -- [0..*] GeometryContext 
+    @material 
+    [0..*] -- omgcontainsPropertyState -- [0..*] PropertyState 
+    @material 
+    [0..*] -- omgisDerivedFromGeometryState -- [0..*] GeometryState 
+    @material 
+    [0..*] -- omgcontainsGeometryObject -- [0..*] Entity 
 }
+
+event GeometryContext
 

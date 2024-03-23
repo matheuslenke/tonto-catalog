@@ -1,87 +1,121 @@
+import ontology
+
 package diagram1
 
-role High_School_Student  specializes Student
-role College_Student  specializes Student
-role Post_Graduate_Student  specializes Student
-role Student  specializes Natural_Person{
-    @material
-     [1..*] -- studies_at --  [1..*]  Educational_Institution
+role High_School_Student of functional-complexes  specializes Student {
+    @material 
+    [1..*] -- studies_at -- [1..*] Educational_Institution 
 }
-role Educational_Institution  specializes Employer{
-    @mediation
-    ( {const } )[1] --  [1..*]  Internship( {const } )
+
+role College_Student of functional-complexes  specializes Student {
+    @material 
+    [1..*] -- studies_at -- [1..*] Educational_Institution 
 }
-relator Enrolment {
-    @mediation
-     [1..*] -- [1]  Student( {const } )
-    @mediation
-     [1..*] -- [1]  Educational_Institution( {const } )
+
+role Post_Graduate_Student of functional-complexes  specializes Student {
+    @material 
+    [1..*] -- studies_at -- [1..*] Educational_Institution 
 }
-role Intern  specializes Student
-kind Legal_Person 
-subkind Natural_Person  specializes Legal_Person
-subkind Juridical_Person  specializes Legal_Person
-relator Employment {
-    @mediation
-     [1..*] -- [1]  Employee( {const } )
-    @mediation
-     [1..*] -- [1]  Employer( {const } )
+
+role Student of functional-complexes  specializes Natural_Person 
+
+role Educational_Institution of functional-complexes  specializes Employer 
+
+relator Enrolment
+
+role Intern of functional-complexes  specializes Student {
+    @material 
+    [1..*] -- studies_at -- [1..*] Educational_Institution 
 }
-role Employee  specializes Natural_Person{
-    @material
-     [1..*] -- works_at --  [1..*]  Employer
+
+kind Legal_Person
+
+subkind Natural_Person of functional-complexes  specializes Legal_Person 
+
+subkind Juridical_Person of functional-complexes  specializes Legal_Person 
+
+relator Employment
+
+role Employee of functional-complexes  specializes Natural_Person 
+
+role Employer of functional-complexes  specializes Juridical_Person 
+
+role Educational_Supervisor of functional-complexes  specializes Employee {
+    @material 
+    [1..*] -- works_at -- [1..*] Employer 
 }
-role Employer  specializes Juridical_Person
-role Educational_Supervisor  specializes Employee
-role Supervisor  specializes Employee
-role Internship_Provider_Organization  specializes Employer, Organization_Insured
-relator Internship {
-    hours_per_day : undefined
-    income : undefined
-    @mediation
-     [1..*] -- [1]  Supervisor( {const } supervisor )
-    @mediation
-     [1..*] -- [1]  Internship_Provider_Organization( {const } )
-    @mediation
-     [1..*] -- [1]  Educational_Supervisor( {const } )
-    @mediation
-    [1] -- [1]  Term_of_commitment( {const } )
-    @mediation
-    [1] -- [1]  Intern( {const } )
+
+role Supervisor of functional-complexes  specializes Employee {
+    @material 
+    [1..*] -- works_at -- [1..*] Employer 
 }
-relator Obligatory_Internship  specializes Internship
-relator Voluntary_Internship  specializes Internship
-kind Term_of_commitment 
-relator Full_Time_Internship  specializes Internship
-relator Part_Time_Internship  specializes Internship
-role Insurance_Carrier  specializes Juridical_Person{
-    @material
-     [1..*] -- provides_insurance_to --  [1..*]  Organization_Insured
+
+role Internship_Provider_Organization of functional-complexes  specializes Employer, Organization_Insured 
+
+relator Internship{
+    hours_per_day: undefined  
+    income: undefined  
 }
-role Organization_Insured 
-relator Personal_Injury_Insurance {
-    @mediation
-     [1..*] -- [1]  Insurance_Carrier( {const } )
-    @mediation
-     [1..*] -- [1]  Organization_Insured( {const } )
-    @mediation
-    [1] -- [1]  Insurance_Policy( {const } )
+
+relator Obligatory_Internship specializes Internship {
+    @mediation 
+    [1..*] -- [1] Supervisor 
+    @mediation 
+    [1..*] -- [1] Internship_Provider_Organization 
+    @mediation 
+    [1..*] -- [1] Educational_Supervisor 
+    @mediation 
+    [1] -- [1] Term_of_commitment 
+    @mediation 
+    [1] -- [1] Intern 
 }
-kind Insurance_Policy 
-disjoint complete genset QrXGe36D.AAAATwW{
-    general Student
-    specifics College_Student, High_School_Student, Post_Graduate_Student 
+
+relator Voluntary_Internship specializes Internship {
+    @mediation 
+    [1..*] -- [1] Supervisor 
+    @mediation 
+    [1..*] -- [1] Internship_Provider_Organization 
+    @mediation 
+    [1..*] -- [1] Educational_Supervisor 
+    @mediation 
+    [1] -- [1] Term_of_commitment 
+    @mediation 
+    [1] -- [1] Intern 
 }
-disjoint complete genset eVdWe36D.AAAAT2o{
-    general Legal_Person
-    specifics Juridical_Person, Natural_Person 
+
+kind Term_of_commitment
+
+relator Full_Time_Internship specializes Internship {
+    @mediation 
+    [1..*] -- [1] Supervisor 
+    @mediation 
+    [1..*] -- [1] Internship_Provider_Organization 
+    @mediation 
+    [1..*] -- [1] Educational_Supervisor 
+    @mediation 
+    [1] -- [1] Term_of_commitment 
+    @mediation 
+    [1] -- [1] Intern 
 }
-disjoint complete genset qVTue36D.AAAAUB9{
-    general Internship
-    specifics Voluntary_Internship, Obligatory_Internship 
+
+relator Part_Time_Internship specializes Internship {
+    @mediation 
+    [1..*] -- [1] Supervisor 
+    @mediation 
+    [1..*] -- [1] Internship_Provider_Organization 
+    @mediation 
+    [1..*] -- [1] Educational_Supervisor 
+    @mediation 
+    [1] -- [1] Term_of_commitment 
+    @mediation 
+    [1] -- [1] Intern 
 }
-disjoint complete genset bBs.e36D.AAAAUGv{
-    general Internship
-    specifics Part_Time_Internship, Full_Time_Internship 
-}
+
+role Insurance_Carrier of functional-complexes  specializes Juridical_Person 
+
+role Organization_Insured
+
+relator Personal_Injury_Insurance
+
+kind Insurance_Policy
 

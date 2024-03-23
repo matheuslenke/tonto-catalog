@@ -1,19 +1,12 @@
-import Architectural_Components
+import Unified_Transport_Network__v23
 
 package Reference_Points
 
-category Directly_Bound_Reference_Point  specializes Reference_Point
-roleMixin Path_Connected_Reference_Point  specializes Directly_Bound_Reference_Point{
-    @material
-     [1..*] -- path --  [1..*]  Path_Connected_Reference_Point
-}
-category Reference_Point  specializes Architectural_Component
-roleMixin TE_Connected_Reference_Point  specializes Directly_Bound_Reference_Point{
-    @material
-     [1..*] -- te_connected --  [1..*]  TE_Connected_Reference_Point
-}
-disjoint complete genset t1oAXb6GAqBwAUoX{
-    general Reference_Point
-    specifics Access_Point, Forwarding_Point, Forwarding_End_Point 
-}
+category Directly_Bound_Reference_Point of functional-complexes  specializes Reference_Point 
+
+roleMixin Path_Connected_Reference_Point of functional-complexes  specializes Directly_Bound_Reference_Point 
+
+category Reference_Point of functional-complexes  specializes Architectural_Component 
+
+roleMixin TE_Connected_Reference_Point of functional-complexes  specializes Directly_Bound_Reference_Point 
 

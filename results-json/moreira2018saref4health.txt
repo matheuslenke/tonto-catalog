@@ -1,0 +1,18 @@
+Total Errors: 16
+ 
+[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
+[error]: No valid OntoUML stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: No valid OntoUML stereotype
+[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Not unique class stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values

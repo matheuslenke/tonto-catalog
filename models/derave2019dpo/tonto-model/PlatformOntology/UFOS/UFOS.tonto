@@ -1,0 +1,30 @@
+import PlatformOntology
+
+package UFOS
+
+roleMixin Service_Provider of functional-complexes 
+
+relator Service_Offering
+
+relator Service_Agreement
+
+event Service_Delivery specializes Delivery {
+    @participation 
+    [0..*] -- received_by -- [1..*] Platform_Customer 
+}
+
+mode Hired_Provider_Commitment
+
+mode Service_Customer_Claim
+
+collective Target_Customer_Communty
+
+roleMixin Target_Customer of functional-complexes 
+
+roleMixin Service_Customer of functional-complexes  specializes Target_Customer {
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] Target_Customer_Communty 
+}
+
+roleMixin Hired_Service_Provider of functional-complexes  specializes Service_Provider 
+

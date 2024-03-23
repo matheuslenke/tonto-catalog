@@ -1,0 +1,20 @@
+import PlatformOntology
+
+package Digital_Good_Transfer
+
+subkind Digital_Good of functional-complexes  specializes Good 
+
+event Digital_Delivery specializes Delivery {
+    @participation 
+    [0..*] -- received_by -- [1..*] Platform_Customer 
+}
+
+event Digital_Good_Transfer specializes Platform_Software_Action, Ownership_Transfer, Digital_Delivery {
+    @participation 
+    [1] -- enables -- [1..*] Platform_Software 
+    @participation 
+    [0..*] -- involves -- [1..*] Good 
+    @participation 
+    [0..*] -- received_by -- [1..*] Platform_Customer 
+}
+

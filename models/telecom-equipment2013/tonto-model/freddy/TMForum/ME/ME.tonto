@@ -1,26 +1,12 @@
-import Equipment
-import TP
-import EMS
+import freddy
 
 package ME
 
-role ME_Composed_Of_PTP  specializes ManagedElement{
-    @mediation
-    ( {const } )[1] -- MEComposedByCoLocalization --  [1..*]  Abstraction_Of_CoLocalization
-    @material
-    [1] -- PTPisPhysicalResourceOf --  [1..*]  PTP_of_ME
-}
-relator Management {
-    @mediation
-    [1] -- managed -- [1]  ManagedElement( {const } )
-    @mediation
-     [1..*] -- manager -- [1]  EMS_Composed_Of_ME( {const } )
-}
-kind ManagedElement 
-role ME_Composed_Of_Rack  specializes ManagedElement{
-    @material
-    [1] -- rackIsPhysicalResourceOf --  [1..*]  Rack
-    @mediation
-    ( {const } )[1] -- groups --  [1..*]  Abstraction_Of_CoLocalization
-}
+role ME_Composed_Of_PTP of functional-complexes  specializes ManagedElement 
+
+relator Management
+
+kind ManagedElement
+
+role ME_Composed_Of_Rack of functional-complexes  specializes ManagedElement 
 

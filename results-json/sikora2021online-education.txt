@@ -1,0 +1,7 @@
+Total Errors: 5
+ 
+[error]: Not unique class stereotype
+[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
+[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values

@@ -1,51 +1,30 @@
-import STAKEHOLDERS
+import Brand_Identity_Ontology
 
 package IDENTITY
 
-category Identity 
-kind Vision  specializes Identity{
-    @material
-    [1] -- [1]  Official_stakeholders
-}
-mode Essence {
-    @characterization
-     [1..*] -- [1]  Vision( {const } )
-}
-mode Mission {
-    @characterization
-     [1..*] -- [1]  Vision( {const } )
-}
-mode Aims_and_goals {
-    @characterization
-     [1..*] -- [1]  Vision( {const } )
-}
-kind Culture  specializes Identity{
-    @material
-    [1] --  [1..*]  Internal_stakeholders
-}
-mode Structure {
-    @characterization
-     [1..*] -- [1]  Culture( {const } )
-}
-mode Values {
-    @characterization
-     [1..*] -- [1]  Culture( {const } )
-}
-mode Personality {
-    @characterization
-     [1..*] -- [1]  Culture( {const } )
-}
-kind Desired_Image  specializes Identity, Image{
-    @material
-    [1] -- [1]  External_stekaholders
-}
-category Image 
-mode Positioning {
-    @characterization
-     [1..*] -- [1]  Desired_Image( {const } )
-}
-mode Presentation {
-    @characterization
-     [1..*] -- Characterization11 -- [1]  Desired_Image( {const } )
-}
+category Identity of functional-complexes 
+
+kind Vision specializes Identity 
+
+mode Essence
+
+mode Mission
+
+mode Aims_and_goals
+
+kind Culture specializes Identity 
+
+mode Structure
+
+mode Values
+
+mode Personality
+
+kind Desired_Image specializes Identity, Image 
+
+category Image of functional-complexes 
+
+mode Positioning
+
+mode Presentation
 

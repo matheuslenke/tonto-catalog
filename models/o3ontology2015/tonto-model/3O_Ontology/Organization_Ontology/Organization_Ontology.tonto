@@ -1,23 +1,138 @@
+import _3O_Ontology
+import UFO
+import UFOA
+import UFOB
+import UFOC
 import OntoUML
 
 package Organization_Ontology
 
-subkind Composite_Line_Unit  specializes Line_Unit
-relator Missionary_Assignment_by_Appointment  specializes Missionary_Assignment{
-    @mediation
-    [1] -- formalizes -- [1]  Appointed_Team_Member( {const } appointed_member )
+subkind Composite_Line_Unit of functional-complexes  specializes Line_Unit {
+    @componentOf 
+    [0..1] -- [2..*] Line_Unit 
+    @material 
+    [0..1] -- manages -- [0..*] Line_Unit 
+    @Formal 
+    [0..*] -- defines -- [1..*] Business_Role 
 }
-relator Missionary_Assignment_by_Election  specializes Missionary_Assignment{
-    @mediation
-     [0..*] -- participates --  [2..*]  Formal_Organization_Member( {const } )
-    @mediation
-    [1] -- formalizes -- [1]  Ellected_Team_Member( {const } ellected_member )
+
+relator Missionary_Assignment_by_Appointment specializes Missionary_Assignment {
+    @mediation 
+    [1..*] -- assigns -- [1] Missionary_Unit_Member 
+    @mediation 
+    [1..*] -- assigns_to -- [1] Missionary_Allocation_Unit 
+    @Formal 
+    [0..*] -- refers_to -- [1] Admission_ 
 }
-relator Missionary_Assignment_by_Allocation  specializes Missionary_Assignment{
-    @mediation
-    [1] -- formalizes -- [1]  Allocated_Team_Member( {const } allocated_member )
+
+relator Missionary_Assignment_by_Election specializes Missionary_Assignment {
+    @mediation 
+    [1..*] -- assigns -- [1] Missionary_Unit_Member 
+    @mediation 
+    [1..*] -- assigns_to -- [1] Missionary_Allocation_Unit 
+    @Formal 
+    [0..*] -- refers_to -- [1] Admission_ 
 }
-role Appointed_Team_Member  specializes Missionary_Unit_Member
-role Ellected_Team_Member  specializes Missionary_Unit_Member
-role Allocated_Team_Member  specializes Missionary_Unit_Member
+
+relator Missionary_Assignment_by_Allocation specializes Missionary_Assignment {
+    @mediation 
+    [1..*] -- assigns -- [1] Missionary_Unit_Member 
+    @mediation 
+    [1..*] -- assigns_to -- [1] Missionary_Allocation_Unit 
+    @Formal 
+    [0..*] -- refers_to -- [1] Admission_ 
+}
+
+role Appointed_Team_Member of functional-complexes  specializes Missionary_Unit_Member {
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Missionary_Business_Role 
+    @Formal 
+    [0..1] -- head_of -- [1] Missionary_Unit 
+    @Formal 
+    [1] -- has_candidate_substitute -- [0..*] Structural_Unit_Member 
+    @mediation 
+    [1] -- has -- [0..*] Functional_Responsibility 
+    @mediation 
+    [1] -- performs -- [0..*] Authority_Delegation 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Structural_Business_Role 
+    @Formal 
+    [0..*] -- relates_with -- [0..*] Structural_Unit_Member 
+    @Formal 
+    [0..1] -- head_of -- [1] Structural_Unit 
+    @Formal 
+    [0..1] -- head_of -- [1] Organization 
+    @Formal 
+    [1] -- work_at -- [1] Location 
+    @mediation 
+    [1] -- realizes -- [0..*] Structural_Assignment_by_Appointment 
+    @mediation 
+    [1] -- realizes -- [0..*] Missionary_Assignment_by_Appointment 
+    @characterization 
+    [0..*] -- has -- [0..*] Skill 
+    @material 
+    [2..*] -- participates -- [0..*] Admission_by_Election 
+}
+
+role Ellected_Team_Member of functional-complexes  specializes Missionary_Unit_Member {
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Missionary_Business_Role 
+    @Formal 
+    [0..1] -- head_of -- [1] Missionary_Unit 
+    @Formal 
+    [1] -- has_candidate_substitute -- [0..*] Structural_Unit_Member 
+    @mediation 
+    [1] -- has -- [0..*] Functional_Responsibility 
+    @mediation 
+    [1] -- performs -- [0..*] Authority_Delegation 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Structural_Business_Role 
+    @Formal 
+    [0..*] -- relates_with -- [0..*] Structural_Unit_Member 
+    @Formal 
+    [0..1] -- head_of -- [1] Structural_Unit 
+    @Formal 
+    [0..1] -- head_of -- [1] Organization 
+    @Formal 
+    [1] -- work_at -- [1] Location 
+    @mediation 
+    [1] -- realizes -- [0..*] Structural_Assignment_by_Appointment 
+    @mediation 
+    [1] -- realizes -- [0..*] Missionary_Assignment_by_Appointment 
+    @characterization 
+    [0..*] -- has -- [0..*] Skill 
+    @material 
+    [2..*] -- participates -- [0..*] Admission_by_Election 
+}
+
+role Allocated_Team_Member of functional-complexes  specializes Missionary_Unit_Member {
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Missionary_Business_Role 
+    @Formal 
+    [0..1] -- head_of -- [1] Missionary_Unit 
+    @Formal 
+    [1] -- has_candidate_substitute -- [0..*] Structural_Unit_Member 
+    @mediation 
+    [1] -- has -- [0..*] Functional_Responsibility 
+    @mediation 
+    [1] -- performs -- [0..*] Authority_Delegation 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Structural_Business_Role 
+    @Formal 
+    [0..*] -- relates_with -- [0..*] Structural_Unit_Member 
+    @Formal 
+    [0..1] -- head_of -- [1] Structural_Unit 
+    @Formal 
+    [0..1] -- head_of -- [1] Organization 
+    @Formal 
+    [1] -- work_at -- [1] Location 
+    @mediation 
+    [1] -- realizes -- [0..*] Structural_Assignment_by_Appointment 
+    @mediation 
+    [1] -- realizes -- [0..*] Missionary_Assignment_by_Appointment 
+    @characterization 
+    [0..*] -- has -- [0..*] Skill 
+    @material 
+    [2..*] -- participates -- [0..*] Admission_by_Election 
+}
 

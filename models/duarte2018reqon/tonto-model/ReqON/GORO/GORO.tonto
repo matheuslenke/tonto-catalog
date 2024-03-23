@@ -1,9 +1,15 @@
+import ReqON
+import UFOA
+import UFOB
+import UFOC
 import RSRO
 
 package GORO
 
-class Requirement  specializes Requirements{
-     [0..*] -- alternativeGoal --  [0..1]  Requirement
-     [0..*]  -- subGoal --<o>  [0..1]  Requirement
+class Requirement specializes Requirements {
+    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
+    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
 }
 

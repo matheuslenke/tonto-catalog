@@ -1,0 +1,10 @@
+Total Errors: 8
+ 
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype
+[error]: No valid OntoUML stereotype

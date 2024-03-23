@@ -1,17 +1,17 @@
-import 2nd_Order_Entities
+import UFO
+import UFOA
 import UFOB
-import 2nd_Order_Entities
-import 1st_Order_Entities
+import UFOC
+import ufoa_second_Order_Entities
+import ufoa_first_Order_Entities
 
-package 1st_Order_Entities
+package ufob_first_Order_Entities
 
-class Event_Universal  specializes Universal
-class Disposition  specializes Moment{
-    [1] -- manifested_by -- [*]  Atomic_Event
-    [*] -- activates -- [*]  Situation
+class Event_Universal specializes Universal 
+
+class Disposition specializes Moment {
+    [*] -- instance_of -- [*] Universal 
 }
-class Time_Interval_Relation  specializes Formal_Relation{
-    [*] -- [1]  Time_Interval
-    [*] -- [1]  Time_Interval
-}
+
+class Time_Interval_Relation specializes Formal_Relation 
 

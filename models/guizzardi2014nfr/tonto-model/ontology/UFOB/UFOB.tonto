@@ -1,8 +1,5 @@
-import UFOC
 
 package UFOB
 
-class Situation {
-    [*] -- satisfies -- [*]  Goal
-}
+class Situation
 

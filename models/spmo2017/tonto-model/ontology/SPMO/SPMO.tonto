@@ -1,7 +1,3 @@
-package SPMO
 
-disjoint complete genset .ZebH36GAqACBQ7g{
-    general Performed_Process
-    specifics Performed_Specific_Process, Performed_General_Process 
-}
+package SPMO
 

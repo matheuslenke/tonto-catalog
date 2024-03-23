@@ -1,35 +1,34 @@
-import Complementary_Categorizations
-import Transport_Entities
-import Access_Points
+import Unified_Transport_Network__v23
 
 package Access_Transport_Entities
 
-relator AP_Forwarding  specializes Forwarding{
-    @mediation
-    [1] -- is_represented_by_Uni_Access_Transport_Entity -- [1]  Unidirectional_Access_Transport_Entity( {const } isRepresentedBy )
-    @mediation
-     [1..*] -- Forwarding_from_Uni_Access_Transport_Entity -- [1]  Active_Source_AP( {const } tranferSo )
-    @mediation
-     [1..*] -- Forwarding_to_Uni_Access_Transport_Entity -- [1]  Active_Sink_AP( {const } tranferSk )
+relator AP_Forwarding specializes Forwarding {
+    @mediation 
+    [1..*] -- is_connecting -- [2] Connected_Reference_Point 
+    @mediation 
+    [1] -- IT_is_represented_by -- [1] Directly_Connected_Transport_Entity 
 }
-kind Access_Transport_Entity  specializes Transport_Entity
-role Active_Bidirectional_AP  specializes Bidirectional_AP, Connected_Reference_Point
-role Active_Sink_AP  specializes Sink_AP, Connected_Reference_Point
-role Active_Source_AP  specializes Source_AP, Connected_Reference_Point{
-    @material
-     [1..*] -- Forwarding_Unidirectional_Access_Transport_Entity --  [1..*]  Active_Sink_AP
+
+kind Access_Transport_Entity specializes Transport_Entity 
+
+role Active_Bidirectional_AP of functional-complexes  specializes Bidirectional_AP, Connected_Reference_Point {
+    @material 
+    [1..*] -- has_forwarding -- [1..*] Connected_Reference_Point 
 }
-subkind Bidirectional_Access_Transport_Entity  specializes Access_Transport_Entity{
-    @material
-     [1..*] -- Forwarding_Bidirectional_Access_Transport_Entity -- [2]  Active_Bidirectional_AP
+
+role Active_Sink_AP of functional-complexes  specializes Sink_AP, Connected_Reference_Point {
+    @material 
+    [1..*] -- has_forwarding -- [1..*] Connected_Reference_Point 
 }
-subkind Unidirectional_Access_Transport_Entity  specializes Access_Transport_Entity
-role Unidirectional_Access_Transport_Entity_Bidirectional_Component  specializes Unidirectional_Access_Transport_Entity{
-    @componentOf
-    ( {const } isComposed )[2]  --<o> [1]  Bidirectional_Access_Transport_Entity( {const } compose )
+
+role Active_Source_AP of functional-complexes  specializes Source_AP, Connected_Reference_Point {
+    @material 
+    [1..*] -- has_forwarding -- [1..*] Connected_Reference_Point 
 }
-disjoint complete genset Yy.uon6AUBAIKEly{
-    general Access_Transport_Entity
-    specifics Bidirectional_Access_Transport_Entity, Unidirectional_Access_Transport_Entity 
-}
+
+subkind Bidirectional_Access_Transport_Entity of functional-complexes  specializes Access_Transport_Entity 
+
+subkind Unidirectional_Access_Transport_Entity of functional-complexes  specializes Access_Transport_Entity 
+
+role Unidirectional_Access_Transport_Entity_Bidirectional_Component of functional-complexes  specializes Unidirectional_Access_Transport_Entity 
 

@@ -1,98 +1,37 @@
+import Core_Ontology_of_Economic_Exchanges
 import UFO
 
 package COEX
 
-relator Economic_Offering {
-    @mediation
-     [1..*] -- made_by -- [1]  Offeror( {const } )
-    @mediation
-     [1..*] -- made_towards -- [1]  Offeree( {const } )
-}
-event Offer {
-    @manifestation
-    ( {const } ) [0..*] -- motivated_by -- [1]  Preference( {const } )
-    @creation
-    ( {const } )[1] -- creates -- [1]  Economic_Offering( {const } )
-}
-mode Preference {
-    @characterization
-     [0..*] -- held_by -- [1]  Agent( {const } )
-     [1..*] -- towards --  [0..1]  Economic_Exchange_Type
-}
-roleMixin Offeror  specializes Agent{
-    @participation
-    ( {const } )[1] -- participates --  [1..*]  Offer
-    [1] -- participates_to_events_of_type --  [0..*]  Offered_Contribution_Type
-    @participation
-    ( {const } )[1] -- participates --  [0..*]  Offered_Contribution
-}
-roleMixin Offeree  specializes Agent{
-    @participation
-    ( {const } )[1] -- participates --  [1..*]  Offer
-    [1] -- participates_to_events_of_type --  [0..*]  Counterpart_Contribution_Type
-    @participation
-    ( {const } )[1] -- participates --  [0..*]  Counterpart_Contribution
-}
-mode Conditional_Commitment {
-     [1..*]  --<o> [1]  Economic_Offering
-    @characterization
-     [1..*] -- inheres_in -- [1]  Offeror( {const } )
-    @externalDependence
-     [1..*] -- ext_dep_of -- [1]  Offeree( {const } )
-     [1..*] -- commits_to --  [1..*]  Offered_Contribution_Type
-     [1..*] -- in_return_for --  [1..*]  Counterpart_Contribution_Type
-}
-mode Conditional_Claim {
-     [1..*]  --<o> [1]  Economic_Offering
-    @characterization
-     [1..*] -- inheres_in -- [1]  Offeree( {const } )
-    @externalDependence
-     [1..*] -- ext_dep_of -- [1]  Offeror( {const } )
-}
-type Offered_Contribution_Type (instanceOf Offered_Contribution)
-type Counterpart_Contribution_Type {
-    @instantiation
-     [1..*] --  [0..*]  Counterpart_Contribution
-}
-type Economic_Exchange_Type {
-     [1..*] -- requires --  [1..*]  Offered_Contribution_Type
-     [1..*] -- requires --  [1..*]  Counterpart_Contribution_Type
-}
-relator Economic_Agreement {
-    @mediation
-     [0..1] -- involves_provider -- [1]  Offeror( {const } )
-    @mediation
-     [0..*] -- involves_customer -- [1]  Offeree( {const } )
-    @historicalDependence
-     [0..*] -- conforms_to -- [1]  Economic_Offering( {const } )
-}
-mode Offeror_Unconditional_Agreement {
-    @characterization
-     [0..*] -- inheres_in -- [1]  Offeror( {const } )
-    @componentOf
-     [1..*]  --<o> [1]  Economic_Agreement
-    @externalDependence
-     [0..*] -- ext_dep_of -- [1]  Offeree( {const } )
-    @externalDependence
-     [0..*] -- refers_to --  [1..*]  Offered_Contribution_Type( {const } )
-}
-mode Offeree_Unconditional_Agreement {
-    @characterization
-     [0..*] -- inheres_in -- [1]  Offeree( {const } )
-    @componentOf
-     [1..*]  --<o> [1]  Economic_Agreement
-    @externalDependence
-     [0..*] -- ext_dep_of -- [1]  Offeror( {const } )
-    @externalDependence
-     [0..*] -- refers_to --  [1..*]  Counterpart_Contribution_Type( {const } )
-}
-event Economic_Exchange 
-event Offered_Contribution {
-    @instantiation
-     [0..*] --  [1..*]  Offered_Contribution_Type
-    [1]  --<o> [1]  Economic_Exchange
-}
-event Counterpart_Contribution (instanceOf Counterpart_Contribution_Type){
-    [1]  --<o> [1]  Economic_Exchange
-}
+relator Economic_Offering
+
+event Offer
+
+mode Preference
+
+roleMixin Offeror of functional-complexes  specializes Agent 
+
+roleMixin Offeree of functional-complexes  specializes Agent 
+
+mode Conditional_Commitment
+
+mode Conditional_Claim
+
+type Offered_Contribution_Type
+
+type Counterpart_Contribution_Type
+
+type Economic_Exchange_Type
+
+relator Economic_Agreement
+
+mode Offeror_Unconditional_Agreement
+
+mode Offeree_Unconditional_Agreement
+
+event Economic_Exchange
+
+event Offered_Contribution
+
+event Counterpart_Contribution
 

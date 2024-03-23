@@ -1,116 +1,124 @@
-import Complementary_Categorizations
-import Transport_Functions
-import Forwarding_End_Points
+import Unified_Transport_Network__v23
 
 package Equipment
 
-role Bound_Input_Interface  specializes Input_Interface
-role Bound_Output_Interface  specializes Output_Interface
-role Connected_Input_Interface  specializes Input_Interface
-role Connected_Output_Interface  specializes Output_Interface{
-    @material
-     [1..*] -- interface_connects --  [1..*]  Connected_Input_Interface
+role Bound_Input_Interface of functional-complexes  specializes Input_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-kind Equipment 
-role Equipment_Site_Component  specializes Site_Component_Equipment{
-    @componentOf
-    ( {const } composed ) [2..*]  --<o> [1]  Multiple_Equipment_Composed_Site( {const } compose )
+
+role Bound_Output_Interface of functional-complexes  specializes Output_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-kind Input_Interface {
-    @componentOf
-    ( {const } composedInpInt ) [1..*]  --<o> [1]  Equipment( {const } compose )
+
+role Connected_Input_Interface of functional-complexes  specializes Input_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-role Mapped_Input_Interface  specializes Input_Interface{
-    @formal
-    [1] -- maps_input -- [1]  Mapped_TF_Input
+
+role Connected_Output_Interface of functional-complexes  specializes Output_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-role Mapped_Output_Interface  specializes Output_Interface{
-    @formal
-    [1] -- maps_output -- [1]  Mapped_TF_Output
+
+kind Equipment
+
+role Equipment_Site_Component of functional-complexes  specializes Site_Component_Equipment 
+
+kind Input_Interface
+
+role Mapped_Input_Interface of functional-complexes  specializes Input_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-roleMixin Mapped_TF_Input  specializes Input
-roleMixin Mapped_TF_Output  specializes Output
-role Multiple_Equipment_Composed_Site  specializes Equipment_Composed_Site
-kind Output_Interface {
-    @componentOf
-    ( {const } composed ) [1..*]  --<o> [1]  Equipment( {const } compose )
+
+role Mapped_Output_Interface of functional-complexes  specializes Output_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-role Single_Equipment_Site  specializes Equipment_Composed_Site{
-    @formal
-    [1] -- represents -- [1]  Single_Equipment_Site_Component
+
+roleMixin Mapped_TF_Input of functional-complexes  specializes Input 
+
+roleMixin Mapped_TF_Output of functional-complexes  specializes Output 
+
+role Multiple_Equipment_Composed_Site of functional-complexes  specializes Equipment_Composed_Site {
+    @formal 
+    [1] -- has_equipment -- [1..*] Site_Component_Equipment 
 }
-role Single_Equipment_Site_Component  specializes Site_Component_Equipment
-role Sink_Site  specializes Site
-kind Site 
-role Source_Site  specializes Site{
-    @material
-     [1..*] -- site_connects --  [1..*]  Sink_Site
+
+kind Output_Interface
+
+role Single_Equipment_Site of functional-complexes  specializes Equipment_Composed_Site {
+    @formal 
+    [1] -- has_equipment -- [1..*] Site_Component_Equipment 
 }
-roleMixin Transport_Function_Equipment_Component  specializes Transport_Function{
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Equipment( {const } compose )
+
+role Single_Equipment_Site_Component of functional-complexes  specializes Site_Component_Equipment 
+
+role Sink_Site of functional-complexes  specializes Site 
+
+kind Site
+
+role Source_Site of functional-complexes  specializes Site 
+
+roleMixin Transport_Function_Equipment_Component of functional-complexes  specializes Transport_Function 
+
+role Bound_Input_Interface_Equipment of functional-complexes  specializes Bound_Input_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-role Bound_Input_Interface_Equipment  specializes Bound_Input_Interface
-role Bound_Output_Interface_Equipment  specializes Bound_Output_Interface{
-    @material
-    [1] -- interface_binds -- [1]  Bound_Input_Interface_Equipment
+
+role Bound_Output_Interface_Equipment of functional-complexes  specializes Bound_Output_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-role Bound_Input_Interface_PM  specializes Bound_Input_Interface{
-    @material
-    [1] -- binds_PM_in_interface -- [1]  PM_Interface_Bound_Output
+
+role Bound_Input_Interface_PM of functional-complexes  specializes Bound_Input_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-role PM_Interface_Bound_Input  specializes PM_Input__So_PMFEP_Bound
-role Bound_Output_Interface_PM  specializes Bound_Output_Interface{
-    @material
-    [1] -- binds_PM_out_interface -- [1]  PM_Interface_Bound_Input
+
+role PM_Interface_Bound_Input of functional-complexes  specializes PM_Input__So_PMFEP_Bound {
+    @componentOf 
+    [1] -- [1] Single_Physical_Media 
 }
-role PM_Interface_Bound_Output  specializes PM_Output__Sk_PMFEP_Bound
-role Equipment_Composed_Site  specializes Site{
-    @formal
-    [1] -- has_equipment --  [1..*]  Site_Component_Equipment
+
+role Bound_Output_Interface_PM of functional-complexes  specializes Bound_Output_Interface {
+    @componentOf 
+    [1..*] -- [1] Equipment 
 }
-role Site_Component_Equipment  specializes Equipment
-kind Module {
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Equipment( {const } )
+
+role PM_Interface_Bound_Output of functional-complexes  specializes PM_Output__Sk_PMFEP_Bound {
+    @componentOf 
+    [1] -- [1] Single_Physical_Media 
 }
-roleMixin Transport_Function_Module_Component  specializes Transport_Function{
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Module( {const } )
+
+role Equipment_Composed_Site of functional-complexes  specializes Site 
+
+role Site_Component_Equipment of functional-complexes  specializes Equipment 
+
+kind Module
+
+roleMixin Transport_Function_Module_Component of functional-complexes  specializes Transport_Function 
+
+kind Module_Input_Interface
+
+kind Module_Output_Interface
+
+roleMixin Module_Mapped_TF_Input of functional-complexes  specializes Input 
+
+roleMixin Module_Mapped_TF_Output of functional-complexes  specializes Output 
+
+role Mapped_Module_Input_Interface of functional-complexes  specializes Module_Input_Interface {
+    @componentOf 
+    [1..*] -- [1] Module 
 }
-kind Module_Input_Interface {
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Module( {const } )
+
+role Mapped_Module_Output_Interface of functional-complexes  specializes Module_Output_Interface {
+    @componentOf 
+    [1..*] -- [1] Module 
 }
-kind Module_Output_Interface {
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Module( {const } )
-}
-roleMixin Module_Mapped_TF_Input  specializes Input
-roleMixin Module_Mapped_TF_Output  specializes Output
-role Mapped_Module_Input_Interface  specializes Module_Input_Interface{
-    @formal
-    [1] -- interface_maps_tf_input -- [1]  Module_Mapped_TF_Input
-}
-role Mapped_Module_Output_Interface  specializes Module_Output_Interface{
-    @formal
-    [1] -- interface_maps_tf_output -- [1]  Module_Mapped_TF_Output
-}
-role Equipment_Composed_of_Modules  specializes Equipment
-disjoint genset ROgZon6AUBAIKFB9{
-    general Site_Component_Equipment
-    specifics Equipment_Site_Component, Single_Equipment_Site_Component 
-}
-disjoint complete genset RWYZon6AUBAIKFCS{
-    general Equipment_Composed_Site
-    specifics Single_Equipment_Site, Multiple_Equipment_Composed_Site 
-}
-disjoint complete genset YOFCkn6AUAgInB8u{
-    general Bound_Output_Interface
-    specifics Bound_Output_Interface_PM, Bound_Output_Interface_Equipment 
-}
-disjoint complete genset 4sVCkn6AUAgInB85{
-    general Bound_Input_Interface
-    specifics Bound_Input_Interface_PM, Bound_Input_Interface_Equipment 
-}
+
+role Equipment_Composed_of_Modules of functional-complexes  specializes Equipment 
 

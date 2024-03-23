@@ -1,50 +1,61 @@
+
 package SRRO_Ontology
 
-kind Project {
-     [0..1] -- producedIn --  [0..*]  Artifact
+kind Project
+
+category Artifact of functional-complexes 
+
+kind TestCase specializes Artifact 
+
+kind EntityType specializes Artifact 
+
+kind UseCase specializes Artifact {
+    description: undefined  
+    identifier: undefined  
 }
-category Artifact 
-kind TestCase  specializes Artifact
-kind EntityType  specializes Artifact{
-     [0..*] -- usedIn --  [0..*]  UseCase
+
+kind Module specializes Artifact 
+
+kind Requirement specializes Artifact 
+
+subkind NonFunctionalRequirement of functional-complexes  specializes Requirement {
+    [0..*] -- dependsOn -- [0..*] Requirement 
+    [0..*] -- conflictsWith -- [0..*] Requirement 
 }
-kind UseCase  specializes Artifact{
-    description : undefined
-    identifier : undefined
-     [0..*] -- alocatedFor --  [0..1]  Module
-     [0..*] -- fulfills --  [1..*]  Requirement
-    [1] <o>--  [1..*]  EventFlow
-    [1] <o>--  [1..*]  BasicFlow
-    [1] <o>--  [0..*]  AlternativeFlow
+
+subkind FunctionalRequirement of functional-complexes  specializes Requirement {
+    [0..*] -- dependsOn -- [0..*] Requirement 
+    [0..*] -- conflictsWith -- [0..*] Requirement 
 }
-kind Module  specializes Artifact
-kind Requirement  specializes Artifact{
-     [0..*] -- dependsOn --  [0..*]  Requirement
-     [0..*] -- conflictsWith --  [0..*]  Requirement
+
+subkind BusinessRule of functional-complexes  specializes Requirement {
+    [0..*] -- dependsOn -- [0..*] Requirement 
+    [0..*] -- conflictsWith -- [0..*] Requirement 
 }
-subkind NonFunctionalRequirement  specializes Requirement
-subkind FunctionalRequirement  specializes Requirement
-subkind BusinessRule  specializes Requirement
-subkind Class  specializes EntityType
-role RequirementTestCase  specializes TestCase{
-     [0..*] --  [1..*]  Requirement
+
+subkind Class of functional-complexes  specializes EntityType {
+    [0..*] -- usedIn -- [0..*] UseCase 
 }
-role UseTestCase  specializes TestCase{
-     [0..*] --  [1..*]  UseCase
+
+role RequirementTestCase of functional-complexes  specializes TestCase 
+
+role UseTestCase of functional-complexes  specializes TestCase 
+
+role ClassTestCase of functional-complexes  specializes TestCase 
+
+mode EventFlow
+
+mode BasicFlow specializes EventFlow {
+    [1..*] -- [0..*] Precondition 
 }
-role ClassTestCase  specializes TestCase{
-     [0..*] --  [1..*]  Class
+
+mode AlternativeFlow specializes EventFlow {
+    [1..*] -- [0..*] Precondition 
 }
-mode EventFlow {
-     [1..*] --  [0..*]  Precondition
-}
-mode BasicFlow  specializes EventFlow{
-     [0..*] -- regarding --  [1..*]  AlternativeFlow
-}
-mode AlternativeFlow  specializes EventFlow
-kind Condition 
-role Postcondition  specializes Condition{
-     [0..*] --  [1..*]  EventFlow
-}
-role Precondition  specializes Condition
+
+kind Condition
+
+role Postcondition of functional-complexes  specializes Condition 
+
+role Precondition of functional-complexes  specializes Condition 
 

@@ -1,23 +1,42 @@
 import ReqON
+import UFOA
+import UFOB
 import UFOC
 
 package RSRO
 
-class Requirements_Stakeholder  specializes Stakeholder{
-     [1..*] -- inheres_in --  [0..*]  Stakeholder_Belief
+class Requirements_Stakeholder specializes Stakeholder {
+    [0..*] -- responsible_for -- [0..*] Artifact 
 }
-class Functional_Requirement  specializes Requirements
-class NonFunctional_Requirement  specializes Requirements
-class Stakeholder_Belief  specializes Belief
-class Assumption  specializes Proposition{
-    [1] -- got_from --  [1..*]  Requirements_Stakeholder
-    [1] -- propositional_content_of --  [1..*]  Stakeholder_Belief
+
+class Functional_Requirement specializes Requirements {
+    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
+    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
 }
-class Stakeholder_Intention  specializes Intention{
-     [0..*] -- inheres_in --  [1..*]  Requirements_Stakeholder
+
+class NonFunctional_Requirement specializes Requirements {
+    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
+    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
 }
-class Requirements  specializes Goal{
-     [1..*] -- propositional_content_of --  [1..*]  Stakeholder_Intention
-     [0..*] -- got_from --  [1..*]  Requirements_Stakeholder
+
+class Stakeholder_Belief specializes Belief {
+    [1..*] -- inheres_in -- [1] Agent 
+}
+
+class Assumption specializes Proposition {
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Stakeholder_Intention specializes Intention {
+    [1..*] -- inheres_in -- [1] Agent 
+}
+
+class Requirements specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
 }
 

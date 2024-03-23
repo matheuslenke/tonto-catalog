@@ -1,0 +1,37 @@
+import PlatformOntology
+
+package Payment
+
+event Transaction_Payment specializes Payment_Action {
+    [*] -- [*] Job_Fee 
+    @participation 
+    [1..*] -- performed_by -- [1] Platform_User 
+    @instantiation 
+    [0..*] -- [1] User_Action_Type 
+    [1..*] -- enables -- [1] Airbnb_Software 
+    [1] -- enables -- [1..*] Platform_Software 
+    @participation 
+    [1] -- enables -- [1..*] Platform_Software 
+}
+
+event Payment_Action specializes User_Action, Platform_Supported_Action {
+    @participation 
+    [1..*] -- performed_by -- [1] Platform_User 
+    @instantiation 
+    [0..*] -- [1] User_Action_Type 
+    [1..*] -- enables -- [1] Airbnb_Software 
+    [1] -- enables -- [1..*] Platform_Software 
+    @participation 
+    [1] -- enables -- [1..*] Platform_Software 
+}
+
+subkind Paid_Transaction_Price of intrinsic-modes  specializes Price, Transaction_Price {
+    [1] -- depends_on -- [0..1] Commission_Fee 
+    [*] -- used_for -- [*] Booked_Quantity 
+}
+
+subkind Received_Transaction_Price of intrinsic-modes  specializes Transaction_Price {
+    [1] -- depends_on -- [0..1] Commission_Fee 
+    [*] -- used_for -- [*] Booked_Quantity 
+}
+

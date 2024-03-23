@@ -1,0 +1,61 @@
+Validating...
+- Total of errors: 2
+[error] Not unique class stereotype:
+The class Intention must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Situation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quality_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quality must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quality_Value must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quality_Structure must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quality_Region must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Hardgoal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Softgoal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Function must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class NFR_Quality_Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Functional_Requirement must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quality_Constraint must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Vague_NFR must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Gradable_NFR must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Crisp_Quality_Region must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Gradable_Quality_Region must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Softgoal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Hardgoal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Hardgoal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Softgoal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of NFR_Quality_Goal are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Functional_Requirement are not among the allowed ontological natures of its superclass Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality_Constraint are not among the allowed ontological natures of its superclass NFR_Quality_Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Vague_NFR are not among the allowed ontological natures of its superclass NFR_Quality_Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Gradable_NFR are not among the allowed ontological natures of its superclass NFR_Quality_Goal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Crisp_Quality_Region are not among the allowed ontological natures of its superclass Quality_Region
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Gradable_Quality_Region are not among the allowed ontological natures of its superclass Quality_Region
+Validation finished

@@ -1,0 +1,5 @@
+Validating...
+- Total of errors: 18
+Could not create relation named ((No name)) between Currency_Quality_Space_Structure and Currency_Quality_Space because one or both of them was not created.
+Could not create relation named ((No name)) between Virtual_Currency_Quality_Structure and Virtual_Currency_Quality_Space because one or both of them was not created.
+Validation finished

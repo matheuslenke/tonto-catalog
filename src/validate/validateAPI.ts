@@ -35,6 +35,9 @@ export const navigateAndRunCommand = async (opts: RunCommandOpts): Promise<Valid
         const results: ModelResult[] = []
 
         for (const file of files as string[]) {
+            if (file === "mgic-antt2011") {
+                continue
+            }
             try {
                 totalModels += 1;
                 const ontologyPath = join(opts.dir, file);
@@ -65,7 +68,11 @@ export const navigateAndRunCommand = async (opts: RunCommandOpts): Promise<Valid
             }
         }
 
-        const finalString = results.reduce((previous, item) => previous + `${item.modelName}: ${item.totalErrors}\n`, "")
+        const finalString = `
+
+        // These results are using Tonto Project with ontouml-js API to validate
+        ${results.reduce((previous, item) => previous + `${item.modelName}: ${item.totalErrors}\n`, "")}
+        `
         createAndWriteFile(path.join(opts.outDir, "finalResults.txt"), finalString)
 
         return {

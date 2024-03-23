@@ -1,12 +1,39 @@
+import UML_ontology_Emergo
+import UML_ontology_Emergo
+import Attribute_clases
 import BPO_ontology
+import Entity_classes
+import Geometry_classes
+import Geometry_classes_2
+import UML_ontology_Emergo
+import bot
 import bpo
+import dice
+import element_class
+import fog
+import gr
+import ifc
+import omg
+import opm
+import product_classes
+import qudt
+import schema
+import seas
 
 package ifc
 
-kind BuildingElement  specializes Assembly{
-    @componentOf
-     [1..*]  --<o> [1]  House
-    @componentOf
-     [1..*]  --<o> [1]  Module
+kind BuildingElement specializes Assembly {
+    @material 
+    [1] -- consistsOf -- [2..*] Component 
+    @material 
+    [0..*] -- isComposedOfEntity -- [0..*] Entity 
+    @material 
+    [2..*] -- isPartOf -- [1] Assembly 
+    @material 
+    [0..*] -- has_Attribute -- [0..*] PropertyValue 
+    @material 
+    [0..*] -- schema_subjectOf -- [0..*] Event 
+    @material 
+    [0..*] -- schemasubjectOf -- [1] creativeWork 
 }
 

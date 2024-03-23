@@ -1,34 +1,42 @@
+import EMMSAD2022
+
 package NFRO
 
-category NFRRequirement  specializes UFOCGoal
-category NFRQuality_Requirement  specializes NFRRequirement{
-     [0..*] -- refers_to -- [1]  UFOQuality_Universal
+category NFRRequirement of functional-complexes  specializes UFOCGoal 
+
+category NFRQuality_Requirement of functional-complexes  specializes NFRRequirement 
+
+type UFOQuality_Universal
+
+mode UFOQuality
+
+category UFOQuality_Value of functional-complexes 
+
+category UFO_Quality_Region of functional-complexes 
+
+category UFOCGoal of functional-complexes 
+
+category Explicability_Requirement of functional-complexes  specializes NFRQuality_Requirement {
+    [0..*] -- refers_to -- [1] UFOQuality_Universal 
 }
-type UFOQuality_Universal {
-    [1] -- instantiates --  [1..*]  UFOQuality
+
+category Autonomy_Requirement of functional-complexes  specializes NFRQuality_Requirement {
+    [0..*] -- refers_to -- [1] UFOQuality_Universal 
 }
-mode UFOQuality {
-     [0..*] -- has_value -- [1]  UFOQuality_Value
+
+category Beneficence_Requirement of functional-complexes  specializes NFRQuality_Requirement {
+    [0..*] -- refers_to -- [1] UFOQuality_Universal 
 }
-category UFOQuality_Value {
-     [1..*]  -- member_of --<o>  [1..*]  UFO_Quality_Region
+
+category Nonmaleficense_Requirement of functional-complexes  specializes NFRQuality_Requirement {
+    [0..*] -- refers_to -- [1] UFOQuality_Universal 
 }
-category UFO_Quality_Region 
-category UFOCGoal 
-category Explicability_Requirement  specializes NFRQuality_Requirement{
-     [0..*]  --<o>  [0..*]  Ethical_Requirement
+
+category Ethical_Requirement of functional-complexes  specializes NFRQuality_Requirement {
+    [0..*] -- refers_to -- [1] UFOQuality_Universal 
 }
-category Autonomy_Requirement  specializes NFRQuality_Requirement{
-     [0..*]  --<o>  [0..*]  Ethical_Requirement
-}
-category Beneficence_Requirement  specializes NFRQuality_Requirement{
-     [0..*]  --<o>  [0..*]  Ethical_Requirement
-}
-category Nonmaleficense_Requirement  specializes NFRQuality_Requirement{
-     [0..*]  --<o>  [0..*]  Ethical_Requirement
-}
-category Ethical_Requirement  specializes NFRQuality_Requirement
-category Justice_Requirement  specializes NFRQuality_Requirement{
-     [0..*]  --<o>  [0..*]  Ethical_Requirement
+
+category Justice_Requirement of functional-complexes  specializes NFRQuality_Requirement {
+    [0..*] -- refers_to -- [1] UFOQuality_Universal 
 }
 

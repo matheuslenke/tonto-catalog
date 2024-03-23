@@ -1,0 +1,54 @@
+
+package IT_Architecture
+
+category Componente_de_IT of functional-complexes 
+
+kind Site specializes Componente_de_IT 
+
+category Plataforma of functional-complexes  specializes Componente_de_IT 
+
+kind Sistema specializes Componente_de_IT 
+
+kind Armazenamento_de_Dados specializes Componente_de_IT 
+
+category Rede of functional-complexes  specializes Plataforma 
+
+kind Refrigeao specializes Plataforma 
+
+kind Energia specializes Plataforma 
+
+kind Garantia_eSuporte specializes Plataforma 
+
+relator Nvel_de_Garantia_Apropriado
+
+kind Sistema_Computacional specializes Plataforma 
+
+relator Alerta
+
+kind Monitoramento specializes Plataforma 
+
+subkind Periferico of functional-complexes  specializes Sistema_Computacional {
+    [1..*] -- [1..*] Alerta 
+    [1..*] -- fatha -- [1..*] Monitoramento 
+}
+
+subkind Dispositive_de_drede_dual of functional-complexes  specializes Sistema_Computacional {
+    [1..*] -- [1..*] Alerta 
+    [1..*] -- fatha -- [1..*] Monitoramento 
+}
+
+subkind Cooler_Redundante of functional-complexes  specializes Sistema_Computacional {
+    [1..*] -- [1..*] Alerta 
+    [1..*] -- fatha -- [1..*] Monitoramento 
+}
+
+subkind Fonte_Redundante of functional-complexes  specializes Sistema_Computacional {
+    [1..*] -- [1..*] Alerta 
+    [1..*] -- fatha -- [1..*] Monitoramento 
+}
+
+subkind Alimentao_dupla of functional-complexes  specializes Sistema_Computacional {
+    [1..*] -- [1..*] Alerta 
+    [1..*] -- fatha -- [1..*] Monitoramento 
+}
+

@@ -1,0 +1,303 @@
+
+package proj
+
+quality date
+
+kind SportActivityPost specializes post {
+    @characterization 
+    [1] -- [1] rating 
+    @characterization 
+    [1] -- [1] date 
+    @componentOf 
+    [0..*] -- [1..*] image 
+    @componentOf 
+    [0..*] -- [1..*] video 
+}
+
+quality rating
+
+kind housingAdPost specializes post {
+    @characterization 
+    [1] -- [1] rating 
+    @characterization 
+    [1] -- [1] date 
+    @componentOf 
+    [0..*] -- [1..*] image 
+    @componentOf 
+    [0..*] -- [1..*] video 
+}
+
+subkind pub of qualities  specializes nearbyHouseFacilities {
+    @characterization 
+    [1] -- [1] houseLocation 
+}
+
+collective locationCollection
+
+quality nearbyHouseFacilities
+
+kind house
+
+subkind kitchenAmenity of functional-complexes  specializes amenity {
+    @characterization 
+    [1] -- [1] house 
+}
+
+subkind bathroomAmenity of functional-complexes  specializes amenity {
+    @characterization 
+    [1] -- [1] house 
+}
+
+subkind bedroomAmentity of functional-complexes  specializes amenity {
+    @characterization 
+    [1] -- [1] house 
+}
+
+subkind school of qualities  specializes nearbyHouseFacilities {
+    @characterization 
+    [1] -- [1] houseLocation 
+}
+
+subkind hospital of qualities  specializes nearbyHouseFacilities {
+    @characterization 
+    [1] -- [1] houseLocation 
+}
+
+collective amenitiesCollection
+
+kind amenity
+
+subkind entertainmentAmentity of functional-complexes  specializes amenity {
+    @characterization 
+    [1] -- [1] house 
+}
+
+subkind parkArea of qualities  specializes nearbyHouseFacilities {
+    @characterization 
+    [1] -- [1] houseLocation 
+}
+
+subkind indoor of functional-complexes  specializes sportLocation 
+
+subkind winterSport of functional-complexes  specializes sportActivity 
+
+kind sportLocation
+
+subkind summerSport of functional-complexes  specializes sportActivity 
+
+subkind outdoor of functional-complexes  specializes sportLocation 
+
+kind sportOrganization specializes organization 
+
+kind sportEvent specializes event_ 
+
+category event_ of functional-complexes 
+
+kind sportActivity
+
+subkind neutralSport of functional-complexes  specializes sportActivity 
+
+relator sportorganizationBoard
+
+role sportOrganizationMember of functional-complexes  specializes person 
+
+kind person
+
+quality label
+
+role teachingAssistant of functional-complexes  specializes person 
+
+role professor of functional-complexes  specializes person 
+
+role user of functional-complexes  specializes person 
+
+relator universityBoard
+
+kind university specializes EducationalOrganization 
+
+category organization of functional-complexes 
+
+role phdStudent of functional-complexes  specializes person 
+
+relator appRegistration
+
+kind Profile specializes creativeWork 
+
+quality profilePicture
+
+quality profileName
+
+quality profileEmail
+
+quality profileUserAge
+
+quality housePrice
+
+quality houseNumOfOccupants
+
+quality numberOfRooms
+
+subkind houseLocation of functional-complexes  specializes location {
+    @characterization 
+    [1] -- [1] postalAddress 
+    @componentOf 
+    [1..*] -- [1] university 
+}
+
+quality profileSpokenLanguage
+
+role profileInteractor of functional-complexes  specializes user 
+
+relator othersProfileInteraction
+
+subkind profileSearch of relators  specializes othersProfileInteraction {
+    @mediation 
+    [0..*] -- [1] Profile 
+}
+
+subkind profileView of relators  specializes othersProfileInteraction {
+    @mediation 
+    [0..*] -- [1] Profile 
+}
+
+quality profileLearningLanguage
+
+subkind profileMessage of relators  specializes othersProfileInteraction {
+    @mediation 
+    [0..*] -- [1] Profile 
+}
+
+kind discountPost specializes post {
+    @characterization 
+    [1] -- [1] rating 
+    @characterization 
+    [1] -- [1] date 
+    @componentOf 
+    [0..*] -- [1..*] image 
+    @componentOf 
+    [0..*] -- [1..*] video 
+}
+
+kind product
+
+subkind food of functional-complexes  specializes product {
+    @componentOf 
+     [1] -- [1]  store 
+}
+
+subkind services of functional-complexes  specializes product {
+    @componentOf 
+     [1] -- [1] store 
+}
+
+subkind clothing of functional-complexes  specializes product {
+    @componentOf 
+     [1] -- [1]  store 
+}
+
+phase productDiscount of functional-complexes  specializes product {
+    @componentOf 
+     [1] -- [1]  store 
+}
+
+phase productRegularPrice of functional-complexes  specializes product {
+    @componentOf 
+     [1] -- [1]  store 
+}
+
+kind store specializes organization 
+
+subkind storeLocation of functional-complexes  specializes location {
+    @characterization 
+    [1] -- [1] postalAddress 
+    @componentOf 
+    [1..*] -- [1] university 
+}
+
+kind location
+
+quality postalAddress
+
+role postAuthor of functional-complexes  specializes user 
+
+category post of functional-complexes 
+
+role postInteractor of functional-complexes  specializes user 
+
+relator postCreation
+
+relator postInteraction
+
+subkind postRating of relators  specializes postInteraction {
+    @mediation 
+    [0..*] -- [1..*] post 
+}
+
+subkind postSearch of relators  specializes postInteraction {
+    @mediation 
+    [0..*] -- [1..*] post 
+}
+
+subkind postEditing of relators  specializes postCreation {
+    @mediation 
+    [1..*] -- [1..*] post 
+}
+
+subkind postDeletion of relators  specializes postCreation {
+    @mediation 
+    [1..*] -- [1..*] post 
+}
+
+subkind postComment of relators  specializes postInteraction {
+    @mediation 
+    [0..*] -- [1..*] post 
+}
+
+role masterStudent of functional-complexes  specializes person 
+
+role bachelorStudent of functional-complexes  specializes person 
+
+quantity discountAmount
+
+category EducationalOrganization of functional-complexes  specializes organization 
+
+kind text specializes creativeWork 
+
+kind audio specializes creativeWork 
+
+kind image specializes creativeWork 
+
+kind video specializes creativeWork 
+
+category creativeWork of functional-complexes 
+
+subkind postLabeling of relators  specializes postCreation {
+    @mediation 
+    [1..*] -- [1..*] post 
+}
+
+relator eventHostsBoard
+
+relator ownProfileInteraction
+
+subkind ownProfileEditing of relators  specializes ownProfileInteraction {
+    @mediation 
+    [1..*] -- [1..*] profileInteractor 
+    @mediation 
+    [1..*] -- [1] Profile 
+}
+
+subkind ownProfileView of relators  specializes ownProfileInteraction {
+    @mediation 
+    [1..*] -- [1..*] profileInteractor 
+    @mediation 
+    [1..*] -- [1] Profile 
+}
+
+subkind ownProfileDetetion of relators  specializes ownProfileInteraction, ownProfileInteraction {
+    @mediation 
+    [1..*] -- [1..*] profileInteractor 
+    @mediation 
+    [1..*] -- [1] Profile 
+}
+

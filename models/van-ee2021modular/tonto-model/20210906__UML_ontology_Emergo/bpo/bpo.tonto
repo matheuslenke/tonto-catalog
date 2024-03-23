@@ -1,104 +1,159 @@
-import schema
-import omg
-import ifc
+import UML_ontology_Emergo
+import Attribute_clases
 import BPO_ontology
+import Entity_classes
+import Geometry_classes
+import Geometry_classes_2
+import UML_ontology_Emergo
+import bot
+import bpo
+import dice
+import element_class
+import fog
 import gr
+import ifc
+import omg
+import opm
+import product_classes
+import qudt
+import schema
+import seas
 
 package bpo
 
-category Component  specializes ClassifiedObject{
-    type_ : string
-    id : string
-    NLSFB : string
-    level : undefined
-    description : string
-    length : undefined
-    width : undefined
-    height : undefined
-    weight : undefined
-    @material
-     [2..*] -- isPartOf -- [1]  Assembly
-    @material
-     [0..*] -- has_Attribute --  [0..*]  PropertyValue
-    @material
-     [0..*] -- schema_subjectOf --  [0..*]  Event
+category ClassifiedObject
+
+category Component of collectives  specializes ClassifiedObject {
+    type_: string  
+    id: string  
+    NLSFB: string  
+    level: undefined  
+    description: string  
+    length: undefined  
+    width: undefined  
+    height: undefined  
+    weight: undefined  
+    @material 
+    [0..*] -- schemasubjectOf -- [1] creativeWork 
 }
-category Assembly  specializes Component{
-    @material
-    [1] -- consistsOf --  [2..*]  Component
-    @material
-     [0..*] -- isComposedOfEntity --  [0..*]  Entity
+
+category Assembly of functional-complexes  specializes Component {
+    @material 
+    [2..*] -- isPartOf -- [1] Assembly 
+    @material 
+    [0..*] -- has_Attribute -- [0..*] PropertyValue 
+    @material 
+    [0..*] -- schema_subjectOf -- [0..*] Event 
+    @material 
+    [0..*] -- schemasubjectOf -- [1] creativeWork 
 }
-kind element  specializes Component{
-    @componentOf
-     [1..*]  --<o> [1]  BuildingElement
-    @componentOf
-     [1..*]  --<o> [1]  Module
+
+kind element specializes Component {
+    @material 
+    [2..*] -- isPartOf -- [1] Assembly 
+    @material 
+    [0..*] -- has_Attribute -- [0..*] PropertyValue 
+    @material 
+    [0..*] -- schema_subjectOf -- [0..*] Event 
+    @material 
+    [0..*] -- schemasubjectOf -- [1] creativeWork 
 }
-category Product  specializes Component, ProductOrServiceModel, ProductModel{
-    releaseVersion : double
-    premoduOption : boolean
-    stockProduct : boolean
-    @material
-     [0..*] -- schemaprice --  [0..*]  priceSpecification
+
+category Product of functional-complexes  specializes Component, ProductOrServiceModel {
+    releaseVersion: double  
+    premoduOption: boolean_  
+    stockProduct: boolean_  
+    @material 
+    [2..*] -- isPartOf -- [1] Assembly 
+    @material 
+    [0..*] -- has_Attribute -- [0..*] PropertyValue 
+    @material 
+    [0..*] -- schema_subjectOf -- [0..*] Event 
+    @material 
+    [0..*] -- schemasubjectOf -- [1] creativeWork 
 }
-category Entity {
-    Supplier : string
-    SupplierInvoiceDescription : string
-    SupplierArticleCode : string
-    @material
-    [1] -- realises_Object -- [1]  Component
-    @material
-     [0..*] -- has_Outgoing_Connection --  [0..*]  componentConnection
-    @material
-     [0..*] -- is_Connected_From --  [0..*]  Entity
-    @material
-     [0..*] -- is_Connected_To --  [0..*]  Entity
-    @material
-     [0..*] -- is_Connected_With --  [0..*]  Entity
-    @material
-     [0..*] -- omghasGeometry --  [0..*]  Geometry
+
+category Entity of functional-complexes {
+    Supplier: string  
+    SupplierInvoiceDescription: string  
+    SupplierArticleCode: string  
 }
-kind DynamicEntity  specializes Entity{
-    hasQuantity : undefined
+
+kind DynamicEntity specializes Entity {
+    hasQuantity: undefined  
+    @material 
+    [1] -- realises_Object -- [1] Component 
+    @material 
+    [0..*] -- has_Outgoing_Connection -- [0..*] componentConnection 
+    @material 
+    [0..*] -- is_Connected_From -- [0..*] Entity 
+    @material 
+    [0..*] -- is_Connected_To -- [0..*] Entity 
+    @material 
+    [0..*] -- is_Connected_With -- [0..*] Entity 
+    @material 
+    [0..*] -- omghasGeometry -- [0..*] Geometry 
 }
-kind SingularEntity  specializes Entity
-relator componentConnection  specializes ClassifiedObject{
-    @material
-     [0..*] -- connects_Input_Of --  [0..*]  Entity
+
+kind SingularEntity specializes Entity {
+    @material 
+    [1] -- realises_Object -- [1] Component 
+    @material 
+    [0..*] -- has_Outgoing_Connection -- [0..*] componentConnection 
+    @material 
+    [0..*] -- is_Connected_From -- [0..*] Entity 
+    @material 
+    [0..*] -- is_Connected_To -- [0..*] Entity 
+    @material 
+    [0..*] -- is_Connected_With -- [0..*] Entity 
+    @material 
+    [0..*] -- omghasGeometry -- [0..*] Geometry 
 }
-subkind RangedAttribute  specializes Property, ClassifiedObject, PropertyValue{
-    value_ : undefined
-    permittedStepSize : undefined
-    maxValue : undefined
-    minValue : undefined
-    @material
-     [0..*] -- has_2D_Disordered_List --  [0..*]  List2D
-    @material
-     [0..*] -- has_Interval --  [0..*]  Interval
+
+relator componentConnection specializes ClassifiedObject {
+    @material 
+    [0..*] -- schemasubjectOf -- [1] creativeWork 
 }
-subkind Attribute  specializes Property, ClassifiedObject, PropertyValue{
-    value_ : undefined
+
+subkind RangedAttribute of qualities specializes Property, ClassifiedObject {
+    value_: undefined  
+    permittedStepSize: undefined  
+    maxValue: undefined  
+    minValue: undefined  
+    @material 
+    [0..*] -- omgisExplicitlyDerivedFrom -- [0..*] Property 
+    @material 
+    [0..*] -- omghasInferredPropertyState -- [0..*] PropertyState 
+    @material 
+    [0..*] -- opmhasPropertyState -- [0..*] PropertyState 
+    @material 
+    [0..*] -- omgisImplicitlyDerivedFrom -- [0..*] Geometry 
+    @material 
+    [0..*] -- schemasubjectOf -- [1] creativeWork 
+    @material 
+    [1] -- qudtunit -- [1] Unit 
 }
-category ClassifiedObject {
-    has_bsDD_globally_unique_identifier : string
-    @material
-     [0..*] -- schemasubjectOf -- [1]  creativeWork( {const } )
+
+subkind Attribute of qualities specializes Property, ClassifiedObject, PropertyValue {
+    value_: undefined  
+    @material [0..*] -- omgisExplicitlyDerivedFrom -- [0..*] Property 
+    @material [0..*] -- omghasInferredPropertyState -- [0..*] PropertyState 
+    @material [0..*] -- opmhasPropertyState -- [0..*] PropertyState 
+    @material [0..*] -- omgisImplicitlyDerivedFrom -- [0..*] Geometry 
+    @material [0..*] -- schemasubjectOf -- [1] creativeWork 
+    @material [1] -- qudtunit -- [1] Unit 
 }
-subkind Entry2D  specializes StructuredValue{
-    hasFirstValue : undefined
-    hasSecondValue : undefined
-    @material
-     [0..*] -- describes_Attribute_At_First_Value --  [0..*]  RangedAttribute
-    @material
-     [0..*] -- describes_Attribute_At_Second_Value --  [0..*]  RangedAttribute
-    @material
-     [0..*] -- is_Part_Of_List --  [0..*]  List2D
+
+category ClassifiedObject of collectives {
+    has_bsDD_globally_unique_identifier: string  
 }
-subkind Interval  specializes StructuredValue, value
-subkind List2D  specializes StructuredValue{
-    @material
-     [0..*] -- has_Entry --  [0..*]  Entry2D
-    [*] -- decribesAttribute -- [*]  RangedAttribute
+
+subkind Entry2D of qualities  specializes StructuredValue {
+    hasFirstValue: undefined  
+    hasSecondValue: undefined  
 }
+
+subkind Interval of qualities  specializes StructuredValue, value_ 
+
+subkind List2D of qualities  specializes StructuredValue 
 

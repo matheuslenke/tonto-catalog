@@ -1,26 +1,26 @@
+import freddy
 import Equipment
 
 package TP
 
-relator Abstraction_Of_CoLocalization 
-role Physical_Termination_Point  specializes Termination_Point{
-    @material
-     [1..*] -- equipmentTerminatedByPTP -- [1]  Equipment
-    @mediation
-    ( {const } )[1] -- equipmentEndsAt -- [1]  Physical_Termination
-    @material
-    [1] -- CTPterminesSNCofPTP --  [1..*]  Connection_Termination_Point
-    @mediation
-    ( {const } )[1] -- PTPhasSNCtermination --  [1..*]  SNC_Termination
+relator Abstraction_Of_CoLocalization
+
+role Physical_Termination_Point of functional-complexes  specializes Termination_Point 
+
+kind Termination_Point
+
+role Connection_Termination_Point of functional-complexes  specializes Termination_Point 
+
+role PTP_of_ME of functional-complexes  specializes Physical_Termination_Point {
+    @material 
+    [1..*] -- equipmentTerminatedByPTP -- [1] Equipment 
+    @mediation 
+    [1] -- equipmentEndsAt -- [1] Physical_Termination 
+    @material 
+    [1] -- CTPterminesSNCofPTP -- [1..*] Connection_Termination_Point 
+    @mediation 
+    [1] -- PTPhasSNCtermination -- [1..*] SNC_Termination 
 }
-kind Termination_Point 
-role Connection_Termination_Point  specializes Termination_Point{
-    @mediation
-    ( {const } )[1] -- CTPterminesSNC -- [1]  SNC_Termination
-}
-role PTP_of_ME  specializes Physical_Termination_Point{
-    @mediation
-    ( {const } ) [1..*] -- PTPisCoLocated -- [1]  Abstraction_Of_CoLocalization
-}
-relator Physical_Termination 
+
+relator Physical_Termination
 

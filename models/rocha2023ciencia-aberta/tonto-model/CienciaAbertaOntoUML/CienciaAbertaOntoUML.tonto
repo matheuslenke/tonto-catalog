@@ -1,0 +1,53 @@
+
+package CienciaAbertaOntoUML
+
+role Dados_Abertos of collectives  specializes Dados {
+     -- utiliza --  Pesquisa_Reprodutvel_Aberta 
+}
+
+role Acesso_Aberto of functional-complexes  specializes Acesso 
+
+kind Pesquisa
+
+subkind Pesquisa_Reprodutvel of functional-complexes  specializes Pesquisa 
+
+role Pesquisa_Reprodutvel_Aberta of functional-complexes  specializes Pesquisa_Reprodutvel 
+
+phase Licenciamento_Proprietrio of functional-complexes  specializes Licenciamento 
+
+collective Dados specializes Preservao_Digital 
+
+kind Acesso
+
+kind Avaliao_Cincia_Aberta
+
+kind Cincia_Aberta specializes Cincia 
+
+kind Ferramenta specializes Preservao_Digital 
+
+role Ferramenta_Aberta of functional-complexes  specializes Ferramenta 
+
+role Educao_Aberta of functional-complexes  specializes Educao 
+
+kind Educao
+
+role Polticas_Cincia_Aberta of collectives  specializes Polticas 
+
+collective Polticas
+
+kind Licenciamento
+
+kind Cincia_Cidad specializes Cincia 
+
+category Cincia of functional-complexes 
+
+kind Documento specializes Preservao_Digital 
+
+mixin Preservao_Digital of intrinsic-modes 
+
+phase Licenciamento_Aberto of functional-complexes  specializes Licenciamento 
+
+relator Utilizao_Aberta
+
+mixin Inovao_Aberta of intrinsic-modes 
+

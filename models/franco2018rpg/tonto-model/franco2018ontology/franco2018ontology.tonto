@@ -1,0 +1,88 @@
+
+package franco2018ontology
+
+kind Game
+
+category Planning of functional-complexes 
+
+class Event
+
+class Action specializes Event {
+    [1] -- [1] State 
+}
+
+mode State
+
+category Entity of functional-complexes 
+
+category Object of functional-complexes  specializes Entity {
+    @componentOf 
+    [2..*] -- essential -- [1] Game 
+    [1] -- execute -- [1] Action 
+    @componentOf 
+    [1..*] -- estarEm_essential -- [1] Match 
+}
+
+role Player of functional-complexes  specializes Character {
+    [*] -- [*] Location 
+}
+
+kind Etc specializes Object {
+    [1..*] -- carringBy -- [1] Player 
+    @componentOf 
+    [2..*] -- essential -- [1] Game 
+    [1] -- execute -- [1] Action 
+    @componentOf 
+    [1..*] -- estarEm_essential -- [1] Match 
+}
+
+kind Consumable specializes Object {
+    [1..*] -- carringBy -- [1] Player 
+    @componentOf 
+    [2..*] -- essential -- [1] Game 
+    [1] -- execute -- [1] Action 
+    @componentOf 
+    [1..*] -- estarEm_essential -- [1] Match 
+}
+
+kind Equipment specializes Object {
+    [1..*] -- carringBy -- [1] Player 
+    @componentOf 
+    [2..*] -- essential -- [1] Game 
+    [1] -- execute -- [1] Action 
+    @componentOf 
+    [1..*] -- estarEm_essential -- [1] Match 
+}
+
+kind Character
+
+relator Encounter
+
+kind NonPlayerCharacter specializes Entity {
+    @componentOf 
+    [2..*] -- essential -- [1] Game 
+    [1] -- execute -- [1] Action 
+    @componentOf 
+    [1..*] -- estarEm_essential -- [1] Match 
+}
+
+collective Mission
+
+class Goal
+
+kind Location
+
+mode Adventure
+
+mode Campaign
+
+category Match of functional-complexes 
+
+subkind Scenario of functional-complexes  specializes Location 
+
+kind DigitalGame specializes Match {
+    [1] -- essential -- [2..*] Game 
+}
+
+collective Session
+

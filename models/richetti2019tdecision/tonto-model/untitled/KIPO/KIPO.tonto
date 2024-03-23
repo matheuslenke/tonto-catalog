@@ -2,8 +2,9 @@ import untitled
 
 package KIPO
 
-class Participant {
-    [1] -- Makes_to_solve --  [1..*]  Decision
+class Participant
+
+class Decision specializes Knowledge_Intensive_Activity {
+    [*] -- [*] Knowledge_Intensive_Activity 
 }
-class Decision  specializes Knowledge_Intensive_Activity
 

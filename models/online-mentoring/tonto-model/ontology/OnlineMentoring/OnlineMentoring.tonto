@@ -1,97 +1,78 @@
+import ontology
+
 package OnlineMentoring
 
-kind Agent 
-subkind Organization  specializes Agent
-subkind Person  specializes Agent
-subkind EducationalInstitution  specializes Organization
-relator WorkContract {
-    @mediation
-     [1..*] -- [1]  EducationalInstitution( {const } )
-    @mediation
-     [1..*] -- [1]  Professor( {const } )
+kind Agent
+
+subkind Organization of functional-complexes  specializes Agent 
+
+subkind Person of functional-complexes  specializes Agent 
+
+subkind EducationalInstitution of functional-complexes  specializes Organization 
+
+relator WorkContract
+
+role Professor of functional-complexes  specializes Participant 
+
+role Participant of functional-complexes  specializes Person 
+
+role Student of functional-complexes  specializes Participant 
+
+relator Enrollment
+
+role ParticipantWithanswer of functional-complexes  specializes Participant 
+
+kind Answer
+
+role ParticipantWithQuestion of functional-complexes  specializes Participant 
+
+kind Question
+
+role AnsweredQuestion of functional-complexes  specializes Question 
+
+role OpenQuestion of functional-complexes  specializes Question 
+
+role ActiveStudent of functional-complexes  specializes Student 
+
+kind Course
+
+collective Curriculum
+
+role Tutor of functional-complexes  specializes ActiveStudent 
+
+relator Tutoring
+
+role TutoredDiscipline of functional-complexes  specializes Discipline {
+    @memberOf 
+    [1..*] -- [1..*] Curriculum 
+    @material 
+    [1] -- [1] Ementa 
 }
-role Professor  specializes Participant
-role Participant  specializes Person
-role Student  specializes Participant
-relator Enrollment {
-    @mediation
-     [1..*] -- [1]  Course( {const } )
-    @mediation
-     [1..*] -- [1]  Student( {const } )
+
+role CharacterizedQuestion of functional-complexes  specializes Question 
+
+role NonCharacterizedQuestion of functional-complexes  specializes Question 
+
+kind Discipline
+
+collective Ementa
+
+role NonTutoredDiscipline of functional-complexes  specializes Discipline {
+    @memberOf 
+    [1..*] -- [1..*] Curriculum 
+    @material 
+    [1] -- [1] Ementa 
 }
-role ParticipantWithanswer  specializes Participant{
-    @material
-    [1] -- provides --  [1..*]  Answer
+
+kind Topic
+
+role CharacterizingTopic of functional-complexes  specializes Topic {
+    @memberOf 
+    [1..*] -- [1..*] Ementa 
 }
-kind Answer {
-    @material
-    [1] -- answers -- [1]  AnsweredQuestion
-}
-role ParticipantWithQuestion  specializes Participant{
-    @material
-    [1] -- asks --  [1..*]  Question
-}
-kind Question 
-role AnsweredQuestion  specializes Question
-role OpenQuestion  specializes Question
-role ActiveStudent  specializes Student
-kind Course {
-    @material
-    [1] -- has -- [1]  Curriculum
-}
-collective Curriculum 
-role Tutor  specializes ActiveStudent{
-    @material
-     [1..*] -- tutors --  [1..*]  TutoredDiscipline
-}
-relator Tutoring {
-    @mediation
-     [1..*] -- [1]  Tutor( {const } )
-    @mediation
-     [1..*] -- [1]  TutoredDiscipline( {const } )
-}
-role TutoredDiscipline  specializes Discipline
-role CharacterizedQuestion  specializes Question
-role NonCharacterizedQuestion  specializes Question
-kind Discipline {
-    @memberOf
-     [1..*]  --<o>  [1..*]  Curriculum
-    @material
-    [1] -- [1]  Ementa
-}
-collective Ementa 
-role NonTutoredDiscipline  specializes Discipline
-kind Topic {
-    @memberOf
-     [1..*]  --<o>  [1..*]  Ementa
-}
-role CharacterizingTopic  specializes Topic{
-    @material
-     [1..*] -- characterizes --  [1..*]  CharacterizedQuestion
-}
-role NonCharacterizingTopic  specializes Topic
-disjoint complete genset nature{
-    general Agent
-    specifics Organization, Person 
-}
-complete genset function{
-    general Participant
-    specifics Student, Professor 
-}
-disjoint complete genset tutoring{
-    general Discipline
-    specifics NonTutoredDiscipline, TutoredDiscipline 
-}
-disjoint complete genset characterization{
-    general Topic
-    specifics CharacterizingTopic, NonCharacterizingTopic 
-}
-disjoint complete genset characterization{
-    general Question
-    specifics CharacterizedQuestion, NonCharacterizedQuestion 
-}
-disjoint complete genset status{
-    general Question
-    specifics AnsweredQuestion, OpenQuestion 
+
+role NonCharacterizingTopic of functional-complexes  specializes Topic {
+    @memberOf 
+    [1..*] -- [1..*] Ementa 
 }
 

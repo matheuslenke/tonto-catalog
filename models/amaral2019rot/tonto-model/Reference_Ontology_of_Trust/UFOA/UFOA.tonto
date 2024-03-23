@@ -1,6 +1,10 @@
+import Reference_Ontology_of_Trust
+
 package UFOA
 
-category Endurant 
-category Substantial  specializes Endurant
-category Moment  specializes Endurant
+category Endurant
+
+category Substantial specializes Endurant 
+
+category Moment specializes Endurant 
 

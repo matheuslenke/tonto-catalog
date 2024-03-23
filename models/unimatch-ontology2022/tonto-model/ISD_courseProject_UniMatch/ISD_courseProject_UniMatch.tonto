@@ -1,0 +1,158 @@
+
+package ISD_courseProject_UniMatch
+
+kind Educational_Organization
+
+subkind University of functional-complexes  specializes Educational_Organization {
+    @componentOf 
+    [0..*] -- [1..*] Student_Club 
+}
+
+subkind Institute of functional-complexes  specializes Educational_Organization {
+    @componentOf 
+    [0..*] -- [1..*] Student_Club 
+}
+
+subkind Vocational_school of functional-complexes  specializes Educational_Organization {
+    @componentOf 
+    [0..*] -- [1..*] Student_Club 
+}
+
+subkind College of functional-complexes  specializes Educational_Organization {
+    @componentOf 
+    [0..*] -- [1..*] Student_Club 
+}
+
+kind Study_Program
+
+kind Applicant
+
+kind Employment_History
+
+kind Educational_History
+
+kind Hobbies
+
+kind Course
+
+kind Academic_Instructor
+
+phase High_School_Graduate of functional-complexes  specializes Applicant {
+    @componentOf 
+    [0..*] -- [1] Employment_History 
+    @componentOf 
+    [0..*] -- [1] Educational_History 
+    @componentOf 
+    [0..*] -- [1] Hobbies 
+    @mediation 
+    [0..*] -- [1] Application 
+}
+
+phase Masters_Graduate of functional-complexes  specializes Applicant {
+    @componentOf 
+    [0..*] -- [1] Employment_History 
+    @componentOf 
+    [0..*] -- [1] Educational_History 
+    @componentOf 
+    [0..*] -- [1] Hobbies 
+    @mediation 
+    [0..*] -- [1] Application 
+}
+
+phase Bachelor_Graduate of functional-complexes  specializes Applicant {
+    @componentOf 
+    [0..*] -- [1] Employment_History 
+    @componentOf 
+    [0..*] -- [1] Educational_History 
+    @componentOf 
+    [0..*] -- [1] Hobbies 
+    @mediation 
+    [0..*] -- [1] Application 
+}
+
+subkind CoOp_Program of functional-complexes  specializes Study_Program {
+    @componentOf 
+    [1..*] -- [1..*] Course 
+    @mediation 
+    [0..*] -- [1] Admission_Period 
+}
+
+subkind Part_Time of functional-complexes  specializes Study_Program {
+    @componentOf 
+    [1..*] -- [1..*] Course 
+    @mediation 
+    [0..*] -- [1] Admission_Period 
+}
+
+subkind Online of functional-complexes  specializes Study_Program {
+    @componentOf 
+    [1..*] -- [1..*] Course 
+    @mediation 
+    [0..*] -- [1] Admission_Period 
+}
+
+subkind Full_Time of functional-complexes  specializes Study_Program {
+    @componentOf 
+    [1..*] -- [1..*] Course 
+    @mediation 
+    [0..*] -- [1] Admission_Period 
+}
+
+class Machine_Learning of abstract-individuals 
+
+kind Country
+
+kind City
+
+kind Faculty
+
+kind Local_Languages
+
+relator Admission_Period
+
+kind Degree_Requirement
+
+kind Language
+
+kind Language_Requirement
+
+kind Student_Club
+
+relator Application
+
+phase Employed of functional-complexes  specializes Applicant {
+    @componentOf 
+    [0..*] -- [1] Employment_History 
+    @componentOf 
+    [0..*] -- [1] Educational_History 
+    @componentOf 
+    [0..*] -- [1] Hobbies 
+    @mediation 
+    [0..*] -- [1] Application 
+}
+
+phase Unemployed of functional-complexes  specializes Applicant {
+    @componentOf 
+    [0..*] -- [1] Employment_History 
+    @componentOf 
+    [0..*] -- [1] Educational_History 
+    @componentOf 
+    [0..*] -- [1] Hobbies 
+    @mediation 
+    [0..*] -- [1] Application 
+}
+
+subkind In_Presence of functional-complexes  specializes Study_Program {
+    @componentOf 
+    [1..*] -- [1..*] Course 
+    @mediation 
+    [0..*] -- [1] Admission_Period 
+}
+
+subkind Hybrid of functional-complexes  specializes Study_Program {
+    @componentOf 
+    [1..*] -- [1..*] Course 
+    @mediation 
+    [0..*] -- [1] Admission_Period 
+}
+

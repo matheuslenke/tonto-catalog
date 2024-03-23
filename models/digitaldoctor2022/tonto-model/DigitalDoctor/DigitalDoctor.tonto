@@ -1,0 +1,4 @@
+
+package DigitalDoctorDatatypes
+
+datatype float

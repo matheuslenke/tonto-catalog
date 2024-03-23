@@ -1,0 +1,570 @@
+
+package ontology
+
+kind Game
+
+kind Mechanics
+
+kind Dynamics
+
+kind Aesthetics
+
+kind Variable_Player_Powers specializes Assymetry 
+
+kind Assymetry specializes Game_Balance 
+
+kind Game_Balance specializes Ruleset 
+
+kind RockPaperScizors specializes Game_Balance 
+
+kind TimeTrack specializes Phase 
+
+kind Phase specializes Ruleset 
+
+kind Variable_Phase_Order specializes Phase 
+
+kind Impulse specializes Phase 
+
+kind Ruleset specializes Algorithm 
+
+kind Teams specializes Ruleset 
+
+kind Partnership specializes Teams 
+
+kind Cooperative_Play specializes Teams 
+
+kind Algorithm
+
+kind TrickTaking specializes Gamble 
+
+kind Betting specializes Gamble 
+
+kind Gamble specializes Action 
+
+kind Action specializes Algorithm 
+
+kind Grid_Movement specializes Area_Movement 
+
+kind Area_Movement specializes PointtoPointMovement 
+
+kind PointtoPointMovement specializes Movement 
+
+kind Movement specializes Action 
+
+kind Action_Programming specializes Action 
+
+kind Stock_Holding specializes Commodity_Speculation 
+
+kind Commodity_Speculation specializes Action 
+
+kind Pattern_Building specializes Action 
+
+kind Auction specializes Action 
+
+kind Secret_Unit_Depoyment specializes Action 
+
+kind Simultaneous_Action_Selection specializes Action 
+
+kind Press_Your_Luck specializes Action 
+
+kind Take_That specializes Action 
+
+kind Chitpull specializes Action 
+
+kind Voting specializes Action 
+
+kind Trading specializes Action 
+
+kind Role_Playing specializes Expression 
+
+kind Expression specializes Action 
+
+kind Acting specializes Expression 
+
+kind Storytelling specializes Expression 
+
+kind Singing specializes Expression 
+
+kind Dice_Rolling specializes Random_Draw 
+
+kind Random_Draw specializes Action 
+
+kind Deck specializes Random_Draw 
+
+kind Draft specializes Action 
+
+kind Card_Draft specializes Draft 
+
+kind Action_Draft specializes Draft 
+
+kind Tile_Placement specializes Action 
+
+kind Colection specializes Action 
+
+kind Set_Colection specializes Colection 
+
+kind Line_Drawing specializes Action 
+
+kind Network_Building specializes Line_Drawing 
+
+kind Pool_Building specializes Colection 
+
+kind Memory specializes Goal 
+
+kind Goal specializes Algorithm, Pickup_and_Delivery, Player_Elimination, Resource_Management, Pattern_Recognition 
+
+kind Player_Elimination
+
+kind Pickup_and_Delivery
+
+kind Resource_Management
+
+kind Pattern_Recognition
+
+kind Area_Control specializes Goal 
+
+kind Area_Enclosure specializes Goal 
+
+kind Resource specializes Data_Representation 
+
+kind Victory_Points specializes Resource {
+    @componentOf 
+    [1..*] -- [1..*] Resource_Management 
+    @componentOf 
+    [1] -- [1..*] Pool_Building 
+}
+
+kind Action_Points specializes Resource {
+    @componentOf 
+    [1..*] -- [1..*] Resource_Management 
+    @componentOf 
+    [1] -- [1..*] Pool_Building 
+}
+
+kind Action_Card specializes Resource {
+    @componentOf 
+    [1..*] -- [1..*] Resource_Management 
+    @componentOf 
+    [1] -- [1..*] Pool_Building 
+}
+
+kind Data_Representation
+
+kind Component specializes Data_Representation 
+
+kind Areas specializes Component 
+
+kind Pattern specializes Component 
+
+kind Die specializes Component 
+
+kind Token specializes Component 
+
+kind Modular_Board specializes Component 
+
+kind Paper_And_Pencil specializes Component 
+
+kind Tile specializes Token 
+
+kind Card specializes Token 
+
+kind Die_Marker specializes Die {
+    @componentOf 
+    [1..*] -- [0..1] Dice_Rolling 
+}
+
+category Intention_of_use of functional-complexes  specializes Action_based 
+
+category Action_based of functional-complexes 
+
+kind Combo specializes Intention_of_use 
+
+kind Resource_extinction specializes Intention_of_use 
+
+kind Game_state_change specializes Intention_of_use 
+
+kind Reduce_options specializes Intention_of_use 
+
+kind Blocking specializes Intention_of_use 
+
+kind Indirect_effect specializes Intention_of_use 
+
+kind Diversion specializes Intention_of_use 
+
+kind Acquire_information specializes Indirect_effect 
+
+kind Deduction
+
+kind Sacrifice specializes Action_based 
+
+kind Forcefull_interpretation
+
+kind Intimidate specializes MetaGame 
+
+category MetaGame of functional-complexes 
+
+kind Count_resources specializes MetaGame 
+
+kind Convince specializes MetaGame 
+
+kind Small_talk specializes MetaGame 
+
+kind Bluffing specializes Convince {
+    @componentOf 
+    [1..*] -- [0..1] Forcefull_interpretation 
+}
+
+kind Camping specializes Playing_patterns 
+
+category Playing_patterns of functional-complexes  specializes Behaviour 
+
+category Behaviour of functional-complexes 
+
+kind Self_objective specializes Behaviour 
+
+category Strategic_choices of functional-complexes  specializes Behaviour 
+
+kind Grouping specializes Strategic_choices 
+
+kind One_versus_all specializes Grouping 
+
+kind All_versus_one specializes Alliance 
+
+kind Alliance specializes Grouping 
+
+kind Derived
+
+kind Survival_D specializes Playing_patterns 
+
+kind Risky_play specializes Playing_patterns 
+
+kind Safe_play specializes Playing_patterns 
+
+kind Protectionism specializes Playing_patterns 
+
+kind Human_Shield specializes Strategic_choices 
+
+kind Action_Planning specializes Strategic_choices 
+
+kind Flexible_strategy specializes Strategic_choices 
+
+kind Reject_objectives specializes Strategic_choices 
+
+kind Rush_the_game specializes Strategic_choices 
+
+kind Disgust
+
+subkind Abhorrence of functional-complexes  specializes Disgust 
+
+subkind Repugnance of functional-complexes  specializes Disgust 
+
+subkind Loathing of functional-complexes  specializes Disgust 
+
+subkind Distaste of functional-complexes  specializes Disgust 
+
+subkind Revulsion of functional-complexes  specializes Disgust 
+
+subkind Aversion of functional-complexes  specializes Disgust 
+
+subkind Dislike of functional-complexes  specializes Disgust 
+
+kind Fear
+
+subkind Terror of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+subkind Desperation of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+subkind Nervousness of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+subkind Horror of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+subkind Trepidation of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+subkind Dread of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+subkind Anxiety of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+subkind Panic of functional-complexes  specializes Fear {
+    @causal 
+    [1] -- Stimulate -- [1] Survival_A 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Curiosity 
+}
+
+kind Anger
+
+subkind Fury of functional-complexes  specializes Anger {
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Competition 
+    @causal 
+    [1] -- Stimulate -- [1] Revenge 
+    @causal 
+    [1] -- Stimulate -- [1] Agressiveness 
+}
+
+subkind Annoyance of functional-complexes  specializes Anger {
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Competition 
+    @causal 
+    [1] -- Stimulate -- [1] Revenge 
+    @causal 
+    [1] -- Stimulate -- [1] Agressiveness 
+}
+
+subkind Vengefulness of functional-complexes  specializes Anger {
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Competition 
+    @causal 
+    [1] -- Stimulate -- [1] Revenge 
+    @causal 
+    [1] -- Stimulate -- [1] Agressiveness 
+}
+
+subkind Argumentativeness of functional-complexes  specializes Anger {
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Competition 
+    @causal 
+    [1] -- Stimulate -- [1] Revenge 
+    @causal 
+    [1] -- Stimulate -- [1] Agressiveness 
+}
+
+subkind Bitterness of functional-complexes  specializes Anger {
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Competition 
+    @causal 
+    [1] -- Stimulate -- [1] Revenge 
+    @causal 
+    [1] -- Stimulate -- [1] Agressiveness 
+}
+
+subkind Exasperation of functional-complexes  specializes Anger {
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Competition 
+    @causal 
+    [1] -- Stimulate -- [1] Revenge 
+    @causal 
+    [1] -- Stimulate -- [1] Agressiveness 
+}
+
+subkind Frustration of functional-complexes  specializes Anger {
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Competition 
+    @causal 
+    [1] -- Stimulate -- [1] Revenge 
+    @causal 
+    [1] -- Stimulate -- [1] Agressiveness 
+}
+
+kind Sadness
+
+subkind Anguish of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Helplessness of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Despair of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Sorrow of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Discouragement of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Resignation of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+kind Survival_A
+
+kind Identification
+
+kind Protection
+
+kind Curiosity
+
+kind Competition
+
+kind Revenge
+
+kind Agressiveness
+
+kind Greed
+
+kind Color_Appreciation
+
+kind Communication
+
+kind Collecting
+
+subkind Misery of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Disapointment of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Distraughtness of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Grief of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Hopelessness of functional-complexes  specializes Sadness {
+    @causal 
+    [1] -- Evoke -- [1] Protection 
+    @causal 
+    [1] -- Evoke -- [1] Identification 
+}
+
+subkind Joy of functional-complexes  specializes Enjoyment 
+
+subkind Excitement of functional-complexes  specializes Enjoyment 
+
+kind Enjoyment
+
+subkind Naches of functional-complexes  specializes Enjoyment 
+
+subkind Fiero of functional-complexes  specializes Enjoyment 
+
+subkind Ecstasy of functional-complexes  specializes Enjoyment 
+
+subkind Compassion of functional-complexes  specializes Enjoyment 
+
+subkind Amusement of functional-complexes  specializes Enjoyment 
+
+subkind Relief of functional-complexes  specializes Enjoyment 
+
+subkind Schadenfreud of functional-complexes  specializes Enjoyment 
+
+subkind Rejoicing of functional-complexes  specializes Enjoyment 
+
+subkind Wonder of functional-complexes  specializes Enjoyment 
+
+subkind Sensory_Pleasure of functional-complexes  specializes Enjoyment 
+
+subkind Peace of functional-complexes  specializes Enjoyment 
+
+subkind Pride of functional-complexes  specializes Enjoyment 
+
+kind Compound_Emotions
+

@@ -1,482 +1,694 @@
-import UFOC
+import ontology
 import UFOB
+import UFOC
+import UFO
 
 package OntoEmergePlan
 
-category Environmental_Physical_Component  specializes Environmental_Component
-category Environmental_Social_Component  specializes Environmental_Component
-type Hazardous_Event_Type  specializes Event_Type{
-    @formal
-    [*] -- can_cause -- [*]  Impact_Type
-    @formal
-    [1] -- classifies --  [1..*]  Hazardous_Event
-    @formal
-    [1] -- can_cause --  [1..*]  Impact_Type
-}
-type Material_Resource_Type {
-    @formal
-    [*] -- is_to_be_performed_using -- [*]  E_Standard_Activity
-    @formal
-    [1] -- instantiates --  [0..*]  Material_Resource
-    @formal
-    [1] --  [0..*]  Business_Emergency_Material_Resource
-}
-type Atomic_E_Standard_Activity  specializes E_Standard_Activity
-mode Atomic_OE_Activity  specializes OE_Activity, Atomic_Commitment
-type Complex_E_Standard_Activity  specializes E_Standard_Activity
-mode Complex_OE_Activity  specializes OE_Activity, Complex_Commitment
-type E_Standard_Activity 
-type E_Standard_Process 
-kind E_Standard_Process_Definition_Document {
-    @formal
-     [1..*] -- describes -- [*]  E_Standard_Process
-}
-type E_Standard_Process_Definition_Document_Type {
-    @formal
-     [1..*] -- instance_of --  [0..*]  E_Standard_Process_Definition_Document
-}
-type General_E_Standard_Process  specializes E_Standard_Process, E_Standard_Process
-mode General_OE_Process  specializes OE_Process{
-    @formal
-    [*] -- tailors_general_processes -- [*]  General_E_Standard_Process
-}
-mode OE_Activity  specializes Intention, Closed_Commitment{
-    @sum
-     [2..*]  --<o>  [0..*]  Complex_OE_Activity
-    @formal
-    [*] -- tailors_activities -- [*]  E_Standard_Activity
-    @formal
-    [*] -- tailors_activities -- [*]  E_Standard_Activity
-    @formal
-     [0..*] -- dependenceof --  [0..*]  OE_Activity
-}
-class OE_Activity_Goal  specializes Goal{
-    @formal
-     [1..*] -- propositional_content_of --  [1..*]  OE_Activity
-}
-mode OE_Process  specializes Intention{
-    @formal
-    [*] -- tailors_processes -- [*]  E_Standard_Process
-    @characterization
-     [1..*] -- defined_for -- [1]  Main_Organization( {const } )
-}
-kind OE_Process_Definition_Document {
-    @formal
-     [1..*] -- describes -- [1]  OE_Process
-}
-role RoESPDD  specializes Regulatory_Organization{
-    @material
-     [1..*] -- regonized_by --  [1..*]  E_Standard_Process_Definition_Document
-}
-type Specific_E_Standard_Process  specializes E_Standard_Process{
-    @componentOf
-     [1..*] <o>--  [2..*]  E_Standard_Activity
-    @formal
-     [1..*] <o>--  [2..*]  E_Standard_Activity
-}
-mode Specific_OE_Process  specializes OE_Process, OE_Process{
-    @formal
-     [2..*]  -- subprocesses --<o> [1]  General_OE_Process
-    @formal
-    [1] <o>--  [2..*]  OE_Activity
-    [1] <o>--  [2..*]  OE_Activity
-    @formal
-    [*] -- tailors_specific_processes -- [*]  Specific_E_Standard_Process
-}
-kind Civil_Defense_Organization  specializes EP_Agent
-mode Civil_Defense_Organization_Intention  specializes Intention{
-    @characterization
-    [1] -- [1]  Civil_Defense_Organization( {const } civil_Defense_Organization )
-}
-class Delegation {
-    [*] -- delegatee -- [1]  Delegatee
-    [*] -- delegator -- [1]  Delegator
-}
-category EP_Agent  specializes Agent
-role EP_Agent_delegatee  specializes EP_Agent, Delegatee
-role EP_Agent_delegator  specializes EP_Agent, Delegator
-class EP_Goal_Delegation  specializes Delegation{
-    @formal
-    [*] -- delegatum -- [1]  EP_Goal
-}
-type EP_Plan  specializes Plan_Action_Universal{
-    @formal
-    [*] -- creates --  [1..*]  EP_Situation_Individual
-    @formal
-     [1..*] -- causes --  [1..*]  Civil_Defense_Organization_Intention
-}
-class EP_Plan_Delegation  specializes Delegation{
-    [*] -- delegatum -- [1]  EP_Main_Goal
-}
-situation EP_Situation_Individual  specializes Situation_Individual{
-    @formal
-     [1..*] -- satisfies -- [1]  EP_Goal
-    @formal
-     [1..*] -- satisfies --  [1..*]  EP_Main_Goal
-}
-role Organization_Holder  specializes EP_Agent, Holder, Organization
-mode Organization_Holder_Intention  specializes Intention{
-    @formal
-    [1] -- propositional_content_of --  [1..*]  EP_Goal
-    @formal
-     [1..*] -- causes --  [1..*]  EP_Plan
-    @characterization
-    [1] -- [1]  Organization_Holder( {const } organization_Holder )
-}
-mixin Acess_Infrastructure 
-relator Business_Activitiy {
-    @mediation
-     [1..*] --  [1..*]  Installation( {const } )
-}
-type Business_Activity_Type {
-    @formal
-     [1..*] -- regulates -- [1]  E_Standard_Process_Definition_Document
-    @formal
-     [1..*] -- instantiates --  [0..*]  Business_Activitiy
-}
-role Businessman  specializes Holder{
-    @mediation
-    [1] --  [1..*]  Business_Activitiy( {const } )
-}
-relator Deployment {
-    @mediation
-    [1] --  [1..*]  OE_Process_Definition_Document( {const } )
-    @mediation
-    [1] --  [1..*]  Installation( {const } )
-}
-relator Evacuation {
-    @mediation
-     [1..*] -- [1]  Evacuation_Local( {const } )
-    @mediation
-     [1..*] -- [1]  Installation( {const } )
-}
-role Evacuation_Geographical_Region  specializes Geographical_Region, Evacuation_Local
-role Evacuation_Installation  specializes Evacuation_Local, Installation
-roleMixin Evacuation_Local {
-    @formal
-    [1] -- has_acess_by --  [1..*]  Acess_Infrastructure
-}
-mixin Horizontal_Acess  specializes Acess_Infrastructure
-type Installation_Type {
-    @formal
-     [1..*] -- regulates -- [1]  E_Standard_Process_Definition_Document
-    @formal
-    [*] -- can_be_developed_in -- [*]  Business_Activity_Type
-}
-roleMixin Owner  specializes Holder
-relator Primary_Business_Activity  specializes Business_Activitiy{
-    @mediation
-    [1] -- [1]  Businessman( {const } )
-}
-relator Secondary_Business_Activity  specializes Business_Activitiy{
-    @mediation
-     [0..*] -- [1]  Businessman( {const } )
-}
-mixin Vertical_Acess  specializes Acess_Infrastructure
-subkind Atomic_Installation  specializes Installation
-subkind Complex_Installation  specializes Installation
-roleMixin Holder 
-kind Installation  specializes Physical_Component{
-    @formal
-    [1] -- has_acess --  [1..*]  Acess_Infrastructure
-    @formal
-     [0..*] -- is_located_in -- [1]  Geographical_Region
-    @formal
-     [0..*] -- instantiates --  [1..*]  Installation_Type
-    @componentOf
-     [2..*]  --<o>  [0..1]  Complex_Installation
-    @formal
-    [*] -- exposed_to --  [1..*]  Identified_Type_of_Hazardous_Event
-}
-category Main_Organization 
-category Organization  specializes Individual_Social_Agent
-role Person_Holder  specializes Holder, Person
-relator Possesion {
-    @mediation
-     [1..*] -- [1]  Owner( {const } )
-    @mediation
-    [1] --  [1..*]  Installation( {const } )
-}
-kind Regulatory_Organization 
-relator Allocation {
-    @mediation
-     [1..*] -- [1]  Civil_Defense_Organization( {const } )
-    @mediation
-     [1..*] -- [1]  Public_Emergency_Human_Resource( {const } )
-}
-role Business_Emergency_Human_Resource  specializes Business_Human_Resource{
-    @formal
-    [*] -- is_to_be_performed_by -- [*]  OE_Activity
-}
-roleMixin Business_Emergency_Material_Resource  specializes Material_Resource{
-    @formal
-    [*] -- is_to_be_performed_using -- [*]  OE_Activity
-    @formal
-     [0..*] -- instantiates -- [1]  Material_Resource_Type
-    @material
-     [1..*] -- belongs -- [1]  Organization_Holder
-}
-role Business_Human_Resource  specializes Human_Resource
-role Business_Non_Emergency_Human_Resource  specializes User, Business_Human_Resource
-collective Emergency_Team  specializes Collective_Social_Agent
-kind Function_of_Role  specializes Normative_Description
-role Human_Resource  specializes Person{
-    @memberOf
-     [2..*]  --<o> [1]  Emergency_Team
-}
-type Human_Resource_Role  specializes Social_Role{
-    @formal
-    [*] -- is_to_be_performed_by -- [*]  E_Standard_Activity
-    @formal
-     [1..*] -- defines_responsabilities_for --  [1..*]  Function_of_Role
-    @formal
-    [1] -- instantiates --  [0..*]  Business_Human_Resource
-    @formal
-    [1] -- instantiates --  [0..*]  Business_Emergency_Human_Resource
-}
-relator Internal_Allocation {
-    @mediation
-     [1..*] -- [1]  Business_Human_Resource( {const } )
-    @mediation
-     [1..*] -- [1]  Organization_Holder( {const } )
-}
-category Material_Resource  specializes Physical_Component
-kind Positions_Plan  specializes Normative_Description{
-    @formal
-    [1] -- defines --  [1..*]  Human_Resource_Role
-}
-role Public_Emergency_Human_Resource  specializes Human_Resource
-roleMixin Public_Emergency_Material_Resource  specializes Material_Resource{
-    @material
-     [1..*] -- belongs -- [1]  Civil_Defense_Organization
-}
-role User  specializes Person{
-    @formal
-    [1] -- located_in --  [0..*]  Installation
-}
-role Visitor  specializes User
-type Visitor_Type {
-    @formal
-     [1..*] -- instantiates --  [0..*]  Visitor
-}
-category Abiotic_Component  specializes Natural_Component
-relator Agreement {
-    @mediation
-     [1..*] -- [1]  Protector( {const } )
-    @mediation
-     [1..*] -- [1]  Under_Protection_Component( {const } )
-}
-category Biotic_Component  specializes Natural_Component
-category Built_Component  specializes Environmental_Physical_Component
-category Environmental_Component {
-    @componentOf
-     [2..*]  --<o>  [0..*]  Environment
-    @componentOf
-     [2..*]  --<o>  [0..*]  Environment
-}
-class EP_Goal  specializes Goal
-class EP_Main_Goal  specializes EP_Goal, EP_Goal{
-    @formal
-     [1..*] -- propositional_content_of -- [1]  Civil_Defense_Organization_Intention
-}
-roleMixin Endangered_Component  specializes Component, Under_Protection_Component
-kind Environment 
-category Natural_Component  specializes Environmental_Physical_Component
-type Plan_Action_Universal 
-mode Protect_Intention  specializes Open_Commitment, Intention{
-    @formal
-     [1..*] -- propositional_content_of -- [1]  EP_Main_Goal
-    @formal
-     [1..*] -- causes --  [1..*]  Protection_Action
-    @formal
-     [1..*] -- inherents_in -- [1]  Protector
-}
-type Protection_Action  specializes Plan_Action_Universal
-roleMixin Protector  specializes Agent_in_Social_Relation
-roleMixin Safe_Component  specializes Under_Protection_Component
-roleMixin Under_Protection_Component  specializes Environmental_Component
-kind Person  specializes Biotic_Component, Physical_Agent
-class Identified_Risk  specializes Risk
-type Impact_Type {
-    @formal
-    [*] -- changes -- [*]  Environment
-    [1] -- classifies --  [1..*]  Impact
-}
-class Risk  specializes Vulnerability{
-    @formal
-     [1..*] -- treats --  [1..*]  OE_Activity
-}
-category Component {
-    @componentOf
-     [2..*]  --<o>  [0..*]  Environment
-}
-event Damage  specializes Impact
-type Damage_Type {
-    @formal
-    [1] -- classifies --  [1..*]  Damage
-     [1..*] -- determines -- [1]  Vulnerability
-}
-roleMixin Damaged_Environment  specializes Impacted_Environment{
-    @formal
-    [1] --  [1..*]  Damage
-}
-class Environmental_Vulnerability  specializes Vulnerability{
-    @characterization
-     [0..*] -- [1]  Environment( {const } )
-}
-type Event_Type {
-    @formal
-     [1..*] -- is_exposed_to -- [1]  Environment
-}
-situation Hazard 
-type Hazard_Type {
-    @formal
-    [1] -- classifies --  [1..*]  Hazard
-}
-event Hazardous_Event  specializes Complex_Event{
-    @formal
-    [1] -- enables -- [1]  Hazard
-    [1] --  [1..*]  Damage
-     [0..*] -- manifested_by -- [1]  Vulnerability
-}
-event Impact {
-     [1..*] -- [1]  Hazardous_Event
-}
-roleMixin Impacted_Environment  specializes Environment{
-    [1] -- participationof_changes --  [1..*]  Impact
-}
-class Individual_Vulnerability  specializes Vulnerability{
-    @characterization
-    [1] -- [1]  Endangered_Component( {const } )
-}
-mode Mitigation_activity  specializes OE_Activity
-mode Preventive_activity  specializes OE_Activity
-type Risk_Type {
-    @formal
-    [1] -- classifies --  [1..*]  Risk
-}
-mode Transfer_activity  specializes OE_Activity
-class Vulnerability {
-     [0..1] -- activates -- [*]  Hazard
-}
-category Authority  specializes Individual_Social_Agent
-category Geographical_Point  specializes Spatial_Location
-category Jurisdiction  specializes Geographical_Region, Normatized_Social_Object{
-    @material
-     [1..*] -- controlled_by --  [1..*]  Authority
-}
-category Macro_Political_Region  specializes Political_Region{
-    name : undefined
-}
-category Micro_Political_Region  specializes Political_Region
-category Non_Political_Region  specializes Geographical_Region
-category Political_Body  specializes Authority{
-    name : undefined
-    @material
-     [1..*] -- is_subordinated_to --  [1..*]  Political_Body
-}
-category Political_Region  specializes Jurisdiction, Geographical_Region{
-    @material
-     [1..*] -- controlled_by --  [1..*]  Political_Body
-}
-category Spatial_Location  specializes Social_Component{
-    @formal
-    [*] -- spatially_subsumes -- [*]  Spatial_Location
-}
-category Geographical_Region  specializes Spatial_Location{
-    @formal
-     [1..*] -- is_situated_in -- [*]  Acess_Infrastructure
-    @formal
-    [1] -- located_in --  [1..*]  Human_Resource
-    @formal
-    [1] -- located_in --  [1..*]  Material_Resource
-    @formal
-    [1] -- located_in --  [1..*]  User
-    @formal
-    [*] -- has_location -- [*]  Environment
-     [0..*] -- has_location --  [2..*]  Location_Coordinates
-}
+category Environmental_Physical_Component of functional-complexes  specializes Environmental_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+category Environmental_Social_Component of functional-complexes  specializes Environmental_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+type Hazardous_Event_Type specializes Event_Type {
+    @formal 
+    [1..*] -- is_exposed_to -- [1] Environment 
+}
+
+type Material_Resource_Type
+
+type Atomic_E_Standard_Activity specializes E_Standard_Activity 
+
+mode Atomic_OE_Activity specializes OE_Activity, Atomic_Commitment {
+    @sum 
+    [2..*] -- [0..*] Complex_OE_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [0..*] -- dependenceof -- [0..*] OE_Activity 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+type Complex_E_Standard_Activity specializes E_Standard_Activity 
+
+mode Complex_OE_Activity specializes OE_Activity, Complex_Commitment {
+    @sum 
+    [2..*] -- [0..*] Complex_OE_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [0..*] -- dependenceof -- [0..*] OE_Activity 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @sum 
+    [0..*] -- [2..*] Commitment 
+}
+
+type E_Standard_Activity
+
+type E_Standard_Process
+
+kind E_Standard_Process_Definition_Document
+
+type E_Standard_Process_Definition_Document_Type
+
+type General_E_Standard_Process specializes E_Standard_Process, E_Standard_Process 
+
+mode General_OE_Process specializes OE_Process {
+    @formal 
+    [*] -- tailors_processes -- [*] E_Standard_Process 
+    @characterization 
+    [1..*] -- defined_for -- [1] Main_Organization 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+mode OE_Activity specializes Intention, Closed_Commitment {
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+class OE_Activity_Goal specializes Goal 
+
+mode OE_Process specializes Intention {
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+kind OE_Process_Definition_Document
+
+role RoESPDD of functional-complexes  specializes Regulatory_Organization 
+
+type Specific_E_Standard_Process specializes E_Standard_Process 
+
+mode Specific_OE_Process specializes OE_Process, OE_Process {
+    @formal 
+    [*] -- tailors_processes -- [*] E_Standard_Process 
+    @characterization 
+    [1..*] -- defined_for -- [1] Main_Organization 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+kind Civil_Defense_Organization specializes EP_Agent 
+
+mode Civil_Defense_Organization_Intention specializes Intention {
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+class Delegation
+
+category EP_Agent of functional-complexes  specializes Agent 
+
+role EP_Agent_delegatee specializes EP_Agent, Delegatee 
+
+role EP_Agent_delegator specializes EP_Agent, Delegator 
+
+class EP_Goal_Delegation specializes Delegation {
+    [*] -- delegatee -- [1] Delegatee 
+    [*] -- delegator -- [1] Delegator 
+}
+
+type EP_Plan specializes Plan_Action_Universal {
+    @formal 
+    [1] -- based_on -- [0..*] Closed_Commitment 
+}
+
+class EP_Plan_Delegation specializes Delegation {
+    [*] -- delegatee -- [1] Delegatee 
+    [*] -- delegator -- [1] Delegator 
+}
+
+situation EP_Situation_Individual specializes Situation_Individual {
+    @formal 
+    [1..*] -- satisfies -- [1..*] EP_Main_Goal 
+    @formal 
+    [1] -- creates -- [1] Protection_Action 
+}
+
+role Organization_Holder specializes EP_Agent, Holder, Organization 
+
+mode Organization_Holder_Intention specializes Intention {
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+mixin Acess_Infrastructure of functional-complexes 
+
+relator Business_Activitiy
+
+type Business_Activity_Type
+
+role Businessman specializes Holder 
+
+relator Deployment
+
+relator Evacuation
+
+role Evacuation_Geographical_Region specializes Geographical_Region, Evacuation_Local {
+    @formal 
+    [1..*] -- is_situated_in -- [*] Acess_Infrastructure 
+    @formal 
+    [1] -- located_in -- [1..*] Human_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] Material_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] User 
+    @formal 
+    [*] -- has_location -- [*] Environment 
+    [0..*] -- has_location -- [2..*] Location_Coordinates 
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+    @formal 
+    [1] -- has_acess_by -- [1..*] Acess_Infrastructure 
+}
+
+role Evacuation_Installation of functional-complexes  specializes Evacuation_Local, Installation {
+    @formal 
+    [1] -- has_acess_by -- [1..*] Acess_Infrastructure 
+    @formal 
+    [1] -- has_acess -- [1..*] Acess_Infrastructure 
+    @formal 
+    [0..*] -- is_located_in -- [1] Geographical_Region 
+    @formal 
+    [0..*] -- instantiates -- [1..*] Installation_Type 
+    @componentOf 
+    [2..*] -- [0..1] Complex_Installation 
+    @formal 
+    [*] -- exposed_to -- [1..*] Identified_Type_of_Hazardous_Event 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+roleMixin Evacuation_Local of functional-complexes 
+
+mixin Horizontal_Acess of functional-complexes  specializes Acess_Infrastructure 
+
+type Installation_Type
+
+roleMixin Owner of functional-complexes  specializes Holder 
+
+relator Primary_Business_Activity specializes Business_Activitiy {
+    @mediation 
+    [1..*] -- [1..*] Installation 
+}
+
+relator Secondary_Business_Activity specializes Business_Activitiy {
+    @mediation 
+    [1..*] -- [1..*] Installation 
+}
+
+mixin Vertical_Acess of functional-complexes  specializes Acess_Infrastructure 
+
+subkind Atomic_Installation of functional-complexes  specializes Installation {
+    @formal 
+    [1] -- has_acess -- [1..*] Acess_Infrastructure 
+    @formal 
+    [0..*] -- is_located_in -- [1] Geographical_Region 
+    @formal 
+    [0..*] -- instantiates -- [1..*] Installation_Type 
+    @componentOf 
+    [2..*] -- [0..1] Complex_Installation 
+    @formal 
+    [*] -- exposed_to -- [1..*] Identified_Type_of_Hazardous_Event 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+subkind Complex_Installation of functional-complexes  specializes Installation {
+    @formal 
+    [1] -- has_acess -- [1..*] Acess_Infrastructure 
+    @formal 
+    [0..*] -- is_located_in -- [1] Geographical_Region 
+    @formal 
+    [0..*] -- instantiates -- [1..*] Installation_Type 
+    @componentOf 
+    [2..*] -- [0..1] Complex_Installation 
+    @formal 
+    [*] -- exposed_to -- [1..*] Identified_Type_of_Hazardous_Event 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+roleMixin Holder of functional-complexes 
+
+kind Installation specializes Physical_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+category Main_Organization of functional-complexes 
+
+category Organization of functional-complexes  specializes Individual_Social_Agent 
+
+role Person_Holder of functional-complexes  specializes Holder, Person {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+relator Possesion
+
+kind Regulatory_Organization
+
+relator Allocation
+
+role Business_Emergency_Human_Resource of functional-complexes  specializes Business_Human_Resource {
+    @memberOf 
+    [2..*] -- [1] Emergency_Team 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+roleMixin Business_Emergency_Material_Resource of functional-complexes  specializes Material_Resource {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+role Business_Human_Resource of functional-complexes  specializes Human_Resource {
+    @memberOf 
+    [2..*] -- [1] Emergency_Team 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+role Business_Non_Emergency_Human_Resource of functional-complexes  specializes User, Business_Human_Resource {
+    @formal 
+    [1] -- located_in -- [0..*] Installation 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @memberOf 
+    [2..*] -- [1] Emergency_Team 
+}
+
+collective Emergency_Team specializes Collective_Social_Agent {
+    @memberOf 
+    [0..1] -- [2..*] Agent 
+}
+
+kind Function_of_Role specializes Normative_Description 
+
+role Human_Resource of functional-complexes  specializes Person {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+type Human_Resource_Role specializes Social_Role {
+    @formal 
+    [1] -- creates -- [0..1] Normative_Description 
+}
+
+relator Internal_Allocation
+
+category Material_Resource of functional-complexes  specializes Physical_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+kind Positions_Plan specializes Normative_Description 
+
+role Public_Emergency_Human_Resource of functional-complexes  specializes Human_Resource {
+    @memberOf 
+    [2..*] -- [1] Emergency_Team 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+roleMixin Public_Emergency_Material_Resource of functional-complexes  specializes Material_Resource {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+role User of functional-complexes  specializes Person {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+role Visitor of functional-complexes  specializes User {
+    @formal 
+    [1] -- located_in -- [0..*] Installation 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+type Visitor_Type
+
+category Abiotic_Component of functional-complexes  specializes Natural_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+relator Agreement
+
+category Biotic_Component of functional-complexes  specializes Natural_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+category Built_Component of functional-complexes  specializes Environmental_Physical_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+category Environmental_Component of functional-complexes 
+
+class EP_Goal specializes Goal 
+
+class EP_Main_Goal specializes EP_Goal, EP_Goal 
+
+roleMixin Endangered_Component of functional-complexes  specializes Component, Under_Protection_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+kind Environment
+
+category Natural_Component of functional-complexes  specializes Environmental_Physical_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+type Plan_Action_Universal
+
+mode Protect_Intention specializes Open_Commitment, Intention {
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+type Protection_Action specializes Plan_Action_Universal 
+
+roleMixin Protector of functional-complexes  specializes Agent_in_Social_Relation 
+
+roleMixin Safe_Component of functional-complexes  specializes Under_Protection_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+roleMixin Under_Protection_Component of functional-complexes  specializes Environmental_Component {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+kind Person specializes Biotic_Component, Physical_Agent {
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+    @componentOf 
+    [2..*] -- [0..*] Environment 
+}
+
+class Identified_Risk specializes Risk {
+    @formal 
+    [1..*] -- treats -- [1..*] OE_Activity 
+    [0..1] -- activates -- [*] Hazard 
+}
+
+type Impact_Type
+
+class Risk specializes Vulnerability {
+    [0..1] -- activates -- [*] Hazard 
+}
+
+category Component of functional-complexes 
+
+event Damage specializes Impact {
+    [1..*] -- [1] Hazardous_Event 
+}
+
+type Damage_Type
+
+roleMixin Damaged_Environment of functional-complexes  specializes Impacted_Environment {
+    [1] -- participationof_changes -- [1..*] Impact 
+}
+
+class Environmental_Vulnerability specializes Vulnerability {
+    [0..1] -- activates -- [*] Hazard 
+}
+
+type Event_Type
+
+situation Hazard
+
+type Hazard_Type
+
+event Hazardous_Event specializes Complex_Event 
+
+event Impact
+
+roleMixin Impacted_Environment of functional-complexes  specializes Environment 
+
+class Individual_Vulnerability specializes Vulnerability {
+    [0..1] -- activates -- [*] Hazard 
+}
+
+mode Mitigation_activity specializes OE_Activity {
+    @sum 
+    [2..*] -- [0..*] Complex_OE_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [0..*] -- dependenceof -- [0..*] OE_Activity 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+mode Preventive_activity specializes OE_Activity {
+    @sum 
+    [2..*] -- [0..*] Complex_OE_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [0..*] -- dependenceof -- [0..*] OE_Activity 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+type Risk_Type
+
+mode Transfer_activity specializes OE_Activity {
+    @sum 
+    [2..*] -- [0..*] Complex_OE_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [*] -- tailors_activities -- [*] E_Standard_Activity 
+    @formal 
+    [0..*] -- dependenceof -- [0..*] OE_Activity 
+    @characterization 
+    [1..*] -- [1] Agent 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+class Vulnerability
+
+category Authority of functional-complexes  specializes Individual_Social_Agent 
+
+category Geographical_Point of functional-complexes  specializes Spatial_Location {
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+}
+
+category Jurisdiction of functional-complexes  specializes Geographical_Region, Normatized_Social_Object {
+    @formal 
+    [1..*] -- is_situated_in -- [*] Acess_Infrastructure 
+    @formal 
+    [1] -- located_in -- [1..*] Human_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] Material_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] User 
+    @formal 
+    [*] -- has_location -- [*] Environment 
+    [0..*] -- has_location -- [2..*] Location_Coordinates 
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+}
+
+category Macro_Political_Region of functional-complexes  specializes Political_Region {
+    name: undefined [1] 
+    @material 
+    [1..*] -- controlled_by -- [1..*] Political_Body 
+    @material 
+    [1..*] -- controlled_by -- [1..*] Authority 
+    @formal 
+    [1..*] -- is_situated_in -- [*] Acess_Infrastructure 
+    @formal 
+    [1] -- located_in -- [1..*] Human_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] Material_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] User 
+    @formal 
+    [*] -- has_location -- [*] Environment 
+    [0..*] -- has_location -- [2..*] Location_Coordinates 
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+}
+
+category Micro_Political_Region of functional-complexes  specializes Political_Region {
+    @material 
+    [1..*] -- controlled_by -- [1..*] Political_Body 
+    @material 
+    [1..*] -- controlled_by -- [1..*] Authority 
+    @formal 
+    [1..*] -- is_situated_in -- [*] Acess_Infrastructure 
+    @formal 
+    [1] -- located_in -- [1..*] Human_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] Material_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] User 
+    @formal 
+    [*] -- has_location -- [*] Environment 
+    [0..*] -- has_location -- [2..*] Location_Coordinates 
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+}
+
+category Non_Political_Region of functional-complexes  specializes Geographical_Region {
+    @formal 
+    [1..*] -- is_situated_in -- [*] Acess_Infrastructure 
+    @formal 
+    [1] -- located_in -- [1..*] Human_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] Material_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] User 
+    @formal 
+    [*] -- has_location -- [*] Environment 
+    [0..*] -- has_location -- [2..*] Location_Coordinates 
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+}
+
+category Political_Body of functional-complexes  specializes Authority {
+    name: undefined [1] 
+}
+
+category Political_Region of functional-complexes  specializes Jurisdiction, Geographical_Region {
+    @material 
+    [1..*] -- controlled_by -- [1..*] Authority 
+    @formal 
+    [1..*] -- is_situated_in -- [*] Acess_Infrastructure 
+    @formal 
+    [1] -- located_in -- [1..*] Human_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] Material_Resource 
+    @formal 
+    [1] -- located_in -- [1..*] User 
+    @formal 
+    [*] -- has_location -- [*] Environment 
+    [0..*] -- has_location -- [2..*] Location_Coordinates 
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+}
+
+category Spatial_Location of functional-complexes  specializes Social_Component 
+
+category Geographical_Region of functional-complexes  specializes Spatial_Location {
+    @formal 
+    [*] -- spatially_subsumes -- [*] Spatial_Location 
+}
+
+type Identified_Type_of_Hazardous_Event specializes Hazardous_Event_Type {
+    @formal 
+    [*] -- can_cause -- [*] Impact_Type 
+    @formal 
+    [1] -- classifies -- [1..*] Hazardous_Event 
+    @formal 
+    [1] -- can_cause -- [1..*] Impact_Type 
+    @formal 
+    [1..*] -- is_exposed_to -- [1] Environment 
+}
+
 datatype Adress_Domain
-datatype Location_Coordinates {
-}
-type Identified_Type_of_Hazardous_Event  specializes Hazardous_Event_Type{
-    @formal
-    [*] -- manifested_by --  [1..*]  Identified_Risk
-}
-disjoint complete genset H5kQGf6GAqAACiq5{
-    general Environmental_Component
-    specifics Environmental_Physical_Component, Environmental_Social_Component 
-}
-disjoint complete genset fgmQGf6GAqAACird{
-    general Environmental_Physical_Component
-    specifics Natural_Component, Built_Component 
-}
-disjoint complete genset 60RQGf6GAqAACir7{
-    general Natural_Component
-    specifics Biotic_Component, Abiotic_Component 
-}
-disjoint complete genset TEJ0Gf6GAqAACizi{
-    general Under_Protection_Component
-    specifics Safe_Component, Endangered_Component 
-}
-disjoint genset vy4SGf6GAqAACi63{
-    general Spatial_Location
-    specifics Geographical_Point, Geographical_Region 
-}
-disjoint complete genset qyaSGf6GAqAACi8D{
-    general Geographical_Region
-    specifics Non_Political_Region, Political_Region 
-}
-disjoint genset v3ZSGf6GAqAACi9J{
-    general Political_Region
-    specifics Macro_Political_Region, Micro_Political_Region 
-}
-disjoint complete genset nsBFWf6GAqAAaA9J{
-    general Agent
-    specifics Social_Agent, Physical_Agent 
-}
-disjoint complete genset F3AVWf6GAqAAaBBc{
-    general User
-    specifics Business_Non_Emergency_Human_Resource, Visitor 
-}
-complete genset hQUVWf6GAqAAaBCC{
-    general Business_Human_Resource
-    specifics Business_Non_Emergency_Human_Resource, Business_Emergency_Human_Resource 
-}
-disjoint complete genset 0911Wf6GAqAAaBbY{
-    general Human_Resource
-    specifics Business_Human_Resource, Public_Emergency_Human_Resource 
-}
-disjoint complete genset cybNWf6GAqAAaBe3{
-    general Material_Resource
-    specifics Public_Emergency_Material_Resource, Business_Emergency_Material_Resource 
-}
-disjoint complete genset nRaTWf6GAqAAaBlO{
-    general Holder
-    specifics Organization_Holder, Person_Holder 
-}
-complete genset D8pTWf6GAqAAaBmB{
-    general Holder
-    specifics Businessman, Owner 
-}
-disjoint complete genset hswzWf6GAqAAaBnr{
-    general Business_Activitiy
-    specifics Primary_Business_Activity, Secondary_Business_Activity 
-}
-disjoint complete genset cO7bWf6GAqAAaBt.{
-    general Acess_Infrastructure
-    specifics Vertical_Acess, Horizontal_Acess 
-}
-disjoint complete genset OgGnWf6GAqAAaB19{
-    general E_Standard_Activity
-    specifics Atomic_E_Standard_Activity, Complex_E_Standard_Activity 
-}
-disjoint complete genset MDwXWf6GAqAAaB3.{
-    general Commitment
-    specifics Complex_Commitment, Atomic_Commitment 
-}
-disjoint complete genset N4QI2f6GAqAAaCN4{
-    general Vulnerability
-    specifics Environmental_Vulnerability, Individual_Vulnerability 
+enum Location_Coordinates {
+    altitude,latitude,longitude
 }
 

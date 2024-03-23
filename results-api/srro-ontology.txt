@@ -1,0 +1,7 @@
+Validating...
+- Total of errors: 12
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class BasicFlow is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class AlternativeFlow is specializing other classes that represent ultimate sortals: «mode»
+Validation finished

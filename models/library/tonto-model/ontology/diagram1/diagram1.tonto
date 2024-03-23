@@ -1,164 +1,90 @@
+import ontology
+
 package diagram1
 
-relator Reserved_Copy {
-    @mediation
-    [1] -- [1]  Item( {const } )
-    @mediation
-    [1] -- [1]  Copy( {const } )
-}
-relator Renewed_Copy {
-    @mediation
-    [1] -- [1]  Item( {const } )
-    @mediation
-    [1] -- [1]  Copy( {const } )
-}
-relator Get_Copy {
-    @mediation
-    [1] -- [1]  Item( {const } )
-    @mediation
-    [1] -- [1]  Items_Copy( {const } )
-}
-kind Item {
-    @formal
-    [1] -- [1]  Work
-}
-role Items_Copy {
-    @mediation
-    [1] -- [1]  Copy( {const } )
-}
-kind Work 
-subkind Videotape  specializes Work{
-    @memberOf
-    [1]  --<o> [1]  Collection
-}
-subkind Periodical  specializes Work{
-    @memberOf
-    [1]  --<o> [1]  Collection
-}
-subkind Book  specializes Work{
-    @memberOf
-    [1]  --<o> [1]  Collection
-}
-subkind Dvd  specializes Work{
-    @memberOf
-    [1]  --<o> [1]  Collection
-}
-collective Collection 
-kind Copy {
-    @mediation
-    [1] -- [1]  Copy_Reservation( {const } )
-    @mediation
-    [1] -- [1]  Renew_Copy( {const } )
-    @mediation
-    [1] -- [1]  Reserve_Copy_for_Employee( {const } )
-    @mediation
-    [1] -- [1]  Employee_Loan( {const } )
-    @mediation
-    [1] -- [1]  Renew_Copy_for_Employee( {const } )
-}
-role Copy_Reservation {
-    @mediation
-    [1] -- [1]  Make_Reservation_for_Student( {const } )
-}
-relator Student_Loan {
-    @mediation
-    [1] -- [1]  Copy( {const } )
-    @mediation
-    [1] -- [1]  Delay( {const } )
-    @mediation
-    [1] -- [1]  Student( {const } )
-}
-role Delay {
-    @mediation
-    [1] -- [1]  Generate_Student_Delay( {const } )
-}
-relator Make_Reservation_for_Student {
-    @mediation
-    [1] -- [1]  Student( {const } )
-}
-relator Renew_Copy_for_Student {
-    @mediation
-    [1] -- [1]  Copy( {const } )
-    @mediation
-    [1] -- [1]  Student( {const } )
-}
-role Renew_Copy {
-    @mediation
-    [1] -- [1]  Student( {const } )
-}
-role Student  specializes Person
-relator Generate_Student_Delay {
-    @mediation
-    [1] -- [1]  Return_Deadline( {const } )
-    @mediation
-    [1] -- [1]  Student( {const } )
-}
-kind Return_Deadline {
-    [*] -- [*]  Fine
-}
-kind Fine 
-phase Daily  specializes Fine
-phase Monthly  specializes Fine
-role Undergraduate_Student  specializes Student{
-    @mediation
-    ( {const } )[1] -- [1]  Undergraduate_Contract( {const } )
-}
-role Graduate_Student  specializes Student{
-    @mediation
-    ( {const } )[1] -- [1]  Graduate_Contract( {const } )
-}
-relator Undergraduate_Contract {
-    @mediation
-    [1] -- [1]  UNISAM( {const } )
-}
-relator Graduate_Contract {
-    @mediation
-    [1] -- [1]  UNISAM( {const } )
-}
-kind UNISAM 
-kind Person 
-role Employee  specializes Person
-role Administrative  specializes Employee
-role Professor  specializes Employee
-role Regular  specializes Administrative{
-    @material
-    [1] -- [1]  Intern
-}
-role Intern  specializes Administrative
-relator Employee_Contract {
-    @mediation
-    [1] -- [1]  Regular( {const } )
-    @mediation
-    [1] -- [1]  Intern( {const } )
-}
-relator Professor_Contract {
-    @mediation
-    [1] -- [1]  UNISAM( {const } )
-    @mediation
-    [1] -- [1]  Professor( {const } )
-}
-relator Employee_Loan {
-    @mediation
-    [1] -- [1]  Employee( {const } )
-}
-relator Renew_Employee {
-    @mediation
-    [1] -- [1]  Employee( {const } )
-}
-relator Make_Reservation_for_Employee {
-    @mediation
-    [1] -- [1]  Employee( {const } )
-}
-role Renew_Copy_for_Employee {
-    @mediation
-    [1] -- [1]  Renew_Employee( {const } )
-}
-role Reserve_Copy_for_Employee {
-    @mediation
-    [1] -- [1]  Make_Reservation_for_Employee( {const } )
-}
-role Employee_Loan {
-    @mediation
-    [1] -- [1]  Employee_Loan( {const } )
-}
+relator Reserved_Copy
+
+relator Renewed_Copy
+
+relator Get_Copy
+
+kind Item
+
+role Items_Copy
+
+kind Work
+
+subkind Videotape of functional-complexes  specializes Work 
+
+subkind Periodical of functional-complexes  specializes Work 
+
+subkind Book of functional-complexes  specializes Work 
+
+subkind Dvd of functional-complexes  specializes Work 
+
+collective Collection
+
+kind Copy
+
+role Copy_Reservation
+
+relator Student_Loan
+
+role Delay
+
+relator Make_Reservation_for_Student
+
+relator Renew_Copy_for_Student
+
+role Renew_Copy
+
+role Student of functional-complexes  specializes Person 
+
+relator Generate_Student_Delay
+
+kind Return_Deadline
+
+kind Fine
+
+phase Daily of functional-complexes  specializes Fine 
+
+phase Monthly of functional-complexes  specializes Fine 
+
+role Undergraduate_Student of functional-complexes  specializes Student 
+
+role Graduate_Student of functional-complexes  specializes Student 
+
+relator Undergraduate_Contract
+
+relator Graduate_Contract
+
+kind UNISAM
+
+kind Person
+
+role Employee of functional-complexes  specializes Person 
+
+role Administrative of functional-complexes  specializes Employee 
+
+role Professor of functional-complexes  specializes Employee 
+
+role Regular of functional-complexes  specializes Administrative 
+
+role Intern of functional-complexes  specializes Administrative 
+
+relator Employee_Contract
+
+relator Professor_Contract
+
+relator Employee_Loan
+
+relator Renew_Employee
+
+relator Make_Reservation_for_Employee
+
+role Renew_Copy_for_Employee
+
+role Reserve_Copy_for_Employee
+
+role Employee_Loan
 

@@ -1,31 +1,49 @@
-import Adaptation_Function
-import Complementary_Categorizations
-import Termination_Function
+import Unified_Transport_Network__v23
 
 package AF_Vertical_Connections
 
-role A_So__Adaptation_Sink_Connected  specializes Adaptation_Source, Bound_Transport_Function
-role Adaptation_Sink__A_So_Connected  specializes Adaptation_Sink, Bound_Transport_Function{
-    @material
-     [1..*] -- AA_Connection --  [1..*]  A_So__Adaptation_Sink_Connected
+role A_So__Adaptation_Sink_Connected of functional-complexes  specializes Adaptation_Source, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
 }
-role Adaptation_Sink__T_Sk_Connected  specializes Adaptation_Sink, Bound_Transport_Function{
-    @material
-    [1] -- AT_Sink_Connection --  [1..*]  T_Sk__Adaptation_Sink_Connected
+
+role Adaptation_Sink__A_So_Connected of functional-complexes  specializes Adaptation_Sink, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
 }
-role Adaptation_Source__T_So_Connected  specializes Adaptation_Source, Bound_Transport_Function{
-    @material
-    [1] -- AT_Source_Connection --  [1..*]  T_So__Adaptation_Source_Connected
+
+role Adaptation_Sink__T_Sk_Connected of functional-complexes  specializes Adaptation_Sink, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
 }
-role Bi_Termination__Bidirectional_A_Connected  specializes Bidirectional_Termination, Bound_Transport_Function
-role Bidirectional_Adaptation__Bi_A_Connected  specializes Bidirectional_Adaptation, Bound_Transport_Function{
-    @material
-     [1..*] -- AA_Bidirectional_Connection --  [1..*]  Bidirectional_Adaptation__Bi_A_Connected
+
+role Adaptation_Source__T_So_Connected of functional-complexes  specializes Adaptation_Source, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
 }
-role Bidirectional_Adaptation__Bi_T_Connected  specializes Bidirectional_Adaptation, Bound_Transport_Function{
-    @material
-    [1] -- AT_Bidirectional_Connection --  [1..*]  Bi_Termination__Bidirectional_A_Connected
+
+role Bi_Termination__Bidirectional_A_Connected of functional-complexes  specializes Bidirectional_Termination, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
 }
-role T_Sk__Adaptation_Sink_Connected  specializes Termination_Sink, Bound_Transport_Function
-role T_So__Adaptation_Source_Connected  specializes Termination_Source, Bound_Transport_Function
+
+role Bidirectional_Adaptation__Bi_A_Connected of functional-complexes  specializes Bidirectional_Adaptation, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
+}
+
+role Bidirectional_Adaptation__Bi_T_Connected of functional-complexes  specializes Bidirectional_Adaptation, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
+}
+
+role T_Sk__Adaptation_Sink_Connected of functional-complexes  specializes Termination_Sink, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
+}
+
+role T_So__Adaptation_Source_Connected of functional-complexes  specializes Termination_Source, Bound_Transport_Function {
+    @material 
+    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
+}
 

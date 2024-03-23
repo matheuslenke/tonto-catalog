@@ -1,0 +1,17 @@
+import PlatformOntology
+
+package Revenue_Stream
+
+roleMixin Marketplace_Company of functional-complexes  specializes Platform_Company {
+    [1] -- defines -- [1..*] User_Role_Type 
+    @mediation 
+    [1] -- bounds -- [1..*] Registration 
+}
+
+subkind Fixed_Fee of intrinsic-modes  specializes Revenue_Stream {
+    [0..*] -- [1] Marketplace_Company 
+    [0..*] -- [1] Marketplace_Company 
+}
+
+mode Revenue_Stream
+

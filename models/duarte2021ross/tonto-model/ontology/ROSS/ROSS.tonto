@@ -1,38 +1,43 @@
+import ontology
 import ASMP
 import EO
-import UFO
+import ROSS
 import SPO
 import SwO
+import UFO
 
 package ROSS
 
-class Stakeholder_Requirement  specializes Goal{
-     [1..*] -- describes --  [1..*]  Stakeholder_Requirements_Specification
-     [0..*] -- refined_from --  [1..*]  Business_Requirement
+class Stakeholder_Requirement specializes Goal 
+
+class System_Requirement specializes Goal 
+
+class Business_Requirement specializes Goal 
+
+class Internal_Business_Rule specializes Business_Constraint {
+    [*] -- constrains -- [*] Business_Requirement 
+    [*] -- recognized_by -- [*] Organization 
 }
-class System_Requirement  specializes Goal{
-     [1..*] -- refined_from --  [1..*]  Stakeholder_Requirement
+
+class Program_Requirement specializes Goal 
+
+class External_Business_Regulations specializes Business_Constraint {
+    [*] -- constrains -- [*] Business_Requirement 
+    [*] -- recognized_by -- [*] Organization 
 }
-class Business_Requirement  specializes Goal
-class Internal_Business_Rule  specializes Business_Constraint
-class Program_Requirement  specializes Goal{
-     [1..*] -- refined_from --  [1..*]  Stakeholder_Requirement
+
+class Business_Requirements_Specification specializes Artifact 
+
+class System_Component specializes Artifact 
+
+class System_Element specializes System_Component 
+
+class SubSystem specializes Software_System, System_Component {
+    [1] -- [2..*] System_Component 
+    [*] -- intends_to_implement -- [1] System_Requirements_Specification 
 }
-class External_Business_Regulations  specializes Business_Constraint
-class Business_Requirements_Specification  specializes Artifact{
-     [1..*] -- describes --  [1..*]  Business_Requirement
-    [*] -- based_on --  [1..*]  World_Assumption
-}
-class System_Component  specializes Artifact
-class System_Element  specializes System_Component
-class SubSystem  specializes Software_System, System_Component
-class Stakeholder_Requirements_Specification 
-class Business_Constraint  specializes Normative_Description{
-    [*] -- constrains -- [*]  Business_Requirement
-    [*] -- recognized_by -- [*]  Organization
-}
-disjoint complete genset JUq7rf6GAqACBzQk{
-    general Business_Constraint
-    specifics Internal_Business_Rule, External_Business_Regulations 
-}
+
+class Stakeholder_Requirements_Specification
+
+class Business_Constraint specializes Normative_Description 
 

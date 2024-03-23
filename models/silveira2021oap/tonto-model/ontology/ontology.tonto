@@ -1,0 +1,95 @@
+
+package ontology
+
+kind Plano_de_trabalho
+
+mode Objetivo_pedaggico
+
+relator Mediaco_pedaggica
+
+mode intenco
+
+role Mediador specializes Agente {
+    @material 
+    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+}
+
+role Mediado of functional-complexes  specializes Agente_Humano {
+    @material 
+    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+}
+
+category Agente of functional-complexes 
+
+kind Agente_Humano specializes Agente {
+    @material 
+    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+}
+
+kind Agente_Sinttico specializes Agente {
+    @material 
+    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+}
+
+role Professor of functional-complexes  specializes Agente_Humano {
+    @material 
+    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+}
+
+role Estudante of functional-complexes  specializes Agente_Humano {
+    @material 
+    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+}
+
+role Pesquisador of functional-complexes  specializes Agente_Humano {
+    @material 
+    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+}
+
+roleMixin Recursos_Pedaggicos of functional-complexes 
+
+role Recurso_Pedaggico_Virtual specializes Recursos_Pedaggicos, Objeto_Virtual 
+
+category Objeto_Virtual of functional-complexes 
+
+role Recurso_pedaggico_fsico specializes Recursos_Pedaggicos, Objeto_fsico 
+
+category Objeto_fsico of functional-complexes 
+
+kind Arquitetura_pedaggica
+
+subkind Plano_de_trabalho_AP of functional-complexes  specializes Plano_de_trabalho {
+    @material 
+    [0..*] -- determina_utilizaco_de -- [0..*] Recursos_Pedaggicos 
+}
+
+category Mtodo_pedaggico of functional-complexes 
+
+kind Atividade_pedaggica
+
+mode Pedagogical_objective_intention
+
+role PA_Creator specializes Tutor {
+    [2..*] -- participates_of -- [0..*] Pedagogical_architecture 
+}
+
+roleMixin Virtual_pedagogical_resource of functional-complexes 
+
+category Agent of functional-complexes 
+
+role Tutor specializes Agent {
+    [2..*] -- participates_of -- [0..*] Pedagogical_architecture 
+}
+
+kind Work_plan
+
+kind Pedagogical_architecture
+
+subkind Work_plan_AP of functional-complexes  specializes Work_plan 
+
+category Technological_implementation of functional-complexes 
+
+kind Pedagogical_activity
+
+category Pedagogical_method of functional-complexes 
+

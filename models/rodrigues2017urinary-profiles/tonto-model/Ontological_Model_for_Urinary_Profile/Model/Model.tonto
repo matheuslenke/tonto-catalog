@@ -1,193 +1,376 @@
+import Ontological_Model_for_Urinary_Profile
+
 package Model
 
-quantity Urine  specializes Object{
-    @presentAt
-    [1] -- [*]  Final_Urine_Situation
-    @presentAt
-    [1] -- [*]  Initial_Urine_Situation
-    @presentAt
-    [1] -- [*]  Urine_in_Vivo_with_Microorganism
-    @presentAt
-    [1] -- [*]  Urine_with_Leukocyte
+quantity Urine specializes Object {
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-roleMixin Urinary_Content  specializes Urinary_Analyte{
-    [*] -- containedIn -- [1]  Urine
+
+roleMixin Urinary_Content of functional-complexes  specializes Urinary_Analyte 
+
+role Profiled_Urine of quantities  specializes Urine {
+    @presentAt 
+    [1] -- [*] Final_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Initial_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Urine_in_Vivo_with_Microorganism 
+    @presentAt 
+    [1] -- [*] Urine_with_Leukocyte 
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-role Profiled_Urine  specializes Urine
-roleMixin ProfileDefining_Content  specializes Urinary_Content{
-    @material
-     [1..*] -- defines -- [1]  Profiled_Urine
+
+roleMixin ProfileDefining_Content of functional-complexes  specializes Urinary_Content {
+    [*] -- containedIn -- [1] Urine 
 }
-relator ProfileDefining_Presence {
-    @mediation
-     [1..*] -- hasHost -- [1]  Profiled_Urine( {const } )
-    @mediation
-     [1..*] -- hasContent --  [1..*]  ProfileDefining_Content( {const } )
+
+relator ProfileDefining_Presence
+
+mode Urinary_Profile
+
+category Urinary_Analyte of functional-complexes 
+
+role Nephritic_Urine of quantities  specializes Profiled_Urine {
+    @presentAt 
+    [1] -- [*] Final_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Initial_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Urine_in_Vivo_with_Microorganism 
+    @presentAt 
+    [1] -- [*] Urine_with_Leukocyte 
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-mode Urinary_Profile {
-    @characterization
-     [1..*] -- [1]  Profiled_Urine( {const } )
-    [*] -- hasExpectedContent --  [2..*]  Urinary_Analyte
-    [*] -- hasExpectedRelatum --  [2..*]  Urinary_Relatum
+
+relator NephriticDefining_Presence_of_RBC_Cast specializes NephriticDefining_Presence {
+    @mediation 
+    [1..*] -- hostedBy -- [1] Nephritic_Urine 
+    @mediation 
+    [1..*] -- hasContent -- [1..*] NephriticDefining_Content 
+    // @derivation 
+    // [1] -- [1] defines 
+    @mediation 
+    [1..*] -- hasHost -- [1] Profiled_Urine 
+    @mediation 
+    [1..*] -- hasContent -- [1..*] ProfileDefining_Content 
 }
-category Urinary_Analyte 
-role Nephritic_Urine  specializes Profiled_Urine
-relator NephriticDefining_Presence_of_RBC_Cast  specializes NephriticDefining_Presence{
-    @mediation
-    [1] -- hasContent --  [1..*]  NephriticDefining_RBC_Cast( {const } )
+
+relator NephriticDefining_Presence specializes ProfileDefining_Presence {
+    @mediation 
+    [1..*] -- hasHost -- [1] Profiled_Urine 
+    @mediation 
+    [1..*] -- hasContent -- [1..*] ProfileDefining_Content 
 }
-relator NephriticDefining_Presence  specializes ProfileDefining_Presence{
-    @mediation
-     [1..*] -- hostedBy -- [1]  Nephritic_Urine( {const } )
-    @mediation
-     [1..*] -- hasContent --  [1..*]  NephriticDefining_Content( {const } )
-    @derivation
-    [1] -- [1]  defines
+
+relator NephriticDefining_Presence_of_Substances specializes NephriticDefining_Presence {
+    @mediation 
+    [1..*] -- hostedBy -- [1] Nephritic_Urine 
+    @mediation 
+    [1..*] -- hasContent -- [1..*] NephriticDefining_Content 
+    // @derivation 
+    // [1] -- [1] defines 
+    @mediation 
+    [1..*] -- hasHost -- [1] Profiled_Urine 
+    @mediation 
+    [1..*] -- hasContent -- [1..*] ProfileDefining_Content 
 }
-relator NephriticDefining_Presence_of_Substances  specializes NephriticDefining_Presence{
-    @mediation
-    [1] -- hasContent -- [1]  NephriticDefining_Hemoglobin( {const } )
-    @mediation
-    [1] -- hasContent -- [1]  NephriticDefining_Albumin( {const } )
+
+role NephriticDefining_RBC_Cast specializes NephriticDefining_Content, RBC_Cast {
+    @material 
+    [1..*] -- defines -- [1] Nephritic_Urine 
+    @material 
+    [1..*] -- defines -- [1] Profiled_Urine 
+    [*] -- containedIn -- [1] Urine 
 }
-role NephriticDefining_RBC_Cast  specializes NephriticDefining_Content, RBC_Cast
-roleMixin NephriticDefining_Content  specializes ProfileDefining_Content{
-    @material
-     [1..*] -- defines -- [1]  Nephritic_Urine
+
+roleMixin NephriticDefining_Content specializes ProfileDefining_Content {
+    @material 
+    [1..*] -- defines -- [1] Profiled_Urine 
+    [*] -- containedIn -- [1] Urine 
 }
-role NephriticDefining_Hemoglobin  specializes NephriticDefining_Content, Hemoglobin
-role NephriticDefining_Albumin  specializes NephriticDefining_Content, Albumin
-subkind RBC_Cast  specializes Urinary_Analyte
-phase Dismorphic_RBC  specializes Urinary_Analyte
-quantity Hemoglobin  specializes Urinary_Analyte
-quantity Albumin  specializes Urinary_Analyte
-mode Nephritic_Profile  specializes Urinary_Profile{
-    @characterization
-    [1] -- [1]  Nephritic_Urine( {const } )
-    [*] -- hasExpectedContent -- [1]  Albumin
-    [*] -- hasExpectedContent -- [1]  Hemoglobin
-    [*] -- hasExpectedContent --  [1..*]  Dismorphic_RBC
-    [*] -- hasExpectedContent --  [1..*]  RBC_Cast
+
+role NephriticDefining_Hemoglobin of quantities  specializes NephriticDefining_Content, Hemoglobin {
+    @material 
+    [1..*] -- defines -- [1] Nephritic_Urine 
+    @material 
+    [1..*] -- defines -- [1] Profiled_Urine 
+    [*] -- containedIn -- [1] Urine 
 }
-roleMixin Urinary_Relatum {
-    [*] -- relatesTo --  [1..*]  Urine
+
+role NephriticDefining_Albumin of quantities  specializes NephriticDefining_Content, Albumin {
+    @material 
+    [1..*] -- defines -- [1] Nephritic_Urine 
+    @material 
+    [1..*] -- defines -- [1] Profiled_Urine 
+    [*] -- containedIn -- [1] Urine 
 }
-relator ProfileDefining_Context {
-    @mediation
-     [1..*] -- contextOf -- [1]  Profiled_Urine( {const } )
-    @mediation
-     [1..*] -- hasAspect --  [1..*]  ProfileDefining_Relatum( {const } )
+
+subkind RBC_Cast specializes Urinary_Analyte 
+
+phase Dismorphic_RBC specializes Urinary_Analyte 
+
+quantity Hemoglobin specializes Urinary_Analyte 
+
+quantity Albumin specializes Urinary_Analyte 
+
+mode Nephritic_Profile specializes Urinary_Profile {
+    @characterization 
+    [1..*] -- [1] Profiled_Urine 
+    [*] -- hasExpectedContent -- [2..*] Urinary_Analyte 
+    [*] -- hasExpectedRelatum -- [2..*] Urinary_Relatum 
 }
-roleMixin ProfileDefining_Relatum  specializes Urinary_Relatum{
-    @material
-     [1..*] -- defines --  [1..*]  Profiled_Urine
+
+roleMixin Urinary_Relatum of functional-complexes 
+
+relator ProfileDefining_Context
+
+roleMixin ProfileDefining_Relatum of functional-complexes  specializes Urinary_Relatum {
+    [*] -- relatesTo -- [1..*] Urine 
 }
-role Spermatozoa_Contaminate_Urine  specializes Profiled_Urine
-relator Sperm_Contam_Defining_Context  specializes ProfileDefining_Context{
-    @mediation
-    [1] -- contextOf -- [1]  Spermatozoa_Contaminate_Urine( {const } )
-    @mediation
-     [1..*] -- hasAspect --  [1..*]  Sperm_Contam_Defining_Relatum( {const } )
-    [1] -- hasOrigin -- [1]  Sperm_Contam_Defining_Feminine_Patient
-     [1..*] -- hasContent --  [1..*]  Sperm_Contam_Defining_Spermatozoa
-    @derivation
-    [1] -- [1]  defines
+
+role Spermatozoa_Contaminate_Urine of quantities  specializes Profiled_Urine {
+    @presentAt 
+    [1] -- [*] Final_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Initial_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Urine_in_Vivo_with_Microorganism 
+    @presentAt 
+    [1] -- [*] Urine_with_Leukocyte 
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-role Sperm_Contam_Defining_Feminine_Patient  specializes Sperm_Contam_Defining_Relatum, Feminine_Patient
-role Sperm_Contam_Defining_Spermatozoa  specializes Sperm_Contam_Defining_Relatum, Spermatozoon_in_Urine
-roleMixin Sperm_Contam_Defining_Relatum  specializes ProfileDefining_Relatum{
-    @material
-     [2..*] -- defines --  [1..*]  Spermatozoa_Contaminate_Urine
+
+relator Sperm_Contam_Defining_Context specializes ProfileDefining_Context {
+    @mediation 
+    [1..*] -- contextOf -- [1] Profiled_Urine 
+    @mediation 
+    [1..*] -- hasAspect -- [1..*] ProfileDefining_Relatum 
 }
-role Feminine_Patient  specializes Urinary_Relatum
-role Spermatozoon_in_Urine  specializes Urinary_Relatum
-mode Sperm_Contam_Profile  specializes Urinary_Profile{
-    [*] -- hasExpectedOrigin -- [1]  Feminine_Patient
-    [*] -- hasExpectedContent --  [1..*]  Spermatozoon_in_Urine
-    @characterization
-    [1] -- [1]  Spermatozoa_Contaminate_Urine( {const } )
+
+role Sperm_Contam_Defining_Feminine_Patient specializes Sperm_Contam_Defining_Relatum, Feminine_Patient {
+    @material 
+    [2..*] -- defines -- [1..*] Spermatozoa_Contaminate_Urine 
+    @material 
+    [1..*] -- defines -- [1..*] Profiled_Urine 
+    [*] -- relatesTo -- [1..*] Urine 
 }
-class Product  specializes Object
-class Resulting_from_Event {
-    @induces
-    [1] -- [1]  Product
+
+role Sperm_Contam_Defining_Spermatozoa specializes Sperm_Contam_Defining_Relatum, Spermatozoon_in_Urine {
+    @material 
+    [2..*] -- defines -- [1..*] Spermatozoa_Contaminate_Urine 
+    @material 
+    [1..*] -- defines -- [1..*] Profiled_Urine 
+    [*] -- relatesTo -- [1..*] Urine 
 }
-situation Final_Urine_Situation 
-class Object {
-    @presentAt
-     [1..*] -- [*]  Final_Urine_Situation
-     [2..*] -- [*]  Initial_Urine_Situation
+
+roleMixin Sperm_Contam_Defining_Relatum of functional-complexes  specializes ProfileDefining_Relatum {
+    @material 
+    [1..*] -- defines -- [1..*] Profiled_Urine 
+    [*] -- relatesTo -- [1..*] Urine 
 }
-situation Initial_Urine_Situation 
-class Vehicle  specializes Urine
-class Base  specializes Object
-class Agent  specializes Object
-class Holding_Contents {
-    @induces
-    [1] -- [1]  Vehicle
+
+role Feminine_Patient specializes Urinary_Relatum {
+    [*] -- relatesTo -- [1..*] Urine 
 }
-class Suffering_Action {
-    @induces
-    [1] -- [1]  Base
+
+role Spermatozoon_in_Urine specializes Urinary_Relatum {
+    [*] -- relatesTo -- [1..*] Urine 
 }
-class Causing_Event {
-    @induces
-    [1] -- [1]  Agent
+
+mode Sperm_Contam_Profile specializes Urinary_Profile {
+    @characterization 
+    [1..*] -- [1] Profiled_Urine 
+    [*] -- hasExpectedContent -- [2..*] Urinary_Analyte 
+    [*] -- hasExpectedRelatum -- [2..*] Urinary_Relatum 
 }
-event Urinary_Event {
-    [1] <>-- [1]  Resulting_from_Event
-    [1] <>-- [1]  Holding_Contents
-    [1] <>-- [1]  Suffering_Action
-    [1] <>--  [1..*]  Causing_Event
-    @posstate
-    [*] -- [1]  Final_Urine_Situation
-    @prestate
-    [*] -- [1]  Initial_Urine_Situation
+
+class Product specializes Object {
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-event Urinary_Content_Change  specializes Urinary_Content_Transformation
-event Urinary_Content_Transformation  specializes Urinary_Event
-event Urinary_Content_Destruction  specializes Urinary_Content_Transformation, Urinary_Content_Disappearance
-event Urinary_Content_Creation  specializes Urinary_Content_Transformation, Urinary_Content_Appearance
-event Urinary_Content_Appearance  specializes Urinary_Event
-event Urinary_Content_Transportation  specializes Urinary_Event
-event Urinary_Content_Escape  specializes Urinary_Content_Transportation, Urinary_Content_Disappearance
-event Urinary_Content_Entrance  specializes Urinary_Content_Transportation, Urinary_Content_Appearance
-event Urinary_Content_Disappearance  specializes Urinary_Event
-class Incomer_Leukocyte  specializes Leukocyte
-kind Leukocyte {
-    @presentAt
-     [1..*] -- [*]  Urine_in_Vivo_with_Microorganism
-    @presentAt
-     [1..*] --  [1..*]  Urine_with_Leukocyte
+
+class Resulting_from_Event
+
+situation Final_Urine_Situation
+
+class Object
+
+situation Initial_Urine_Situation
+
+class Vehicle specializes Urine {
+    @presentAt 
+    [1] -- [*] Final_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Initial_Urine_Situation 
+    @presentAt 
+    [1] -- [*] Urine_in_Vivo_with_Microorganism 
+    @presentAt 
+    [1] -- [*] Urine_with_Leukocyte 
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-class Leukocyte_Being_Wrapped_by_Urine {
-    @induces
-    [1] -- [1]  Incomer_Leukocyte
+
+class Base specializes Object {
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-situation Urine_with_Leukocyte 
-event Immune_Response {
-    [*] <>-- [1]  Leukocyte_Being_Wrapped_by_Urine
-    [*] <>-- [1]  Holding_Contents
-    [*] <>--  [1..*]  Causing_Response
-    [*] <>-- [1]  Leukocyte_Entering_Urine
-    @posstate
-    [*] -- [1]  Urine_with_Leukocyte
-    @prestate
-    [*] -- [1]  Urine_in_Vivo_with_Microorganism
+
+class Agent specializes Object {
+    @presentAt 
+    [1..*] -- [*] Final_Urine_Situation 
+    [2..*] -- [*] Initial_Urine_Situation 
 }
-situation Urine_in_Vivo_with_Microorganism 
-category Microorganism {
-    @presentAt
-     [1..*] -- [*]  Urine_in_Vivo_with_Microorganism
+
+class Holding_Contents
+
+class Suffering_Action
+
+class Causing_Event
+
+event Urinary_Event
+
+event Urinary_Content_Change specializes Urinary_Content_Transformation {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
 }
-class Infectious_Agent  specializes Microorganism
-class Incoming_Leukocyte  specializes Leukocyte
-class Causing_Response {
-    @induces
-    [1] -- [1]  Infectious_Agent
+
+event Urinary_Content_Transformation specializes Urinary_Event {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
 }
-class Leukocyte_Entering_Urine {
-    @induces
-    [1] -- [1]  Incoming_Leukocyte
+
+event Urinary_Content_Destruction specializes Urinary_Content_Transformation, Urinary_Content_Disappearance {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
 }
+
+event Urinary_Content_Creation specializes Urinary_Content_Transformation, Urinary_Content_Appearance {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
+}
+
+event Urinary_Content_Appearance specializes Urinary_Event {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
+}
+
+event Urinary_Content_Transportation specializes Urinary_Event {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
+}
+
+event Urinary_Content_Escape specializes Urinary_Content_Transportation, Urinary_Content_Disappearance {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
+}
+
+event Urinary_Content_Entrance specializes Urinary_Content_Transportation, Urinary_Content_Appearance {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
+}
+
+event Urinary_Content_Disappearance specializes Urinary_Event {
+    [1] -- [1] Resulting_from_Event 
+    [1] -- [1] Holding_Contents 
+    [1] -- [1] Suffering_Action 
+    [1] -- [1..*] Causing_Event 
+    @pos_state 
+    [*] -- [1] Final_Urine_Situation 
+    @pre_state 
+    [*] -- [1] Initial_Urine_Situation 
+}
+
+class Incomer_Leukocyte specializes Leukocyte {
+    @presentAt 
+    [1..*] -- [*] Urine_in_Vivo_with_Microorganism 
+    @presentAt 
+    [1..*] -- [1..*] Urine_with_Leukocyte 
+}
+
+kind Leukocyte
+
+class Leukocyte_Being_Wrapped_by_Urine
+
+situation Urine_with_Leukocyte
+
+event Immune_Response
+
+situation Urine_in_Vivo_with_Microorganism
+
+category Microorganism of functional-complexes 
+
+class Infectious_Agent specializes Microorganism {
+    @presentAt 
+    [1..*] -- [*] Urine_in_Vivo_with_Microorganism 
+}
+
+class Incoming_Leukocyte specializes Leukocyte {
+    @presentAt 
+    [1..*] -- [*] Urine_in_Vivo_with_Microorganism 
+    @presentAt 
+    [1..*] -- [1..*] Urine_with_Leukocyte 
+}
+
+class Causing_Response
+
+class Leukocyte_Entering_Urine
 

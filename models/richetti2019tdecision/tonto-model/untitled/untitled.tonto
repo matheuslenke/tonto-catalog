@@ -1,0 +1,44 @@
+import COVER
+import KIPO
+import UFO
+import UFOC
+
+package untitled
+
+class Value_Assessor_Participant specializes Value_Assessor, Participant {
+    [1] -- Makes_to_solve -- [1..*] Decision 
+}
+
+class Value_Subject_participant specializes Value_Subject, Participant {
+    [1..*] -- participates_in -- [1..*] Value_Experience 
+    [1] -- Makes_to_solve -- [1..*] Decision 
+}
+
+class Knowledge_Intensive_Activity specializes Value_Experience 
+
+class Preference_Belief specializes Belief 
+
+class Precondition_Belief specializes Belief 
+
+class Assessment_Belief specializes Belief 
+
+class Meansend_Belief specializes Belief 
+
+class Pursuable_Goal specializes Goal 
+
+class Belief_Type specializes Intrinsic_Moment_Universal 
+
+class Chosen_Goal specializes Goal 
+
+class Cost_Belief specializes Belief 
+
+class Goal_Type specializes Goal_Universal 
+
+class Motivating_Belief specializes Belief 
+
+class Active_Goal specializes Goal 
+
+class Executive_Goal specializes Goal 
+
+class Incompatibility_Belief specializes Belief 
+

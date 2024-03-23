@@ -1,0 +1,127 @@
+
+package ontology
+
+class Ethical_Object specializes Social_Object 
+
+class Ethical_Agent specializes Social_Agent 
+
+class Social_Object
+
+class Social_Agent
+
+class Normative_Description
+
+class Physical_Object
+
+class Person specializes Physical_Agent 
+
+class Communicative_Act
+
+class Physical_Agent
+
+class Ethical_Norm specializes Ethical_Object {
+    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
+    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+}
+
+class Ethical_Normative_Description specializes Normative_Description, Ethical_Object {
+    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
+    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+}
+
+class Beingintheworld{
+    philosophical: char  
+}
+
+class Dasein{
+    philosophical: char  
+}
+
+class Being{
+    philosophical: char  
+}
+
+class Style
+
+class Discourse specializes Communicative_Act 
+
+class Composition
+
+class Genre specializes Discourse {
+    [0..*] -- utters -- [1..*] Prophet 
+}
+
+class Narrative
+
+class Wisdom
+
+class Prescriptive
+
+class Hymnic
+
+class Prophetic
+
+class God
+
+class Spirit
+
+class Spiritual_Agent
+
+class Supernatural_Being specializes Spiritual_Agent {
+    [*] -- envelops -- [*] Spirit 
+}
+
+class Angel specializes Supernatural_Being {
+    [*] -- envelops -- [*] Spirit 
+}
+
+class Demon specializes Supernatural_Being {
+    [*] -- envelops -- [*] Spirit 
+}
+
+class Role
+
+class Proposition
+
+class Teaching specializes Ethical_Norm {
+    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
+    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+}
+
+class Principle specializes Ethical_Norm {
+    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
+    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+}
+
+class Rule specializes Ethical_Norm {
+    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
+    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+}
+
+class Institutional_text specializes Physical_Object 
+
+class BookorPart
+
+class ChapterorSurah
+
+class VerseorItem
+
+class Disciple specializes Role 
+
+class Prophet specializes Role 
+
+class Parable
+
+class Prophecy specializes Proposition 
+
+class Unfulfilled_Prophecy
+
+class Fulfilled_Prophecy
+
+class Prise
+
+class Supplication
+
+class Thanksgiving
+
+datatype char

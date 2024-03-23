@@ -1,0 +1,515 @@
+
+package teste
+
+roleMixin Stakeholder of functional-complexes 
+
+subkind ComfortServices of functional-complexes  specializes AALSystems {
+     [1] -- usedIn -- [1] Environment 
+     [1] -- itHas -- [1] Hardware 
+     [1] -- hasRequirement -- [1]  Requirement 
+     [1] -- [1] Software 
+}
+
+subkind ExternalAssistanceComfort of functional-complexes  specializes ComfortServices {
+     [1] -- usedIn -- [1] Environment 
+     [1] -- itHas -- [1] Hardware 
+     [1] -- hasRequirement -- [1] Requirement 
+     [1] -- [1] Software 
+}
+
+subkind TransportationServices of functional-complexes  specializes ExternalAssistanceComfort {
+     [1] -- usedIn -- [1] Environment 
+     [1] -- itHas -- [1]  Hardware 
+     [1] -- hasRequirement -- [1] Requirement 
+     [1] -- [1]  Software 
+}
+
+role Caregiver of functional-complexes  specializes People {
+     -- define --  Requirement 
+}
+
+role Operator of functional-complexes  specializes People {
+     -- define --  Requirement 
+}
+
+role DomesticCompanion of functional-complexes  specializes People {
+     -- define --  Requirement 
+}
+
+kind Organization specializes Stakeholder {
+     -- define --  Requirement 
+}
+
+kind People specializes Stakeholder {
+     -- define --  Requirement 
+}
+
+kind AALSystems
+
+category ElectricDevice of functional-complexes  specializes Hardware 
+
+category Compliance of functional-complexes 
+
+kind Legislation specializes Compliance {
+     -- influence --  Requirement 
+}
+
+kind ExternalStandards specializes Compliance {
+     -- influence --  Requirement 
+}
+
+kind InternalStandardsPolicies specializes Compliance {
+     -- influence --  Requirement 
+}
+
+subkind Decrees of functional-complexes  specializes Legislation {
+     -- influence --  Requirement 
+}
+
+subkind NormativeInstructions of functional-complexes  specializes Legislation {
+     -- influence --  Requirement 
+}
+
+subkind Laws of functional-complexes  specializes Legislation {
+     -- influence --  Requirement 
+}
+
+subkind Ordinances of functional-complexes  specializes Legislation {
+     -- influence --  Requirement 
+}
+
+subkind Opinions of functional-complexes  specializes Legislation {
+     -- influence --  Requirement 
+}
+
+subkind Resolutions of functional-complexes  specializes Legislation {
+     -- influence --  Requirement 
+}
+
+subkind ISO of functional-complexes  specializes ExternalStandards {
+     -- influence --  Requirement 
+}
+
+subkind NBR of functional-complexes  specializes ExternalStandards {
+     -- influence --  Requirement 
+}
+
+subkind SpecificationRequirements of functional-complexes  specializes InternalStandardsPolicies {
+     -- influence --  Requirement 
+}
+
+subkind Policy of functional-complexes  specializes InternalStandardsPolicies {
+     -- influence --  Requirement 
+}
+
+subkind Term of functional-complexes  specializes InternalStandardsPolicies {
+     -- influence --  Requirement 
+}
+
+subkind SocialEnvironmentalResponsibility of functional-complexes  specializes Policy {
+     -- influence --  Requirement 
+}
+
+subkind CorporativeSecurity of functional-complexes  specializes Policy {
+     -- influence --  Requirement 
+}
+
+subkind AcceptanceUse of functional-complexes  specializes Term {
+     -- influence --  Requirement 
+}
+
+subkind ofConfidentiality of functional-complexes  specializes Term {
+     -- influence --  Requirement 
+}
+
+subkind ofResponsability of functional-complexes  specializes Term {
+     -- influence --  Requirement 
+}
+
+kind Environment
+
+kind House specializes Environment 
+
+subkind DiningRoom of functional-complexes  specializes House 
+
+subkind LivingRoom of functional-complexes  specializes House 
+
+subkind MainEntrance of functional-complexes  specializes House 
+
+kind Button specializes ElectricDevice 
+
+kind Display specializes ElectricDevice 
+
+kind Sensor specializes ElectricDevice 
+
+category Requirement of functional-complexes 
+
+kind NonFunctionalRequirement specializes Requirement 
+
+kind FunctionalRequirement specializes Requirement 
+
+subkind RequirementQuality of functional-complexes  specializes NonFunctionalRequirement {
+     -- causePositiveImpact --  FunctionalRequirement 
+     -- causeNegativeImpact --  FunctionalRequirement 
+}
+
+subkind EthicalRequirement of functional-complexes  specializes NonFunctionalRequirement {
+     -- causePositiveImpact --  FunctionalRequirement 
+     -- causeNegativeImpact --  FunctionalRequirement 
+}
+
+subkind ProductQuality of functional-complexes  specializes RequirementQuality {
+     -- causePositiveImpact --  FunctionalRequirement 
+     -- causeNegativeImpact --  FunctionalRequirement 
+}
+
+class QualityUse of functional-complexes  specializes RequirementQuality {
+     -- causePositiveImpact --  FunctionalRequirement 
+     -- causeNegativeImpact --  FunctionalRequirement 
+}
+
+quality Adaptivity
+
+quality FunctionalAptitude
+
+mode FunctionalAdequacy
+
+mode FunctionalCompleteness
+
+mode FunctionalCorrection
+
+quality Compatibility
+
+mode Coexistence
+
+mode Interoperability
+
+quality Reliability
+
+mode Availability
+
+mode Maturity
+
+mode Recoverability
+
+mode ToleranceError
+
+quality EfficiencyPerformance
+
+mode Capacity
+
+mode BehaviorTime
+
+mode UseResources
+
+quality Maintainability
+
+mode Analyzeability
+
+mode Modibility
+
+mode Modularity
+
+mode Reuse
+
+mode Testability
+
+quality Portability
+
+mode Adaptability
+
+mode Instability
+
+mode Replaceability
+
+quality Security
+
+mode Authenticity
+
+mode Confidentiality
+
+mode Responsibility
+
+mode Integrity
+
+mode NotRepudiation
+
+quality Usability
+
+mode Accessibility
+
+mode Adequacy
+
+mode Learning
+
+mode UserInterfaceAesthetics
+
+mode UserOperability
+
+mode ProtectionAgainstUserErrors
+
+quality CoverageContext
+
+mode CompletenessContext
+
+mode Flexibility
+
+quality Efficacy
+
+quality Efficiency
+
+quality RiskFree
+
+mode MitigationEnvironmentalRisk
+
+mode EconomicRiskMitigation
+
+mode MitigationHealthSafetyRisks
+
+quality Satisfaction
+
+mode TrustUse
+
+mode Comfort
+
+mode Pleasure
+
+mode Utility
+
+quality Autonomy
+
+quality Benefit
+
+quality Loyalty
+
+quality Independence
+
+quality Justice
+
+quality NonMaleficence
+
+role FinalUser of functional-complexes  specializes People {
+     -- define --  Requirement 
+}
+
+role Familiar of functional-complexes  specializes People {
+     -- define --  Requirement 
+}
+
+subkind GeriatricHouse of functional-complexes  specializes LongStayElderlyInstitution 
+
+subkind Asylum of functional-complexes  specializes LongStayElderlyInstitution 
+
+subkind MedicalHousing of functional-complexes  specializes LongStayElderlyInstitution 
+
+kind Actuator specializes ElectricDevice 
+
+kind Switches specializes ElectricDevice 
+
+kind Camera specializes ElectricDevice 
+
+kind CommandByVoice specializes ElectricDevice 
+
+subkind StandardizationResearchEthicsCommittee of functional-complexes  specializes InternalStandardsPolicies {
+     -- influence --  Requirement 
+}
+
+mode ConfidenceSecurity
+
+quality Traceability
+
+quality PrivacyOnUse
+
+mode SocialRiskMitigation
+
+quality SocialAcceptance
+
+quality MoralGoodness
+
+quality PrivacyData
+
+kind LongStayElderlyInstitution specializes Environment 
+
+subkind VerticalLiftingPlatform of functional-complexes  specializes TransportationServices {
+     [1] -- usedIn -- [1] Environment 
+     -- itHas --  Hardware 
+     -- hasRequirement --  Requirement 
+     [1] -- [1]  Software 
+}
+
+kind MechanicalComponent specializes Hardware 
+
+kind Barrier specializes MechanicalComponent 
+
+kind Safety_Brake specializes MechanicalComponent 
+
+kind Sow specializes MechanicalComponent 
+
+kind SecurityNut specializes Sow 
+
+kind NutDrive specializes Sow 
+
+kind EnclosedBox specializes MechanicalComponent 
+
+kind GearWheel specializes MechanicalComponent 
+
+kind RackDrive specializes MechanicalComponent 
+
+kind SpindleTrigger specializes MechanicalComponent 
+
+kind Chain specializes MechanicalComponent 
+
+kind Guides specializes MechanicalComponent 
+
+kind CurrentGuided specializes Chain 
+
+kind MechanicalBlockingDevice specializes MechanicalComponent 
+
+kind Pinion specializes MechanicalComponent 
+
+kind ProtectorSill specializes MechanicalComponent 
+
+kind SafetySwitch specializes ElectricDevice 
+
+kind ContactorRelay specializes ElectricDevice 
+
+kind ValveSenseDown specializes Valve 
+
+kind LimitingKeyFinalPercourse specializes ElectricDevice 
+
+kind LimiterSpeed specializes ElectricDevice 
+
+kind PressureReliefValve specializes Valve 
+
+kind ValveFall specializes Valve 
+
+kind StopSwitch specializes ElectricDevice 
+
+kind SwitchLooseningCableCurrent specializes ElectricDevice 
+
+kind DeviceControlPlatform specializes ElectricDevice 
+
+role MemberTimeDev of functional-complexes  specializes People {
+     -- define --  Requirement 
+}
+
+role Manufacturer of functional-complexes  specializes Organization {
+     -- define --  Requirement 
+}
+
+role Elderly of functional-complexes  specializes FinalUser {
+     -- define --  Requirement 
+}
+
+role Handicapped of functional-complexes  specializes FinalUser {
+     -- define --  Requirement 
+}
+
+kind Gear specializes MechanicalComponent 
+
+subkind IEC of functional-complexes  specializes ExternalStandards {
+     -- influence --  Requirement 
+}
+
+subkind NBR_ISO_93861 of functional-complexes  specializes NBR, ISO {
+     -- influence --  Requirement 
+}
+
+subkind NBR_9050 of functional-complexes  specializes NBR {
+     -- influence --  Requirement 
+}
+
+subkind ISO_90851 of functional-complexes  specializes ISO {
+     -- influence --  Requirement 
+}
+
+subkind IEC602041 of functional-complexes  specializes IEC {
+     -- influence --  Requirement 
+}
+
+subkind IEC_603351 of functional-complexes  specializes IEC {
+     -- influence --  Requirement 
+}
+
+subkind NBR_12892 of functional-complexes  specializes NBR {
+     -- influence --  Requirement 
+}
+
+subkind NBR_16042 of functional-complexes  specializes NBR {
+     -- influence --  Requirement 
+}
+
+subkind NBR_10982 of functional-complexes  specializes NBR {
+     -- influence --  Requirement 
+}
+
+kind Bearing specializes MechanicalComponent 
+
+kind Key specializes MechanicalComponent 
+
+role MechanicalEngineer of functional-complexes  specializes MemberTimeDev {
+     -- define --  Requirement 
+}
+
+kind Valve
+
+class Added_to_Onto4Elev_after_validation_with_Industry
+
+kind PublicPlaces specializes Environment 
+
+kind CommercialEnvironments specializes Environment 
+
+subkind Banks of functional-complexes  specializes CommercialEnvironments 
+
+subkind Pharmacies of functional-complexes  specializes CommercialEnvironments 
+
+subkind Supermarkets of functional-complexes  specializes CommercialEnvironments 
+
+subkind Clinics of functional-complexes  specializes CommercialEnvironments 
+
+subkind Restaurants of functional-complexes  specializes CommercialEnvironments 
+
+subkind Churches of functional-complexes  specializes PublicPlaces 
+
+subkind PublicOffices of functional-complexes  specializes PublicPlaces 
+
+kind ElectronicCurtainSecurity specializes ElectricDevice 
+
+kind LedLamps specializes ElectricDevice 
+
+kind Sound specializes Signaling 
+
+category Signaling of functional-complexes  specializes Hardware 
+
+kind Braille specializes Signaling 
+
+kind InverterFrequency specializes ElectricDevice 
+
+kind HydraulicPiston specializes MechanicalComponent 
+
+kind CentralHydraulic specializes MechanicalComponent 
+
+category Hardware of functional-complexes 
+
+category Software of functional-complexes 
+
+class Elements_added_to_Onto4Elev_that_meet_the_PEVs_and_were_raised_in_the_literature
+
+class Elements_inherited_from_Onto4CAAL
+
+subkind Airports of functional-complexes  specializes CommercialEnvironments 
+
+subkind ButtonEmergency of functional-complexes  specializes Button 
+
+kind Autosafe specializes ElectricDevice 
+
+kind Intercom specializes ElectricDevice 
+
+role CivilEngineer of functional-complexes  specializes MemberTimeDev {
+     -- define --  Requirement 
+}
+
+role Architect of functional-complexes  specializes MemberTimeDev {
+     -- define --  Requirement 
+}
+

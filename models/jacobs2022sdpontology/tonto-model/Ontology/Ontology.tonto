@@ -1,0 +1,112 @@
+
+package Ontology
+
+category Resource of functional-complexes {
+    resource: Resources  
+}
+
+kind Story
+
+subkind Program_increment of functional-complexes  specializes Software_development_project {
+     -- [0..*] Nonfunctional_Requirement 
+     -- [1..*] Platform 
+    [1..*] -- [1]  Resource 
+    [1] -- developed_using -- [1]  Programming_environment 
+}
+
+kind Platform{
+    platform: Platforms  
+}
+
+kind Epic
+
+kind Program
+
+kind Sprint
+
+kind Compiler
+
+kind Programming_framework
+
+quality Quality_attribute{
+    type_: Attributes  
+    Qlevel: Quality_Levels  
+}
+
+role Employee of functional-complexes  specializes Person {
+    availability: int  
+    General_experience_level: Experience_Levels  
+}
+
+datatype Programming_language
+
+kind Software_development_project{
+    effort: undefined  
+    type_of_project: Types  
+    Architectural_style: Architectural_styles  
+    development_method: Methods  
+}
+
+kind Programming_environment specializes Resource {
+    type_of_project: Types  
+}
+
+relator Membership
+
+kind Team specializes Resource 
+
+role Business_Role of functional-complexes  specializes Role {
+    role_: Roles  
+}
+
+kind Proficiency_level{
+    Plevel: Proficiency_Levels  
+    language: Programming_language  
+}
+
+kind Person
+
+kind Role
+
+quality Nonfunctional_Requirement{
+    requirement: Requirements  
+    importance: Importance_levels  
+}
+
+datatype int
+enum Attributes{
+    Security, Complexity, Ease_of_Use, Maintainability, Testability, Reliability
+}
+enum Quality_Levels{
+    Low, Medium, High
+}
+enum Platforms{
+    Mobile, Web, Desktop, Noninterface
+}
+enum Types{
+    Fullstack, Backend, Frontend
+}
+enum Methods{
+    Waterfall, Agile
+}
+enum Requirements{
+    Security_level, Time_to_finish, Usability
+}
+enum Resources{
+    Software, Hardware, Human
+}
+enum Architectural_styles{
+    SOA, Monolith
+}
+enum Experience_Levels{
+    Junior, Intermediate, Senior
+}
+enum Roles{
+    Scrum_Master, Software_engineer, Tester, Product_owner, Technical_administrator, Functional_administrator
+}
+enum Proficiency_Levels{
+    Aware, Beginner, Professional, Expert, Leading_Expert
+}
+enum Importance_levels{
+    Low_Importance, Medium_Importance, High_Importance
+}

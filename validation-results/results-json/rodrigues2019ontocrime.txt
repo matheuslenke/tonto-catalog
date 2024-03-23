@@ -1,0 +1,155 @@
+Total Errors: 153
+ 
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Not unique class stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Not unique class stereotype
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values

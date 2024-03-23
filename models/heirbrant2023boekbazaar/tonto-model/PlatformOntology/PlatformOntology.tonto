@@ -1,0 +1,44 @@
+
+package PlatformOntology
+
+kind Wallet{
+    amount: undefined  
+    uid: undefined  
+}
+
+kind User{
+    date: undefined  
+    email: undefined  
+    uid: undefined  
+    userName: undefined  
+    iban: undefined  
+    nameIBAN: undefined  
+    nr: undefined  
+    street: undefined  
+    postcode: undefined  
+    place: undefined  
+}
+
+kind Message{
+    sender: undefined  
+    date: undefined  
+    id: undefined  
+    content: undefined  
+    chatId: undefined  
+}
+
+kind Notification{
+    id: undefined  
+    date: undefined  
+    content: undefined  
+    seen: undefined  
+    routerlink: undefined  
+    uid: undefined  
+}
+
+event Receive_notification
+
+event Confirm_delivery_
+
+kind Amount
+

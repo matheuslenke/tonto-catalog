@@ -1,29 +1,15 @@
-import MIND
 
 package PERCEPTION
 
-kind CommonSense {
-    @componentOf
-    [1]  --<o> [1]  Mind
-}
-kind SeePerception {
-    @componentOf
-    [1]  --<o> [1]  CommonSense
-}
-kind HearPerception {
-    @componentOf
-    [1]  --<o> [1]  CommonSense
-}
-kind TouchPerception {
-    @componentOf
-    [1]  --<o> [1]  CommonSense
-}
-kind TastePerception {
-    @componentOf
-    [1]  --<o> [1]  CommonSense
-}
-kind SmellPerception {
-    @componentOf
-    [1]  --<o> [1]  CommonSense
-}
+kind CommonSense
+
+kind SeePerception
+
+kind HearPerception
+
+kind TouchPerception
+
+kind TastePerception
+
+kind SmellPerception
 

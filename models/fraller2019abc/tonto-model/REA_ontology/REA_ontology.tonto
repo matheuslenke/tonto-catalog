@@ -1,0 +1,260 @@
+
+package REA_ontology
+
+kind Economic_Resource
+
+kind Economic_Event
+
+kind Economic_Agent
+
+subkind Increment_Event of functional-complexes  specializes Economic_Event {
+    @formal 
+    [1] -- participation_ -- [2] Economic_Agent 
+    [*] -- provide -- [*] Economic_Agent 
+    [*] -- receive -- [*] Economic_Agent 
+    [*] -- credit -- [*] General_Ledger_Account 
+    [*] -- debit -- [*] General_Ledger_Account 
+    @formal 
+    [1] -- triggers_posting -- [2] General_Ledger_Account 
+}
+
+subkind Decrement_Event of functional-complexes  specializes Economic_Event {
+    @formal 
+    [1] -- participation_ -- [2] Economic_Agent 
+    [*] -- provide -- [*] Economic_Agent 
+    [*] -- receive -- [*] Economic_Agent 
+    [*] -- credit -- [*] General_Ledger_Account 
+    [*] -- debit -- [*] General_Ledger_Account 
+    @formal 
+    [1] -- triggers_posting -- [2] General_Ledger_Account 
+}
+
+relator REA_Duality
+
+subkind Debit_Event of functional-complexes  specializes Economic_Event {
+    @formal 
+    [1] -- participation_ -- [2] Economic_Agent 
+    [*] -- provide -- [*] Economic_Agent 
+    [*] -- receive -- [*] Economic_Agent 
+    [*] -- credit -- [*] General_Ledger_Account 
+    [*] -- debit -- [*] General_Ledger_Account 
+    @formal 
+    [1] -- triggers_posting -- [2] General_Ledger_Account 
+}
+
+subkind Credit_Event of functional-complexes  specializes Economic_Event {
+    @formal 
+    [1] -- participation_ -- [2] Economic_Agent 
+    [*] -- provide -- [*] Economic_Agent 
+    [*] -- receive -- [*] Economic_Agent 
+    [*] -- credit -- [*] General_Ledger_Account 
+    [*] -- debit -- [*] General_Ledger_Account 
+    @formal 
+    [1] -- triggers_posting -- [2] General_Ledger_Account 
+}
+
+relator Balanced_Duality
+
+phase Asset of functional-complexes  specializes Economic_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+phase Liability of functional-complexes  specializes Economic_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+phase Equity of functional-complexes  specializes Economic_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+phase Claim of functional-complexes  specializes Economic_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+subkind Material_Resource of functional-complexes  specializes Economic_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+subkind Capacity_Resource of functional-complexes  specializes Economic_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+subkind Unamed of functional-complexes  specializes Economic_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+relator Bill_of_Material{
+    Finished_good_ID: undefined  
+    Raw_material_ID: undefined  
+    Quantity: undefined  
+}
+
+subkind Raw_Material of functional-complexes  specializes Material_Resource {
+    Raw_material_ID: undefined  
+    Unit_cost: undefined  
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+subkind Finished_Good of functional-complexes  specializes Material_Resource {
+    Finished_good_ID: undefined  
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+subkind Personnel of functional-complexes  specializes Capacity_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+subkind Equipment of functional-complexes  specializes Capacity_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+relator Routing{
+    Finished_good_ID: undefined  
+    Activity_ID: undefined  
+    Standard_production_coefficient_personnel: undefined  
+    Standard_production_coefficient_equipment: undefined  
+}
+
+kind General_Ledger_Account{
+    Account_ID: undefined  
+}
+
+subkind Asset_Account of functional-complexes  specializes General_Ledger_Account 
+
+subkind Liability_Account of functional-complexes  specializes General_Ledger_Account 
+
+subkind Equity_Account of functional-complexes  specializes General_Ledger_Account 
+
+subkind Revenue_Account of functional-complexes  specializes General_Ledger_Account 
+
+subkind Expense_Account of functional-complexes  specializes General_Ledger_Account {
+    Resource_type: undefined  
+    Cost_type: undefined  
+}
+
+subkind Unamed2  of functional-complexes  specializes Material_Resource {
+    @formal 
+    [1..*] -- inflow -- [1] Increment_Event 
+    @formal 
+    [1..*] -- inoutflow -- [1] Debit_Event 
+    @formal 
+    [1..*] -- outinflow -- [1] Credit_Event 
+}
+
+relator Activity_Cost_Driver{
+    Finished_good_ID: undefined  
+    Activity_ID: undefined  
+    Cost_driver_quantity: undefined  
+}
+
+kind Activity{
+    Activity_ID: undefined  
+}
+
+relator Resource_Cost_Driver{
+    Resource_type: undefined  
+    Activity_ID: undefined  
+    Cost_driver_rate: undefined  
+}
+
+kind Production_Volume{
+    Planning_period: undefined  
+    Finished_good_ID: undefined  
+    Quantity: undefined  
+}
+
+kind Activity_Level{
+    Planning_period_ID: undefined  
+    Activity_ID: undefined  
+    Finished_good_ID: undefined  
+    Extent_of_activity_level: undefined  
+}
+
+kind Planning_Period{
+    Planning_period_ID: undefined  
+}
+
+kind Operating_Expense{
+    Planning_period_ID: undefined  
+    Account_ID: undefined  
+    Amount_of_expense: undefined  
+    Variator: undefined  
+}
+
+kind Data_Pool{
+    Planning_period_ID: undefined  
+    Activity_ID: undefined  
+}
+
+subkind Activity_Pool of functional-complexes  specializes Data_Pool {
+    Capacity_driver_rate: undefined  
+    Budgeted_driver_rate: undefined  
+    Budgeted_unused_capacity: undefined  
+    Capacity_utilization_variance: undefined  
+    Expense_charged_to_products: undefined  
+    Flexible_budget: undefined  
+    Spending_variance: undefined  
+}
+
+subkind Cost_Pool of functional-complexes  specializes Data_Pool {
+    Resource_type: undefined  
+    Budgeted_expense: undefined  
+    Actual_expense: undefined  
+    Variator: undefined  
+}
+

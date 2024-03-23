@@ -1,26 +1,25 @@
-import SPO
+import saleme2019mulseonto
 import UFO
+import SwO
+import SPO
 
 package SwO
 
-class Loaded_Software_System_Copy  specializes Disposition{
-     [0..*] -- materialization_of -- [1]  Software_Sytem
-    [1] -- includes --  [1..*]  Loaded_Program_Copy
-     [0..*] -- inheres_in -- [1]  Computer_Machine
+class Loaded_Software_System_Copy specializes Disposition {
+    [0..*] -- inheres_in -- [1] Endurant 
 }
-class Software_Sytem  specializes Software_Item{
-     [0..*] -- constituted_of --  [1..*]  Program
+
+class Software_Sytem of functional-complexes  specializes Software_Item 
+
+class Loaded_Program_Copy specializes Disposition {
+    [0..*] -- inheres_in -- [1] Endurant 
 }
-class Loaded_Program_Copy  specializes Disposition{
-     [0..*] -- inheres_in -- [1]  Computer_Machine
+
+class Computer_System specializes Object 
+
+class Computer_Machine specializes Hardware_Equipment {
+    [0..*] -- connected_to -- [0..*] Computer_Machine 
 }
-class Computer_System  specializes Object{
-     [1..*] -- has --  [1..*]  Loaded_Software_System_Copy
-     [0..*] <o>--  [1..*]  Computer_Machine
-     [0..*] <o>--  [0..*]  Hardware_Equipment
-}
-class Computer_Machine  specializes Hardware_Equipment
-class Program  specializes Software_Item{
-     [0..*] -- handles --  [0..*]  Data_File
-}
+
+class Program of functional-complexes  specializes Software_Item 
 

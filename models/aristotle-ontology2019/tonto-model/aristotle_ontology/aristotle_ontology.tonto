@@ -1,0 +1,669 @@
+import MIND
+import Human_Soul
+import PERCEPTION
+
+package aristotle_ontology
+
+subkind Aether of quantities  specializes Matter 
+
+subkind SublunaryMatter of quantities  specializes Matter 
+
+subkind PrimeMatter of quantities  specializes SublunaryMatter {
+    [1] -- is -- [1] MaterialCause 
+    @subQuantityOf 
+    [1] -- [1] Element 
+    @subQuantityOf 
+    [1] -- [1] SublunaryBody 
+    @subQuantityOf 
+    [1] -- [1] Object 
+}
+
+quality Cold
+
+quality Dry
+
+quality Wet
+
+quality Hot
+
+subkind Earth of functional-complexes  specializes Element 
+
+subkind Air of functional-complexes  specializes Element 
+
+subkind Water of functional-complexes  specializes Element 
+
+kind Element
+
+kind Knowledge_ofObject
+
+kind Goal
+
+kind Mean
+
+kind Object
+
+mode Form{
+    name: string_  
+    composite: boolean_  { const }
+    temporal: boolean_  { const }
+    spatial: boolean_  { const }
+    sensible: boolean_  
+}
+
+relator Actuality
+
+relator Potentiality
+
+subkind FormalCause of functional-complexes  specializes Cause {
+    @componentOf 
+    [1..*] -- [1] Knowledge_ofObject 
+}
+
+subkind FinalCause of functional-complexes  specializes Cause {
+    @componentOf 
+    [1..*] -- [1] Knowledge_ofObject 
+}
+
+subkind EfficientCause of functional-complexes  specializes Cause {
+    @componentOf 
+    [1..*] -- [1] Knowledge_ofObject 
+}
+
+subkind MaterialCause of functional-complexes  specializes Cause {
+    @componentOf 
+    [1..*] -- [1] Knowledge_ofObject 
+}
+
+kind Cause
+
+phase FormedMatter of quantities  specializes SublunaryMatter {
+    [1] -- is -- [1] MaterialCause 
+    @subQuantityOf 
+    [1] -- [1] Element 
+    @subQuantityOf 
+    [1] -- [1] SublunaryBody 
+    @subQuantityOf 
+    [1] -- [1] Object 
+}
+
+kind Proof
+
+mode Mood
+
+relator Figure
+
+role Extreme of functional-complexes  specializes Term 
+
+subkind Denial of functional-complexes  specializes Assertion {
+    [1] -- essential -- [1] Predicate 
+}
+
+role MiddleTerm of functional-complexes  specializes Term 
+
+subkind Affirmation of functional-complexes  specializes Assertion {
+    [1] -- essential -- [1] Predicate 
+}
+
+kind Assertion{
+    textOfAssertion: string_  { derived }
+}
+
+kind Term{
+    textOfTerm: string_  
+}
+
+subkind Predicate of functional-complexes  specializes Term {
+    universal: boolean_  
+}
+
+subkind Subject of functional-complexes  specializes Term {
+    universal: boolean_  
+}
+
+role Premise of functional-complexes  specializes Assertion {
+    [1] -- essential -- [1] Predicate 
+}
+
+role Conclusion of functional-complexes  specializes Assertion {
+    [1] -- essential -- [1] Predicate 
+}
+
+relator Syllogism
+
+collective Community
+
+kind GoodLife
+
+relator Right
+
+kind PoliticalOffice
+
+kind TerritoryAssets
+
+role Ruler of functional-complexes  specializes Politician {
+    [1..*] -- holds -- [1..*] PoliticalOffice 
+    [1] -- is_the -- [1] MaterialCause 
+    @componentOf 
+    [1..*] -- [1] CityState 
+    @memberOf 
+    [1..*] -- [1] Community 
+}
+
+collective ResidentPopulation
+
+kind Constitution
+
+role NonCitizen of functional-complexes  specializes ResidentPerson {
+    @memberOf 
+    [1..*] -- [1] Community 
+}
+
+kind ResidentPerson
+
+role Lawgiver of functional-complexes  specializes Politician {
+    [1..*] -- holds -- [1..*] PoliticalOffice 
+    [1] -- is_the -- [1] MaterialCause 
+    @componentOf 
+    [1..*] -- [1] CityState 
+    @memberOf 
+    [1..*] -- [1] Community 
+}
+
+role Citizen of functional-complexes  specializes ResidentPerson {
+    @memberOf 
+    [1..*] -- [1] Community 
+}
+
+role Politician of functional-complexes  specializes Citizen {
+    [1] -- is_the -- [1] MaterialCause 
+    @componentOf 
+    [1..*] -- [1] CityState 
+    @memberOf 
+    [1..*] -- [1] Community 
+}
+
+kind CityState
+
+subkind Kingship of intrinsic-modes  specializes CorrectForm {
+    numberOfRulers: undefined  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+subkind Aristocracy of intrinsic-modes  specializes CorrectForm {
+    numberOfRulers: undefined  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+subkind Polity of intrinsic-modes  specializes CorrectForm {
+    numberOfRulers: undefined  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+subkind Tiranny of intrinsic-modes  specializes DeviantForm {
+    numberOfRulers: undefined  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+subkind Oligarchy of intrinsic-modes  specializes DeviantForm {
+    numberOfRulers: undefined  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+subkind Democraty of intrinsic-modes  specializes DeviantForm {
+    numberOfRulers: undefined  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+mode ConstitutionalForm
+
+subkind CorrectForm of intrinsic-modes  specializes ConstitutionalForm {
+    just: boolean_  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+subkind DeviantForm of intrinsic-modes  specializes ConstitutionalForm {
+    just: boolean_  
+    @characterization 
+    [1] -- [1] Constitution 
+}
+
+kind Word{
+    Language: string_  
+}
+
+kind Meaning
+
+subkind SpokenWord of functional-complexes  specializes Word {
+    senseRelated: undefined  
+    @material 
+    [1..*] -- [1..*] MentalState 
+}
+
+subkind WrittenWord of functional-complexes  specializes Word {
+    senseRelated: undefined  
+    @material 
+    [1..*] -- [1..*] MentalState 
+}
+
+kind MentalState
+
+relator Convention
+
+kind NameBearerObject
+
+kind UnmovedMover
+
+quantity Matter{
+    activity: undefined  
+}
+
+role MoverActiveObject of functional-complexes  specializes Object {
+    @characterization 
+    [1] -- [1] Form 
+    [1..*] -- created_with -- [1] Mean 
+    @subQuantityOf 
+    [1] -- [1] FormedMatter 
+    @subQuantityOf 
+    [1] -- [1] Matter 
+    [1] -- moves -- [0..1] Object 
+    [*] -- created_for -- [1..*] Goal 
+    @componentOf 
+    [1] -- [1] Nature 
+    @participation 
+    [1..*] -- [0..*] Change 
+}
+
+role MovedPassiveObject of functional-complexes  specializes Object {
+    @characterization 
+    [1] -- [1] Form 
+    [1..*] -- created_with -- [1] Mean 
+    @subQuantityOf 
+    [1] -- [1] FormedMatter 
+    @subQuantityOf 
+    [1] -- [1] Matter 
+    [1] -- moves -- [0..1] Object 
+    [*] -- created_for -- [1..*] Goal 
+    @componentOf 
+    [1] -- [1] Nature 
+    @participation 
+    [1..*] -- [0..*] Change 
+}
+
+role PassivePotentiality of relators  specializes Potentiality {
+    @mediation 
+    [1] -- [1] Object 
+    @mediation 
+    [1] -- [1] Matter 
+    @mediation 
+    [1] -- [1] LivingBeing 
+    @mediation 
+    [1] -- [1] PerceptiveFaculty 
+    @mediation 
+    [1] -- [1] Perception 
+    @mediation 
+    [1] -- [1] StateOfMind 
+    @mediation 
+    [1] -- [1] SublunaryMatter 
+    @mediation 
+    [1] -- [1] Thinking 
+    @mediation 
+    [1] -- [1] LivingBody 
+}
+
+role ActivePotentiality of relators  specializes Potentiality {
+    @mediation 
+    [1] -- [1] Object 
+    @mediation 
+    [1] -- [1] Matter 
+    @mediation 
+    [1] -- [1] LivingBeing 
+    @mediation 
+    [1] -- [1] PerceptiveFaculty 
+    @mediation 
+    [1] -- [1] Perception 
+    @mediation 
+    [1] -- [1] StateOfMind 
+    @mediation 
+    [1] -- [1] SublunaryMatter 
+    @mediation 
+    [1] -- [1] Thinking 
+    @mediation 
+    [1] -- [1] LivingBody 
+}
+
+event ForcedMotion specializes Change 
+
+event NaturalMotion specializes Change 
+
+kind Nature
+
+mode InPlace
+
+mode InQuality
+
+mode InQuantity
+
+mode InSubstance
+
+kind Intelligible_Form
+
+role Passive_Intellect of functional-complexes  specializes Mind {
+    [1] -- counts -- [1] Time 
+}
+
+role ActiveIntellect of functional-complexes  specializes Mind {
+    [1] -- counts -- [1] Time 
+}
+
+kind Mind
+
+subkind BeforeAfterInPlace of intrinsic-modes  specializes BeforeAfterInChange {
+    @characterization 
+    [1] -- [1] Change 
+}
+
+mode BeforeAfter
+
+subkind BeforeAfterInChange of intrinsic-modes  specializes BeforeAfter 
+
+event ChangeInPlace specializes Change 
+
+event ChangeInQuantity specializes Change 
+
+event ChangeInQuality specializes Change 
+
+event ChangeInSubstance specializes Change 
+
+event Change
+
+kind AccidentalUniversal specializes Being {
+    saidoff: boolean_  
+    presentin: boolean_  
+    universal: boolean_  
+}
+
+role AccidentalParticularNonSubstantialParticular of functional-complexes  specializes Being, AccidentalUniversal {
+    saidoff: undefined  
+    presentin: boolean_  
+    particular: boolean_  
+}
+
+mixin Being of functional-complexes 
+
+kind EssentialUniversalSecondarySubstance specializes Being {
+    saidoff: boolean_  
+    presentin: boolean_  
+    universal: boolean_  
+}
+
+kind EssentialParticularPrimarySubstance specializes Being {
+    saidoff: boolean_  
+    presentin: boolean_  
+    particular: boolean_  
+}
+
+subkind Genus of functional-complexes  specializes SupremeGenusHighestKind {
+    // TODO: Tonto does not allow kinds as datatypes
+    // superiorGenus: Genus  
+    answerToDifferentia: undefined  
+}
+
+mode Differentia{
+    question: string_  
+}
+
+subkind Species of functional-complexes specializes Genus {
+    essential: boolean_  
+    // TODO: Tonto does not allow kinds as datatypes
+    // superiorGenus: Genus  
+    answerToDifferentia: undefined  
+    // TODO: Tonto does not allow kinds as datatypes
+    // [2..*] -- _is_superiorGenus -- [1] Genus 
+}
+
+kind SupremeGenusHighestKind
+
+subkind SpecialSciences of functional-complexes  specializes NaturalPhilosophyPhysics 
+
+subkind Dance of functional-complexes  specializes Arts 
+
+subkind Theatre of functional-complexes  specializes Arts 
+
+subkind Music of functional-complexes  specializes Arts 
+
+subkind Arts of functional-complexes  specializes ProductiveSciences 
+
+subkind Medicine of functional-complexes  specializes ProductiveSciences 
+
+subkind Agriculture of functional-complexes  specializes ProductiveSciences 
+
+subkind Shipbuilding of functional-complexes  specializes ProductiveSciences 
+
+subkind Ethics of functional-complexes  specializes PracticalSciences 
+
+subkind Politics of functional-complexes  specializes PracticalSciences 
+
+subkind AstronomicalTheory of functional-complexes  specializes SpecialSciences 
+
+subkind Botany of functional-complexes  specializes SpecialSciences 
+
+subkind Biology of functional-complexes  specializes SpecialSciences 
+
+subkind Psychology of functional-complexes  specializes NaturalPhilosophyPhysics 
+
+subkind NaturalPhilosophyPhysics of functional-complexes  specializes TheoreticalSciences 
+
+subkind Mathematics of functional-complexes  specializes TheoreticalSciences 
+
+subkind FirstPhilosophyMetaphysics of functional-complexes  specializes TheoreticalSciences 
+
+kind ProductiveSciences specializes ScienceKnowledge 
+
+kind PracticalSciences specializes ScienceKnowledge 
+
+kind TheoreticalSciences specializes ScienceKnowledge 
+
+category ScienceKnowledge of functional-complexes {
+    universal: boolean_  
+    necessarily_the_case: boolean_  
+    // known_causes: Cause  
+}
+
+kind CelestialSphere
+
+subkind Fire of functional-complexes  specializes Element, Element 
+
+subkind SublunaryBody of functional-complexes  specializes Object {
+    @characterization 
+    [1] -- [1] Form 
+    [1..*] -- created_with -- [1] Mean 
+    @subQuantityOf 
+    [1] -- [1] FormedMatter 
+    @subQuantityOf 
+    [1] -- [1] Matter 
+    [1] -- moves -- [0..1] Object 
+    [*] -- created_for -- [1..*] Goal 
+    @componentOf 
+    [1] -- [1] Nature 
+    @participation 
+    [1..*] -- [0..*] Change 
+}
+
+subkind Universe of functional-complexes  specializes Object {
+    @characterization 
+    [1] -- [1] Form 
+    [1..*] -- created_with -- [1] Mean 
+    @subQuantityOf 
+    [1] -- [1] FormedMatter 
+    @subQuantityOf 
+    [1] -- [1] Matter 
+    [1] -- moves -- [0..1] Object 
+    [*] -- created_for -- [1..*] Goal 
+    @componentOf 
+    [1] -- [1] Nature 
+    @participation 
+    [1..*] -- [0..*] Change 
+}
+
+subkind CelestialBody of functional-complexes  specializes Object {
+    @characterization 
+    [1] -- [1] Form 
+    [1..*] -- created_with -- [1] Mean 
+    @subQuantityOf 
+    [1] -- [1] FormedMatter 
+    @subQuantityOf 
+    [1] -- [1] Matter 
+    [1] -- moves -- [0..1] Object 
+    [*] -- created_for -- [1..*] Goal 
+    @componentOf 
+    [1] -- [1] Nature 
+    @participation 
+    [1..*] -- [0..*] Change 
+}
+
+subkind PracticalWisdom of intrinsic-modes  specializes IntelectualVirtue {
+    @characterization 
+    [1] -- [1] VirtuousActivity 
+}
+
+subkind TheroraticalWisdom of intrinsic-modes  specializes IntelectualVirtue {
+    @characterization 
+    [1] -- [1] VirtuousActivity 
+}
+
+subkind EthicalVirtue of intrinsic-modes  specializes Virtue {
+    @characterization 
+    [1] -- [1] VirtuousActivity 
+}
+
+subkind Pleasure of functional-complexes  specializes SubordinateGoal {
+    [*] -- promotes -- [1] Happiness 
+}
+
+subkind IntelectualVirtue of intrinsic-modes  specializes Virtue {
+    @characterization 
+    [1] -- [1] VirtuousActivity 
+}
+
+subkind Wealth of functional-complexes  specializes SubordinateGoal {
+    [*] -- promotes -- [1] Happiness 
+}
+
+subkind Health of functional-complexes  specializes SubordinateGoal {
+    [*] -- promotes -- [1] Happiness 
+}
+
+mode GoldenMean
+
+mode Virtue
+
+kind VirtuousActivity
+
+subkind SubordinateGoal of functional-complexes  specializes Goal 
+
+subkind HighestGoal of functional-complexes  specializes Goal 
+
+kind Person
+
+subkind WeakPerson of functional-complexes  specializes IncontinentPerson {
+    [1] -- sometimes_does -- [0..*] VirtuousActivity 
+    [1] -- has -- [1..*] Goal 
+    @material 
+    [1] -- [1..*] VirtuousActivity 
+}
+
+subkind ImpetuousPerson of functional-complexes  specializes IncontinentPerson {
+    [1] -- sometimes_does -- [0..*] VirtuousActivity 
+    [1] -- has -- [1..*] Goal 
+    @material 
+    [1] -- [1..*] VirtuousActivity 
+}
+
+subkind EvilPerson of functional-complexes  specializes Person {
+    mind: undefined
+    desire: undefined  
+    rulingFaculty: undefined  
+
+    // [1] -- has -- [1..*] Goal
+    @material 
+    [1] -- [1..*] VirtuousActivity 
+}
+
+subkind VirtuousPerson of functional-complexes  specializes Person {
+    mind: undefined  
+    desire: undefined  
+    rulingFaculty: undefined  
+    @stereotype
+    [1] -- has -- [1..*] Goal 
+    @material 
+    [1] -- [1..*] VirtuousActivity 
+}
+
+subkind IncontinentPerson of functional-complexes  specializes Person {
+    mind: undefined  
+    desire: undefined  
+    rulingFaculty: undefined  
+    @stereotype
+    [1] -- has -- [1..*] Goal 
+    @material 
+    [1] -- [1..*] VirtuousActivity 
+}
+
+subkind ContinentPerson of functional-complexes  specializes Person {
+    mind: undefined  
+    desire: undefined  
+    rulingFaculty: undefined  
+
+    // TODO: Error on relation when missing stereotype
+    @stereotype
+    [1] -- has -- [1..*] Goal 
+    @material 
+    [1] -- [1..*] VirtuousActivity 
+}
+
+kind Soul
+
+kind LivingBody{
+    exist: boolean_  
+    real: boolean_  
+}
+
+kind LivingBeing
+
+kind ObjectOfPerception
+
+kind PerceptiveFaculty
+
+relator Perception
+
+kind ObjectOfTought
+
+kind StateOfMind
+
+relator Thinking
+
+role DifferentiaForGenus of intrinsic-modes  specializes Differentia 
+
+role DifferentiaForSpecies of intrinsic-modes  specializes Differentia 
+
+kind Reproduction
+
+kind Nutrition
+
+kind Desire
+
+subkind Particular of functional-complexes  specializes Species {
+    [2..*] -- _is_superiorGenus -- [1] Genus 
+}
+
+kind Happiness
+
+datatype string_
+datatype boolean_

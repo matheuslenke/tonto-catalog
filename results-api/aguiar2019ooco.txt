@@ -1,0 +1,73 @@
+Validating...
+- Total of errors: 24
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Method_Variable must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Overridable_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class NonOverridable_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Class_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Instance_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Abstract_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Concrete_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Generic_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Class_Variable must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Instance_Variable must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Parameter_Variabe must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Local_Variable must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Constructor_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Destructor_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Accessor_Method must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Generic_Class must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Concrete_Class must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Abstract_Class must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class NonExtendable_Class must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Extendable_Class must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Root_Class must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Superclass must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Subclass must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Nested_Class must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class ObjectOriented_Programming_Language must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class ObjectOriented_Source_Code must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Primitive_Type must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Primitive_Type must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Physical_Module must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Logical_Module must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Attribute_Member_Variable must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Primitive_Type must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Primitive_Type must specify the possible ontological natures of its instances
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Primitive_Type are not among the allowed ontological natures of its superclass Type
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Primitive_Type are not among the allowed ontological natures of its superclass Type
+Validation finished

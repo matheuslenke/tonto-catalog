@@ -1,55 +1,80 @@
+import LucasBassetti_CaixaBanco
+
 package Caixa_Banco
 
-role Cliente  specializes Pessoa{
-    @mediation
-    ( {const } )[1] -- solicita --  [1..*]  Operao
-    @mediation
-    ( {const } )[1] -- recebe --  [1..*]  Recibo
+role Cliente of functional-complexes  specializes Pessoa 
+
+kind Conta
+
+subkind Conta_Corrente of functional-complexes  specializes Conta {
+    @material 
+    [1..*] -- possui -- [1] Pessoa_com_Conta 
 }
-kind Conta {
-    @material
-     [1..*] -- possui -- [1]  Pessoa_com_Conta
+
+subkind Conta_Poupana of functional-complexes  specializes Conta {
+    @material 
+    [1..*] -- possui -- [1] Pessoa_com_Conta 
 }
-subkind Conta_Corrente  specializes Conta
-subkind Conta_Poupana  specializes Conta
-role Conta_em_Depsito  specializes Conta{
-    @mediation
-    ( {const } )[1] -- depositaem -- [1]  Depsito
-    @mediation
-    ( {const } )[1] -- transferepara --  [0..1]  Transferncia
+
+role Conta_em_Depsito of functional-complexes  specializes Conta {
+    @material 
+    [1..*] -- possui -- [1] Pessoa_com_Conta 
 }
-role Conta_em_Saque  specializes Conta{
-    @mediation
-    ( {const } )[1] -- transferede --  [0..1]  Transferncia
-    @mediation
-    ( {const } )[1] -- sacade -- [1]  Saque
+
+role Conta_em_Saque of functional-complexes  specializes Conta {
+    @material 
+    [1..*] -- possui -- [1] Pessoa_com_Conta 
 }
-relator Depsito  specializes Operao
-role Funcionrio_Caixa  specializes Pessoa_com_Conta
-role Funcionrio_Caixa_em_Operao  specializes Funcionrio_Caixa
-relator Operao {
-    valor : undefined
-    @mediation
-     [1..*] -- realiza -- [1]  Funcionrio_Caixa_em_Operao( {const } )
+
+relator Depsito specializes Operao {
+    @mediation 
+    [1..*] -- realiza -- [1] Funcionrio_Caixa_em_Operao 
 }
-kind Pessoa 
-role Pessoa_com_Conta  specializes Pessoa{
-    @mediation
-    ( {const } )[1] -- realiza --  [0..1]  Saque_em_Dinheiro
+
+role Funcionrio_Caixa of functional-complexes  specializes Pessoa_com_Conta {
+    @mediation 
+    [1] -- realiza -- [0..1] Saque_em_Dinheiro 
 }
-relator Recibo {
-    valor : undefined
-    @mediation
-    [1] -- emite -- [1]  Operao( {const } )
-    @mediation
-     [1..*] -- emite -- [1]  Funcionrio_Caixa_em_Operao( {const } )
+
+role Funcionrio_Caixa_em_Operao of functional-complexes  specializes Funcionrio_Caixa {
+    @mediation 
+    [1] -- realiza -- [0..1] Saque_em_Dinheiro 
 }
-relator Saque  specializes Operao
-relator Saque_em_Cheque  specializes Saque
-relator Saque_em_Dinheiro  specializes Saque
-relator Saque_em_Transferncia  specializes Saque
-relator Transferncia  specializes Operao{
-    @mediation
-    [1] -- realiza -- [1]  Saque_em_Transferncia( {const } )
+
+relator Operao{
+    valor: undefined  
+}
+
+kind Pessoa
+
+role Pessoa_com_Conta of functional-complexes  specializes Pessoa 
+
+relator Recibo{
+    valor: undefined  
+}
+
+relator Saque specializes Operao {
+    @mediation 
+    [1..*] -- realiza -- [1] Funcionrio_Caixa_em_Operao 
+}
+
+relator Saque_em_Cheque specializes Saque {
+    @mediation 
+    [1..*] -- realiza -- [1] Funcionrio_Caixa_em_Operao 
+}
+
+relator Saque_em_Dinheiro specializes Saque {
+    @mediation 
+    [1..*] -- realiza -- [1] Funcionrio_Caixa_em_Operao 
+}
+
+relator Saque_em_Transferncia specializes Saque {
+    @mediation 
+    [1..*] -- realiza -- [1] Funcionrio_Caixa_em_Operao 
+}
+
+relator Transferncia specializes Operao {
+    @mediation 
+    [1..*] -- realiza -- [1] Funcionrio_Caixa_em_Operao 
 }
 

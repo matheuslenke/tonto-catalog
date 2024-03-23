@@ -1,38 +1,27 @@
+
 package Core_Value_Ontology
 
-class Recipient {
-    [*] -- receives -- [*]  Value_Proposition
-    [*] -- bears -- [*]  Intention
-    [*] -- bears -- [*]  Satisfaction_Level
-}
-relator Value_Proposition 
-class Provider {
-    [*] -- providesbb -- [*]  Value_Proposition
-}
-relator Control {
-    [*] -- mediates -- [*]  Provider
-    [*] -- mediates -- [*]  Resource
-    [*] -- mediates -- [*]  Recipient
-}
-class Resource 
-class Capability {
-    [*] -- inheres_in -- [*]  Resource
-}
-event Action {
-    [*] -- manifested_by -- [*]  Capability
-}
-situation Caused_State {
-    [*] -- is_post_state -- [*]  Action
-}
-class Problem_Solution {
-    [*] -- satisfied_by -- [*]  Caused_State
-    [*] -- propositional_content_of -- [*]  Intention
-}
-class Intention 
-class Satisfaction_Level 
-class Value {
-    [*] -- refers_to -- [*]  Caused_State
-    [*] -- refers_to -- [*]  Problem_Solution
-    [*] -- propositional_content_of -- [*]  Satisfaction_Level
-}
+class Recipient
+
+relator Value_Proposition
+
+class Provider
+
+relator Control
+
+class Resource
+
+class Capability
+
+event Action
+
+situation Caused_State
+
+class Problem_Solution
+
+class Intention
+
+class Satisfaction_Level
+
+class Value
 

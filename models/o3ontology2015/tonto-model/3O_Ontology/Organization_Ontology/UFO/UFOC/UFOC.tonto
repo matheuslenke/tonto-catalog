@@ -1,177 +1,621 @@
-import UFOB
-import OntoUML
+import _3O_Ontology
+import UFO
 import UFOA
+import UFOB
 import UFOPW
+import OntoUML
 
 package UFOC
 
-event Action  specializes Event_Individual{
-    @Formal
-     [0..*] -- instantiates --  [1..*]  Plan_Action_Universal
-    @Formal
-     [0..*] -- caused_by -- [1]  Intention
+event Action specializes Event_Individual {
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-category Agent  specializes Substance{
-    @Formal
-     [1..*] -- creates --  [0..*]  Action
-    @Formal
-     [0..*] -- perceives --  [0..*]  Event_Individual
+
+category Agent of functional-complexes  specializes Substance {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-roleMixin Agent_in_Social_Relation  specializes Agent
-mode Appointment  specializes Commitment
-class Appoitment_Goal  specializes Goal{
-    @Formal
-    [1] -- propositional_content_of --  [1..*]  Appointment
+
+roleMixin Agent_in_Social_Relation of functional-complexes  specializes Agent {
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-event Atomic_Action  specializes Atomic_Event, Action{
-    @Formal
-     [0..*] -- instantiates --  [1..*]  Atomic_Plan
+
+mode Appointment specializes Commitment 
+
+class Appoitment_Goal specializes Goal {
+    @Formal 
+    [1] -- propositional_content_of -- [1..*] Commitment 
+    @Formal 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
 }
-mode Atomic_Commitment  specializes Commitment, Atomic_Individual
-type Atomic_Plan  specializes Plan_Action_Universal
-mode Belief  specializes Mental_Moment
-event Change  specializes Resource_Participation
-mode Claim  specializes Social_Moment
-mode Closed_Commitment  specializes Commitment{
-    @Formal
-     [0..*] -- based_on -- [1]  Plan_Action_Universal
+
+event Atomic_Action specializes Atomic_Event, Action {
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Plan_Action_Universal 
+    @Formal 
+    [0..*] -- caused_by -- [1] Intention 
 }
-category Collective_Social_Agent  specializes Collective_Individual, Social_Agent{
-    @memberOf
-     [1..*] <o>--  [2..*]  Member_of_Collective_Social_Agent
+
+mode Atomic_Commitment specializes Commitment, Atomic_Individual {
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-category Commitment 
-mixin Commitment_Part  specializes Commitment, Part
-event Complex_Action  specializes Complex_Event, Action{
-    @Formal
-     [0..*] -- instantiates --  [1..*]  Complex_Plan
-    @componentOf
-    [1] <o>-- [1]  Paricipation_Individual
+
+type Atomic_Plan specializes Plan_Action_Universal {
+    @Formal 
+    [1..*] -- instance_of -- [1..*] Individual 
 }
-mode Complex_Commitment  specializes Commitment, Whole_Complex_Individual{
-    @sum
-     [1..*] <o>--  [2..*]  Commitment_Part
+
+mode Belief specializes Mental_Moment {
+    @characterization 
+    [1..*] -- [1] Agent 
 }
-type Complex_Plan  specializes Plan_Action_Universal
-event Contribution_Performance  specializes Paricipation_Individual, Action{
-    @Formal
-     [1..*] -- performance_of -- [1]  Performer
+
+event Change specializes Resource_Participation {
+    @Formal 
+    [1..*] -- participates_as_resource -- [1] Resource 
+    @Formal 
+    [1..*] -- instantiates -- [1] Participation 
+    @Formal 
+    [1..*] -- participation_of -- [1] Participant 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-event Creation  specializes Resource_Participation
-roleMixin Delegatee  specializes Physical_Agent_in_Social_Relation
-roleMixin Delegator  specializes Physical_Agent_in_Social_Relation{
-    @material
-     [1..*] -- delegates_to --  [1..*]  Delegatee
+
+mode Claim specializes Social_Moment {
+    @characterization 
+    [1..*] -- [1] Agent_in_Social_Relation 
+    @characterization 
+    [1..*] -- [1] Agent 
 }
-relator Delegatum  specializes Social_Relator{
-    @sum
-     [0..1] <o>--  [1..*]  Social_Commitment
-    @mediation
-     [1..*] -- [1]  Delegator( {const } )
-    @mediation
-     [1..*] -- [1]  Delegatee( {const } )
-    @sum
-     [0..1] <o>--  [1..*]  Claim
+
+mode Closed_Commitment specializes Commitment 
+
+category Collective_Social_Agent of functional-complexes  specializes Collective_Individual, Social_Agent {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @PartOf 
+    [1..*] -- [1..*] Part 
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
 }
-mode Desire  specializes Mental_Moment
-class Goal  specializes Proposition_Individual{
-    @Formal
-    [1] -- propositional_content_of --  [1..*]  Commitment
+
+category Commitment of functional-complexes 
+
+mixin Commitment_Part of functional-complexes  specializes Commitment, Part {
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-category Individual_Social_Agent  specializes Functional_Complex_Individual, Social_Agent, Atomic_Individual
-mode Intention  specializes Commitment, Mental_Moment{
-    @characterization
-     [1..*] -- [1]  Agent( {const } )
+
+event Complex_Action specializes Complex_Event, Action {
+    @PartOf 
+    [1..*] -- [2..*] Part_of_Event 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @PartOf 
+    [1..*] -- [1..*] Part 
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Plan_Action_Universal 
+    @Formal 
+    [0..*] -- caused_by -- [1] Intention 
 }
-mode Intentional_Moment {
-    @characterization
-     [1..*] -- [1]  Agent( {const } )
+
+mode Complex_Commitment specializes Commitment, Whole_Complex_Individual {
+    @PartOf 
+    [1..*] -- [1..*] Part 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-event Interaction  specializes Complex_Action{
-    @componentOf
-     [0..*] <o>--  [2..*]  Contribution_Performance
+
+type Complex_Plan specializes Plan_Action_Universal {
+    @Formal 
+    [1..*] -- instance_of -- [1..*] Individual 
 }
-roleMixin Member_of_Collective_Social_Agent  specializes Agent, Part
-mode Mental_Moment  specializes Intentional_Moment
-category Normative_Description  specializes Social_Object{
-    @Formal
-     [0..1] -- defines --  [0..*]  Plan_Action_Universal
-    @Formal
-     [0..*] -- instantiates --  [1..*]  Normative_Description_Universal
-    @Formal
-    [1] -- defines --  [0..*]  Normatized_Social_Object
-    @Formal
-     [0..1] -- defines --  [0..*]  Social_Role
-    @mediation
-    ( {const } ) [1..*] -- defines --  [0..*]  Recognition_Contract
-    @mediation
-    ( {const } ) [1..*] -- defines --  [0..*]  Recognition_Contract_Attachment
+
+event Contribution_Performance specializes Paricipation_Individual, Action {
+    @Formal 
+    [1..*] -- instantiates -- [1] Participation 
+    @Formal 
+    [1..*] -- participation_of -- [1] Participant 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Plan_Action_Universal 
+    @Formal 
+    [0..*] -- caused_by -- [1] Intention 
 }
-type Normative_Description_Universal 
-mixin Normatized_Social_Object  specializes Social_Object
-category Object  specializes Substance
-mode Open_Commitment  specializes Commitment
-roleMixin Performer  specializes Participant, Agent
-category Physical_Agent  specializes Social_Entity, Agent
-roleMixin Physical_Agent_in_Social_Relation  specializes Agent_in_Social_Relation, Physical_Agent
-category Physical_Object  specializes Object
-type Plan_Action_Universal  specializes Event
-category Plan_Description  specializes Normative_Description{
-    @Formal
-     [0..*] -- instantiates --  [1..*]  Plan_Description_Universal
-    @Formal
-     [0..1] -- describes --  [1..*]  Complex_Plan
+
+event Creation specializes Resource_Participation {
+    @Formal 
+    [1..*] -- participates_as_resource -- [1] Resource 
+    @Formal 
+    [1..*] -- instantiates -- [1] Participation 
+    @Formal 
+    [1..*] -- participation_of -- [1] Participant 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-type Plan_Description_Universal  specializes Normative_Description_Universal
-class Proposition_Individual {
-    @Formal
-    [1] -- propositional_content_of --  [0..*]  Intentional_Moment
+
+roleMixin Delegatee of functional-complexes  specializes Physical_Agent_in_Social_Relation {
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
 }
-mode QuaIndividual 
-relator Recognition {
-    @material
-     [1..*] -- [1]  Recognizer
-    @mediation
-     [1..*] -- [1]  Normative_Description( {const } )
+
+roleMixin Delegator of functional-complexes  specializes Physical_Agent_in_Social_Relation {
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
 }
-roleMixin Recognizer  specializes Agent{
-    @material
-     [1..*] --  [1..*]  Normative_Description
+
+relator Delegatum specializes Social_Relator {
+    @sum 
+    [1] -- [2..*] Social_Moment 
+    @mediation 
+    [1] -- [2..*] Agent_in_Social_Relation 
+    @sum 
+    [1] -- [2..*] QuaIndividual 
 }
-relator Relator_Individual {
-    @sum
-    [1] <o>--  [2..*]  QuaIndividual
+
+mode Desire specializes Mental_Moment {
+    @characterization 
+    [1..*] -- [1] Agent 
 }
-roleMixin Resource  specializes Good, Participant, Object{
-    @Formal
-     [0..*] -- located_at -- [1]  Location
+
+class Goal specializes Proposition_Individual {
+    @Formal 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
 }
-event Resource_Participation  specializes Paricipation_Individual{
-    @Formal
-     [1..*] -- participates_as_resource -- [1]  Resource
+
+category Individual_Social_Agent of functional-complexes  specializes Functional_Complex_Individual, Social_Agent, Atomic_Individual {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
 }
-category Social_Agent  specializes Social_Entity, Agent
-roleMixin Social_Agent_in_Agreement  specializes Agent_in_Social_Relation, Social_Agent
-mode Social_Commitment  specializes Commitment, Social_Moment{
-    @Formal
-     [0..*] -- causes --  [0..*]  Action
+
+mode Intention specializes Commitment, Mental_Moment {
+    @characterization 
+    [1..*] -- [1] Agent 
 }
-mode Social_Moment  specializes Intentional_Moment, QuaIndividual{
-    @characterization
-     [1..*] -- [1]  Agent_in_Social_Relation( {const } )
+
+mode Intentional_Moment
+
+event Interaction specializes Complex_Action {
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Complex_Plan 
+    @componentOf 
+    [1] -- [1] Paricipation_Individual 
+    @PartOf 
+    [1..*] -- [2..*] Part_of_Event 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @PartOf 
+    [1..*] -- [1..*] Part 
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Plan_Action_Universal 
+    @Formal 
+    [0..*] -- caused_by -- [1] Intention 
 }
-category Social_Object  specializes Object
-relator Social_Relator  specializes Relator_Individual{
-    @sum
-    [1] <o>--  [2..*]  Social_Moment
-    @mediation
-    [1] --  [2..*]  Agent_in_Social_Relation( {const } )
+
+roleMixin Member_of_Collective_Social_Agent of functional-complexes  specializes Agent, Part {
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
 }
-type Social_Role {
-    @Formal
-     [1..*] -- recognizes --  [1..*]  Normative_Description
+
+mode Mental_Moment specializes Intentional_Moment {
+    @characterization 
+    [1..*] -- [1] Agent 
 }
-event Speech_Act  specializes Atomic_Action
-event Termination  specializes Resource_Participation
-event Usage  specializes Resource_Participation
+
+category Normative_Description of functional-complexes  specializes Social_Object {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+type Normative_Description_Universal
+
+mixin Normatized_Social_Object of functional-complexes  specializes Social_Object {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+category Object of functional-complexes  specializes Substance {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+mode Open_Commitment specializes Commitment 
+
+roleMixin Performer of functional-complexes  specializes Participant, Agent {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+}
+
+category Physical_Agent of functional-complexes  specializes Social_Entity, Agent {
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+roleMixin Physical_Agent_in_Social_Relation of functional-complexes  specializes Agent_in_Social_Relation, Physical_Agent {
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
+}
+
+category Physical_Object of functional-complexes  specializes Object {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+type Plan_Action_Universal specializes Event {
+    @Formal 
+    [1..*] -- instance_of -- [1..*] Individual 
+}
+
+category Plan_Description of functional-complexes  specializes Normative_Description {
+    @Formal 
+    [0..1] -- defines -- [0..*] Plan_Action_Universal 
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Normative_Description_Universal 
+    @Formal 
+    [1] -- defines -- [0..*] Normatized_Social_Object 
+    @Formal 
+    [0..1] -- defines -- [0..*] Social_Role 
+    @mediation 
+    [1..*] -- defines -- [0..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- defines -- [0..*] Recognition_Contract_Attachment 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+type Plan_Description_Universal specializes Normative_Description_Universal 
+
+class Proposition_Individual
+
+mode QuaIndividual
+
+relator Recognition
+
+roleMixin Recognizer of functional-complexes  specializes Agent {
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+relator Relator_Individual
+
+roleMixin Resource of functional-complexes  specializes Good, Participant, Object {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+event Resource_Participation specializes Paricipation_Individual {
+    @Formal 
+    [1..*] -- instantiates -- [1] Participation 
+    @Formal 
+    [1..*] -- participation_of -- [1] Participant 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+category Social_Agent of functional-complexes  specializes Social_Entity, Agent {
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+roleMixin Social_Agent_in_Agreement of functional-complexes  specializes Agent_in_Social_Relation, Social_Agent {
+    @Formal 
+    [1..*] -- creates -- [0..*] Action 
+    @Formal 
+    [0..*] -- perceives -- [0..*] Event_Individual 
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @mediation 
+    [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation 
+    [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal 
+    [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation 
+    [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation 
+    [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
+}
+
+mode Social_Commitment specializes Commitment, Social_Moment {
+    @characterization 
+    [1..*] -- [1] Agent_in_Social_Relation 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+mode Social_Moment specializes Intentional_Moment, QuaIndividual {
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+category Social_Object of functional-complexes  specializes Object {
+    @Formal 
+    [1..*] -- present_in -- [1..*] Situation_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+relator Social_Relator specializes Relator_Individual {
+    @sum 
+    [1] -- [2..*] QuaIndividual 
+}
+
+type Social_Role
+
+event Speech_Act specializes Atomic_Action {
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Atomic_Plan 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+    @Formal 
+    [0..*] -- instantiates -- [1..*] Plan_Action_Universal 
+    @Formal 
+    [0..*] -- caused_by -- [1] Intention 
+}
+
+event Termination specializes Resource_Participation {
+    @Formal 
+    [1..*] -- participates_as_resource -- [1] Resource 
+    @Formal 
+    [1..*] -- instantiates -- [1] Participation 
+    @Formal 
+    [1..*] -- participation_of -- [1] Participant 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
+
+event Usage specializes Resource_Participation {
+    @Formal 
+    [1..*] -- participates_as_resource -- [1] Resource 
+    @Formal 
+    [1..*] -- instantiates -- [1] Participation 
+    @Formal 
+    [1..*] -- participation_of -- [1] Participant 
+    @Formal 
+    [*] -- causes -- [*] Event_Individual 
+    @Formal 
+    [0..*] -- enables -- [1] Situation_Individual 
+    @Formal 
+    [0..*] -- brings_about -- [1] Situation_Individual 
+    @Formal 
+    [*] -- directly_causes -- [*] Event_Individual 
+    @Formal 
+    [1..*] -- instance_of -- [1] Identity_Provider_Universal 
+}
 

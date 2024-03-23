@@ -1,28 +1,26 @@
+import debbech2019conceptual
+
 package UFO
 
-class Relator 
-class Role 
-class Kind {
-    [1] -- plays --  [1..*]  Role
+class Relator
+
+class Role
+
+class Kind
+
+class Action
+
+class Intention
+
+class Goal specializes Proposition {
+    [*] -- satisfies -- [1..*] Situation 
 }
-class Action {
-    [1] -- caused_by --  [1..*]  Intention
-     [1..*] -- satisfy --  [1..*]  Goal
-}
-class Intention {
-    [*] -- propositional_content_of --  [1..*]  Goal
-}
-class Goal  specializes Proposition
-class Desire {
-    [*] --  [1..*]  Goal
-}
-class Proposition {
-    [*] -- satisfies --  [1..*]  Situation
-}
-class Situation {
-     [1..*] --  [1..*]  Action
-}
-class Agent {
-    [*] -- performs -- [*]  Action
-}
+
+class Desire
+
+class Proposition
+
+class Situation
+
+class Agent
 

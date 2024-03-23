@@ -1,225 +1,224 @@
+import EURENTRefactoredOntoUML
+
 package Model
 
-kind Person {
-    gender : undefined
-    parentalRole : undefined
-    seniority : undefined
-    statusAgePhase : undefined
+kind Person{
+    gender: undefined  
+    parentalRole: undefined  
+    seniority: undefined  
+    statusAgePhase: undefined  
 }
-subkind Man  specializes Person
-subkind Woman  specializes Person
-role Spouse  specializes Person{
-    @material
-    [1] -- is_married_to -- [1]  Spouse
+
+subkind Man of functional-complexes  specializes Person 
+
+subkind Woman of functional-complexes  specializes Person 
+
+role Spouse of functional-complexes  specializes Person 
+
+relator Marriage
+
+phase Living_Person of functional-complexes  specializes Person 
+
+phase Deceased_Person of functional-complexes  specializes Person 
+
+phase Infant of functional-complexes  specializes Living_Person 
+
+phase Teenage of functional-complexes  specializes Living_Person 
+
+phase Adult of functional-complexes  specializes Living_Person 
+
+roleMixin Customer of functional-complexes 
+
+role Personal_Customer of functional-complexes  specializes Customer, Driver 
+
+subkind Licensing_Authority of functional-complexes  specializes Governmental_Agency {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-relator Marriage {
-    @mediation
-    [1] -- involves_spouse -- [2]  Spouse( {const } )
+
+relator Drivers_License
+
+role Driver of functional-complexes  specializes Adult, Insurable_Item 
+
+kind Organization specializes Insurable_Item {
+    type_: undefined  
 }
-phase Living_Person  specializes Person
-phase Deceased_Person  specializes Person
-phase Infant  specializes Living_Person
-phase Teenage  specializes Living_Person
-phase Adult  specializes Living_Person
-roleMixin Customer 
-role Personal_Customer  specializes Customer, Driver
-subkind Licensing_Authority  specializes Governmental_Agency{
-    @material
-     [1..*] -- issues_driver_license_for -- [*]  Driver
+
+subkind Governmental_Agency of functional-complexes  specializes Organization {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-relator Drivers_License {
-    [*] -- issued_by -- [1]  Licensing_Authority( {const } )
-     [1..*] -- granted_to -- [1]  Driver( {const } )
+
+subkind Car_Agency of functional-complexes  specializes Organization {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-role Driver  specializes Adult, Insurable_Item
-kind Organization  specializes Insurable_Item{
-    type_ : undefined
-    @material
-    [1] -- owns -- [*]  Website
+
+kind Car specializes Insurable_Item {
+    function_: undefined  
+    status: undefined  
 }
-subkind Governmental_Agency  specializes Organization
-subkind Car_Agency  specializes Organization{
-    @material
-    [1] -- owns --  [1..*]  Car
+
+relator Car_Ownership
+
+role Corporate_Customer of functional-complexes  specializes Customer, Organization {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-kind Car  specializes Insurable_Item{
-    function_ : undefined
-    status : undefined
+
+phase Car_Needing_Maintenance of functional-complexes  specializes Car 
+
+phase Car_Needing_Repair of functional-complexes  specializes Car 
+
+phase Functional_Car of functional-complexes  specializes Car 
+
+subkind Organization_Unit of functional-complexes  specializes Organization {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-relator Car_Ownership {
-    @mediation
-     [1..*] -- involves_owner -- [1]  Car_Agency( {const } )
-    @mediation
-    [1] -- involves_property -- [1]  Car( {const } )
+
+subkind Service_Depot of functional-complexes  specializes Organization_Unit {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-role Corporate_Customer  specializes Customer, Organization
-phase Car_Needing_Maintenance  specializes Car
-phase Car_Needing_Repair  specializes Car
-phase Functional_Car  specializes Car
-subkind Organization_Unit  specializes Organization
-subkind Service_Depot  specializes Organization_Unit
-role Car_Scheduled_for_Maintenance  specializes Car_Needing_Maintenance{
-    @material
-    [*] -- is_scheduled_for_maintenance_at --  [1..*]  Service_Depot
+
+role Car_Scheduled_for_Maintenance of functional-complexes  specializes Car_Needing_Maintenance 
+
+role Car_Scheduled_for_Repair of functional-complexes  specializes Car_Needing_Repair 
+
+relator Maintenance_Appointment
+
+relator Repair_Appointment
+
+relator Car_Rental_Agreement specializes Insurable_Item 
+
+phase Active_Car_Rental_Agreement of relators  specializes Car_Rental_Agreement {
+    @mediation 
+    [1..*] -- involves_customer -- [1] Customer 
+    @mediation 
+    [*] -- involves_car -- [1] Functional_Car 
 }
-role Car_Scheduled_for_Repair  specializes Car_Needing_Repair{
-    @material
-    [*] -- is_scheduled_for_repair_at --  [1..*]  Service_Depot
+
+phase Extented_Car_Rental_Agreement of relators  specializes Car_Rental_Agreement {
+    @mediation 
+    [1..*] -- involves_customer -- [1] Customer 
+    @mediation 
+    [*] -- involves_car -- [1] Functional_Car 
 }
-relator Maintenance_Appointment {
-    @mediation
-    [*] -- involves_service_depot -- [1]  Service_Depot( {const } )
-    @mediation
-     [1..*] -- involves_car -- [1]  Car_Scheduled_for_Maintenance( {const } )
+
+phase Closed_Car_Rental_Agreement of relators  specializes Car_Rental_Agreement {
+    @mediation 
+    [1..*] -- involves_customer -- [1] Customer 
+    @mediation 
+    [*] -- involves_car -- [1] Functional_Car 
 }
-relator Repair_Appointment {
-    @mediation
-    [*] -- involves_service_depot -- [1]  Service_Depot( {const } )
-    @mediation
-     [1..*] -- involves_car -- [1]  Car_Scheduled_for_Repair( {const } )
+
+role Car_Rental_Agreement_Closed_With_Damage of relators  specializes Closed_Car_Rental_Agreement {
+    @mediation 
+    [1..*] -- involves_customer -- [1] Customer 
+    @mediation 
+    [*] -- involves_car -- [1] Functional_Car 
 }
-relator Car_Rental_Agreement  specializes Insurable_Item{
-    @mediation
-     [1..*] -- involves_customer -- [1]  Customer( {const } )
-    @mediation
-    [*] -- involves_car -- [1]  Functional_Car( {const } functional_Car )
+
+relator Damage_Report
+
+subkind Branch of functional-complexes  specializes Organization_Unit {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-phase Active_Car_Rental_Agreement  specializes Car_Rental_Agreement
-phase Extented_Car_Rental_Agreement  specializes Car_Rental_Agreement
-phase Closed_Car_Rental_Agreement  specializes Car_Rental_Agreement
-role Car_Rental_Agreement_Closed_With_Damage  specializes Closed_Car_Rental_Agreement{
-    @material
-     [1..*] -- invovles_rental_car -- [1]  Car_Returned_with_Damage
+
+role Transferred_Car of functional-complexes  specializes Car 
+
+relator Transfer_Agreement
+
+role Car_Returned_with_Damage of functional-complexes  specializes Car 
+
+phase Valid_Drivers_LIcense of relators  specializes Drivers_License {
+    [*] -- issued_by -- [1] Licensing_Authority 
+    [1..*] -- granted_to -- [1] Driver 
 }
-relator Damage_Report {
-    @mediation
-    [1] -- involves_car_rental -- [1]  Car_Rental_Agreement_Closed_With_Damage( {const } )
-    @mediation
-     [1..*] -- involves_car -- [1]  Car_Returned_with_Damage( {const } )
+
+phase Expired_Drivers_License of relators  specializes Drivers_License {
+    [*] -- issued_by -- [1] Licensing_Authority 
+    [1..*] -- granted_to -- [1] Driver 
 }
-subkind Branch  specializes Organization_Unit
-role Transferred_Car  specializes Car
-relator Transfer_Agreement {
-    @mediation
-     [1..*] -- involves_car -- [1]  Transferred_Car( {const } )
-    @mediation
-     [1..*] -- transfers_car_to -- [1]  Receiver_Branch( {const } )
-    @mediation
-     [1..*] -- transfers_car_from -- [1]  Sender_Branch( {const } )
+
+mixin Insurable_Item of functional-complexes 
+
+subkind Passenger_Car of functional-complexes  specializes Car 
+
+subkind Cargo_Car of functional-complexes  specializes Car 
+
+relator Rental_Insurance specializes Insurance {
+    @mediation 
+    [*] -- protects -- [1] Insurable_Item 
+    @mediation 
+    [1..*] -- involves_insuror -- [1] Insurance_Company 
 }
-role Car_Returned_with_Damage  specializes Car
-phase Valid_Drivers_LIcense  specializes Drivers_License
-phase Expired_Drivers_License  specializes Drivers_License
-mixin Insurable_Item 
-subkind Passenger_Car  specializes Car
-subkind Cargo_Car  specializes Car
-relator Rental_Insurance  specializes Insurance{
-    @mediation
-     [0..1] -- is_valid_for -- [1]  Car_Rental_Agreement( {const } )
-    @mediation
-     [1..*] -- protects -- [1]  Insured_Driver( {const } )
+
+role Insurance_Company of functional-complexes  specializes Organization {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-role Insurance_Company  specializes Organization{
-    @material
-    [*] -- insures --  [1..*]  Insurable_Item
+
+role Insured_Driver of functional-complexes  specializes Driver 
+
+kind Website{
+    status: undefined  
 }
-role Insured_Driver  specializes Driver
-kind Website {
-    status : undefined
+
+phase Online_Website of functional-complexes  specializes Website 
+
+phase Offline_Website of functional-complexes  specializes Website 
+
+relator Website_Ownership
+
+role Sender_Branch of functional-complexes  specializes Branch {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-phase Online_Website  specializes Website
-phase Offline_Website  specializes Website
-relator Website_Ownership {
-    @mediation
-    [*] -- involves_owner -- [1]  Organization( {const } )
-    @mediation
-    [1] -- involves_property -- [1]  Website( {const } )
+
+role Receiver_Branch of functional-complexes  specializes Branch {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-role Sender_Branch  specializes Branch
-role Receiver_Branch  specializes Branch
-relator Insurance {
-    @mediation
-    [*] -- protects -- [1]  Insurable_Item( {const } insurable_Item )
-    @mediation
-     [1..*] -- involves_insuror -- [1]  Insurance_Company( {const } )
+
+relator Insurance
+
+role Car_Manufacturer of functional-complexes  specializes Organization {
+    @material 
+    [1] -- owns -- [*] Website 
 }
-role Car_Manufacturer  specializes Organization{
-    @material
-    [1] -- produces --  [1..*]  Car
+
+relator Car_Production
+
+role Employee of functional-complexes  specializes Person 
+
+role Trainee of functional-complexes  specializes Employee {
+    @material 
+    [*] -- works_at -- [1] Organization 
 }
-relator Car_Production {
-    @mediation
-    [1] -- involves_product -- [1]  Car( {const } )
-    @mediation
-     [1..*] -- involves_manufacturer -- [1]  Car_Manufacturer( {const } )
+
+role Junior_Employee of functional-complexes  specializes Employee {
+    @material 
+    [*] -- works_at -- [1] Organization 
 }
-role Employee  specializes Person{
-    @material
-    [*] -- works_at -- [1]  Organization
+
+role Midlevel_Employee of functional-complexes  specializes Employee {
+    @material 
+    [*] -- works_at -- [1] Organization 
 }
-role Trainee  specializes Employee
-role Junior_Employee  specializes Employee
-role Midlevel_Employee  specializes Employee
-role Senior_Employee  specializes Employee
-relator Employment_Contract {
-    @mediation
-    [*] -- involves_employer -- [1]  Organization( {const } )
-    @mediation
-    [1] -- involves_employee -- [1]  Employee( {const } )
+
+role Senior_Employee of functional-complexes  specializes Employee {
+    @material 
+    [*] -- works_at -- [1] Organization 
 }
-role Parent  specializes Person{
-    @material
-     [1..2] -- is_parent_of --  [1..*]  Child
-}
-role Child  specializes Person
-relator Legal_Parenthood {
-    @mediation
-     [1..*] -- involves_parent -- [1]  Parent( {const } )
-    @mediation
-     [1..2] -- involves_child -- [1]  Child( {const } )
-}
-disjoint complete genset validity{
-    general Drivers_License
-    specifics Valid_Drivers_LIcense, Expired_Drivers_License 
-}
-complete genset seniority{
-    general Employee
-    specifics Senior_Employee, Trainee, Midlevel_Employee, Junior_Employee 
-}
-disjoint complete genset life status{
-    general Person
-    specifics Deceased_Person, Living_Person 
-}
-disjoint complete genset age group{
-    general Living_Person
-    specifics Adult, Infant, Teenage 
-}
-disjoint genset gender{
-    general Person
-    specifics Woman, Man 
-}
-disjoint complete genset website status{
-    general Website
-    specifics Offline_Website, Online_Website 
-}
-disjoint complete genset rental status{
-    general Car_Rental_Agreement
-    specifics Closed_Car_Rental_Agreement, Active_Car_Rental_Agreement, Extented_Car_Rental_Agreement 
-}
-disjoint genset car type{
-    general Car
-    specifics Passenger_Car, Cargo_Car 
-}
-disjoint complete genset customer nature{
-    general Customer
-    specifics Corporate_Customer, Personal_Customer 
-}
-disjoint complete genset car status{
-    general Car
-    specifics Functional_Car, Car_Needing_Maintenance, Car_Needing_Repair 
-}
-disjoint genset unit type{
-    general Organization_Unit
-    specifics Branch, Service_Depot 
-}
+
+relator Employment_Contract
+
+role Parent of functional-complexes  specializes Person 
+
+role Child of functional-complexes  specializes Person 
+
+relator Legal_Parenthood
 

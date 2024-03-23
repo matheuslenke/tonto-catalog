@@ -1,4 +1,5 @@
+
 package gr
 
-category ProductOrServiceModel 
+category ProductOrServiceModel of functional-complexes 
 

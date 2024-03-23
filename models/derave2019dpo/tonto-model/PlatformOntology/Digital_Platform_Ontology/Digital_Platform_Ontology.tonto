@@ -1,0 +1,20 @@
+import PlatformOntology
+
+package Digital_Platform_Ontology
+
+subkind Highest_Price_Offer of intrinsic-modes  specializes Offering_Price {
+    [0..*] -- has -- [1] Listing 
+    [1] -- has -- [0..*] Time_Slot 
+    @subQuantityOf 
+    [1..*] -- used_in -- [0..*] Booking_Price 
+}
+
+mode Location
+
+subkind Job_Fee of intrinsic-modes  specializes Price_set_by_Provider {
+    [0..*] -- has -- [1] Listing 
+    [1] -- has -- [0..*] Time_Slot 
+    @subQuantityOf 
+    [1..*] -- used_in -- [0..*] Booking_Price 
+}
+

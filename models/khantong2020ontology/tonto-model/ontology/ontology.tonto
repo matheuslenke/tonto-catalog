@@ -1,0 +1,69 @@
+
+package ontology
+
+subkind WeatherOrganization of functional-complexes  specializes Organization 
+
+subkind FloodManagementOrganization of functional-complexes  specializes Organization 
+
+kind Organization
+
+role HighWaterController of functional-complexes  specializes FloodManagementOrganization 
+
+phase SelectedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
+    [*] -- control -- [*] FloodEvent 
+}
+
+role HighWaterProtectionMeasureEvaluator of functional-complexes  specializes FloodManagementOrganization 
+
+kind People
+
+role Victim of functional-complexes  specializes People 
+
+role FloodEvacuationImplementer of functional-complexes  specializes EvacuationOrganization 
+
+kind FloodForecast
+
+kind FloodEvent
+
+role FloodForecaster of functional-complexes  specializes FloodManagementOrganization 
+
+role WeatherForecaster of functional-complexes  specializes WeatherOrganization 
+
+kind Area
+
+kind WeatherForecast
+
+kind Resource
+
+kind FloodDamage
+
+kind EvacuationRegistration
+
+phase EvaluatedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
+    [*] -- control -- [*] FloodEvent 
+}
+
+kind HighWaterProtectionMeasure
+
+phase ImplementedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
+    [*] -- control -- [*] FloodEvent 
+}
+
+role HighWaterProtectionImplementer of functional-complexes  specializes FloodManagementOrganization 
+
+kind FloodEvacuation
+
+role FloodDefenseMeasuresImplementer of functional-complexes  specializes FloodDefenseOrganization 
+
+role FloodDefenseManager of functional-complexes  specializes FloodDefenseOrganization 
+
+subkind FloodDefenseOrganization of functional-complexes  specializes Organization 
+
+subkind EvacuationOrganization of functional-complexes  specializes Organization 
+
+role FloodEvacuationManager of functional-complexes  specializes EvacuationOrganization 
+
+kind FloodEvacuationPlan
+
+kind FloodDefenseMeasures
+

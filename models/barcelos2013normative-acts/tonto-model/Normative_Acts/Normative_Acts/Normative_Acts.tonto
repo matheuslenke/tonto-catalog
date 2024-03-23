@@ -1,127 +1,131 @@
-package Normative_Acts
 
-kind Article {
-    number_ : int
+package Normative_Acts
+datatype int
+
+kind Article{
+    number_: int  
 }
-subkind Duration_Clause  specializes Article{
-    @componentOf
-     [0..*]  --<o> [1]  Normative_Act( {const } )
+
+subkind Duration_Clause of functional-complexes  specializes Article 
+
+subkind Revocation_Clause of functional-complexes  specializes Article 
+
+subkind Ordinary_Article of functional-complexes  specializes Article 
+
+kind Normative_Act{
+    duration: undefined  
+    hierarchy: int  
+    number_: int  
+    publication_date: undefined  
 }
-subkind Revocation_Clause  specializes Article{
-    @componentOf
-     [0..*]  --<o> [1]  Normative_Act( {const } )
+
+kind Brief{
+    text: string 
 }
-subkind Ordinary_Article  specializes Article{
-    @componentOf
-     [1..*]  --<o> [1]  Normative_Act( {const } )
+
+kind Epigraph{
+    text: string  
 }
-kind Normative_Act {
-    duration : undefined
-    hierarchy : int
-    number_ : int
-    publication_date : undefined
+
+kind Preamble{
+    text: string  
 }
-kind Brief {
-    text : string
-    @componentOf
-    ( {const } )[1]  --<o> [1]  Normative_Act( {const } )
+
+subkind Composed_Article of functional-complexes  specializes Article 
+
+subkind Simple_Article of functional-complexes  specializes Article {
+    text: string  
 }
-kind Epigraph {
-    text : string
-    @componentOf
-    ( {const } )[1]  --<o> [1]  Normative_Act( {const } )
+
+kind Caput{
+    text: string  
 }
-kind Preamble {
-    text : string
-    @componentOf
-    ( {const } )[1]  --<o> [1]  Normative_Act( {const } )
+
+subkind Article_composed_of_Item of functional-complexes  specializes Composed_Article 
+
+subkind Article_composed_of_Paragraph of functional-complexes  specializes Composed_Article 
+
+kind Item{
+    roman_number: int  
 }
-subkind Composed_Article  specializes Article
-subkind Simple_Article  specializes Article{
-    text : string
+
+subkind Item_component_of_Article of functional-complexes  specializes Item 
+
+kind Paragraph{
+    identification: string  
 }
-kind Caput {
-    text : string
-    @componentOf
-    [1]  --<o> [1]  Composed_Article( {const } )
+
+subkind Composed_Item of functional-complexes  specializes Item 
+
+subkind Simple_Item of functional-complexes  specializes Item 
+
+datatype char 
+
+kind Letter{
+    letter: char  
 }
-subkind Article_composed_of_Item  specializes Composed_Article
-subkind Article_composed_of_Paragraph  specializes Composed_Article
-kind Item {
-    roman_number : int
+
+subkind Simple_Letter of functional-complexes  specializes Letter {
+    @componentOf 
+    [2..*] -- [1] Composed_Item 
 }
-subkind Item_component_of_Article  specializes Item{
-    @componentOf
-     [2..*]  --<o> [1]  Article_composed_of_Item( {const } )
+
+subkind Composed_Letter of functional-complexes  specializes Letter {
+    @componentOf 
+    [2..*] -- [1] Composed_Item 
 }
-kind Paragraph {
-    identification : string
-    @componentOf
-     [1..*]  --<o> [1]  Article_composed_of_Paragraph( {const } )
+
+kind Letter_Discriminator{
+    cardinal_number: int  
 }
-subkind Composed_Item  specializes Item
-subkind Simple_Item  specializes Item
-kind Letter {
-    letter : char
-    @componentOf
-     [2..*]  --<o> [1]  Composed_Item( {const } )
+
+subkind Article_component_of_Chapter of functional-complexes  specializes Article 
+
+subkind Article_component_of_Section of functional-complexes  specializes Article 
+
+collective Section{
+    roman_number: int  
 }
-subkind Simple_Letter  specializes Letter
-subkind Composed_Letter  specializes Letter
-kind Letter_Discriminator {
-    cardinal_number : int
-    @componentOf
-     [2..*]  --<o> [1]  Composed_Letter( {const } )
+
+subkind Simple_Section of collectives  specializes Section 
+
+subkind Subsection of collectives  specializes Simple_Section 
+
+subkind Composed_Section of collectives  specializes Section 
+
+subkind Component_Section of collectives  specializes Section 
+
+subkind Chapter_composed_by_Section of collectives  specializes Chapter 
+
+subkind Chapter_composed_by_Article of collectives  specializes Chapter 
+
+collective Chapter{
+    roman_number: int  
 }
-subkind Article_component_of_Chapter  specializes Article{
-    @memberOf
-     [2..*]  --<o> [1]  Chapter_composed_by_Article
+
+subkind Component_Chapter of collectives  specializes Chapter 
+
+subkind Component_Charter of collectives  specializes Charter 
+
+collective Charter{
+    roman_number: int  
 }
-subkind Article_component_of_Section  specializes Article{
-    @memberOf
-     [2..*]  --<o> [1]  Simple_Section
+
+collective Book{
+    roman_number: int  
 }
-collective Section {
-    roman_number : int
+
+subkind Component_Book of collectives  specializes Book 
+
+collective Part
+
+subkind Multiple_Part of collectives  specializes Part {
+    roman_number: int  
 }
-subkind Simple_Section  specializes Section
-subkind Subsection  specializes Simple_Section{
-    @subCollectionOf
-     [2..*]  --<o> [1]  Composed_Section( {const } )
-}
-subkind Composed_Section  specializes Section
-subkind Component_Section  specializes Section{
-    @subCollectionOf
-    [1]  --<o> [1]  Chapter_composed_by_Section( {const } )
-}
-subkind Chapter_composed_by_Section  specializes Chapter
-subkind Chapter_composed_by_Article  specializes Chapter
-collective Chapter {
-    roman_number : int
-}
-subkind Component_Chapter  specializes Chapter{
-    @subCollectionOf
-    ( {const } ) [2..*]  --<o> [1]  Charter( {const } )
-}
-subkind Component_Charter  specializes Charter{
-    @subCollectionOf
-    ( {const } ) [2..*]  --<o> [1]  Book( {const } )
-}
-collective Charter {
-    roman_number : int
-}
-collective Book {
-    roman_number : int
-}
-subkind Component_Book  specializes Book{
-    @subCollectionOf
-    ( {const } ) [2..*]  --<o> [1]  Part( {const } )
-}
-collective Part 
-subkind Multiple_Part  specializes Part{
-    roman_number : int
-}
-subkind Double_Part  specializes Part
-subkind Special_Part  specializes Double_Part
-subkind General_Part  specializes Double_Part
+
+subkind Double_Part of collectives  specializes Part 
+
+subkind Special_Part of collectives  specializes Double_Part 
+
+subkind General_Part of collectives  specializes Double_Part 
 

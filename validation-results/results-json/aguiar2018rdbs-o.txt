@@ -1,0 +1,15 @@
+Total Errors: 13
+ 
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Every sortal class must specialize a unique ultimate sortal
+[error]: The meta-property 'restrictedTo' is not assigned
+[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values

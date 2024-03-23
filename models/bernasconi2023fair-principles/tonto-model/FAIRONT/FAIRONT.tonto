@@ -1,0 +1,228 @@
+
+package FAIRONT
+
+kind Searchable_Resource specializes Resource 
+
+collective Data specializes Data_Entity {
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+subkind Ground_Data of collectives  specializes Data {
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+subkind Metadata of collectives  specializes Data {
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+role Searchable_Data of collectives  specializes Data {
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+relator RegistrationIndexing
+
+kind Data_Item specializes Data_Entity {
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+subkind Metadata_Item of functional-complexes  specializes Data_Item {
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+category Data_Entity of functional-complexes 
+
+kind Attribute
+
+subkind Metadata_Item_Attribute of functional-complexes  specializes Attribute {
+    @componentOf 
+    [1..*] -- [1] Data_Item 
+}
+
+subkind ID of functional-complexes  specializes Attribute {
+    @componentOf 
+    [1..*] -- [1] Data_Item 
+}
+
+subkind Data_ID of functional-complexes  specializes ID {
+    @componentOf 
+    [1..*] -- [1] Accessible_Data 
+    @componentOf 
+    [1..*] -- [1] Data_Item 
+}
+
+subkind Data_Item_ID of functional-complexes  specializes ID {
+    @componentOf 
+    [1..*] -- [1] Accessible_Data 
+    @componentOf 
+    [1..*] -- [1] Data_Item 
+}
+
+kind Identification_Service specializes Resource 
+
+relator ID_Registration
+
+category Qualified_Attribute_Item of functional-complexes 
+
+kind Attribute_Key
+
+kind Attribute_Value
+
+subkind Explained_Attribute_Key of functional-complexes  specializes Attribute_Key, Qualified_Attribute_Item {
+    @componentOf 
+    [1] -- [1] Attribute 
+    @componentOf 
+    [2] -- [1] ID 
+    @externalDependence 
+    [*] -- [1] Data_Entity 
+}
+
+subkind SelfExplanatory_Attribute_Key of functional-complexes  specializes Attribute_Key {
+    @componentOf 
+    [1] -- [1] Attribute 
+}
+
+subkind Extrinsic_Attribute_Value of functional-complexes  specializes Attribute_Value, Qualified_Attribute_Item {
+    @componentOf 
+    [1] -- essentialinseparable -- [1] Attribute 
+    @componentOf 
+    [2] -- [1] ID 
+    @externalDependence 
+    [*] -- [1] Data_Entity 
+}
+
+subkind Intrinsic_Attribute_Value of functional-complexes  specializes Attribute_Value {
+    @componentOf 
+    [1] -- essentialinseparable -- [1] Attribute 
+}
+
+kind Data_Model specializes Resource 
+
+kind Representation_Language specializes Resource 
+
+role Accessible_Data of collectives  specializes Data {
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+role Open_Data of collectives  specializes Accessible_Data {
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+role Data_with_Restricted_Access of collectives  specializes Accessible_Data {
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+relator Data_Accessibility_Requirements
+
+subkind Data_Access_Protocol of functional-complexes  specializes Protocol 
+
+subkind Authentication_Protocol of functional-complexes  specializes Data_Access_Protocol 
+
+subkind Authorization_Protocol of functional-complexes  specializes Data_Access_Protocol 
+
+category Resource of functional-complexes 
+
+kind Protocol specializes Resource 
+
+collective Community
+
+roleMixin Community_Standard of functional-complexes  specializes Resource 
+
+mode Community_Consensus
+
+subkind Restricted_Data_Accessibility_Requirements of relators  specializes Data_Accessibility_Requirements {
+    @mediation 
+    [*] -- [1] Accessible_Data 
+    @externalDependence 
+    [*] -- requires -- [1..*] Data_Access_Protocol 
+    @mediation 
+    [*] -- [1] Community 
+}
+
+subkind Provenance_Metadata of collectives  specializes Metadata {
+    @externalDependence 
+    [*] -- is_metadata_of -- [1] Data 
+    @externalDependence 
+    [1..*] -- is_metadata_of -- [1..*] Ground_Data 
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+subkind Provenance_Metadata_Item_Attribute of functional-complexes  specializes Metadata_Item_Attribute {
+    @componentOf 
+    [1..*] -- [1] Metadata_Item 
+    @componentOf 
+    [1..*] -- [1] Data_Item 
+}
+
+role Rich_Metadata_Item_Attribute of functional-complexes  specializes Metadata_Item_Attribute {
+    @componentOf 
+    [1..*] -- [1] Metadata_Item 
+    @componentOf 
+    [1..*] -- [1] Data_Item 
+}
+
+role Reusable_Data of collectives  specializes Data {
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+relator Data_Usage_License
+
+role Rich_Metadata of collectives  specializes Metadata {
+    @externalDependence 
+    [*] -- is_metadata_of -- [1] Data 
+    @externalDependence 
+    [1..*] -- is_metadata_of -- [1..*] Ground_Data 
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+}
+
+role Rich_Provenance_Metadata_Item_Attribute of functional-complexes  specializes Rich_Metadata_Item_Attribute, Provenance_Metadata_Item_Attribute {
+    @externalDependence 
+    [*] -- [1..*] Community_Standard 
+    @componentOf 
+    [1..*] -- [1] Metadata_Item 
+    @componentOf 
+    [1..*] -- [1] Data_Item 
+}
+
+role Rich_Provenance_Metadata of collectives  specializes Provenance_Metadata, Rich_Metadata {
+    @externalDependence 
+    [*] -- is_metadata_of -- [1] Data 
+    @externalDependence 
+    [1..*] -- is_metadata_of -- [1..*] Ground_Data 
+    @memberOf 
+    [1..*] -- [1] Data_Item 
+    @externalDependence 
+    [*] -- materializes -- [1] Data_Model 
+    @externalDependence 
+    [1..*] -- is_metadata_of -- [1..*] Reusable_Data 
+}
+

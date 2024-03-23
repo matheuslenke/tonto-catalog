@@ -1,34 +1,18 @@
+import UFO
+
 package Social_Relator_Pattern
 
-relator Social_Relator {
-    @mediation
-     [1..*] --  [1..*]  Claimer( {const } claimers )
-    @mediation
-     [1..*] --  [1..*]  Committer( {const } committers )
-    @sum
-    [1] <o>--  [1..*]  Social_Commitment
-    @sum
-    [1] <o>--  [1..*]  Social_Claim
-}
-roleMixin Committer  specializes A{
-    @material
-     [1..*] --  [1..*]  Claimer
-}
-roleMixin Claimer  specializes B
-category A 
-category B 
-mode Social_Commitment {
-    @characterization
-     [1..*] -- inheres_in -- [1]  Committer( {const } committer )
-    @externalDependence
-     [1..*] -- [1]  Claimer( {const } claimer )
-    @Formal
-    [1] -- isCounterPartOf -- [1]  Social_Claim
-}
-mode Social_Claim {
-    @externalDependence
-     [1..*] -- [1]  Committer( {const } committer )
-    @characterization
-     [1..*] -- inheres_in -- [1]  Claimer( {const } claimer )
-}
+relator Social_Relator
+
+roleMixin Committer of functional-complexes  specializes A 
+
+roleMixin Claimer of functional-complexes  specializes B 
+
+category A of functional-complexes 
+
+category B of functional-complexes 
+
+mode Social_Commitment
+
+mode Social_Claim
 

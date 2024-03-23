@@ -1,0 +1,12 @@
+import PlatformOntology
+
+package Price_Discovery
+
+mode Price
+
+subkind Suggested_Price of intrinsic-modes  specializes Price 
+
+subkind Market_Price of intrinsic-modes  specializes Price 
+
+subkind Offering_Price of intrinsic-modes  specializes Price 
+

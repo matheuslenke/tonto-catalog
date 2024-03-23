@@ -1,0 +1,38 @@
+
+package buridan_ontology
+
+mode Context
+
+kind LawOfReasoning
+
+kind LogicalRule
+
+kind Logicinuse specializes Logic 
+
+subkind LogicalDoctrine of functional-complexes  specializes PracticalScience, Logic 
+
+subkind PracticalScience of functional-complexes  specializes Science 
+
+subkind ScienceInStrictSense of functional-complexes  specializes Science 
+
+category Logic of functional-complexes 
+
+kind Science
+
+role Suppositum of functional-complexes  specializes Term {
+    @material 
+    [1..*] -- refers_to -- [1] Suppositum 
+    @componentOf 
+    [1..*] -- [1] Proposition 
+}
+
+relator Supposition
+
+kind Proposition
+
+kind Object
+
+kind Term
+
+relator Signification
+

@@ -1,61 +1,83 @@
-import Agents
+import ontologia_de_publicao
+import Journal
 import Publisher
+import Agents
 
 package Publication
 
-category Authored_Document  specializes InBook
-category Editored_Document 
-role Editor  specializes Person
-relator Editorship {
-    @mediation
-    [1] -- [1]  Editor( {const } )
-    @mediation
-    [1] -- [1]  Editored_Document( {const } )
+category Authored_Document of functional-complexes  specializes InBook 
+
+category Editored_Document of functional-complexes 
+
+role Editor of functional-complexes  specializes Person 
+
+relator Editorship
+
+roleMixin Main_Author of functional-complexes  specializes Agent 
+
+relator Compound_Authorship specializes Authorship {
+    @mediation 
+    [1] -- [1] Authored_Document 
+    @mediation 
+    [1..*] -- [1] Main_Author 
 }
-roleMixin Main_Author  specializes Agent
-relator Compound_Authorship  specializes Authorship{
-    @mediation
-     [1..*] --  [1..*]  Colaborator( {const } )
+
+relator Authorship
+
+subkind Editored_Book of functional-complexes  specializes Book, Editored_Document 
+
+role Cited specializes Document 
+
+category Citing_Document of functional-complexes  specializes Document 
+
+relator Citation
+
+kind Thesis specializes Publication, Authored_Document 
+
+kind Book specializes Publication, Authored_Document, Published_Document 
+
+kind Report specializes Publication, Authored_Document 
+
+subkind MSc_Thesis of functional-complexes  specializes Thesis 
+
+subkind PhD_Thesis of functional-complexes  specializes Thesis 
+
+collective Proceedings specializes Publication, Editored_Document 
+
+category Publication of functional-complexes  specializes Document 
+
+category InBook of functional-complexes  specializes Publication 
+
+category Periodical of functional-complexes  specializes Publication, Editored_Document, Published_Document 
+
+kind Magazine specializes Periodical 
+
+subkind BSc_Thesis of functional-complexes  specializes Thesis 
+
+category Document of functional-complexes {
+    title: undefined  
+    subtitle: undefined  
 }
-relator Authorship {
-    @mediation
-    [1] -- [1]  Authored_Document( {const } )
-    @mediation
-     [1..*] -- [1]  Main_Author( {const } )
-}
-subkind Editored_Book  specializes Book, Editored_Document
-role Cited  specializes Document
-category Citing_Document  specializes Document
-relator Citation {
-    @mediation
-     [1..*] -- [1]  Citing_Document( {const } )
-    @mediation
-     [1..*] -- [1]  Cited( {const } )
-}
-kind Thesis  specializes Publication, Authored_Document
-kind Book  specializes Publication, Authored_Document, Published_Document
-kind Report  specializes Publication, Authored_Document
-subkind MSc_Thesis  specializes Thesis
-subkind PhD_Thesis  specializes Thesis
-collective Proceedings  specializes Publication, Editored_Document
-category Publication  specializes Document
-category InBook  specializes Publication
-category Periodical  specializes Publication, Editored_Document, Published_Document
-kind Magazine  specializes Periodical
-subkind BSc_Thesis  specializes Thesis
-category Document {
-    title : undefined
-    subtitle : undefined
-}
-kind Unpublished_Document  specializes Document
-kind InProceedings  specializes Publication, Authored_Document
-kind Book_Chapter  specializes InBook
-kind Range_of_Pages  specializes InBook
-kind Collection  specializes Publication, Editored_Document, Published_Document
-category InCollection  specializes Publication, Authored_Document
-subkind Technical_Report  specializes Report
-subkind Project_Report  specializes Report
-kind Booklet  specializes Publication, Authored_Document
-kind Manual  specializes Publication, Authored_Document
-kind ResearchPaper  specializes Publication, Authored_Document
+
+kind Unpublished_Document specializes Document 
+
+kind InProceedings specializes Publication, Authored_Document 
+
+kind Book_Chapter specializes InBook 
+
+kind Range_of_Pages specializes InBook 
+
+kind Collection specializes Publication, Editored_Document, Published_Document 
+
+category InCollection of functional-complexes  specializes Publication, Authored_Document 
+
+subkind Technical_Report of functional-complexes  specializes Report 
+
+subkind Project_Report of functional-complexes  specializes Report 
+
+kind Booklet specializes Publication, Authored_Document 
+
+kind Manual specializes Publication, Authored_Document 
+
+kind ResearchPaper specializes Publication, Authored_Document 
 

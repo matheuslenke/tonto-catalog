@@ -1,0 +1,45 @@
+
+package ontology
+
+mode Reasoning
+
+mode Person
+
+mode Theoretical
+
+mode Experimental
+
+kind Inductive
+
+kind Deductive
+
+kind Conclusion
+
+kind Experiment
+
+kind Goal
+
+kind Hypothesis
+
+kind Problem
+
+kind Precedent
+
+kind Report
+
+kind Outcome
+
+kind Reference
+
+kind Result
+
+kind Measure
+
+kind Context
+
+kind Location
+
+collective Group
+
+datatype InitialDate
+datatype EndDate

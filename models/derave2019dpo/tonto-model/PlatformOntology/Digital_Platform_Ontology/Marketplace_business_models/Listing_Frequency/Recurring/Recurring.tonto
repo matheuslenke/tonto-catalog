@@ -1,0 +1,14 @@
+import PlatformOntology
+
+package Recurring
+
+phase Available_time_slot of qualities  specializes Time_Slot 
+
+phase Booked_Time_Slot of qualities  specializes Time_Slot 
+
+quality Time_Slot
+
+class Start_Time specializes Time 
+
+class End_Time specializes Time 
+

@@ -1,25 +1,34 @@
-import Estimated_Process
+import ontology
 import WBS
+import Tracked_Process
 import Performed_Process
 
 package Tracked_Process
 
-class Tracked_Process  specializes Performed_Project_Process{
-    cost : undefined
-    duration : undefined
-    progressIndex : undefined
-     [0..1] -- tracked_in_relation_to -- [1]  Estimated_Process
+class Tracked_Process specializes Performed_Project_Process {
+    cost: undefined  
+    duration: undefined  
+    progressIndex: undefined  
+    [0..*] -- performed_in -- [1] Software_Project 
+    [0..1] -- caused_by -- [0..1] Project_Process 
+    [0..1] -- caused_by -- [0..1] Intended_Process 
 }
-class Tracked_Activity  specializes Performed_Project_Activity{
-    cost : undefined
-    duration : undefined
-    progressIndex : undefined
-     [0..1] -- tracked_in_relation_to -- [1]  Estimated_Activity
-     [0..*] -- contributes_to_produce --  [1..*]  Work_Package
+
+class Tracked_Activity specializes Performed_Project_Activity {
+    cost: undefined  
+    duration: undefined  
+    progressIndex: undefined  
+    [0..*] -- caused_by -- [0..1] Project_Activity 
+    [0..*] -- performed_in -- [1] Software_Project 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    [0..*] -- caused_by -- [0..1] Intended_Activity 
+    [1] -- [1..*] Stakeholder_Participation 
 }
-class Tracked_Stakeholder_Participation  specializes Stakeholder_Participation{
-    cost : undefined
-    duration : undefined
-     [0..*] -- refers_to -- [1]  Estimated_Stakeholder_Allocation
+
+class Tracked_Stakeholder_Participation specializes Stakeholder_Participation {
+    cost: undefined  
+    duration: undefined  
+    [0..*] -- refers_to -- [0..1] Stakeholder_Allocation 
+    [0..*] -- participation_of -- [1] Stakeholder 
 }
 

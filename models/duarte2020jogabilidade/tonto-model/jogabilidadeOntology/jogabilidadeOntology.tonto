@@ -1,0 +1,44 @@
+
+package jogabilidadeOntology
+
+relator Jogar
+
+role Jogador of functional-complexes  specializes Pessoa 
+
+role Jogo_qua_agente of functional-complexes  specializes Jogo_de_Videogame_software {
+    [1] -- [2..*] Mecnica 
+    [1] -- [2..*] Regra 
+    [1] -- [2..*] Design 
+}
+
+kind Pessoa
+
+kind Jogo_de_Videogame_software
+
+kind Mecnica
+
+kind Regra
+
+kind Design
+
+quality QualidadeMecnica
+
+quality QualidadeRegra
+
+quality QualidadeDesign
+
+event Gameplay
+
+situation Inicio_da_partida_de_videogame
+
+situation Final_da_partidade_de_videogame
+
+quality Jogabilidade
+
+enum Usabilidade {
+    mecanica,regra,design
+}
+
+datatype MedidaQualidadeMecnica
+datatype MedidaQualidadeRegra
+datatype MedidaQualidadeDesign

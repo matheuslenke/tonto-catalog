@@ -1,0 +1,10 @@
+Total Errors: 8
+ 
+[error]: Not unique class stereotype
+[error]: Only enumerations may have literals
+[error]: Not unique class stereotype
+[error]: Only enumerations may have literals
+[error]: Not unique class stereotype
+[error]: Only enumerations may have literals
+[error]: Not unique class stereotype
+[error]: Only enumerations may have literals

@@ -1,0 +1,162 @@
+
+package ontologiapublicacao
+
+kind Texto_Cientfico
+
+role Resumo_Publicado of functional-complexes  specializes Texto_Cientfico {
+    @memberOf 
+    [2..*] -- [0..*] Coleo_de_Textos_Cientficos 
+}
+
+role Artigo_Publicado of functional-complexes  specializes Texto_Cientfico {
+    @memberOf 
+    [2..*] -- [0..*] Coleo_de_Textos_Cientficos 
+}
+
+role Captulo_de_Livro_Publicado of functional-complexes  specializes Texto_Cientfico_Publicado {
+    @memberOf 
+    [2..*] -- [0..*] Obra_Cientfica_Publicada 
+    @memberOf 
+    [2..*] -- [0..*] Obra_Cientfica_Editada 
+    @memberOf 
+    [2..*] -- [0..*] Coleo_de_Textos_Cientficos 
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+}
+
+kind Livro
+
+relator Autoria_Cientfica
+
+role Autor_Cientfico of functional-complexes  specializes Pessoa_Fsica, Entidades_Avaliveis {
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+}
+
+relator Publicao_de_Obra_Cientfica
+
+roleMixin Publicador of functional-complexes 
+
+kind Volume_de_Peridico
+
+role Artigo_de_Peridico_Publicado of functional-complexes  specializes Artigo_Publicado {
+    @memberOf 
+    [2..*] -- [0..*] Coleo_de_Textos_Cientficos 
+}
+
+role Artigo_de_Evento_Publicado of functional-complexes  specializes Artigo_Publicado {
+    @memberOf 
+    [2..*] -- [0..*] Coleo_de_Textos_Cientficos 
+}
+
+subkind Anais_de_Evento of collectives  specializes Coleo_de_Textos_Cientficos 
+
+subkind Fascculo of collectives  specializes Coleo_de_Textos_Cientficos 
+
+category Veculos_de_Publicao_Cientfica of functional-complexes  specializes Entidades_Avaliveis {
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+}
+
+kind Evento specializes Veculos_de_Publicao_Cientfica {
+    @material 
+    [1..*] -- [1] Publicador 
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+}
+
+kind Peridico specializes Veculos_de_Publicao_Cientfica {
+    @material 
+    [1..*] -- [1] Publicador 
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+}
+
+kind Pessoa_Fsica
+
+subkind Edio_de_Livro of collectives  specializes Coleo_de_Textos_Cientficos 
+
+kind Edio_do_Evento
+
+role Obra_Cientfica_Editada of collectives  specializes Coleo_de_Textos_Cientficos 
+
+role Texto_Cientfico_Editado of functional-complexes  specializes Texto_Cientfico {
+    @memberOf 
+    [2..*] -- [0..*] Coleo_de_Textos_Cientficos 
+}
+
+roleMixin Editor of functional-complexes 
+
+role Obra_Cientfica_Publicada of collectives  specializes Obra_Cientfica_Editada {
+    @mediation 
+    [1] -- [1] Edio_de_Obra_Cientfica 
+}
+
+relator Edio_de_Obra_Cientfica
+
+role Texto_Cientfico_Publicado of functional-complexes  specializes Texto_Cientfico_Editado, Entidades_Avaliveis {
+    @memberOf 
+    [2..*] -- [0..*] Obra_Cientfica_Editada 
+    @memberOf 
+    [2..*] -- [0..*] Coleo_de_Textos_Cientficos 
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+}
+
+collective Coleo_de_Textos_Cientficos
+
+category ndice_de_Qualidade_Cientfica of qualities 
+
+subkind ndice_de_Autor specializes ndice_de_Qualidade_Cientfica 
+
+subkind ndice_de_Veculo_de_Publicao specializes ndice_de_Qualidade_Cientfica 
+
+subkind ndice_de_Texto_Cientfico_Publicado specializes ndice_de_Qualidade_Cientfica 
+
+mixin Entidades_Avaliveis of functional-complexes 
+
+quality JCR specializes ndice_de_Veculo_de_Publicao {
+    @characterization 
+    [0..*] -- possui -- [1] Veculos_de_Publicao_Cientfica 
+}
+
+quality Qualis specializes ndice_de_Veculo_de_Publicao {
+    @characterization 
+    [0..*] -- possui -- [1] Veculos_de_Publicao_Cientfica 
+}
+
+quality Hindex specializes ndice_de_Autor 
+
+quality H10 specializes ndice_de_Autor 
+
+class N_de_Citaes specializes ndice_de_Texto_Cientfico_Publicado {
+    @characterization 
+    [0..*] -- possui -- [1] Texto_Cientfico_Publicado 
+}
+
+kind Pessoa_Jurdica
+
+subkind Instituio of functional-complexes  specializes Pessoa_Jurdica 
+
+relator Afiliao
+
+kind rea_de_Pesquisa
+
+role Colaborador_Afiliado of functional-complexes  specializes Pessoa_Fsica 
+
+role Autor_Cientfico_Independente of functional-complexes  specializes Autor_Cientfico {
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Autor 
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+}
+
+role Autor_Cientfico_Afilidado of functional-complexes  specializes Autor_Cientfico, Colaborador_Afiliado {
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Autor 
+    @characterization 
+    [1] -- possui -- [0..*] ndice_de_Qualidade_Cientfica 
+    @mediation 
+    [1] -- [1..*] Afiliao 
+}
+

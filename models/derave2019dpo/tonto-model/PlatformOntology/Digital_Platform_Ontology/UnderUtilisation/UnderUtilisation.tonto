@@ -1,0 +1,10 @@
+import PlatformOntology
+
+package UnderUtilisation
+
+subkind Physical_Good of functional-complexes  specializes Good 
+
+event Regularly_uses
+
+subkind UnderUtilized_Product of functional-complexes  specializes Physical_Good 
+

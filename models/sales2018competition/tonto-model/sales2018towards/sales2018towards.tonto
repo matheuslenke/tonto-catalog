@@ -1,0 +1,78 @@
+
+package sales2018towards
+
+category Agent
+
+roleMixin Competitor specializes Agent 
+
+mode Resource_Demand{
+    quantity_: undefined [0..*] 
+}
+
+relator Collective_Demand{
+    collectiveQuantity: undefined [0..*] { derived }
+    competitiveness: undefined [0..*] { derived }
+}
+
+phase Competition of relators  specializes Collective_Demand {
+    [*] -- involves -- [2..*] Agent 
+    [*] -- [2..*] Resource_Demand 
+    [*] -- involves -- [1] Resource 
+}
+
+phase NonCompetition of relators  specializes Collective_Demand {
+    [*] -- involves -- [2..*] Agent 
+    [*] -- [2..*] Resource_Demand 
+    [*] -- involves -- [1] Resource 
+}
+
+mixin Resource
+
+roleMixin Scarce_Resource specializes Resource 
+
+roleMixin Single_Resource specializes Resource 
+
+type Resource_Type specializes Resource 
+
+collective Resource_Stock specializes Resource 
+
+relator Value_Proposition
+
+mode Demand_for_Market
+
+relator Market_Competition
+
+roleMixin Supplier specializes Economic_Agent 
+
+roleMixin Market_Competitor specializes Supplier 
+
+collective Market
+
+subkind Simple_Market of collectives  specializes Market 
+
+subkind Composed_Market of collectives  specializes Market 
+
+roleMixin Direct_Competitor specializes Market_Competitor {
+    [1..*] -- competes_with -- [1..*] Market_Competitor 
+}
+
+roleMixin Indirect_Competitor specializes Market_Competitor {
+    [1..*] -- competes_with -- [1..*] Market_Competitor 
+}
+
+category Economic_Agent
+
+relator Potential_Competition
+
+roleMixin Potential_Competitor specializes Economic_Agent 
+
+quality Capability
+
+role Supplier_Capability of qualities  specializes Capability {
+    [1..*] -- inheres_in -- [1] Economic_Agent 
+}
+
+role Equivalent_Capability of qualities  specializes Capability {
+    [1..*] -- inheres_in -- [1] Economic_Agent 
+}
+

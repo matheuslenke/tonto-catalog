@@ -1,43 +1,32 @@
+import stockBrokerModel
+
 package Model
 
-kind Person 
-role Stockholder_Person  specializes Person, StockHolder
-role StockholderOrganization  specializes Organization, StockHolder
-roleMixin StockHolder 
-relator Contract {
-    @mediation
-    [1] -- [1]  StockHolder( {const } )
-    @mediation
-    [1] -- [1]  Hired_Brokerage( {const } )
-}
-role Hired_Brokerage  specializes Brokerage
-kind Organization 
-subkind Brokerage  specializes Organization
-subkind Stock_Exchange  specializes Organization
-role Buyer  specializes Brokerage
-role Seller  specializes Brokerage
-relator Stock {
-    @mediation
-    [1] -- [1]  Buyer( {const } )
-    @mediation
-    [1] -- [1]  Seller( {const } )
-    @mediation
-    [1] -- [1]  Public_Traded_Company( {const } )
-    @mediation
-    [1] -- [1]  Stock_Keeper( {const } )
-}
-role Public_Traded_Company  specializes Organization
-role Stock_Keeper  specializes Stock_Exchange
-disjoint genset tJClsf6GAqAAbwrg{
-    general Brokerage
-    specifics Seller, Buyer 
-}
-disjoint genset 2TGlsf6GAqAAbwsS{
-    general Organization
-    specifics Public_Traded_Company, Brokerage, Stock_Exchange 
-}
-disjoint genset trBlsf6GAqAAbws6{
-    general StockHolder
-    specifics StockholderOrganization, Stockholder_Person 
-}
+kind Person
+
+role Stockholder_Person of functional-complexes  specializes Person, StockHolder 
+
+role StockholderOrganization of functional-complexes  specializes Organization, StockHolder 
+
+roleMixin StockHolder of functional-complexes 
+
+relator Contract
+
+role Hired_Brokerage of functional-complexes  specializes Brokerage 
+
+kind Organization
+
+subkind Brokerage of functional-complexes  specializes Organization 
+
+subkind Stock_Exchange of functional-complexes  specializes Organization 
+
+role Buyer of functional-complexes  specializes Brokerage 
+
+role Seller of functional-complexes  specializes Brokerage 
+
+relator Stock
+
+role Public_Traded_Company of functional-complexes  specializes Organization 
+
+role Stock_Keeper of functional-complexes  specializes Stock_Exchange 
 

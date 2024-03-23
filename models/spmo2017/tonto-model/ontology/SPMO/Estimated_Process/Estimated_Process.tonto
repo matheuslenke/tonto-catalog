@@ -1,39 +1,60 @@
-import WBS
+import ontology
 import Performed_Process
+import SPMO
+import Tracked_Process
+import WBS
 
 package Estimated_Process
 
-mode Scheduled_Process  specializes Intended_Process{
-    plannedStartDate : undefined
-    plannedEndDate : undefined
+mode Scheduled_Process specializes Intended_Process {
+    plannedStartDate: undefined  
+    plannedEndDate: undefined  
 }
-class Cost_Estimated_Process  specializes Project_Process{
-    estimatedCost : undefined
+
+class Cost_Estimated_Process specializes Project_Process {
+    estimatedCost: undefined  
+    [0..*] -- defined_for -- [1] Software_Project 
 }
-class Duration_Estimated_Process  specializes Project_Process{
-    estimatedDuration : undefined
+
+class Duration_Estimated_Process specializes Project_Process {
+    estimatedDuration: undefined  
+    [0..*] -- defined_for -- [1] Software_Project 
 }
-class Estimated_Process  specializes Scheduled_Process, Cost_Estimated_Process, Duration_Estimated_Process, Project_Process
-class Scope_Estimated_Activity  specializes Project_Activity{
-     [1..*] -- is_to_produce --  [1..*]  Work_Package
+
+class Estimated_Process specializes Scheduled_Process, Cost_Estimated_Process, Duration_Estimated_Process, Project_Process {
+    [0..*] -- defined_for -- [1] Software_Project 
 }
-class Cost_Estimated_Activity  specializes Project_Activity{
-    estimatedCost : undefined
+
+class Scope_Estimated_Activity specializes Project_Activity {
+    [0..*] -- defined_for -- [1] Software_Project 
 }
-class Estimated_Activity  specializes Scope_Estimated_Activity, Cost_Estimated_Activity, Duration_Estimated_Activity, Scheduled_Activity, Project_Activity
-class Duration_Estimated_Activity  specializes Project_Activity{
-    estimatedDuration : undefined
+
+class Cost_Estimated_Activity specializes Project_Activity {
+    estimatedCost: undefined  
+    [0..*] -- defined_for -- [1] Software_Project 
 }
-mode Scheduled_Activity  specializes Intended_Activity{
-    plannedStartDate : undefined
-    plannedEndDate : undefined
+
+class Estimated_Activity specializes Scope_Estimated_Activity, Cost_Estimated_Activity, Duration_Estimated_Activity, Scheduled_Activity, Project_Activity {
+    [1..*] -- is_to_produce -- [1..*] Work_Package 
+    [0..*] -- defined_for -- [1] Software_Project 
 }
-class Estimated_Stakeholder_Allocation  specializes Stakeholder_Allocation{
-    plannedStartDate : undefined
-    plannedEndDate : undefined
-    estimatedDuration : undefined
-    estimatedCost : undefined
-    @mediation
-     [0..*] -- is_to_perform -- [1]  Estimated_Activity( {const } )
+
+class Duration_Estimated_Activity specializes Project_Activity {
+    estimatedDuration: undefined  
+    [0..*] -- defined_for -- [1] Software_Project 
+}
+
+mode Scheduled_Activity specializes Intended_Activity {
+    plannedStartDate: undefined  
+    plannedEndDate: undefined  
+}
+
+class Estimated_Stakeholder_Allocation specializes Stakeholder_Allocation {
+    plannedStartDate: undefined  
+    plannedEndDate: undefined  
+    estimatedDuration: undefined  
+    estimatedCost: undefined  
+    @mediation 
+    [0..*] -- allocates -- [1] Stakeholder 
 }
 

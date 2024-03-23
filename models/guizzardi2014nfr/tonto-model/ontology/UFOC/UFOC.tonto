@@ -1,7 +1,7 @@
+
 package UFOC
 
-class Intention 
-class Goal {
-    [1] -- propositional_content_of --  [1..*]  Intention
-}
+class Intention
+
+class Goal
 

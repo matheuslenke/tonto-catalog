@@ -1,0 +1,84 @@
+
+package Formula_One
+
+kind F1_Season
+
+relator Race
+
+kind Grand_Prix
+
+role Driver of functional-complexes  specializes Racing_Team_Member 
+
+collective Racing_Team
+
+kind Circuit
+
+kind Engine specializes F1_Car_Piece 
+
+kind Tire specializes F1_Car_Piece 
+
+kind Chassis specializes F1_Car_Piece 
+
+kind F1_Car
+
+kind Person
+
+category F1_Car_Piece of functional-complexes 
+
+role Engineer of functional-complexes  specializes Racing_Team_Member 
+
+role Mechanic of functional-complexes  specializes Racing_Team_Member 
+
+role Racing_Team_Member of functional-complexes  specializes Person 
+
+role Team_Manager of functional-complexes  specializes Racing_Team_Member 
+
+subkind Regular_Race of relators  specializes Race {
+    @mediation 
+    [0..*] -- [1] Circuit 
+    @mediation 
+    [1..*] -- [1] Grand_Prix 
+    @mediation 
+    [0..*] -- [1] F1_Car 
+    // TODO: Missing performed_in relation?
+    // @derivation 
+    // [1] -- [1] performed_in 
+}
+
+subkind Sprint_Race of relators  specializes Race {
+    @mediation 
+    [0..*] -- [1] Circuit 
+    @mediation 
+    [1..*] -- [1] Grand_Prix 
+    @mediation 
+    [0..*] -- [1] F1_Car 
+    // @derivation 
+    // [1] -- [1] performed_in 
+}
+
+role Championship_Winner_Driver of functional-complexes  specializes Driver, Champion {
+    @mediation 
+    [0..*] -- [2..*] Race 
+    @material 
+    [0..*] -- [1..*] F1_Car 
+    @characterization 
+    [1] -- [1] Driving_Strategy 
+}
+
+role Championship_Winner_Constructor of collectives  specializes Racing_Team, Champion {
+    @memberOf 
+    [2..*] -- [1] Racing_Team_Member 
+}
+
+roleMixin Champion
+
+phaseMixin Current_Champion of functional-complexes  specializes Champion 
+
+phaseMixin Past_Champion of functional-complexes  specializes Champion 
+
+mode Driving_Strategy
+
+phase Aggressive_Strategy of intrinsic-modes  specializes Driving_Strategy 
+
+phase Conservative_Strategy of intrinsic-modes  specializes Driving_Strategy 
+

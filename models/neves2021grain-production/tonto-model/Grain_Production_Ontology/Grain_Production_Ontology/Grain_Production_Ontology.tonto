@@ -1,46 +1,38 @@
+
 package Grain_Production_Ontology
 
-kind Digital_Images 
-subkind Satellite_Images  specializes Digital_Images{
-    [*] <>-- [*]  NDVI_Index
-    [*] -- Georef_ImagesTIFF -- [*]  TIFF
+kind Digital_Images
+
+subkind Satellite_Images of functional-complexes  specializes Digital_Images 
+
+category NDVI_Index of functional-complexes 
+
+kind Oher_Variables
+
+category Production_Evolution_States of functional-complexes 
+
+subkind Geolocation of functional-complexes  specializes Crop {
+    [*] -- CropDigital_Images -- [*] Digital_Images 
+    [*] -- CropOther_Variables -- [*] Oher_Variables 
+    [*] -- CropClimate_Station -- [*] Climate_Station 
 }
-category NDVI_Index 
+
+kind Crop
+
+kind Climate_Station
+
+category Leaf_Wetting_Duration of functional-complexes 
+
+category Air_Relative_Humidity of functional-complexes 
+
+category Accumulated_Precipitation of functional-complexes 
+
+category Maximum_Temperature of functional-complexes 
+
+category Minimum_Temperature of functional-complexes 
+
 datatype TIFF
-kind Oher_Variables {
-    [*] <>-- [*]  Production_Evolution_States
-}
-category Production_Evolution_States 
-subkind Geolocation  specializes Crop
-kind Crop {
-    [*] -- CropDigital_Images -- [*]  Digital_Images
-    [*] -- CropOther_Variables -- [*]  Oher_Variables
-    [*] -- CropClimate_Station -- [*]  Climate_Station
-}
-kind Climate_Station {
-    [*] <>-- [*]  Leaf_Wetting_Duration
-    [*] <>-- [*]  Air_Relative_Humidity
-    [*] <>-- [*]  Accumulated_Precipitation
-    [*] <>-- [*]  Maximum_Temperature
-    [*] <>-- [*]  Minimum_Temperature
-}
-category Leaf_Wetting_Duration {
-    [*] <o>-- [*]  Hoursday
-}
-category Air_Relative_Humidity {
-    [*] <o>-- [*]  Percentage
-}
-category Accumulated_Precipitation {
-    [*] <o>-- [*]  Milimeters
-}
-category Maximum_Temperature {
-    [*] <o>-- [*]  Degrees_Celsius
-}
-category Minimum_Temperature {
-    [*] <o>-- [*]  Degrees_Celsius
-}
 datatype Hoursday
 datatype Percentage
 datatype Milimeters
 datatype Degrees_Celsius
-

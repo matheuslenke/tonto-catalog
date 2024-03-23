@@ -1,24 +1,14 @@
-import ROME
+import Reference_Ontology_of_Money_and_Virtual_Currencies
 
 package UFOC
 
-category Object (instanceOf Object_Type)
-type Object_Type {
-    @instantiation
-     [1..*] -- instantiates_object --  [0..*]  Object
-}
-category Agent {
-     [2..*]  -- is_component_of --<o>  [0..*]  Monetary_System
-    @characterization
-    ( {const } )[1] -- inheres_in --  [0..*]  Exchange_Power( {const } )
-     [2..*]  -- is_component_of --<o>  [0..*]  Virtual_Currency_System
-    @characterization
-    ( {const } )[1] -- inheres_in --  [0..*]  Exchange_Power_in_Currency( {const } )
-}
-category Normative_Description  specializes Social_Object{
-     [0..*] -- recognized_by --  [2..*]  Agent
-     [1..*]  -- is_component_of --<o>  [0..1]  Monetary_System
-     [1..*]  -- is_component_of --<o>  [0..1]  Virtual_Currency_System
-}
-category Social_Object  specializes Object
+category Object
+
+type Object_Type
+
+category Agent
+
+category Normative_Description of functional-complexes  specializes Social_Object 
+
+category Social_Object specializes Object 
 

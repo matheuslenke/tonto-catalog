@@ -1,0 +1,10 @@
+import PlatformOntology
+
+package Offline_Service
+
+event Offline_Service_Delivery specializes Service_Delivery {
+    [1] -- happens_on -- [1..*] Booked_Time_Slot 
+    @participation 
+    [0..*] -- received_by -- [1..*] Platform_Customer 
+}
+

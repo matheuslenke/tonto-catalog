@@ -1,103 +1,102 @@
+import OntoUML_Model_Repository
+
 package SC_ITInfrastructure_English
 
-kind Channel {
-    @componentOf
-     [1..*]  --<o>  [1..*]  Data_Center
+kind Channel
+
+subkind LAN of functional-complexes  specializes Channel {
+    @componentOf 
+    [1..*] -- [1..*] Data_Center 
 }
-subkind LAN  specializes Channel
-subkind MAN  specializes Channel
-subkind WAN  specializes Channel
-kind Data_Center {
-    @componentOf
-    [1] <o>--  [1..*]  Server
+
+subkind MAN of functional-complexes  specializes Channel {
+    @componentOf 
+    [1..*] -- [1..*] Data_Center 
 }
-kind Switchcore {
-    @componentOf
-     [1..*]  --<o> [1]  Data_Center
+
+subkind WAN of functional-complexes  specializes Channel {
+    @componentOf 
+    [1..*] -- [1..*] Data_Center 
 }
-kind Server {
-    @componentOf
-     [1..*] <o>-- [*]  IT_Service
+
+kind Data_Center
+
+kind Switchcore
+
+kind Server
+
+kind Communication_Module
+
+phase Functional_Module of functional-complexes  specializes Communication_Module {
+    @componentOf 
+    [1..*] -- [1] Switchcore 
 }
-kind Communication_Module {
-    @componentOf
-     [1..*]  --<o> [1]  Switchcore
+
+phase Defective_Module of functional-complexes  specializes Communication_Module {
+    @componentOf 
+    [1..*] -- [1] Switchcore 
 }
-phase Functional_Module  specializes Communication_Module
-phase Defective_Module  specializes Communication_Module
-kind Communication_Port {
-    @componentOf
-     [1..*]  --<o> [1]  Communication_Module
+
+kind Communication_Port
+
+subkind _1_Gbps_Port of functional-complexes  specializes Communication_Port {
+    @componentOf 
+    [1..*] -- [1] Communication_Module 
 }
-subkind 1_Gbps_Port  specializes Communication_Port
-subkind 10_Gbps_Port  specializes Communication_Port
-kind IT_Service 
-subkind DBMS  specializes IT_Service
-subkind Email  specializes IT_Service
-subkind Application_System  specializes IT_Service
-kind Database {
-    @componentOf
-     [1..*]  --<o> [1]  DBMS
+
+subkind _10_Gbps_Port of functional-complexes  specializes Communication_Port {
+    @componentOf 
+    [1..*] -- [1] Communication_Module 
 }
-role Database_File  specializes File_in_Disk{
-    @componentOf
-     [1..*]  --<o> [1]  Database
+
+kind IT_Service
+
+subkind DBMS of functional-complexes  specializes IT_Service 
+
+subkind Email of functional-complexes  specializes IT_Service 
+
+subkind Application_System of functional-complexes  specializes IT_Service 
+
+kind Database
+
+role Database_File of functional-complexes  specializes File_in_Disk {
+    @componentOf 
+    [*] -- [*] Disk 
 }
-role Executable_File  specializes File_in_Disk
-role Conventional_File  specializes File_in_Disk
-kind File_in_Disk {
-    @componentOf
-    [*]  --<o> [*]  Disk
+
+role Executable_File of functional-complexes  specializes File_in_Disk {
+    @componentOf 
+    [*] -- [*] Disk 
 }
-kind Mailbox {
-    @componentOf
-     [1..*]  --<o> [1]  Email
+
+role Conventional_File of functional-complexes  specializes File_in_Disk {
+    @componentOf 
+    [*] -- [*] Disk 
 }
-kind Storage {
-    @componentOf
-     [1..*]  --<o> [1]  Data_Center
+
+kind File_in_Disk
+
+kind Mailbox
+
+kind Storage
+
+kind Disk
+
+phase Functional_Disk of functional-complexes  specializes Disk {
+    @componentOf 
+    [1..*] -- [1] Storage 
 }
-kind Disk {
-    @componentOf
-     [1..*]  --<o> [1]  Storage
+
+phase Defective_Disk of functional-complexes  specializes Disk {
+    @componentOf 
+    [1..*] -- [1] Storage 
 }
-phase Functional_Disk  specializes Disk
-phase Defective_Disk  specializes Disk
-collective IT_Team {
-    @Formal
-     [1..*] --  [1..*]  Data_Center
-}
-role Technician  specializes Person{
-    @memberOf
-     [1..*]  --<o> [1]  IT_Team
-}
-role Manager  specializes Person{
-    @memberOf
-    [1]  --<o> [1]  IT_Team
-}
-kind Person 
-disjoint complete genset Set{
-    general Channel
-    specifics MAN, LAN, WAN 
-}
-disjoint complete genset Set2{
-    general Communication_Module
-    specifics Functional_Module, Defective_Module 
-}
-disjoint genset Set3{
-    general Communication_Port
-    specifics 10_Gbps_Port, 1_Gbps_Port 
-}
-disjoint genset Set4{
-    general IT_Service
-    specifics DBMS, Application_System, Email 
-}
-disjoint genset Set5{
-    general File_in_Disk
-    specifics Executable_File, Database_File, Conventional_File 
-}
-disjoint complete genset Set6{
-    general Disk
-    specifics Defective_Disk, Functional_Disk 
-}
+
+collective IT_Team
+
+role Technician of functional-complexes  specializes Person 
+
+role Manager of functional-complexes  specializes Person 
+
+kind Person
 

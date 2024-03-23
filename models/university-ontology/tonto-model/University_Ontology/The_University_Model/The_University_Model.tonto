@@ -1,97 +1,106 @@
+import University_Ontology
+
 package The_University_Model
 
-phase ActiveClass  specializes Class
-phase ActiveCurriculum  specializes Curriculum
-phase ActiveProfessor  specializes Professor
-subkind Center  specializes Organization{
-    @componentOf
-     [1..*]  --<o> [1]  Higher_Education_Institution
+phase ActiveClass specializes Class 
+
+phase ActiveCurriculum of functional-complexes  specializes Curriculum {
+    [1..*] -- organizes -- [1] Course 
 }
-role Class 
-relator ClassEnrollment {
-    @mediation
-    [1] -- [1]  Class( {const } )
-    @mediation
-    [1] -- [1]  Student( {const } student )
-    @derivation
-    [1] -- [1]  groups
+
+phase ActiveProfessor of functional-complexes  specializes Professor {
+    [1..*] -- teaches -- [0..*] Class 
+    @material 
+    [1..*] -- composedBy -- [0..*] Colegiado 
 }
-role Colegiado 
-kind Course {
-     [1..*] -- boundTo -- [1]  Center
+
+subkind Center of functional-complexes  specializes Organization 
+
+role Class
+
+relator ClassEnrollment
+
+role Colegiado
+
+kind Course
+
+role CourseCoordinator of functional-complexes  specializes Professor {
+    [1..*] -- teaches -- [0..*] Class 
+    @material 
+    [1..*] -- composedBy -- [0..*] Colegiado 
 }
-role CourseCoordinator  specializes Professor{
-    [1] -- coordinatedBy -- [1]  Colegiado
-    [1] -- manages -- [1]  Course
+
+kind Curriculum
+
+subkind Department of functional-complexes  specializes Organization 
+
+role DepartmentChief of functional-complexes  specializes Professor {
+    [1..*] -- teaches -- [0..*] Class 
+    @material 
+    [1..*] -- composedBy -- [0..*] Colegiado 
 }
-kind Curriculum {
-     [1..*] -- organizes -- [1]  Course
+
+kind Discipline
+
+phase EgressStudent of functional-complexes  specializes Student {
+    [0..*] -- fullfiledBy -- [1] Curriculum 
+    @material 
+    [0..*] -- hasStudent -- [1..*] Course 
+    @material 
+    [1] -- [1] Colegiado 
+    [0..*] -- groups -- [1..*] Class 
 }
-subkind Department  specializes Organization{
-    @componentOf
-     [1..*]  --<o> [1]  Center
+
+relator Enrollment
+
+subkind Higher_Education_Institution of functional-complexes  specializes Organization 
+
+phase InactiveClass specializes Class 
+
+phase InactiveCurriculum of functional-complexes  specializes Curriculum {
+    [1..*] -- organizes -- [1] Course 
 }
-role DepartmentChief  specializes Professor
-kind Discipline {
-    [1] -- provided_trough --  [0..*]  Class
-    [*]  --<o> [*]  Curriculum
-     [1..*] -- offers -- [1]  Department
+
+phase InactiveProfessor of functional-complexes  specializes Professor {
+    [1..*] -- teaches -- [0..*] Class 
+    @material 
+    [1..*] -- composedBy -- [0..*] Colegiado 
 }
-phase EgressStudent  specializes Student
-relator Enrollment {
-    @mediation
-     [0..*] -- [1]  Course( {const } )
-    @mediation
-     [1..*] -- [1]  Student( {const } )
-    @derivation
-    [1] -- [1]  hasStudent
+
+kind Organization
+
+kind Person
+
+role Professor of functional-complexes  specializes Person 
+
+relator ProfessorMandate
+
+phase RegularStudent of functional-complexes  specializes Student {
+    [0..*] -- fullfiledBy -- [1] Curriculum 
+    @material 
+    [0..*] -- hasStudent -- [1..*] Course 
+    @material 
+    [1] -- [1] Colegiado 
+    [0..*] -- groups -- [1..*] Class 
 }
-subkind Higher_Education_Institution  specializes Organization
-phase InactiveClass  specializes Class
-phase InactiveCurriculum  specializes Curriculum
-phase InactiveProfessor  specializes Professor
-kind Organization 
-kind Person 
-role Professor  specializes Person{
-     [1..*] -- teaches --  [0..*]  Class
-    @material
-     [1..*] -- composedBy --  [0..*]  Colegiado
+
+quality Semester
+
+role Student of functional-complexes  specializes Person 
+
+relator StudentMandate
+
+phase SuspendedStudent of functional-complexes  specializes Student {
+    [0..*] -- fullfiledBy -- [1] Curriculum 
+    @material 
+    [0..*] -- hasStudent -- [1..*] Course 
+    @material 
+    [1] -- [1] Colegiado 
+    [0..*] -- groups -- [1..*] Class 
 }
-relator ProfessorMandate {
-    @mediation
-     [1..*] -- [1]  Colegiado( {const } )
-    @mediation
-     [1..*] -- [1]  Professor( {const } )
-    @derivation
-    [1] -- [1]  composedBy
-}
-phase RegularStudent  specializes Student
-quality Semester {
-    @characterization
-    [1] --  [0..*]  Class( {const } )
-}
-role Student  specializes Person{
-     [0..*] -- fullfiledBy -- [1]  Curriculum
-    @material
-     [0..*] -- hasStudent --  [1..*]  Course
-    @material
-    [1] -- [1]  Colegiado
-     [0..*] -- groups --  [1..*]  Class
-}
-relator StudentMandate {
-    @mediation
-     [1..*] -- [1]  Colegiado( {const } )
-    @mediation
-     [1..*] -- [1]  Student( {const } )
-    @derivation
-    [1] -- [1]  
-}
-phase SuspendedStudent  specializes Student
+
+quality Field
+
 datatype Date
-quality Field {
-    @characterization
-    [1] -- [1]  Discipline( {const } )
-}
 datatype Parity
 datatype Year
-

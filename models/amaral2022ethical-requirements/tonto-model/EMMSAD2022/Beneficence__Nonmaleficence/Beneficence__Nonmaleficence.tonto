@@ -1,30 +1,34 @@
+import EMMSAD2022
+
 package Beneficence__Nonmaleficence
 
-category NFRRequirement  specializes UFOCGoal
-category NFRQuality_Requirement  specializes NFRRequirement
-category UFOCGoal 
-category Beneficence_Requirement  specializes NFRQuality_Requirement
-category Nonmaleficence_Requirement  specializes NFRQuality_Requirement
-mode Intention {
-    @characterization
-     [1..*] -- inheres_in -- [1]  UFOAgent( {const } )
-     [1..*] --  [1..*]  UFOCGoal
+category NFRRequirement of functional-complexes  specializes UFOCGoal 
+
+category NFRQuality_Requirement of functional-complexes  specializes NFRRequirement 
+
+category UFOCGoal of functional-complexes 
+
+category Beneficence_Requirement of functional-complexes  specializes NFRQuality_Requirement 
+
+category Nonmaleficence_Requirement of functional-complexes  specializes NFRQuality_Requirement 
+
+mode Intention
+
+category UFOAgent of functional-complexes 
+
+event COVERGain_Event
+
+event COVERLoss_Event
+
+role Beneficence_Intention of intrinsic-modes  specializes Intention {
+    @characterization 
+    [1..*] -- inheres_in -- [1] UFOAgent 
+    [1..*] -- [1..*] UFOCGoal 
 }
-category UFOAgent 
-event COVERGain_Event {
-     [0..*] -- positively_impacts --  [1..*]  Intention
-}
-event COVERLoss_Event {
-     [0..*] --  [1..*]  Intention
-}
-role Beneficence_Intention  specializes Intention{
-     [1..*] -- propositional_content_of --  [1..*]  Beneficence_Requirement
-    @externalDependence
-     [0..*] -- intends_to_create --  [1..*]  COVERGain_Event( {const } )
-}
-role Nonmaleficence_Intention  specializes Intention{
-     [1..*] -- propositional_content_of --  [1..*]  Nonmaleficence_Requirement
-    @externalDependence
-     [0..*] -- intends_to_prevent --  [1..*]  COVERLoss_Event( {const } )
+
+role Nonmaleficence_Intention of intrinsic-modes  specializes Intention {
+    @characterization 
+    [1..*] -- inheres_in -- [1] UFOAgent 
+    [1..*] -- [1..*] UFOCGoal 
 }
 

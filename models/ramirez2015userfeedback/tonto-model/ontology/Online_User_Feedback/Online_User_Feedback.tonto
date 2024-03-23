@@ -1,160 +1,171 @@
+import ontology
+
 package Online_User_Feedback
 
-category Agent 
-roleMixin Receiver  specializes Agent
-mode IntentionInternalCommitment {
-    @characterization
-     [1..*] -- [1]  Agent( {const } )
-}
-mode CommunicativeCommitment  specializes IntentionInternalCommitment{
-    @characterization
-     [0..2] -- [1]  Sender( {const } )
-}
-mode CommunicativeIntention  specializes CommunicativeCommitment
-mode InterpretedIntention  specializes CommunicativeCommitment{
-    [1] -- causes --  [1..*]  IllocutionaryAct
-}
-roleMixin Sender  specializes Agent
-kind PerformativeVerb {
-    [1] -- classifies -- [1]  IllocutionaryAct
-}
-mode IllocutionaryAct  specializes CommunicativeAct{
-    @componentOf
-    ( {const } ) [0..1]  --<o> [1]  SpeechAct( {const } )
-}
-mode Perception {
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Communication( {const } )
-    @characterization
-     [1..*] -- [1]  Receiver( {const } )
-}
-relator Communication {
-    @mediation
-    [1] --  [1..*]  Message( {const } )
-    @mediation
-     [1..*] -- [1]  Sender( {const } )
-    @mediation
-     [1..*] --  [1..*]  Receiver( {const } )
-}
-mode CommunicativeAct {
-    @componentOf
-    ( {const } )[1]  --<o> [1]  Communication( {const } )
-    @characterization
-     [1..*] -- [1]  Sender( {const } )
-}
-mode PerlocutionaryAct  specializes CommunicativeAct{
-    @componentOf
-    ( {const } ) [0..1]  --<o> [1]  SpeechAct( {const } )
-     [1..*] -- consequence_of -- [1]  IllocutionaryAct
-    [1] -- affects -- [1]  Receiver
-}
-mode LocutionaryAct  specializes CommunicativeAct{
-    @componentOf
-    ( {const } )[1]  --<o> [1]  SpeechAct( {const } )
-    [1] -- consequence_of -- [1]  IllocutionaryAct
-}
-mode SpeechAct 
-mode NonLinguisticAct {
-    [1] -- interpreted_as -- [1]  SpeechAct
-}
-mode Gesture  specializes NonLinguisticAct
-mode AttachedInformation  specializes NonLinguisticAct
-mode Drawing  specializes NonLinguisticAct
-kind SoftwareApplication 
-kind ArtificialAgent 
-role FeedbackCollector  specializes ArtificialAgent
-mode FeedbackChannel {
-    @characterization
-    [1] -- implements -- [1]  FeedbackCollector( {const } )
-}
-mode MobileTechnology  specializes FeedbackChannel
-mode IssueTrackingSystem  specializes FeedbackChannel
-mode MailingList  specializes FeedbackChannel
-mode OpenForum  specializes FeedbackChannel
-mode AppStore  specializes FeedbackChannel
-role FeedbackProvider  specializes Sender{
-     [1..*] -- uses --  [1..*]  SoftwareApplication
-}
-relator FeedbackCollection {
-    @mediation
-    [1] -- performs -- [1]  FeedbackCollector( {const } )
-    @mediation
-    [1] -- contributes --  [1..*]  FeedbackProvider( {const } )
-    @mediation
-    [1] -- collects --  [1..*]  SharedDescription( {const } )
-}
-enum PresentationFormat {
-    StructuredText,
-    SemiStructuredText,
-    UnstructuredText
-}
-role SharedDescription  specializes FeedbackDescription
-mode Metadata {
-    @characterization
-    [1] -- has -- [1]  FeedbackDescription( {const } )
-}
-kind FeedbackDescription {
-    [*] -- presented_in -- [1]  PresentationFormat
-}
-kind Attachment {
-    @componentOf
-    [*]  --<o> [1]  FeedbackDescription
-}
-subkind Audio  specializes Attachment
-subkind Video  specializes Attachment
-subkind Image  specializes Attachment
-mode Topic {
-    @characterization
-    [1] -- is_about --  [1..*]  FeedbackDescription( {const } )
-}
-kind Message {
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  Sentence( {const } )
-}
-kind Sentence {
-    @componentOf
-    ( {const } ) [1..*]  --<o> [1]  FeedbackDescription( {const } )
-}
-kind Words {
-    @componentOf
-    ( {const } ) [2..*]  --<o> [1]  Sentence( {const } )
-}
-role FeedbackAnalyst  specializes Receiver, Person{
-    @mediation
-    ( {const } )[1] -- carries -- [1]  FeedbackAnalysis( {const } )
-}
-relator FeedbackAnalysis {
-    @mediation
-    [*] -- applies --  [1..*]  AnalysisTechnique( {const } )
-    @mediation
-    [1] -- generates --  [1..*]  FeedbackAnalyzed( {const } )
-}
-enum AnalysisTechnique {
-    SpeechActAnalysis,
-    TopicModeling,
-    SentimentAnalysis,
-    AspectBasedOpinionMining
-}
-role FeedbackAnalyzed  specializes FeedbackDescription
-role FeedbackClassified  specializes FeedbackAnalyzed
-relator FeedbackClassification {
-    @mediation
-    [*] -- assigns --  [1..*]  FeedbackType( {const } )
-    @mediation
-    [1] -- classifies -- [*]  FeedbackClassified( {const } )
-    @mediation
-    [1] -- uses --  [1..*]  Words( {const } )
-}
-enum FeedbackType {
-    BugReport,
-    ClarificationRequest,
-    NewFeatureRequest,
-    ProvideRating,
-    Informative
-}
-kind Person 
-genset gs_agent{
-    general Agent
-    specifics Sender, Receiver 
+category Agent of functional-complexes 
+
+roleMixin Receiver of functional-complexes  specializes Agent 
+
+mode IntentionInternalCommitment
+
+mode CommunicativeCommitment specializes IntentionInternalCommitment {
+    @characterization 
+    [1..*] -- [1] Agent 
 }
 
+mode CommunicativeIntention specializes CommunicativeCommitment {
+    @characterization 
+    [0..2] -- [1] Sender 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+mode InterpretedIntention specializes CommunicativeCommitment {
+    @characterization 
+    [0..2] -- [1] Sender 
+    @characterization 
+    [1..*] -- [1] Agent 
+}
+
+roleMixin Sender of functional-complexes  specializes Agent 
+
+kind PerformativeVerb
+
+mode IllocutionaryAct specializes CommunicativeAct {
+    @componentOf 
+    [1] -- [1] Communication 
+    @characterization 
+    [1..*] -- [1] Sender 
+}
+
+mode Perception
+
+relator Communication
+
+mode CommunicativeAct
+
+mode PerlocutionaryAct specializes CommunicativeAct {
+    @componentOf 
+    [1] -- [1] Communication 
+    @characterization 
+    [1..*] -- [1] Sender 
+}
+
+mode LocutionaryAct specializes CommunicativeAct {
+    @componentOf 
+    [1] -- [1] Communication 
+    @characterization 
+    [1..*] -- [1] Sender 
+}
+
+mode SpeechAct
+
+mode NonLinguisticAct
+
+mode Gesture specializes NonLinguisticAct {
+    [1] -- interpreted_as -- [1] SpeechAct 
+}
+
+mode AttachedInformation specializes NonLinguisticAct {
+    [1] -- interpreted_as -- [1] SpeechAct 
+}
+
+mode Drawing specializes NonLinguisticAct {
+    [1] -- interpreted_as -- [1] SpeechAct 
+}
+
+kind SoftwareApplication
+
+kind ArtificialAgent
+
+role FeedbackCollector of functional-complexes  specializes ArtificialAgent 
+
+mode FeedbackChannel
+
+mode MobileTechnology specializes FeedbackChannel {
+    @characterization 
+    [1] -- implements_ -- [1] FeedbackCollector 
+}
+
+mode IssueTrackingSystem specializes FeedbackChannel {
+    @characterization 
+    [1] -- implements_ -- [1] FeedbackCollector 
+}
+
+mode MailingList specializes FeedbackChannel {
+    @characterization 
+    [1] -- implements_ -- [1] FeedbackCollector 
+}
+
+mode OpenForum specializes FeedbackChannel {
+    @characterization 
+    [1] -- implements_ -- [1] FeedbackCollector 
+}
+
+mode AppStore specializes FeedbackChannel {
+    @characterization 
+    [1] -- implements_ -- [1] FeedbackCollector 
+}
+
+role FeedbackProvider specializes Sender 
+
+relator FeedbackCollection
+
+role SharedDescription of functional-complexes  specializes FeedbackDescription {
+    [*] -- presented_in -- [1] PresentationFormat 
+}
+
+mode Metadata
+
+kind FeedbackDescription
+
+kind Attachment
+
+subkind Audio of functional-complexes  specializes Attachment {
+    @componentOf 
+    [*] -- [1] FeedbackDescription 
+}
+
+subkind Video of functional-complexes  specializes Attachment {
+    @componentOf 
+    [*] -- [1] FeedbackDescription 
+}
+
+subkind Image of functional-complexes  specializes Attachment {
+    @componentOf 
+    [*] -- [1] FeedbackDescription 
+}
+
+mode Topic
+
+kind Message
+
+kind Sentence
+
+kind Words
+
+role FeedbackAnalyst of functional-complexes  specializes Receiver, Person 
+
+relator FeedbackAnalysis
+
+role FeedbackAnalyzed of functional-complexes  specializes FeedbackDescription {
+    [*] -- presented_in -- [1] PresentationFormat 
+}
+
+role FeedbackClassified of functional-complexes  specializes FeedbackAnalyzed {
+    [*] -- presented_in -- [1] PresentationFormat 
+}
+
+relator FeedbackClassification
+
+kind Person
+
+enum PresentationFormat{
+    StructuredText, SemiStructuredText, UnstructuredText
+}
+enum AnalysisTechnique{
+    SpeechActAnalysis, TopicModeling, SentimentAnalysis, AspectBasedOpinionMining
+}
+enum FeedbackType{
+    BugReport, ClarificationRequest, NewFeatureRequest, ProvideRating, Informative
+}

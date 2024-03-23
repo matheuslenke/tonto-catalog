@@ -1,0 +1,6 @@
+import PlatformOntology
+
+package Customer_Type
+
+subkind Private_Customer of functional-complexes  specializes Person 
+

@@ -1,36 +1,42 @@
+
 package RoadTrafficAccident
 
-relator RoadTrafficAccident {
-    fatalvictims : undefined
-    @mediation
-     [1..*] -- occurs_on -- [1]  RoadwayWithAccident( {const } )
-    @mediation
-    [1] -- has --  [1..*]  Victim( {const } victims )
-    @mediation
-    [1] -- involves --  [1..*]  CrashedVehicle( {const } vehicles )
+relator RoadTrafficAccident{
+    fatalvictims: undefined  
 }
-role TravelingVehicle  specializes Vehicle
-kind Vehicle 
-relator Travel {
-    @mediation
-    [1] -- made_by -- [1]  TravelingVehicle( {const } vehicle )
-    @mediation
-    [1] -- has --  [0..*]  Passenger( {const } passengers )
-    @mediation
-    [1] -- has -- [1]  Driver( {const } drivers )
+
+role TravelingVehicle of functional-complexes  specializes Vehicle 
+
+kind Vehicle
+
+relator Travel
+
+role CrashedVehicle of functional-complexes  specializes TravelingVehicle 
+
+relator RearEndCollision specializes RoadTrafficAccident {
+    @mediation 
+    [1..*] -- occurs_on -- [1] RoadwayWithAccident 
+    @mediation 
+    [1] -- has -- [1..*] Victim 
+    @mediation 
+    [1] -- involves -- [1..*] CrashedVehicle 
 }
-role CrashedVehicle  specializes TravelingVehicle{
-    @material
-     [1..*] -- crashes_on -- [1]  RoadwayWithAccident
-}
-relator RearEndCollision  specializes RoadTrafficAccident
-role Traveler  specializes Person
-kind Roadway 
-role Victim  specializes Traveler
-role RoadwayWithAccident  specializes Roadway
-kind Person 
-phase LivingPerson  specializes Person
-phase DeceasedPerson  specializes Person
-role Passenger  specializes Traveler
-role Driver  specializes Traveler
+
+role Traveler of functional-complexes  specializes Person 
+
+kind Roadway
+
+role Victim of functional-complexes  specializes Traveler 
+
+role RoadwayWithAccident of functional-complexes  specializes Roadway 
+
+kind Person
+
+phase LivingPerson of functional-complexes  specializes Person 
+
+phase DeceasedPerson of functional-complexes  specializes Person 
+
+role Passenger of functional-complexes  specializes Traveler 
+
+role Driver of functional-complexes  specializes Traveler 
 

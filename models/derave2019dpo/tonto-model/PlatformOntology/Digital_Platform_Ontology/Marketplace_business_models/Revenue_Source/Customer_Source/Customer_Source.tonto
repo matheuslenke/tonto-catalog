@@ -1,0 +1,9 @@
+import PlatformOntology
+
+package Customer_Source
+
+subkind Revenue_Stream_Payed_by_Customer of intrinsic-modes  specializes Revenue_Stream {
+    [0..*] -- [1] Marketplace_Company 
+    [0..*] -- [1] Marketplace_Company 
+}
+

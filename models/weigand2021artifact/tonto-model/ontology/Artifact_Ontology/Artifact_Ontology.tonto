@@ -1,190 +1,206 @@
+import ontology
+
 package Artifact_Ontology
 
-historicalRoleMixin Maker  specializes Agent{
-    @participation
-    ( {const } ) [1..*] --  [0..*]  Testing
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Making
+historicalRoleMixin Maker of functional-complexes  specializes Agent 
+
+category Agent of functional-complexes 
+
+mode Intention
+
+event Testing
+
+event Making
+
+historicalRoleMixin Source of functional-complexes  specializes Physical_Object 
+
+category Physical_Object of functional-complexes 
+
+roleMixin Result of functional-complexes  specializes Physical_Object 
+
+roleMixin Technical_object of functional-complexes  specializes Result, Instrument {
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-category Agent 
-mode Intention {
-    @characterization
-    [1] -- [1]  Maker( {const } )
-    @manifestation
-    ( {const } ) [1..*] --  [0..*]  Making
-    @manifestation
-    ( {const } ) [1..*] --  [0..*]  Testing
+
+quality Capacity
+
+historicalRoleMixin User of functional-complexes  specializes Agent 
+
+event Usage
+
+situation Usage_condition
+
+event Using
+
+situation Use_condition
+
+class Field specializes Proposition 
+
+quality Capacities
+
+roleMixin Instrument of functional-complexes 
+
+event Observation
+
+roleMixin Material_source of functional-complexes  specializes Instrument {
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-event Testing {
-    @historicalDependence
-     [0..*] -- [1]  Making( {const } )
+
+class Proposition of abstract-individuals 
+
+class Practice specializes Proposition 
+
+situation Usage_effect
+
+situation Use_effect
+
+historicalRoleMixin Designer of functional-complexes  specializes Agent 
+
+phaseMixin Planned of functional-complexes  specializes Technical_object {
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-event Making {
-    @instantiation
-     [0..*] --  [1..*]  Make_process
+
+phaseMixin In_production of functional-complexes  specializes Technical_object {
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-historicalRoleMixin Source  specializes Physical_Object{
-    @participation
-    ( {const } ) [1..*] --  [0..*]  Making
+
+phaseMixin Employed of functional-complexes  specializes Technical_object {
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-category Physical_Object 
-roleMixin Result  specializes Physical_Object{
-    @creation
-    ( {const } ) [1..*] --  [1..*]  Making( {const } )
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Testing
+
+phaseMixin Disposed of functional-complexes  specializes Technical_object {
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-roleMixin Technical_object  specializes Result, Instrument{
-    @creation
-    ( {const } )[1] -- [1]  Testing( {const } )
+
+phaseMixin In_distribution of functional-complexes  specializes Employed {
+    @historicalDependence 
+    [0..*] -- [1] In_production 
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-quality Capacity {
-    @characterization
-     [1..*] -- Attributed_Capacities -- [1]  Technical_object( {const } )
+
+phaseMixin In_use of functional-complexes  specializes Employed {
+    @historicalDependence 
+    [0..*] -- [1] In_production 
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-historicalRoleMixin User  specializes Agent
-event Usage {
-    @participation
-    ( {const } ) [1..*] --  [1..*]  User( {const } )
-    @historicalDependence
-     [1..*] -- [1]  Usage_condition( {const } )
-    @bringsAbout
-    ( {const } ) [1..*] --  [1..*]  Usage_effect( {const } )
+
+phaseMixin In_maintenance of functional-complexes  specializes Employed {
+    @historicalDependence 
+    [0..*] -- [1] In_production 
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-situation Usage_condition {
-    @instantiation
-     [0..*] -- satisfies --  [1..*]  Practice
+
+event Design_conversation
+
+category Object_Description of functional-complexes  specializes Normative_Description 
+
+category Normative_Description of functional-complexes 
+
+category Plan_Description of functional-complexes  specializes Normative_Description 
+
+type Artifact_variant specializes Artifact_universal 
+
+category Design_object of functional-complexes  specializes Object_Description 
+
+type Artifact_universal
+
+category Artefact_design of relators  specializes Plan_Description 
+
+roleMixin Artifact of functional-complexes  specializes Technical_object {
+    @creation 
+    [1] -- [1] Testing 
+    @creation 
+    [1..*] -- [1..*] Making 
+    @participation 
+    [1..*] -- [1..*] Testing 
+    @characterization 
+    [1..*] -- [1..*] Capacities 
 }
-event Using {
-    @historicalDependence
-     [1..*] -- [1]  Use_condition( {const } )
-    @participation
-    ( {const } ) [1..*] --  [1..*]  User( {const } )
-    @bringsAbout
-    ( {const } ) [1..*] -- [1]  Use_effect( {const } )
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Instrument( {const } )
-    @manifestation
-    ( {const } ) [1..*] --  [1..*]  Capacities( {const } )
-    @componentOf
-     [1..*]  --<o>  [0..*]  Usage
-    @instantiation
-     [0..*] -- [1]  Use_process
+
+type Capacity_universal
+
+class Make_goal specializes Capacity_universal 
+
+category Make_plan of functional-complexes 
+
+type Make_process specializes Complex_Action_Universal 
+
+category Use_plan of functional-complexes 
+
+class Use_goal specializes Proposition 
+
+type Complex_Action_Universal
+
+event Directive_actagenic specializes Communicative_acts {
+    @componentOf 
+    [1..*] -- [1] Design_conversation 
+    @historicalDependence 
+    [0..*] -- warrant -- [1..*] Observation 
 }
-situation Use_condition {
-    @instantiation
-     [0..*] -- satisfies --  [1..*]  Field
-}
-class Field (instanceOf Use_condition) specializes Proposition
-quality Capacities {
-    @characterization
-     [1..*] -- Attributed_Capactities --  [1..*]  Technical_object( {const } )
-    @instantiation
-     [0..*] -- satisfies --  [0..*]  Make_goal
-}
-roleMixin Instrument {
-    @characterization
-    ( {const } ) [1..*] --  [1..*]  Capacities( {const } )
-}
-event Observation 
-roleMixin Material_source  specializes Instrument
-class Proposition of abstract-individuals
-class Practice (instanceOf Usage_condition) specializes Proposition
-situation Usage_effect 
-situation Use_effect {
-    @instantiation
-     [0..*] -- satisfies --  [0..*]  Use_goal
-}
-historicalRoleMixin Designer  specializes Agent
-phaseMixin Planned  specializes Technical_object
-phaseMixin In_production  specializes Technical_object{
-    @historicalDependence
-     [0..*] -- [1]  Planned( {const } )
-}
-phaseMixin Employed  specializes Technical_object{
-    @historicalDependence
-     [0..*] -- [1]  In_production( {const } )
-}
-phaseMixin Disposed  specializes Technical_object{
-    @historicalDependence
-     [0..*] -- [1]  Employed( {const } )
-}
-phaseMixin In_distribution  specializes Employed
-phaseMixin In_use  specializes Employed
-phaseMixin In_maintenance  specializes Employed
-event Design_conversation {
-    @creation
-    ( {const } ) [1..*] --  [1..*]  Design_object( {const } )
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Maker( {const } )
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Designer( {const } )
-    @participation
-    ( {const } ) [1..*] --  [1..*]  User( {const } )
-}
-category Object_Description  specializes Normative_Description
-category Normative_Description 
-category Plan_Description  specializes Normative_Description
-type Artifact_variant  specializes Artifact_universal
-category Design_object  specializes Object_Description{
-    @material
-     [1..*] --  [1..*]  Artifact_universal
-}
-type Artifact_universal (instanceOf Artifact)
-category Artefact_design  specializes Plan_Description{
-    @material
-    [1] -- identifies -- [1]  Artifact_universal
-    [1] <o>--  [1..*]  Use_plan
-}
-roleMixin Artifact  specializes Technical_object{
-    @instantiation
-     [1..*] -- conforms_to -- [1]  Artifact_universal
-}
-type Capacity_universal 
-class Make_goal (instanceOf Capacities) specializes Capacity_universal
-category Make_plan {
-    @material
-     [1..*] -- goal --  [1..*]  Make_goal
-    @material
-     [0..*] -- describes --  [0..*]  Make_process
-     [1..*]  --<o> [1]  Artefact_design
-}
-type Make_process (instanceOf Making) specializes Complex_Action_Universal
-category Use_plan {
-    @material
-    [1] -- describes -- [1]  Use_process
-    @material
-     [1..*] -- goal --  [1..*]  Use_goal
-}
-class Use_goal (instanceOf Use_effect) specializes Proposition
-type Complex_Action_Universal 
-event Directive_actagenic  specializes Communicative_acts
-type Use_process (instanceOf Using) specializes Complex_Action_Universal
-event Communicative_acts {
-    @componentOf
-     [1..*]  --<o> [1]  Design_conversation
-    @historicalDependence
-     [0..*] -- warrant --  [1..*]  Observation( {const } )
-}
-event Assertive_factagenic  specializes Communicative_acts
-complete genset E_I0Hb6AUB1CBg3f{
-    general Instrument
-    specifics Technical_object, Material_source 
-}
-disjoint complete genset b6ASHb6AUB1CBhHs{
-    general Technical_object
-    specifics In_production, Employed, Planned, Disposed 
-}
-disjoint complete genset HNQSHb6AUB1CBhH4{
-    general Employed
-    specifics In_use, In_distribution, In_maintenance 
-}
-disjoint complete genset 1V5xHb6AUB1CBhWi{
-    general Communicative_acts
-    specifics Assertive_factagenic, Directive_actagenic 
-}
-genset qe_xHb6AUB1CBhY8{
-    general Agent
-    specifics Designer, Maker, User 
+
+type Use_process specializes Complex_Action_Universal 
+
+event Communicative_acts
+
+event Assertive_factagenic specializes Communicative_acts {
+    @componentOf 
+    [1..*] -- [1] Design_conversation 
+    @historicalDependence 
+    [0..*] -- warrant -- [1..*] Observation 
 }
 

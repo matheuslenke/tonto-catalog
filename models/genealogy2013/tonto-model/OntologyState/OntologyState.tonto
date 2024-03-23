@@ -1,0 +1,25 @@
+
+package OntologyState
+
+role Father of functional-complexes  specializes Parent, MalePerson {
+    @material 
+    [1..2] -- parentOf -- [1..*] Offspring 
+}
+
+subkind FemalePerson of functional-complexes  specializes Person 
+
+subkind MalePerson of functional-complexes  specializes Person 
+
+role Mother of functional-complexes  specializes FemalePerson, Parent {
+    @material 
+    [1..2] -- parentOf -- [1..*] Offspring 
+}
+
+role Offspring of functional-complexes  specializes Person 
+
+role Parent of functional-complexes  specializes Person 
+
+kind Person
+
+relator Registration
+

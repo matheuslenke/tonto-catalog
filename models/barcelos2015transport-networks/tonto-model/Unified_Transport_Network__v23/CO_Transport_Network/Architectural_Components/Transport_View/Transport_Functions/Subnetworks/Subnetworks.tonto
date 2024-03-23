@@ -1,25 +1,14 @@
-import Transport_Functions
-import Complementary_Categorizations
+import Unified_Transport_Network__v23
 
 package Subnetworks
 
-role Bidirectional_Connected_Subnetwork  specializes Subnetwork
-kind Subnetwork  specializes Transport_Function
-role Unidirectional_Subnetwork  specializes Subnetwork
-kind Subnetwork_Input  specializes Input{
-    @componentOf
-     [1..*]  --<o> [1]  Unidirectional_Subnetwork
-}
-kind Subnetwork_Output  specializes Output{
-    @componentOf
-     [1..*]  --<o> [1]  Unidirectional_Subnetwork
-}
-disjoint complete genset 40Wdnb6GAqBwATqI{
-    general Subnetwork
-    specifics Bidirectional_Connected_Subnetwork, Unidirectional_Subnetwork 
-}
-complete genset de49nb6GAqBwATqc{
-    general Bidirectional_Connected_Subnetwork
-    specifics Bi_SN__Bidirectional_Termination_Connected, Bi_Subnetwork__A_Bi_Connected 
-}
+role Bidirectional_Connected_Subnetwork of functional-complexes  specializes Subnetwork 
+
+kind Subnetwork specializes Transport_Function 
+
+role Unidirectional_Subnetwork of functional-complexes  specializes Subnetwork 
+
+kind Subnetwork_Input specializes Input 
+
+kind Subnetwork_Output specializes Output 
 

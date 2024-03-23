@@ -1,93 +1,140 @@
+import CURIEO
+
 package Model
 
-kind BuyerPersona {
-    @memberOf
-     [2..*]  --<o>  [1..*]  Market
-    @participation
-    ( {const } ) [1..*] --  [0..*]  CustomerJourneyActivity
-    @characterization
-    [1] --  [1..*]  CustomerJourneyExperience( {const } )
+kind BuyerPersona
+
+event CustomerRelationshipActivity
+
+kind Organization
+
+event CustomerJourneyActivity
+
+event Analytic
+
+event Strategy
+
+kind InformationElement
+
+mode CustomerJourneyExperience
+
+kind Channel
+
+relator ValueProposition
+
+collective Market
+
+phase Awareness of functional-complexes  specializes BuyerPersona {
+    @memberOf 
+    [2..*] -- [1..*] Market 
+    @participation 
+    [1..*] -- [0..*] CustomerJourneyActivity 
+    @characterization 
+    [1] -- [1..*] CustomerJourneyExperience 
 }
-event CustomerRelationshipActivity {
-    [1] <o>--  [1..*]  Attract
-    [1] <o>--  [1..*]  Engage
-    [1] <o>--  [1..*]  Delight
-    @historicalDependence
-     [0..*] -- [1]  Analytic( {const } )
+
+phase Consideration of functional-complexes  specializes BuyerPersona {
+    @memberOf 
+    [2..*] -- [1..*] Market 
+    @participation 
+    [1..*] -- [0..*] CustomerJourneyActivity 
+    @characterization 
+    [1] -- [1..*] CustomerJourneyExperience 
 }
-kind Organization {
-    @participation
-    ( {const } ) [1..*] --  [0..*]  CustomerRelationshipActivity
-    @participation
-    ( {const } ) [1..*] --  [0..*]  Strategy
-    @participation
-    ( {const } ) [1..*] --  [0..*]  Analytic
+
+phase Decision of functional-complexes  specializes BuyerPersona {
+    @memberOf 
+    [2..*] -- [1..*] Market 
+    @participation 
+    [1..*] -- [0..*] CustomerJourneyActivity 
+    @characterization 
+    [1] -- [1..*] CustomerJourneyExperience 
 }
-event CustomerJourneyActivity 
-event Analytic 
-event Strategy {
-    @historicalDependence
-     [0..*] -- [1]  CustomerRelationshipActivity( {const } )
+
+phase Consumption of functional-complexes  specializes BuyerPersona {
+    @memberOf 
+    [2..*] -- [1..*] Market 
+    @participation 
+    [1..*] -- [0..*] CustomerJourneyActivity 
+    @characterization 
+    [1] -- [1..*] CustomerJourneyExperience 
 }
-kind InformationElement {
-    @creation
-    ( {const } ) [0..*] -- [1]  CustomerRelationshipActivity( {const } )
-    @creation
-    ( {const } ) [1..*] -- [1]  Strategy( {const } )
-    @creation
-    ( {const } ) [1..*] -- [1]  Analytic( {const } )
+
+phase Faithful of functional-complexes  specializes BuyerPersona {
+    @memberOf 
+    [2..*] -- [1..*] Market 
+    @participation 
+    [1..*] -- [0..*] CustomerJourneyActivity 
+    @characterization 
+    [1] -- [1..*] CustomerJourneyExperience 
 }
-mode CustomerJourneyExperience 
-kind Channel {
-    @participation
-    ( {const } ) [1..*] --  [0..*]  CustomerRelationshipActivity
+
+phase Advocacy of functional-complexes  specializes BuyerPersona {
+    @memberOf 
+    [2..*] -- [1..*] Market 
+    @participation 
+    [1..*] -- [0..*] CustomerJourneyActivity 
+    @characterization 
+    [1] -- [1..*] CustomerJourneyExperience 
 }
-relator ValueProposition {
-    @mediation
-     [1..*] -- [1]  Organization( {const } )
-    @mediation
-     [1..*] -- [1]  Market( {const } )
+
+relator CustomerRelationshipStatus
+
+phase Lead of relators  specializes CustomerRelationshipStatus {
+    @mediation 
+    [0..*] -- [1] Organization 
+    @mediation 
+    [0..*] -- [1] BuyerPersona 
 }
-collective Market 
-phase Awareness  specializes BuyerPersona
-phase Consideration  specializes BuyerPersona
-phase Decision  specializes BuyerPersona
-phase Consumption  specializes BuyerPersona
-phase Faithful  specializes BuyerPersona
-phase Advocacy  specializes BuyerPersona
-relator CustomerRelationshipStatus {
-    @mediation
-     [0..*] -- [1]  Organization( {const } )
-    @mediation
-     [0..*] -- [1]  BuyerPersona( {const } )
+
+phase Prospect of relators  specializes CustomerRelationshipStatus {
+    @mediation 
+    [0..*] -- [1] Organization 
+    @mediation 
+    [0..*] -- [1] BuyerPersona 
 }
-phase Lead  specializes CustomerRelationshipStatus
-phase Prospect  specializes CustomerRelationshipStatus
-phase Customer  specializes CustomerRelationshipStatus
-phase Loyal  specializes CustomerRelationshipStatus
-phase Stranger  specializes CustomerRelationshipStatus
-phase Promoter  specializes CustomerRelationshipStatus
-event Attract {
-    @historicalDependence
-     [0..*] -- [1]  Engage( {const } )
+
+phase Customer of relators  specializes CustomerRelationshipStatus {
+    @mediation 
+    [0..*] -- [1] Organization 
+    @mediation 
+    [0..*] -- [1] BuyerPersona 
 }
-event Engage {
-    @historicalDependence
-     [0..*] -- [1]  Delight( {const } )
+
+phase Loyal of relators  specializes CustomerRelationshipStatus {
+    @mediation 
+    [0..*] -- [1] Organization 
+    @mediation 
+    [0..*] -- [1] BuyerPersona 
 }
-event Delight 
-subkind DigitalChannel  specializes Channel
-subkind PhysicalChannel  specializes Channel
-disjoint complete genset CustomerRelationshipStatus{
-    general CustomerRelationshipStatus
-    specifics Lead, Promoter, Customer, Loyal, Stranger, Prospect 
+
+phase Stranger of relators  specializes CustomerRelationshipStatus {
+    @mediation 
+    [0..*] -- [1] Organization 
+    @mediation 
+    [0..*] -- [1] BuyerPersona 
 }
-disjoint complete genset CustomerJourneyStage{
-    general BuyerPersona
-    specifics Consideration, Advocacy, Decision, Consumption, Faithful, Awareness 
+
+phase Promoter of relators  specializes CustomerRelationshipStatus {
+    @mediation 
+    [0..*] -- [1] Organization 
+    @mediation 
+    [0..*] -- [1] BuyerPersona 
 }
-disjoint genset ChannelTypes{
-    general Channel
-    specifics DigitalChannel, PhysicalChannel 
+
+event Attract
+
+event Engage
+
+event Delight
+
+subkind DigitalChannel of functional-complexes  specializes Channel {
+    @participation 
+    [1..*] -- [0..*] CustomerRelationshipActivity 
+}
+
+subkind PhysicalChannel of functional-complexes  specializes Channel {
+    @participation 
+    [1..*] -- [0..*] CustomerRelationshipActivity 
 }
 

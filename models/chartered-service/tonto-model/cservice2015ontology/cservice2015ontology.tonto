@@ -1,0 +1,25 @@
+
+package cservice2015ontology
+
+relator Railway_Usage_Agreement
+
+role Railway_Concessionaire
+
+category PRCS_Description of functional-complexes 
+
+role Regulatory_Agency
+
+category Regulatory_Legislation of functional-complexes 
+
+relator Eventual_Passenger_Rail_Chartered_Service
+
+role Interested_Agent
+
+mode PRCS_Offering_Commitment
+
+mode PRCS_Offering_Claim
+
+collective User_Community_of_PRCS
+
+role User_of_PRCS
+

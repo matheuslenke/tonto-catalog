@@ -1,70 +1,52 @@
+import OntoUML_Model_Repository
+
 package BrazilianHealthOrganization_English
 
-collective DocumentType 
-collective MedicalSpecialization 
-kind Diagnosis {
-    @Formal
-    [1] -- has -- [1]  ICD
-}
-category ICD 
-collective CirculatorySystem  specializes ICD
-collective NervousSystem  specializes ICD
-collective MetabolicDisease  specializes ICD
-collective RespiratorySystem  specializes ICD
-collective DigestiveSystem  specializes ICD
-kind Person 
-subkind Man  specializes Person
-subkind Woman  specializes Person
-phase Child  specializes Person
-phase Teenager  specializes Person
-phase Adult  specializes Person
-phase Elder  specializes Person
-phase PregnantWoman  specializes Woman
-role Patient  specializes Person{
-    @material
-    [1] -- treats -- [1]  HealthProfessional
-    @material
-     [1..*] -- lives_in -- [1]  Neighborhood
-}
-role HealthProfessional  specializes Person{
-    @material
-     [1..*] -- works_in --  [1..*]  HealthUnit( {const } )
-    @Formal
-    [*] -- has -- [*]  MedicalSpecialization
-    @material
-    [1] -- performs --  [1..*]  Diagnosis
-}
-relator HealthAppointment {
-    @mediation
-     [1..*] -- [1]  Patient( {const } )
-    @mediation
-     [1..*] -- [1]  HealthProfessional( {const } )
-    @Formal
-    [*] -- generates -- [*]  Document
-}
-kind Neighborhood {
-    @material
-    [1] -- located_in --  [1..*]  Region
-}
-kind Region 
-kind HealthUnit {
-    @material
-     [1..*] -- located_in -- [1]  Region
-}
-kind Document {
-    @Formal
-    [*] -- hasType -- [1]  DocumentType
-}
-disjoint genset Set{
-    general Person
-    specifics Elder, Teenager, Adult, Child 
-}
-disjoint genset Set2{
-    general Person
-    specifics Woman, Man 
-}
-disjoint genset Set3{
-    general ICD
-    specifics NervousSystem, DigestiveSystem, MetabolicDisease, RespiratorySystem, CirculatorySystem 
-}
+collective DocumentType
+
+collective MedicalSpecialization
+
+kind Diagnosis
+
+category ICD of functional-complexes 
+
+collective CirculatorySystem specializes ICD 
+
+collective NervousSystem specializes ICD 
+
+collective MetabolicDisease specializes ICD 
+
+collective RespiratorySystem specializes ICD 
+
+collective DigestiveSystem specializes ICD 
+
+kind Person
+
+subkind Man of functional-complexes  specializes Person 
+
+subkind Woman of functional-complexes  specializes Person 
+
+phase Child of functional-complexes  specializes Person 
+
+phase Teenager of functional-complexes  specializes Person 
+
+phase Adult of functional-complexes  specializes Person 
+
+phase Elder of functional-complexes  specializes Person 
+
+phase PregnantWoman of functional-complexes  specializes Woman 
+
+role Patient of functional-complexes  specializes Person 
+
+role HealthProfessional of functional-complexes  specializes Person 
+
+relator HealthAppointment
+
+kind Neighborhood
+
+kind Region
+
+kind HealthUnit
+
+kind Document
 

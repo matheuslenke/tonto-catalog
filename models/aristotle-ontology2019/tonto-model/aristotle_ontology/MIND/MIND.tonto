@@ -1,14 +1,14 @@
+import aristotle_ontology
+
 package MIND
 
-kind Mind 
-subkind TheoreticalMind  specializes Mind
-subkind PracticalMind  specializes Mind
-kind Memory {
-    @componentOf
-    [1]  --<o> [1]  Mind
-}
-kind Imagination {
-    @componentOf
-    [1]  --<o> [1]  Mind
-}
+kind Mind
+
+subkind TheoreticalMind of functional-complexes  specializes Mind 
+
+subkind PracticalMind of functional-complexes  specializes Mind 
+
+kind Memory
+
+kind Imagination
 

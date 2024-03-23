@@ -15,9 +15,18 @@ export const navigateAndRunCommandFromCLI = async (opts: RunCommandOpts): Promis
         const results: ModelResult[] = []
 
         for (const file of files as string[]) {
+            if (file === "mgic-antt2011") {
+                continue
+            }
             try {
                 totalModels += 1;
                 const ontologyPath = join(opts.dir, file);
+
+                const tontoModelFiles = fs.readdirSync(path.join(ontologyPath, "tonto-model"))
+                if (tontoModelFiles.length === 0) {
+                    console.log("Empty model")
+                }
+
                 // Run the command in the current directory
                 const response = await validateCommandLocal(ontologyPath)
                 if (!response) {
@@ -44,7 +53,10 @@ export const navigateAndRunCommandFromCLI = async (opts: RunCommandOpts): Promis
         }
 
         // Final Results
-        const finalString = results.reduce((previous, item) => previous + `${item.modelName}: ${item.totalErrors}\n`, "")
+        const finalString = `
+        // These results are from Tonto local verification, without ontouml-js API and using Tonto Project
+        ${results.reduce((previous, item) => previous + `${item.modelName}: ${item.totalErrors}\n`, "")}
+        `
         createAndWriteFile(path.join(opts.outDir, "finalResults.txt"), finalString)
         return {
             totalModels,

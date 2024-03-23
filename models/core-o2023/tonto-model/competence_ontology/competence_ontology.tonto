@@ -1,0 +1,29 @@
+import capability_ontology
+
+package competence_ontology
+
+category Capability of intrinsic-modes  specializes Disposition {
+    [0..*] -- emerges_from -- [0..*] Capability 
+}
+
+category Object of functional-complexes 
+
+category Social_Agent of functional-complexes  specializes Agent {
+    @componentOf 
+    [1..*] -- [0..1] Social_Agent 
+    @componentOf 
+    [0..*] -- [0..*] Object 
+}
+
+category Physical_Agent of functional-complexes  specializes Agent {
+    @componentOf 
+    [1..*] -- [0..1] Social_Agent 
+    @componentOf 
+    [0..*] -- [0..*] Object 
+}
+
+category Agent of functional-complexes  specializes Object {
+    @componentOf 
+    [0..*] -- [0..*] Object 
+}
+

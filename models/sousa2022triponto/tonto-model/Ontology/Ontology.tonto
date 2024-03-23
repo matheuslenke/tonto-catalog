@@ -1,0 +1,163 @@
+
+package Ontology
+
+relator Trip
+
+category Accommodation of functional-complexes 
+
+roleMixin Destination of functional-complexes 
+
+roleMixin Origin of functional-complexes 
+
+role Tourist of functional-complexes  specializes Person {
+    trip_cod: int  
+}
+
+relator Route
+
+roleMixin Arrival_Place of functional-complexes 
+
+roleMixin Departure_Place of functional-complexes 
+
+role International_Tourist of functional-complexes  specializes Tourist 
+
+role National_Tourist of functional-complexes  specializes Tourist 
+
+subkind International_Trip of relators  specializes Trip {
+    @material 
+    [0..*] -- needs -- [2] Date 
+    @material 
+    [1..*] -- needs -- [1] Travel_Investment 
+    @mediation 
+    [0..*] -- needs -- [1..*] Accommodation 
+    @mediation 
+    [1..*] -- needs -- [1..*] Destination 
+    @mediation 
+    [1..*] -- needs -- [1] Origin 
+    @mediation 
+    [1..*] -- made_by -- [1..*] Tourist 
+    [1..*] -- composed_by -- [2..*] Route 
+}
+
+subkind National_Trip of relators  specializes Trip {
+    @material 
+    [0..*] -- needs -- [2] Date 
+    @material 
+    [1..*] -- needs -- [1] Travel_Investment 
+    @mediation 
+    [0..*] -- needs -- [1..*] Accommodation 
+    @mediation 
+    [1..*] -- needs -- [1..*] Destination 
+    @mediation 
+    [1..*] -- needs -- [1] Origin 
+    @mediation 
+    [1..*] -- made_by -- [1..*] Tourist 
+    [1..*] -- composed_by -- [2..*] Route 
+}
+
+roleMixin National_Destination of functional-complexes  specializes Destination 
+
+roleMixin International_Destination of functional-complexes  specializes Destination 
+
+kind Legal_Authorization
+
+phase Child of functional-complexes  specializes Person 
+
+phase Adult of functional-complexes  specializes Person 
+
+kind Car specializes Transportation_Mean 
+
+kind Plane specializes Transportation_Mean 
+
+kind Bus specializes Transportation_Mean 
+
+kind Train specializes Transportation_Mean 
+
+kind Boat specializes Transportation_Mean 
+
+relator Driving_License{
+    id: int  
+    driver_age: int  
+}
+
+role Driver of functional-complexes  specializes Adult {
+    driving_license_id: int  
+}
+
+kind Airbnb specializes Accommodation 
+
+kind Hotel_Room specializes Accommodation 
+
+role Costumer of functional-complexes  specializes Adult 
+
+relator Reservation
+
+relator Ticket
+
+role Passenger of functional-complexes  specializes Person 
+
+subkind Plane_Ticket of relators  specializes Ticket {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Passenger 
+
+    // TODO: Missing uses
+    // @derivation 
+    // [1] -- [1] uses 
+}
+
+subkind Bus_Ticket of relators  specializes Ticket {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Passenger 
+    // @derivation 
+    // [1] -- [1] uses 
+}
+
+subkind Train_Ticket of relators  specializes Ticket {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Passenger 
+    // @derivation 
+    // [1] -- [1] uses 
+}
+
+subkind Boat_Ticket of relators  specializes Ticket {
+    @mediation 
+    [1..*] -- belongs_to -- [1] Passenger 
+    // @derivation 
+    // [1] -- [1] uses 
+}
+
+subkind Airbnb_Reservation of relators  specializes Reservation {
+    @mediation 
+    [1..*] -- made_by -- [1] Costumer 
+    // @derivation 
+    // [1] -- [1] reserves 
+}
+
+subkind Hotel_Reservation of relators  specializes Reservation {
+    @mediation 
+    [1..*] -- made_by -- [1] Costumer 
+    // @derivation 
+    // [1] -- [1] reserves 
+}
+
+kind Person{
+    name: string_  
+    age: int  
+    gender: string_  
+    trip_code: int  
+}
+
+category Transportation_Mean of functional-complexes {
+    id: int  
+    name: string_  
+    destination: string_  
+    origin: string_  
+    ticket_code: int  
+}
+
+datatype Date
+datatype Travel_Investment
+datatype Arrival_Date
+datatype Departure_Date
+datatype int
+datatype string_

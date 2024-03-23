@@ -1,0 +1,132 @@
+
+package prehled_invalidity
+
+role Home_Address of functional-complexes  specializes Address 
+
+kind Address
+
+kind Country{
+    country_name: undefined  
+}
+
+kind City{
+    city_name: undefined  
+}
+
+kind Street{
+    street_name: undefined  
+}
+
+quality Street_Number{
+    street_number: undefined  
+}
+
+relator Residence
+
+role Citizen of functional-complexes  specializes Person 
+
+kind Person{
+    surname: undefined  
+    name: undefined  
+    sex: undefined  
+}
+
+quality Date_of_Birth{
+    birth_date: undefined  
+}
+
+phase Healthy_Person of functional-complexes  specializes Person 
+
+phase Disabled_Person of functional-complexes  specializes Person 
+
+subkind Man of functional-complexes  specializes Person 
+
+subkind Woman of functional-complexes  specializes Person 
+
+quality Education{
+    education_level: undefined  
+}
+
+quality Cause_of_Disability
+
+quality Disability_Onset_Data
+
+quality Order_Price
+
+phase Planned_Assembly of relators  specializes Assembly {
+    @mediation 
+    [1..*] -- [1..*] Assembler 
+    @mediation 
+    [1..*] -- [1] Assembled_Fitness_Machine 
+}
+
+phase Ongoing_Assembly of relators  specializes Assembly {
+    @mediation 
+    [1..*] -- [1..*] Assembler 
+    @mediation 
+    [1..*] -- [1] Assembled_Fitness_Machine 
+}
+
+relator Assembly
+
+kind Person2
+
+role Assembled_Fitness_Machine of functional-complexes  specializes Product, Fitness_Machine 
+
+subkind Power_Rack of functional-complexes  specializes Fitness_Machine, Multigym_Equipment 
+
+category Multigym_Equipment of functional-complexes 
+
+kind Business_Organisation
+
+phase Finished_Assembly of relators  specializes Assembly, Status_Finished {
+    @mediation 
+    [1..*] -- [1..*] Assembler 
+    @mediation 
+    [1..*] -- [1] Assembled_Fitness_Machine 
+}
+
+mixin Product of functional-complexes 
+
+kind Fitness_Machine
+
+role Personal_Customer of functional-complexes  specializes Person, Customer {
+    @material 
+    [0..*] -- buys -- [1..*] Product 
+}
+
+role Assembler of functional-complexes  specializes Person 
+
+phase Unfinished_Order of relators  specializes Order {
+    @mediation 
+    [1..*] -- [1] Customer 
+    @mediation 
+    [0..1] -- [1..*] Product 
+}
+
+quality Assembly_date
+
+roleMixin Customer of functional-complexes 
+
+subkind Weight_Bench of functional-complexes  specializes Fitness_Machine, Multigym_Equipment 
+
+phaseMixin Status_Finished of functional-complexes 
+
+role Corporate_Customer of functional-complexes  specializes Business_Organisation, Customer {
+    @material 
+    [0..*] -- buys -- [1..*] Product 
+}
+
+relator Order
+
+subkind Treadmill of functional-complexes  specializes Fitness_Machine 
+
+mode Fitness_Machine_Code
+
+phase Finished_Order of relators  specializes Order, Status_Finished {
+    @mediation 
+    [1..*] -- [1] Customer 
+    @mediation 
+    [0..1] -- [1..*] Product 
+}
+

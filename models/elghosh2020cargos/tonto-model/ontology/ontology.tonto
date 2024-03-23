@@ -1,0 +1,23 @@
+
+package ontology
+
+roleMixin Right_Holder of functional-complexes 
+
+roleMixin Duty_Holder of functional-complexes 
+
+role Carrier specializes Duty_Holder 
+
+role Shipper specializes Right_Holder 
+
+relator Right_Duty_to_Indemnity
+
+mode Right_to_Indemnity
+
+mode Duty_to_Indemnity
+
+kind Inaccuracies
+
+subkind Legal_Rule
+
+event Loss_or_Damage_of_Goods
+

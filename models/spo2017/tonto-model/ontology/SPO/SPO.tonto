@@ -1,231 +1,450 @@
+import ontology
 import EO
+import UFOB
 import UFOC
 
 package SPO
 
-type Process_Universal  specializes Atomic_Action_Universal, Complex_Action_Universal
-kind Standard_Process_Definition_Document  specializes Plan_Description{
-    [1] -- describes --  [1..*]  Standard_Process
-     [0..*] -- recognized_by --  [1..*]  Organization
+type Process_Universal specializes Atomic_Action_Universal, Complex_Action_Universal {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-type Standard_Process  specializes Process_Universal
-type General_Standard_Process  specializes Standard_Process{
-     [0..*] <>--  [2..*]  Specific_Standard_Process
+
+kind Standard_Process_Definition_Document specializes Plan_Description {
+    [0..1] -- describes -- [1..*] Atomic_Action_Universal 
+    [0..1] -- describes -- [1..*] Complex_Action_Universal 
+    [0..*] -- recognized_by -- [1..*] Social_Agent 
+    [*] -- instance_of -- [*] Object_Kind 
 }
-type Activity_Universal  specializes Action_Universal_Plan
-type Project_Standard_Process  specializes Standard_Process
-type Organizational_Standard_Process  specializes Standard_Process
-type Hybrid_Standard_Process  specializes Standard_Process
-type Standard_Activity  specializes Activity_Universal, Activity_Universal{
-     [0..*] -- depends_on --  [0..*]  Standard_Activity
-     [0..*] -- is_to_be_performed_adoting --  [0..*]  Procedure
-     [0..*] -- requires --  [0..*]  Hardware_Type
-     [0..*] -- requires --  [0..*]  Software_Product_Type
-     [0..*] -- uses --  [0..*]  Artifact_Type
-     [0..*] -- changes --  [0..*]  Artifact_Type
-     [0..*] -- creates --  [0..*]  Artifact_Type
-     [0..*] -- is_to_be_performed_by --  [0..*]  Organizational_Role
+
+type Standard_Process specializes Process_Universal {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-type Composite_Standard_Activity  specializes Standard_Activity{
-     [0..*] <>--  [2..*]  Standard_Activity
+
+type General_Standard_Process specializes Standard_Process {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-type Simple_Standard_Activity  specializes Standard_Activity
-type Specific_Standard_Process  specializes Standard_Process{
-     [1..*] <>--  [2..*]  Standard_Activity
+
+type Activity_Universal specializes Action_Universal_Plan {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-category Procedure  specializes Normative_Description
-type Artifact_Type  specializes Object_Kind
-type Hardware_Type  specializes Object_Kind
-type Software_Product_Type  specializes Artifact_Type
-mode Intended_Process  specializes Intention{
-     [0..*] -- adapts --  [0..1]  Standard_Process
+
+type Project_Standard_Process specializes Standard_Process {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-mode General_Intended_Process  specializes Intended_Process{
-     [0..*] -- adapts --  [0..1]  General_Standard_Process
-    [1] <o>--  [2..*]  Specific_Intended_Process
+
+type Organizational_Standard_Process specializes Standard_Process {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-mode Specific_Intended_Process  specializes Intended_Process{
-     [0..*] -- adapts --  [0..1]  Specific_Standard_Process
-    [1] <o>--  [2..*]  Intended_Activity
+
+type Hybrid_Standard_Process specializes Standard_Process {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-mode Intended_Activity  specializes Intention{
-     [0..*] -- depends_on --  [0..*]  Intended_Activity
-     [0..*] -- adapts --  [0..1]  Standard_Activity
-     [0..*] -- creates --  [0..*]  Artifact_Type
-     [0..*] -- changes --  [0..*]  Artifact_Type
-     [0..*] -- uses --  [0..*]  Artifact_Type
-     [0..*] -- requires --  [0..*]  Software_Product_Type
-     [0..*] -- requires --  [0..*]  Hardware_Type
-     [0..*] -- is_to_be_performed_adopting --  [0..*]  Procedure
-     [0..*] -- is_to_be_performed_by --  [0..*]  Organizational_Role
+
+type Standard_Activity specializes Activity_Universal, Activity_Universal {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-mode Simple_Intended_Activity  specializes Intended_Activity
-mode Composite_Intended_Activity  specializes Intended_Activity{
-     [0..*] <>--  [2..*]  Intended_Activity
+
+type Composite_Standard_Activity specializes Standard_Activity {
+    [0..*] -- depends_on -- [0..*] Standard_Activity 
+    [0..*] -- is_to_be_performed_adoting -- [0..*] Procedure 
+    [0..*] -- requires -- [0..*] Hardware_Type 
+    [0..*] -- requires -- [0..*] Software_Product_Type 
+    [0..*] -- uses -- [0..*] Artifact_Type 
+    [0..*] -- changes -- [0..*] Artifact_Type 
+    [0..*] -- creates -- [0..*] Artifact_Type 
+    [0..*] -- is_to_be_performed_by -- [0..*] Organizational_Role 
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-mode Project_Process  specializes Intended_Process{
-     [0..*] -- defined_for -- [1]  Software_Project
+
+type Simple_Standard_Activity specializes Standard_Activity {
+    [0..*] -- depends_on -- [0..*] Standard_Activity 
+    [0..*] -- is_to_be_performed_adoting -- [0..*] Procedure 
+    [0..*] -- requires -- [0..*] Hardware_Type 
+    [0..*] -- requires -- [0..*] Software_Product_Type 
+    [0..*] -- uses -- [0..*] Artifact_Type 
+    [0..*] -- changes -- [0..*] Artifact_Type 
+    [0..*] -- creates -- [0..*] Artifact_Type 
+    [0..*] -- is_to_be_performed_by -- [0..*] Organizational_Role 
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-mode Organizational_Intended_Process  specializes Intended_Process{
-     [0..*] -- defined_for -- [1]  Organization
+
+type Specific_Standard_Process specializes Standard_Process {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
-subkind Software_Project  specializes Project
-class General_Project_Process  specializes Project_Process{
-    [1] <o>--  [2..*]  Specific_Project_Process
+
+category Procedure of functional-complexes  specializes Normative_Description {
+    [0..*] -- recognized_by -- [1..*] Social_Agent 
+    [*] -- instance_of -- [*] Object_Kind 
 }
-class Specific_Project_Process  specializes Project_Process{
-    [1] <o>--  [2..*]  Project_Activity
+
+type Artifact_Type specializes Object_Kind 
+
+type Hardware_Type specializes Object_Kind 
+
+type Software_Product_Type specializes Artifact_Type 
+
+mode Intended_Process specializes Intention 
+
+mode General_Intended_Process specializes Intended_Process {
+    [0..*] -- adapts -- [0..1] Standard_Process 
 }
-class Project_Activity  specializes Intended_Activity{
-     [0..*] -- defined_by -- [1]  Software_Project
+
+mode Specific_Intended_Process specializes Intended_Process {
+    [0..*] -- adapts -- [0..1] Standard_Process 
 }
-roleMixin Stakeholder  specializes Agent{
-     [1..*] -- participates_in --  [0..*]  Performed_Activity specializes Stakeholder.is_in_charge_of
-     [1..*] -- is_in_charge_of --  [0..*]  Performed_Activity
+
+mode Intended_Activity specializes Intention 
+
+mode Simple_Intended_Activity specializes Intended_Activity {
+    [0..*] -- depends_on -- [0..*] Intended_Activity 
+    [0..*] -- adapts -- [0..1] Standard_Activity 
+    [0..*] -- creates -- [0..*] Artifact_Type 
+    [0..*] -- changes -- [0..*] Artifact_Type 
+    [0..*] -- uses -- [0..*] Artifact_Type 
+    [0..*] -- requires -- [0..*] Software_Product_Type 
+    [0..*] -- requires -- [0..*] Hardware_Type 
+    [0..*] -- is_to_be_performed_adopting -- [0..*] Procedure 
+    [0..*] -- is_to_be_performed_by -- [0..*] Organizational_Role 
 }
-relator Stakeholder_Allocation  specializes Social_Relator{
-     [0..*] -- allocates -- [1]  Stakeholder
-     [0..*] -- is_to_perform -- [1]  Intended_Activity
-     [0..*] -- to_acts_as -- [1]  Organizational_Role
+
+mode Composite_Intended_Activity specializes Intended_Activity {
+    [0..*] -- depends_on -- [0..*] Intended_Activity 
+    [0..*] -- adapts -- [0..1] Standard_Activity 
+    [0..*] -- creates -- [0..*] Artifact_Type 
+    [0..*] -- changes -- [0..*] Artifact_Type 
+    [0..*] -- uses -- [0..*] Artifact_Type 
+    [0..*] -- requires -- [0..*] Software_Product_Type 
+    [0..*] -- requires -- [0..*] Hardware_Type 
+    [0..*] -- is_to_be_performed_adopting -- [0..*] Procedure 
+    [0..*] -- is_to_be_performed_by -- [0..*] Organizational_Role 
 }
-mode Scheduled_Process  specializes Intended_Process, Appointment{
-    plannedStartDate : undefined
-    plannedEndDate : undefined
+
+mode Project_Process specializes Intended_Process {
+    [0..*] -- adapts -- [0..1] Standard_Process 
 }
-mode Scheduled_Activity  specializes Intended_Activity, Appointment{
-    plannedStartDate : undefined
-    plannedEndDate : undefined
+
+mode Organizational_Intended_Process specializes Intended_Process {
+    [0..*] -- adapts -- [0..1] Standard_Process 
 }
-event Performed_Process  specializes Complex_Action{
-    startDate : undefined
-    endDate : undefined
-     [0..1] -- caused_by --  [0..1]  Intended_Process
-     [0..*] -- instance_of -- [1]  Process_Universal
+
+subkind Software_Project specializes Project {
+    [*] -- instance_of -- [*] Object_Kind 
 }
-event Performed_Project_Process  specializes Performed_Process{
-     [0..1] -- caused_by --  [0..1]  Project_Process
-     [0..*] -- performed_in -- [1]  Software_Project
+
+class General_Project_Process specializes Project_Process {
+    [0..*] -- defined_for -- [1] Software_Project 
+    [0..*] -- adapts -- [0..1] Standard_Process 
 }
-event Performed_Organizational_Process  specializes Performed_Process{
-     [0..*] -- performed_in -- [1]  Organization
+
+class Specific_Project_Process specializes Project_Process {
+    [0..*] -- defined_for -- [1] Software_Project 
+    [0..*] -- adapts -- [0..1] Standard_Process 
 }
-event Performed_General_Process  specializes Performed_Process{
-    [1] <o>--  [2..*]  Performed_Specific_Process
+
+class Project_Activity specializes Intended_Activity {
+    [0..*] -- depends_on -- [0..*] Intended_Activity 
+    [0..*] -- adapts -- [0..1] Standard_Activity 
+    [0..*] -- creates -- [0..*] Artifact_Type 
+    [0..*] -- changes -- [0..*] Artifact_Type 
+    [0..*] -- uses -- [0..*] Artifact_Type 
+    [0..*] -- requires -- [0..*] Software_Product_Type 
+    [0..*] -- requires -- [0..*] Hardware_Type 
+    [0..*] -- is_to_be_performed_adopting -- [0..*] Procedure 
+    [0..*] -- is_to_be_performed_by -- [0..*] Organizational_Role 
 }
-event Performed_Specific_Process  specializes Performed_Process{
-     [1..*] <o>--  [2..*]  Performed_Activity
+
+roleMixin Stakeholder of functional-complexes  specializes Agent 
+
+relator Stakeholder_Allocation specializes Social_Relator 
+
+mode Scheduled_Process specializes Intended_Process, Appointment {
+    plannedStartDate: undefined  
+    plannedEndDate: undefined  
+    [0..*] -- adapts -- [0..1] Standard_Process 
 }
-event Performed_Activity  specializes Action{
-    startDate : undefined
-    endDate : undefined
-     [0..*] -- caused_by --  [0..1]  Intended_Activity
-     [0..*] -- instance_of -- [1]  Activity_Universal
-     [0..*] -- depends_on --  [0..*]  Performed_Activity
-    [1] <o>--  [0..*]  Artifact_Participation
-     [0..1] -- creates --  [0..*]  Artifact
-     [0..*] -- changes --  [0..*]  Artifact
-     [0..*] -- uses --  [0..*]  Artifact
-    [1] <o>--  [1..*]  Stakeholder_Participation
-    [1] <o>--  [0..*]  Hardware_Resource_Participation
-    [1] <o>--  [0..*]  Software_Resource_Participation
-    @material
-     [1..*] -- uses --  [0..*]  Resource
-    @material
-     [0..*] -- adopts --  [0..*]  Procedure
-    [1] <o>--  [0..*]  Procedure_Participation
+
+mode Scheduled_Activity specializes Intended_Activity, Appointment {
+    plannedStartDate: undefined  
+    plannedEndDate: undefined  
+    [0..*] -- depends_on -- [0..*] Intended_Activity 
+    [0..*] -- adapts -- [0..1] Standard_Activity 
+    [0..*] -- creates -- [0..*] Artifact_Type 
+    [0..*] -- changes -- [0..*] Artifact_Type 
+    [0..*] -- uses -- [0..*] Artifact_Type 
+    [0..*] -- requires -- [0..*] Software_Product_Type 
+    [0..*] -- requires -- [0..*] Hardware_Type 
+    [0..*] -- is_to_be_performed_adopting -- [0..*] Procedure 
+    [0..*] -- is_to_be_performed_by -- [0..*] Organizational_Role 
 }
-event Performed_Composite_Activity  specializes Performed_Activity{
-     [0..*] <o>--  [2..*]  Performed_Activity
+
+event Performed_Process specializes Complex_Action {
+    startDate: undefined  
+    endDate: undefined  
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-event Performed_Simple_Activity  specializes Performed_Activity
-class Performed_Project_Activity  specializes Performed_Activity{
-     [0..*] -- caused_by --  [0..1]  Project_Activity
-     [0..*] -- performed_in -- [1]  Software_Project
+
+event Performed_Project_Process specializes Performed_Process {
+    [0..1] -- caused_by -- [0..1] Intended_Process 
+    [0..*] -- instance_of -- [1] Process_Universal 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-event Artifact_Participation  specializes Object_Participation{
-     [0..*] -- participation_of -- [1]  Artifact
+
+event Performed_Organizational_Process specializes Performed_Process {
+    [0..1] -- caused_by -- [0..1] Intended_Process 
+    [0..*] -- instance_of -- [1] Process_Universal 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-category Artifact  specializes Object{
-     [0..*] -- depends_on --  [0..*]  Artifact
-     [0..*] -- instance_of -- [1]  Artifact_Type
+
+event Performed_General_Process specializes Performed_Process {
+    [0..1] -- caused_by -- [0..1] Intended_Process 
+    [0..*] -- instance_of -- [1] Process_Universal 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-event Artifact_Change  specializes Artifact_Participation, Change
-event Artifact_Creation  specializes Artifact_Participation, Creation
-event Artifact_Usage  specializes Artifact_Participation, Usage
-event Stakeholder_Participation  specializes Action_Contribution{
-     [0..*] -- participation_of -- [1]  Stakeholder
-     [0..*] -- refers_to --  [0..1]  Stakeholder_Allocation
-     [0..*] -- act_as -- [1]  Organizational_Role
+
+event Performed_Specific_Process specializes Performed_Process {
+    [0..1] -- caused_by -- [0..1] Intended_Process 
+    [0..*] -- instance_of -- [1] Process_Universal 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-event Stakeholder_Main_Participation  specializes Stakeholder_Participation{
-     [0..*] -- charge_of -- [1]  Stakeholder
+
+event Performed_Activity specializes Action {
+    startDate: undefined  
+    endDate: undefined  
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-roleMixin Resource  specializes Object
-kind Hardware_Equipment  specializes Object{
-     [0..*] -- instance_of -- [1]  Hardware_Type
+
+event Performed_Composite_Activity specializes Performed_Activity {
+    [0..*] -- caused_by -- [0..1] Intended_Activity 
+    [0..*] -- instance_of -- [1] Activity_Universal 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    [1] -- [0..*] Artifact_Participation 
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+    [1] -- [1..*] Stakeholder_Participation 
+    [1] -- [0..*] Hardware_Resource_Participation 
+    [1] -- [0..*] Software_Resource_Participation 
+    @material 
+    [1..*] -- uses -- [0..*] Resource 
+    @material 
+    [0..*] -- adopts -- [0..*] Procedure 
+    [1] -- [0..*] Procedure_Participation 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-kind Software_Product  specializes Artifact, Composite_Artifact{
-     [0..*] -- instance_of -- [1]  Software_Product_Type
+
+event Performed_Simple_Activity specializes Performed_Activity {
+    [0..*] -- caused_by -- [0..1] Intended_Activity 
+    [0..*] -- instance_of -- [1] Activity_Universal 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    [1] -- [0..*] Artifact_Participation 
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+    [1] -- [1..*] Stakeholder_Participation 
+    [1] -- [0..*] Hardware_Resource_Participation 
+    [1] -- [0..*] Software_Resource_Participation 
+    @material 
+    [1..*] -- uses -- [0..*] Resource 
+    @material 
+    [0..*] -- adopts -- [0..*] Procedure 
+    [1] -- [0..*] Procedure_Participation 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-role Hardware_Resource  specializes Hardware_Equipment, Resource
-role Software_Resource  specializes Software_Product, Resource
-event Hardware_Resource_Participation  specializes Change{
-     [1..*] -- participation_of -- [1]  Hardware_Resource
+
+class Performed_Project_Activity specializes Performed_Activity {
+    [0..*] -- caused_by -- [0..1] Intended_Activity 
+    [0..*] -- instance_of -- [1] Activity_Universal 
+    [0..*] -- depends_on -- [0..*] Performed_Activity 
+    [1] -- [0..*] Artifact_Participation 
+    [0..1] -- creates -- [0..*] Artifact 
+    [0..*] -- changes -- [0..*] Artifact 
+    [0..*] -- uses -- [0..*] Artifact 
+    [1] -- [1..*] Stakeholder_Participation 
+    [1] -- [0..*] Hardware_Resource_Participation 
+    [1] -- [0..*] Software_Resource_Participation 
+    @material 
+    [1..*] -- uses -- [0..*] Resource 
+    @material 
+    [0..*] -- adopts -- [0..*] Procedure 
+    [1] -- [0..*] Procedure_Participation 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-event Software_Resource_Participation  specializes Change{
-     [1..*] -- participation_of -- [1]  Software_Resource
+
+event Artifact_Participation specializes Object_Participation {
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-event Procedure_Participation  specializes Change{
-     [0..*] -- participation_of -- [1]  Procedure
+
+category Artifact of functional-complexes  specializes Object {
+    [*] -- instance_of -- [*] Object_Kind 
 }
-category Composite_Artifact  specializes Artifact{
-     [0..*] <>--  [2..*]  Artifact
+
+event Artifact_Change specializes Artifact_Participation, Change {
+    [0..*] -- participation_of -- [1] Artifact 
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-category Simple_Artifact  specializes Artifact
-kind Model  specializes Artifact
-kind Software_Item  specializes Artifact
-kind Information_Item  specializes Artifact
-kind Document  specializes Artifact{
-     [0..*] -- describes --  [0..*]  Artifact
-     [0..*] -- instance_of -- [1]  Document_Type
+
+event Artifact_Creation specializes Artifact_Participation, Creation {
+    [0..*] -- participation_of -- [1] Artifact 
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-type Document_Type  specializes Artifact_Type
-roleMixin Project_Stakeholder  specializes Stakeholder{
-     [0..*] -- interested_in --  [1..*]  Software_Project
+
+event Artifact_Usage specializes Artifact_Participation, Usage {
+    [0..*] -- participation_of -- [1] Artifact 
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-role Organization_Stakeholder  specializes Stakeholder, Organization
-role Team_Stakeholder  specializes Stakeholder, Team
-role Person_Stakeholder  specializes Stakeholder, Person
-subkind CASE_Tool  specializes Software_Product
-kind Method  specializes Procedure{
-    [1] -- describes --  [1..*]  Method_Workflow
+
+event Stakeholder_Participation specializes Action_Contribution {
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-kind Document_Template  specializes Procedure{
-     [0..*] -- applies_to -- [1]  Document_Type
+
+event Stakeholder_Main_Participation specializes Stakeholder_Participation {
+    [0..*] -- participation_of -- [1] Stakeholder 
+    [0..*] -- refers_to -- [0..1] Stakeholder_Allocation 
+    [0..*] -- act_as -- [1] Organizational_Role 
+    [0..*] -- framed_by -- [1] Time_Interval 
 }
-kind Technique  specializes Procedure
-type Method_Workflow  specializes Complex_Action_Universal{
-    [1] <>--  [1..*]  Method_Activity
+
+roleMixin Resource of functional-complexes  specializes Object {
+    [*] -- instance_of -- [*] Object_Kind 
 }
-type Method_Activity  specializes Action_Universal_Plan
-type Simple_Method_Activity  specializes Method_Activity
-type Composite_Method_Activity  specializes Method_Activity{
-     [0..*] <>--  [2..*]  Method_Activity
+
+kind Hardware_Equipment specializes Object {
+    [*] -- instance_of -- [*] Object_Kind 
 }
-disjoint complete genset QhDp736GAqACBSE5{
-    general Performed_Process
-    specifics Performed_Organizational_Process, Performed_Project_Process 
+
+kind Software_Product specializes Artifact, Composite_Artifact {
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+    [0..*] -- [2..*] Artifact 
 }
-disjoint complete genset wxfp736GAqACBSFs{
-    general Performed_Process
-    specifics Performed_General_Process, Performed_Specific_Process 
+
+role Hardware_Resource of functional-complexes  specializes Hardware_Equipment, Resource {
+    [0..*] -- instance_of -- [1] Hardware_Type 
+    [*] -- instance_of -- [*] Object_Kind 
 }
-disjoint complete genset :mereological structure{
-    general Artifact
-    specifics Simple_Artifact, Composite_Artifact 
+
+role Software_Resource of functional-complexes  specializes Software_Product, Resource {
+    [0..*] -- instance_of -- [1] Software_Product_Type 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+    [0..*] -- [2..*] Artifact 
 }
-disjoint genset :nature{
-    general Artifact
-    specifics Software_Item, Model, Document, Software_Product, Information_Item 
+
+event Hardware_Resource_Participation specializes Change {
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+event Software_Resource_Participation specializes Change {
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+event Procedure_Participation specializes Change {
+    [0..*] -- participation_of -- [1] Object 
+    [0..*] -- framed_by -- [1] Time_Interval 
+}
+
+category Composite_Artifact of functional-complexes  specializes Artifact {
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+category Simple_Artifact of functional-complexes  specializes Artifact {
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+kind Model specializes Artifact {
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+kind Software_Item specializes Artifact {
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+kind Information_Item specializes Artifact {
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+kind Document specializes Artifact {
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+type Document_Type specializes Artifact_Type 
+
+roleMixin Project_Stakeholder of functional-complexes  specializes Stakeholder {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+role Organization_Stakeholder specializes Stakeholder, Organization {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+role Team_Stakeholder specializes Stakeholder, Team {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+role Person_Stakeholder of functional-complexes  specializes Stakeholder, Person {
+    [1..*] -- participates_in -- [0..*] Performed_Activity 
+    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
+}
+
+subkind CASE_Tool of functional-complexes  specializes Software_Product {
+    [0..*] -- instance_of -- [1] Software_Product_Type 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    [0..*] -- instance_of -- [1] Artifact_Type 
+    [*] -- instance_of -- [*] Object_Kind 
+    [0..*] -- [2..*] Artifact 
+}
+
+kind Method specializes Procedure {
+    [0..*] -- recognized_by -- [1..*] Social_Agent 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+kind Document_Template specializes Procedure {
+    [0..*] -- recognized_by -- [1..*] Social_Agent 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+kind Technique specializes Procedure {
+    [0..*] -- recognized_by -- [1..*] Social_Agent 
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+type Method_Workflow specializes Complex_Action_Universal {
+    [2..*] -- [0..*] Complex_Action_Universal 
+}
+
+type Method_Activity specializes Action_Universal_Plan {
+    [2..*] -- [0..*] Complex_Action_Universal 
+}
+
+type Simple_Method_Activity specializes Method_Activity {
+    [2..*] -- [0..*] Complex_Action_Universal 
+}
+
+type Composite_Method_Activity specializes Method_Activity {
+    [2..*] -- [0..*] Complex_Action_Universal 
 }
 

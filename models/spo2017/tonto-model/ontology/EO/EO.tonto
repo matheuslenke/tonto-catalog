@@ -1,9 +1,17 @@
+import ontology
+import SPO
+import UFOB
 import UFOC
 
 package EO
 
-class Organization  specializes Social_Agent
-class Organizational_Role  specializes Social_Role
-class Project  specializes Social_Object
-class Team  specializes Social_Agent
+class Organization specializes Social_Agent 
+
+class Organizational_Role specializes Social_Role 
+
+class Project specializes Social_Object {
+    [*] -- instance_of -- [*] Object_Kind 
+}
+
+class Team specializes Social_Agent 
 

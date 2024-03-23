@@ -1,76 +1,53 @@
+
 package Train_Control_System
 
-kind Dispatcher {
-    [*] -- play -- [*]  Provider
-}
-role Provider {
-    [*] -- [*]  Communication
-    [*] -- [*]  Communication
-}
-relator Communication {
-    [*] -- [*]  Channel
-    [*] -- [*]  Message
-    [*] -- [*]  Channel
-}
-role Channel {
-    [*] -- [*]  Control_Parameter_Communication
-}
-kind Wireless_Network {
-    [*] -- play -- [*]  Channel
-}
-role Receiver {
-    [*] -- [*]  Communication
-    [*] -- play -- [*]  RBC
-}
-role Message 
-kind RBC {
-    [*] -- play -- [*]  Provider
-}
-kind Onboard_System {
-    [*] -- play -- [*]  Receiver
-    [*] -- play -- [*]  Controller
-}
-kind MA_with_TSR {
-    [*] -- play -- [*]  Message
-}
-kind Train {
-    [*] -- play -- [*]  BeingControlled
-    [*] -- play -- [*]  Mover
-}
-kind TSR_Area {
-    [*] -- play -- [*]  Place
-}
-relator SpeedControl {
-    [*] -- [*]  BeingControlled
-    [*] -- [*]  Controller
-}
-relator Transportation {
-    [*] -- [*]  Place
-    [*] -- [*]  Mover
-}
-role Controller 
-role BeingControlled 
-role Mover 
-role Place 
-role Sensor 
-relator Monitor {
-    [*] -- [*]  Sensor
-    [*] -- [*]  BeingSensed
-}
-role BeingSensed 
-kind Train_Wheel {
-    [*] -- play -- [*]  BeingSensed
-}
-kind SDU {
-    [*] -- play -- [*]  Sensor
-    [*] -- play -- [*]  Provider
-}
-relator Control_Parameter_Communication {
-    [*] -- [*]  Provider
-    [*] -- [*]  Receiver
-    [*] -- [*]  Message
-}
-kind SpeedDistance_Message {
-    [*] -- play -- [*]  Message
-}
+kind Dispatcher
+
+role Provider
+
+relator Communication
+
+role Channel
+
+kind Wireless_Network
+
+role Receiver
+
+role Message
+
+kind RBC
+
+kind Onboard_System
+
+kind MA_with_TSR
+
+kind Train
+
+kind TSR_Area
+
+relator SpeedControl
+
+relator Transportation
+
+role Controller
+
+role BeingControlled
+
+role Mover
+
+role Place
+
+role Sensor
+
+relator Monitor
+
+role BeingSensed
+
+kind Train_Wheel
+
+kind SDU
+
+relator Control_Parameter_Communication
+
+kind SpeedDistance_Message
 

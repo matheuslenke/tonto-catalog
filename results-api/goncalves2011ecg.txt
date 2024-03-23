@@ -1,0 +1,18 @@
+Validating...
+- Total of errors: 19
+Could not create relation named ((No name)) between ECGRecordingSession and TimeDomain because one or both of them was not created.
+Could not create relation named ((No name)) between ECGRecordingSession and TimeDomain because one or both of them was not created.
+Could not create relation named ((No name)) between ECGRecordingSession and DateDomain because one or both of them was not created.
+Could not create relation named ((No name)) between Observation and TimeDomain because one or both of them was not created.
+Could not create relation named ((No name)) between ObservationSeries and sampleRateHz because one or both of them was not created.
+Could not create relation named (period) between ObservationSeries and Periodms because one or both of them was not created.
+Could not create relation named ((No name)) between Sample and ElectricalPotentialmV because one or both of them was not created.
+Could not create relation named (pd) between Sample and pdmV because one or both of them was not created.
+Could not create relation named (annotation) between PWave and Annotation because one or both of them was not created.
+Could not create relation named (annotation) between QRSComplex and Annotation because one or both of them was not created.
+Could not create relation named (annotation) between TWave and Annotation because one or both of them was not created.
+Could not create relation named (sampleRate) between SampleSequence and sampleRateHz because one or both of them was not created.
+Could not create relation named (pdSeq) between SampleSequence and pdSeqmV because one or both of them was not created.
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class HeartAsPump is specializing other classes that represent ultimate sortals: «kind»
+Validation finished

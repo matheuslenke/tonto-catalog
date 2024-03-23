@@ -1,0 +1,75 @@
+
+package laurier2018rea
+
+roleMixin economicresource
+
+relator stockflow
+
+relator inflow specializes stockflow {
+    [*] -- [*] economicevent 
+    [*] -- [*] economicresource 
+}
+
+relator outflow specializes stockflow {
+    [*] -- [*] economicevent 
+    [*] -- [*] economicresource 
+}
+
+roleMixin economicevent
+
+roleMixin incrementevent specializes economicevent 
+
+roleMixin decrementevent specializes economicevent 
+
+kind transformation
+
+role produce of functional-complexes  specializes incrementevent, transformation 
+
+relator transformationduality specializes duality {
+    [*] -- [*] decrementevent 
+    [*] -- [*] incrementevent 
+}
+
+role consume of functional-complexes  specializes decrementevent, transformation 
+
+relator duality
+
+role take of functional-complexes  specializes transfer, incrementevent 
+
+role give of functional-complexes  specializes transfer, decrementevent 
+
+relator transferduality specializes duality {
+    [*] -- [*] decrementevent 
+    [*] -- [*] incrementevent 
+}
+
+kind transfer
+
+relator insideparty specializes participation_ {
+    [*] -- [*] economicevent 
+    [*] -- [*] economicagent 
+}
+
+relator participation_
+
+relator outsideparty specializes participation_ {
+    [*] -- [*] economicevent 
+    [*] -- [*] economicagent 
+}
+
+roleMixin economicagent
+
+roleMixin tradingpartner
+
+relator from_ specializes outsideparty {
+    [*] -- [*] tradingpartner 
+    [*] -- [*] economicevent 
+    [*] -- [*] economicagent 
+}
+
+relator to specializes outsideparty {
+    [*] -- [*] tradingpartner 
+    [*] -- [*] economicevent 
+    [*] -- [*] economicagent 
+}
+

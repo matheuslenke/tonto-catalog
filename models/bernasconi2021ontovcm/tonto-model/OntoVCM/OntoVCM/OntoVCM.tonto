@@ -1,293 +1,303 @@
+
 package OntoVCM
 
-role Researcher  specializes Person
-kind Person  specializes Animal
-relator Research_Affiliation {
-    @mediation
-     [1..*] -- [1]  Researcher( {const } researcher )
-    @mediation
-     [1..*] -- [1]  Research_Laboratory( {const } research_Laboratory )
+role Researcher of functional-complexes  specializes Person {
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-role Author  specializes Researcher
-relator Publication {
-    Tile : undefined
-    DOI : undefined
-    @mediation
-     [1..*] --  [1..*]  Author( {const } authors )
-    @mediation
-     [1..*] --  [1..*]  Journal_Issue( {const } )
+
+kind Person specializes Animal {
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-subkind Virus_Sequencing_Publication  specializes Publication{
-    Submission_Date : undefined
-    @mediation
-    [*] --  [1..*]  Full_Consensus_Sequence( {const } full_Consensus_Sequences )
+
+relator Research_Affiliation
+
+role Author of functional-complexes  specializes Researcher {
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-kind Journal_Issue {
-    Journal_Name : undefined
-    ISSN : undefined
-    Publication_Date : undefined
-    Volume : undefined
+
+relator Publication{
+    Tile: undefined  
+    DOI: undefined  
 }
-event Virus_Sequencing {
-    Sequencing_Date : undefined
-     [1..*] <>--  [1..*]  Sample_Sequencing
-     [1..*] <>--  [1..*]  Genome_Assembly
-    @participation
-    [*] -- [1]  Sequencing_Platform( {const } )
+
+subkind Virus_Sequencing_Publication of relators  specializes Publication {
+    Submission_Date: undefined  
+    @mediation 
+    [1..*] -- [1..*] Author 
+    @mediation 
+    [1..*] -- [1..*] Journal_Issue 
 }
-historicalRole Sequencing_Laboratory  specializes Research_Laboratory{
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Sample_Sequencing
+
+kind Journal_Issue{
+    Journal_Name: undefined  
+    ISSN: undefined  
+    Publication_Date: undefined  
+    Volume: undefined  
 }
-category Animal  specializes Biological_Organism{
-    @instantiation
-    [*] --  [1..*]  Animal_Species
+
+event Virus_Sequencing{
+    Sequencing_Date: undefined  
 }
-roleMixin Virus_Host {
-    @participation
-    ( {const } )[1] -- [*]  Viral_Response
+
+historicalRole Sequencing_Laboratory of functional-complexes  specializes Research_Laboratory 
+
+category Animal of functional-complexes  specializes Biological_Organism {
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-type Animal_Species (instanceOf Animal) specializes Biological_Species{
-    species_name : undefined
-    genus : undefined
-    subFamily : undefined
-    family : undefined
+
+roleMixin Virus_Host of functional-complexes 
+
+type Animal_Species specializes Biological_Species {
+    species_name: undefined  
+    genus: undefined  
+    subFamily: undefined  
+    family: undefined  
 }
-category Biological_Organism {
-    @instantiation
-    [*] -- [1]  Biological_Species
+
+category Biological_Organism of functional-complexes 
+
+kind Virus specializes Biological_Organism {
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-kind Virus  specializes Biological_Organism{
-    @instantiation
-     [1..*] -- [1]  Virus_Species
-    @memberOf
-     [2..*]  --<o>  [1..*]  Virus_Collective
+
+type Virus_Species specializes Biological_Species 
+
+collective Virus_Collective
+
+relator Viral_Infection
+
+kind Bat specializes Animal {
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-type Virus_Species (instanceOf Virus) specializes Biological_Species{
-     [1..*] -- _associated_with --  [1..*]  Viral_Disease_Type
-    @externalDependence
-    [1] -- reference_for -- [1]  Reference_Sequence( {const } )
+
+kind Sequencing_Platform{
+    coverage: undefined  
 }
-collective Virus_Collective {
-    @participation
-    ( {const } )[1] -- [*]  Viral_Response
+
+historicalRole Sampling_Laboratory of functional-complexes  specializes Research_Laboratory 
+
+event Tissue_Sampling{
+    collection_date: undefined  
 }
-relator Viral_Infection {
-    @mediation
-     [1..*] -- [1]  Virus_Host( {const } virus_Host )
-    @mediation
-    [*] -- [1]  Virus_Collective( {const } virus_Collective )
-    @manifestation
-    ( {const } )[1] -- [*]  Viral_Response
+
+subkind Virus_Infected_Tissue of quantities  specializes Biological_Tissue {
+    @instantiation 
+    [*] -- [1] Biological_Tissue_Type 
 }
-kind Bat  specializes Animal
-kind Sequencing_Platform {
-    coverage : undefined
+
+quantity Biological_Tissue
+
+event Viral_Disease specializes Viral_Response 
+
+type Viral_Disease_Type
+
+type Biological_Species{
+    species_name: undefined  
+    genus: undefined  
+    subFamily: undefined  
+    family: undefined  
 }
-historicalRole Sampling_Laboratory  specializes Research_Laboratory{
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Tissue_Sampling
+
+kind Virus_Sequence specializes Sequence {
+    length: undefined  { derived }
+    GC_percentage: undefined  { derived }
 }
-event Tissue_Sampling {
-    collection_date : undefined
-    @creation
-    ( {const } )[1] --  [1..*]  Biological_Tissue( {const } )
-    @participation
-     [1..*] -- [1]  Sampled_Animal( {const } )
-     [1..*]  --<o>  [1..*]  Virus_Sequencing
+
+kind Amino_acid
+
+role Analyst of functional-complexes  specializes Person {
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-subkind Virus_Infected_Tissue  specializes Biological_Tissue{
-    @historicalDependence
-    [*] -- [1]  Viral_Infection( {const } viral_Infection )
-    @participation
-    ( {const } ) [1..*] -- [*]  Sample_Sequencing
-    @externalDependence
-    [*] -- [1]  Virus_Species( {const } virus_Species )
+
+subkind Research_Laboratory of functional-complexes  specializes Organization {
+    region: undefined  
+    country: undefined  
+    geo_group: undefined  
 }
-quantity Biological_Tissue {
-    @instantiation
-    [*] -- [1]  Biological_Tissue_Type
+
+relator Variant{
+    start_position: undefined  
+    length: undefined  
+    alternative_seq: undefined  
 }
-event Viral_Disease  specializes Viral_Response{
-    @instantiation
-    [*] -- [1]  Viral_Disease_Type
+
+subkind Full_Consensus_Sequence of functional-complexes  specializes Virus_Sequence {
+    @instantiation 
+    [*] -- [1] Molecule_Type 
 }
-type Viral_Disease_Type (instanceOf Viral_Disease)
-type Biological_Species (instanceOf Biological_Organism){
-    species_name : undefined
-    genus : undefined
-    subFamily : undefined
-    family : undefined
+
+kind Organization
+
+subkind Nucleotide_Subsequence of functional-complexes  specializes Virus_Sequence {
+    @instantiation 
+    [*] -- [1] Molecule_Type 
 }
-kind Virus_Sequence  specializes Sequence{
-    length : undefined
-    GC_percentage : undefined
-    @instantiation
-    [*] -- [1]  Molecule_Type
+
+roleMixin Reference_Sequence of functional-complexes  specializes Sequence 
+
+kind Nucleotide
+
+roleMixin Regular_Sequence of functional-complexes  specializes Sequence {
+    strain_name: undefined  
 }
-kind Amino_acid {
-    @instantiation
-     [0..1] --  [1..*]  Amino_Acid_Type
+
+roleMixin Living_Host of functional-complexes  specializes Virus_Host, Animal {
+    @participation 
+    [1] -- [*] Viral_Response 
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-role Analyst  specializes Person{
-    @mediation
-    ( {const } )[1] --  [1..*]  Analyst_Affiliation
+
+role In_Vitro_Host of functional-complexes  specializes Virus_Host, Cell_Line {
+    @participation 
+    [1] -- [*] Viral_Response 
 }
-subkind Research_Laboratory  specializes Organization{
-    region : undefined
-    country : undefined
-    geo_group : undefined
+
+kind Cell_Line
+
+event Viral_Response
+
+type Biological_Tissue_Type
+
+historicalRoleMixin Sampled_Animal of functional-complexes  specializes Animal {
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-relator Variant (instanceOf Variant_Type){
-    start_position : undefined
-    length : undefined
-    alternative_seq : undefined
-    @mediation
-     [1..*] -- [1]  Regular_Sequence( {const } )
-    @mediation
-     [1..*] -- [1]  Reference_Sequence( {const } )
-    @creation
-    ( {const } )[1] --  [1..*]  Variant_Analysis( {const } )
+
+type Genomic_Assembly_Method
+
+event Sample_Sequencing
+
+event Genome_Assembly
+
+collective Virus_Raw_Data
+
+kind Read
+
+type Molecule_Type
+
+subkind Adenine of functional-complexes  specializes Nucleotide {
+    @componentOf 
+    [2..*] -- [1] Virus_Sequence 
+    @componentOf 
+    [3] -- [1] Codon 
 }
-subkind Full_Consensus_Sequence  specializes Virus_Sequence{
-    @externalDependence
-    [*] -- [1]  Virus_Species( {const } virus_Species )
-    @componentOf
-    [1] <o>--  [1..*]  Nucleotide_Subsequence
-    @mediation
-    ( {const } )[1] -- [*]  Sequence_Deposition
+
+subkind Guanine of functional-complexes  specializes Nucleotide {
+    @componentOf 
+    [2..*] -- [1] Virus_Sequence 
+    @componentOf 
+    [3] -- [1] Codon 
 }
-kind Organization 
-subkind Nucleotide_Subsequence  specializes Virus_Sequence
-roleMixin Reference_Sequence  specializes Sequence{
-    @participation
-    ( {const } )[1] --  [1..*]  Variant_Analysis
+
+subkind Cytosine of functional-complexes  specializes Nucleotide {
+    @componentOf 
+    [2..*] -- [1] Virus_Sequence 
+    @componentOf 
+    [3] -- [1] Codon 
 }
-kind Nucleotide {
-    @componentOf
-     [2..*]  --<o> [1]  Virus_Sequence
-    @componentOf
-    [3]  --<o> [1]  Codon
+
+subkind Uracil of functional-complexes  specializes Nucleotide {
+    @componentOf 
+    [2..*] -- [1] Virus_Sequence 
+    @componentOf 
+    [3] -- [1] Codon 
 }
-roleMixin Regular_Sequence  specializes Sequence{
-    strain_name : undefined
+
+subkind Thymine of functional-complexes  specializes Nucleotide {
+    @componentOf 
+    [2..*] -- [1] Virus_Sequence 
+    @componentOf 
+    [3] -- [1] Codon 
 }
-roleMixin Living_Host  specializes Virus_Host, Animal{
-    @participation
-    ( {const } redefines_Virus_Host )[1] -- [*]  Viral_Disease
+
+subkind Codon of functional-complexes  specializes Nucleotide_Subsequence {
+    @instantiation 
+    [*] -- [1] Molecule_Type 
 }
-role In_Vitro_Host  specializes Virus_Host, Cell_Line
-kind Cell_Line 
-event Viral_Response 
-type Biological_Tissue_Type (instanceOf Biological_Tissue)
-historicalRoleMixin Sampled_Animal  specializes Animal
-type Genomic_Assembly_Method (instanceOf Genome_Assembly)
-event Sample_Sequencing {
-    @creation
-    ( {const } )[1] --  [1..*]  Virus_Raw_Data( {const } )
+
+subkind Coding_Region of functional-complexes  specializes Nucleotide_Subsequence {
+    @instantiation 
+    [*] -- [1] Molecule_Type 
 }
-event Genome_Assembly {
-    @creation
-    ( {const } genome_Assembly )[1] -- [1]  Full_Consensus_Sequence( {const } )
-    @instantiation
-    [*] -- [1]  Genomic_Assembly_Method
-    @participation
-    [*] -- [1]  Virus_Raw_Data( {const } )
+
+event Translation
+
+kind Protein specializes Sequence 
+
+type Codon_Type
+
+type Amino_Acid_Type
+
+subkind Leucine of functional-complexes  specializes Amino_acid {
+    @instantiation 
+    [0..1] -- [1..*] Amino_Acid_Type 
 }
-collective Virus_Raw_Data {
-    @memberOf
-    [1] <>--  [2..*]  Read
+
+subkind Arginine of functional-complexes  specializes Amino_acid {
+    @instantiation 
+    [0..1] -- [1..*] Amino_Acid_Type 
 }
-kind Read 
-type Molecule_Type (instanceOf Virus_Sequence)
-subkind Adenine  specializes Nucleotide
-subkind Guanine  specializes Nucleotide
-subkind Cytosine  specializes Nucleotide
-subkind Uracil  specializes Nucleotide
-subkind Thymine  specializes Nucleotide
-subkind Codon  specializes Nucleotide_Subsequence{
-    [*] -- [*]  Codon_Type
+
+subkind Threonine of functional-complexes  specializes Amino_acid {
+    @instantiation 
+    [0..1] -- [1..*] Amino_Acid_Type 
 }
-subkind Coding_Region  specializes Nucleotide_Subsequence{
-    @componentOf
-    [1] <o>--  [2..*]  Codon
-    @participation
-    ( {const } )[1] --  [1..*]  Translation
+
+subkind Proline of functional-complexes  specializes Amino_acid {
+    @instantiation 
+    [0..1] -- [1..*] Amino_Acid_Type 
 }
-event Translation {
-    @participation
-     [0..*] --  [1..*]  Amino_acid( {const } )
-    @creation
-    ( {const } )[1] -- [1]  Protein( {const } )
+
+category Sequence of functional-complexes 
+
+type Variant_Type
+
+event Variant_Analysis
+
+relator Analyst_Affiliation
+
+relator Sequence_Deposition{
+    deposition_date: undefined  
 }
-kind Protein  specializes Sequence{
-    @componentOf
-     [0..1] <o>--  [2..*]  Amino_acid
+
+kind Sequence_Database
+
+relator Data_Stewardship
+
+subkind Biological_Data_Institution of functional-complexes  specializes Organization 
+
+role Project_Participant of functional-complexes  specializes Researcher {
+    @instantiation 
+    [*] -- [1..*] Animal_Species 
+    @instantiation 
+    [*] -- [1] Biological_Species 
 }
-type Codon_Type {
-    @formal
-    [1] -- [1]  Amino_Acid_Type
-}
-type Amino_Acid_Type (instanceOf Amino_acid)
-subkind Leucine  specializes Amino_acid
-subkind Arginine  specializes Amino_acid
-subkind Threonine  specializes Amino_acid
-subkind Proline  specializes Amino_acid
-category Sequence 
-type Variant_Type {
-    @instantiation
-    [1] -- [*]  Variant
-}
-event Variant_Analysis {
-    @mediation
-     [1..*] -- [1]  Analyst( {const } )
-    @participation
-     [1..*] -- [1]  Regular_Sequence( {const } )
-}
-relator Analyst_Affiliation {
-    @mediation
-     [1..*] -- [1]  Research_Laboratory( {const } )
-}
-relator Sequence_Deposition {
-    deposition_date : undefined
-    @mediation
-    [*] -- [1]  Sequence_Database( {const } )
-}
-kind Sequence_Database {
-    @mediation
-    ( {const } )[1] --  [1..*]  Data_Stewardship
-}
-relator Data_Stewardship {
-    @mediation
-     [1..*] -- [1]  Biological_Data_Institution( {const } )
-}
-subkind Biological_Data_Institution  specializes Organization
-role Project_Participant  specializes Researcher{
-    @mediation
-    ( {const } )[1] --  [1..*]  Project_Participation
-}
-relator Project_Participation {
-    @mediation
-     [1..*] -- [1]  Virus_Sequencing_Endeavor( {const } )
-}
-relator Virus_Sequencing_Endeavor {
-    @mediation
-    [1] --  [1..*]  Research_Laboratory( {const } )
-    @manifestation
-    ( {const } )[1] -- [*]  Virus_Sequencing
-    @creation
-    ( {const } )[1] -- [1]  Genome_Assembly( {const } )
-}
-historicalRole Assembling_Laboratory  specializes Research_Laboratory{
-    @participation
-    ( {const } ) [1..*] --  [1..*]  Genome_Assembly
-}
-disjoint genset dD.h_6GGAqAAERHL{
-    general Amino_acid
-    specifics Proline, Leucine, Arginine, Threonine 
-}
-disjoint complete genset BwUR_6GGAqAAERIq{
-    general Nucleotide
-    specifics Uracil, Adenine, Thymine, Guanine, Cytosine 
-}
+
+relator Project_Participation
+
+relator Virus_Sequencing_Endeavor
+
+historicalRole Assembling_Laboratory of functional-complexes  specializes Research_Laboratory 
 

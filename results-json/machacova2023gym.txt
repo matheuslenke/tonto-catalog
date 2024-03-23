@@ -1,0 +1,4 @@
+Total Errors: 2
+ 
+[error]: Prohibited generalization: incompatible 'restrictedTo' values
+[error]: Prohibited generalization: incompatible 'restrictedTo' values

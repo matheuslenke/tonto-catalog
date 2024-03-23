@@ -1,367 +1,826 @@
+
 package AndreaAlbuquerque_Biodiversity
 
-kind Person  specializes Animal
-role ObjectClassifier  specializes Person{
-    @mediation
-    ( {const } )[1] --  [1..*]  Classification( {const } )
+kind Person specializes Animal {
+    @memberOf 
+    [2..*] -- [1] Fauna 
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-role ParticipantInCollection  specializes Person{
-    @mediation
-    ( {const } ) [1..*] -- [1]  Collection( {const } )
+
+role ObjectClassifier of functional-complexes  specializes Person {
+    @memberOf 
+    [2..*] -- [1] Fauna 
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-role Researcher  specializes Person{
-    @mediation
-    ( {const } )[1] --  [1..*]  InstitutionalContract( {const } )
-    @material
-     [1..*] -- worksin --  [1..*]  ResearchInstitution( {const } )
+
+role ParticipantInCollection of functional-complexes  specializes Person {
+    @memberOf 
+    [2..*] -- [1] Fauna 
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-role AssistantInCollection  specializes ParticipantInCollection
-role ResearcherParticipant  specializes ParticipantInCollection, Researcher
-role ResponsibleForCollection  specializes ResearcherParticipant
-category SpatialLocation {
-    [*] --  [1..*]  GeographicCoordinate
+
+role Researcher of functional-complexes  specializes Person {
+    @memberOf 
+    [2..*] -- [1] Fauna 
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-role CollectionLocation  specializes SpatialLocation{
-    @mediation
-    [1] --  [1..*]  Collection( {const } )
+
+role AssistantInCollection of functional-complexes  specializes ParticipantInCollection {
+    @mediation 
+    [1..*] -- [1] Collection 
+    @memberOf 
+    [2..*] -- [1] Fauna 
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-relator Classification {
-    @mediation
-     [1..*] -- [1]  Species( {const } )
-    @mediation
-    [1] -- [1]  ClassifiedEntity( {const } )
+
+role ResearcherParticipant of functional-complexes  specializes ParticipantInCollection, Researcher {
+    @mediation 
+    [1..*] -- [1] Collection 
+    @memberOf 
+    [2..*] -- [1] Fauna 
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
+    @mediation 
+    [1] -- [1..*] InstitutionalContract 
+    @material 
+    [1..*] -- worksin -- [1..*] ResearchInstitution 
 }
-type Species  specializes Taxon{
-    @comparative
-     [1..*] -- speciesIdentity --  [1..*]  Species
+
+role ResponsibleForCollection of functional-complexes  specializes ResearcherParticipant {
+    @mediation 
+    [1..*] -- [1] Collection 
+    @memberOf 
+    [2..*] -- [1] Fauna 
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
+    @mediation 
+    [1] -- [1..*] InstitutionalContract 
+    @material 
+    [1..*] -- worksin -- [1..*] ResearchInstitution 
 }
-role ClassifiedEntity  specializes EntityInStudy
-role CollectedEntity  specializes EntityInStudy
-role EntityInStudy  specializes BioticEntity
-category BioticEntity  specializes MaterialEntity{
-    size : undefined
-    weight : undefined
-    @componentOf
-     [1..*]  --<o>  [1..*]  Ecosystem
-    [*] -- instanceOf --  [1..*]  Taxon
-    @comparative
-    [1] -- [1]  LifeStage
+
+category SpatialLocation of functional-complexes 
+
+role CollectionLocation specializes SpatialLocation {
+    [*] -- [1..*] GeographicCoordinate 
 }
-relator Collection {
-    EndDate : undefined
-    StartDate : undefined
-    @mediation
-    [1] -- [1]  ResponsibleForCollection( {const } )
-    @mediation
-    [1] --  [1..*]  CollectedEntity( {const } )
+
+relator Classification
+
+type Species specializes Taxon 
+
+role ClassifiedEntity specializes EntityInStudy {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-relator InstitutionalContract {
-    @mediation
-     [1..*] -- [1]  ResearchInstitution( {const } )
+
+role CollectedEntity specializes EntityInStudy {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-kind ResearchInstitution {
-    acronym : undefined
-    name : undefined
+
+role EntityInStudy specializes BioticEntity {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-role ResponsibleInstitution  specializes ResearchInstitution{
-    @mediation
-    ( {const } )[1] -- [1]  Collection( {const } )
+
+category BioticEntity of functional-complexes  specializes MaterialEntity {
+    size: undefined  
+    weight: undefined  
 }
-relator CollectionThroughFraction  specializes Collection
-relator RandomCollection  specializes Collection
-relator ManualCollection  specializes Collection
-relator InstrumentedCollection  specializes Collection
-role CollectionInstrument  specializes Instrument{
-    @mediation
-    ( {const } ) [1..*] -- [1]  InstrumentedCollection( {const } )
+
+relator Collection{
+    EndDate: undefined  
+    StartDate: undefined  
 }
-kind Instrument 
-relator TrapCollection  specializes CollectionInstrument
-relator NetCollection  specializes CollectionInstrument
-relator EtimologicalUmbrellaCollection  specializes CollectionInstrument
-kind Ecosystem  specializes MaterialEntity{
-    @componentOf
-    [*]  --<o> [*]  Ecosystem
-    @comparative
-    [*] -- classifiedAs -- [1]  EcosystemType
-    @comparative
-    [1] -- locatedIn -- [1]  SpatialLocation
+
+relator InstitutionalContract
+
+kind ResearchInstitution{
+    acronym: undefined  
+    name: undefined  
 }
-type EcosystemType 
-category AbioticEntity  specializes MaterialEntity{
-    @componentOf
-     [1..*]  --<o>  [1..*]  Ecosystem
+
+role ResponsibleInstitution of functional-complexes  specializes ResearchInstitution 
+
+relator CollectionThroughFraction specializes Collection {
+    @mediation 
+    [1] -- [1] ResponsibleForCollection 
+    @mediation 
+    [1] -- [1..*] CollectedEntity 
 }
-subkind MesoEcosystem  specializes Ecosystem{
-    @componentOf
-     [2..*]  --<o> [1]  MacroEcosystem
+
+relator RandomCollection specializes Collection {
+    @mediation 
+    [1] -- [1] ResponsibleForCollection 
+    @mediation 
+    [1] -- [1..*] CollectedEntity 
 }
-subkind MacroEcosystem  specializes Ecosystem
-subkind MicorEcosystem  specializes Ecosystem{
-    @componentOf
-     [2..*]  --<o> [1]  MesoEcosystem
+
+relator ManualCollection specializes Collection {
+    @mediation 
+    [1] -- [1] ResponsibleForCollection 
+    @mediation 
+    [1] -- [1..*] CollectedEntity 
 }
-subkind Biome  specializes MacroEcosystem{
-    @comparative
-     [0..*] -- classifiedAs -- [1]  BiomeType
+
+relator InstrumentedCollection specializes Collection {
+    @mediation 
+    [1] -- [1] ResponsibleForCollection 
+    @mediation 
+    [1] -- [1..*] CollectedEntity 
 }
-type BiomeType 
-subkind MataAtlantica  specializes Biome
-subkind Cerrado  specializes Biome, Vegetation
-subkind Caatinga  specializes Biome, Vegetation
-subkind Amazonia  specializes Biome
-subkind CostalZone  specializes Biome
-subkind Pantanal  specializes Biome
-mode Luminosity 
-mode MoonPhase 
-mode HighLuminosity  specializes Luminosity
-mode AverageLuminosity  specializes Luminosity
-mode LowLuminosity  specializes Luminosity
-mode FullMoon  specializes MoonPhase
-mode FirstQuarterMoon  specializes MoonPhase
-mode LastQuarterMoon  specializes MoonPhase
-mode NewMoon  specializes MoonPhase
-mode Environment {
-    @characterization
-    [1] -- [1]  Luminosity( {const } )
-    @characterization
-    [1] -- [1]  WeatherCondition( {const } )
-    @characterization
-    [1] -- [1]  MoonPhase( {const } )
+
+role CollectionInstrument of functional-complexes  specializes Instrument 
+
+kind Instrument
+
+relator TrapCollection specializes CollectionInstrument {
+    @mediation 
+    [1..*] -- [1] InstrumentedCollection 
 }
-mode WeatherCondition 
-mode Rainy  specializes WeatherCondition
-mode Sunny  specializes WeatherCondition
-mode Cloudy  specializes WeatherCondition
-mode MacroEnvironment  specializes Environment
-mode MicroEnvironment  specializes Environment
-category MaterialEntity 
-type Taxon {
-    commonName : undefined
-    scientificName : undefined
+
+relator NetCollection specializes CollectionInstrument {
+    @mediation 
+    [1..*] -- [1] InstrumentedCollection 
 }
-type Family  specializes Taxon
-type Genus  specializes Taxon{
-    @comparative
-     [1..*] -- groups -- [1]  Family
-    @comparative
-    [1] -- groups --  [1..*]  Species
+
+relator EtimologicalUmbrellaCollection specializes CollectionInstrument {
+    @mediation 
+    [1..*] -- [1] InstrumentedCollection 
 }
-category Plant  specializes BioticEntity{
-    @memberOf
-     [2..*]  --<o> [1]  Flora
+
+kind Ecosystem specializes MaterialEntity 
+
+type EcosystemType
+
+category AbioticEntity of functional-complexes  specializes MaterialEntity 
+
+subkind MesoEcosystem of functional-complexes  specializes Ecosystem {
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-category Microorganism  specializes BioticEntity{
-    @memberOf
-     [2..*]  --<o> [1]  Microbiota
+
+subkind MacroEcosystem of functional-complexes  specializes Ecosystem {
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-collective Fauna 
-category Animal  specializes BioticEntity{
-    @memberOf
-     [2..*]  --<o> [1]  Fauna
+
+subkind MicorEcosystem of functional-complexes  specializes Ecosystem {
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-collective Microbiota 
-collective Flora {
-    @comparative
-    [1] -- constitutedBy -- [1]  Vegetation
+
+subkind Biome of functional-complexes  specializes MacroEcosystem {
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-kind Vegetation {
-    [*] -- locatedIn --  [1..*]  GeographicSpace
+
+type BiomeType
+
+subkind MataAtlantica of functional-complexes  specializes Biome {
+    @comparative 
+    [0..*] -- classifiedAs -- [1] BiomeType 
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-category GeographicSpace  specializes SpatialLocation{
-    [*] --  [2..*]  GeographicCoordinate
+
+subkind Cerrado of functional-complexes  specializes Biome, Vegetation {
+    @comparative 
+    [0..*] -- classifiedAs -- [1] BiomeType 
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-subkind Igapo  specializes Vegetation
-subkind Forest  specializes Vegetation
-subkind Restinga  specializes Vegetation
-subkind Field  specializes Vegetation
-subkind Lowland  specializes Vegetation
-subkind Capoeira  specializes Vegetation
-category Gender {
-    @comparative
-    [1] -- [1]  BioticEntity
+
+subkind Caatinga of functional-complexes  specializes Biome, Vegetation {
+    @comparative 
+    [0..*] -- classifiedAs -- [1] BiomeType 
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-category Male  specializes Gender
-category Female  specializes Gender
-category Hermaphrodite  specializes Gender
-category Bisexual  specializes Gender
-category Asexual  specializes Gender
-category NonExamined  specializes Gender
-category Unknown  specializes Gender
-mixin LifeStage 
-mixin Adult  specializes LifeStage
-mixin Egg  specializes LifeStage
-mixin Embryo  specializes LifeStage
-mixin Maggot  specializes LifeStage
-mixin Juvenile  specializes LifeStage
-mixin Pupa  specializes LifeStage
-mixin Unknown_  specializes LifeStage
-quantity Soil  specializes AbioticEntity
-quantity Air  specializes AbioticEntity{
-    humidity : undefined
-    speed : undefined
-    temperature : undefined
+
+subkind Amazonia of functional-complexes  specializes Biome {
+    @comparative 
+    [0..*] -- classifiedAs -- [1] BiomeType 
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-quantity Water  specializes AbioticEntity
-subkind BrackishWater  specializes Water
-subkind Freshwater  specializes Water
-subkind Saltwater  specializes Water
-subkind Clearwater  specializes Freshwater
-subkind BlackWater  specializes Freshwater
-subkind WhiteWater  specializes Freshwater
-subkind Clayey  specializes Soil
-subkind Litholic  specializes Soil
-subkind Sandy  specializes Soil
-subkind Hydromorphic  specializes Soil
-subkind Rocky  specializes Soil
-subkind Humous  specializes Soil
-category GeographicPoint  specializes SpatialLocation{
-    [*] -- [1]  GeographicCoordinate
+
+subkind CostalZone of functional-complexes  specializes Biome {
+    @comparative 
+    [0..*] -- classifiedAs -- [1] BiomeType 
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-datatype GeographicCoordinate {
+
+subkind Pantanal of functional-complexes  specializes Biome {
+    @comparative 
+    [0..*] -- classifiedAs -- [1] BiomeType 
+    @componentOf 
+    [*] -- [*] Ecosystem 
+    @comparative 
+    [*] -- classifiedAs -- [1] EcosystemType 
+    @comparative 
+    [1] -- locatedIn -- [1] SpatialLocation 
 }
-type ClimateRegionType 
-category ClimateRegion  specializes GeographicSpace{
-    @comparative
-    [*] -- classifiedAs -- [1]  ClimateRegionType
+
+mode Luminosity
+
+mode MoonPhase
+
+mode HighLuminosity specializes Luminosity 
+
+mode AverageLuminosity specializes Luminosity 
+
+mode LowLuminosity specializes Luminosity 
+
+mode FullMoon specializes MoonPhase 
+
+mode FirstQuarterMoon specializes MoonPhase 
+
+mode LastQuarterMoon specializes MoonPhase 
+
+mode NewMoon specializes MoonPhase 
+
+mode Environment
+
+mode WeatherCondition
+
+mode Rainy specializes WeatherCondition 
+
+mode Sunny specializes WeatherCondition 
+
+mode Cloudy specializes WeatherCondition 
+
+mode MacroEnvironment specializes Environment {
+    @characterization 
+    [1] -- [1] Luminosity 
+    @characterization 
+    [1] -- [1] WeatherCondition 
+    @characterization 
+    [1] -- [1] MoonPhase 
 }
-category SocialPoliticalRegion  specializes GeographicSpace{
-    @comparative
-    [*] -- classifiedAs -- [1]  SocialPoliticalRegionType
+
+mode MicroEnvironment specializes Environment {
+    @characterization 
+    [1] -- [1] Luminosity 
+    @characterization 
+    [1] -- [1] WeatherCondition 
+    @characterization 
+    [1] -- [1] MoonPhase 
 }
-category PhytophysiognomicRegion  specializes GeographicSpace{
-    @comparative
-    [*] -- classifiedAs -- [1]  PhytophysiognomicRegionType
+
+category MaterialEntity of functional-complexes 
+
+type Taxon{
+    commonName: undefined  
+    scientificName: undefined  
 }
-type SocialPoliticalRegionType 
-type PhytophysiognomicRegionType 
-category Equatorial  specializes ClimateRegion
-category Temperate  specializes ClimateRegion
-category TropicalWetAndDry  specializes ClimateRegion
-category Semiarid  specializes ClimateRegion
-category HumidSubtropical  specializes ClimateRegion
-category Tropical  specializes ClimateRegion
-kind Country  specializes SocialPoliticalRegion
-kind State  specializes SocialPoliticalRegion{
-    @comparative
-     [1..*] -- spatiallyContainedIn -- [1]  Country
+
+type Family specializes Taxon 
+
+type Genus specializes Taxon 
+
+category Plant of functional-complexes  specializes BioticEntity {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-kind City  specializes SocialPoliticalRegion{
-    @comparative
-     [1..*] -- spatiallyContainedIn -- [1]  State
+
+category Microorganism of functional-complexes  specializes BioticEntity {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-kind Location  specializes SocialPoliticalRegion{
-    @comparative
-     [1..*] -- spatiallyContainedIn -- [1]  City
+
+collective Fauna
+
+category Animal of functional-complexes  specializes BioticEntity {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+    [*] -- instanceOf2 -- [1..*] Taxon 
+    @comparative 
+    [1] -- [1] LifeStage 
 }
-subkind PrivateLocation  specializes Location
-subkind PublicLocation  specializes Location
-subkind Settlement  specializes Location
-subkind Community  specializes Location
-subkind ConservationUnity  specializes Location
-subkind Village  specializes Location
-subkind Thorp  specializes Location
-subkind FederalArea  specializes PublicLocation
-subkind StateLand  specializes PublicLocation
-subkind CityLand  specializes PublicLocation
-subkind IndiandLand  specializes PublicLocation
-subkind FederalLand  specializes FederalArea
-subkind DevoluteLand  specializes FederalArea
-category AmazonicRegion  specializes PhytophysiognomicRegion
-category AtlanticRegion  specializes PhytophysiognomicRegion
-category CaatingaRegion  specializes PhytophysiognomicRegion
-category CerradoRegion  specializes PhytophysiognomicRegion
-category PatanalRegion  specializes PhytophysiognomicRegion
-category CostalRegion  specializes PhytophysiognomicRegion
-category CocaisRegion  specializes PhytophysiognomicRegion
-category AraucariasRegion  specializes PhytophysiognomicRegion
-category FieldsRegion  specializes PhytophysiognomicRegion
-disjoint complete genset disjoint, complete{
-    general Person
-    specifics ObjectClassifier, Researcher, ParticipantInCollection 
+
+collective Microbiota
+
+collective Flora
+
+kind Vegetation
+
+category GeographicSpace of functional-complexes  specializes SpatialLocation {
+    [*] -- [1..*] GeographicCoordinate 
 }
-disjoint complete genset complete, disjoint{
-    general ParticipantInCollection
-    specifics ResearcherParticipant, AssistantInCollection 
+
+subkind Igapo of functional-complexes  specializes Vegetation {
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-genset 1nP7Ry6GAqACAxbC{
-    general EntityInStudy
-    specifics ClassifiedEntity, CollectedEntity 
+
+subkind Forest of functional-complexes  specializes Vegetation {
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-genset Set{
-    general CollectionInstrument
-    specifics EtimologicalUmbrellaCollection, NetCollection, TrapCollection 
+
+subkind Restinga of functional-complexes  specializes Vegetation {
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-disjoint complete genset complete, disjoint{
-    general Ecosystem
-    specifics MicorEcosystem, MesoEcosystem, MacroEcosystem 
+
+subkind Field of functional-complexes  specializes Vegetation {
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-disjoint complete genset disjoint, complete{
-    general Biome
-    specifics Amazonia, MataAtlantica, CostalZone, Cerrado, Pantanal, Caatinga 
+
+subkind Lowland of functional-complexes  specializes Vegetation {
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-genset Set2{
-    general MaterialEntity
-    specifics AbioticEntity, Ecosystem, BioticEntity 
+
+subkind Capoeira of functional-complexes  specializes Vegetation {
+    [*] -- locatedIn -- [1..*] GeographicSpace 
 }
-genset Set3{
-    general Taxon
-    specifics Family, Genus, Species 
+
+category Gender of functional-complexes 
+
+category Male of functional-complexes  specializes Gender {
+    @comparative 
+    [1] -- [1] BioticEntity 
 }
-genset AMLpJy6GAqACAxDU{
-    general Vegetation
-    specifics Lowland, Field, Restinga, Capoeira, Forest, Cerrado, Caatinga, Igapo 
+
+category Female of functional-complexes  specializes Gender {
+    @comparative 
+    [1] -- [1] BioticEntity 
 }
-genset eeYFJy6GAqACAxG0{
-    general Gender
-    specifics Hermaphrodite, Female, Unknown, Male, Asexual, Bisexual, NonExamined 
+
+category Hermaphrodite of functional-complexes  specializes Gender {
+    @comparative 
+    [1] -- [1] BioticEntity 
 }
-genset MiGlJy6GAqACAxKb{
-    general LifeStage
-    specifics Adult, Embryo, Pupa, Egg, Maggot, Juvenile, Unknown_ 
+
+category Bisexual of functional-complexes  specializes Gender {
+    @comparative 
+    [1] -- [1] BioticEntity 
 }
-genset pNFVJy6GAqACAxMp{
-    general AbioticEntity
-    specifics Air, Water, Soil 
+
+category Asexual of functional-complexes  specializes Gender {
+    @comparative 
+    [1] -- [1] BioticEntity 
 }
-genset _sy1Jy6GAqACAxPi{
-    general Freshwater
-    specifics Clearwater, BlackWater, WhiteWater 
+
+category NonExamined of functional-complexes  specializes Gender {
+    @comparative 
+    [1] -- [1] BioticEntity 
 }
-genset D.a1Jy6GAqACAxPy{
-    general Water
-    specifics BrackishWater, Freshwater, Saltwater 
+
+category Unknown of functional-complexes  specializes Gender {
+    @comparative 
+    [1] -- [1] BioticEntity 
 }
-genset MRL1Jy6GAqACAxSb{
-    general Soil
-    specifics Hydromorphic, Litholic, Sandy, Rocky, Clayey, Humous 
+
+mixin LifeStage of functional-complexes 
+
+mixin Adult of functional-complexes  specializes LifeStage 
+
+mixin Egg of functional-complexes  specializes LifeStage 
+
+mixin Embryo of functional-complexes  specializes LifeStage 
+
+mixin Maggot of functional-complexes  specializes LifeStage 
+
+mixin Juvenile of functional-complexes  specializes LifeStage 
+
+mixin Pupa of functional-complexes  specializes LifeStage 
+
+mixin Unknown_ of functional-complexes  specializes LifeStage 
+
+quantity Soil specializes AbioticEntity {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
 }
-disjoint complete genset disjoint, complete{
-    general SpatialLocation
-    specifics GeographicPoint, GeographicSpace 
+
+quantity Air specializes AbioticEntity {
+    humidity: undefined  
+    speed: undefined  
+    temperature: undefined  
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
 }
-disjoint complete genset disjoint, complete{
-    general ClimateRegion
-    specifics TropicalWetAndDry, Semiarid, Temperate, Equatorial, HumidSubtropical, Tropical 
+
+quantity Water specializes AbioticEntity {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
 }
-disjoint complete genset disjoint, complete{
-    general SocialPoliticalRegion
-    specifics City, Location, Country, State 
+
+subkind BrackishWater of quantities  specializes Water {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
 }
-disjoint complete genset disjoint, complete,{
-    general Location
-    specifics PublicLocation, PrivateLocation, ConservationUnity, Village, Thorp, Community, Settlement 
+
+subkind Freshwater of quantities  specializes Water {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
 }
-disjoint complete genset disjoint, complete{
-    general PublicLocation
-    specifics CityLand, StateLand, FederalArea, IndiandLand 
+
+subkind Saltwater of quantities  specializes Water {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
 }
-disjoint complete genset disjoint, complete{
-    general FederalArea
-    specifics FederalLand, DevoluteLand 
+
+subkind Clearwater of quantities  specializes Freshwater {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
 }
-disjoint complete genset disjoint, complete{
-    general PhytophysiognomicRegion
-    specifics CocaisRegion, CerradoRegion, AtlanticRegion, PatanalRegion, CostalRegion, AmazonicRegion, FieldsRegion, CaatingaRegion, AraucariasRegion 
+
+subkind BlackWater of quantities  specializes Freshwater {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+subkind WhiteWater of quantities  specializes Freshwater {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+subkind Clayey of quantities  specializes Soil {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+subkind Litholic of quantities  specializes Soil {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+subkind Sandy of quantities  specializes Soil {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+subkind Hydromorphic of quantities  specializes Soil {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+subkind Rocky of quantities  specializes Soil {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+subkind Humous of quantities  specializes Soil {
+    @componentOf 
+    [1..*] -- [1..*] Ecosystem 
+}
+
+category GeographicPoint of functional-complexes  specializes SpatialLocation {
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+type ClimateRegionType
+
+category ClimateRegion of functional-complexes  specializes GeographicSpace {
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category SocialPoliticalRegion of functional-complexes  specializes GeographicSpace {
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category PhytophysiognomicRegion of functional-complexes  specializes GeographicSpace {
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+type SocialPoliticalRegionType
+
+type PhytophysiognomicRegionType
+
+category Equatorial of functional-complexes  specializes ClimateRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] ClimateRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category Temperate of functional-complexes  specializes ClimateRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] ClimateRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category TropicalWetAndDry of functional-complexes  specializes ClimateRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] ClimateRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category Semiarid of functional-complexes  specializes ClimateRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] ClimateRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category HumidSubtropical of functional-complexes  specializes ClimateRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] ClimateRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category Tropical of functional-complexes  specializes ClimateRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] ClimateRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+kind Country specializes SocialPoliticalRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+kind State specializes SocialPoliticalRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+kind City specializes SocialPoliticalRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+kind Location specializes SocialPoliticalRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind PrivateLocation of functional-complexes  specializes Location {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind PublicLocation of functional-complexes  specializes Location {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind Settlement of functional-complexes  specializes Location {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind Community of functional-complexes  specializes Location {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind ConservationUnity of functional-complexes  specializes Location {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind Village of functional-complexes  specializes Location {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind Thorp of functional-complexes  specializes Location {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind FederalArea of functional-complexes  specializes PublicLocation {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind StateLand of functional-complexes  specializes PublicLocation {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind CityLand of functional-complexes  specializes PublicLocation {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind IndiandLand of functional-complexes  specializes PublicLocation {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind FederalLand of functional-complexes  specializes FederalArea {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+subkind DevoluteLand of functional-complexes  specializes FederalArea {
+    @comparative 
+    [1..*] -- spatiallyContainedIn -- [1] City 
+    @comparative 
+    [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category AmazonicRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category AtlanticRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category CaatingaRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category CerradoRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category PatanalRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category CostalRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category CocaisRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category AraucariasRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+category FieldsRegion of functional-complexes  specializes PhytophysiognomicRegion {
+    @comparative 
+    [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
+    [*] -- [2..*] GeographicCoordinate 
+    [*] -- [1..*] GeographicCoordinate 
+}
+
+enum GeographicCoordinate {
+    altitude,latitude,longitude
 }
 

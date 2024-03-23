@@ -1,58 +1,20 @@
-import Transport_Entities
-import Reference_Points
-import General_Elements
+import Unified_Transport_Network__v23
 
 package Complementary_Categorizations
 
-relator Binding {
-    @mediation
-     [1..*] -- is_binding -- [2]  Bound_InputOutput( {const } binded )
-    @mediation
-    [1] -- binding_is_represented_by -- [1]  Directly_Bound_Reference_Point( {const } )
-}
-roleMixin Bound_InputOutput {
-    @material
-    [1] -- binds -- [1]  Bound_InputOutput
-}
-roleMixin Bound_Transport_Function {
-    @material
-     [1..*] -- tf_connection --  [1..*]  Bound_Transport_Function
-}
-roleMixin Connected_Reference_Point {
-    @material
-     [1..*] -- has_forwarding --  [1..*]  Connected_Reference_Point
-}
-relator Forwarding {
-    @mediation
-     [1..*] -- is_connecting -- [2]  Connected_Reference_Point( {const } )
-    @mediation
-    [1] -- IT_is_represented_by -- [1]  Directly_Connected_Transport_Entity( {const } )
-}
-category Input  specializes Geographical_Element
-category Output  specializes Geographical_Element
-category Unidirectional_Port 
-disjoint complete genset X7xRon6AUBAIKErz{
-    general Unidirectional_Port
-    specifics Termination_Sink_Input, Termination_Source_Output 
-}
-disjoint complete genset uTlRon6AUBAIKEsD{
-    general Input
-    specifics Adaptation_Sink_Input, Termination_Sink_Input, Subnetwork_Input, Adaptation_Source_Input, Termination_Source_Input, Layer_Processor_Sink_Input, Layer_Processor_Source_Input, Matrix_Input, Physical_Media_Input 
-}
-disjoint complete genset WVDRon6AUBAIKEsb{
-    general Output
-    specifics Termination_Source_Output, Adaptation_Source_Output, Layer_Processor_Sink_Output, Layer_Processor_Source_Output, Subnetwork_Output, Matrix_Output, Physical_Media_Output, Termination_Sink_Output, Adaptation_Sink_Output 
-}
-disjoint complete genset gsfRon6AUBAIKEtq{
-    general Forwarding
-    specifics End_Forwarding, Sk_MC_Forwarding, AP_Forwarding, So_MC_Forwarding, Int_CFTE_Forwarding, So_CFTE_Forwarding, PM_NC_Forwarding, Path_LC_Forwarding, Sk_CFTE_Forwarding, PM_LC_Forwarding, Path_NC_Forwarding, Int_MC_Forwarding 
-}
-disjoint complete genset ducxon6AUBAIKEvM{
-    general Binding
-    specifics Sink_SNFEP_Binding, Sink_AP_Binding, Sink_LPFFEP_Bound, Sink_MFEP_Binding, Source_MFEP_Binding, Source_SNFP_Binding, Source_AP_Binding, Source_PMFEP_Binding, AFP_Binding, Source_MFP_Binding, Source_LPFFEP_Binding, Sink_AFEP_Binding, Sink_PMFEP_Binding, Source_LFP_Binding, Sink_MFP_Binding, Sink_SNFP_Binding, Source_AFEP_Binding, Source_SNFEP_Binding 
-}
-disjoint complete genset S4Oxon6AUBAIKExE{
-    general Bound_InputOutput
-    specifics A_So_Input__AFP_Bound, A_So_Input__So_SNFP_Bound, M_Input__Sk_MFP_Bound, M_Output__So_MFP_Bound, A_Sk_Output__Sk_MFP_Bound, A_So_Input__So_MFP_Bound, SN_Outtput__So_SNFP_Bound, A_Sk_Output__Sk_SNFP_Bound, T_So_Input__So_AP_Bound, A_Sk_Output__AFP_Bound, A_So_Output__So_AP_Bound, A_Sk_Input__Sk_AP_Bound, SN_Intput__Sk_SNFP_Bound, T_Sk_Output__Sk_AP_Bound 
-}
+relator Binding
+
+roleMixin Bound_InputOutput of functional-complexes 
+
+roleMixin Bound_Transport_Function of functional-complexes 
+
+roleMixin Connected_Reference_Point of functional-complexes 
+
+relator Forwarding
+
+category Input of functional-complexes  specializes Geographical_Element 
+
+category Output of functional-complexes  specializes Geographical_Element 
+
+category Unidirectional_Port of functional-complexes 
 

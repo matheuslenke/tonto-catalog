@@ -1,0 +1,7 @@
+
+package project
+
+datatype float
+datatype long
+datatype string_
+datatype int

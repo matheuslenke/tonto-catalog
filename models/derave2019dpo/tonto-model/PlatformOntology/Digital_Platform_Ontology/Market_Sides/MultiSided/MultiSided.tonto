@@ -1,0 +1,52 @@
+import PlatformOntology
+
+package MultiSided
+
+roleMixin MS_Platform_User of functional-complexes  specializes Platform_Visitor {
+    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
+}
+
+collective Target_MS_Platform_User_Side
+
+collective MS_Platform_User_Side
+
+subkind MS_User_Affiliation of relators  specializes User_Affiliation_Agreement {
+    @mediation 
+    [1] -- bounds_user -- [1] Platform_User 
+    @mediation 
+    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
+    @mediation 
+    [0..*] -- bounds_platform -- [1] Platform_Company 
+    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
+}
+
+subkind Subscription of relators  specializes User_Affiliation_Agreement, MS_User_Affiliation, OneSided_Platform_User_Affiliation {
+    @mediation 
+    [1] -- bounds_user -- [1] Platform_User 
+    @mediation 
+    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
+    @mediation 
+    [0..*] -- bounds_platform -- [1] Platform_Company 
+    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
+    @mediation 
+    [1..*] -- bounds_user -- [1..*] MS_Platform_User 
+    @mediation 
+    [1..*] -- bounds_user -- [1] OneSided_Platform_User 
+}
+
+subkind Investment of relators  specializes MS_User_Affiliation {
+    @mediation 
+    [1..*] -- bounds_user -- [1..*] MS_Platform_User 
+    @mediation 
+    [1] -- bounds_user -- [1] Platform_User 
+    @mediation 
+    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
+    @mediation 
+    [0..*] -- bounds_platform -- [1] Platform_Company 
+    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
+}
+
+event MS_Platform_Supported_Interaction specializes Platform_Supported_Interaction 
+

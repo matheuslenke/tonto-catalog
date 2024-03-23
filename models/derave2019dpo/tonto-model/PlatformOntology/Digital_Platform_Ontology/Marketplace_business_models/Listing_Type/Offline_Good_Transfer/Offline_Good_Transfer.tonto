@@ -1,0 +1,42 @@
+import PlatformOntology
+
+package Offline_Good_Transfer
+
+event Physical_Delivery specializes Offline_Action, Delivery {
+    Location: undefined  
+    @participation 
+    [0..*] -- received_by -- [1..*] Platform_Customer 
+}
+
+subkind Physical_Offering_Description of functional-complexes  specializes Offering_Description {
+    Location: undefined  
+}
+
+roleMixin Platform_Customer_of_Offline_Physical_Good of functional-complexes  specializes Platform_Customer {
+    delivery_location: undefined  
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
+    [1] -- by -- [0..*] Transaction_Payment 
+    [1] -- does -- [0..*] Review_Creation_by_Customer 
+    [1] -- [1..*] Price_Acceptance 
+    [1] -- by -- [0..*] Inhouse_Payment 
+    [1] -- participates -- [1..*] Transaction_Conversation 
+    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
+    [*] -- [*] Paid_Transaction_Price 
+    @participation 
+    [1..*] -- performed_by -- [0..*] Offline_Action 
+    [*] -- [*] Review_Creation 
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
+    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
+    [*] -- suggests -- [*] Suggested_Price 
+    [1] -- initiates -- [0..*] Listing_Conversation 
+    @participation 
+    [1] -- [0..*] Price_Offer_Creation 
+    [1] -- [0..*] Request_Quote 
+}
+

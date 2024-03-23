@@ -1,6 +1,13 @@
+import ontology
 import SPO
 
 package RSRO
 
-subkind Requirements_Document  specializes Document
+subkind Requirements_Document of functional-complexes  specializes Document {
+    [0..*] -- describes -- [0..*] Artifact 
+    @material 
+    [0..*] -- depends_on -- [0..*] Artifact 
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
 

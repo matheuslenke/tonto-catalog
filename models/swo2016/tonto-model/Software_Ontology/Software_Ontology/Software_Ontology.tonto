@@ -1,43 +1,41 @@
+
 package Software_Ontology
 
-class Software_Product  specializes Composite_Artifact, Artifact{
-     [0..1] -- constituted_of --  [1..*]  Software_System
+class Software_Product specializes Composite_Artifact, Artifact {
+    [0..*] -- [2..*] Artifact 
 }
-class Software_Item  specializes Artifact
-class Document  specializes Artifact
-class Software_System  specializes Software_Item{
-     [0..*] -- constituted_of --  [1..*]  Program
-     [0..1] -- intends_to_implement -- [1]  System_Specification
+
+class Software_Item specializes Artifact 
+
+class Document specializes Artifact 
+
+class Software_System specializes Software_Item 
+
+class Program specializes Software_Item 
+
+class Code specializes Software_Item 
+
+class System_Specification specializes Document 
+
+class Program_Specification specializes Document 
+
+class Source_Code specializes Code {
+    [0..*] -- implements_ -- [0..1] Program_Specification 
 }
-class Program  specializes Software_Item{
-     [0..1] -- constituted_of --  [1..*]  Code
-     [0..1] -- intends_to_implement -- [1]  Program_Specification
+
+class Machine_Code specializes Code {
+    [0..*] -- implements_ -- [0..1] Program_Specification 
 }
-class Code  specializes Software_Item{
-     [0..*] -- implements --  [0..1]  Program_Specification
-}
-class System_Specification  specializes Document
-class Program_Specification  specializes Document
-class Source_Code  specializes Code{
-     [0..*] -- written_in --  [1..*]  Programming_Language
-}
-class Machine_Code  specializes Code{
-     [0..*] -- generated_from -- [1]  Source_Code
-}
-class Programming_Language 
-class Artifact 
-class Composite_Artifact  specializes Artifact{
-     [0..*] <>--  [2..*]  Artifact
-}
-class Simple_Artifact  specializes Artifact
-class Information_Item  specializes Artifact
-class Model  specializes Artifact
-disjoint complete genset :mereological structure {disjoint, complete}{
-    general Artifact
-    specifics Composite_Artifact, Simple_Artifact 
-}
-genset : nature {disjoint, complete}{
-    general Artifact
-    specifics Information_Item, Model, Software_Product, Software_Item, Document 
-}
+
+class Programming_Language
+
+class Artifact
+
+class Composite_Artifact specializes Artifact 
+
+class Simple_Artifact specializes Artifact 
+
+class Information_Item specializes Artifact 
+
+class Model specializes Artifact 
 

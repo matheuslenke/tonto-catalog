@@ -1,10 +1,16 @@
+import UML_ontology_Emergo
+
 package opm
 
-phase CurrentPropertyState  specializes PropertyState
-quality PropertyState {
-    generatedAtTime : undefined
+phase CurrentPropertyState of qualities  specializes PropertyState 
+
+quality PropertyState{
+    generatedAtTime: undefined  
 }
-phase deleted  specializes PropertyState
-phase OutdatedPropertyState  specializes PropertyState
-class Property 
+
+phase deleted of qualities  specializes PropertyState 
+
+phase OutdatedPropertyState of qualities  specializes PropertyState 
+
+class Property
 

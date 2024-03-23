@@ -1,0 +1,118 @@
+
+package ontology
+
+subkind Instance_Variable
+
+kind Class
+
+relator Relationship_Mapping
+
+role Entity_Class of functional-complexes  specializes Class 
+
+relator Class_Mapping
+
+role Entity_Table of functional-complexes  specializes Table 
+
+kind Table
+
+relator One_To_One_Relationship_Mapping specializes Relationship_Mapping {
+    [0..1] -- [1] Relationship_Mapping 
+    @mediation 
+    [0..1] -- [1] Instance_Variable 
+}
+
+relator One_To_Many_Relationship_Mapping specializes Relationship_Mapping {
+    [0..1] -- [1] Relationship_Mapping 
+    @mediation 
+    [0..1] -- [1] Instance_Variable 
+}
+
+relator Many_To_One_Relationship_Mapping specializes Relationship_Mapping {
+    [0..1] -- [1] Relationship_Mapping 
+    @mediation 
+    [0..1] -- [1] Instance_Variable 
+}
+
+relator Many_to_Many_Relationship_Mapping specializes Relationship_Mapping {
+    [0..1] -- [1] Relationship_Mapping 
+    @mediation 
+    [0..1] -- [1] Instance_Variable 
+}
+
+role Relationship_Association_Table of functional-complexes  specializes Table 
+
+subkind Extendable_Class of functional-complexes  specializes Class 
+
+role Spuerclass of functional-complexes  specializes Extendable_Class 
+
+relator Inheritance
+
+role Subclass of functional-complexes  specializes Class 
+
+role Entity_Subclass of functional-complexes  specializes Subclass 
+
+relator Inheritance_Mapping
+
+role Entity_Superclass of functional-complexes  specializes Spuerclass {
+    [1..*] -- [1..*] Inheritance 
+}
+
+relator Single_Table_Inheritance_Mapping specializes Inheritance_Mapping {
+    @mediation 
+    [1..*] -- [1..*] Entity_Superclass 
+    @mediation 
+    [1] -- [1] Entity_Subclass 
+}
+
+relator Table_per_Class_Inheritance_Mapping specializes Inheritance_Mapping {
+    @mediation 
+    [1..*] -- [1..*] Entity_Superclass 
+    @mediation 
+    [1] -- [1] Entity_Subclass 
+}
+
+relator Table_per_Concrete_Class_Inheritance_Mapping specializes Inheritance_Mapping {
+    @mediation 
+    [1..*] -- [1..*] Entity_Superclass 
+    @mediation 
+    [1] -- [1] Entity_Subclass 
+}
+
+role Single_Entity_Table of functional-complexes  specializes Entity_Table {
+    [0..1] -- directly_related_to -- [1] Entity_Class 
+}
+
+role Multiple_Entities_Table of functional-complexes  specializes Entity_Table {
+    [0..1] -- directly_related_to -- [1] Entity_Class 
+}
+
+role Mapped_Variable specializes Instance_Variable 
+
+quality Nullability
+
+relator Variable_Mapping
+
+kind Column
+
+role Primary_Key_Column of functional-complexes  specializes Column 
+
+role Foreign_Key_Column of functional-complexes  specializes Column 
+
+relator Foreign_Key_Mapping specializes Variable_Mapping {
+    @mediation 
+    [0..1] -- [1] Mapped_Variable 
+    @mediation 
+    [1] -- [1..*] Column 
+}
+
+relator Primary_Key_Mapping specializes Variable_Mapping {
+    @mediation 
+    [0..1] -- [1] Mapped_Variable 
+    @mediation 
+    [1] -- [1..*] Column 
+}
+
+role Mapped_Primary_Key specializes Mapped_Variable 
+
+role Mapped_Foreign_Key specializes Mapped_Variable 
+

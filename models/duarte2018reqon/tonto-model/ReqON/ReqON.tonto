@@ -1,0 +1,148 @@
+import UFOA
+import UFOB
+import UFOC
+
+package ReqON
+
+class Software_Item specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Document specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Requirement_Artifact specializes Information_Item, Information_Item, Simple_Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Program specializes Software_Item {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Program_Specification specializes Document {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Functional_Requirement specializes Requirement {
+    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
+    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Software_Function_Universal specializes Function_Universal 
+
+class Software_Function specializes Function {
+    [0..*] -- instance_of -- [1..*] Function_Universal 
+}
+
+class Loaded_Program_Copy specializes Disposition 
+
+class Porgram_Copy_Execution specializes Event 
+
+class Machine specializes Object 
+
+class Controller specializes Machine 
+
+class Observable_State specializes Situation 
+
+class Stakeholder specializes Agent 
+
+class Hardgoal specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Softgoal specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Task specializes Action_Universal_Plan 
+
+class Atomic_Task specializes Task {
+    [0..*] -- intends_to_operationalize -- [1] Requirement 
+    [2..*] -- [0..1] Complex_Task 
+}
+
+class Complex_Task specializes Task {
+    [0..*] -- intends_to_operationalize -- [1] Requirement 
+    [2..*] -- [0..1] Complex_Task 
+}
+
+class Artifact specializes Object 
+
+class Composite_Artifact specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Simple_Artifact specializes Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Information_Item specializes Artifact, Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class FUnctional_Requirement specializes Requirement {
+    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
+    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Nonfunctional_Requirement specializes Requirement {
+    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
+    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Product_Quality_Requirement specializes Nonfunctional_Requirement {
+    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
+    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Quality_Characteristic specializes Quality_Universal 
+
+class Requirement_Document specializes Document, Composite_Artifact {
+    @componentOf 
+    [2..*] -- [0..*] Composite_Artifact 
+}
+
+class Stakeholder_Belief specializes Belief {
+    [1..*] -- inheres_in -- [1] Agent 
+}
+
+class Assumption specializes Proposition {
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+class Requirements_Stakeholder specializes Stakeholder {
+    [0..*] -- responsible_for -- [0..*] Artifact 
+}
+
+class Requirements_Engineer specializes Stakeholder {
+    [0..*] -- responsible_for -- [0..*] Artifact 
+}
+
+class Stakeholder_Intention specializes Intention {
+    [1..*] -- inheres_in -- [1] Agent 
+}
+
+class Requirement specializes Goal {
+    [1] -- propositional_content_of -- [1..*] Intention 
+    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+

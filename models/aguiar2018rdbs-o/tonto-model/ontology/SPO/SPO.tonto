@@ -1,5 +1,8 @@
+import ontology
+
 package SPO
 
-category Artifact 
-category Software_Item  specializes Artifact
+category Artifact of functional-complexes 
+
+category Software_Item of functional-complexes  specializes Artifact 
 

@@ -1,0 +1,58 @@
+import PlatformOntology
+
+package SafaRide
+
+roleMixin Logged_In_User of functional-complexes  specializes Registered_User {
+    @participation 
+    [1..*] -- performed_by -- [0..*] Offline_Action 
+    [*] -- [*] Review_Creation 
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
+    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+}
+
+roleMixin SafaRide_Trip_Provider of functional-complexes  specializes Logged_In_User {
+    [*] -- participates -- [*] Login_Action 
+    @participation 
+    [1..*] -- performed_by -- [0..*] Offline_Action 
+    [*] -- [*] Review_Creation 
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
+    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+}
+
+roleMixin SafaRide_Customer of functional-complexes  specializes Logged_In_User {
+    [*] -- participates -- [*] Login_Action 
+    @participation 
+    [1..*] -- performed_by -- [0..*] Offline_Action 
+    [*] -- [*] Review_Creation 
+    @memberOf 
+    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
+    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+}
+
+event Login_Action{
+    checkEmail: undefined  
+    checkPassword: undefined  
+}
+
+kind Park{
+    parkName: undefined  
+    parkLocation: undefined  
+}
+
+type Car{
+    carTypeName: undefined  
+    carTypeImage: undefined  
+}
+
+event Set_Filter{
+    setPriceRange: undefined  
+    setPersons: undefined  
+    setPark: undefined  
+}
+
+subkind Offered_Price_per_Seat of intrinsic-modes 
+
+event Set_Price_per_Seat
+

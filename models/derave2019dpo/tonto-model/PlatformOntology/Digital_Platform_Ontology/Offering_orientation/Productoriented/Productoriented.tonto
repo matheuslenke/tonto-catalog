@@ -1,0 +1,11 @@
+import PlatformOntology
+
+package Productoriented
+
+event ProductOriented_Delivery specializes Delivery {
+    @participation 
+    [0..*] -- received_by -- [1..*] Platform_Customer 
+}
+
+kind Good
+

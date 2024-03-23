@@ -1,0 +1,3 @@
+Validating...
+- Total of errors: 21
+Validation finished

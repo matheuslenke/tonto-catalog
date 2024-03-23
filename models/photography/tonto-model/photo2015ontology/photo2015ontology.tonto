@@ -1,0 +1,39 @@
+
+package photo2015ontology
+
+kind Organization
+
+subkind Archive of functional-complexes  specializes Organization 
+
+kind Principle_of_Respect_for_Original_Order
+
+kind Theory_of_the_Tree_Ages
+
+kind Principle_of_Provenance
+
+role ArchiveManaged of functional-complexes  specializes Archive 
+
+collective Funds
+
+kind Document
+
+subkind Photography of functional-complexes  specializes Document 
+
+kind Digital specializes Photography 
+
+kind Traditional specializes Photography 
+
+role Archivist of functional-complexes  specializes Individual 
+
+collective Collection
+
+kind Individual
+
+relator Management
+
+relator Operation
+
+relator Document_Operated specializes Document 
+
+role Operator of functional-complexes  specializes Individual 
+

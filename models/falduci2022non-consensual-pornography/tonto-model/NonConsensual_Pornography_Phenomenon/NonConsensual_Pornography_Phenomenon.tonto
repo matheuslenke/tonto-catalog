@@ -1,0 +1,71 @@
+
+package NonConsensual_Pornography_Phenomenon
+
+kind NaturalPerson
+
+role Depicted_Person_in_Intimacy of functional-complexes  specializes NaturalPerson 
+
+role Depicter_Person of functional-complexes  specializes NaturalPerson 
+
+role Perpetrator of functional-complexes  specializes Publisher {
+    @material 
+    [1..*] -- uploads_private_intimate_media_object_on -- [1..*] Acessible_Digital_Platform 
+}
+
+role Content_Consumer of functional-complexes  specializes NaturalPerson 
+
+role Depicted_Person_with_Privacy_Violated of functional-complexes  specializes Depicted_Person_in_Intimacy {
+    @material 
+    [1..*] -- has_a_right_to_privacy_as_against -- [1..*] Depicter_Person 
+}
+
+relator RightDuty_to_Keep_the_Intimate_Media_Object_Privately
+
+mode Right_to_Privacy_of_Intimate_Media_Object
+
+mode Duty_to_Keep_the_Intimate_Media_Object_Privately
+
+event Publication_of_the_Criminal_Law
+
+roleMixin Intimate_Private_Media_Object_with_Uploading_Consent of functional-complexes  specializes Private_Intimate_Media_Object {
+    [1..*] -- [1] Depicted_Person_in_Intimacy 
+}
+
+category Private_Intimate_Media_Object specializes Media_Object 
+
+kind Digital_Platform
+
+role Acessible_Digital_Platform of functional-complexes  specializes Digital_Platform 
+
+event Upload_Private_Media_Object_to_the_Digital_Platform
+
+relator Private_Media_Objects_Uploading
+
+role Publisher of functional-complexes  specializes Depicter_Person 
+
+category Media_Object of functional-complexes 
+
+category Public_Media_Object specializes Media_Object 
+
+roleMixin Private_Intimate_Media_Object_without_Consent specializes Private_Intimate_Media_Object {
+    [1..*] -- [1] Depicted_Person_in_Intimacy 
+}
+
+event Access_the_Published_Private_Intimate_Media
+
+relator Private_Intimate_Media_Accessing
+
+role Uploaded_Private_Intimate_Media_Object_without_Consent specializes Private_Intimate_Media_Object_without_Consent {
+    [1..*] -- [1] Depicted_Person_in_Intimacy 
+}
+
+role Accessed_Private_Intimate_Media_Object_without_Consent specializes Uploaded_Private_Intimate_Media_Object_without_Consent {
+    [1..*] -- [1] Depicted_Person_in_Intimacy 
+}
+
+relator Violation_of_Depicted_Persons_Right_to_Privacy
+
+mode Violated_Duty_to_Keep_the_Intimate_Media_Object_Privately
+
+mode Violated_Right_to_Privacy_of_Intimate_Media_Object
+

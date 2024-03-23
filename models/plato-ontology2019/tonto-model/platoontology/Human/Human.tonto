@@ -2,9 +2,9 @@ import platoontology
 
 package Human
 
-subkind HumanBeing  specializes LivingThing
-kind HumanBody {
-    @componentOf
-    [1]  --<o> [1]  HumanBeing
+subkind HumanBeing of functional-complexes  specializes LivingThing {
+    [1..*] -- becomingTakesPlace -- [1] Receptacle 
 }
+
+kind HumanBody
 

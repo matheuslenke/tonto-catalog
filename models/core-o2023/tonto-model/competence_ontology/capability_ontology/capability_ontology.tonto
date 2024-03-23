@@ -1,31 +1,28 @@
 import competence_ontology
+import competence_ontology2
 
 package capability_ontology
 
-mode Social_Capability  specializes Capability{
-    @characterization
-    [1] -- [1]  Social_Agent( {const } )
-     [0..*] -- emerges_from --  [2..*]  Capability
-     [0..*] -- results_from --  [2..*]  Capability
+mode Social_Capability specializes Capability {
+    @characterization 
+    [1] -- [1] Object 
+    [0..*] -- results_from -- [0..*] Disposition 
+    [0..*] -- has_part -- [0..*] Capability 
+    [0..*] -- is_disabled_by -- [0..*] Capability 
+    [0..*] -- is_enabled_by -- [0..*] Capability 
+    [0..*] -- is_changed_by -- [0..*] Capability 
+    [0..*] -- is_reciprocal_to -- [0..*] Disposition 
+    [0..*] -- is_additional_to -- [0..*] Disposition 
+    @manifestation 
+    [1..*] -- [*] Capability_Manifestation 
+    [0..*] -- emerges_from -- [0..*] Capability 
 }
-category Disposition {
-     [0..*] -- emerges_from --  [0..*]  Capability
-}
-situation Capability_Context {
-    @triggers
-    ( {const } )[1] --  [0..1]  Capability
-}
-event Capability_Manifestation {
-    @bringsAbout
-    ( {const } )[1] -- [1]  Capability_Outcome( {const } )
-}
-situation Capability_Outcome 
-genset {disjoint, complete}{
-    general Agent
-    specifics Social_Agent, Physical_Agent 
-}
-genset {disjoint}{
-    general Capability
-    specifics Social_Capability 
-}
+
+category Disposition of intrinsic-modes 
+
+situation Capability_Context
+
+event Capability_Manifestation
+
+situation Capability_Outcome
 

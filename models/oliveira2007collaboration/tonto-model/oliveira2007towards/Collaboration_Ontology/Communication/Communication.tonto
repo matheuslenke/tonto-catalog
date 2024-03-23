@@ -1,22 +1,23 @@
+import oliveira2007towards
 import Cooperation
 
 package Communication
 
-kind Language 
-kind Message {
-     [0..*] -- encoded -- [1]  Language
+kind Language
+
+kind Message
+
+class Send specializes Participation {
+    [0..*] -- uses -- [1..*] Protocol 
 }
-class Send  specializes Participation{
-     [1..*] -- has --  [1..*]  Message
+
+class Receive specializes Participation {
+    [0..*] -- uses -- [1..*] Protocol 
 }
-class Receive  specializes Participation{
-     [0..*] -- caused_by -- [1]  Send
-     [1..*] -- has --  [1..*]  Message
-}
-event CommunicationAction {
-    [*] <>-- essentialtrue --  [1..*]  Send( {const } )
-    [*] <>-- essentialtrue --  [1..*]  Receive( {const } )
-}
-subkind VerbalLanguage  specializes Language
-subkind NonVerbalLanguage  specializes Language
+
+event CommunicationAction
+
+subkind VerbalLanguage of functional-complexes  specializes Language 
+
+subkind NonVerbalLanguage of functional-complexes  specializes Language 
 

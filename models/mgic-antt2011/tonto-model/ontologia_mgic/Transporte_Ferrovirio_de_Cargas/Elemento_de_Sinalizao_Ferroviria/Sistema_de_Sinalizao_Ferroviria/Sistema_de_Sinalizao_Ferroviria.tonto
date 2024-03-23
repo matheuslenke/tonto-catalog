@@ -1,8 +1,0 @@
-package Sistema_de_Sinalizao_Ferroviria
-
-subkind Controle_de_Trfego_Centralizado  specializes Sistema_de_Sinalizao_Ferroviria
-subkind Controle_Automtico_de_Trens  specializes Sistema_de_Sinalizao_Ferroviria
-subkind Controle_de_Trens_Baseado_em_Comunicao  specializes Sistema_de_Sinalizao_Ferroviria
-kind Sistema_de_Sinalizao_Ferroviria 
-subkind Sistema_de_Bloqueio_Automtico_por_Circuito_de_Via  specializes Sistema_de_Sinalizao_Ferroviria
-

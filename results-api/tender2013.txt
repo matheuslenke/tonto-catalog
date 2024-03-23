@@ -1,0 +1,83 @@
+Validating...
+- Total of errors: 32
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Procurao_para_Indicao_de_Representante must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Procurao_para_Indicao_de_Representante must specify the possible ontological natures of its instances
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Leilo_Pblico is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Leilo_de_Licitao is specializing other classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Licitante_em_Leilo must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Licitante_em_Leilo must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Pessoa_Jurdica_de_Direito_Privado_Empresarial must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Pessoa_Jurdica_de_Direito_Privado_Empresarial must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Contrato_de_Permisso must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Contrato_de_Permisso must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Permissionria must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Permissionria must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Ligao_Efetivada must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Ligao_Efetivada must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Linha_de_nibus_em_Implantao must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Linha_de_nibus_em_Implantao must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Licitante must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Licitante must specify the possible ontological natures of its instances
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Publicao_de_Edital is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Republicao is specializing other classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Republicao_de_Edital is specializing other classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Projeto_Bsico_de_Concesso must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Projeto_Bsico_de_Concesso must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Portaria_para_Constituio_de_Comisso_de_Outorga must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Portaria_para_Constituio_de_Comisso_de_Outorga must specify the possible ontological natures of its instances
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Licitante_em_Leilo are not among the allowed ontological natures of its superclass Empresa_Participante_do_Leilo
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Licitante_em_Leilo are not among the allowed ontological natures of its superclass Licitante
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Lote_de_Servio_em_Leilo are not among the allowed ontological natures of its superclass Lote_em_Leilo
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Plano_de_Outorga cannot specialize the anti-rigid class Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Plano_de_Outorga are not among the allowed ontological natures of its superclass Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Plano_de_Outorga cannot specialize the anti-rigid class Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Plano_de_Outorga are not among the allowed ontological natures of its superclass Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Ligao cannot specialize the anti-rigid class Ligao_Efetivada
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Ligao are not among the allowed ontological natures of its superclass Ligao_Efetivada
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Licitante are not among the allowed ontological natures of its superclass Pessoa_Jurdica_de_Direito_Privado_Empresarial
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Projeto_Bsico are not among the allowed ontological natures of its superclass Projeto_Bsico_de_Concesso
+Validation finished

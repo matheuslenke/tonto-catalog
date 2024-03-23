@@ -1,44 +1,26 @@
-package 32_Roles
+import Applied_Ontology_Special_Issue_2022__Challenge_Answers
 
-relator Employment {
-    @mediation
-     [1..*] -- [1]  Teacher( {const } )
-    @mediation
-     [0..*] -- [1]  School( {const } )
-}
-role Teacher  specializes Person
-kind Person 
-role Student  specializes Person{
-    @memberOf
-     [1..*]  --<o>  [1..*]  Class
-}
-collective Class 
-relator School_Enrollment {
-    @mediation
-     [1..*] -- [1]  Student( {const } )
-    @mediation
-     [0..*] -- [1]  School( {const } )
-}
-relator Course_Enrollment {
-    @mediation
-     [0..*] -- [1]  Course_Offering( {const } )
-    @mediation
-     [0..*] -- [1]  School_Enrollment( {const } )
-}
-kind School 
-kind Course 
-relator Course_Offering {
-    @mediation
-     [0..1] -- offers -- [1]  Course( {const } )
-    @mediation
-     [0..*] -- is_offered_to -- [1]  Class( {const } )
-    @mediation
-     [0..*] -- provides -- [1]  School( {const } )
-}
-relator Course_Teacher_Assignment {
-    @mediation
-     [0..*] -- [1]  Employment( {const } )
-    @mediation
-     [0..1] -- [1]  Course_Offering( {const } )
-}
+package Roles
+
+relator Employment
+
+role Teacher of functional-complexes  specializes Person 
+
+kind Person
+
+role Student of functional-complexes  specializes Person 
+
+collective Class
+
+relator School_Enrollment
+
+relator Course_Enrollment
+
+kind School
+
+kind Course
+
+relator Course_Offering
+
+relator Course_Teacher_Assignment
 

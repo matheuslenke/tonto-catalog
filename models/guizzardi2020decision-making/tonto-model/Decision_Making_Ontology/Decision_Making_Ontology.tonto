@@ -1,0 +1,136 @@
+
+package Decision_Making_Ontology
+
+mixin Agent of functional-complexes 
+
+event Action
+
+mode Mental_Moment
+
+mode Belief specializes Mental_Moment {
+    @externalDependence 
+    [0..*] -- [1..*] Proposition 
+}
+
+mode Desire specializes Mental_Moment {
+    @externalDependence 
+    [0..*] -- [1..*] Proposition 
+}
+
+mode Intention specializes Mental_Moment {
+    @externalDependence 
+    [0..*] -- [1..*] Proposition 
+}
+
+kind Goal specializes Proposition 
+
+kind Situation
+
+kind Proposition
+
+event Deliberative_Act specializes Action {
+    @creation 
+    [0..1] -- [1] Situation 
+}
+
+role Decision of intrinsic-modes  specializes Intention {
+    @manifestation 
+    [0..*] -- [1] Action 
+    @internal 
+    [0..*] -- [0..*] Intention 
+    @externalDependence 
+    [0..*] -- [1..*] Proposition 
+}
+
+relator Preference
+
+relator Value_Ascription
+
+relator VA_Component
+
+mode Intrinsic_Moment
+
+roleMixin Value_Bearer of functional-complexes 
+
+roleMixin Preferred_Bearer of functional-complexes  specializes Value_Bearer 
+
+roleMixin Deprecated_Bearer of functional-complexes  specializes Value_Bearer 
+
+quality Value_Component
+
+quality Benefit specializes Value_Component 
+
+quality Sacrifice specializes Value_Component 
+
+quality Value
+
+role Criterion specializes intrinsic_Moment_Type {
+    @instantiation 
+    [1] -- [1..*] Intrinsic_Moment 
+}
+
+mode Capability
+
+mode Individual_Capability specializes Capability 
+
+mode Social_Capability specializes Capability 
+
+relator Delegation
+
+event Decision_Resulting_Action specializes Action {
+    @creation 
+    [0..1] -- [1] Situation 
+}
+
+role Consequence of functional-complexes  specializes Situation 
+
+class Netflix_VA_Value_Ascription
+
+class YouTube_VA_Value_Ascription
+
+class Payment_Netflix_VAC_VA_Component
+
+class Entertainment_Netflix_VAC_VA_Component
+
+class Entertainment_YouTube_VAC_VA_Component
+
+class Payment_YouTube_VAC_VA_Component
+
+class Netflix_Monthly_Fee_Quality
+
+class Minimize_Cost_Intention
+
+class YouTube_Cost_Quality
+
+class Seeks_to_Relax_Intention
+
+class Netflix_Entertainability_Quality
+
+class YouTube_Entertainability_Quality
+
+class Netflix_Entertainment_Benefit
+
+class Cost_Sacrifice
+
+class NoCost_Benefit
+
+class PreferenceMovieProvider_Preference
+
+class Watching_film_on_Netflix_Value_Experience
+
+class Watching_film_on_YouTube_Value_Experience
+
+class Netflix_Value_Value
+
+class YouTube_Value_Value
+
+class Fred_Agent
+
+class YouTube_Entertainment_Benefit
+
+class Watch_Movies_on_YouTube_Decision
+
+class To_Watch_Movies_on_YouTube_Action
+
+type intrinsic_Moment_Type
+

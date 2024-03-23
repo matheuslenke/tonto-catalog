@@ -1,40 +1,26 @@
+import guarino2018ontological
+
 package Package
 
-category Agent 
-roleMixin Economic_Agent  specializes Agent
-roleMixin Provider  specializes Economic_Agent
-roleMixin Receiver  specializes Economic_Agent
-relator Bilateral_Economic_Contract {
-    @mediation
-     [1..*] -- involves -- [1]  Provider( {const } )
-    @mediation
-     [1..*] -- involves -- [1]  Receiver( {const } )
-}
-mode Good_Transfer_Conditional_Commitment {
-    [1] -- reciprocity_mutual_existential_dependence -- [1]  Money_Transfer_Conditional_Commitment
-    @characterization
-     [1..*] -- inheres_in -- [1]  Provider( {const } )
-    [1]  --<o> [1]  Bilateral_Economic_Contract
-}
-mode Money_Transfer_Conditional_Commitment {
-    @characterization
-     [1..*] -- inheres_in -- [1]  Receiver( {const } )
-    [1]  --<o> [1]  Bilateral_Economic_Contract
-}
-event Economic_Exchange {
-    [1] <o>-- [1]  Sell_Event
-    [1] <o>-- [1]  Cash_Event
-}
-event Economic_Event 
-subkind Sell_Event  specializes Economic_Event{
-     [0..1] -- fulfills -- [1]  Good_Transfer_Conditional_Commitment
-    [1] -- duality_derived_relation -- [1]  Cash_Event
-}
-subkind Cash_Event  specializes Economic_Event{
-     [0..1] -- fulfills -- [1]  Money_Transfer_Conditional_Commitment
-}
-disjoint complete genset QNd9G06GAqACHRa3{
-    general Economic_Event
-    specifics Sell_Event, Cash_Event 
-}
+category Agent
+
+roleMixin Economic_Agent specializes Agent 
+
+roleMixin Provider specializes Economic_Agent 
+
+roleMixin Receiver specializes Economic_Agent 
+
+relator Bilateral_Economic_Contract
+
+mode Good_Transfer_Conditional_Commitment
+
+mode Money_Transfer_Conditional_Commitment
+
+event Economic_Exchange
+
+event Economic_Event
+
+subkind Sell_Event specializes Economic_Event 
+
+subkind Cash_Event specializes Economic_Event 
 

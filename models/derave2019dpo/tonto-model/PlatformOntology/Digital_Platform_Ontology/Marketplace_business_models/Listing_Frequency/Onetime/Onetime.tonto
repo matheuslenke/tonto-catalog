@@ -1,0 +1,26 @@
+import PlatformOntology
+
+package Onetime
+
+subkind Onetime_listing of relators  specializes Listing {
+    @mediation 
+    [1] -- described_by -- [1] Listing_Description 
+    [1] -- has -- [0..*] Available_time_slot 
+    [1] -- conforms_to -- [0..*] Booking 
+    [1] -- concerns -- [0..*] Listing_Conversation 
+    [1] -- has -- [1] Offered_Price_per_Seat 
+    [0..*] -- indicated -- [1..*] Time 
+    [*] -- predefined -- [*] Location 
+    [0..*] -- [1] Available_Quantity 
+    @mediation 
+    [1] -- described_by -- [1] Offering_Description 
+    @mediation 
+    [1..*] -- offered_to -- [1] Target_MS_Platform_Customer_Community 
+    @mediation 
+    [0..*] -- mediated_by -- [1] Transaction_Platform_Company 
+    @mediation 
+    [1..*] -- offered_by -- [1] Offering_Creator 
+    [1..*] -- [1..*] Price_set_by_Provider 
+    [0..*] -- [0..*] Feature 
+}
+
