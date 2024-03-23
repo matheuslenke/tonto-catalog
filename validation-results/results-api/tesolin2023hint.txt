@@ -1,3 +1,53 @@
 Validating...
-- Total of errors: 0
+- Total of errors: 12
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class DecodedBond is specializing other classes that represent ultimate sortals: «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class MonitoredBond is specializing multiple classes that represent ultimate sortals: «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class SelectedBond is specializing multiple classes that represent ultimate sortals: «mode»
+[error] Not unique class stereotype:
+The class Interface2 must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class TXIntfSituation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class EMField must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Sender2 must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class GenerateEMWave must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class EMWIsGenerated must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class EMWave2 must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Permittivity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class FreeSpace2 must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class PropagateEMW must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class EMWIsPropagated must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Sensitivity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Receiver2 must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class DetectEMW must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class EMWIsDetected must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Signal2 must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Medium2 must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class RxIntfSituation must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Sender2 are not among the allowed ontological natures of its superclass Interface2
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Receiver2 are not among the allowed ontological natures of its superclass Interface2
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Signal2 are not among the allowed ontological natures of its superclass EMWave2
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Medium2 are not among the allowed ontological natures of its superclass FreeSpace2
 Validation finished

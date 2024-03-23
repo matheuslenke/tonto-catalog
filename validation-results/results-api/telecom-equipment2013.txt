@@ -1,31 +1,3 @@
 Validating...
-- Total of errors: 12
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Physical_Termination_Point must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Connection_Termination_Point must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class PTP_of_ME must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class ME_Composed_Of_PTP must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class ME_Composed_Of_Rack must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class EMS_That_Manages_Rack must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class EMS_That_Manages_Shelf must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class EMS_That_Manages_Slot must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class EMS_That_Manages_SubSlot must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class EMS_That_Manages_Equipment must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class EMS_Composed_Of_ME must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Rack_Composed_Of_Shelf must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Shelf_Composed_Of_Slot must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Slot_Composed_Of_SubSlot must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+- Total of errors: 0
 Validation finished

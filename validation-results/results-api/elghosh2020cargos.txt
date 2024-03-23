@@ -1,3 +1,11 @@
 Validating...
-- Total of errors: 0
+- Total of errors: 4
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Carrier must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Shipper must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Legal_Rule must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Legal_Rule must specify the possible ontological natures of its instances
 Validation finished

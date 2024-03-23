@@ -1,1 +1,1439 @@
-0
+1437
+
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Offering_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Time_Slot'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booking_Price'.
+Could not resolve reference to ClassDeclaration named 'Price_set_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Time_Slot'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booking_Price'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to DataTypeOrClassOrRelation named 'Relator'.
+This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+This class must specify the ontological nature of its instances. Specify a Nature or specialize an Ultimate Sortal that provides a nature
+This class must specify the ontological nature of its instances. Specify a Nature or specialize an Ultimate Sortal that provides a nature
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Transaction_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Home_Seeker'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Uber_Eats_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Commission_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to ClassDeclaration named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to ClassDeclaration named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Good'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Offline_Action'.
+Could not resolve reference to ClassDeclaration named 'Ownership_Transfer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Good'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Price'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_On_The_Platform'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Investment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Highest_Price_Offer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Fixed_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_On_The_Platform'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Investment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Highest_Price_Offer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Fixed_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Service_Customer_Claim'.
+Could not resolve reference to ClassDeclaration named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Hired_Provider_Commitment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Service_Customer_Claim'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_Company_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Registration_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Registered_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Registration'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Uber_Eats_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Uber_Eats_Restaurant'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Personal_Data'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_Company_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Person'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Platform_Provider'.
+Could not resolve reference to ClassDeclaration named 'Organization'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Peer_User'.
+Could not resolve reference to ClassDeclaration named 'Person'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_Provider'.
+Could not resolve reference to ClassDeclaration named 'Peer_User'.
+Could not resolve reference to ClassDeclaration named 'Person'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Organization'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Platform_Provider'.
+Could not resolve reference to ClassDeclaration named 'Organization'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to ClassDeclaration named 'Service_Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to ClassDeclaration named 'ProductOriented_Delivery'.
+Could not resolve reference to ClassDeclaration named 'ResultOriented_Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Good'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Type'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_Visitor'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Agreement'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Agreement'.
+Could not resolve reference to ClassDeclaration named 'OneSided_Platform_User_Affiliation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'OneSided_Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_Supported_Interaction'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Digital_Content'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Role_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Registration'.
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Price'.
+Could not resolve reference to ClassDeclaration named 'Price_set_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Time_Slot'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Price'.
+Could not resolve reference to ClassDeclaration named 'Price'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to DataTypeOrClassOrRelation named 'Job_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_Supported_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Price'.
+Could not resolve reference to ClassDeclaration named 'Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Commission_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booked_Quantity'.
+Could not resolve reference to ClassDeclaration named 'Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Commission_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booked_Quantity'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Offering_Description'.
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Could not resolve reference to ClassDeclaration named 'Person'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Could not resolve reference to ClassDeclaration named 'Digital_Communication'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Creator'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Creator'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Creator'.
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Agent'.
+Could not resolve reference to ClassDeclaration named 'Agent'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Digital_Content_Creation'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Digital_Content_Consumption'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Peer_User'.
+Could not resolve reference to ClassDeclaration named 'Person'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Could not resolve reference to ClassDeclaration named 'Offline_Action'.
+Could not resolve reference to ClassDeclaration named 'UserOriented_Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Good'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to ClassDeclaration named 'Offering_Creator'.
+Could not resolve reference to ClassDeclaration named 'Organization'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to ClassDeclaration named 'Peer_User'.
+Could not resolve reference to ClassDeclaration named 'Person'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Offline_Action'.
+Could not resolve reference to ClassDeclaration named 'ResultOriented_Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Product'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Registered_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Peer_User'.
+Could not resolve reference to ClassDeclaration named 'Person'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Could not resolve reference to ClassDeclaration named 'Physical_Good'.
+Could not resolve reference to ClassDeclaration named 'OuterPlatform_Delivery'.
+Could not resolve reference to ClassDeclaration named 'Service_Delivery'.
+Could not resolve reference to ClassDeclaration named 'UserOriented_Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booked_Time_Slot'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Good'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to ClassDeclaration named 'Person'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Could not resolve reference to ClassDeclaration named 'Offering_Creator'.
+Could not resolve reference to ClassDeclaration named 'Peer_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Private_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Peer_Action'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Offering_On_The_Platform'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Description'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Creator'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_set_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Feature'.
+Could not resolve reference to ClassDeclaration named 'Digital_Content_Consumption'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Offering_Description'.
+Could not resolve reference to ClassDeclaration named 'Transaction_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Home_Seeker'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Uber_Eats_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_On_The_Platform'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Investment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Highest_Price_Offer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Fixed_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_Software_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Offering_On_The_Platform'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Description'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Creator'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_set_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Feature'.
+Could not resolve reference to ClassDeclaration named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_On_The_Platform'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Investment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Highest_Price_Offer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Fixed_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Transaction_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Home_Seeker'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Uber_Eats_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Agreement'.
+Could not resolve reference to ClassDeclaration named 'MS_User_Affiliation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Main_Digital_Content'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to ClassDeclaration named 'Main_Digital_Content_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Main_Digital_Content'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Content_Creator'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Supported_Communication'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Content_Creator'.
+Could not resolve reference to ClassDeclaration named 'MS_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Registered_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to ClassDeclaration named 'Platform_Supported_Interaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Platform_Visitor'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'Target_MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Content_Consumer'.
+Could not resolve reference to ClassDeclaration named 'MS_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Registered_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Role_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Registration'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Registered_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Platform_Visitor'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Agreement'.
+Could not resolve reference to ClassDeclaration named 'MS_User_Affiliation'.
+Could not resolve reference to ClassDeclaration named 'OneSided_Platform_User_Affiliation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'OneSided_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Digital_Content_Creation'.
+Could not resolve reference to ClassDeclaration named 'User_Affiliation_Action'.
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Could not resolve reference to ClassDeclaration named 'Hired_Provider_Commitment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Service_Customer_Claim'.
+Could not resolve reference to ClassDeclaration named 'Service_Customer_Claim'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Review'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'SafaRide_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'SafaRide_Trip_Provider'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Review'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'SafaRide_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'SafaRide_Trip_Provider'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Revenue_Stream'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Could not resolve reference to ClassDeclaration named 'Payment_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Job_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Revenue_Stream'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Could not resolve reference to ClassDeclaration named 'Revenue_Stream'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Could not resolve reference to ClassDeclaration named 'Revenue_Stream'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Marketplace_Company'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Could not resolve reference to ClassDeclaration named 'Price'.
+Could not resolve reference to ClassDeclaration named 'Offering_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Time_Slot'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booking_Price'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Offering_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Time_Slot'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booking_Price'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Offline_Action'.
+Could not resolve reference to ClassDeclaration named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Job_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Job_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to ClassDeclaration named 'Organization'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'User_Action'.
+Could not resolve reference to ClassDeclaration named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Action_Type'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Airbnb_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Job_Fee'.
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Proposal'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Setting_action_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to ClassDeclaration named 'Transaction'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_On_The_Platform'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Investment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Highest_Price_Offer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Fixed_Fee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Digital_Platform_Offering'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User'.
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Offline_Action'.
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Offering_Description'.
+Could not resolve reference to ClassDeclaration named 'Platform_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Acceptance'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Inhouse_Payment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Revenue_Stream_Payed_by_Customer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Paid_Transaction_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offline_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Review_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_Platform_User_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'User_Affiliation_Action'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'MS_Platform_User_Side'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Suggested_Price'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_Offer_Creation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Request_Quote'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Could not resolve reference to ClassDeclaration named 'Good'.
+Could not resolve reference to ClassDeclaration named 'Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Could not resolve reference to ClassDeclaration named 'Platform_Software_Action'.
+Could not resolve reference to ClassDeclaration named 'Ownership_Transfer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Software'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Good'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Could not resolve reference to ClassDeclaration named 'Time'.
+Could not resolve reference to ClassDeclaration named 'Time'.
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to ClassDeclaration named 'Listing'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Description'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Available_time_slot'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booking'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Listing_Conversation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offered_Price_per_Seat'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Location'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Available_Quantity'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Description'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Target_MS_Platform_Customer_Community'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Transaction_Platform_Company'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Offering_Creator'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Price_set_by_Provider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Feature'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Could not resolve reference to ClassDeclaration named 'Service_Delivery'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Booked_Time_Slot'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_Customer'.

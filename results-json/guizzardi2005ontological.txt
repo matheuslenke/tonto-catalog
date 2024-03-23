@@ -1,5 +1,0 @@
-Total Errors: 3
- 
-[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
-[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
-[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals

@@ -1,1 +1,52 @@
-32
+50
+
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations

@@ -1,1 +1,256 @@
-453
+254
+
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Prohibited generalization: non-sortal specializing a sortal. The non-sortal class Group_Member cannot specialize the sortal class Missionary_Unit_Member
+Prohibited generalization: non-sortal specializing a sortal. The non-sortal class Group_Member cannot specialize the sortal class Structural_Unit_Member
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations

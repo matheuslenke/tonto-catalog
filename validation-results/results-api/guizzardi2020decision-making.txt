@@ -1,3 +1,83 @@
 Validating...
-- Total of errors: 0
+Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
+<manifestation, [> may appears as a prefix path in all these alternatives.
+See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
+For Further details.
+- Total of errors: 11
+Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
+<manifestation, [> may appears as a prefix path in all these alternatives.
+See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
+For Further details.
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Belief is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Desire is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Intention is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Goal is specializing other classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Decision is specializing multiple classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Benefit is specializing other classes that represent ultimate sortals: «quality»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Sacrifice is specializing other classes that represent ultimate sortals: «quality»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Criterion must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Criterion must specify the possible ontological natures of its instances
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Individual_Capability is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Social_Capability is specializing other classes that represent ultimate sortals: «mode»
+[error] Not unique class stereotype:
+The class Netflix_VA_Value_Ascription must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class YouTube_VA_Value_Ascription must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Payment_Netflix_VAC_VA_Component must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Entertainment_Netflix_VAC_VA_Component must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Entertainment_YouTube_VAC_VA_Component must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Payment_YouTube_VAC_VA_Component must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Netflix_Monthly_Fee_Quality must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Minimize_Cost_Intention must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class YouTube_Cost_Quality must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Seeks_to_Relax_Intention must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Netflix_Entertainability_Quality must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class YouTube_Entertainability_Quality must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Netflix_Entertainment_Benefit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Cost_Sacrifice must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class NoCost_Benefit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class PreferenceMovieProvider_Preference must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Watching_film_on_Netflix_Value_Experience must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Watching_film_on_YouTube_Value_Experience must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Netflix_Value_Value must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class YouTube_Value_Value must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Fred_Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class YouTube_Entertainment_Benefit must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Watch_Movies_on_YouTube_Decision must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class To_Watch_Movies_on_YouTube_Action must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Criterion are not among the allowed ontological natures of its superclass intrinsic_Moment_Type
 Validation finished

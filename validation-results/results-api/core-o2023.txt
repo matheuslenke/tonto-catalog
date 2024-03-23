@@ -1,25 +1,11 @@
 Validating...
 Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
-<manifestation, (> may appears as a prefix path in all these alternatives.
+<manifestation, [> may appears as a prefix path in all these alternatives.
 See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
 For Further details.
-- Total of errors: 29
+- Total of errors: 0
 Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
-<manifestation, (> may appears as a prefix path in all these alternatives.
+<manifestation, [> may appears as a prefix path in all these alternatives.
 See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
 For Further details.
-Warning: Could not create specialization between class Person and 
-                undefined not found in context module competence_ontology)
-Warning: Could not create specialization between class Human_Capability and 
-                undefined not found in context module competence_ontology)
-Warning: Could not create specialization between class Social_Capability and 
-                undefined not found in context module capability_ontology)
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Attitude are not among the allowed ontological natures of its superclass Human_Aspect
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Knowledge are not among the allowed ontological natures of its superclass Human_Aspect
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Human_Capability are not among the allowed ontological natures of its superclass Human_Aspect
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Human_Characteristic are not among the allowed ontological natures of its superclass Human_Aspect
 Validation finished

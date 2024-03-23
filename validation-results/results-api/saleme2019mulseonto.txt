@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 20
+- Total of errors: 2
 [error] Not unique class stereotype:
 The class Endurant must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:
@@ -46,22 +46,6 @@ The allowed ontological natures of instances of Computer_System are not among th
 The allowed ontological natures of instances of Computer_Machine are not among the allowed ontological natures of its superclass Hardware_Equipment
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
 The allowed ontological natures of instances of Program are not among the allowed ontological natures of its superclass Software_Item
-[error] Not unique class stereotype:
-The class Hardware_Equipment must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Artifact must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Software_Item must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Data_File must have a unique OntoUML stereotype.
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Hardware_Equipment are not among the allowed ontological natures of its superclass Object
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Artifact are not among the allowed ontological natures of its superclass Object
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Software_Item are not among the allowed ontological natures of its superclass Artifact
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Data_File are not among the allowed ontological natures of its superclass Software_Item
 [error] Not unique class stereotype:
 The class Loaded_Mulsemedia_Software_System_Copy must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:
@@ -304,4 +288,20 @@ The allowed ontological natures of instances of Taste_Sensory_Effect_Description
 The allowed ontological natures of instances of Temperature_Sensory_Effect_Description are not among the allowed ontological natures of its superclass Lingering_Sensory_Effect_Description
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
 The allowed ontological natures of instances of Fog_Sensory_Effect_Description are not among the allowed ontological natures of its superclass Lingering_Sensory_Effect_Description
+[error] Not unique class stereotype:
+The class Hardware_Equipment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Artifact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Software_Item must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Data_File must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Hardware_Equipment are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Artifact are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Software_Item are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Data_File are not among the allowed ontological natures of its superclass Software_Item
 Validation finished

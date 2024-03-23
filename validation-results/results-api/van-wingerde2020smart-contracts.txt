@@ -1,37 +1,21 @@
 Validating...
-- Total of errors: 20
+- Total of errors: 8
 [error] Not unique class stereotype:
 The class State must have a unique OntoUML stereotype.
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Human_Agent must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Human_Agent must specify the possible ontological natures of its instances
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Artificial_Agent must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Artificial_Agent must specify the possible ontological natures of its instances
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Human_Agent are not among the allowed ontological natures of its superclass Agent
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Artificial_Agent are not among the allowed ontological natures of its superclass Agent
 [error] Not unique class stereotype:
 The class Goal must have a unique OntoUML stereotype.
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Initiator must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Initiator must specify the possible ontological natures of its instances
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Executor must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Executor must specify the possible ontological natures of its instances
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Transaction_Phase must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
 [error] The meta-property 'restrictedTo' is not assigned:
 The meta-property 'restrictedTo' of class Transaction_Phase must specify the possible ontological natures of its instances
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Initiator are not among the allowed ontological natures of its superclass Process_Participant
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Executor are not among the allowed ontological natures of its superclass Process_Participant
 [error] Not unique class stereotype:
 The class Value must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:

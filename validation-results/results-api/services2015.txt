@@ -1,37 +1,11 @@
 Validating...
-- Total of errors: 174
-Warning: Could not create specialization between class ServiceProvider and 
-                undefined not found in context module Service_Offer)
-Warning: Could not create specialization between class TargetCustomer and 
-                undefined not found in context module Service_Offer)
-Warning: Could not create specialization between class ServiceProvider and 
-                undefined not found in context module Service_Offer)
-Warning: Could not create specialization between class TargetCustomer and 
-                undefined not found in context module Service_Offer)
-Warning: Could not create specialization between class ServiceProvider and 
-                undefined not found in context module Service_Offer)
-Warning: Could not create specialization between class TargetCustomer and 
-                undefined not found in context module Service_Offer)
-[error] Not unique class stereotype:
-The class Thing must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Urelement must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Set must have a unique OntoUML stereotype.
+- Total of errors: 2
 [error] Not unique class stereotype:
 The class Time_Point must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:
 The class Time_Interval must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:
 The class Temporal_Structure must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Time_Point must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Time_Interval must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Temporal_Structure must have a unique OntoUML stereotype.
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Time_Interval are not among the allowed ontological natures of its superclass Temporal_Structure
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
 The allowed ontological natures of instances of Time_Interval are not among the allowed ontological natures of its superclass Temporal_Structure
 [error] Not unique class stereotype:
@@ -45,9 +19,353 @@ The allowed ontological natures of instances of Urelement are not among the allo
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
 The allowed ontological natures of instances of Set are not among the allowed ontological natures of its superclass Thing
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Urelement are not among the allowed ontological natures of its superclass Thing
+The allowed ontological natures of instances of ServiceProvider are not among the allowed ontological natures of its superclass Agent
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Set are not among the allowed ontological natures of its superclass Thing
+The allowed ontological natures of instances of TargetCustomer are not among the allowed ontological natures of its superclass Agent
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class SpecializedServiceAgreement is specializing other classes that represent ultimate sortals: «relator»
+[error] Not unique class stereotype:
+The class Action_Universal_Plan must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action_Universal_Plan are not among the allowed ontological natures of its superclass Event_Universal
+[error] Not unique class stereotype:
+The class Interaction must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Atomic_Action must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Communicative_Act must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Action_Contribution must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Social_Relator must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Intentional_Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Externally_Dependent_Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Mental_Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Social_Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Commitment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Claim must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Belief must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Desire must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Intention must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Prpositon must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Goal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Open_Commitment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Closed_Commitment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Pending must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Dimissed must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Broken must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Social_Agent must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Social_Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Normative_Description must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Action must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Complex_Action must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Interaction are not among the allowed ontological natures of its superclass Complex_Action
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Action are not among the allowed ontological natures of its superclass Atomic_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Action are not among the allowed ontological natures of its superclass Action
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Communicative_Act are not among the allowed ontological natures of its superclass Atomic_Action
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action_Contribution are not among the allowed ontological natures of its superclass Action
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Social_Relator are not among the allowed ontological natures of its superclass Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Intentional_Moment are not among the allowed ontological natures of its superclass Intrinsic_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Externally_Dependent_Moment are not among the allowed ontological natures of its superclass Intrinsic_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mental_Moment are not among the allowed ontological natures of its superclass Intentional_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Social_Moment are not among the allowed ontological natures of its superclass Externally_Dependent_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Social_Moment are not among the allowed ontological natures of its superclass Intentional_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Commitment are not among the allowed ontological natures of its superclass Social_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Claim are not among the allowed ontological natures of its superclass Social_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Belief are not among the allowed ontological natures of its superclass Mental_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Desire are not among the allowed ontological natures of its superclass Mental_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Intention are not among the allowed ontological natures of its superclass Mental_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Goal are not among the allowed ontological natures of its superclass Prpositon
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Open_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Closed_Commitment are not among the allowed ontological natures of its superclass Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Pending are not among the allowed ontological natures of its superclass Open_Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Dimissed are not among the allowed ontological natures of its superclass Open_Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Broken are not among the allowed ontological natures of its superclass Open_Commitment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Agent are not among the allowed ontological natures of its superclass Substantial
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Social_Agent are not among the allowed ontological natures of its superclass Agent
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Social_Object are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Normative_Description are not among the allowed ontological natures of its superclass Social_Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Action are not among the allowed ontological natures of its superclass Complex_Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Action are not among the allowed ontological natures of its superclass Action
+[error] Not unique class stereotype:
+The class Event must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Atomic_Event must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Complex_Event must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Participation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Situation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Fact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Before must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Meets must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Overlaps must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Starts must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class During must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Equals must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Event are not among the allowed ontological natures of its superclass Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Atomic_Event are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Complex_Event are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Participation are not among the allowed ontological natures of its superclass Event
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Situation are not among the allowed ontological natures of its superclass Endurant
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Fact are not among the allowed ontological natures of its superclass Situation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Before are not among the allowed ontological natures of its superclass Time_Interval_Relation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Meets are not among the allowed ontological natures of its superclass Time_Interval_Relation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Overlaps are not among the allowed ontological natures of its superclass Time_Interval_Relation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Starts are not among the allowed ontological natures of its superclass Time_Interval_Relation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of During are not among the allowed ontological natures of its superclass Time_Interval_Relation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Equals are not among the allowed ontological natures of its superclass Time_Interval_Relation
+[error] Not unique class stereotype:
+The class Event_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Disposition must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Time_Interval_Relation must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Event_Universal are not among the allowed ontological natures of its superclass Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Disposition are not among the allowed ontological natures of its superclass Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Time_Interval_Relation are not among the allowed ontological natures of its superclass Formal_Relation
+[error] Not unique class stereotype:
+The class Quality must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Mode must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Qua_Individual must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Individual must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Endurant must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Substantial must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Intrinsic_Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Relator must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Substantial_Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Amount_of_Matter must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quantity must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality are not among the allowed ontological natures of its superclass Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mode are not among the allowed ontological natures of its superclass Relator
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Qua_Individual are not among the allowed ontological natures of its superclass Mode
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Individual are not among the allowed ontological natures of its superclass Urelement
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Endurant are not among the allowed ontological natures of its superclass Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Substantial are not among the allowed ontological natures of its superclass Endurant
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Moment are not among the allowed ontological natures of its superclass Endurant
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Intrinsic_Moment are not among the allowed ontological natures of its superclass Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Relator are not among the allowed ontological natures of its superclass Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Substantial_Moment are not among the allowed ontological natures of its superclass Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Object are not among the allowed ontological natures of its superclass Substantial
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Amount_of_Matter are not among the allowed ontological natures of its superclass Substantial
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quantity are not among the allowed ontological natures of its superclass Object
+[error] Not unique class stereotype:
+The class Relation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Formal_Relation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Material_Relation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Sortal_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Mixin_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Rigid_Sortal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class AntiRigid_Sortal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Substance_Sortal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Subkind must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Kind must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quantity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Collective must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Phase must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Role must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Rigid_Mixin must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Category must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class NonRigid_Mixin must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class AntiRigid_Mixin must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class SemiRigid_Mixin must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Mixin must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Role_Mixin must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Intrinsic_Moment_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Relator_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quality_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Mode_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Endurant_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Substantial_Universal must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Moment_Universal must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Relation are not among the allowed ontological natures of its superclass Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Formal_Relation are not among the allowed ontological natures of its superclass Relation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Material_Relation are not among the allowed ontological natures of its superclass Relation
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Sortal_Universal are not among the allowed ontological natures of its superclass Substantial_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mixin_Universal are not among the allowed ontological natures of its superclass Substantial_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Rigid_Sortal are not among the allowed ontological natures of its superclass Sortal_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AntiRigid_Sortal are not among the allowed ontological natures of its superclass Sortal_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Substance_Sortal are not among the allowed ontological natures of its superclass Rigid_Sortal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Subkind are not among the allowed ontological natures of its superclass Rigid_Sortal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Kind are not among the allowed ontological natures of its superclass Substance_Sortal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quantity are not among the allowed ontological natures of its superclass Substance_Sortal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Collective are not among the allowed ontological natures of its superclass Substance_Sortal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Phase are not among the allowed ontological natures of its superclass AntiRigid_Sortal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Role are not among the allowed ontological natures of its superclass AntiRigid_Sortal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Rigid_Mixin are not among the allowed ontological natures of its superclass Mixin_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Category are not among the allowed ontological natures of its superclass Rigid_Mixin
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of NonRigid_Mixin are not among the allowed ontological natures of its superclass Mixin_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AntiRigid_Mixin are not among the allowed ontological natures of its superclass NonRigid_Mixin
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of SemiRigid_Mixin are not among the allowed ontological natures of its superclass NonRigid_Mixin
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mixin are not among the allowed ontological natures of its superclass SemiRigid_Mixin
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Role_Mixin are not among the allowed ontological natures of its superclass AntiRigid_Mixin
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Intrinsic_Moment_Universal are not among the allowed ontological natures of its superclass Moment_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Relator_Universal are not among the allowed ontological natures of its superclass Moment_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality_Universal are not among the allowed ontological natures of its superclass Intrinsic_Moment_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mode_Universal are not among the allowed ontological natures of its superclass Intrinsic_Moment_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Universal are not among the allowed ontological natures of its superclass Urelement
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Endurant_Universal are not among the allowed ontological natures of its superclass Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Substantial_Universal are not among the allowed ontological natures of its superclass Endurant_Universal
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Moment_Universal are not among the allowed ontological natures of its superclass Endurant_Universal
 Validation finished

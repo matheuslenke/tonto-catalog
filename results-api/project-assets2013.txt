@@ -1,7 +1,0 @@
-Validating...
-- Total of errors: 5
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Avaliao_de_Aprovao is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Avaliao_de_Reprovao is specializing other classes that represent ultimate sortals: «relator»
-Validation finished

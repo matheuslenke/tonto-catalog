@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 23
+- Total of errors: 37
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Liability is specializing multiple classes that represent ultimate sortals: «collective», «kind»
 [error] Every sortal class must specialize a unique ultimate sortal:
@@ -7,7 +7,7 @@ The class Off_Balance is specializing multiple classes that represent ultimate s
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Asset is specializing multiple classes that represent ultimate sortals: «collective», «kind»
 [error] Every sortal class must specialize a unique ultimate sortal:
-The class Equity is specializing multiple classes that represent ultimate sortals: «collective», «kind»
+The class Equity is specializing multiple classes that represent ultimate sortals: «kind», «collective»
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Debit_Event must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
 [error] The meta-property 'restrictedTo' is not assigned:
@@ -16,12 +16,6 @@ The meta-property 'restrictedTo' of class Debit_Event must specify the possible 
 The class Credit_Event must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
 [error] The meta-property 'restrictedTo' is not assigned:
 The meta-property 'restrictedTo' of class Credit_Event must specify the possible ontological natures of its instances
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Equity are not among the allowed ontological natures of its superclass Derivative_Instrument
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Debit_Event are not among the allowed ontological natures of its superclass Economic_Event
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Credit_Event are not among the allowed ontological natures of its superclass Economic_Event
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
 The allowed ontological natures of instances of Liability are not among the allowed ontological natures of its superclass Economic_Resource
 [error] Prohibited generalization: incompatible 'restrictedTo' values:

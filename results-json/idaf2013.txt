@@ -1,3 +1,0 @@
-Total Errors: 1
- 
-[error]: Every sortal class must specialize a unique ultimate sortal

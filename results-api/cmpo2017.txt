@@ -1,5 +1,0 @@
-Validating...
-- Total of errors: 0
-[error] Not unique class stereotype:
-The class Object must have a unique OntoUML stereotype.
-Validation finished

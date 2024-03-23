@@ -1,11 +1,3 @@
 Validating...
-Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
-<manifestation, (> may appears as a prefix path in all these alternatives.
-See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
-For Further details.
-- Total of errors: 6
-Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
-<manifestation, (> may appears as a prefix path in all these alternatives.
-See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
-For Further details.
+- Total of errors: 0
 Validation finished

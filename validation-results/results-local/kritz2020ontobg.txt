@@ -1,1 +1,168 @@
-0
+166
+
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations

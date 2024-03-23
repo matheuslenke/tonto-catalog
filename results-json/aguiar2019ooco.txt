@@ -1,5 +1,0 @@
-Total Errors: 3
- 
-[error]: Every sortal class must specialize a unique ultimate sortal
-[error]: The meta-property 'restrictedTo' is not assigned
-[error]: Prohibited generalization: incompatible 'restrictedTo' values

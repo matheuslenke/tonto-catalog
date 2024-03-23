@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 5
+- Total of errors: 3
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class Dependency is specializing other classes that represent ultimate sortals: «relator»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:

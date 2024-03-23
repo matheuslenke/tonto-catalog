@@ -1,1 +1,40 @@
-0
+38
+
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+This class must specify the ontological nature of its instances. Specify a Nature or specialize an Ultimate Sortal that provides a nature
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations

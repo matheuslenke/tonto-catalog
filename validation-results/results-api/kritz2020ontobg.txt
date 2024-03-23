@@ -1,3 +1,147 @@
 Validating...
-- Total of errors: 0
+- Total of errors: 116
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Variable_Player_Powers is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Assymetry is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Game_Balance is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class RockPaperScizors is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class TimeTrack is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Phase is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Variable_Phase_Order is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Impulse is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Ruleset is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Teams is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Partnership is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Cooperative_Play is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class TrickTaking is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Betting is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Gamble is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Action is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Grid_Movement is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Area_Movement is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class PointtoPointMovement is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Movement is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Action_Programming is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Stock_Holding is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Commodity_Speculation is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Pattern_Building is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Auction is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Secret_Unit_Depoyment is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Simultaneous_Action_Selection is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Press_Your_Luck is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Take_That is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Chitpull is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Voting is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Trading is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Role_Playing is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Expression is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Acting is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Storytelling is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Singing is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Dice_Rolling is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Random_Draw is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Deck is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Draft is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Card_Draft is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Action_Draft is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Tile_Placement is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Colection is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Set_Colection is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Line_Drawing is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Network_Building is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Pool_Building is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Memory is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Goal is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Area_Control is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Area_Enclosure is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Resource is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Victory_Points is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Action_Points is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Action_Card is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Component is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Areas is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Pattern is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Die is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Token is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Modular_Board is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Paper_And_Pencil is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Tile is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Card is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Die_Marker is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Acquire_information is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Bluffing is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class One_versus_all is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class All_versus_one is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Alliance is specializing other classes that represent ultimate sortals: «kind»
 Validation finished

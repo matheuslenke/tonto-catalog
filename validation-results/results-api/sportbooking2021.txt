@@ -1,27 +1,3 @@
 Validating...
-- Total of errors: 19
-Warning: Could not create specialization between class Mediated_by_Company_ownership and 
-                undefined not found in context module Employment)
-Warning: Could not create specialization between class Mediated_by_employment_contract and 
-                undefined not found in context module Employment)
-Warning: Could not create specialization between class Mediated_by_building_management and 
-                undefined not found in context module Employment)
-Warning: Could not create specialization between class Mediated_by_Confirmation and 
-                undefined not found in context module Employment)
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Mediated_by_Company_ownership must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Mediated_by_Company_ownership must specify the possible ontological natures of its instances
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Mediated_by_employment_contract must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Mediated_by_employment_contract must specify the possible ontological natures of its instances
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Mediated_by_building_management must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Mediated_by_building_management must specify the possible ontological natures of its instances
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Mediated_by_Confirmation must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Mediated_by_Confirmation must specify the possible ontological natures of its instances
+- Total of errors: 0
 Validation finished

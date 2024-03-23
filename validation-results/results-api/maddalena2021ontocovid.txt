@@ -1,3 +1,21 @@
 Validating...
-- Total of errors: 0
+- Total of errors: 30
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Microorganismo_Patognicos must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Vrus must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class SARSCoV2 must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] Not unique class stereotype:
+The class Critrio_Clnico_segundo_ECDC must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Critrio_Epidemiolgico_segundo_ECDC must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Critrio_Laboratorial_segundo_ECDC must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Critrio_Clnico_segundo_OMS must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Critrio_Epidemiolgico_segundo_OMS must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Critrio_de_Diagnstigo_de_Imagem_segundo_ECDC must have a unique OntoUML stereotype.
 Validation finished

@@ -1,21 +1,3 @@
 Validating...
-- Total of errors: 2
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class sociedade_familiar must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class sociedade_religiosa must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class sociedade_educacional must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class sociedade_politica must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class governante must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class governado must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class fronteira_esboada must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class fronteira_viva must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class fronteira_morta must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+- Total of errors: 0
 Validation finished

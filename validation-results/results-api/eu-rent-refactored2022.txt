@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 18
+- Total of errors: 22
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class Rental_Insurance is specializing other classes that represent ultimate sortals: «relator»
 [error] Prohibited generalization: incompatible 'restrictedTo' values:

@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 13
+- Total of errors: 55
 [error] Not unique class stereotype:
 The class Mental_Moment must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:
@@ -84,22 +84,6 @@ The class Defect must have a unique OntoUML stereotype.
 The class Usage_Limit_Vulnerability must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:
 The class Fault_Runtime_Defect must have a unique OntoUML stereotype.
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Nonintentional_Usergenerated_Failure are not among the allowed ontological natures of its superclass Usergenerated_Failure
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Intentional_Usergenerated_Failure are not among the allowed ontological natures of its superclass Usergenerated_Failure
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Fault_Manifestation_Failure are not among the allowed ontological natures of its superclass Failure
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Usergenerated_Failure are not among the allowed ontological natures of its superclass Failure
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Defect are not among the allowed ontological natures of its superclass Vulnerability
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Usage_Limit_Vulnerability are not among the allowed ontological natures of its superclass Vulnerability
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Hardware_Vulnerability are not among the allowed ontological natures of its superclass Vulnerability
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Loaded_Program_Vulnerability are not among the allowed ontological natures of its superclass Vulnerability
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
 The allowed ontological natures of instances of User are not among the allowed ontological natures of its superclass Stakeholder
 [error] Prohibited generalization: incompatible 'restrictedTo' values:

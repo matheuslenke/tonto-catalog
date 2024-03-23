@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 37
+- Total of errors: 31
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Procurao_para_Indicao_de_Representante must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
 [error] The meta-property 'restrictedTo' is not assigned:
@@ -10,8 +10,6 @@ The class Leilo_Pblico is specializing other classes that represent ultimate sor
 The class Leilo_de_Licitao is specializing other classes that represent ultimate sortals: «relator»
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Licitante_em_Leilo must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Licitante_em_Leilo must specify the possible ontological natures of its instances
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class Pessoa_Jurdica_de_Direito_Privado_Empresarial must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
 [error] The meta-property 'restrictedTo' is not assigned:
@@ -59,11 +57,9 @@ The class Portaria_para_Constituio_de_Comisso_de_Outorga must specialize (direct
 [error] The meta-property 'restrictedTo' is not assigned:
 The meta-property 'restrictedTo' of class Portaria_para_Constituio_de_Comisso_de_Outorga must specify the possible ontological natures of its instances
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Licitante_em_Leilo are not among the allowed ontological natures of its superclass Empresa_Participante_do_Leilo
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
 The allowed ontological natures of instances of Licitante_em_Leilo are not among the allowed ontological natures of its superclass Licitante
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Lote_de_Servio_em_Leilo are not among the allowed ontological natures of its superclass Lote_em_Leilo
+The allowed ontological natures of instances of Lote_de_Servio_em_Leilo are not among the allowed ontological natures of its superclass Lote_de_Servio
 [error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
 The rigid/semi-rigid class Plano_de_Outorga cannot specialize the anti-rigid class Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos
 [error] Prohibited generalization: incompatible 'restrictedTo' values:

@@ -1,21 +1,15 @@
 Validating...
 Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
-<manifestation, (> may appears as a prefix path in all these alternatives.
+<manifestation, [> may appears as a prefix path in all these alternatives.
 See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
 For Further details.
-- Total of errors: 15
+- Total of errors: 8
 Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
-<manifestation, (> may appears as a prefix path in all these alternatives.
+<manifestation, [> may appears as a prefix path in all these alternatives.
 See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
 For Further details.
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Value are not among the allowed ontological natures of its superclass Quality
+The allowed ontological natures of instances of Quality are not among the allowed ontological natures of its superclass Trope
 [error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Triggering_Likelihood are not among the allowed ontological natures of its superclass Likelihood
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Causal_Likelihood are not among the allowed ontological natures of its superclass Likelihood
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Value_Ascription are not among the allowed ontological natures of its superclass Relator
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Value_Asc_Component are not among the allowed ontological natures of its superclass Relator
+The allowed ontological natures of instances of Vulnerability are not among the allowed ontological natures of its superclass Disposition
 Validation finished

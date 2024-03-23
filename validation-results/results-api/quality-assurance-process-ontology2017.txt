@@ -1,3 +1,139 @@
 Validating...
-- Total of errors: 0
+- Total of errors: 14
+[error] Not unique class stereotype:
+The class Performed_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Performed_General_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Performed_Specific_Process must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Stakeholder must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Performed_Activity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Artifact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Team_Stakeholder must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Person_Stakeholder must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Performed_Composite_Activity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Performed_Simple_Activity must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Simple_Artifact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Composite_Artifact must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Software_Product must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Software_Item must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Document must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Model must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Information_Item must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Project_Manager must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Quality_Auditor must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Quality_Auditor must specify the possible ontological natures of its instances
+[error] Not unique class stereotype:
+The class Project_Team must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Noncompliance_Responsible must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Noncompliance_Responsible must specify the possible ontological natures of its instances
+[error] Not unique class stereotype:
+The class Project_Plan must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Quality_Assurance_Plan must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Quality_Assurance_Plan must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Evaluation_Report must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Evaluation_Report must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Evaluated_Artifact must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Evaluated_Artifact must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Evaluated_Process must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Evaluated_Process must specify the possible ontological natures of its instances
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Noncompliance_Register must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class Noncompliance_Register must specify the possible ontological natures of its instances
+[error] Not unique class stereotype:
+The class Corrective_Action_Register must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Performed_General_Process are not among the allowed ontological natures of its superclass Performed_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Performed_Specific_Process are not among the allowed ontological natures of its superclass Performed_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Team_Stakeholder are not among the allowed ontological natures of its superclass Stakeholder
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Person_Stakeholder are not among the allowed ontological natures of its superclass Stakeholder
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Performed_Composite_Activity are not among the allowed ontological natures of its superclass Performed_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Performed_Simple_Activity are not among the allowed ontological natures of its superclass Performed_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Simple_Artifact are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Composite_Artifact are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Software_Product are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Software_Item are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Document are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Model are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Information_Item are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Project_Manager are not among the allowed ontological natures of its superclass Person_Stakeholder
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality_Auditor are not among the allowed ontological natures of its superclass Person_Stakeholder
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality_Assurance_Process are not among the allowed ontological natures of its superclass Performed_Specific_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality_Assurance_Planning are not among the allowed ontological natures of its superclass Performed_Composite_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Adherence_Evaluation are not among the allowed ontological natures of its superclass Performed_Composite_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Project_Team are not among the allowed ontological natures of its superclass Team_Stakeholder
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Noncompliance_Responsible are not among the allowed ontological natures of its superclass Person_Stakeholder
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Noncompliance_Control are not among the allowed ontological natures of its superclass Performed_Composite_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Noncompliance_Resolution are not among the allowed ontological natures of its superclass Performed_Simple_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Noncompliance_Closing are not among the allowed ontological natures of its superclass Performed_Simple_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Noncompliance_Identification are not among the allowed ontological natures of its superclass Performed_Simple_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Process_Evaluation are not among the allowed ontological natures of its superclass Performed_Simple_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Artifact_Evaluation are not among the allowed ontological natures of its superclass Performed_Simple_Activity
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Project_Plan are not among the allowed ontological natures of its superclass Document
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality_Assurance_Plan are not among the allowed ontological natures of its superclass Document
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Evaluation_Report are not among the allowed ontological natures of its superclass Document
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Evaluated_Artifact are not among the allowed ontological natures of its superclass Artifact
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Evaluated_Process are not among the allowed ontological natures of its superclass Performed_Process
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Noncompliance_Register are not among the allowed ontological natures of its superclass Information_Item
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Corrective_Action_Register are not among the allowed ontological natures of its superclass Information_Item
 Validation finished

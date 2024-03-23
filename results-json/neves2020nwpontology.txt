@@ -1,6 +1,0 @@
-Total Errors: 4
- 
-[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
-[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
-[error]: No valid OntoUML stereotype
-[error]: No valid OntoUML stereotype

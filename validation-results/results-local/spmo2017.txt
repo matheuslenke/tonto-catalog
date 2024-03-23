@@ -1,1 +1,28 @@
-56
+26
+
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Duplicated reference name
+Duplicated reference name
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+This class must specify the ontological nature of its instances. Specify a Nature or specialize an Ultimate Sortal that provides a nature
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class

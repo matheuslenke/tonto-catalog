@@ -1,3 +1,19 @@
 Validating...
-- Total of errors: 0
+- Total of errors: 8
+Could not create relation named (Number) between ISO and Definition because one or both of them was not created.
+Could not create relation named (DependenceStandard) between ISO and Title because one or both of them was not created.
+Could not create relation named (Number) between NBR and Definition because one or both of them was not created.
+Could not create relation named (DependenceStandard) between NBR and Title because one or both of them was not created.
+[error] Not unique class stereotype:
+The class Element_added_to_Onto4CAAL_after_Survey_with_experts_from_academia_and_industry must have a unique OntoUML stereotype.
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class DomesticCompanion cannot specialize the anti-rigid class Stakeholder
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Familiar cannot specialize the anti-rigid class Stakeholder
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Educator cannot specialize the anti-rigid class Stakeholder
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Employer cannot specialize the anti-rigid class Stakeholder
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class EntertainmentAgent cannot specialize the anti-rigid class Stakeholder
 Validation finished

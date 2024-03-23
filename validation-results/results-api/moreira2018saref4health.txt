@@ -1,29 +1,35 @@
 Validating...
-- Total of errors: 15
-Warning: Could not create specialization between class LivingPerson and 
-                undefined not found in context module Human)
-TypeError: fetch failed
-    at node:internal/deps/undici/undici:12442:11
-    at async validateTontoFile (file:///Users/matheuslenke/dev/masters/Tonto/packages/tonto/lib/cli/requests/ontoumljsValidator.js:8:26)
-    at async Command.validateAction (file:///Users/matheuslenke/dev/masters/Tonto/packages/tonto/lib/cli/actions/actions.js:89:30)
-    at async Command.parseAsync (/Users/matheuslenke/dev/masters/Tonto/node_modules/commander/lib/command.js:936:5) {
-  cause: SocketError: other side closed
-      at Socket.onSocketEnd (node:internal/deps/undici/undici:8994:26)
-      at Socket.emit (node:events:531:35)
-      at endReadableNT (node:internal/streams/readable:1696:12)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
-    code: 'UND_ERR_SOCKET',
-    socket: {
-      localAddress: '192.168.0.70',
-      localPort: 50716,
-      remoteAddress: '68.183.9.21',
-      remotePort: 80,
-      remoteFamily: 'IPv4',
-      timeout: undefined,
-      bytesWritten: 20129,
-      bytesRead: 0
-    }
-  }
-}
-error while validating model
+- Total of errors: 11
+[error] Not unique class stereotype:
+The class BiologicalPerson must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class PersonUnderECGMonitoring must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class PersonUnderECGMonitoring must specify the possible ontological natures of its instances
+[error] Not unique class stereotype:
+The class ECGRecordingSession must have a unique OntoUML stereotype.
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class ECGLead is specializing other classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class ECGLeadUnipolar is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class ECGLeadBipolarLimb is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class HeartElectricalActivity is specializing other classes that represent ultimate sortals: «quality»
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of ElectricPotential are not among the allowed ontological natures of its superclass UnitOfMeasurement
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of PersonUnderECGMonitoring are not among the allowed ontological natures of its superclass LivingPerson
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of ECGRecordingSession are not among the allowed ontological natures of its superclass Task
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Sensor is specializing other classes that represent ultimate sortals: «kind»
+[error] Not unique class stereotype:
+The class Task must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class LivingPerson must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+[error] The meta-property 'restrictedTo' is not assigned:
+The meta-property 'restrictedTo' of class LivingPerson must specify the possible ontological natures of its instances
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of LivingPerson are not among the allowed ontological natures of its superclass BiologicalPerson
 Validation finished

@@ -1,4 +1,0 @@
-Total Errors: 2
- 
-[error]: Classes representing ultimate sortals cannot specialize other ultimate sortals
-[error]: Prohibited generalization: incompatible 'restrictedTo' values

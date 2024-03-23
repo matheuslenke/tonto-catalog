@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 8
+- Total of errors: 6
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class Obligatory_Internship is specializing other classes that represent ultimate sortals: «relator»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:

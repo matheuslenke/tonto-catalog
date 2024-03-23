@@ -1,5 +1,9 @@
 Validating...
-- Total of errors: 39
+- Total of errors: 22
+Could not create relation named ((No name)) between Rating_Review and null because one or both of them was not created.
+Could not create relation named ((No name)) between Read_Authorization and null because one or both of them was not created.
+Could not create relation named ((No name)) between Textual_Review and null because one or both of them was not created.
+Could not create relation named ((No name)) between Write_Authorization and null because one or both of them was not created.
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class Rating_Review is specializing other classes that represent ultimate sortals: «relator»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:

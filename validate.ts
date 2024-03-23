@@ -1,19 +1,20 @@
+import { navigateAndRunCommand } from "./src/validate/validateAPI.js";
 import { navigateAndRunCommandFromCLI } from "./src/validate/validateLocal.js";
 
 /**
- * Validation with Tonto API using Tonto Project itself
+ * Validation with ontouml-server API using Tonto Project itself
  */
-// try {
-//     const result = await navigateAndRunCommand({
-//         dir: "./models",
-//         command: "tonto-cli validate ./tonto-model",
-//         outDir: "./results-api"
-//     });
-//     if (result)
-//         console.log(`Total of ${result.totalModels} models with ${result.correctModels} correct`)
-// } catch (err) {
-//     console.log(err)
-// }
+try {
+    const result = await navigateAndRunCommand({
+        dir: "./models",
+        command: "tonto-cli validate ./tonto-model",
+        outDir: "./results-api"
+    });
+    if (result)
+        console.log(`Total of ${result.totalModels} models with ${result.correctModels} correct`)
+} catch (err) {
+    console.log(err)
+}
 /**
  * Validation using Tonto local validators
  */

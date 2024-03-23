@@ -1,3 +1,51 @@
 Validating...
-- Total of errors: 0
+Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
+<manifestation, [> may appears as a prefix path in all these alternatives.
+See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
+For Further details.
+- Total of errors: 18
+Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
+<manifestation, [> may appears as a prefix path in all these alternatives.
+See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
+For Further details.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Intention are not among the allowed ontological natures of its superclass Mental_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Cognitive_Bias are not among the allowed ontological natures of its superclass Mental_Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Intuition are not among the allowed ontological natures of its superclass Mental_Moment
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Preference is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Psychological_Value_Ascription_PVA is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class PVA_Component is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Psychological_Value_Component is specializing other classes that represent ultimate sortals: «quality»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Gain is specializing multiple classes that represent ultimate sortals: «quality»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Loss is specializing multiple classes that represent ultimate sortals: «quality»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Reference_Point is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Rational_Value_Ascription_RVA is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Rational_Value_Component is specializing other classes that represent ultimate sortals: «quality»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Benefit is specializing multiple classes that represent ultimate sortals: «quality»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Sacrifice is specializing multiple classes that represent ultimate sortals: «quality»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Loss_Aversion is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Psychological_Value is specializing other classes that represent ultimate sortals: «quality»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Rational_Value is specializing other classes that represent ultimate sortals: «quality»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class RVA_Component is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Risk_Seeking_Preference is specializing other classes that represent ultimate sortals: «mode»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Risk_Averse_Preference is specializing other classes that represent ultimate sortals: «mode»
 Validation finished

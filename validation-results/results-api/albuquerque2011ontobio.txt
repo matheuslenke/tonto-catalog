@@ -1,24 +1,86 @@
 Validating...
-- Total of errors: 55
-Could not create relation named ((No name)) between SpatialLocation and GeographicCoordinate because one or both of them was not created.
+- Total of errors: 38
+Could not create relation named ((No name)) between CollectionLocation and GeographicCoordinate because one or both of them was not created.
 Could not create relation named ((No name)) between GeographicSpace and GeographicCoordinate because one or both of them was not created.
 Could not create relation named ((No name)) between GeographicPoint and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between ClimateRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between ClimateRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between SocialPoliticalRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between SocialPoliticalRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PhytophysiognomicRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PhytophysiognomicRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Equatorial and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Equatorial and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Temperate and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Temperate and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between TropicalWetAndDry and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between TropicalWetAndDry and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Semiarid and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Semiarid and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between HumidSubtropical and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between HumidSubtropical and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Tropical and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Tropical and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Country and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Country and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between State and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between State and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between City and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between City and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Location and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Location and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PrivateLocation and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PrivateLocation and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PublicLocation and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PublicLocation and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Settlement and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Settlement and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Community and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Community and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between ConservationUnity and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between ConservationUnity and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Village and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Village and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Thorp and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between Thorp and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between FederalArea and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between FederalArea and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between StateLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between StateLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CityLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CityLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between IndiandLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between IndiandLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between FederalLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between FederalLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between DevoluteLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between DevoluteLand and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between AmazonicRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between AmazonicRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between AtlanticRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between AtlanticRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CaatingaRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CaatingaRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CerradoRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CerradoRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PatanalRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between PatanalRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CostalRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CostalRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CocaisRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between CocaisRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between AraucariasRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between AraucariasRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between FieldsRegion and GeographicCoordinate because one or both of them was not created.
+Could not create relation named ((No name)) between FieldsRegion and GeographicCoordinate because one or both of them was not created.
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class CollectionLocation must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class CollectionLocation must specify the possible ontological natures of its instances
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class ClassifiedEntity must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class ClassifiedEntity must specify the possible ontological natures of its instances
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class CollectedEntity must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class CollectedEntity must specify the possible ontological natures of its instances
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class EntityInStudy must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class EntityInStudy must specify the possible ontological natures of its instances
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class CollectionThroughFraction is specializing other classes that represent ultimate sortals: «relator»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
@@ -61,14 +123,6 @@ The class Cloudy is specializing other classes that represent ultimate sortals: 
 The class MacroEnvironment is specializing other classes that represent ultimate sortals: «mode»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class MicroEnvironment is specializing other classes that represent ultimate sortals: «mode»
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of CollectionLocation are not among the allowed ontological natures of its superclass SpatialLocation
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of ClassifiedEntity are not among the allowed ontological natures of its superclass EntityInStudy
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of CollectedEntity are not among the allowed ontological natures of its superclass EntityInStudy
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of EntityInStudy are not among the allowed ontological natures of its superclass BioticEntity
 [error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
 The rigid/semi-rigid class TrapCollection cannot specialize the anti-rigid class CollectionInstrument
 [error] Prohibited generalization: incompatible 'restrictedTo' values:

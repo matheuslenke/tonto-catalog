@@ -1,8 +1,9 @@
 Validating...
-- Total of errors: 13
-Could not create relation named ((No name)) between SpatialThing and LocationCoordinates because one or both of them was not created.
-Could not create relation named ((No name)) between Physical_Object and LocationCoordinates because one or both of them was not created.
-Could not create relation named ((No name)) between Intention and PriorityLevel because one or both of them was not created.
+- Total of errors: 12
+Could not create relation named ((No name)) between GeographicalSpace and LocationCoordinates because one or both of them was not created.
+Could not create relation named ((No name)) between SurgeryRoom and LocationCoordinates because one or both of them was not created.
+Could not create relation named ((No name)) between Gallery and LocationCoordinates because one or both of them was not created.
+Could not create relation named ((No name)) between Museum and LocationCoordinates because one or both of them was not created.
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class Belief is specializing other classes that represent ultimate sortals: «mode»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:

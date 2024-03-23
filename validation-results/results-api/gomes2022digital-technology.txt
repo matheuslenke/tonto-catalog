@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 5
+- Total of errors: 4
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class Digital_Technology is specializing other classes that represent ultimate sortals: «collective»
 Validation finished

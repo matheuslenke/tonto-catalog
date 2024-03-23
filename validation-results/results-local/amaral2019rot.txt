@@ -1,1 +1,15 @@
-8
+13
+
+Incompatible nature restrictions. Parent has nature intrinsic-mode while this class has natures: extrinsic-mode
+Incompatible nature restrictions. Parent has nature intrinsic-mode while this class has natures: extrinsic-mode
+Incompatible nature restrictions. Parent has nature intrinsic-mode while this class has natures: extrinsic-mode
+Incompatible nature restrictions. Parent has nature intrinsic-mode while this class has natures: extrinsic-mode
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations

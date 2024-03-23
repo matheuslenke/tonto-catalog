@@ -1,8 +1,8 @@
 Validating...
-- Total of errors: 28
-Could not create relation named (presented_in) between FeedbackDescription and PresentationFormat because one or both of them was not created.
-Could not create relation named (applies) between FeedbackAnalysis and AnalysisTechnique because one or both of them was not created.
-Could not create relation named (assigns) between FeedbackClassification and FeedbackType because one or both of them was not created.
+- Total of errors: 15
+Could not create relation named (presented_in) between SharedDescription and PresentationFormat because one or both of them was not created.
+Could not create relation named (presented_in) between FeedbackAnalyzed and PresentationFormat because one or both of them was not created.
+Could not create relation named (presented_in) between FeedbackClassified and PresentationFormat because one or both of them was not created.
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class CommunicativeCommitment is specializing other classes that represent ultimate sortals: «mode»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
@@ -33,8 +33,4 @@ The class OpenForum is specializing other classes that represent ultimate sortal
 The class AppStore is specializing other classes that represent ultimate sortals: «mode»
 [error] Every sortal class must specialize a unique ultimate sortal:
 The class FeedbackProvider must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class FeedbackProvider must specify the possible ontological natures of its instances
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of FeedbackProvider are not among the allowed ontological natures of its superclass Sender
 Validation finished

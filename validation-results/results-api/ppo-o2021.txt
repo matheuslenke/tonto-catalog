@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 5
+- Total of errors: 0
 [error] Not unique class stereotype:
 The class User must have a unique OntoUML stereotype.
 [error] Not unique class stereotype:

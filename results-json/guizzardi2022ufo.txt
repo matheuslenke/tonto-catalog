@@ -1,3 +1,0 @@
-Total Errors: 1
- 
-[error]: Enumerations may not have attributes

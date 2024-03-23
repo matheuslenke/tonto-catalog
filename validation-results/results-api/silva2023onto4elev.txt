@@ -1,3 +1,99 @@
 Validating...
-- Total of errors: 0
+- Total of errors: 44
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class House is specializing other classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class DiningRoom is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class LivingRoom is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class MainEntrance is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Not unique class stereotype:
+The class QualityUse must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class GeriatricHouse is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Asylum is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class MedicalHousing is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class LongStayElderlyInstitution is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Barrier is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Safety_Brake is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Sow is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class SecurityNut is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class NutDrive is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class EnclosedBox is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class GearWheel is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class RackDrive is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class SpindleTrigger is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Chain is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Guides is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class CurrentGuided is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class MechanicalBlockingDevice is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Pinion is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class ProtectorSill is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class ValveSenseDown is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class PressureReliefValve is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class ValveFall is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Gear is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Bearing is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class Key is specializing other classes that represent ultimate sortals: «kind»
+[error] Not unique class stereotype:
+The class Added_to_Onto4Elev_after_validation_with_Industry must have a unique OntoUML stereotype.
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class PublicPlaces is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class CommercialEnvironments is specializing other classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Banks is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Pharmacies is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Supermarkets is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Clinics is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Restaurants is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Churches is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class PublicOffices is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class HydraulicPiston is specializing other classes that represent ultimate sortals: «kind»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class CentralHydraulic is specializing other classes that represent ultimate sortals: «kind»
+[error] Not unique class stereotype:
+The class Elements_added_to_Onto4Elev_that_meet_the_PEVs_and_were_raised_in_the_literature must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Elements_inherited_from_Onto4CAAL must have a unique OntoUML stereotype.
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class Airports is specializing multiple classes that represent ultimate sortals: «kind»
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Organization cannot specialize the anti-rigid class Stakeholder
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class People cannot specialize the anti-rigid class Stakeholder
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of QualityUse are not among the allowed ontological natures of its superclass RequirementQuality
 Validation finished

@@ -1,5 +1,5 @@
 Validating...
-- Total of errors: 10
+- Total of errors: 6
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
 The class Depsito is specializing other classes that represent ultimate sortals: «relator»
 [error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
