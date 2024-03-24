@@ -1,85 +1,102 @@
-import ontology
 
 package IDAF_Model
 
-subkind Administrative_Department of functional-complexes  specializes Department {
-    [1..*] -- [1] Administrative_Structure 
-}
+subkind Administrative_Department of functional-complexes  specializes Department 
 
 subkind Administrative_Organization of functional-complexes  specializes Organization 
 
 kind Administrative_Structure specializes Organizational_Structure 
 
-subkind Administrative_Support of functional-complexes  specializes Position 
+subkind Administrative_Support of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Technical_Admnistrative_Support 
+}
 
-subkind Advisory of functional-complexes  specializes Administrative_Organization 
-
-role Allocated_Department of functional-complexes  specializes Department {
+subkind Advisory of functional-complexes  specializes Administrative_Organization {
     [1..*] -- [1] Administrative_Structure 
 }
 
-role Allocated_Office of functional-complexes  specializes Central_Office {
-    @componentOf 
-    [1..*] -- [1] Operational_Structure 
+role Allocated_Department of functional-complexes  specializes Department {
+    @material [1..*] -- [1..*] Allocated_Office 
 }
 
-role Allocation_Unit of functional-complexes 
+role Allocated_Office of functional-complexes  specializes Central_Office 
 
-subkind Ancillary_Server of functional-complexes  specializes Position 
-
-phase Ancillary_Service of collectives  specializes Occupational_Group {
-    @memberOf 
-    [2..*] -- [1] Occupational_Structure 
+role Allocation_Unit of functional-complexes {
+    @mediation [1] -- [1..*] Server 
 }
 
-subkind Animal_Health_Inspector of functional-complexes  specializes Position 
+subkind Ancillary_Server of functional-complexes  specializes Position {
+    @memberOf [2..*] -- [1] Ancillary_Service 
+}
+
+phase Ancillary_Service of collectives  specializes Occupational_Group 
+
+subkind Animal_Health_Inspector of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Finalistico 
+}
 
 relator Assignment
 
-subkind Board of functional-complexes  specializes Administrative_Organization 
-
-phase Border_Station of functional-complexes  specializes Station {
-    [2..*] -- [1] Local_Office 
+subkind Board of functional-complexes  specializes Administrative_Organization {
+    @componentOf [1] -- [1] Administrative_Structure 
 }
 
-subkind Cartography_Technician of functional-complexes  specializes Position 
+phase Border_Station of functional-complexes  specializes Station 
 
-phase Central_Office of functional-complexes  specializes Office {
-    @componentOf 
-    [1..*] -- [1] Operational_Structure 
+subkind Cartography_Technician of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Finalistico 
 }
 
-subkind Department of functional-complexes  specializes Administrative_Organization 
+phase Central_Office of functional-complexes  specializes Office 
 
-relator Department_Allocation
-
-subkind Diagnostic_Laboratory of functional-complexes  specializes Operational_Organization 
-
-phase Finalistico of collectives  specializes Occupational_Group {
-    @memberOf 
-    [2..*] -- [1] Occupational_Structure 
+subkind Department of functional-complexes  specializes Administrative_Organization {
+    [1..*] -- [1] Administrative_Structure 
 }
 
-subkind Laboratory_Technician of functional-complexes  specializes Position 
+relator Department_Allocation{
+    @mediation [1] -- [1] Allocated_Department 
+    @mediation [1..*] -- [1] Allocated_Office 
+}
 
-subkind Land_Development_Technician of functional-complexes  specializes Position 
+subkind Diagnostic_Laboratory of functional-complexes  specializes Operational_Organization {
+    @componentOf [1..*] -- [1] Operational_Structure 
+}
+
+phase Finalistico of collectives  specializes Occupational_Group 
+
+subkind Laboratory_Technician of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Finalistico 
+}
+
+subkind Land_Development_Technician of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Finalistico 
+}
 
 phase Local_Office of functional-complexes  specializes Office {
-    @componentOf 
-    [1..*] -- [1] Operational_Structure 
+    @componentOf [1..*] -- [1] Regional_Office 
 }
 
-subkind Mobile_Unit of functional-complexes  specializes Operational_Organization 
+subkind Mobile_Unit of functional-complexes  specializes Operational_Organization {
+    @componentOf [1..*] -- [1] Regional_Office 
+}
 
-subkind Natural_Resources_Technician of functional-complexes  specializes Position 
+subkind Natural_Resources_Technician of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Finalistico 
+}
 
-collective Occupational_Group
+collective Occupational_Group{
+    @memberOf [2..*] -- [1] Occupational_Structure 
+}
 
 category Occupational_Structure of functional-complexes  specializes Structure 
 
-role Occupied_Position of functional-complexes  specializes Position 
+role Occupied_Position of functional-complexes  specializes Position {
+    @mediation [1] -- [1..*] Assignment 
+}
 
-subkind Office of functional-complexes  specializes Operational_Organization 
+subkind Office of functional-complexes  specializes Operational_Organization {
+    @componentOf [1..*] -- [1] Operational_Structure 
+}
 
 subkind Operational_Organization of functional-complexes  specializes Organization 
 
@@ -91,37 +108,41 @@ category Organizational_Structure of functional-complexes  specializes Structure
 
 kind Person
 
-subkind Plant_Health_Inspector of functional-complexes  specializes Position 
+subkind Plant_Health_Inspector of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Finalistico 
+}
 
 kind Position
 
-phase Regional_Office of functional-complexes  specializes Office {
-    @componentOf 
-    [1..*] -- [1] Operational_Structure 
+phase Regional_Office of functional-complexes  specializes Office 
+
+subkind Section of functional-complexes  specializes Administrative_Organization {
+    @componentOf [2..*] -- [1] Department 
 }
 
-subkind Section of functional-complexes  specializes Administrative_Organization 
+role Server of functional-complexes  specializes Person {
+    @mediation [1] -- [1] Assignment 
+    @material [1..*] -- [1..*] Occupied_Position 
+}
 
-role Server of functional-complexes  specializes Person 
+relator Server_Allocation{
+    @mediation [1..*] -- [1] Allocation_Unit 
+    @mediation [1] -- [1] Server 
+}
 
-relator Server_Allocation
+phase Service_Station of functional-complexes  specializes Station 
 
-phase Service_Station of functional-complexes  specializes Station {
+subkind Station of functional-complexes  specializes Operational_Organization {
     [2..*] -- [1] Local_Office 
 }
 
-subkind Station of functional-complexes  specializes Operational_Organization 
-
 category Structure of functional-complexes 
 
-phase Technical_Admnistrative_Support of collectives  specializes Occupational_Group {
-    @memberOf 
-    [2..*] -- [1] Occupational_Structure 
-}
+phase Technical_Admnistrative_Support of collectives  specializes Occupational_Group 
 
-subkind Technical_Department of functional-complexes  specializes Department {
-    [1..*] -- [1] Administrative_Structure 
-}
+subkind Technical_Department of functional-complexes  specializes Department 
 
-subkind Technical_Support of functional-complexes  specializes Position 
+subkind Technical_Support of functional-complexes  specializes Position {
+    @memberOf [1..*] -- [1] Technical_Admnistrative_Support 
+}
 

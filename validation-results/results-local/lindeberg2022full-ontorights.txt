@@ -1,5 +1,69 @@
-50
+146
 
+Expecting token of type ']' but found `:`.
+Expecting token of type 'ID' but found `:`.
+Expecting token of type '}' but found `:`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `@`.
+Expecting token of type 'ID' but found `@`.
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
@@ -50,3 +114,83 @@ Redundant nature declaration. The ontological natures of this element is already
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '9'
+Expecting end of file but found `9`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '8'
+Expecting end of file but found `8`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '7'
+Expecting end of file but found `7`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '6'
+Expecting end of file but found `6`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '5'
+Expecting end of file but found `5`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '4'
+Expecting end of file but found `4`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '3'
+Expecting end of file but found `3`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '1'
+Expecting end of file but found `1`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '2'
+Expecting end of file but found `2`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '15'
+Expecting end of file but found `15`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '14'
+Expecting end of file but found `14`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '13'
+Expecting end of file but found `13`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '11'
+Expecting end of file but found `11`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '10'
+Expecting end of file but found `10`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '16'
+Expecting end of file but found `16`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '12'
+Expecting end of file but found `12`.

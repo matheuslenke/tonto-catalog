@@ -1,19 +1,16 @@
-import Unified_Transport_Network__v23
+import Adaptation_Function
+import Complementary_Categorizations
+import Reference_Points
+import Termination_Function
 
 package Access_Points
 
 role A_Sk_Input__Sk_AP_Bound of functional-complexes  specializes Adaptation_Sink_Input, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+    @material [1] -- binds_Sk_AP -- [1] T_Sk_Output__Sk_AP_Bound 
 }
 
 role A_So_Output__So_AP_Bound of functional-complexes  specializes Adaptation_Source_Output, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+    @material [1] -- binds_So_AP -- [1] T_So_Input__So_AP_Bound 
 }
 
 category Access_Point of functional-complexes  specializes Reference_Point 
@@ -22,37 +19,34 @@ kind Bidirectional_AP specializes Access_Point
 
 kind Sink_AP specializes Access_Point 
 
-role Sink_AP_Bi_Component of functional-complexes  specializes Sink_AP 
+role Sink_AP_Bi_Component of functional-complexes  specializes Sink_AP {
+    @componentOf [1] -- [1] Bidirectional_AP 
+}
 
 relator Sink_AP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+    @mediation [1] -- binds_Sk_AP_to -- [1] T_Sk_Output__Sk_AP_Bound 
+    @mediation [1] -- is_represented_by_Sk_AP -- [1] Sink_AP 
+    @mediation [1] -- binds_Sk_AP_from -- [1] A_Sk_Input__Sk_AP_Bound 
 }
 
 kind Source_AP specializes Access_Point 
 
-role Source_AP_Bi_Component of functional-complexes  specializes Source_AP 
+role Source_AP_Bi_Component of functional-complexes  specializes Source_AP {
+    @componentOf [1] -- [1] Bidirectional_AP 
+}
 
 relator Source_AP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+    @mediation [1] -- binds_So_AP_to -- [1] T_So_Input__So_AP_Bound 
+    @mediation [1] -- is_represented_by_So_AP -- [1] Source_AP 
+    @mediation [1] -- binds_So_AP_from -- [1] A_So_Output__So_AP_Bound 
 }
 
-role T_Sk_Output__Sk_AP_Bound of functional-complexes  specializes Termination_Sink_Output, Bound_InputOutput {
-    @componentOf 
-    [1] -- [1] Termination_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role T_Sk_Output__Sk_AP_Bound of functional-complexes  specializes Termination_Sink_Output, Bound_InputOutput 
 
-role T_So_Input__So_AP_Bound of functional-complexes  specializes Termination_Source_Input, Bound_InputOutput {
-    @componentOf 
-    [1] -- [1] Termination_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+role T_So_Input__So_AP_Bound of functional-complexes  specializes Termination_Source_Input, Bound_InputOutput 
+
+genset oDMIXb6GAqBwAUxM {
+    general Access_Point
+    specifics Bidirectional_AP, Sink_AP
 }
 

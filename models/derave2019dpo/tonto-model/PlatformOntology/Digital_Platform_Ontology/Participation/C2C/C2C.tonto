@@ -1,55 +1,25 @@
-import PlatformOntology
+import Transaction
+import P2P
+import FOAF
+import MultiSided
+import Payment
+import Review_by_Customer
+import Marketplace_business_models
+import In_House_Payment
+import Conversation_System
+import Customer_Source
+import GDPO_part_1
+import Review_System
+import Price_Discovery
+import Price_Calculation
+import Review_by_Provider
+import Provider_Source
+import Decentralized
+import Price_set_by_Provider
 
 package C2C
 
-role C2C_Platform_Customer of functional-complexes  specializes Platform_Customer, Peer_User, Person {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- by -- [0..*] Transaction_Payment 
-    [1] -- does -- [0..*] Review_Creation_by_Customer 
-    [1] -- [1..*] Price_Acceptance 
-    [1] -- by -- [0..*] Inhouse_Payment 
-    [1] -- participates -- [1..*] Transaction_Conversation 
-    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
-    [*] -- [*] Paid_Transaction_Price 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
-    [*] -- suggests -- [*] Suggested_Price 
-    [1] -- initiates -- [0..*] Listing_Conversation 
-    @participation 
-    [1] -- [0..*] Price_Offer_Creation 
-    [1] -- [0..*] Request_Quote 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
-}
+role C2C_Platform_Customer of functional-complexes  specializes Platform_Customer, Peer_User, Person 
 
-role C2C_Platform_Provider of functional-complexes  specializes Platform_Provider, Peer_User, Person {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- does -- [0..*] Review_Creation_by_Provider 
-    [1..*] -- by -- [1..*] Revenue_Stream_Payed_by_Provider 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- [0..*] Price_Proposal 
-    [1] -- participates -- [1..*] Listing_Creation 
-    [1] -- changes -- [0..*] Price_Setting_action_by_Provider 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
-}
+role C2C_Platform_Provider of functional-complexes  specializes Platform_Provider, Peer_User, Person 
 

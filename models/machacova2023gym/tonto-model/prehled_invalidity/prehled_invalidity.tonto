@@ -7,23 +7,33 @@ kind Address
 
 kind Country{
     country_name: undefined  
+    @componentOf [1] -- [1..*] Address 
 }
 
 kind City{
     city_name: undefined  
+    @componentOf [1] -- [1..*] Address 
 }
 
 kind Street{
     street_name: undefined  
+    @componentOf [1] -- [1..*] Address 
 }
 
 quality Street_Number{
     street_number: undefined  
+    @characterization [1] -- [1] Street 
+    @componentOf [1] -- [1..*] Address 
 }
 
-relator Residence
+relator Residence{
+    @mediation [1..*] -- [1] Citizen 
+    @mediation [1..*] -- [1] Home_Address 
+}
 
-role Citizen of functional-complexes  specializes Person 
+role Citizen of functional-complexes  specializes Person {
+    @material [1..*] -- lives_at -- [1..*] Home_Address 
+}
 
 kind Person{
     surname: undefined  
@@ -33,6 +43,7 @@ kind Person{
 
 quality Date_of_Birth{
     birth_date: undefined  
+    @characterization [1] -- [1] Person 
 }
 
 phase Healthy_Person of functional-complexes  specializes Person 
@@ -45,33 +56,35 @@ subkind Woman of functional-complexes  specializes Person
 
 quality Education{
     education_level: undefined  
+    @characterization [1] -- [1] Person 
 }
 
-quality Cause_of_Disability
-
-quality Disability_Onset_Data
-
-quality Order_Price
-
-phase Planned_Assembly of relators  specializes Assembly {
-    @mediation 
-    [1..*] -- [1..*] Assembler 
-    @mediation 
-    [1..*] -- [1] Assembled_Fitness_Machine 
+quality Cause_of_Disability{
+    @characterization [1] -- [1] Disabled_Person 
 }
 
-phase Ongoing_Assembly of relators  specializes Assembly {
-    @mediation 
-    [1..*] -- [1..*] Assembler 
-    @mediation 
-    [1..*] -- [1] Assembled_Fitness_Machine 
+quality Disability_Onset_Data{
+    @characterization [1] -- [1] Disabled_Person 
 }
 
-relator Assembly
+quality Order_Price{
+    @characterization [1] -- [1] Order 
+}
+
+phase Planned_Assembly of relators  specializes Assembly 
+
+phase Ongoing_Assembly of relators  specializes Assembly 
+
+relator Assembly{
+    @mediation [1..*] -- [1..*] Assembler 
+    @mediation [1..*] -- [1] Assembled_Fitness_Machine 
+}
 
 kind Person2
 
-role Assembled_Fitness_Machine of functional-complexes  specializes Product, Fitness_Machine 
+role Assembled_Fitness_Machine of functional-complexes  specializes Product, Fitness_Machine {
+    @characterization [1] -- [1] Assembly_date 
+}
 
 subkind Power_Rack of functional-complexes  specializes Fitness_Machine, Multigym_Equipment 
 
@@ -79,54 +92,77 @@ category Multigym_Equipment of functional-complexes
 
 kind Business_Organisation
 
-phase Finished_Assembly of relators  specializes Assembly, Status_Finished {
-    @mediation 
-    [1..*] -- [1..*] Assembler 
-    @mediation 
-    [1..*] -- [1] Assembled_Fitness_Machine 
-}
+phase Finished_Assembly of relators  specializes Assembly, Status_Finished 
 
 mixin Product of functional-complexes 
 
 kind Fitness_Machine
 
-role Personal_Customer of functional-complexes  specializes Person, Customer {
-    @material 
-    [0..*] -- buys -- [1..*] Product 
+role Personal_Customer of functional-complexes  specializes Person, Customer 
+
+role Assembler of functional-complexes  specializes Person {
+    @material [1..*] -- assembles -- [1..*] Assembled_Fitness_Machine 
 }
 
-role Assembler of functional-complexes  specializes Person 
-
-phase Unfinished_Order of relators  specializes Order {
-    @mediation 
-    [1..*] -- [1] Customer 
-    @mediation 
-    [0..1] -- [1..*] Product 
-}
+phase Unfinished_Order of relators  specializes Order 
 
 quality Assembly_date
 
-roleMixin Customer of functional-complexes 
+roleMixin Customer of functional-complexes {
+    @material [0..*] -- buys -- [1..*] Product 
+}
 
 subkind Weight_Bench of functional-complexes  specializes Fitness_Machine, Multigym_Equipment 
 
 phaseMixin Status_Finished of functional-complexes 
 
-role Corporate_Customer of functional-complexes  specializes Business_Organisation, Customer {
-    @material 
-    [0..*] -- buys -- [1..*] Product 
-}
+role Corporate_Customer of functional-complexes  specializes Business_Organisation, Customer 
 
-relator Order
+relator Order{
+    @mediation [1..*] -- [1] Customer 
+    @mediation [0..1] -- [1..*] Product 
+}
 
 subkind Treadmill of functional-complexes  specializes Fitness_Machine 
 
-mode Fitness_Machine_Code
+mode Fitness_Machine_Code{
+    @characterization [1] -- [1] Fitness_Machine 
+}
 
-phase Finished_Order of relators  specializes Order, Status_Finished {
-    @mediation 
-    [1..*] -- [1] Customer 
-    @mediation 
-    [0..1] -- [1..*] Product 
+phase Finished_Order of relators  specializes Order, Status_Finished 
+
+genset Set {
+    general Person
+    specifics Disabled_Person, Healthy_Person
+}
+
+genset Set2 {
+    general Person
+    specifics Man, Woman
+}
+
+genset Set2 {
+    general Order
+    specifics Finished_Order, Unfinished_Order
+}
+
+genset Set4 {
+    general Fitness_Machine
+    specifics Treadmill, Power_Rack, Weight_Bench
+}
+
+genset Set3 {
+    general Status_Finished
+    specifics Finished_Assembly, Finished_Order
+}
+
+genset Set5 {
+    general Multigym_Equipment
+    specifics Weight_Bench, Power_Rack
+}
+
+genset Set {
+    general Assembly
+    specifics Finished_Assembly, Ongoing_Assembly, Planned_Assembly
 }
 

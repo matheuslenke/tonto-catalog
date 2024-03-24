@@ -1,78 +1,68 @@
-import DCAT_MLT_Artigo_ONTOBRAS2022
 import DC_2_DCAT_UFO_BaseModel
 import DC_3_MLT_UFO_DCAT_Classes_Concepts_Relations
+import DCAT_MLT_Artigo_ONTOBRAS2022
 
 package DC_5_MLT_UFO_DCAT_Relationship_Instances
 
 category dcatResource of functional-complexes  specializes Individual {
-    [1..*] -- instanceOf2 -- [1..*] firstOT 
+    [*] -- dctpublisher -- [*] foafAgent 
+    [*] -- dctcreator -- [*] foafAgent 
+    [*] -- dcattheme -- [0..*] skosConcept 
+    [*] -- dcatqualifiedRelation -- [*] dcatRelationShip 
 }
 
 kind dcatDataset specializes dcatResource {
-    [*] -- dctpublisher -- [*] foafAgent 
-    [*] -- dctcreator -- [*] foafAgent 
-    [*] -- dcattheme -- [0..*] skosConcept 
-    [*] -- dcatqualifiedRelation -- [*] dcatRelationShip 
-    [1..*] -- instanceOf2 -- [1..*] firstOT 
+    [*] -- dcatdistribution -- [0..*] dcatDistribution 
 }
 
 kind dcatDataService specializes dcatResource {
-    [*] -- dctpublisher -- [*] foafAgent 
-    [*] -- dctcreator -- [*] foafAgent 
-    [*] -- dcattheme -- [0..*] skosConcept 
-    [*] -- dcatqualifiedRelation -- [*] dcatRelationShip 
-    [1..*] -- instanceOf2 -- [1..*] firstOT 
+    [*] -- dcatservesDataset -- [0..*] dcatDataset 
 }
 
 subkind dcatCatalog of functional-complexes  specializes dcatDataset {
-    [*] -- dcatdistribution -- [0..*] dcatDistribution 
-    [*] -- dctpublisher -- [*] foafAgent 
-    [*] -- dctcreator -- [*] foafAgent 
-    [*] -- dcattheme -- [0..*] skosConcept 
-    [*] -- dcatqualifiedRelation -- [*] dcatRelationShip 
-    [1..*] -- instanceOf2 -- [1..*] firstOT 
+    [*] -- dcatthemeTaxonomy -- [*] skosConceptScheme 
+    [*] -- dcthasPart -- [1..*] dcatResource 
+    [*] -- dcatcatalog -- [0..*] dcatCatalog 
+    [*] -- dcatservice -- [0..*] dcatDataService 
+    [*] -- dcatdataset -- [*] dcatDataset 
 }
 
-class Individual
-
-class firstOT
-
-class secondOT
-
-category CataloguedResource_DescriptorType of functional-complexes  specializes firstOT {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
+class Individual{
+    [1..*] -- instanceOf -- [1..*] stOT 
 }
 
-relator dcatRelationship specializes firstOT {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
+class stOT{
+    [1..*] -- instanceOf -- [1..*] ndOT 
 }
 
-quality dcatRole specializes firstOT {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
+class ndOT
+
+category CataloguedResource_DescriptorType of functional-complexes  specializes stOT 
+
+relator dcatRelationship specializes stOT {
+    @mediation [1..*] -- dctrelation -- [1] SourceDescriptor_Type 
+    @mediation [1..*] -- dcatqualifiedRelation -- [1] TargetDataset_Type 
 }
 
-subkind DatasetDescriptorType of functional-complexes  specializes CataloguedData_DescriptorType {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
-}
+quality dcatRole specializes stOT 
+
+subkind DatasetDescriptorType of functional-complexes  specializes CataloguedData_DescriptorType 
 
 subkind RelationRole of qualities  specializes dcatRole {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
+    @characterization [1] -- [1..*] dcatRelationship 
+    [*] -- dcathadRole -- [*] RelationRole_Value 
 }
 
-roleMixin SourceDescriptor_Type of functional-complexes  specializes CataloguedResource_DescriptorType {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
-}
+roleMixin SourceDescriptor_Type of functional-complexes  specializes CataloguedResource_DescriptorType 
 
-role TargetDataset_Type of functional-complexes  specializes DatasetDescriptorType {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
-}
+role TargetDataset_Type of functional-complexes  specializes DatasetDescriptorType 
 
-kind CataloguedData_DescriptorType specializes CataloguedResource_DescriptorType {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
-}
+kind CataloguedData_DescriptorType specializes CataloguedResource_DescriptorType 
 
 relator Relation_isOwner{
     dcat: undefined  
+    @mediation [0..*] -- dctrelation -- [1] dcatCatalog 
+    @mediation [1] -- dcatqualifiedRelation -- [1] dcatDataset 
 }
 
 class _Relation_isOwner{
@@ -83,7 +73,9 @@ class _Relation_isOwner{
     dctmodify: undefined  
 }
 
-class exCOVID_19_Collection_Descriptor
+class exCOVID_19_Collection_Descriptor{
+    [*] -- Relation_isOwner -- [*] exCOVID19_Hospital1_Item_Descriptor 
+}
 
 class exCOVID19_Hospital1_Item_Descriptor
 

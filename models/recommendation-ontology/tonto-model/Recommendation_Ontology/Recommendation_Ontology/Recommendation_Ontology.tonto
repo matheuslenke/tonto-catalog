@@ -2,64 +2,48 @@
 package Recommendation_Ontology
 
 subkind Indirectly_Recommendation_Referencing_Recomendation of functional-complexes  specializes Recommendation_Referencing_Recomendation {
-    @formal 
-    [1..*] -- directlyReferencesRecommendation -- [1..*] Recommendation_Referenced_Recomendation 
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
+    @formal [1..*] -- indirectlyReferencesRecommendation -- [1..*] Indirectly_Recommendation_Referenced_Recomendation 
 }
 
-subkind Indirectly_Recommendation_Referenced_Recomendation of functional-complexes  specializes Recommendation_Referenced_Recomendation {
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
-}
+subkind Indirectly_Recommendation_Referenced_Recomendation of functional-complexes  specializes Recommendation_Referenced_Recomendation 
 
 subkind Recommendation_Referencing_Recomendation of functional-complexes  specializes Recommendation_Version {
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
+    @formal [1..*] -- directlyReferencesRecommendation -- [1..*] Recommendation_Referenced_Recomendation 
 }
 
-subkind Recommendation_Referenced_Recomendation of functional-complexes  specializes Recommendation_Version {
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
-}
+subkind Recommendation_Referenced_Recomendation of functional-complexes  specializes Recommendation_Version 
 
-subkind Possibly_Problematic_Recommendation of functional-complexes  specializes Recommendation_Referencing_Recomendation {
-    @formal 
-    [1..*] -- directlyReferencesRecommendation -- [1..*] Recommendation_Referenced_Recomendation 
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
-}
+subkind Possibly_Problematic_Recommendation of functional-complexes  specializes Recommendation_Referencing_Recomendation 
 
-subkind Problematic_Recommendation of functional-complexes  specializes Recommendation_Version {
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
-}
+subkind Problematic_Recommendation of functional-complexes  specializes Recommendation_Version 
 
-kind Recommendation_Version
+kind Recommendation_Version{
+    @material [1..*] -- usesConcept -- [1..*] Concept 
+}
 
 relator Publication{
     PublicationDate: undefined  
+    @mediation [1] -- publishesVersion -- [1] Recommendation_Version 
+    @mediation [1..*] -- hasPublication -- [1] Recommendation 
 }
-datatype int
-datatype char
+
 kind Recommendation{
     Number: int  
     Series: char  
     Title: undefined  
+    @material [1] -- hasVersion -- [1..*] Recommendation_Version 
 }
 
-subkind Concept_Defining_Recommendation of functional-complexes  specializes Recommendation_Version {
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
-}
+subkind Concept_Defining_Recommendation of functional-complexes  specializes Recommendation_Version 
 
 subkind Concept_Referencing_Recommendation of functional-complexes  specializes Recommendation_Version {
-    @material 
-    [1..*] -- usesConcept -- [1..*] Concept 
+    @formal [1..*] -- referencesConcept -- [1..*] Referenced_Concept 
 }
 
 relator Concept_Definition{
     definition: undefined  
+    @mediation [1..*] -- hasDefinition -- [1] Concept_Defining_Recommendation 
+    @mediation [1] -- defines -- [1] Concept 
 }
 
 kind Concept{
@@ -71,4 +55,9 @@ subkind Referenced_Concept of functional-complexes  specializes Concept
 subkind Problematic_Concetp of functional-complexes  specializes Concept 
 
 subkind Correct_Concept of functional-complexes  specializes Concept 
+
+genset CSet {
+    general Concept
+    specifics Problematic_Concetp, Correct_Concept
+}
 

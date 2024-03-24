@@ -1,42 +1,47 @@
-import EMMSAD2022
 
 package NFRO
 
 category NFRRequirement of functional-complexes  specializes UFOCGoal 
 
-category NFRQuality_Requirement of functional-complexes  specializes NFRRequirement 
+category NFRQuality_Requirement of functional-complexes  specializes NFRRequirement {
+    [0..*] -- refers_to -- [1] UFOQuality_Universal 
+}
 
-type UFOQuality_Universal
+type UFOQuality_Universal{
+    [1] -- instantiates -- [1..*] UFOQuality 
+}
 
-mode UFOQuality
+mode UFOQuality{
+    [0..*] -- has_value -- [1] UFOQuality_Value 
+}
 
-category UFOQuality_Value of functional-complexes 
+category UFOQuality_Value of functional-complexes {
+    [1..*] -- member_of -- [1..*] UFO_Quality_Region 
+}
 
 category UFO_Quality_Region of functional-complexes 
 
 category UFOCGoal of functional-complexes 
 
 category Explicability_Requirement of functional-complexes  specializes NFRQuality_Requirement {
-    [0..*] -- refers_to -- [1] UFOQuality_Universal 
+    [0..*] -- [0..*] Ethical_Requirement 
 }
 
 category Autonomy_Requirement of functional-complexes  specializes NFRQuality_Requirement {
-    [0..*] -- refers_to -- [1] UFOQuality_Universal 
+    [0..*] -- [0..*] Ethical_Requirement 
 }
 
 category Beneficence_Requirement of functional-complexes  specializes NFRQuality_Requirement {
-    [0..*] -- refers_to -- [1] UFOQuality_Universal 
+    [0..*] -- [0..*] Ethical_Requirement 
 }
 
 category Nonmaleficense_Requirement of functional-complexes  specializes NFRQuality_Requirement {
-    [0..*] -- refers_to -- [1] UFOQuality_Universal 
+    [0..*] -- [0..*] Ethical_Requirement 
 }
 
-category Ethical_Requirement of functional-complexes  specializes NFRQuality_Requirement {
-    [0..*] -- refers_to -- [1] UFOQuality_Universal 
-}
+category Ethical_Requirement of functional-complexes  specializes NFRQuality_Requirement 
 
 category Justice_Requirement of functional-complexes  specializes NFRQuality_Requirement {
-    [0..*] -- refers_to -- [1] UFOQuality_Universal 
+    [0..*] -- [0..*] Ethical_Requirement 
 }
 

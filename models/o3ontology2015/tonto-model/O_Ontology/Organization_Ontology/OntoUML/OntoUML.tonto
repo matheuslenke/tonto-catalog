@@ -1,0 +1,296 @@
+import UFOC
+import UFOB
+import UFOA
+import Organization_Ontology
+
+package OntoUML
+
+kind Internal_Regiment specializes Normative_Description {
+    @Formal [1..*] -- recognized_by -- [1..*] Organizational_Unit 
+    @Formal [1] -- formalizes -- [1..*] Formal_Business_Social_Role 
+}
+
+type Business_Social_Role
+
+type Formal_Business_Social_Role specializes Business_Social_Role {
+    @Formal [0..*] -- requires -- [1..*] Skill 
+}
+
+type Employee_Type specializes Formal_Business_Social_Role {
+    @Formal [1..*] -- cover -- [1..*] Business_Role 
+    @Formal [0..*] -- instance_of -- [1..*] Formal_Organization_Member 
+}
+
+role Formal_Organization_Member of functional-complexes  specializes Natural_Person {
+    @Formal [0..1] -- head_of -- [1] Organization 
+    @Formal [1] -- work_at -- [1] Location 
+    @mediation [1] -- realizes -- [0..*] Structural_Assignment_by_Appointment 
+    @mediation [1] -- realizes -- [0..*] Missionary_Assignment_by_Appointment 
+}
+
+category Organization of functional-complexes 
+
+kind Formal_Organization specializes Organization {
+    @Formal [0..*] -- located_at -- [1] Location 
+    @componentOf [0..1] -- [2..*] Organizational_Unit 
+    @Formal [1] -- defines -- [1..*] Internal_Regiment 
+    @Formal [1..*] -- defines -- [1..*] Employee_Type 
+    @componentOf [0..1] -- [2..*] Formal_Organization 
+    @Formal [1..*] -- defines -- [1..*] Business_Role 
+    @Formal [1..*] -- defines -- [0..*] Collaboration_Business_Role 
+}
+
+relator Admission_{
+    @mediation [1..*] -- formalizes -- [1] Formal_Organization_Member 
+}
+
+relator Admission_With_Term specializes Admission_ 
+
+relator Admission_by_Appointment specializes Admission_ {
+    @mediation [0..*] -- realizes -- [1] Natural_Person 
+    @mediation [1] -- formalizes -- [1] Appointed_Organization_Member 
+}
+
+relator Admission_by_Election specializes Admission_ {
+    @mediation [1] -- formalizes -- [1] Ellected_Organization_Member 
+}
+
+kind Natural_Person{
+    @characterization [0..*] -- has -- [0..*] Skill 
+    @material [2..*] -- participates -- [0..*] Admission_by_Election 
+}
+
+kind Organizational_Unit specializes Organization {
+    @Formal [0..*] -- defines -- [1..*] Business_Role 
+}
+
+kind Location
+
+subkind Functional_Organization of functional-complexes  specializes Formal_Organization 
+
+subkind Missionary_Organization of functional-complexes  specializes Formal_Organization 
+
+subkind Structural_Unit of functional-complexes  specializes Organizational_Unit 
+
+subkind Missionary_Unit of functional-complexes  specializes Organizational_Unit 
+
+subkind Staff_Unit of functional-complexes  specializes Structural_Unit {
+    @material [0..*] -- staff_of -- [1] Line_Unit 
+}
+
+kind Law specializes Normative_Description {
+    @Formal [1..*] -- recognized_by -- [1..*] Natural_Person 
+    @Formal [1..*] -- formalizes -- [1..*] Natural_Person 
+    @Formal [1..*] -- recognized_by -- [1..*] Formal_Organization 
+    @Formal [1..*] -- formalizes -- [0..*] Formal_Organization 
+}
+
+category Society of functional-complexes 
+
+category Formal_Society of functional-complexes  specializes Society {
+    @Formal [0..*] -- recognized_by -- [1..*] Society 
+}
+
+kind National_Society specializes Formal_Society {
+    @componentOf [1] -- [1] Formal_Organization 
+    @componentOf [1] -- [1] Natural_Person 
+    @Formal [1..*] -- defines -- [0..*] Law 
+}
+
+relator Recognition_Contract{
+    @mediation [0..*] -- relates_to -- [1..*] Normative_Description 
+}
+
+mode Skill{
+    @Formal [1] -- mensured_by -- [1] Skill_Metric 
+}
+
+mode Cognitive_Skill specializes Skill, Belief 
+
+mode Physical_Skill specializes Skill 
+
+mode Skill_Metric
+
+type Business_Role specializes Formal_Business_Social_Role {
+    @Formal [1..*] -- cover -- [0..*] Business_Role 
+}
+
+role Documental_Resource of functional-complexes  specializes Artifact, Resource 
+
+role Automated_Resource of functional-complexes  specializes Infrastructure_Component, Resource 
+
+event Business_Function
+
+relator Functional_Responsibility{
+    @material [0..*] -- context -- [1] Structural_Business_Role 
+    @mediation [0..*] -- over -- [1..*] Business_Function 
+}
+
+relator Authority_Delegation{
+    @mediation [0..*] -- empowers -- [1] Structural_Unit_Member 
+}
+
+relator Permission{
+    @mediation [0..*] -- over -- [1] Resource 
+}
+
+relator Assignment{
+    @Formal [0..*] -- refers_to -- [1] Admission_ 
+}
+
+role Appointed_Organization_Member of functional-complexes  specializes Formal_Organization_Member 
+
+role Ellected_Organization_Member of functional-complexes  specializes Formal_Organization_Member 
+
+relator Structural_Assignment_by_Appointment specializes Structural_Assignment {
+    @mediation [1] -- formalizes -- [1] Appointed_Unit_Member 
+}
+
+relator Structural_Assignment_by_Election specializes Structural_Assignment {
+    @mediation [0..*] -- participates -- [2..*] Formal_Organization_Member 
+    @mediation [1] -- formalizes -- [1] Ellected_Unit_Member 
+}
+
+mixin Social_Entity of functional-complexes {
+    @mediation [1..*] -- generates -- [1..*] Recognition_Contract 
+    @mediation [1..*] -- accepts -- [1..*] Recognition_Contract 
+    @Formal [0..*] -- instance_of -- [1..*] Social_Role 
+    @mediation [1..*] -- accepts -- [0..*] Recognition_Contract_Attachment 
+    @mediation [1..*] -- generates -- [0..*] Recognition_Contract_Attachment 
+}
+
+role Effective_Organization_Member of functional-complexes  specializes Formal_Organization_Member 
+
+relator Effective_Admission specializes Admission_ {
+    @mediation [1] -- formalizes -- [1] Effective_Organization_Member 
+}
+
+role Employer of functional-complexes  specializes Formal_Organization {
+    @mediation [1] -- generates -- [0..*] Admission_ 
+}
+
+role Structural_Unit_Member of functional-complexes  specializes Formal_Organization_Member {
+    @Formal [1] -- has_candidate_substitute -- [0..*] Structural_Unit_Member 
+    @mediation [1] -- has -- [0..*] Functional_Responsibility 
+    @mediation [1] -- performs -- [0..*] Authority_Delegation 
+    @Formal [0..*] -- instance_of -- [1..*] Structural_Business_Role 
+    @Formal [0..*] -- relates_with -- [0..*] Structural_Unit_Member 
+    @Formal [0..1] -- head_of -- [1] Structural_Unit 
+}
+
+role Appointed_Unit_Member of functional-complexes  specializes Structural_Unit_Member 
+
+role Ellected_Unit_Member of functional-complexes  specializes Structural_Unit_Member 
+
+role Allocated_Unit_Member of functional-complexes  specializes Structural_Unit_Member 
+
+relator Structural_Assignment_by_Allocation specializes Structural_Assignment {
+    @mediation [1] -- formalizes -- [1] Allocated_Unit_Member 
+}
+
+role Missionary_Allocation_Unit of functional-complexes  specializes Missionary_Unit 
+
+subkind Line_Unit of functional-complexes  specializes Structural_Unit {
+    @componentOf [0..1] -- [2..*] Line_Unit 
+    @material [0..1] -- manages -- [0..*] Line_Unit 
+}
+
+type Structural_Business_Role specializes Business_Role {
+    @Formal [0..1] -- is_superior_to -- [0..*] Structural_Business_Role 
+    @Formal [1] -- is_superior_to -- [0..*] Missionary_Business_Role 
+}
+
+type Missionary_Business_Role specializes Business_Role {
+    @Formal [0..1] -- is_superior_to -- [0..*] Missionary_Business_Role 
+}
+
+role Missionary_Unit_Member of functional-complexes  specializes Structural_Unit_Member {
+    @Formal [0..*] -- instance_of -- [1..*] Missionary_Business_Role 
+    @Formal [0..1] -- head_of -- [1] Missionary_Unit 
+}
+
+type Collaboration_Business_Role specializes Formal_Business_Social_Role 
+
+type Internal_Collaboration_Business_Role specializes Collaboration_Business_Role 
+
+type External_Collaboration_Business_Role specializes Collaboration_Business_Role 
+
+relator Business_Collaboration{
+    @mediation [1] -- [1..*] Internal_Collaborator 
+    @mediation [1] -- [1..*] External_Collaborator 
+}
+
+roleMixin Internal_Collaborator of functional-complexes {
+    @Formal [0..*] -- instance_of -- [1..*] Internal_Collaboration_Business_Role 
+}
+
+roleMixin External_Collaborator of functional-complexes {
+    @Formal [0..*] -- instance_of -- [1..*] External_Collaboration_Business_Role 
+}
+
+role Social_Agent_External_Collaborator of functional-complexes  specializes Formal_Organization, External_Collaborator 
+
+role Physical_Agent_External_Collaborator of functional-complexes  specializes External_Collaborator, Natural_Person 
+
+role Physical_Agent_Internal_Collaborator of functional-complexes  specializes Formal_Organization_Member, Internal_Collaborator 
+
+role Social_Agent_Internal_Collaborator of functional-complexes  specializes Organizational_Unit, Internal_Collaborator 
+
+relator Structural_Assignment specializes Assignment {
+    @mediation [1..*] -- assigns_to -- [1] Structural_Allocation_Unit 
+    @mediation [1..*] -- assigns -- [1] Structural_Unit_Member 
+}
+
+relator Missionary_Assignment specializes Assignment {
+    @mediation [1..*] -- assigns -- [1] Missionary_Unit_Member 
+    @mediation [1..*] -- assigns_to -- [1] Missionary_Allocation_Unit 
+}
+
+role Structural_Allocation_Unit of functional-complexes  specializes Structural_Unit 
+
+kind Infrastructure_Component
+
+kind Artifact
+
+roleMixin Permission_Provider of functional-complexes  specializes Group_Member {
+    @mediation [1] -- grants -- [0..*] Permission 
+}
+
+subkind MultiFunctional_Organization of functional-complexes  specializes Functional_Organization 
+
+subkind Standalone_Functional_Organization of functional-complexes  specializes Functional_Organization 
+
+subkind Simple_Standalone_Functional_Organization of functional-complexes  specializes Standalone_Functional_Organization 
+
+subkind Complex_Standalone_Functional_Organization of functional-complexes  specializes Standalone_Functional_Organization 
+
+subkind Simple_Missionary_Organization of functional-complexes  specializes Missionary_Organization 
+
+subkind Complex_Missionary_Organization of functional-complexes  specializes Missionary_Organization {
+    @componentOf [0..1] -- [2..*] Missionary_Organization 
+}
+
+relator Recognition_Contract_Attachment{
+    @Formal [0..*] -- attachment_of -- [1] Recognition_Contract 
+    @mediation [0..*] -- relates_to -- [1..*] Normative_Description 
+}
+
+relator Ownership{
+    @mediation [1..*] -- [1..*] Owner 
+    @mediation [1] -- [1] Good 
+}
+
+roleMixin Good of functional-complexes 
+
+roleMixin Owner of functional-complexes 
+
+role Physical_Owner of functional-complexes  specializes Owner, Natural_Person 
+
+role Social_Owner of functional-complexes  specializes Owner, Formal_Organization 
+
+roleMixin Permission_Holder of functional-complexes  specializes Group_Member {
+    @mediation [1] -- has -- [0..*] Permission 
+}
+
+roleMixin Group_Member of functional-complexes  specializes Missionary_Unit_Member, Structural_Unit_Member 
+

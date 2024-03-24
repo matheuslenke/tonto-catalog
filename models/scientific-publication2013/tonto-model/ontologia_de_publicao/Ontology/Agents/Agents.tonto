@@ -1,4 +1,3 @@
-import ontologia_de_publicao
 
 package Agents
 
@@ -10,9 +9,14 @@ category Agent of functional-complexes
 
 roleMixin Colaborator of functional-complexes  specializes Agent 
 
-kind Country
+kind Country{
+    @componentOf [1] -- [2..*] City 
+}
 
 kind City
 
-relator Address
+relator Address{
+    @mediation [1..*] -- [1] Organization 
+    @mediation [1..*] -- [1] City 
+}
 

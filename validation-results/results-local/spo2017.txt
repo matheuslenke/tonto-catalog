@@ -1,5 +1,6 @@
-76
+61
 
+Duplicated reference name
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
@@ -32,6 +33,8 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
@@ -41,30 +44,12 @@ Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
-This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
-This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name

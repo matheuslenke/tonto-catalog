@@ -1,90 +1,51 @@
-import Data_Input_and_Preprocessing
-import Explanation
 import General_Module
+import Data_Input_and_Preprocessing
 import ML_Model
 
 package MLOntology
 
-subkind MLAlgorithm of functional-complexes  specializes Algorithm {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-    @participation 
-    [1..*] -- [0..*] DatasetSplit 
-    @participation 
-    [1..*] -- [0..*] FeatureEnconding 
-    @characterization 
-    [1] -- [1] AlgorithmCharacteristic 
-}
+subkind MLAlgorithm of functional-complexes  specializes Algorithm 
 
-subkind PredictiveModelEvaluationMeasure of functional-complexes  specializes ModelEvaluationTechnique {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+subkind PredictiveModelEvaluationMeasure of functional-complexes  specializes ModelEvaluationTechnique 
 
-subkind ClusteringEvaluationMeasure of functional-complexes  specializes ModelEvaluationTechnique {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+subkind ClusteringEvaluationMeasure of functional-complexes  specializes ModelEvaluationTechnique 
 
-subkind NumericalPredictionEvaluationMeasure of functional-complexes  specializes PredictiveModelEvaluationMeasure {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+subkind NumericalPredictionEvaluationMeasure of functional-complexes  specializes PredictiveModelEvaluationMeasure 
 
-subkind GraphicalEvaluationMeasure of functional-complexes  specializes PredictiveModelEvaluationMeasure {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+subkind GraphicalEvaluationMeasure of functional-complexes  specializes PredictiveModelEvaluationMeasure 
 
-subkind ErrorBasedEvaluationMeasure of functional-complexes  specializes NumericalPredictionEvaluationMeasure {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+subkind ErrorBasedEvaluationMeasure of functional-complexes  specializes NumericalPredictionEvaluationMeasure 
 
-subkind InformationCriteria of functional-complexes  specializes NumericalPredictionEvaluationMeasure {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+subkind InformationCriteria of functional-complexes  specializes NumericalPredictionEvaluationMeasure 
 
-subkind ClassPredictionEvaluationMeasure of functional-complexes  specializes PredictiveModelEvaluationMeasure {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+subkind ClassPredictionEvaluationMeasure of functional-complexes  specializes PredictiveModelEvaluationMeasure 
 
 subkind CorrelationCoefficient of functional-complexes  specializes NumericalPredictionEvaluationMeasure {
-    @participation 
-    [1..*] -- [0..*] MLModelEvaluation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
+    @characterization [1] -- [1] CorrelationCharacteristic 
+}
+
+genset disjoint_complete {
+    general Feature
+    specifics IndependentFeature, DependentFeature
+}
+
+genset disjoint_complete {
+    general Feature
+    specifics CategoricalFeature, NumericalFeature
+}
+
+genset disjoint_complete {
+    general Dataset
+    specifics UnlabeledDataset, LabeledDataset
+}
+
+genset disjoint_complete {
+    general ProcessedData
+    specifics TrainSet, TestSet
+}
+
+genset disjointcomplete {
+    general MLApproach
+    specifics UnsupervisedLearningApproach, SupervisedLearningApproach
 }
 

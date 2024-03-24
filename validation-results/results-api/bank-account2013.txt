@@ -1,15 +1,4 @@
 Validating...
-- Total of errors: 6
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Depsito is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Saque is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Saque_em_Cheque is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Saque_em_Dinheiro is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Saque_em_Transferncia is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Transferncia is specializing other classes that represent ultimate sortals: «relator»
+Total of errors: 6
+undefined
 Validation finished

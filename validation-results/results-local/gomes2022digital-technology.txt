@@ -1,8 +1,11 @@
-7
+10
 
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Classes representing ultimate sortals cannot specialize other ultimate sortals
+Duplicated reference name
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

@@ -1,5 +1,4 @@
 Validating...
-- Total of errors: 14
-Could not create relation named (has_value) between Walking_While_Jogging and Jogging_Speed_Values because one or both of them was not created.
-Could not create relation named (has_value) between Running_While_Jogging and Jogging_Speed_Values because one or both of them was not created.
+Total of errors: 0
+undefined
 Validation finished

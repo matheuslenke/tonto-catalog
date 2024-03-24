@@ -1,38 +1,26 @@
-import PlatformOntology
+import GDPO_part_1
+import Typology
+import Review_System
 
 package OneSided
 
 subkind OneSided_Platform of relators  specializes Digital_Platform_Offering {
-    @mediation 
-    [1..*] -- designed_for -- [1] Target_Platform_User_Community 
-    @mediation 
-    [1] -- supported_by -- [1] Platform_Software 
-    @mediation 
-    [1..*] -- offered_by -- [1] Platform_Company 
-    @mediation 
-    [1..*] -- relates_to -- [1] Platform_Company 
-    @instantiation 
-    [1..*] -- categorizes -- [1..*] Digital_Platform_Type 
+    @mediation [1..*] -- made_towards -- [1] Target_OneSided_User_Community 
+    @mediation [1] -- conforms_to -- [0..*] OneSided_Platform_User_Affiliation 
 }
 
-collective Target_OneSided_User_Community
+collective Target_OneSided_User_Community{
+    @subCollectionOf [1] -- is_part_of -- [1] Target_Platform_User_Community 
+}
 
 subkind OneSided_Platform_User_Affiliation of relators  specializes User_Affiliation_Agreement {
-    @mediation 
-    [1] -- bounds_user -- [1] Platform_User 
-    @mediation 
-    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
-    @mediation 
-    [0..*] -- bounds_platform -- [1] Platform_Company 
-    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
+    @mediation [1..*] -- bounds_user -- [1] OneSided_Platform_User 
 }
 
-roleMixin OneSided_Platform_User of functional-complexes  specializes Platform_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+roleMixin OneSided_Platform_User of functional-complexes  specializes Platform_User 
+
+genset Nq8h106FYEWEV08Z {
+    general OneSided_Platform_User_Affiliation
+    specifics Registration, Subscription
 }
 

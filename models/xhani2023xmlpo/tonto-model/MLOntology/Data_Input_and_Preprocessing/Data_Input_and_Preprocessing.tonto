@@ -1,135 +1,113 @@
-import MLOntology
-import MLOntology
 import General_Module
-import ML_Model
 
 package Data_Input_and_Preprocessing
 
-kind Dataset
-
-kind Feature
-
-role DependentFeature of functional-complexes  specializes Feature {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-    @characterization 
-    [1] -- [1] FeatureCharacteristic 
-    @mediation 
-    [0..*] -- [1] Correlates 
+kind Dataset{
+     --  Feature 
+     --  Data 
+    @characterization [1] -- [1] DatasetCharacteristic 
+    @participation [1..*] -- [0..*] Operation 
 }
 
-role IndependentFeature of functional-complexes  specializes Feature {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-    @characterization 
-    [1] -- [1] FeatureCharacteristic 
-    @mediation 
-    [0..*] -- [1] Correlates 
+kind Feature{
+    @participation [1..*] -- [0..*] FeatureScaling 
+    @characterization [1] -- [1] FeatureCharacteristic 
+    @mediation [0..*] -- [1] Correlates 
 }
+
+role DependentFeature of functional-complexes  specializes Feature 
+
+role IndependentFeature of functional-complexes  specializes Feature 
 
 subkind CategoricalFeature of functional-complexes  specializes Feature {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-    @characterization 
-    [1] -- [1] FeatureCharacteristic 
-    @mediation 
-    [0..*] -- [1] Correlates 
+    @participation [1..*] -- [0..*] FeatureEnconding 
 }
 
-subkind NumericalFeature of functional-complexes  specializes Feature {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-    @characterization 
-    [1] -- [1] FeatureCharacteristic 
-    @mediation 
-    [0..*] -- [1] Correlates 
-}
+subkind NumericalFeature of functional-complexes  specializes Feature 
 
-event FeatureEnconding
+event FeatureEnconding{
+    @creation [1] -- [1] DummyFeature 
+    @characterization [1] -- [1] FeatureEncodingCharacteristic 
+}
 
 event FeatureScaling
 
-role StandardizationTechnique of functional-complexes  specializes FeatureScalingTechnique {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
+role StandardizationTechnique of functional-complexes  specializes FeatureScalingTechnique 
+
+role NormalizationTechnique of functional-complexes  specializes FeatureScalingTechnique 
+
+subkind DummyFeature of functional-complexes  specializes Feature 
+
+event DatasetSplit{
+     --  Train 
+     --  Test 
 }
 
-role NormalizationTechnique of functional-complexes  specializes FeatureScalingTechnique {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-}
+role TrainSet of functional-complexes  specializes ProcessedData 
 
-subkind DummyFeature of functional-complexes  specializes Feature {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-    @characterization 
-    [1] -- [1] FeatureCharacteristic 
-    @mediation 
-    [0..*] -- [1] Correlates 
-}
-
-event DatasetSplit
-
-role TrainSet of functional-complexes  specializes ProcessedData {
-    @participation 
-    [1..*] -- [0..*] DatasetSplit 
-}
-
-role TestSet of functional-complexes  specializes ProcessedData {
-    @participation 
-    [1..*] -- [0..*] DatasetSplit 
-}
+role TestSet of functional-complexes  specializes ProcessedData 
 
 phase UncleanedData of functional-complexes  specializes Data 
 
-event DataCleaning
+event DataCleaning{
+    @participation [1..*] -- [0..*] UncleanedData 
+    @participational [1..*] -- [1] ImputeMissingvalues 
+    @participational [1..*] -- [1] DropFeaturesrows 
+    @characterization [1] -- [1] DataCleaningCharacteristic 
+    @creation [1] -- [1] ProcessedData 
+}
 
 quality DatasetCharacteristic
 
-event ImputeMissingvalues
+event ImputeMissingvalues{
+    @characterization [1] -- [1] ImputationCharacteristics 
+}
 
 event DropFeaturesrows
 
 quality ImputationCharacteristics
 
-kind FeatureEncondingTechnique
-
-role DummyEnconding of functional-complexes  specializes FeatureEncondingTechnique {
-    @participation 
-    [1..*] -- [0..*] FeatureEnconding 
+kind FeatureEncondingTechnique{
+    @participation [1..*] -- [0..*] FeatureEnconding 
 }
 
-role TargetEnconding of functional-complexes  specializes FeatureEncondingTechnique {
-    @participation 
-    [1..*] -- [0..*] FeatureEnconding 
+role DummyEnconding of functional-complexes  specializes FeatureEncondingTechnique 
+
+role TargetEnconding of functional-complexes  specializes FeatureEncondingTechnique 
+
+kind FeatureScalingTechnique{
+    @participation [1..*] -- [0..*] FeatureScaling 
 }
 
-kind FeatureScalingTechnique
-
-phase FeaturedScaledData of functional-complexes  specializes Data 
+phase FeaturedScaledData of functional-complexes  specializes Data {
+    @creation [1] -- [1] FeatureScaling 
+}
 
 subkind PreprocessingAlgorithm of functional-complexes  specializes Algorithm {
-    @participation 
-    [1..*] -- [0..*] FeatureScaling 
-    @participation 
-    [1..*] -- [0..*] DatasetSplit 
-    @participation 
-    [1..*] -- [0..*] FeatureEnconding 
-    @characterization 
-    [1] -- [1] AlgorithmCharacteristic 
+     --  DataCleaning 
 }
 
-event Train
+event Train{
+    @creation [1] -- [1] TrainSet 
+    @participational [1..*] -- [1] MLModelImplementation 
+}
 
-event Test
+event Test{
+    @creation [1] -- [1] TestSet 
+    @participational [1..*] -- [1] MLModelImplementation 
+}
 
-phase ProcessedData of functional-complexes  specializes Data 
+phase ProcessedData of functional-complexes  specializes Data {
+    @participation [1..*] -- [0..*] DatasetSplit 
+}
 
 quality FeatureCharacteristic
 
 relator Correlates
 
-quality CorrelationCharacteristic
+quality CorrelationCharacteristic{
+    @characterization [1] -- [1] Correlates 
+}
 
 quality DataCleaningCharacteristic
 

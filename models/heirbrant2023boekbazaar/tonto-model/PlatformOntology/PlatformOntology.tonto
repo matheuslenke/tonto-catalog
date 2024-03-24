@@ -4,6 +4,8 @@ package PlatformOntology
 kind Wallet{
     amount: undefined  
     uid: undefined  
+    [1] -- [1] Platform_User 
+    @r [1] -- [1] Registered_User 
 }
 
 kind User{
@@ -17,6 +19,8 @@ kind User{
     street: undefined  
     postcode: undefined  
     place: undefined  
+    [1] -- [1] Platform_User 
+    @crud [1] -- [1] Registered_User 
 }
 
 kind Message{
@@ -34,11 +38,15 @@ kind Notification{
     seen: undefined  
     routerlink: undefined  
     uid: undefined  
+    [1] -- [1] Receive_notification 
 }
 
 event Receive_notification
 
-event Confirm_delivery_
+event Confirm_delivery_{
+    [1] -- [1] Buyer 
+    [1] -- top_up_sellers_Portemonnee -- [1] Wallet 
+}
 
 kind Amount
 

@@ -1,4 +1,10 @@
-import Unified_Transport_Network__v23
+import Network_Connections
+import Access_Transport_Entities
+import CFTE_Connections
+import Link_Connections
+import Layer_Network
+import Matrix_Connections
+import Architectural_Components
 
 package Transport_Entities
 
@@ -10,18 +16,35 @@ role NC_Supported_by_LC of functional-complexes  specializes Network_Connection
 
 role NC_Supported_by_MC of functional-complexes  specializes Network_Connection 
 
-role Supporting_Access_Transport_Entity of functional-complexes  specializes Access_Transport_Entity 
-
-role Supporting_CFTE of functional-complexes  specializes Channel_Forwarding_Transport_Entity 
-
-role Supporting_LC of functional-complexes  specializes Link_Connection {
-    @componentOf 
-    [1..*] -- [1] LC_Composed_Layer_Network 
+role Supporting_Access_Transport_Entity of functional-complexes  specializes Access_Transport_Entity {
+    @material [1..*] -- supports -- [1..*] Path_LC 
 }
 
-role Supporting_MC of functional-complexes  specializes Matrix_Connection 
+role Supporting_CFTE of functional-complexes  specializes Channel_Forwarding_Transport_Entity {
+    @material [1..*] -- supports -- [1..*] NC_Supported_by_CFTE 
+}
 
-role Supporting_NC of functional-complexes  specializes Network_Connection 
+role Supporting_LC of functional-complexes  specializes Link_Connection {
+    @material [1..*] -- supports -- [1..*] NC_Supported_by_LC 
+}
+
+role Supporting_MC of functional-complexes  specializes Matrix_Connection {
+    @material [1..*] -- supports -- [1..*] NC_Supported_by_MC 
+}
+
+role Supporting_NC of functional-complexes  specializes Network_Connection {
+    @material [1..*] -- supports -- [1] Access_Transport_Entity 
+}
 
 category Transport_Entity of functional-complexes  specializes Architectural_Component 
+
+genset m81lwn6AUBAIKD1U {
+    general Transport_Entity
+    specifics Access_Transport_Entity, Matrix_Connection, Channel_Forwarding_Transport_Entity, Network_Connection, Link_Connection
+}
+
+genset Ggnlwn6AUBAIKD23 {
+    general Network_Connection
+    specifics NC_Supported_by_CFTE, NC_Supported_by_LC, NC_Supported_by_MC
+}
 

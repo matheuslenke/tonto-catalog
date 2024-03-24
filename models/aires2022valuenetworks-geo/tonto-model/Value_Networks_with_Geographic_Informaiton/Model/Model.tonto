@@ -1,88 +1,128 @@
-import Value_Networks_with_Geographic_Informaiton
 
 package Model
 
-class DeclaredValue
+class DeclaredValue{
+    [*] -- isDeclaredBy -- [1] Consumer 
+}
 
 kind Consumer specializes Actor {
+    @material [1..*] -- consumes -- [1] EndProduct 
+    @material [1..*] -- delivers -- [1..*] CounterObject 
+}
+
+category Actor of functional-complexes {
     [1] -- hasResponsibility -- [1..*] ValueActivity 
     [1..*] -- [*] Policy 
 }
 
-category Actor of functional-complexes 
+relator ConsumerNeed{
+    @mediation [1..*] -- [1] BusinessNeed 
+    @mediation [1..*] -- [1] Consumer 
+}
 
-relator ConsumerNeed
+kind BusinessNeed{
+    @material [1..*] -- isDemandedBy -- [1..*] Consumer 
+}
 
-kind BusinessNeed
+class ProvenanceEvaluation{
+    @structuration [1] -- hasDeclaredValue -- [1] DeclaredValue 
+    [*] -- isDeclaredBy -- [1] Consumer 
+    @characterization [1..*] -- isSubjectiveValueOf -- [1] Provenance 
+}
 
-class ProvenanceEvaluation
-
-category ValueActivity of relators 
+category ValueActivity of relators {
+    [1..*] -- transforms -- [1..*] ValueObject 
+    [1..*] -- [*] Policy 
+}
 
 kind Provenance specializes ValueObject {
-    [1..*] -- [*] Policy 
+    @componentOf [1] -- satisfies -- [1..*] BusinessNeed 
 }
 
-subkind DeclaredProvenance of functional-complexes  specializes Provenance {
-    @componentOf 
-    [1] -- satisfies -- [1..*] BusinessNeed 
-    [1..*] -- [*] Policy 
-}
+subkind DeclaredProvenance of functional-complexes  specializes Provenance 
 
-subkind GeographicIndication of functional-complexes  specializes Provenance {
-    @componentOf 
-    [1] -- satisfies -- [1..*] BusinessNeed 
-    [1..*] -- [*] Policy 
-}
+subkind GeographicIndication of functional-complexes  specializes Provenance 
 
 kind EndProduct specializes ValueObject {
-    [1..*] -- [*] Policy 
+    [1..*] -- hasObjectiveValue -- [0..1] GeographicIndication 
+    @componentOf [1] -- satisfies -- [1..*] BusinessNeed 
+    [1..*] -- hasObjectiveValue -- [1] Provenance 
+    [1..*] -- stockFlow -- [1..*] Sale 
 }
 
 kind RawProduct specializes ValueObject {
+    [1..*] -- hasObjectiveValue -- [0..1] DeclaredProvenance 
+    [1..*] -- hasObjectiveValue -- [0..1] GeographicIndication 
+    @componentOf [2..*] -- [1] EndProduct 
+    [1..*] -- hasObjectiveValue -- [1] Provenance 
+    [1] -- stockFlow -- [1..*] Purchase 
+}
+
+category ValueObject of functional-complexes {
     [1..*] -- [*] Policy 
 }
 
-category ValueObject of functional-complexes 
-
 relator Production specializes ValueActivity {
-    [1..*] -- transforms -- [1..*] ValueObject 
-    [1..*] -- [*] Policy 
+    [1..*] -- consumes -- [1] RawProduct 
+    [1..*] -- produces -- [1] EndProduct 
+    [1] -- [1] Agent 
 }
 
 kind Agent specializes Actor {
-    [1] -- hasResponsibility -- [1..*] ValueActivity 
-    [1..*] -- [*] Policy 
+    @material [1..*] -- manages -- [1..*] RawProduct 
+    @material [1..*] -- bundles -- [1..*] RawProduct 
+    @material [1] -- manages -- [1..*] EndProduct 
+    @material [1] -- provides -- [1..*] EndProduct 
+    @material [1] -- delivers -- [1..*] CounterObject 
+    @material [1] -- bundles -- [1..*] CounterObject 
+    [1] -- [1..*] Payment 
 }
 
 relator Purchase specializes ValueActivity {
-    [1..*] -- transforms -- [1..*] ValueObject 
-    [1..*] -- [*] Policy 
+    [1..*] -- [1] Provider 
+    [1..*] -- [1] Agent 
+    [*] -- duality -- [*] Payment 
 }
 
 relator Payment specializes ValueActivity {
-    [1..*] -- transforms -- [1..*] ValueObject 
-    [1..*] -- [*] Policy 
+    [1..*] -- [1] Provider 
 }
 
 kind Provider specializes Actor {
-    [1] -- hasResponsibility -- [1..*] ValueActivity 
-    [1..*] -- [*] Policy 
+    @material [1..*] -- provides -- [1..*] RawProduct 
+    @material [1..*] -- consumes -- [1..*] CounterObject 
 }
 
 kind CounterObject specializes ValueObject {
-    [1..*] -- [*] Policy 
+    [1] -- stockFlow -- [1] Payment 
+    [1] -- stockFlow -- [1..*] Receipt 
 }
 
 relator Receipt specializes ValueActivity {
-    [1..*] -- transforms -- [1..*] ValueObject 
-    [1..*] -- [*] Policy 
+    [*] -- [1] Agent 
+    [1..*] -- [1] Consumer 
 }
 
 relator Sale specializes ValueActivity {
-    [1..*] -- transforms -- [1..*] ValueObject 
-    [1..*] -- [*] Policy 
+    [*] -- duality -- [*] Receipt 
+    [1..*] -- [1] Agent 
+    [1..*] -- [1] Consumer 
 }
 
 kind Policy
+
+genset ruhbf6GAqACB38Y {
+    general Provenance
+    specifics DeclaredProvenance, GeographicIndication
+}
+
+genset zBPhbf6GAqACB3_Q {
+    general ValueObject
+    specifics EndProduct, RawProduct, Provenance
+}
+
+genset HDik7f6AUB0C9IYb {
+    general ValueActivity
+    specifics Purchase, Production, Sale, Payment, Receipt
+}
 

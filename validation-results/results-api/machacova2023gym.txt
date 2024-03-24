@@ -1,7 +1,4 @@
 Validating...
-- Total of errors: 0
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Finished_Assembly are not among the allowed ontological natures of its superclass Status_Finished
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Finished_Order are not among the allowed ontological natures of its superclass Status_Finished
+Total of errors: 4
+undefined
 Validation finished

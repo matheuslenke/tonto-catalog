@@ -1,19 +1,4 @@
 Validating...
-- Total of errors: 0
-[error] Not unique class stereotype:
-The class Recipient must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Provider must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Resource must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Capability must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Problem_Solution must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Intention must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Satisfaction_Level must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Value must have a unique OntoUML stereotype.
+Total of errors: 8
+undefined
 Validation finished

@@ -1,10 +1,13 @@
-import PlatformOntology
+import Productoriented
 
 package UnderUtilisation
 
 subkind Physical_Good of functional-complexes  specializes Good 
 
-event Regularly_uses
+event Regularly_uses{
+    @participation [0..*] -- performed_by -- [1] Platform_Provider 
+    @participation [1..*] -- includes -- [1..*] UnderUtilized_Product 
+}
 
 subkind UnderUtilized_Product of functional-complexes  specializes Physical_Good 
 

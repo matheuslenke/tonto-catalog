@@ -3,82 +3,37 @@ import buridan_ontology
 package Mental_natural_language
 
 subkind MentalPersonalSupposition of relators  specializes Supposition {
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
+    @mediation [1] -- [1] Concept 
+    @mediation [1] -- [1] MentalSuppositum 
 }
 
-role MentalSuppositum of functional-complexes  specializes Concept {
-    @material 
-    [1] -- refers_to -- [1] MentalSuppositum 
+role MentalSuppositum of functional-complexes  specializes Concept 
+
+subkind CategorematicConcept of functional-complexes  specializes Concept, Concept, Concept {
     [1] -- [1] Object 
-    @componentOf 
-    [2..*] -- [1] ComplexConcept 
-    @componentOf 
-    [1..*] -- [1] MentalProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
+    [1] -- signifies -- [1] Object 
 }
 
-subkind CategorematicConcept of functional-complexes  specializes Concept {
-    @material 
-    [1] -- refers_to -- [1] MentalSuppositum 
+mode SemanticallyComplex{
+    @characterization [1] -- [1] ComplexConcept 
+}
+
+mode SemanticallySimple{
+    @characterization [1] -- [1] Concept 
+}
+
+subkind SyncategorematicConcept of functional-complexes  specializes Concept, Concept 
+
+subkind Concept of functional-complexes  specializes Term, Term, Term, Term {
+    @material [1] -- refers_to -- [1] MentalSuppositum 
     [1] -- [1] Object 
-    @componentOf 
-    [2..*] -- [1] ComplexConcept 
-    @componentOf 
-    [1..*] -- [1] MentalProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
+    @componentOf [2..*] -- [1] ComplexConcept 
+    @componentOf [1..*] -- [1] MentalProposition 
 }
 
-mode SemanticallyComplex
+subkind ComplexConcept of functional-complexes  specializes Concept 
 
-mode SemanticallySimple
-
-subkind SyncategorematicConcept of functional-complexes  specializes Concept, Concept {
-    @material 
-    [1] -- refers_to -- [1] MentalSuppositum 
-    [1] -- [1] Object 
-    @componentOf 
-    [2..*] -- [1] ComplexConcept 
-    @componentOf 
-    [1..*] -- [1] MentalProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
+subkind MentalProposition of functional-complexes  specializes Proposition {
+    [1] -- signifies_coarse_grained -- [1..*] Object 
 }
-
-subkind Concept of functional-complexes  specializes Term {
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
-}
-
-subkind ComplexConcept of functional-complexes  specializes Concept {
-    @material 
-    [1] -- refers_to -- [1] MentalSuppositum 
-    [1] -- [1] Object 
-    @componentOf 
-    [2..*] -- [1] ComplexConcept 
-    @componentOf 
-    [1..*] -- [1] MentalProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
-}
-
-subkind MentalProposition of functional-complexes  specializes Proposition 
 

@@ -1,4 +1,4 @@
-48
+37
 
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
@@ -16,20 +16,9 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Loaded_Program_Copy'.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class

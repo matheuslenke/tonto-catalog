@@ -1,17 +1,26 @@
 
 package ontology
 
-relator Consulta_Mdica
+relator Consulta_Mdica{
+    @mediation [1..*] -- [1] Profissional_de_Sade 
+    @mediation [1..*] -- [1] Paciente 
+    @Formal [1] -- gera -- [1] Documento 
+}
 
 kind Documento
 
 role Paciente of functional-complexes  specializes Pessoa 
 
-role Profissional_de_Sade of functional-complexes  specializes Pessoa 
+role Profissional_de_Sade of functional-complexes  specializes Pessoa {
+    @material [1..*] -- trata -- [1..*] Paciente 
+    @material [1..*] -- trabalhaEm -- [1..*] Unidade_de_Sade 
+}
 
 kind Pessoa
 
-kind Unidade_de_Sade
+kind Unidade_de_Sade{
+    @material [1..*] -- estaLocalizada -- [1] Regio 
+}
 
 kind Regio
 

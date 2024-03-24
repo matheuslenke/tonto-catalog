@@ -1,4 +1,3 @@
-import Unified_Transport_Network__v23
 
 package General_Elements
 
@@ -11,5 +10,10 @@ category Geographical_Element of functional-complexes
 
 category Geographical_Element_With_Alias of functional-complexes  specializes Geographical_Element {
     location: undefined  
+}
+
+genset kYJpon6AUBAIKE_u {
+    general Geographical_Element
+    specifics Geographical_Element_With_Alias, Defined_Geographical_Element
 }
 

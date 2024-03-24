@@ -1,24 +1,79 @@
-37
+118
 
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '20210906'
+Expecting end of file but found `20210906`.
 Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Unit'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Duplicated class declaration
-There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
-There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
-There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
-There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+Could not resolve reference to DataTypeOrClassOrRelation named 'ReferencedContent'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Event'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'House'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Module'.
+Consider using an annotation or a more specific class
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'BuildingElement'.
+Could not resolve reference to DataType named 'double'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
 Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
-Incompatible nature restrictions. Parent has nature collective while this class has natures: functional-complex
+Incompatible nature restrictions. Parent has nature collective, collective ,collective while this class has natures: functional-complex
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Consider using an annotation or a more specific class
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Geometry'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'double'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
 There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
@@ -30,6 +85,35 @@ There is a cyclic specialization. Please review all Elements specializations fro
 There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
 There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
 There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+There is a cyclic specialization. Please review all Elements specializations from your model (including those in generalization sets)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

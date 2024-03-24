@@ -1,5 +1,7 @@
 
 package UFOB
 
-class Situation
+class Situation{
+    [*] -- satisfies -- [*] Goal 
+}
 

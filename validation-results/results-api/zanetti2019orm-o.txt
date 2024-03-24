@@ -1,43 +1,4 @@
 Validating...
-- Total of errors: 17
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Instance_Variable must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Instance_Variable must specify the possible ontological natures of its instances
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class One_To_One_Relationship_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class One_To_Many_Relationship_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Many_To_One_Relationship_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Many_to_Many_Relationship_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Single_Table_Inheritance_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Table_per_Class_Inheritance_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Table_per_Concrete_Class_Inheritance_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Mapped_Variable must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Mapped_Variable must specify the possible ontological natures of its instances
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Foreign_Key_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Primary_Key_Mapping is specializing other classes that represent ultimate sortals: «relator»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Mapped_Primary_Key must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Mapped_Primary_Key must specify the possible ontological natures of its instances
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Mapped_Foreign_Key must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class Mapped_Foreign_Key must specify the possible ontological natures of its instances
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Mapped_Variable are not among the allowed ontological natures of its superclass Instance_Variable
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Mapped_Primary_Key are not among the allowed ontological natures of its superclass Mapped_Variable
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Mapped_Foreign_Key are not among the allowed ontological natures of its superclass Mapped_Variable
+Total of errors: 20
+undefined
 Validation finished

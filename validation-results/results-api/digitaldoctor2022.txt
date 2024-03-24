@@ -1,15 +1,4 @@
 Validating...
-- Total of errors: 25
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of SevereSymptom are not among the allowed ontological natures of its superclass MedicalProcedureTrigger
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of MedicalHistory are not among the allowed ontological natures of its superclass NamedEntity
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of MedicalProcedure are not among the allowed ontological natures of its superclass NamedEntity
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Prescription are not among the allowed ontological natures of its superclass NamedEntity
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of VisitRequest are not among the allowed ontological natures of its superclass MedicalProcedureTrigger
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of PatientReport are not among the allowed ontological natures of its superclass NamedEntity
+Total of errors: 6
+undefined
 Validation finished

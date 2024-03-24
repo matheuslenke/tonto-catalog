@@ -1,49 +1,35 @@
 
 package grueau2013towards
 
-class Intention
+class Intention{
+    [*] -- [*] Agent 
+}
 
-class Activity
+class Activity{
+    [*] -- [*] Agent 
+}
 
-class Agent
-
-class social_agent specializes Agent {
+class Agent{
     [*] -- subagents -- [*] social_agent 
 }
 
-class PhysicalAgent specializes Agent {
-    [*] -- subagents -- [*] social_agent 
-}
+class social_agent specializes Agent 
 
-class Organization specializes social_agent {
-    [*] -- subagents -- [*] social_agent 
-}
+class PhysicalAgent specializes Agent 
 
-class HouseHold specializes PhysicalAgent {
-    [*] -- subagents -- [*] social_agent 
-}
+class Organization specializes social_agent 
 
-class Resident specializes PhysicalAgent {
-    [*] -- subagents -- [*] social_agent 
-}
+class HouseHold specializes PhysicalAgent 
 
-class EstateOwner specializes PhysicalAgent {
-    [*] -- subagents -- [*] social_agent 
-}
+class Resident specializes PhysicalAgent 
 
-class LandManager specializes PhysicalAgent {
-    [*] -- subagents -- [*] social_agent 
-}
+class EstateOwner specializes PhysicalAgent 
 
-class Landlord specializes PhysicalAgent {
-    [*] -- subagents -- [*] social_agent 
-}
+class LandManager specializes PhysicalAgent 
 
-class ServiceCenter_Agent specializes PhysicalAgent {
-    [*] -- subagents -- [*] social_agent 
-}
+class Landlord specializes PhysicalAgent 
 
-class LandOwner specializes PhysicalAgent {
-    [*] -- subagents -- [*] social_agent 
-}
+class ServiceCenter_Agent specializes PhysicalAgent 
+
+class LandOwner specializes PhysicalAgent 
 

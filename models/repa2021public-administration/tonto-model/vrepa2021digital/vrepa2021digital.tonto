@@ -3,19 +3,29 @@ package vrepa2021digital
 
 kind PA_Client
 
-subkind Company of functional-complexes  specializes PA_Client 
+subkind Company of functional-complexes  specializes PA_Client {
+    [1..*] -- [1..*] Employee 
+}
 
-subkind Citizen of functional-complexes  specializes PA_Client 
+subkind Citizen of functional-complexes  specializes PA_Client {
+    [*] -- [*] Citizens_Role 
+}
 
-role Enterpreneur specializes Citizens_Role 
+role Enterpreneur specializes Citizens_Role {
+    [0..1] -- [1..*] Company 
+}
 
-role Company_Pensioner specializes Citizens_Role 
+role Company_Pensioner specializes Citizens_Role {
+    [*] -- [1..*] Company 
+}
 
 role Employee specializes Citizens_Role 
 
 class Citizens_Role
 
-role Old_Age_Pensioner specializes Citizens_Role 
+role Old_Age_Pensioner specializes Citizens_Role {
+    [0..1] -- [1] Senior 
+}
 
 role Student specializes Citizens_Role 
 
@@ -33,35 +43,28 @@ phase Doctoral_Degree_Student specializes Student
 
 role Offspring specializes Citizens_Role 
 
-role Parent specializes Citizens_Role 
+role Parent specializes Citizens_Role {
+    [0..2] -- [*] Pupil 
+}
 
-relator Parenthood
+relator Parenthood{
+    @mediation [1] -- [1..*] Offspring 
+    @mediation [1..*] -- [1..2] Parent 
+}
 
 phase Child of functional-complexes  specializes Citizen {
-    [*] -- [*] Citizens_Role 
+    [*] -- [0..2] Parent 
 }
 
-phase Pupil of functional-complexes  specializes Citizen {
-    [*] -- [*] Citizens_Role 
-}
+phase Pupil of functional-complexes  specializes Citizen 
 
-phase Employed of functional-complexes  specializes Citizen {
-    [*] -- [*] Citizens_Role 
-}
+phase Employed of functional-complexes  specializes Citizen 
 
-phase Unemployed of functional-complexes  specializes Citizen {
-    [*] -- [*] Citizens_Role 
-}
+phase Unemployed of functional-complexes  specializes Citizen 
 
-phase Senior of functional-complexes  specializes Citizen {
-    [*] -- [*] Citizens_Role 
-}
+phase Senior of functional-complexes  specializes Citizen 
 
-phase Seeking_for_employment of functional-complexes  specializes Unemployed {
-    [*] -- [*] Citizens_Role 
-}
+phase Seeking_for_employment of functional-complexes  specializes Unemployed 
 
-phase In_requalification of functional-complexes  specializes Unemployed {
-    [*] -- [*] Citizens_Role 
-}
+phase In_requalification of functional-complexes  specializes Unemployed 
 

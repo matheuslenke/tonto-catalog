@@ -1,1 +1,10 @@
-0
+8
+
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Registered_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Platform_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Registered_User'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Buyer'.
+Expecting token of type 'specifics' but found `Offering_Creator`.
+Could not resolve reference to ClassDeclarationOrRelation named 'Registered_User'.
+Could not resolve reference to ClassDeclarationOrRelation named 'Offering_Creator'.

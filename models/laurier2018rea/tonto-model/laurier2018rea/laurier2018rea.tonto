@@ -3,16 +3,17 @@ package laurier2018rea
 
 roleMixin economicresource
 
-relator stockflow
-
-relator inflow specializes stockflow {
+relator stockflow{
     [*] -- [*] economicevent 
     [*] -- [*] economicresource 
 }
 
+relator inflow specializes stockflow {
+    [*] -- [*] incrementevent 
+}
+
 relator outflow specializes stockflow {
-    [*] -- [*] economicevent 
-    [*] -- [*] economicresource 
+    [*] -- [*] decrementevent 
 }
 
 roleMixin economicevent
@@ -26,50 +27,52 @@ kind transformation
 role produce of functional-complexes  specializes incrementevent, transformation 
 
 relator transformationduality specializes duality {
-    [*] -- [*] decrementevent 
-    [*] -- [*] incrementevent 
+    [*] -- [*] consume 
+    [*] -- [*] produce 
 }
 
 role consume of functional-complexes  specializes decrementevent, transformation 
 
-relator duality
+relator duality{
+    [*] -- [*] decrementevent 
+    [*] -- [*] incrementevent 
+}
 
 role take of functional-complexes  specializes transfer, incrementevent 
 
 role give of functional-complexes  specializes transfer, decrementevent 
 
 relator transferduality specializes duality {
-    [*] -- [*] decrementevent 
-    [*] -- [*] incrementevent 
+    [*] -- [*] give 
+    [*] -- [*] take 
 }
 
 kind transfer
 
-relator insideparty specializes participation_ {
+relator insideparty specializes participation_ 
+
+relator participation_{
     [*] -- [*] economicevent 
     [*] -- [*] economicagent 
 }
 
-relator participation_
-
 relator outsideparty specializes participation_ {
-    [*] -- [*] economicevent 
-    [*] -- [*] economicagent 
+    [*] -- [*] tradingpartner 
 }
 
 roleMixin economicagent
 
-roleMixin tradingpartner
+roleMixin tradingpartner{
+    [*] -- [*] from_ 
+    [*] -- [*] to 
+}
 
 relator from_ specializes outsideparty {
-    [*] -- [*] tradingpartner 
-    [*] -- [*] economicevent 
-    [*] -- [*] economicagent 
+    @formal [*] -- mirror -- [*] to 
+    [*] -- [*] take 
 }
 
 relator to specializes outsideparty {
-    [*] -- [*] tradingpartner 
-    [*] -- [*] economicevent 
-    [*] -- [*] economicagent 
+    [*] -- [*] give 
 }
 

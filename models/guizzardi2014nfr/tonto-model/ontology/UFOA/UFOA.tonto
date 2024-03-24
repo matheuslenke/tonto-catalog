@@ -1,13 +1,22 @@
 
 package UFOA
 
-class Quality_Universal
+class Quality_Universal{
+    [1] -- associated_with -- [1] Quality_Structure 
+}
 
-class Quality
+class Quality{
+    [1..*] -- instantiates -- [1] Quality_Universal 
+    [*] -- hasValue -- [1] Quality_Value 
+}
 
-class Quality_Value
+class Quality_Value{
+    [1..*] -- member_of -- [1..*] Quality_Region 
+}
 
-class Quality_Structure
+class Quality_Structure{
+    [1] -- constituted_by -- [1..*] Quality_Region 
+}
 
 class Quality_Region
 

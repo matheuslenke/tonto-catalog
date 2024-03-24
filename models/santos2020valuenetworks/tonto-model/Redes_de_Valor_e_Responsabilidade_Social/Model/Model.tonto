@@ -1,20 +1,15 @@
-import Redes_de_Valor_e_Responsabilidade_Social
 
 package Model
 
-subkind Organization specializes Actor {
+subkind Organization specializes Actor 
+
+subkind Community specializes Actor 
+
+category Actor of functional-complexes {
     [*] -- eof -- [*] Activity 
     [1] -- cact -- [1] Performance_Evaluation 
     [1..*] -- cact -- [1..*] Social_Need 
 }
-
-subkind Community specializes Actor {
-    [*] -- eof -- [*] Activity 
-    [1] -- cact -- [1] Performance_Evaluation 
-    [1..*] -- cact -- [1..*] Social_Need 
-}
-
-category Actor of functional-complexes 
 
 category Activity of functional-complexes 
 
@@ -22,31 +17,19 @@ kind Performance_Evaluation
 
 category Social_Need of functional-complexes 
 
-category Object of functional-complexes 
-
-kind CnA specializes Object {
+category Object of functional-complexes {
     [1] -- Constituent -- [1] Performance_Evaluation 
     [1] -- hasSatisfied -- [1] Social_Need 
     [1..*] -- pact -- [1..*] Activity 
 }
 
-kind PoP specializes Object {
-    [1] -- Constituent -- [1] Performance_Evaluation 
-    [1] -- hasSatisfied -- [1] Social_Need 
-    [1..*] -- pact -- [1..*] Activity 
-}
+kind CnA specializes Object 
 
-kind Core specializes Object {
-    [1] -- Constituent -- [1] Performance_Evaluation 
-    [1] -- hasSatisfied -- [1] Social_Need 
-    [1..*] -- pact -- [1..*] Activity 
-}
+kind PoP specializes Object 
 
-kind Counter specializes Object {
-    [1] -- Constituent -- [1] Performance_Evaluation 
-    [1] -- hasSatisfied -- [1] Social_Need 
-    [1..*] -- pact -- [1..*] Activity 
-}
+kind Core specializes Object 
+
+kind Counter specializes Object 
 
 subkind Community_Development specializes Activity 
 

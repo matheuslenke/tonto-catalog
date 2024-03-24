@@ -1,9 +1,14 @@
 
 package buridan_ontology
 
-mode Context
+mode Context{
+    @characterization [1] -- [1] Interpretation 
+}
 
-kind LawOfReasoning
+kind LawOfReasoning{
+    [1..*] -- [1..*] LogicalRule 
+    @componentOf [1..*] -- [1] LogicalDoctrine 
+}
 
 kind LogicalRule
 
@@ -19,20 +24,46 @@ category Logic of functional-complexes
 
 kind Science
 
-role Suppositum of functional-complexes  specializes Term {
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
-}
+role Suppositum of functional-complexes  specializes Term 
 
-relator Supposition
+relator Supposition{
+    @mediation [1] -- [1] Term 
+    @mediation [1] -- [1] Suppositum 
+    @mediation [1] -- [2] Term 
+    @mediation [1] -- [1] Proposition 
+}
 
 kind Proposition
 
 kind Object
 
-kind Term
+kind Term{
+    @material [1..*] -- refers_to -- [1] Suppositum 
+    @componentOf [1..*] -- [1] Proposition 
+}
 
-relator Signification
+relator Signification{
+    @mediation [1] -- [1] Object 
+    @mediation [1] -- [1] CategorematicConcept 
+}
+
+genset A7I8f96GAqAAaivi {
+    general ProperSuppositon
+    specifics SimpleSupposition, MaterialSupposition, PersonalSupposition
+}
+
+genset B0wX7D6GAqACBRrR {
+    general Supposition
+    specifics PersonalSupposition, MaterialSupposition
+}
+
+genset S8ZH8T6GAqAAZgvu {
+    general Proposition
+    specifics SpokenWrittenProposition, MentalProposition
+}
+
+genset MV8GWL6GAqACAxjE {
+    general Concept
+    specifics SyncategorematicConcept, CategorematicConcept
+}
 

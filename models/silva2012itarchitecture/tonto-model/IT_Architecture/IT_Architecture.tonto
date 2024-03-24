@@ -17,38 +17,48 @@ kind Refrigeao specializes Plataforma
 
 kind Energia specializes Plataforma 
 
-kind Garantia_eSuporte specializes Plataforma 
+kind Garantia_eSuporte specializes Plataforma {
+    [1] -- [1..*] Nvel_de_Garantia_Apropriado 
+    [1] -- Manuteno_resoluo_de_problenas -- [*] Sistema_Computacional 
+}
 
-relator Nvel_de_Garantia_Apropriado
+relator Nvel_de_Garantia_Apropriado{
+    [1..*] -- [1] Sistema_Computacional 
+}
 
-kind Sistema_Computacional specializes Plataforma 
+kind Sistema_Computacional specializes Plataforma {
+    [1..*] -- [1..*] Alerta 
+    [1..*] -- fatha -- [1..*] Monitoramento 
+}
 
-relator Alerta
+relator Alerta{
+    [1..*] -- [1] Monitoramento 
+}
 
 kind Monitoramento specializes Plataforma 
 
-subkind Periferico of functional-complexes  specializes Sistema_Computacional {
-    [1..*] -- [1..*] Alerta 
-    [1..*] -- fatha -- [1..*] Monitoramento 
+subkind Periferico of functional-complexes  specializes Sistema_Computacional 
+
+subkind Dispositive_de_drede_dual of functional-complexes  specializes Sistema_Computacional 
+
+subkind Cooler_Redundante of functional-complexes  specializes Sistema_Computacional 
+
+subkind Fonte_Redundante of functional-complexes  specializes Sistema_Computacional 
+
+subkind Alimentao_dupla of functional-complexes  specializes Sistema_Computacional 
+
+genset QwBS7wGGAqAAEQsk {
+    general Componente_de_IT
+    specifics Plataforma, Armazenamento_de_Dados, Sistema, Site
 }
 
-subkind Dispositive_de_drede_dual of functional-complexes  specializes Sistema_Computacional {
-    [1..*] -- [1..*] Alerta 
-    [1..*] -- fatha -- [1..*] Monitoramento 
+genset UMhq7wGGAqAAEQ0T {
+    general Plataforma
+    specifics Garantia_eSuporte, Sistema_Computacional, Monitoramento, Rede, Refrigeao, Energia
 }
 
-subkind Cooler_Redundante of functional-complexes  specializes Sistema_Computacional {
-    [1..*] -- [1..*] Alerta 
-    [1..*] -- fatha -- [1..*] Monitoramento 
-}
-
-subkind Fonte_Redundante of functional-complexes  specializes Sistema_Computacional {
-    [1..*] -- [1..*] Alerta 
-    [1..*] -- fatha -- [1..*] Monitoramento 
-}
-
-subkind Alimentao_dupla of functional-complexes  specializes Sistema_Computacional {
-    [1..*] -- [1..*] Alerta 
-    [1..*] -- fatha -- [1..*] Monitoramento 
+genset K61a7wGGAqAAEQ31 {
+    general Sistema_Computacional
+    specifics Periferico, Alimentao_dupla, Fonte_Redundante, Dispositive_de_drede_dual, Cooler_Redundante
 }
 

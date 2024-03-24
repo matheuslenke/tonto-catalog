@@ -1,26 +1,44 @@
-import Brand_Identity_Ontology
-import COMMUNICATION
 import IDENTITY
 
 package STAKEHOLDERS
 
-collective Stakeholders
+collective Stakeholders{
+    [*] -- [*] Perceived_image_Perception 
+}
 
-collective External_stekaholders
+collective External_stekaholders{
+    @memberOf [2..*] -- [1] Stakeholders 
+}
 
-collective Official_stakeholders
+collective Official_stakeholders{
+    @memberOf [2..*] -- [1] Stakeholders 
+}
 
-collective Internal_stakeholders
+collective Internal_stakeholders{
+    @memberOf [2..*] -- [1] Stakeholders 
+}
 
-collective Customers
+collective Customers{
+    @memberOf [2..*] -- [1] External_stekaholders 
+}
 
-kind Customer_reflection
+kind Customer_reflection{
+    [1..*] -- creates -- [1..*] Customers 
+}
 
-kind Perceived_image_Perception specializes Image 
+kind Perceived_image_Perception specializes Image {
+    [*] -- [*] Reputation 
+    [*] -- [*] Brand_heritage 
+    [*] -- [*] Customer_reflection 
+}
 
-collective Employees
+collective Employees{
+    @memberOf [2..*] -- [1] Internal_stakeholders 
+}
 
 subkind Brand_heritage
 
-subkind Reputation
+subkind Reputation{
+    [*] -- [*] Brand_heritage 
+}
 

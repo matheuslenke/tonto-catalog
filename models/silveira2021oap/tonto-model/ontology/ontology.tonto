@@ -1,50 +1,43 @@
 
 package ontology
 
-kind Plano_de_trabalho
+kind Plano_de_trabalho{
+    @material [0..*] -- determina_utilizaco_de -- [0..*] Recursos_Pedaggicos 
+}
 
 mode Objetivo_pedaggico
 
-relator Mediaco_pedaggica
+relator Mediaco_pedaggica{
+    @mediation [1..*] -- _mediado_em -- [1..*] Mediado 
+}
 
-mode intenco
+mode intenco{
+    @componentOf [1..*] -- demanda -- [1] Mediaco_pedaggica 
+    @externalDependence [1] -- [1..*] Mediado 
+}
 
 role Mediador specializes Agente {
-    @material 
-    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+    @characterization [1] -- possui -- [1] intenco 
+    @mediation [1..*] -- _mediador_em -- [1..*] Mediaco_pedaggica 
 }
 
-role Mediado of functional-complexes  specializes Agente_Humano {
-    @material 
-    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+role Mediado of functional-complexes  specializes Agente_Humano 
+
+category Agente of functional-complexes {
+    @material [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
 }
 
-category Agente of functional-complexes 
+kind Agente_Humano specializes Agente 
 
-kind Agente_Humano specializes Agente {
-    @material 
-    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
-}
-
-kind Agente_Sinttico specializes Agente {
-    @material 
-    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
-}
+kind Agente_Sinttico specializes Agente 
 
 role Professor of functional-complexes  specializes Agente_Humano {
-    @material 
-    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
+    @material [1] -- elabora -- [0..*] Plano_de_trabalho 
 }
 
-role Estudante of functional-complexes  specializes Agente_Humano {
-    @material 
-    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
-}
+role Estudante of functional-complexes  specializes Agente_Humano 
 
-role Pesquisador of functional-complexes  specializes Agente_Humano {
-    @material 
-    [2..*] -- participa -- [0..*] Arquitetura_pedaggica 
-}
+role Pesquisador of functional-complexes  specializes Agente_Humano 
 
 roleMixin Recursos_Pedaggicos of functional-complexes 
 
@@ -56,40 +49,74 @@ role Recurso_pedaggico_fsico specializes Recursos_Pedaggicos, Objeto_fsico
 
 category Objeto_fsico of functional-complexes 
 
-kind Arquitetura_pedaggica
+kind Arquitetura_pedaggica{
+    @material [1] -- utiliza -- [1] Plano_de_trabalho_AP 
+    @material [0..*] -- utiliza -- [1..*] Recurso_Pedaggico_Virtual 
+    @characterization [1] -- possui -- [1] Objetivo_pedaggico 
+    @material [0..*] -- utiliza -- [0..*] Arquitetura_pedaggica 
+}
 
 subkind Plano_de_trabalho_AP of functional-complexes  specializes Plano_de_trabalho {
-    @material 
-    [0..*] -- determina_utilizaco_de -- [0..*] Recursos_Pedaggicos 
+    @material [0..*] -- executa -- [1] Mtodo_pedaggico 
+    @material [1] -- descreve -- [1..*] Atividade_pedaggica 
 }
 
 category Mtodo_pedaggico of functional-complexes 
 
-kind Atividade_pedaggica
+kind Atividade_pedaggica{
+    @memberOf [1..*] -- possui -- [1..*] Arquitetura_pedaggica 
+}
 
-mode Pedagogical_objective_intention
+mode Pedagogical_objective_intention{
+    @characterization [1] -- inheres_in -- [1] PA_Creator 
+    @externalDependence [1] -- externaly_depends_on -- [1] Pedagogical_architecture 
+}
 
 role PA_Creator specializes Tutor {
-    [2..*] -- participates_of -- [0..*] Pedagogical_architecture 
+    [1] -- create -- [1..*] Pedagogical_architecture 
 }
 
 roleMixin Virtual_pedagogical_resource of functional-complexes 
 
-category Agent of functional-complexes 
-
-role Tutor specializes Agent {
+category Agent of functional-complexes {
     [2..*] -- participates_of -- [0..*] Pedagogical_architecture 
 }
 
+role Tutor specializes Agent 
+
 kind Work_plan
 
-kind Pedagogical_architecture
+kind Pedagogical_architecture{
+    [1] -- uses -- [1] Work_plan_AP 
+    [1] -- has -- [1..*] Technological_implementation 
+    [0..*] -- uses -- [1..*] Virtual_pedagogical_resource 
+    @Formal [0..*] -- uses -- [1] Pedagogical_architecture 
+}
 
-subkind Work_plan_AP of functional-complexes  specializes Work_plan 
+subkind Work_plan_AP of functional-complexes  specializes Work_plan {
+    [0..*] -- executes -- [1] Pedagogical_method 
+}
 
 category Technological_implementation of functional-complexes 
 
-kind Pedagogical_activity
+kind Pedagogical_activity{
+    @memberOf [1..*] -- describes -- [1..*] Work_plan_AP 
+}
 
 category Pedagogical_method of functional-complexes 
+
+genset wjs96f6FYGkAAQeQ {
+    general Recursos_Pedaggicos
+    specifics Recurso_pedaggico_fsico, Recurso_Pedaggico_Virtual
+}
+
+genset KG96f6FYGkAAQfO {
+    general Agente
+    specifics Agente_Humano, Agente_Sinttico
+}
+
+genset cq96f6FYGkAAQgC {
+    general Agente_Humano
+    specifics Estudante, Pesquisador, Professor
+}
 

@@ -1,39 +1,26 @@
+import Integrated_Ontology
 
 package Integrated_Ontology
 
-category SpatialThing
+category SpatialThing{
+    [*] -- [1..*] LocationCoordinates 
+    @formal [1..*] -- locatedIn -- [*] Physical_Object 
+}
 
 category GeographicalSpace specializes SpatialThing {
-    [*] -- [1..*] LocationCoordinates 
-    @formal 
-    [1..*] -- locatedIn -- [*] Physical_Object 
+    @formal [*] -- spatiallySubsumes -- [*] GeographicalSpace 
 }
 
-kind SurgeryRoom specializes GeographicalSpace {
-    @formal 
-    [*] -- spatiallySubsumes -- [*] GeographicalSpace 
-    [*] -- [1..*] LocationCoordinates 
-    @formal 
-    [1..*] -- locatedIn -- [*] Physical_Object 
-}
+kind SurgeryRoom specializes GeographicalSpace 
 
-kind Gallery specializes GeographicalSpace {
-    @formal 
-    [*] -- spatiallySubsumes -- [*] GeographicalSpace 
-    [*] -- [1..*] LocationCoordinates 
-    @formal 
-    [1..*] -- locatedIn -- [*] Physical_Object 
-}
+kind Gallery specializes GeographicalSpace 
 
-kind Museum specializes GeographicalSpace {
-    @formal 
-    [*] -- spatiallySubsumes -- [*] GeographicalSpace 
-    [*] -- [1..*] LocationCoordinates 
-    @formal 
-    [1..*] -- locatedIn -- [*] Physical_Object 
-}
+kind Museum specializes GeographicalSpace 
 
-quantity Physical_Object
+quantity Physical_Object{
+    [*] -- [1] LocationCoordinates 
+    @formal [1] -- isConstitutedBy -- [0..1] Material_Entity 
+}
 
 category Material_Entity
 
@@ -45,163 +32,101 @@ kind Statue specializes Inanimate_Entity
 
 category Human_Organ specializes Biological_Entity 
 
-kind Human_Heart specializes Human_Organ 
-
-mode Belief specializes MentalState {
-    @characterization 
-    [1..*] -- [1] ActiveAgent 
+kind Human_Heart specializes Human_Organ {
+    @componentOf [1] -- [1] Person 
 }
 
-mode Desire specializes MentalState {
-    @characterization 
-    [1..*] -- [1] ActiveAgent 
-}
+mode Belief specializes MentalState 
 
-mode MentalState
+mode Desire specializes MentalState 
+
+mode MentalState{
+    @characterization [1..*] -- [1] ActiveAgent 
+}
 
 mode Intention specializes MentalState {
-    @characterization 
-    [1..*] -- [1] ActiveAgent 
+    [*] -- moreImportantThan -- [*] Intention 
+    [*] -- [1] PriorityLevel 
 }
 
-mixin ActiveAgent specializes Agent {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
+mixin ActiveAgent specializes Agent 
+
+category Agent{
+    @memberOf [2..*] -- [*] Group 
+    @componentOf [2..*] -- [*] Organization 
 }
 
-category Agent
+phase Deceased_Person of functional-complexes  specializes Person 
 
-phase Deceased_Person of functional-complexes  specializes Person {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
+phase Living_Person of functional-complexes  specializes Person, ActiveAgent 
 
-phase Living_Person of functional-complexes  specializes Person, ActiveAgent {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
-
-kind Person specializes Agent {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
+kind Person specializes Agent 
 
 role Offspring of functional-complexes  specializes Person {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
+    @material [1..*] -- parentOf -- [1..2] Parent 
 }
 
-phase ActiveOrganization of functional-complexes  specializes ActiveAgent, Organization {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
+phase ActiveOrganization of functional-complexes  specializes ActiveAgent, Organization 
+
+phase ExtinctOrganization of functional-complexes  specializes Organization 
+
+kind Organization specializes Agent 
+
+collective Group{
+    @formal [1] -- isConstitutedBy -- [*] Organization 
 }
 
-phase ExtinctOrganization of functional-complexes  specializes Organization {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
+relator Registration{
+    @mediation [1] -- [1] Offspring 
+    @mediation [1..*] -- [1..2] Parent 
 }
 
-kind Organization specializes Agent {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
+role Parent of functional-complexes  specializes Person 
+
+subkind Male_Person of functional-complexes  specializes Person 
+
+subkind Female_Person of functional-complexes  specializes Person 
+
+role Father of functional-complexes  specializes Male_Person, Parent 
+
+role Mother of functional-complexes  specializes Female_Person, Parent 
+
+mixin Performer_Artist{
+    @material [1..*] -- records -- [1..*] Track 
 }
 
-collective Group
-
-relator Registration
-
-role Parent of functional-complexes  specializes Person {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
-
-subkind Male_Person of functional-complexes  specializes Person {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
-
-subkind Female_Person of functional-complexes  specializes Person {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
-
-role Father of functional-complexes  specializes Male_Person, Parent {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
-
-role Mother of functional-complexes  specializes Female_Person, Parent {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
-
-mixin Performer_Artist
-
-role Individual_Artist of functional-complexes  specializes Performer_Artist, Person {
-    @material 
-    [1..*] -- records -- [1..*] Track 
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-}
+role Individual_Artist of functional-complexes  specializes Performer_Artist, Person 
 
 role Band_Member of functional-complexes  specializes Individual_Artist {
-    @material 
-    [1..*] -- records -- [1..*] Track 
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
+    @componentOf [2..*] -- records -- [1..*] Band 
 }
 
-subkind Band of functional-complexes  specializes Organization, Performer_Artist {
-    @memberOf 
-    [2..*] -- [*] Group 
-    @componentOf 
-    [2..*] -- [*] Organization 
-    @material 
-    [1..*] -- records -- [1..*] Track 
-}
+subkind Band of functional-complexes  specializes Organization, Performer_Artist 
 
-relator Authorship
+relator Authorship{
+    @mediation [1] -- [1] Album 
+    @mediation [1..*] -- [1..*] Performer_Artist 
+}
 
 kind Album
 
 kind Track
 
-role AlbumTrack of functional-complexes  specializes Track 
-
-relator Recording
-
-enum LocationCoordinates{
-latitude,altitude,longitude
+role AlbumTrack of functional-complexes  specializes Track {
+    @componentOf [2..*] -- [1..*] Album 
 }
 
+relator Recording{
+    @mediation [1] -- [1] Track 
+    @mediation [1..*] -- [1..*] Performer_Artist 
+}
+
+datatype LocationCoordinates{
+latitude,altitude,longitude,}
+
 datatype PriorityLevel
+genset ZwFOHb6GAqBwAQt2 {
+    general Person
+    specifics Living_Person, Deceased_Person
+}
+

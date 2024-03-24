@@ -1,4 +1,4 @@
-31
+40
 
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
@@ -6,6 +6,24 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Machine_Assumption'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'World_Assumption'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Machine_Assumption'.
+Duplicated reference name
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Organization'.
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to DataTypeOrClassOrRelation named 'World_Assumption'.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
@@ -18,16 +36,7 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Business_Requirement'.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class

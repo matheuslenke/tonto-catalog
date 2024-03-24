@@ -1,20 +1,27 @@
-import PlatformOntology
+import Price_Discovery
+import Decentralized
+import Recurring
+import Price_Calculation
+import Price_set_by_Provider
 
 package Digital_Platform_Ontology
 
-subkind Highest_Price_Offer of intrinsic-modes  specializes Offering_Price {
-    [0..*] -- has -- [1] Listing 
-    [1] -- has -- [0..*] Time_Slot 
-    @subQuantityOf 
-    [1..*] -- used_in -- [0..*] Booking_Price 
-}
+subkind Highest_Price_Offer of intrinsic-modes  specializes Offering_Price 
 
 mode Location
 
 subkind Job_Fee of intrinsic-modes  specializes Price_set_by_Provider {
-    [0..*] -- has -- [1] Listing 
-    [1] -- has -- [0..*] Time_Slot 
-    @subQuantityOf 
-    [1..*] -- used_in -- [0..*] Booking_Price 
+    [*] -- depends_on -- [*] Transportation_Cost 
+    [*] -- [*] Money_Receivement 
+}
+
+genset _pKiQ6GAqAAohhW {
+    general MultiSided_Platform_Hagiu_and_Wright_2015
+    specifics MultiSided_Transaction_platform_Evans_and_Gawer_2016
+}
+
+genset _zj2dx6DAAAAUkX {
+    general Registered_User
+    specifics Platform_Customer, Offering_Creator
 }
 

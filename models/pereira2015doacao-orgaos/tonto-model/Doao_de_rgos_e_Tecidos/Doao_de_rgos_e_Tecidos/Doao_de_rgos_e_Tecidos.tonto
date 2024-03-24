@@ -1,85 +1,82 @@
 
 package Doao_de_rgos_e_Tecidos
 
-phase Pessoa_com_PCR of functional-complexes  specializes Pessoa_Morta {
-    [1] -- [2..*] Sistema_Orgnico 
-}
+phase Pessoa_com_PCR of functional-complexes  specializes Pessoa_Morta 
 
-phase Pessoa_Saudvel of functional-complexes  specializes Pessoa_Viva {
-    [1] -- [2..*] Sistema_Orgnico 
-}
+phase Pessoa_Saudvel of functional-complexes  specializes Pessoa_Viva 
 
-phase Pessoa_Doente of functional-complexes  specializes Pessoa_Viva {
-    [1] -- [2..*] Sistema_Orgnico 
-}
+phase Pessoa_Doente of functional-complexes  specializes Pessoa_Viva 
 
-phase No_Funcional specializes rgo {
-    [1] -- [2..*] Tecido 
-}
+phase No_Funcional specializes rgo 
 
 kind Crnea specializes Tecido 
 
-phase Pessoa_Morta of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
-}
+phase Pessoa_Morta of functional-complexes  specializes Pessoa 
 
-phase Pessoa_Viva of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
-}
+phase Pessoa_Viva of functional-complexes  specializes Pessoa 
 
-phase Funcional specializes rgo {
-    [1] -- [2..*] Tecido 
-}
+phase Funcional specializes rgo 
 
 category Tecido of functional-complexes  specializes Item_Captado 
 
-phase Pessoa_com_ME of functional-complexes  specializes Pessoa_Morta {
+phase Pessoa_com_ME of functional-complexes  specializes Pessoa_Morta 
+
+kind Pessoa{
     [1] -- [2..*] Sistema_Orgnico 
 }
 
-kind Pessoa
-
-category Sistema_Orgnico of functional-complexes 
-
-category rgo of functional-complexes  specializes Item_Captado 
-
-kind Corao specializes rgo {
-    [1] -- [2..*] Tecido 
-}
-
-subkind Mulher of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
-}
-
-subkind Homem of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
-}
-
-kind Sistema_Circulatrio specializes Sistema_Orgnico {
+category Sistema_Orgnico of functional-complexes {
     [1..*] -- [2..*] rgo 
 }
 
-role Doador of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
+category rgo of functional-complexes  specializes Item_Captado {
+    [1] -- [2..*] Tecido 
 }
 
-relator Captao
+kind Corao specializes rgo 
 
-role Captador of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
+subkind Mulher of functional-complexes  specializes Pessoa 
+
+subkind Homem of functional-complexes  specializes Pessoa 
+
+kind Sistema_Circulatrio specializes Sistema_Orgnico 
+
+role Doador of functional-complexes  specializes Pessoa 
+
+relator Captao{
+    @mediation [1..*] -- [1] Doador 
+    @mediation [1..*] -- [1] Captador 
+    @mediation [1] -- [1..*] Item_Captado 
 }
 
-role Transplantador of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
-}
+role Captador of functional-complexes  specializes Pessoa 
+
+role Transplantador of functional-complexes  specializes Pessoa 
 
 roleMixin Item_Captado of functional-complexes 
 
 roleMixin Item_Transplantado of functional-complexes  specializes Item_Captado 
 
-relator Transplante
+relator Transplante{
+    @mediation [1..*] -- [1..*] Transplantador 
+    @mediation [1] -- [1..*] Item_Transplantado 
+    @mediation [1..*] -- [1] Receptor 
+}
 
-role Receptor of functional-complexes  specializes Pessoa {
-    [1] -- [2..*] Sistema_Orgnico 
+role Receptor of functional-complexes  specializes Pessoa 
+
+genset KvALH6AUAgInAw_ {
+    general Sistema_Orgnico
+    specifics Sistema_Circulatrio
+}
+
+genset wvoLH6AUAgInAxV {
+    general rgo
+    specifics Corao
+}
+
+genset j4LH6AUAgInAxf {
+    general Tecido
+    specifics Crnea
 }
 

@@ -1,48 +1,94 @@
-import ontology
 
 package diagram1
 
-relator Reserved_Copy
+relator Reserved_Copy{
+    @mediation [1] -- [1] Item 
+    @mediation [1] -- [1] Copy 
+}
 
-relator Renewed_Copy
+relator Renewed_Copy{
+    @mediation [1] -- [1] Item 
+    @mediation [1] -- [1] Copy 
+}
 
-relator Get_Copy
+relator Get_Copy{
+    @mediation [1] -- [1] Item 
+    @mediation [1] -- [1] Items_Copy 
+}
 
-kind Item
+kind Item{
+    @formal [1] -- [1] Work 
+}
 
-role Items_Copy
+role Items_Copy{
+    @mediation [1] -- [1] Copy 
+}
 
 kind Work
 
-subkind Videotape of functional-complexes  specializes Work 
+subkind Videotape of functional-complexes  specializes Work {
+    @memberOf [1] -- [1] Collection 
+}
 
-subkind Periodical of functional-complexes  specializes Work 
+subkind Periodical of functional-complexes  specializes Work {
+    @memberOf [1] -- [1] Collection 
+}
 
-subkind Book of functional-complexes  specializes Work 
+subkind Book of functional-complexes  specializes Work {
+    @memberOf [1] -- [1] Collection 
+}
 
-subkind Dvd of functional-complexes  specializes Work 
+subkind Dvd of functional-complexes  specializes Work {
+    @memberOf [1] -- [1] Collection 
+}
 
 collective Collection
 
-kind Copy
+kind Copy{
+    @mediation [1] -- [1] Copy_Reservation 
+    @mediation [1] -- [1] Renew_Copy 
+    @mediation [1] -- [1] Reserve_Copy_for_Employee 
+    @mediation [1] -- [1] Employee_Loan 
+    @mediation [1] -- [1] Renew_Copy_for_Employee 
+}
 
-role Copy_Reservation
+role Copy_Reservation{
+    @mediation [1] -- [1] Make_Reservation_for_Student 
+}
 
-relator Student_Loan
+relator Student_Loan{
+    @mediation [1] -- [1] Copy 
+    @mediation [1] -- [1] Delay 
+    @mediation [1] -- [1] Student 
+}
 
-role Delay
+role Delay{
+    @mediation [1] -- [1] Generate_Student_Delay 
+}
 
-relator Make_Reservation_for_Student
+relator Make_Reservation_for_Student{
+    @mediation [1] -- [1] Student 
+}
 
-relator Renew_Copy_for_Student
+relator Renew_Copy_for_Student{
+    @mediation [1] -- [1] Copy 
+    @mediation [1] -- [1] Student 
+}
 
-role Renew_Copy
+role Renew_Copy{
+    @mediation [1] -- [1] Student 
+}
 
 role Student of functional-complexes  specializes Person 
 
-relator Generate_Student_Delay
+relator Generate_Student_Delay{
+    @mediation [1] -- [1] Return_Deadline 
+    @mediation [1] -- [1] Student 
+}
 
-kind Return_Deadline
+kind Return_Deadline{
+    [*] -- [*] Fine 
+}
 
 kind Fine
 
@@ -50,13 +96,21 @@ phase Daily of functional-complexes  specializes Fine
 
 phase Monthly of functional-complexes  specializes Fine 
 
-role Undergraduate_Student of functional-complexes  specializes Student 
+role Undergraduate_Student of functional-complexes  specializes Student {
+    @mediation [1] -- [1] Undergraduate_Contract 
+}
 
-role Graduate_Student of functional-complexes  specializes Student 
+role Graduate_Student of functional-complexes  specializes Student {
+    @mediation [1] -- [1] Graduate_Contract 
+}
 
-relator Undergraduate_Contract
+relator Undergraduate_Contract{
+    @mediation [1] -- [1] UNISAM 
+}
 
-relator Graduate_Contract
+relator Graduate_Contract{
+    @mediation [1] -- [1] UNISAM 
+}
 
 kind UNISAM
 
@@ -68,23 +122,43 @@ role Administrative of functional-complexes  specializes Employee
 
 role Professor of functional-complexes  specializes Employee 
 
-role Regular of functional-complexes  specializes Administrative 
+role Regular of functional-complexes  specializes Administrative {
+    @material [1] -- [1] Intern 
+}
 
 role Intern of functional-complexes  specializes Administrative 
 
-relator Employee_Contract
+relator Employee_Contract{
+    @mediation [1] -- [1] Regular 
+    @mediation [1] -- [1] Intern 
+}
 
-relator Professor_Contract
+relator Professor_Contract{
+    @mediation [1] -- [1] UNISAM 
+    @mediation [1] -- [1] Professor 
+}
 
-relator Employee_Loan
+relator Employee_Loan{
+    @mediation [1] -- [1] Employee 
+}
 
-relator Renew_Employee
+relator Renew_Employee{
+    @mediation [1] -- [1] Employee 
+}
 
-relator Make_Reservation_for_Employee
+relator Make_Reservation_for_Employee{
+    @mediation [1] -- [1] Employee 
+}
 
-role Renew_Copy_for_Employee
+role Renew_Copy_for_Employee{
+    @mediation [1] -- [1] Renew_Employee 
+}
 
-role Reserve_Copy_for_Employee
+role Reserve_Copy_for_Employee{
+    @mediation [1] -- [1] Make_Reservation_for_Employee 
+}
 
-role Employee_Loan
+role Employee_Loan{
+    @mediation [1] -- [1] Employee_Loan 
+}
 

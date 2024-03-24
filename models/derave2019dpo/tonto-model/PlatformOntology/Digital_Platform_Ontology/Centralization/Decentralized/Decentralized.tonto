@@ -1,4 +1,21 @@
-import PlatformOntology
+import Transaction
+import Price_set_by_Provider
+import Price_Calculation
+import GDPO_part_1
+import GDPO_User_Roles
+import Airbnb
+import Uber_eats
+import MultiSided
+import Payment
+import Review_by_Customer
+import Marketplace_business_models
+import In_House_Payment
+import Conversation_System
+import Customer_Source
+import Review_System
+import Price_Discovery
+import Digital_Platform_Ontology
+import Revenue_Stream
 
 package Decentralized
 
@@ -6,114 +23,54 @@ subkind Listing of relators  specializes Offering_On_The_Platform {
     numFreeSeats: undefined  
     startDate: undefined  
     endDate: undefined  
-    @mediation 
-    [1] -- described_by -- [1] Offering_Description 
-    @mediation 
-    [1..*] -- offered_to -- [1] Target_MS_Platform_Customer_Community 
-    @mediation 
-    [0..*] -- mediated_by -- [1] Transaction_Platform_Company 
-    @mediation 
-    [1..*] -- offered_by -- [1] Offering_Creator 
-    [1..*] -- [1..*] Price_set_by_Provider 
-    [0..*] -- [0..*] Feature 
+    @mediation [1] -- described_by -- [1] Listing_Description 
+    [1] -- has -- [0..*] Available_time_slot 
+    [1] -- conforms_to -- [0..*] Booking 
+    [1] -- concerns -- [0..*] Listing_Conversation 
+    [1] -- has -- [1] Offered_Price_per_Seat 
+    [0..*] -- indicated -- [1..*] Time 
+    [*] -- predefined -- [*] Location 
+    [0..*] -- [1] Available_Quantity 
 }
 
 event Listing_Search specializes Digital_Content_Consumption, User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @participation [1..*] -- performed_by -- [1] Decentralized_Target_Platform_Customer 
+    @participation [1..*] -- uses -- [1] Listing_Overview 
+    @participation [1..*] -- performed_by -- [1] Airbnb_Home_Seeker 
+    @historicalDependence [1..*] -- results_in -- [0..1] Decentralized_Transaction_Creation 
+    @participation [0..*] -- performed_by -- [1] Uber_Eats_Customer 
+    [0..*] -- participates -- [1] Target_Platform_Customer 
+    [1] -- includes -- [0..*] Set_Filter 
+    [0..*] -- [0..*] Add_Filter 
 }
 
 collective Listing_Overview
 
-subkind Listing_Description of functional-complexes  specializes Offering_Description 
+subkind Listing_Description of functional-complexes  specializes Offering_Description {
+    @memberOf [2..*] -- is_part_of -- [1] Listing_Overview 
+    [1] -- has -- [1..*] Price_set_by_Provider 
+}
 
-roleMixin Decentralized_Target_Platform_Customer of functional-complexes 
+roleMixin Decentralized_Target_Platform_Customer of functional-complexes {
+    @memberOf [1..*] -- is_part_of -- [1] Decentralized_Target_Platform_Customer_Community 
+}
 
 collective Decentralized_Target_Platform_Customer_Community
 
 event Decentralized_Transaction_Creation specializes Transaction_Creation {
-    @creation 
-    [1] -- creates -- [1] Transaction 
-    @participation 
-    [1..*] -- initiates -- [1] Platform_Customer 
-    @participation 
-    [1..*] -- accepted_by -- [1] Platform_Provider 
-    @participation 
-    [1..*] -- performed_by -- [1] Airbnb_Home_Seeker 
-    @participation 
-    [0..*] -- performed_by -- [1] Uber_Eats_Customer 
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @participation [0..*] -- performed_by -- [1] Uber_Eats_Restaurant 
+    @creation [1] -- results_in -- [1] Decentralized_Transaction 
+    @mediation [1] -- performed_by -- [1..*] Decentralized_Platform_Customer 
+    [0..*] -- [1] Airbnb_Home_Seeker 
 }
 
-roleMixin Decentralized_Platform_Customer of functional-complexes  specializes Platform_Customer, Decentralized_Target_Platform_Customer {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- by -- [0..*] Transaction_Payment 
-    [1] -- does -- [0..*] Review_Creation_by_Customer 
-    [1] -- [1..*] Price_Acceptance 
-    [1] -- by -- [0..*] Inhouse_Payment 
-    [1] -- participates -- [1..*] Transaction_Conversation 
-    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
-    [*] -- [*] Paid_Transaction_Price 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
-    [*] -- suggests -- [*] Suggested_Price 
-    [1] -- initiates -- [0..*] Listing_Conversation 
-    @participation 
-    [1] -- [0..*] Price_Offer_Creation 
-    [1] -- [0..*] Request_Quote 
-    @memberOf 
-    [1..*] -- is_part_of -- [1] Decentralized_Target_Platform_Customer_Community 
-}
+roleMixin Decentralized_Platform_Customer of functional-complexes  specializes Platform_Customer, Decentralized_Target_Platform_Customer 
 
 subkind Decentralized_Transaction of relators  specializes Transaction {
-    @mediation 
-    [1..*] -- bounds_customer -- [1] Platform_Customer 
-    @mediation 
-    [1..*] -- is_bound_to -- [1] Transaction_Platform_Company 
-    @mediation 
-    [1..*] -- bounds_hired_provider -- [1..*] Platform_Provider 
-    [1] -- partially_fulfills -- [0..*] Delivery 
-    @historicalDependence 
-    [0..*] -- conforms_to -- [1..*] Offering_On_The_Platform 
-    @componentOf 
-    [1] -- is_part_of -- [0..1] Investment 
-    [1] -- [1] Paid_Price 
-    [1] -- [1] Transaction_Price 
-    [1] -- [0..*] Transaction_Conversation 
-    [1] -- [1] Highest_Price_Offer 
-    [0..*] -- confirms_to -- [1] Listing 
-    [0..*] -- [1] Fixed_Fee 
-    @mediation 
-    [1] -- bounds_user -- [1] Platform_User 
-    @mediation 
-    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
-    @mediation 
-    [0..*] -- bounds_platform -- [1] Platform_Company 
-    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
-    @mediation 
-    [1..*] -- bounds_user -- [1..*] MS_Platform_User 
+    @mediation [0..*] -- bound_to -- [1] Uber_Eats_Customer 
+    @historicalDependence [0..*] -- conforms_to -- [1] Listing 
+    [1] -- partially_fulfills -- [1] Meal_Preparation 
+    [1] -- relates_to -- [0..*] Meal_Preparation 
 }
 
 event Listing_Creation specializes User_Action {
@@ -121,13 +78,10 @@ event Listing_Creation specializes User_Action {
     setPersons: undefined  
     setStartAndEndDate: undefined  
     setCarType: undefined  
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @creation [1] -- creates -- [1] Listing 
+    [1] -- sets -- [0..*] Price_set_by_Provider 
+    @participational [1] -- includes -- [1..*] Price_Setting_action_by_Provider 
+    @participational [1] -- [1..*] Set_Price_per_Seat 
+    @participational [1] -- [1] Payment_Action 
 }
 

@@ -1,5 +1,9 @@
 
 package ROT
 
-mode Institutionbased_Trust
+mode Institutionbased_Trust{
+    @characterization [1..*] -- inheres_in -- [1] Agent 
+    @externalDependence [1..*] -- externaly_dependent_on -- [1..*] Monetary_System 
+    @externalDependence [1..*] -- [1] Virtual_Currency_System 
+}
 

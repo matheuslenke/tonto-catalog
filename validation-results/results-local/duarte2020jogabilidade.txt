@@ -1,4 +1,10 @@
-2
+8
 
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

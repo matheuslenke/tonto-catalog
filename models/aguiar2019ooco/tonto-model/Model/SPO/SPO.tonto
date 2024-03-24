@@ -1,4 +1,3 @@
-import Model
 
 package SPO
 
@@ -6,9 +5,11 @@ kind Language
 
 subkind Programming_Language of functional-complexes  specializes Language 
 
-category Artifact of functional-complexes 
+category Artifact of functional-complexes {
+    [0..*] -- represented_in -- [1..*] Language 
+}
 
 category Software_Item of functional-complexes  specializes Artifact {
-    [0..*] -- represented_in -- [1..*] Language 
+    [0..*] -- represented_in -- [1..*] Programming_Language 
 }
 

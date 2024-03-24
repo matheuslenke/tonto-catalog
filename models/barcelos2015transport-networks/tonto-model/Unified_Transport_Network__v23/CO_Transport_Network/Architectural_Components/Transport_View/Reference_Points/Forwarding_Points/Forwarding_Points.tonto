@@ -1,66 +1,37 @@
-import Unified_Transport_Network__v23
+import Adaptation_Function
+import Link_Connections
+import Complementary_Categorizations
+import Reference_Points
+import Layer_Processor_Function
+import Matrices
+import Subnetworks
 
 package Forwarding_Points
 
 role A_Sk_Output__AFP_Bound of functional-complexes  specializes Adaptation_Sink_Output, Possible_Ingress_LC, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+    @material [1] -- binds_AFP -- [1] A_So_Input__AFP_Bound 
 }
 
-role A_Sk_Output__Sk_LPFP_Bound of functional-complexes  specializes Adaptation_Sink_Output {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-}
+role A_Sk_Output__Sk_LPFP_Bound of functional-complexes  specializes Adaptation_Sink_Output 
 
-role A_Sk_Output__Sk_MFP_Bound of functional-complexes  specializes Adaptation_Sink_Output, Possible_Egress_LC, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role A_Sk_Output__Sk_MFP_Bound of functional-complexes  specializes Adaptation_Sink_Output, Possible_Egress_LC, Bound_InputOutput 
 
-role A_Sk_Output__Sk_SNFP_Bound of functional-complexes  specializes Adaptation_Sink_Output, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role A_Sk_Output__Sk_SNFP_Bound of functional-complexes  specializes Adaptation_Sink_Output, Bound_InputOutput 
 
-role A_So_Input__AFP_Bound of functional-complexes  specializes Adaptation_Source_Input, Possible_Egress_LC, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role A_So_Input__AFP_Bound of functional-complexes  specializes Adaptation_Source_Input, Possible_Egress_LC, Bound_InputOutput 
 
-role A_So_Input__So_LFP_Bound of functional-complexes  specializes Adaptation_Source_Input {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-}
+role A_So_Input__So_LFP_Bound of functional-complexes  specializes Adaptation_Source_Input 
 
-role A_So_Input__So_MFP_Bound of functional-complexes  specializes Adaptation_Source_Input, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role A_So_Input__So_MFP_Bound of functional-complexes  specializes Adaptation_Source_Input, Bound_InputOutput 
 
-role A_So_Input__So_SNFP_Bound of functional-complexes  specializes Adaptation_Source_Input, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role A_So_Input__So_SNFP_Bound of functional-complexes  specializes Adaptation_Source_Input, Bound_InputOutput 
 
 category AFP of functional-complexes  specializes Forwarding_Point 
 
 relator AFP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+    @mediation [1] -- is_represented_by_AFP -- [1] Unidirectional_AFP 
+    @mediation [1] -- binds_AFP_to -- [1] A_So_Input__AFP_Bound 
+    @mediation [1] -- binds_AFP_from -- [1] A_Sk_Output__AFP_Bound 
 }
 
 kind Bidirectional_AFP specializes AFP, Possible_Bi_LC_Connected_RP 
@@ -74,111 +45,135 @@ kind Bidirectional_SNFP specializes SNFP, Possible_Bi_LC_Connected_RP
 category Forwarding_Point of functional-complexes  specializes Reference_Point 
 
 role LP_Input__Sk_LPFP_Bound of functional-complexes  specializes Layer_Processor_Sink_Input, Possible_Egress_LC {
-    @componentOf 
-    [1] -- [1] Layer_Processor_Function_Sink 
+    @material [1] -- binds_So_LFP -- [1] A_Sk_Output__Sk_LPFP_Bound 
 }
 
 category LPFP of functional-complexes  specializes Forwarding_Point 
 
 role LPF_Output__So_LFP_Bound of functional-complexes  specializes Layer_Processor_Source_Output, Possible_Ingress_LC {
-    @componentOf 
-    [1] -- [1] Layer_Processor_Function_Source 
+    @material [1..*] -- binds_So_LFP -- [1] A_So_Input__So_LFP_Bound 
 }
 
 role M_Input__Sk_MFP_Bound of functional-complexes  specializes Matrix_Input, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Unidirectional_Matrix 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+    @material [1] -- binds_Sk_MFP -- [1] A_Sk_Output__Sk_MFP_Bound 
 }
 
 role M_Output__So_MFP_Bound of functional-complexes  specializes Matrix_Output, Possible_Ingress_LC, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Unidirectional_Matrix 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+    @material [1] -- binds_So_MFP -- [1] A_So_Input__So_MFP_Bound 
 }
 
 category MFP of functional-complexes  specializes Forwarding_Point 
 
 role SN_Intput__Sk_SNFP_Bound of functional-complexes  specializes Subnetwork_Input, Possible_Egress_LC, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Unidirectional_Subnetwork 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+    @material [1] -- binds_Sk_SNFP -- [1..*] A_Sk_Output__Sk_SNFP_Bound 
 }
 
 role SN_Outtput__So_SNFP_Bound of functional-complexes  specializes Subnetwork_Output, Possible_Ingress_LC, Bound_InputOutput {
-    @componentOf 
-    [1..*] -- [1] Unidirectional_Subnetwork 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
+    @material [1] -- binds_So_SNFP -- [1..*] A_So_Input__So_SNFP_Bound 
 }
 
 category SNFP of functional-complexes  specializes Forwarding_Point 
 
 kind Sink_LPFP specializes LPFP, Possible_LC_Connected_RP 
 
-role Sink_LPFP_Bi_Component of functional-complexes  specializes Sink_LPFP 
+role Sink_LPFP_Bi_Component of functional-complexes  specializes Sink_LPFP {
+    @componentOf [1] -- [1] Bidirectional_LPFP 
+}
 
-relator Sink_LPFP_Binding
+relator Sink_LPFP_Binding{
+    @mediation [1] -- is_represented_by_Sk_LFP -- [1] Sink_LPFP 
+    @mediation [1] -- binds_Sk_LFP_from -- [1] LP_Input__Sk_LPFP_Bound 
+    @mediation [1] -- binds_Sk_LFP_to -- [1] A_Sk_Output__Sk_LPFP_Bound 
+}
 
 kind Sink_MFP specializes MFP, Possible_LC_Connected_RP 
 
-role Sink_MFP_Bi_Component of functional-complexes  specializes Sink_MFP 
+role Sink_MFP_Bi_Component of functional-complexes  specializes Sink_MFP {
+    @componentOf [1] -- [1] Bidirectional_MFP 
+}
 
 relator Sink_MFP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+    @mediation [1] -- is_represented_by_Sk_MFP -- [1] Sink_MFP 
+    @mediation [1] -- binds_Sk_MFP_from -- [1] M_Input__Sk_MFP_Bound 
+    @mediation [1] -- binds_Sk_MFP_to -- [1] A_Sk_Output__Sk_MFP_Bound 
 }
 
 kind Sink_SNFP specializes SNFP, Possible_LC_Connected_RP 
 
-role Sink_SNFP_Bi_Component of functional-complexes  specializes Sink_SNFP 
+role Sink_SNFP_Bi_Component of functional-complexes  specializes Sink_SNFP {
+    @componentOf [1] -- [1] Bidirectional_SNFP 
+}
 
 relator Sink_SNFP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+    @mediation [1] -- is_represented_by_Sk_SNFP -- [1] Sink_SNFP 
+    @mediation [1..*] -- binds_Sk_SNFP_from -- [1] SN_Intput__Sk_SNFP_Bound 
+    @mediation [1] -- binds_Sk_SNFP_to -- [1] A_Sk_Output__Sk_SNFP_Bound 
 }
 
 relator Source_LFP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+    @mediation [1] -- is_represented_by_So_LFP -- [1] Source_LPFP 
+    @mediation [1] -- binds_So_LFP_from -- [1] LPF_Output__So_LFP_Bound 
+    @mediation [1..*] -- binds_So_LFP_to -- [1] A_So_Input__So_LFP_Bound 
 }
 
 kind Source_LPFP specializes LPFP, Possible_LC_Connected_RP 
 
-role Source_LPFP_Bi_Component of functional-complexes  specializes Source_LPFP 
+role Source_LPFP_Bi_Component of functional-complexes  specializes Source_LPFP {
+    @componentOf [1] -- [1] Bidirectional_LPFP 
+}
 
 kind Source_MFP specializes MFP, Possible_LC_Connected_RP 
 
-role Source_MFP_Bi_Component of functional-complexes  specializes Source_MFP 
+role Source_MFP_Bi_Component of functional-complexes  specializes Source_MFP {
+    @componentOf [1] -- [1] Bidirectional_MFP 
+}
 
 relator Source_MFP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+    @mediation [1] -- is_represented_by_So_MFP -- [1] Source_MFP 
+    @mediation [1] -- binds_So_MFP_from -- [1] M_Output__So_MFP_Bound 
+    @mediation [1] -- binds_So_MFP_to -- [1] A_So_Input__So_MFP_Bound 
 }
 
 kind Source_SNFP specializes SNFP, Possible_LC_Connected_RP 
 
-role Source_SNFP_Bi_Component of functional-complexes  specializes Source_SNFP 
-
-relator Source_SNFP_Binding specializes Binding {
-    @mediation 
-    [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation 
-    [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
+role Source_SNFP_Bi_Component of functional-complexes  specializes Source_SNFP {
+    @componentOf [1] -- [1] Bidirectional_SNFP 
 }
 
-role Uni_AFP_Bi_Component of functional-complexes  specializes Unidirectional_AFP 
+relator Source_SNFP_Binding specializes Binding {
+    @mediation [1] -- is_represented_by_So_SNFP -- [1] Source_SNFP 
+    @mediation [1..*] -- binds_So_SNFP_from -- [1] SN_Outtput__So_SNFP_Bound 
+    @mediation [1] -- binds_So_SNFP_to -- [1] A_So_Input__So_SNFP_Bound 
+}
+
+role Uni_AFP_Bi_Component of functional-complexes  specializes Unidirectional_AFP {
+    @componentOf [2] -- [1] Bidirectional_AFP 
+}
 
 kind Unidirectional_AFP specializes AFP, Possible_LC_Connected_RP 
+
+genset lS4Cwn6AUBAIKCjF {
+    general Forwarding_Point
+    specifics MFP, SNFP, AFP, LPFP
+}
+
+genset NXcCwn6AUBAIKCjj {
+    general AFP
+    specifics Bidirectional_AFP, Unidirectional_AFP
+}
+
+genset cWuCwn6AUBAIKCkr {
+    general SNFP
+    specifics Bidirectional_SNFP, Sink_SNFP, Source_SNFP
+}
+
+genset zNxCwn6AUBAIKClF {
+    general MFP
+    specifics Bidirectional_MFP, Source_MFP, Sink_MFP
+}
+
+genset _0lCwn6AUBAIKClT {
+    general LPFP
+    specifics Sink_LPFP, Source_LPFP
+}
 

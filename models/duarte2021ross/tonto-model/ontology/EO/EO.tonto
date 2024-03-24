@@ -1,12 +1,8 @@
-import ontology
-import ASMP
-import EO
-import ROSS
-import SPO
-import SwO
 import UFO
 
 package EO
 
-class Organization specializes Agent 
+class Organization specializes Agent {
+    [1] -- has_goal -- [*] Business_Requirement 
+}
 

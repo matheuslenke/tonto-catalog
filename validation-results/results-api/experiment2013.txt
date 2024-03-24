@@ -1,3 +1,6 @@
 Validating...
-- Total of errors: 0
+Could not create relation named ((No name)) between Context and InitialDate because one or both of them was not created.
+Could not create relation named ((No name)) between Context and EndDate because one or both of them was not created.
+Total of errors: 0
+undefined
 Validation finished

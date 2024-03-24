@@ -1,4 +1,8 @@
-import Unified_Transport_Network__v23
+import Transport_Functions
+import General_Elements
+import Complementary_Categorizations
+import Termination_Vertical_Connections
+import Matrix_Vertical_Connections
 
 package Matrices
 
@@ -10,57 +14,43 @@ role Connected_Unidirectional_Matrix of functional-complexes  specializes Unidir
 
 category Matrix of functional-complexes  specializes Transport_Function, Geographical_Element 
 
-kind Matrix_Input specializes Input 
+kind Matrix_Input specializes Input {
+    @componentOf [1..*] -- [1] Unidirectional_Matrix 
+}
 
-kind Matrix_Output specializes Output 
+kind Matrix_Output specializes Output {
+    @componentOf [1..*] -- [1] Unidirectional_Matrix 
+}
 
 subkind Path_Bidirectional_Matrix of functional-complexes  specializes Bidirectional_Matrix 
 
-role Sink_Matrix of functional-complexes  specializes M__Termination_Sink_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_Sk_Connected {
-    @material 
-    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
-    @material 
-    [1..*] -- MA_Sink_Connection -- [1..*] A_Sk__Uni_Matrix_Connected 
-}
+role Sink_Matrix of functional-complexes  specializes M__Termination_Sink_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_Sk_Connected 
 
 role Sk_Matrix_Bi_Component of functional-complexes  specializes Sink_Matrix {
-    @material 
-    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
-    @material 
-    [1..*] -- MA_Sink_Connection -- [1..*] A_Sk__Uni_Matrix_Connected 
+    @componentOf [1] -- [1] Path_Bidirectional_Matrix 
 }
 
 role So_Matrix_Bi_Component of functional-complexes  specializes Source_Matrix {
-    @material 
-    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
-    @material 
-    [1..*] -- MA_Source_Connection -- [1..*] A_So__Uni_Matrix_Connected 
+    @componentOf [1] -- [1] Path_Bidirectional_Matrix 
 }
 
-role Source_Matrix of functional-complexes  specializes M__Termination_Source_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_So_Connected {
-    @material 
-    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
-    @material 
-    [1..*] -- MA_Source_Connection -- [1..*] A_So__Uni_Matrix_Connected 
-}
+role Source_Matrix of functional-complexes  specializes M__Termination_Source_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_So_Connected 
 
 role Uni_SkSo_Matrix_Bi_Component of functional-complexes  specializes Unidirectional_SinkSource_Matrix {
-    @material 
-    [1..*] -- MA_Sink_Connection -- [1..*] A_Sk__Uni_Matrix_Connected 
-    @material 
-    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
-    @material 
-    [1..*] -- MA_Source_Connection -- [1..*] A_So__Uni_Matrix_Connected 
+    @componentOf [2] -- [1] Bidirectional_SinkSource_Matrix 
 }
 
 kind Unidirectional_Matrix specializes Matrix 
 
-role Unidirectional_SinkSource_Matrix of functional-complexes  specializes Connected_Unidirectional_Matrix, Uni_Matrix__A_Sk_Connected, Uni_Matrix__A_So_Connected {
-    @material 
-    [1..*] -- MA_Sink_Connection -- [1..*] A_Sk__Uni_Matrix_Connected 
-    @material 
-    [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
-    @material 
-    [1..*] -- MA_Source_Connection -- [1..*] A_So__Uni_Matrix_Connected 
+role Unidirectional_SinkSource_Matrix of functional-complexes  specializes Connected_Unidirectional_Matrix, Uni_Matrix__A_Sk_Connected, Uni_Matrix__A_So_Connected 
+
+genset z6Kbnb6GAqBwAUKR {
+    general Matrix
+    specifics Bidirectional_Matrix, Unidirectional_Matrix
+}
+
+genset d9A7nb6GAqBwAUNC {
+    general Bidirectional_Matrix
+    specifics Bidirectional_SinkSource_Matrix, Path_Bidirectional_Matrix
 }
 

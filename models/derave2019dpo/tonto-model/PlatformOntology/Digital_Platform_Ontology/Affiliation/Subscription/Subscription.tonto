@@ -1,35 +1,25 @@
-import PlatformOntology
+import GDPO_part_1
+import GDPO_User_Roles
+import Airbnb
+import Registration
+import Review_System
 
 package Subscription
 
 event User_Payment_Action specializes User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    [1..*] -- is_part_of -- [1] Subscription_Action 
 }
 
 event Subscription_Action specializes User_Affiliation_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @historicalDependence [0..1] -- Followed_by -- [1] Registration_Action 
+    @participation [1..*] -- performed_by -- [1] Subscribed_Platform_User 
+    @creation [1] -- creates -- [1] Subscription 
 }
 
-roleMixin Subscribed_Platform_User of functional-complexes  specializes Registered_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+roleMixin Subscribed_Platform_User of functional-complexes  specializes Registered_User 
+
+genset oTLSpC6FYEWG27Tp {
+    general User_Affiliation_Agreement
+    specifics Subscription, Registration
 }
 

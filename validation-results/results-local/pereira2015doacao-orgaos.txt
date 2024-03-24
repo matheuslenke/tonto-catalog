@@ -1,9 +1,30 @@
-15
+23
 
+Expecting token of type 'specifics' but found `Sistema_Circulatrio`.
+Expecting token of type 'specifics' but found `Corao`.
+Expecting: one of these possible Token sequences:
+  1. [datatype]
+  2. [enum]
+  3. [disjoint, complete, genset]
+  4. [disjoint, genset, ID]
+  5. [complete, genset, ID]
+  6. [genset, ID, {]
+  7. [disjoint, complete, genset]
+  8. [disjoint, genset, ID]
+  9. [complete, genset, ID]
+  10. [genset, ID, where]
+  11. [@]
+  12. [relation]
+but found: 'genset'
+Expecting end of file but found `genset`.
 Prohibited specialization: rigid/semi-rigid specializing an anti-rigid. The rigid/semi-rigid class Tecido cannot specialize the anti-rigid class Item_Captado
 Prohibited specialization: rigid/semi-rigid specializing an anti-rigid. The rigid/semi-rigid class rgo cannot specialize the anti-rigid class Item_Captado
-This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
-This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

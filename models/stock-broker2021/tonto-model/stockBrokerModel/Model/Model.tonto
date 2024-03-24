@@ -1,4 +1,3 @@
-import stockBrokerModel
 
 package Model
 
@@ -10,7 +9,10 @@ role StockholderOrganization of functional-complexes  specializes Organization, 
 
 roleMixin StockHolder of functional-complexes 
 
-relator Contract
+relator Contract{
+    @mediation [1] -- [1] StockHolder 
+    @mediation [1] -- [1] Hired_Brokerage 
+}
 
 role Hired_Brokerage of functional-complexes  specializes Brokerage 
 
@@ -24,9 +26,29 @@ role Buyer of functional-complexes  specializes Brokerage
 
 role Seller of functional-complexes  specializes Brokerage 
 
-relator Stock
+relator Stock{
+    @mediation [1] -- [1] Buyer 
+    @mediation [1] -- [1] Seller 
+    @mediation [1] -- [1] Public_Traded_Company 
+    @mediation [1] -- [1] Stock_Keeper 
+}
 
 role Public_Traded_Company of functional-complexes  specializes Organization 
 
 role Stock_Keeper of functional-complexes  specializes Stock_Exchange 
+
+genset tJClsf6GAqAAbwrg {
+    general Brokerage
+    specifics Seller, Buyer
+}
+
+genset TGlsf6GAqAAbwsS {
+    general Organization
+    specifics Public_Traded_Company, Brokerage, Stock_Exchange
+}
+
+genset trBlsf6GAqAAbws6 {
+    general StockHolder
+    specifics StockholderOrganization, Stockholder_Person
+}
 

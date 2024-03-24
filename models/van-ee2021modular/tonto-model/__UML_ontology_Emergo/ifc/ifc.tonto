@@ -1,0 +1,10 @@
+import bpo
+import schema
+
+package ifc
+
+kind BuildingElement specializes Assembly {
+    @componentOf [1..*] -- [1] House 
+    @componentOf [1..*] -- [1] Module 
+}
+

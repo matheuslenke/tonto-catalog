@@ -1,23 +1,26 @@
-import DigitalDoctorDatatypes
 
 package DigitalDoctor
 
 kind Person specializes NamedEntity {
-    firstName: string  
-    lastName: string  
+    firstName: string_  
+    lastName: string_  
     birthdate: undefined  
-    gender: boolean
-    SSN: string  
+    gender: boolean_  
+    SSN: string_  
 }
 
 subkind User of functional-complexes  specializes Person {
-    username: string  
+    username: string_  
     contactPoint: ContactPoint  
 }
 
-role Patient of functional-complexes  specializes User 
+role Patient of functional-complexes  specializes User {
+    @material [1] -- has -- [1] MedicalHistory 
+}
 
-role Doctor of functional-complexes  specializes User 
+role Doctor of functional-complexes  specializes User {
+    @mediation [1..*] -- [*] MedicalProcedure 
+}
 
 subkind Symptom of relators  specializes PatientReport {
     symptom: SymptomEnum  
@@ -26,219 +29,117 @@ subkind Symptom of relators  specializes PatientReport {
     symptomStart: Date  
     symptomWorsening: undefined  
     finalRating: Rating  
-    @mediation 
-    [1..*] -- [1] ReportingPatient 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
 }
 
-phase MildSymptom of relators  specializes Symptom {
-    @mediation 
-    [1..*] -- [1] ReportingPatient 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-}
+phase MildSymptom of relators  specializes Symptom 
 
-phase SevereSymptom of relators  specializes Symptom, MedicalProcedureTrigger {
-    @mediation 
-    [1..*] -- [1] ReportingPatient 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-}
+phase SevereSymptom of relators  specializes Symptom, MedicalProcedureTrigger 
 
 collective MedicalHistory specializes NamedEntity {
-    observation: string  
+    observation: string_  
 }
 
 relator MedicalProcedure specializes NamedEntity {
     address: Address  
     date: Date  
-    patientPreparation: string  
+    patientPreparation: string_  
+    @mediation [*] -- [1] TreatmentPatient 
+    @material [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
+    @material [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
+    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
-subkind TherapeuticProcedure of relators  specializes PresenceMedicalProcedure, RemoteMedicalProcedure {
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
-}
+subkind TherapeuticProcedure of relators  specializes PresenceMedicalProcedure, RemoteMedicalProcedure 
 
-subkind PalliativeProcedure of relators  specializes PresenceMedicalProcedure {
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
-}
+subkind PalliativeProcedure of relators  specializes PresenceMedicalProcedure 
 
 subkind PhysicalExam of relators  specializes PresenceMedicalProcedure {
-    bodyLocation: string  
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
+    bodyLocation: string_  
 }
 
 subkind SurgicalProcedure of relators  specializes PresenceMedicalProcedure {
-    bodyLocation: string  
-    typeOfAnaesthesia: string  
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
+    bodyLocation: string_  
+    typeOfAnaesthesia: string_  
 }
 
 subkind DiagnosticProcedure of relators  specializes PresenceMedicalProcedure, RemoteMedicalProcedure {
     diagnosisMethod: undefined  
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
 }
 
 kind DoseSchedule specializes NamedEntity {
-    doseUnit: string  
+    doseUnit: string_  
     doseValue: float  
-    doseFrequency: string  
+    doseFrequency: string_  
 }
 
 kind Drug specializes NamedEntity {
     prescriptionRequired: undefined  
     isAvailableGenerically: undefined  
-    alcoholWarning: string  
-    foodWarning: string  
-    pregnancyWarning: string  
-    breastfeedingWarning: string  
+    alcoholWarning: string_  
+    foodWarning: string_  
+    pregnancyWarning: string_  
+    breastfeedingWarning: string_  
 }
 
 category NamedEntity{
-    name: string  
-    description: string  
+    name: string_  
+    description: string_  
 }
 
-relator Prescription specializes NamedEntity 
+relator Prescription specializes NamedEntity {
+    @mediation [1] -- [1..*] PrescribedDrug 
+    @mediation [1] -- [1..*] PrescribedDoseSchedule 
+    @componentOf [1] -- [1] TherapeuticProcedure 
+}
 
 mixin MedicalProcedureTrigger
 
-subkind VisitRequest of relators  specializes MedicalProcedureTrigger, PatientReport {
-    @mediation 
-    [1..*] -- [1] ReportingPatient 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-}
+subkind VisitRequest of relators  specializes MedicalProcedureTrigger, PatientReport 
 
 subkind PreviousIllness of functional-complexes  specializes MedicalProcedureTrigger, MedicalCondition {
     discoveryDate: Date  
     healingDate: Date  
+    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
 kind MedicalProcedureOutcome specializes NamedEntity {
-    remark: string  
+    remark: string_  
     expiryDate: Date  
     date: Date  
     severity_rating: Rating  
+    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
 role SpecialistDoctor of functional-complexes  specializes Doctor {
     speciality: MedicalSpeciality  
-    @mediation 
-    [1..*] -- [*] MedicalProcedure 
+    @mediation [1..*] -- [*] SpecialistMedicalProcedure 
 }
 
 role GeneralPractitioner of functional-complexes  specializes Doctor {
-    @mediation 
-    [1..*] -- [*] MedicalProcedure 
+    @mediation [1] -- [*] PatientReport 
 }
 
 relator PatientReport specializes NamedEntity {
     date: Date  
-    comment: string  
+    comment: string_  
+    @mediation [1..*] -- [1] ReportingPatient 
+    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
-subkind RemoteMedicalProcedure of relators  specializes MedicalProcedure {
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @material
-    [1] -- treatedBy -- Doctor
-    
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
-}
+subkind RemoteMedicalProcedure of relators  specializes MedicalProcedure 
 
-subkind PresenceMedicalProcedure of relators  specializes MedicalProcedure {
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
-}
+subkind PresenceMedicalProcedure of relators  specializes MedicalProcedure 
 
 role SpecialistMedicalProcedure of relators  specializes PresenceMedicalProcedure {
-    @mediation 
-    [*] -- [1] TreatmentPatient 
-    @material 
-    [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material 
-    [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-    @derivation 
-    [1] -- [1] RemoteMedicalProcedure.treatedBy 
+    @mediation [*] -- [1] TreatmentPatient 
 }
 
-phase SevereOutcome of functional-complexes  specializes MedicalProcedureOutcome, MedicalProcedureTrigger {
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-}
+phase SevereOutcome of functional-complexes  specializes MedicalProcedureOutcome, MedicalProcedureTrigger 
 
-phase NonSevereOutcome of functional-complexes  specializes MedicalProcedureOutcome {
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
-}
+phase NonSevereOutcome of functional-complexes  specializes MedicalProcedureOutcome 
 
 subkind Diagnosis of functional-complexes  specializes MedicalProcedureOutcome {
-    @componentOf 
-    [1..*] -- [1] MedicalHistory 
+    @material [1] -- leadsTo -- [1..*] MedicalCondition 
 }
 
 kind MedicalCondition specializes NamedEntity {
@@ -246,45 +147,73 @@ kind MedicalCondition specializes NamedEntity {
 }
 
 role ReportingPatient of functional-complexes  specializes Patient {
-    @material 
-    [1] -- has -- [1] MedicalHistory 
+    @material [1..*] -- reportTo -- [1] GeneralPractitioner 
 }
 
 role TreatmentPatient of functional-complexes  specializes ReportingPatient {
-    @material 
-    [1..*] -- reportTo -- [1] GeneralPractitioner 
-    @material 
-    [1] -- has -- [1] MedicalHistory 
+    @material [1..*] -- treatedBy -- [1..*] Doctor 
+    @material [1..*] -- treatedBy_redefines_doctor -- [1..*] GeneralPractitioner 
+    @material [1..*] -- treatedBy -- [1..*] SpecialistDoctor 
 }
 
 role PrescribedDrug of functional-complexes  specializes Drug 
 
-role PrescribedDoseSchedule of functional-complexes  specializes DoseSchedule 
-
-enum Date {
-date,time }
-
-enum Address{
-street,city,region,country,category2,zipcode,complement}
-
-enum MedicalSpeciality{
-Cardiovascular,Dentistry,Dermatology,DietNutrition,Endocrine,Geriatric,Gynecologic,Hematologic,Infectious,Musculoskeletal,Neurologic,Oncologic,Pediatric,Pulmonary,Radiography,Rheumatologic,SpeechPathology,Surgical,Toxicologic,Urologic}
-
-enum ContactPoint{
-telephone,email,address,availableHours}
-
-enum HoursSpecification{
-dayOfWeek,startTime,endTime}
-
-enum SymptomEnum{
-    Headache, Fever, Dizzy, Impaired_Memory, Skin_Changes, Swelling, Painful_Swallowing, Sore_Throat, Cough, Hoarse_Voice, Itch, Shortness_of_Breath, Pain_in_Neck, Enlarged_Lymph_Nodes, Chest_Pain, Heartburn, Palpitations, Fast_Heart_Rate, Slow_Heart_Rate, Stomach_Pain, Vomiting, Indigestion, Weight_Loss, Diarrhea, Black_Stools, Red_Stools, Pain_When_Moving, Back_Pain, Leg_Pain, Cramps, Skin_Rash_or_Discoloration, Numbness, Injury, Other
+role PrescribedDoseSchedule of functional-complexes  specializes DoseSchedule {
+    @material [1] -- [1] PrescribedDrug 
 }
-enum Rating{
-    Negligible, Minimal, Significant, Serious, Severe, Very_Severe
+
+datatype Date{
+date,time,}
+
+datatype Address{
+street,city,region,country,category,zipcode,complement,}
+
+datatype MedicalSpeciality{
+Cardiovascular,Dentistry,Dermatology,DietNutrition,Endocrine,Geriatric,Gynecologic,Hematologic,Infectious,Musculoskeletal,Neurologic,Oncologic,Pediatric,Pulmonary,Radiography,Rheumatologic,SpeechPathology,Surgical,Toxicologic,Urologic,}
+
+datatype ContactPoint{
+telephone,email,address,availableHours,}
+
+datatype HoursSpecification{
+dayOfWeek,startTime,endTime,}
+
+genset UserRole {
+    general User
+    specifics Doctor, Patient
 }
-enum MedicalConditionStage{
-    Undetermined, Good, Fair, Serious, Critical, Treated, Patient_Death
+
+genset Severity {
+    general Symptom
+    specifics SevereSymptom, MildSymptom
 }
-enum DiagnosisMethod{
-    Blood_Analysis, Urine_Analysis, Stool_Analysis, CT, MRI, Ultrasound, PET, ECG, Other
+
+genset ReportType {
+    general PatientReport
+    specifics Symptom, VisitRequest
 }
+
+genset DoctorType {
+    general Doctor
+    specifics SpecialistDoctor, GeneralPractitioner
+}
+
+genset ProcedureType {
+    general PresenceMedicalProcedure
+    specifics PalliativeProcedure, DiagnosticProcedure, PhysicalExam, TherapeuticProcedure, SurgicalProcedure
+}
+
+genset Severity {
+    general MedicalProcedureOutcome
+    specifics NonSevereOutcome, SevereOutcome
+}
+
+genset RemoteProcedureType {
+    general RemoteMedicalProcedure
+    specifics DiagnosticProcedure, TherapeuticProcedure
+}
+
+genset MedicalProcedureMode {
+    general MedicalProcedure
+    specifics PresenceMedicalProcedure, RemoteMedicalProcedure
+}
+

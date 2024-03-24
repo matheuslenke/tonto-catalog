@@ -1,3 +1,4 @@
+import Simple_OntoRights
 
 package Simple_OntoRights
 
@@ -14,6 +15,14 @@ event UFOB_Event_Event{
     harmfulEvent: boolean_  
     intendedRole: DEFRoleTypeList  
     actualRole: DEFRoleTypeList  
+    @bringsAbout [0..*] -- causes -- [0..*] UFOB_Event_Event 
+    @comparative [0..*] -- within_a -- [1] Place_Place 
+    @bringsAbout [1] -- directly_causes -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
+     --  DEFDateTime 
+    @mediation [1] -- grounds -- [0..*] Human_Rights_Violation_Human_Rights_Violation 
+    @componentOf [0..*] -- has_part -- [0..*] UFOB_Event_Event 
+    @creation [1] -- [0..1] Official_Legal_Record_Official_Legal_Record 
+    @bringsAbout [1] -- intented_effect -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
 }
 
 kind Place_Place{
@@ -25,6 +34,7 @@ kind Place_Place{
     latitude: string_  
     longitude: string_  
     openstreetmap: undefined  
+    @componentOf  --  Place_Place 
 }
 
 category UFOC_Agent_Agent of functional-complexes {
@@ -37,6 +47,10 @@ category UFOC_Agent_Agent of functional-complexes {
     wikidataURL: string_  
     whowasincommandURL: string_  
     contactDetails: DEFContactDetails  
+    @material [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
+    @participation [1] -- [0..*] UFOB_Event_Event 
+    @comparative [0..*] -- active_in -- [0..*] Place_Place 
+    @material [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
 }
 
 situation Consequence_For_Agent_Consequence_For_Agent{
@@ -61,6 +75,7 @@ situation Consequence_For_Agent_Consequence_For_Agent{
     justice: boolean_  
     reparation: boolean_  
     guarantees_of_nonrepetition: boolean_  
+    @componentOf [0..*] -- [0..*] Official_Legal_Record_Official_Legal_Record 
 }
 
 kind Natural_Person_Person specializes UFOC_Agent_Agent {
@@ -83,14 +98,8 @@ kind Natural_Person_Person specializes UFOC_Agent_Agent {
     fullName: string_  { derived }
     nationality: DEFCountryList [0..*] 
     civilStatus: DEFCivilStatusList  
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
+    @comparative [0..*] -- born_in -- [1] Place_Place 
+    @material [0..*] -- has_relation_to -- [0..*] Natural_Person_Person 
 }
 
 kind UFOC_Social_Agent_Organisation_OR_Group specializes UFOC_Agent_Agent {
@@ -108,14 +117,8 @@ kind UFOC_Social_Agent_Organisation_OR_Group specializes UFOC_Agent_Agent {
     isComplexOrganisation: boolean_  
     isSimpleOrganisationalUnit: boolean_  
     isComplexOrganisationalUnit: boolean_  
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
+    @componentOf [0..*] -- part_of_larger -- [0..*] UFOC_Social_Agent_Organisation_OR_Group 
+    @material [0..*] -- has -- [0..*] Site_Site 
 }
 
 roleMixin Perpetrator_Perpetrator of functional-complexes  specializes UFOC_Agent_Agent {
@@ -125,28 +128,12 @@ roleMixin Perpetrator_Perpetrator of functional-complexes  specializes UFOC_Agen
     failedResponsibilityToRespect: boolean_  
     failedResponsibilityToProtect: boolean_  
     failedResponsibilityToPromote: boolean_  
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
 }
 
 roleMixin Victim_Victim of functional-complexes  specializes UFOC_Agent_Agent {
     victimID: int  
     childAtTimeOfViolation: boolean_  
     attribute: undefined  
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
 }
 
 phase Human_Rights_Violation_Human_Rights_Violation of relators {
@@ -154,6 +141,11 @@ phase Human_Rights_Violation_Human_Rights_Violation of relators {
     ohchrThematicIssue: DEFOHCHRThematicIssue [0..*] 
     legalAnalysis: string_  
     confirmedStatus: DEFConfirmedStatusList  
+    @mediation [1] -- [1..*] Perpetrator_Perpetrator 
+    @mediation [1] -- [1..*] Victim_Victim 
+    @mediation [0..*] -- concerns -- [0..*] Human_Rights_Standard_Human_Rights_Standard 
+    @mediation [0..*] -- concerns -- [0..*] Human_Rights_Instrument_Human_Rights_Instrument 
+    @mediation [0..*] -- concerns_mandate_of -- [0..*] Human_Rights_Mechanism_Human_Rights_Mechanism 
 }
 
 kind Human_Rights_Standard_Human_Rights_Standard{
@@ -162,6 +154,7 @@ kind Human_Rights_Standard_Human_Rights_Standard{
     description: string_  
     wikidataURL: string_  
     type_: DEFHumanRightsStandardTypeList  
+    @material [0..*] -- is_content_of -- [0..*] Human_Rights_Instrument_Human_Rights_Instrument 
 }
 
 kind Human_Rights_Instrument_Human_Rights_Instrument{
@@ -172,12 +165,16 @@ kind Human_Rights_Instrument_Human_Rights_Instrument{
     wikidataURL: string_  
     standaloneInstrument: boolean_  
     instrumentType: undefined  
+    @componentOf  --  Human_Rights_Instrument_Human_Rights_Instrument 
+    @material [0..*] -- defines_mandate_of -- [0..*] Human_Rights_Mechanism_Human_Rights_Mechanism 
 }
 
 kind Monitoring_Process_Monitoring_Process{
     monitoringProcessID: int  
     title: string_  
     description: string_  
+    @material [1] -- monitors -- [0..*] UFOB_Event_Event 
+     --  Monitoring_Event_Monitoring_Event 
 }
 
 subkind Human_Rights_Mechanism_Human_Rights_Mechanism of functional-complexes  specializes UFOC_Social_Agent_Organisation_OR_Group {
@@ -185,18 +182,6 @@ subkind Human_Rights_Mechanism_Human_Rights_Mechanism of functional-complexes  s
     title: string_  
     description: string_  
     ohchrURL: string_  
-    @componentOf 
-    [0..*] -- part_of_larger -- [0..*] UFOC_Social_Agent_Organisation_OR_Group 
-    @material 
-    [0..*] -- has -- [0..*] Site_Site 
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
 }
 
 role Organisation_Member_Member of functional-complexes  specializes Natural_Person_Person {
@@ -207,26 +192,13 @@ role Organisation_Member_Member of functional-complexes  specializes Natural_Per
     headMember: boolean_  
     header: string_  
     description: string_  
-    @comparative 
-    [0..*] -- born_in -- [1] Place_Place 
-    @material 
-    [0..*] -- has_relation_to -- [0..*] Natural_Person_Person 
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
+    @memberOf [0..*] -- [0..*] Natural_Person_Person 
 }
 
 subkind Site_Site of functional-complexes  specializes Place_Place {
     siteID: int  
     header: string_  
     description: string_  
-    @componentOf 
-    [1] -- [1]  Place_Place 
 }
 
 role Detention_Centre_Detention_Centre of functional-complexes  specializes Site_Site {
@@ -234,8 +206,6 @@ role Detention_Centre_Detention_Centre of functional-complexes  specializes Site
     siteIDFK: int  
     capacityDetainees: int  
     realNumberDetainees: int  
-    @componentOf 
-    [1] -- [1]  Place_Place 
 }
 
 relator Network_Connection_Network_Connection{
@@ -247,6 +217,8 @@ relator Network_Connection_Network_Connection{
     networkConnectionID: int  
     startTime: DEFTimepoint  
     endTIme: DEFTimepoint  
+    @mediation [0..*] -- [1] UFOC_Agent_Agent 
+    @mediation [0..*] -- [1] UFOC_Agent_Agent 
 }
 
 relator Causation_Causation{
@@ -254,48 +226,31 @@ relator Causation_Causation{
     intentionalToResultingEvent: boolean_  
     directlyCauses: boolean_  
     contributesTo: boolean_  
+    @mediation [0..*] -- [1] UFOB_Event_Event 
+    @mediation [0..*] -- [1] UFOB_Event_Event 
 }
 
 role Detained_Person_Detained_Person of functional-complexes  specializes Natural_Person_Person {
     detainedPersonID: int  
     startTime: DEFTimepoint  
     endTime: DEFTimepoint  
-    @comparative 
-    [0..*] -- born_in -- [1] Place_Place 
-    @material 
-    [0..*] -- has_relation_to -- [0..*] Natural_Person_Person 
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
+    @material [0..*] -- detained_in -- [1] Detention_Centre_Detention_Centre 
 }
 
 role Detained_Group_Detained_Group of functional-complexes  specializes UFOC_Social_Agent_Organisation_OR_Group {
     detainedGroupID: int  
     startTime: DEFTimepoint  
     endTime: DEFTimepoint  
-    @componentOf 
-    [0..*] -- part_of_larger -- [0..*] UFOC_Social_Agent_Organisation_OR_Group 
-    @material 
-    [0..*] -- has -- [0..*] Site_Site 
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
+    @material [0..*] -- detained_in -- [1] Detention_Centre_Detention_Centre 
 }
 
 event Legally_Defined_Human_Rights_Violation_Legally_Defined_Human_Rights_Violation{
     definedViolationID: int  
     header: string_  
     description: string_  
+    @componentOf [0..*] -- [0..*] Human_Rights_Instrument_Human_Rights_Instrument 
+    @componentOf [0..*] -- [0..*] Human_Rights_Standard_Human_Rights_Standard 
+    @comparative [0..*] -- has_equal_elements_as -- [0..*] Human_Rights_Violation_Human_Rights_Violation 
 }
 
 event Monitoring_Event_Monitoring_Event{
@@ -311,6 +266,9 @@ event Monitoring_Event_Monitoring_Event{
     receivedInformation: boolean_  
     confidentiality: DEFConfidentialityManagement  
     MonitoringIntention: DEFMonitoringIntentionList  
+    @comparative [0..*] -- within_a -- [1] Place_Place 
+    @componentOf [0..*] -- has_part -- [0..*] Monitoring_Event_Monitoring_Event 
+    @componentOf [0..*] -- [1] Information_Piece_Information_Piece 
 }
 
 kind Information_Piece_Information_Piece{
@@ -322,23 +280,14 @@ kind Information_Piece_Information_Piece{
     updated: DEFDateTime  
     representPhysicalObject: boolean_  
     physicalObjectLocation: string_  
+    @componentOf [0..*] -- [1] Digital_File_Digital_File 
 }
 
 role Monitoring_Action_Participant_Monitoring_Event_Participant of functional-complexes  specializes Natural_Person_Person {
     monitoringActionParticipantID: int  
     participantRole: DEFMonitoringParticipationList  
-    @comparative 
-    [0..*] -- born_in -- [1] Place_Place 
-    @material 
-    [0..*] -- has_relation_to -- [0..*] Natural_Person_Person 
-    @material 
-    [1..*] -- affected_by -- [0..*] Consequence_For_Agent_Consequence_For_Agent 
-    @participation 
-    [1] -- [0..*] UFOB_Event_Event 
-    @comparative 
-    [0..*] -- active_in -- [0..*] Place_Place 
-    @material 
-    [0..*] -- connected_to -- [0..*] UFOC_Agent_Agent 
+    @participation [1] -- [0..*] Monitoring_Event_Monitoring_Event 
+    @material [0..*] -- representing -- [0..1] UFOC_Social_Agent_Organisation_OR_Group 
 }
 
 kind Digital_File_Digital_File
@@ -348,6 +297,12 @@ kind Official_Legal_Record_Official_Legal_Record{
     created: DEFTimepoint  
     header: string_  
     description: string_  
+    @comparative [0..*] -- refers_to -- [0..*] UFOC_Agent_Agent 
+    @material [0..*] -- issued_by -- [1] UFOC_Agent_Agent 
+    @creation [0..1] -- [0..*] Detained_Group_Detained_Group 
+    @termination [0..1] -- [0..*] Detained_Group_Detained_Group 
+    @creation [0..1] -- [0..*] Detained_Person_Detained_Person 
+    @termination [0..1] -- [0..*] Detained_Person_Detained_Person 
 }
 
 kind Official_Legal_Process_Official_Legal_Process{
@@ -355,6 +310,8 @@ kind Official_Legal_Process_Official_Legal_Process{
     created: DEFTimepoint  
     header: string_  
     description: string_  
+    @componentOf [0..*] -- [0..1] Official_Legal_Record_Official_Legal_Record 
+    @material [0..*] -- [0..*] Official_Legal_Process_Official_Legal_Process 
 }
 
 relator Membership_Membership{
@@ -364,96 +321,64 @@ relator Membership_Membership{
     header: string_  
     description: string_  
     membershipType: undefined [1..*] 
+    @mediation [1..*] -- [1] Organisation_Member_Member 
+    @mediation [2..*] -- [1] UFOC_Social_Agent_Organisation_OR_Group 
 }
 
-relator Legal_Process_Relation_Legal_Process_Relation
+relator Legal_Process_Relation_Legal_Process_Relation{
+    @mediation [0..*] -- [1] Official_Legal_Process_Official_Legal_Process 
+    @mediation [0..*] -- [1] Official_Legal_Process_Official_Legal_Process 
+}
 
 relator Person_Relationship_Person_Relationship{
     personRelationshipsType: DEFPersonRelationshipsTypeList  
+    @mediation [0..*] -- [1] Natural_Person_Person 
+    @mediation [0..*] -- [1] Natural_Person_Person 
 }
 
 situation Detainment_Conditions_Detainment_Conditions{
     detainmentConditionsID: undefined  
     header: string_  
     description: string_  
+    @comparative [1..*] -- within_a -- [1] Detention_Centre_Detention_Centre 
+    @material [0..*] -- affects -- [0..*] UFOC_Agent_Agent 
 }
 
 situation UFOB_Situation_Situation{
     situationID: undefined  
     header: string_  
     description: string_  
+    @comparative [1..*] -- within_a -- [1] Place_Place 
 }
 
-enum DEFDate {
-    year,month,day
-}
+datatype DEFDate{
+year,month,day,}
 
-enum DEFTime{
-    hour,minute
-}
+datatype DEFTime{
+hour,minute,}
 
-enum  DEFDateTime{
-    date,time
-}
+datatype DEFDateTime{
+date,time,}
 
-enum DEFContactDetails{
-    phoneNumber,emailAddress,postalAddress,visitAddress
-}
+datatype DEFContactDetails{
+phoneNumber,emailAddress,postalAddress,visitAddress,}
 
-enum DEFTimepoint{
-    point,estimation,unknown
-}
+datatype DEFTimepoint{
+point,estimation,unknown,}
 
-enum DEFConfidentialityManagement{
-    condition,levelAccordingToStaff,levelGIvenBySource
-}
+datatype DEFConfidentialityManagement{
+condition,levelAccordingToStaff,levelGIvenBySource,}
 
 datatype boolean_
 datatype int
 datatype string_
-enum DEFRoleTypeList{
-    abuse, intervention, other, unkown, no_intention
+genset Set {
+    general UFOC_Agent_Agent
+    specifics UFOC_Social_Agent_Organisation_OR_Group, Natural_Person_Person
 }
-enum DEFAgentType{
-    person, organisation, group, nation_state, other
+
+genset Set2 {
+    general UFOC_Agent_Agent
+    specifics Victim_Victim, Perpetrator_Perpetrator
 }
-enum DEFOHCHRThematicIssue
-enum DEFReligionList
-enum DEFCivilStatusList
-enum DEFEthnicGroupList
-enum DEFCountryList
-enum DEFSexList{
-    female, male, other_sex, unknown_se
-}
-enum DEFSexualOrientationList
-enum DEFOwnerShipList{
-    complete_, partial
-}
-enum DEFInstrumentTypeList{
-    composed_instrument, standalone_instrument, section, article
-}
-enum DEFHumanRightsStandardTypeList{
-    Conduct_Legal_Norm, Element_of_Legally_Defined_Human_Rights_Violations, Power_Legal_Norm
-}
-enum DEFChannelList{
-    physical_presence, vioce_call, video_call, text_message
-}
-enum DEFLocationTypeList{
-    own_office, visit_to_other_organisation, public_place
-}
-enum DEFConfidentialityLevelList{
-    unkown, only_case_officer, only_unit, only_internal, only_internal_and_trusted_allies, external
-}
-enum DEFConfidentialityConditionList{
-    if_anonymized, if_not_anonymised
-}
-enum DEFMonitoringParticipationList{
-    monitoring_staff, witness, abused_person, possible_abuser, legal_dutybearer, moral_dutybearer, other
-}
-enum DEFConfirmedStatusList{
-    not_human_rights_violation, possible_human_rights_violation, alleged_human_rights_violation, confirmed_human_rights_violation
-}
-enum DEFPersonRelationshipsTypeList
-enum DEFMonitoringIntentionList{
-    explorative, verify_information, advocacyrecommendations, support, no_intention, unknown_intention
-}
+

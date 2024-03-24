@@ -1,276 +1,203 @@
-import Apples_Postharvest_Diseases
 
 package Models
 
-category AppleEndurant of functional-complexes 
-
-category AppleAspect of functional-complexes  specializes AppleEndurant {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+category AppleEndurant of functional-complexes {
+    @characterization [1] -- [1..*] AppleAspect 
 }
 
-category AppleFeature of functional-complexes  specializes AppleAspect {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+category AppleAspect of functional-complexes  specializes AppleEndurant 
 
-mode PressureMarkInApple specializes AppleFeature, ApplePathologyEnablingFactor {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+category AppleFeature of functional-complexes  specializes AppleAspect 
 
-mode HoleInApple specializes AppleFeature {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+mode PressureMarkInApple specializes AppleFeature, ApplePathologyEnablingFactor 
 
-mode AppleStain specializes AppleFeature {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+mode HoleInApple specializes AppleFeature 
 
-category AppleSubstance of functional-complexes  specializes AppleEndurant {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+mode AppleStain specializes AppleFeature 
+
+category AppleSubstance of functional-complexes  specializes AppleEndurant 
 
 kind Apple specializes AppleSubstance {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @instantiation [*] -- [1] AppleCultivar 
+    @memberOf [2..*] -- [*] AppleBatch 
 }
 
 category ApplePart of functional-complexes  specializes AppleSubstance {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @componentOf [2..*] -- [1] Apple 
 }
 
-subkind AppleExocarp specializes ApplePart {
-    @componentOf 
-    [2..*] -- [1] Apple 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+subkind AppleExocarp specializes ApplePart 
 
-subkind AplleEndocarp specializes ApplePart {
-    @componentOf 
-    [2..*] -- [1] Apple 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+subkind AplleEndocarp specializes ApplePart 
 
 type AppleCultivar
 
-quality AppleTaste specializes AppleQuality {
-    @participation 
-    [1] -- [1..*] AppleSymptomManifestation 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+quality AppleTaste specializes AppleQuality 
 
-quality AppleColor specializes AppleQuality {
-    @participation 
-    [1] -- [1..*] AppleSymptomManifestation 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+quality AppleColor specializes AppleQuality 
 
 quality AppleNutritionalFactor specializes AppleQuality {
-    @participation 
-    [1] -- [1..*] AppleSymptomManifestation 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @characterization [1] -- [1] Apple 
 }
 
 event AppleQualityState specializes Event {
-    @formal 
-    [*] -- occursin -- [*] SpatialRegion 
+    @participation [1..*] -- [1] AppleQuality 
 }
 
 category Event of functional-complexes {
     begin: undefined  
     end: undefined  
+    @formal [*] -- occursin -- [*] SpatialRegion 
 }
 
 category AppleQuality of functional-complexes  specializes AppleAspect {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @participation [1] -- [1..*] AppleSymptomManifestation 
 }
 
-collective AppleBatch
+collective AppleBatch{
+    @participation [1] -- [*] AppleHandlingActivity 
+}
 
 event AppleHandlingActivity specializes Event {
-    @formal 
-    [*] -- occursin -- [*] SpatialRegion 
+    @formal [*] -- occurs_during -- [2..*] PhysicalQualityStateOfSpatialEntityDuringAppleHandling 
 }
 
 event AppleHarvest specializes AppleHandlingActivity {
-    @formal 
-    [*] -- occurs_during -- [2..*] PhysicalQualityStateOfSpatialEntityDuringAppleHandling 
-    @formal 
-    [*] -- occursin -- [*] SpatialRegion 
+    @historicalDependence [1..*] -- [*] AppleStorage 
+    @historicalDependence [1..*] -- [*] AppleStorage 
 }
 
-event AppleStorage specializes AppleHandlingActivity {
-    @formal 
-    [*] -- occurs_during -- [2..*] PhysicalQualityStateOfSpatialEntityDuringAppleHandling 
-    @formal 
-    [*] -- occursin -- [*] SpatialRegion 
-}
+event AppleStorage specializes AppleHandlingActivity 
 
 role StorageFacility of functional-complexes  specializes Building, SpatialEntity {
-    @participation 
-    [1] -- [*] PhysicalQualityStateOfSpatialEntityDuringAppleHandling 
-    @characterization 
-    [1] -- [1..*] PysicalQuality 
+    @participation [1..*] -- [*] AppleStorage 
 }
 
 kind Building
 
-category SpatialEntity of functional-complexes 
-
-kind SpatialRegion specializes SpatialEntity {
-    @participation 
-    [1] -- [*] PhysicalQualityStateOfSpatialEntityDuringAppleHandling 
-    @characterization 
-    [1] -- [1..*] PysicalQuality 
+category SpatialEntity of functional-complexes {
+    @participation [1] -- [*] PhysicalQualityStateOfSpatialEntityDuringAppleHandling 
+    @characterization [1] -- [1..*] PysicalQuality 
 }
 
-event PhysicalQualityStateOfSpatialEntityDuringAppleHandling specializes PhysicalQualityState {
-    [*] -- hasValue -- [1] PhysicalQualitySpace 
-    @formal 
-    [*] -- occursin -- [*] SpatialRegion 
-}
+kind SpatialRegion specializes SpatialEntity 
 
-category PysicalQuality of functional-complexes 
+event PhysicalQualityStateOfSpatialEntityDuringAppleHandling specializes PhysicalQualityState 
+
+category PysicalQuality of functional-complexes {
+    @participation [1] -- [1..*] PhysicalQualityState 
+}
 
 event PhysicalQualityState specializes Event {
-    @formal 
-    [*] -- occursin -- [*] SpatialRegion 
+    [*] -- hasValue -- [1] PhysicalQualitySpace 
 }
 
-quality Temperature specializes PysicalQuality {
-    @participation 
-    [1] -- [1..*] PhysicalQualityState 
-}
+quality Temperature specializes PysicalQuality 
 
-quality Humidity specializes PysicalQuality {
-    @participation 
-    [1] -- [1..*] PhysicalQualityState 
-}
+quality Humidity specializes PysicalQuality 
 
-quality GasConcentration specializes PysicalQuality {
-    @participation 
-    [1] -- [1..*] PhysicalQualityState 
-}
+quality GasConcentration specializes PysicalQuality 
 
 category AppleDisposition of functional-complexes  specializes AppleAspect {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @formal [*] -- grounded_in -- [1..*] AppleAspect 
 }
 
-role InfectedAppleSubstance specializes PathologicalAppleSubstance {
-    @participation 
-    [1] -- [1..*] ApplePathologyManifestation 
-    @participation 
-    [1] -- [1..*] AppleSymptomManifestation 
-    @characterization 
-    [1] -- [1..*] ApplePathology 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+role InfectedAppleSubstance specializes PathologicalAppleSubstance 
 
 relator PathogenSign specializes AppleAspect {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @mediation [*] -- [1] PathogenCollective 
+    @mediation [1..*] -- [1] InfectedAppleSubstance 
 }
 
 collective PathogenCollective
 
-category Pathogen of functional-complexes 
+category Pathogen of functional-complexes {
+    @memberOf [2..*] -- [1..*] PathogenCollective 
+}
 
 phase PathologicalAppleSubstance specializes AppleSubstance {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @participation [1] -- [1..*] ApplePathologyManifestation 
+    @participation [1] -- [1..*] AppleSymptomManifestation 
+    @characterization [1] -- [1..*] ApplePathology 
 }
 
-event ApplePathologyManifestation
+event ApplePathologyManifestation{
+    [1] -- [2..*] AppleSymptomManifestation 
+    @manifestation [*] -- [1] ApplePathology 
+}
 
-event AppleSymptomManifestation
+event AppleSymptomManifestation{
+    [*] -- [2..*] AppleQualityState 
+    @instantiation [0..*] -- [1] AppleSymptomType 
+}
 
 mode ApplePathology specializes AppleDisposition {
-    @formal 
-    [*] -- grounded_in -- [1..*] AppleAspect 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
+    @instantiation [0..*] -- [1] ApplePathologyType 
 }
 
-type AppleSymptomType
+type AppleSymptomType{
+    @formal [1..*] -- associated_with -- [1..*] ApplePathologyType 
+}
 
-type ApplePathologyType
+type ApplePathologyType{
+    @formal [1..*] -- dispositional_factor_for -- [1..*] ApplePathologyEnablingFactor 
+}
 
 type AppleDiseaseType specializes ApplePathologyType {
-    @formal 
-    [1..*] -- dispositional_factor_for -- [1..*] ApplePathologyEnablingFactor 
+    @instantiation [1] -- [*] ApplePathology 
 }
 
-type AppleDisorderType specializes ApplePathologyType {
-    @formal 
-    [1..*] -- dispositional_factor_for -- [1..*] ApplePathologyEnablingFactor 
-}
+type AppleDisorderType specializes ApplePathologyType 
 
-type PathogenType
+type PathogenType{
+    @formal [1..*] -- associated_with -- [1..*] AppleDiseaseType 
+    @instantiation [1..*] -- [1] Pathogen 
+}
 
 mixin ApplePathologyEnablingFactor of functional-complexes 
 
-mode InsectStingInApple specializes AppleFeature, ApplePathologyEnablingFactor {
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+mode InsectStingInApple specializes AppleFeature, ApplePathologyEnablingFactor 
 
 category ApplePostHarvestPathologyEnablingFactor of functional-complexes  specializes ApplePathologyEnablingFactor 
 
 category ApplePreHarvestPathologyEnablingFactor of functional-complexes  specializes ApplePathologyEnablingFactor 
 
-quality AppleLowNutritionalFactor specializes AppleNutritionalFactor, ApplePreHarvestPathologyEnablingFactor {
-    @characterization 
-    [1] -- [1] Apple 
-    @participation 
-    [1] -- [1..*] AppleSymptomManifestation 
-    @characterization 
-    [1] -- [1..*] AppleAspect 
-}
+quality AppleLowNutritionalFactor specializes AppleNutritionalFactor, ApplePreHarvestPathologyEnablingFactor 
 
-event InadequatePhysicalQualityStateOfSpatialEntityDuringAppleHandling specializes ApplePostHarvestPathologyEnablingFactor, PhysicalQualityStateOfSpatialEntityDuringAppleHandling {
-    [*] -- hasValue -- [1] PhysicalQualitySpace 
-    @formal 
-    [*] -- occursin -- [*] SpatialRegion 
-}
+event InadequatePhysicalQualityStateOfSpatialEntityDuringAppleHandling specializes ApplePostHarvestPathologyEnablingFactor, PhysicalQualityStateOfSpatialEntityDuringAppleHandling 
 
 kind Person
 
-relator PhotographAutorship
+relator PhotographAutorship{
+    @mediation [*] -- [1] Photograph 
+    @mediation [1..*] -- [1] Photographer 
+}
 
 role Photographer of functional-complexes  specializes Person 
 
 kind Photograph
 
-subkind AppleSymptomsPhotograph of functional-complexes  specializes Photograph 
-
-role PrototypicalAppleSymptomsPhotograph of functional-complexes  specializes AppleSymptomsPhotograph {
-    @formal 
-    [*] -- represents -- [1..*] AppleSymptomManifestation 
+subkind AppleSymptomsPhotograph of functional-complexes  specializes Photograph {
+    @formal [*] -- represents -- [1..*] AppleSymptomManifestation 
 }
 
-relator AppleSymptomsPrototypeAssignment
+role PrototypicalAppleSymptomsPhotograph of functional-complexes  specializes AppleSymptomsPhotograph 
 
-subkind ApplePathogenInfectionPhotograph of functional-complexes  specializes Photograph 
-
-role PrototypicalApplePathogenSignPhotograph of functional-complexes  specializes ApplePathogenInfectionPhotograph {
-    @formal 
-    [*] -- represents -- [1..*] PathogenSign 
+relator AppleSymptomsPrototypeAssignment{
+    @mediation [1..*] -- [1] PrototypicalAppleSymptomsPhotograph 
+    @mediation [0..*] -- [1] AppleSymptomType 
 }
 
-relator ApplePathogenInfectionPrototypeAssignment
+subkind ApplePathogenInfectionPhotograph of functional-complexes  specializes Photograph {
+    @formal [*] -- represents -- [1..*] PathogenSign 
+}
+
+role PrototypicalApplePathogenSignPhotograph of functional-complexes  specializes ApplePathogenInfectionPhotograph 
+
+relator ApplePathogenInfectionPrototypeAssignment{
+    @mediation [1..*] -- [1] PrototypicalApplePathogenSignPhotograph 
+    @mediation [1] -- [1] PathogenType 
+}
 
 datatype AppleQualitySpace
 datatype AppleColorSpace

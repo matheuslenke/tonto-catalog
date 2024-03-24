@@ -1,92 +1,114 @@
 
 package DATAConference_2023
 
-kind MilitaryOrganization
-
-role CommDeviceOperator of functional-complexes  specializes MilitaryPerson {
-    @material 
-    [1..*] -- [1] MilitaryOrganization 
+kind MilitaryOrganization{
+     -- hasMOPowerType --  MilitaryOrganizationPowerType 
 }
 
-kind CommDevice specializes OperationalElement 
+role CommDeviceOperator of functional-complexes  specializes MilitaryPerson {
+     -- operates --  CommDevice 
+}
 
-role MilitaryPerson of functional-complexes  specializes OperationalElement, Person 
+kind CommDevice specializes OperationalElement {
+     -- mayTalkTo --  CommDevice 
+     -- hasInterface --  Interface 
+}
 
-relator MilitaryEmployment
+role MilitaryPerson of functional-complexes  specializes OperationalElement, Person {
+    @material [1..*] -- [1] MilitaryOrganization 
+}
 
-kind WirelessNetwork
+relator MilitaryEmployment{
+    @mediation [1] -- [1..*] MilitaryPerson 
+    @mediation [1..*] -- [1] MilitaryOrganization 
+}
+
+kind WirelessNetwork{
+     --  CommDevice 
+     --  AccessPoint 
+}
 
 role Subordinate of functional-complexes  specializes MilitaryOrganization {
-     -- hasMOPowerType --  MilitaryOrganizationPowerType 
+     -- isSubordinateTo --  Commander 
 }
 
 role Commander of functional-complexes  specializes MilitaryOrganization {
-     -- hasMOPowerType --  MilitaryOrganizationPowerType 
+     -- hasDirectRelationshipWith --  Subordinate 
 }
 
-mixin CommDeviceCarrier of functional-complexes 
+mixin CommDeviceCarrier of functional-complexes {
+     -- carries --  CommDevice 
+}
 
 category MilitaryPlatform of functional-complexes  specializes CommDeviceCarrier, OperationalElement {
-     -- carries --  CommDevice 
-}
-
-category Armored of functional-complexes  specializes Vehicle {
      -- belongsTo --  MilitaryOrganization 
-     -- carries --  CommDevice 
 }
 
-kind MilitaryOrganizationPowerType
+category Armored of functional-complexes  specializes Vehicle 
 
-kind Interface
+kind MilitaryOrganizationPowerType{
+     -- MOTypeIsSubordinateTo --  MilitaryOrganizationPowerType 
+}
+
+kind Interface{
+     -- hasInterfPowerType --  InterfacePowerType 
+}
 
 kind InterfacePowerType
 
-mode DataTransferMethod
+mode DataTransferMethod{
+    @characterization [1] -- [1] InterfacePowerType 
+}
 
 category OperationalElement of functional-complexes 
 
 role HierarchicallyEquivalentDuringCommunication of functional-complexes  specializes MilitaryOrganization {
-     -- hasMOPowerType --  MilitaryOrganizationPowerType 
+     -- HierarchicallyEquivalentDuringCommunicationWith --  HierarchicallyEquivalentDuringCommunication 
 }
 
-category Vehicle of functional-complexes  specializes MilitaryPlatform {
-     -- belongsTo --  MilitaryOrganization 
-     -- carries --  CommDevice 
-}
+category Vehicle of functional-complexes  specializes MilitaryPlatform 
 
 role MilitaryPersonAsPassenger of functional-complexes  specializes MilitaryPerson {
-    @material 
-    [1..*] -- [1] MilitaryOrganization 
+     -- isLocatedIn --  Vehicle 
 }
 
 kind Person
 
-role MilitaryPersonAsCarrier of functional-complexes  specializes CommDeviceCarrier, MilitaryPerson {
-     -- carries --  CommDevice 
-    @material 
-    [1..*] -- [1] MilitaryOrganization 
-}
+role MilitaryPersonAsCarrier of functional-complexes  specializes CommDeviceCarrier, MilitaryPerson 
 
-kind Guarani specializes Armored {
-     -- belongsTo --  MilitaryOrganization 
-     -- carries --  CommDevice 
-}
+kind Guarani specializes Armored 
 
 kind AccessPoint
 
-quality Range
+quality Range{
+    @characterization [1] --  CommDevice 
+}
 
-quality AntennaGain
+quality AntennaGain{
+    @characterization [1] -- [1] CommDevice 
+}
 
-quality AmphibiousSpeed
+quality AmphibiousSpeed{
+    @characterization [1] -- [1] Guarani 
+}
 
-quality Frequency
+quality Frequency{
+    @characterization [1] -- [1] InterfacePowerType 
+}
 
-quality Txpower
+quality Txpower{
+    @characterization [1] -- [1] InterfacePowerType 
+}
 
-quality MinSpeed
+quality MinSpeed{
+    @characterization [1] -- [1] CommDeviceCarrier 
+}
 
-quality VisibilityRange
+quality VisibilityRange{
+    @characterization [1] --  CommDeviceCarrier 
+}
 
-quality MaxSpeedLand
+quality MaxSpeedLand{
+    @characterization [1] --  CommDeviceCarrier 
+}
 

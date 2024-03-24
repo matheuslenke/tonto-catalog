@@ -1,11 +1,4 @@
 Validating...
-- Total of errors: 3
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Digital is specializing other classes that represent ultimate sortals: «kind»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Traditional is specializing other classes that represent ultimate sortals: «kind»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Document_Operated is specializing other classes that represent ultimate sortals: «kind»
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Document_Operated are not among the allowed ontological natures of its superclass Document
+Total of errors: 4
+undefined
 Validation finished

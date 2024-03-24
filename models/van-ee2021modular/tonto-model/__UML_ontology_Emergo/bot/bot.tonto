@@ -1,0 +1,7 @@
+import bpo
+import schema
+
+package bot
+
+kind Building specializes Assembly 
+

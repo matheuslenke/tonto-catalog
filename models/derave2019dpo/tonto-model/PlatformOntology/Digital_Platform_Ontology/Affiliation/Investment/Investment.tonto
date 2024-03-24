@@ -1,61 +1,44 @@
-import PlatformOntology
+import Transaction
+import MultiSided
+import Review_by_Provider
+import Provider_Source
+import GDPO_part_1
+import Review_System
+import Marketplace_business_models
+import Decentralized
+import Price_set_by_Provider
+import Payment
+import Review_by_Customer
+import In_House_Payment
+import Conversation_System
+import Customer_Source
+import Price_Discovery
+import Price_Calculation
+import UFOS
 
 package Investment
 
 roleMixin CapitalSeeking_Agent of functional-complexes  specializes Platform_Provider {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- does -- [0..*] Review_Creation_by_Provider 
-    [1..*] -- by -- [1..*] Revenue_Stream_Payed_by_Provider 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- [0..*] Price_Proposal 
-    [1] -- participates -- [1..*] Listing_Creation 
-    [1] -- changes -- [0..*] Price_Setting_action_by_Provider 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
+    @externalDependence [1] -- depends_on -- [1..*] Resource_Claim 
 }
 
 roleMixin CapitalGiving_Agent of functional-complexes  specializes Platform_Customer {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- by -- [0..*] Transaction_Payment 
-    [1] -- does -- [0..*] Review_Creation_by_Customer 
-    [1] -- [1..*] Price_Acceptance 
-    [1] -- by -- [0..*] Inhouse_Payment 
-    [1] -- participates -- [1..*] Transaction_Conversation 
-    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
-    [*] -- [*] Paid_Transaction_Price 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
-    [*] -- suggests -- [*] Suggested_Price 
-    [1] -- initiates -- [0..*] Listing_Conversation 
-    @participation 
-    [1] -- [0..*] Price_Offer_Creation 
-    [1] -- [0..*] Request_Quote 
+    @characterization [1..*] -- inheres_in -- [1] Resource_Claim 
 }
 
 category Resource of functional-complexes 
 
 subkind Future_Reimbursement_Commitment of intrinsic-modes  specializes Hired_Provider_Commitment {
-    [1] -- is_counter_part_of -- [1] Service_Customer_Claim 
+    @characterization [1..*] -- inheres_in -- [1] CapitalSeeking_Agent 
+    @externalDependence [1..*] -- depends_on -- [1] CapitalGiving_Agent 
+    [1..*] -- is_part_of -- [1] Investment 
 }
 
-category Reimbursement of functional-complexes 
+category Reimbursement of functional-complexes {
+    @mediation [1..*] -- bounds_to -- [0..1] Future_Reimbursement_Commitment 
+}
 
-subkind Resource_Claim of intrinsic-modes  specializes Service_Customer_Claim 
+subkind Resource_Claim of intrinsic-modes  specializes Service_Customer_Claim {
+    @mediation [0..1] -- bounds_to -- [1..*] Resource 
+}
 

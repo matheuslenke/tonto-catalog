@@ -1,7 +1,11 @@
 
 package DMOP
 
-kind Algorithm
+kind Algorithm{
+    [*] -- has -- [1..*] Parameter 
+}
 
-kind Operator
+kind Operator{
+    [1] -- implements_ -- [1] Algorithm 
+}
 

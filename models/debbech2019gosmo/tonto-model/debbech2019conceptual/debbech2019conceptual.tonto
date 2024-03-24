@@ -3,38 +3,50 @@ import UFO
 package debbech2019conceptual
 
 class Safety_Goal specializes Goal {
-    [*] -- satisfies -- [1..*] Situation 
+    [*] -- subgoals -- [*] Safety_Goal 
+    [1] -- redefined_in -- [1..*] Safety_Requirement 
 }
 
 class Safety_Measures specializes Action {
-    [1] -- caused_by -- [1..*] Intention 
-    [1..*] -- satisfy -- [1..*] Goal 
+    [1..*] -- satisfy -- [1..*] Safety_Goal 
+    [*] -- [1..*] Safety_Measures 
 }
 
 class Organization specializes Agent {
-    [*] -- performs -- [*] Action 
+    [*] -- [1..*] Stakeholder 
+    [*] -- suborg -- [*] Organization 
+    [1..*] -- [1] Assignment 
 }
 
-class Stakeholder_Role specializes Role 
+class Stakeholder_Role specializes Role {
+    [1..*] -- [1] Assignment 
+    [*] -- subRole -- [*] Stakeholder_Role 
+}
 
 class Assignment specializes Relator 
 
 class Stakeholder specializes Kind {
-    [1] -- plays -- [1..*] Role 
+    [1] -- plays -- [1..*] Stakeholder_Role 
+    [1..*] -- [*] Assignment 
 }
 
 class Task specializes Action {
-    [1] -- caused_by -- [1..*] Intention 
-    [1..*] -- satisfy -- [1..*] Goal 
+    [*] -- SM_context -- [*] Context 
+    [*] -- [1] Permission 
 }
 
-class Permission specializes Relator 
+class Permission specializes Relator {
+    [*] -- permission_context -- [*] Context 
+    [*] -- [*] Stakeholder_Role 
+}
 
 class Context specializes Situation {
-    [1..*] -- [1..*] Action 
+    [*] -- [1..*] Context 
 }
 
-class Safety_Requirement specializes Requirement 
+class Safety_Requirement specializes Requirement {
+    [1..*] -- got_from -- [*] Stakeholder 
+}
 
 class Functional_Requirement specializes Requirement 
 

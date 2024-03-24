@@ -5,218 +5,215 @@ kind Person
 
 event Registration
 
-role Registered_Person of functional-complexes  specializes Person, Client {
-    @participation 
-    [1] -- [1] Registration 
-    [1] -- owns -- [1] Library_Card 
+role Registered_Person of functional-complexes  specializes Person, Client 
+
+quality Age{
+    @characterization [1] -- [1] Person 
 }
 
-quality Age
-
-role Librarian of functional-complexes  specializes Employee 
+role Librarian of functional-complexes  specializes Employee {
+    @participation [1] -- [*] Registration 
+}
 
 subkind Library of functional-complexes  specializes Organization {
-    @memberOf 
-    [1..*] -- [1] Employee 
+    [1] -- provides_access_to -- [1..*] Artifact 
+    @memberOf [1..*] -- [1] Librarian 
 }
 
-relator Work_Contract
-
-kind Artifact
-
-subkind Work of functional-complexes  specializes Artifact {
-    @memberOf 
-    [2..*] -- [*] Artifact 
+relator Work_Contract{
+    @mediation [1] -- [1] Employee 
+    @mediation [1] -- [1] Organization 
 }
 
-subkind Digitized of intrinsic-modes  specializes Edition {
-    @creation 
-    [1] -- [1] Publication 
-    @characterization 
-    [1..*] -- [1] Work 
+kind Artifact{
+    @memberOf [2..*] -- [*] Artifact 
 }
 
-subkind Document of functional-complexes  specializes Work {
-    @memberOf 
-    [2..*] -- [*] Artifact 
+subkind Work of functional-complexes  specializes Artifact 
+
+subkind Digitized of intrinsic-modes  specializes Edition 
+
+subkind Document of functional-complexes  specializes Work 
+
+subkind Sound_Recording of functional-complexes  specializes Recording 
+
+subkind Object of functional-complexes  specializes Artifact 
+
+relator Library_Account{
+     --  Loan 
+    @creation [1] -- [1] Registration 
+    @mediation [1] -- [1] Client 
+    @mediation [1] -- [1] Library 
 }
 
-subkind Sound_Recording of functional-complexes  specializes Recording {
-    @memberOf 
-    [2..*] -- [*] Artifact 
+roleMixin Client of functional-complexes {
+    @participation [1] -- [1] Registration 
+    [1] -- owns -- [1] Library_Card 
 }
-
-subkind Object of functional-complexes  specializes Artifact {
-    @memberOf 
-    [2..*] -- [*] Artifact 
-}
-
-relator Library_Account
-
-roleMixin Client of functional-complexes 
 
 role Employee of functional-complexes  specializes Person 
 
 subkind Publisher of functional-complexes  specializes Organization {
-    @memberOf 
-    [1..*] -- [1] Employee 
+    @participation [1] -- [1..*] Publication 
 }
 
-quality Library_Number
+quality Library_Number{
+    @characterization [1] -- [1] Library_Account 
+    @externalDependence [1] -- [1] Library_Card 
+}
 
 collective Series
 
-phase Suspended_Account of relators  specializes Library_Account {
-    [1] -- [1] Loan 
-    @creation 
-    [1] -- [1] Registration 
-    @mediation 
-    [1] -- [1] Client 
-    @mediation 
-    [1] -- [1] Library 
+phase Suspended_Account of relators  specializes Library_Account 
+
+kind Organization{
+    @memberOf [1..*] -- [1] Employee 
 }
 
-kind Organization
-
-relator Loan
-
-quality Access_Clearance
-
-subkind Recording of functional-complexes  specializes Work {
-    @memberOf 
-    [2..*] -- [*] Artifact 
+relator Loan{
+    @mediation [1] -- [1] Client 
+    @mediation [1] -- [1] Lent_Copy 
 }
 
-subkind Video_Recording of functional-complexes  specializes Recording {
-    @memberOf 
-    [2..*] -- [*] Artifact 
+quality Access_Clearance{
+    @characterization [1] -- [1] Object 
 }
 
-quality Data_Medium
+subkind Recording of functional-complexes  specializes Work 
+
+subkind Video_Recording of functional-complexes  specializes Recording 
+
+quality Data_Medium{
+    @characterization [1..*] -- [1] Recording 
+}
 
 subkind Article of functional-complexes  specializes Document {
-    @memberOf 
-    [2..*] -- [*] Artifact 
+    [2..*] --  Proceedings 
 }
 
-subkind Patent of functional-complexes  specializes Document {
-    @memberOf 
-    [2..*] -- [*] Artifact 
-}
+subkind Patent of functional-complexes  specializes Document 
 
-subkind Book of functional-complexes  specializes Document {
-    @memberOf 
-    [2..*] -- [*] Artifact 
-}
+subkind Book of functional-complexes  specializes Document 
 
 subkind Chapter of functional-complexes  specializes Document {
-    @memberOf 
-    [2..*] -- [*] Artifact 
+    [2..*] --  Book 
 }
 
-subkind Proceedings of functional-complexes  specializes Document {
-    @memberOf 
-    [2..*] -- [*] Artifact 
-}
+subkind Proceedings of functional-complexes  specializes Document 
 
-subkind Newspaper of functional-complexes  specializes Document {
-    @memberOf 
-    [2..*] -- [*] Artifact 
-}
+subkind Newspaper of functional-complexes  specializes Document 
 
-role Registered_Organization of functional-complexes  specializes Organization, Client {
-    @memberOf 
-    [1..*] -- [1] Employee 
-    @participation 
-    [1] -- [1] Registration 
-    [1] -- owns -- [1] Library_Card 
-}
+role Registered_Organization of functional-complexes  specializes Organization, Client 
 
 subkind Man of functional-complexes  specializes Person 
 
 subkind Woman of functional-complexes  specializes Person 
 
-quality Address
+quality Address{
+    @characterization [1] -- [1] Client 
+}
 
 kind Library_Card
 
-phase Active_Account of relators  specializes Library_Account {
-    [1] -- [1] Loan 
-    @creation 
-    [1] -- [1] Registration 
-    @mediation 
-    [1] -- [1] Client 
-    @mediation 
-    [1] -- [1] Library 
-}
+phase Active_Account of relators  specializes Library_Account 
 
-phase Finished of relators  specializes Loan {
-    @mediation 
-    [1] -- [1] Client 
-    @mediation 
-    [1] -- [1] Lent_Copy 
-}
+phase Finished of relators  specializes Loan 
 
 role Translator of functional-complexes  specializes Person 
 
-relator Authorship
-
-relator Translation
-
-subkind Translated_Edition of intrinsic-modes  specializes Edition {
-    @creation 
-    [1] -- [1] Publication 
-    @characterization 
-    [1..*] -- [1] Work 
+relator Authorship{
+    @mediation [1..*] -- [1] Writer 
+    @mediation [1..*] -- [1] Work 
 }
 
-mode Edition
+relator Translation{
+    @mediation [1..*] -- [1] Translator 
+    @mediation [1..*] -- [1] Translated_Edition 
+}
+
+subkind Translated_Edition of intrinsic-modes  specializes Edition 
+
+mode Edition{
+    @creation [1] -- [1] Publication 
+    @characterization [1..*] -- [1] Work 
+}
 
 event Publication
 
-phase Ongoing of relators  specializes Loan {
-    @mediation 
-    [1] -- [1] Client 
-    @mediation 
-    [1] -- [1] Lent_Copy 
+phase Ongoing of relators  specializes Loan 
+
+mode Copy{
+    @characterization [1..*] -- [1] Edition 
 }
 
-mode Copy
+role Lent_Copy of intrinsic-modes  specializes Copy 
 
-role Lent_Copy of intrinsic-modes  specializes Copy {
-    @characterization 
-    [1..*] -- [1] Edition 
-}
+phase Borrowed of intrinsic-modes  specializes Copy 
 
-phase Borrowed of intrinsic-modes  specializes Copy {
-    @characterization 
-    [1..*] -- [1] Edition 
-}
+phase Discarded of intrinsic-modes  specializes Copy 
 
-phase Discarded of intrinsic-modes  specializes Copy {
-    @characterization 
-    [1..*] -- [1] Edition 
-}
+phase Available of intrinsic-modes  specializes Copy 
 
-phase Available of intrinsic-modes  specializes Copy {
-    @characterization 
-    [1..*] -- [1] Edition 
-}
+phase Undamaged of intrinsic-modes  specializes Copy 
 
-phase Undamaged of intrinsic-modes  specializes Copy {
-    @characterization 
-    [1..*] -- [1] Edition 
-}
+phase Damaged of intrinsic-modes  specializes Copy 
 
-phase Damaged of intrinsic-modes  specializes Copy {
-    @characterization 
-    [1..*] -- [1] Edition 
-}
-
-phase Destroyed of intrinsic-modes  specializes Copy {
-    @characterization 
-    [1..*] -- [1] Edition 
-}
+phase Destroyed of intrinsic-modes  specializes Copy 
 
 role Writer of functional-complexes  specializes Person 
+
+genset ContentType {
+    general Recording
+    specifics Video_Recording, Sound_Recording
+}
+
+genset OrganizationType {
+    general Organization
+    specifics Library, Publisher
+}
+
+genset ResourceType {
+    general Document
+    specifics Patent, Newspaper, Book, Chapter, Article, Proceedings
+}
+
+genset Sex {
+    general Person
+    specifics Woman, Man
+}
+
+genset ClientType {
+    general Client
+    specifics Registered_Person, Registered_Organization
+}
+
+genset AccountStatus {
+    general Library_Account
+    specifics Suspended_Account, Active_Account
+}
+
+genset EditionType {
+    general Edition
+    specifics Digitized, Translated_Edition
+}
+
+genset ArtifactType {
+    general Artifact
+    specifics Work, Object
+}
+
+genset LoanStatus {
+    general Loan
+    specifics Finished, Ongoing
+}
+
+genset CopyStatus {
+    general Copy
+    specifics Borrowed, Available, Discarded
+}
+
+genset CopyState {
+    general Copy
+    specifics Undamaged, Damaged, Destroyed
+}
 

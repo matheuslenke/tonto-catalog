@@ -1,11 +1,6 @@
 Validating...
-- Total of errors: 2
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Air_Temperature is specializing other classes that represent ultimate sortals: «kind»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Sea_Surface is specializing other classes that represent ultimate sortals: «kind»
-[error] Not unique class stereotype:
-The class Weather_Forecast_Time_Point must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Severe_Weather_Event_Moment must have a unique OntoUML stereotype.
+Could not create relation named (disseminated_by) between Weather_Forecast and Weather_Reports because one or both of them was not created.
+Could not create relation named (interest_of) between Severe_Weather_Events and Weather_Reports because one or both of them was not created.
+Total of errors: 4
+undefined
 Validation finished

@@ -11,351 +11,148 @@ category UFOCPhysical_Agent of functional-complexes  specializes UFOCAgent
 
 mixin UFOCAgent of functional-complexes 
 
-subkind EmergencyTreatmentServices of functional-complexes  specializes AALSystems {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind EmergencyTreatmentServices of functional-complexes  specializes AALSystems 
 
-subkind ComfortServices of functional-complexes  specializes AALSystems {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ComfortServices of functional-complexes  specializes AALSystems 
 
-subkind AutonomyEnhancementServices of functional-complexes  specializes AALSystems {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind AutonomyEnhancementServices of functional-complexes  specializes AALSystems 
 
-subkind ExternalEmergencyAssistance of functional-complexes  specializes EmergencyTreatmentServices {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ExternalEmergencyAssistance of functional-complexes  specializes EmergencyTreatmentServices 
 
-subkind InternalEmergencyAssistance of functional-complexes  specializes EmergencyTreatmentServices {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind InternalEmergencyAssistance of functional-complexes  specializes EmergencyTreatmentServices 
 
-subkind ExternalEmergencyDetection of functional-complexes  specializes ExternalEmergencyAssistance {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ExternalEmergencyDetection of functional-complexes  specializes ExternalEmergencyAssistance 
 
-subkind ExternalEmergencyPrevention of functional-complexes  specializes ExternalEmergencyAssistance {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ExternalEmergencyPrevention of functional-complexes  specializes ExternalEmergencyAssistance 
 
-subkind ExternalEmergencyForecast of functional-complexes  specializes ExternalEmergencyAssistance {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ExternalEmergencyForecast of functional-complexes  specializes ExternalEmergencyAssistance 
 
-subkind InternalEmergencyDetection of functional-complexes  specializes InternalEmergencyAssistance {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind InternalEmergencyDetection of functional-complexes  specializes InternalEmergencyAssistance 
 
-subkind InternalEmergencyPrevention of functional-complexes  specializes InternalEmergencyAssistance {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind InternalEmergencyPrevention of functional-complexes  specializes InternalEmergencyAssistance 
 
-subkind InternalEmergencyForecast of functional-complexes  specializes InternalEmergencyAssistance {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind InternalEmergencyForecast of functional-complexes  specializes InternalEmergencyAssistance 
 
-subkind ExternalAssistanceComfort of functional-complexes  specializes ComfortServices {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ExternalAssistanceComfort of functional-complexes  specializes ComfortServices 
 
-subkind InternalAssistanceComfort of functional-complexes  specializes ComfortServices {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind InternalAssistanceComfort of functional-complexes  specializes ComfortServices 
 
-subkind OrientationServices of functional-complexes  specializes ExternalAssistanceComfort {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind OrientationServices of functional-complexes  specializes ExternalAssistanceComfort 
 
-subkind TransportationServices of functional-complexes  specializes ExternalAssistanceComfort {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind TransportationServices of functional-complexes  specializes ExternalAssistanceComfort 
 
-subkind ServicesFindingThings of functional-complexes  specializes InternalAssistanceComfort {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ServicesFindingThings of functional-complexes  specializes InternalAssistanceComfort 
 
-subkind InfotainmentServices of functional-complexes  specializes InternalAssistanceComfort {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind InfotainmentServices of functional-complexes  specializes InternalAssistanceComfort 
 
-subkind LogisticServices of functional-complexes  specializes InternalAssistanceComfort {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind LogisticServices of functional-complexes  specializes InternalAssistanceComfort 
 
-subkind ExternalAssistanceAutonomy of functional-complexes  specializes AutonomyEnhancementServices {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ExternalAssistanceAutonomy of functional-complexes  specializes AutonomyEnhancementServices 
 
-subkind InternalAssistanceAutonomy of functional-complexes  specializes AutonomyEnhancementServices {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind InternalAssistanceAutonomy of functional-complexes  specializes AutonomyEnhancementServices 
 
-subkind BankAssistance of functional-complexes  specializes ExternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind BankAssistance of functional-complexes  specializes ExternalAssistanceAutonomy 
 
-subkind PurchasingAssistance of functional-complexes  specializes ExternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind PurchasingAssistance of functional-complexes  specializes ExternalAssistanceAutonomy 
 
-subkind TravelAssistance of functional-complexes  specializes ExternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind TravelAssistance of functional-complexes  specializes ExternalAssistanceAutonomy 
 
-role Caregiver of functional-complexes  specializes People, Stakeholder {
+role Caregiver of functional-complexes  specializes People, Stakeholder 
+
+role ProfessionalHealth of functional-complexes  specializes People, Stakeholder 
+
+role MemberTimeDev of functional-complexes  specializes People, Stakeholder 
+
+role CorporateClient of functional-complexes  specializes Organization, Stakeholder 
+
+role FinalUser of functional-complexes  specializes People, Stakeholder 
+
+roleMixin Stakeholder of functional-complexes  specializes UFOCAgent {
      -- define --  Requirement 
 }
-
-role ProfessionalHealth of functional-complexes  specializes People, Stakeholder {
-     -- define --  Requirement 
-}
-
-role MemberTimeDev of functional-complexes  specializes People, Stakeholder {
-     -- define --  Requirement 
-}
-
-role CorporateClient of functional-complexes  specializes Organization, Stakeholder {
-     -- define --  Requirement 
-}
-
-role FinalUser of functional-complexes  specializes People, Stakeholder {
-     -- define --  Requirement 
-}
-
-roleMixin Stakeholder of functional-complexes  specializes UFOCAgent 
 
 kind Organization specializes UFOCSocial_Agent 
 
 kind People specializes UFOCPhysical_Agent 
 
-role PersonalCustomer of functional-complexes  specializes Stakeholder, People {
-     -- define --  Requirement 
-}
+role PersonalCustomer of functional-complexes  specializes Stakeholder, People 
 
-kind AALSystems specializes UFOARigid_Sortal_Universal 
-
-subkind FoodAssistance of functional-complexes  specializes InternalAssistanceAutonomy {
+kind AALSystems specializes UFOARigid_Sortal_Universal {
      -- usedIn --  Environment 
      -- hasRequirement --  Requirement 
      -- have --  Hardware 
      -- uses --  Software 
 }
 
-subkind DrinkingAssistance of functional-complexes  specializes InternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind FoodAssistance of functional-complexes  specializes InternalAssistanceAutonomy 
 
-subkind CulinaryAssistance of functional-complexes  specializes InternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind DrinkingAssistance of functional-complexes  specializes InternalAssistanceAutonomy 
 
-subkind DressingAssistance of functional-complexes  specializes InternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind CulinaryAssistance of functional-complexes  specializes InternalAssistanceAutonomy 
 
-subkind CleaningAssistance of functional-complexes  specializes InternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind DressingAssistance of functional-complexes  specializes InternalAssistanceAutonomy 
 
-subkind DrugAssistance of functional-complexes  specializes InternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind CleaningAssistance of functional-complexes  specializes InternalAssistanceAutonomy 
+
+subkind DrugAssistance of functional-complexes  specializes InternalAssistanceAutonomy 
 
 category Device of functional-complexes  specializes Hardware 
 
-category Compliance of functional-complexes 
-
-kind Legislation specializes Compliance {
+category Compliance of functional-complexes {
      -- influence --  AALSystems 
      -- establishes --  Requirement 
 }
+
+kind Legislation specializes Compliance 
 
 kind ExternalStandards specializes Compliance {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-kind InternalStandardsPolicies specializes Compliance {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-subkind Decrees of functional-complexes  specializes Legislation {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-subkind NormativeInstructions of functional-complexes  specializes Legislation {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-subkind Laws of functional-complexes  specializes Legislation {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-subkind Ordinances of functional-complexes  specializes Legislation {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-subkind Opinions of functional-complexes  specializes Legislation {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-subkind Resolutions of functional-complexes  specializes Legislation {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
-
-quality National
-
-quality International
-
-subkind ISO of functional-complexes  specializes ExternalStandards {
      --  Number 
      --  Definition 
      --  DependenceStandard 
      --  Title 
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
 }
 
-subkind NBR of functional-complexes  specializes ExternalStandards {
-     --  Number 
-     --  Definition 
-     --  DependenceStandard 
-     --  Title 
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
+kind InternalStandardsPolicies specializes Compliance 
+
+subkind Decrees of functional-complexes  specializes Legislation 
+
+subkind NormativeInstructions of functional-complexes  specializes Legislation 
+
+subkind Laws of functional-complexes  specializes Legislation 
+
+subkind Ordinances of functional-complexes  specializes Legislation 
+
+subkind Opinions of functional-complexes  specializes Legislation 
+
+subkind Resolutions of functional-complexes  specializes Legislation 
+
+quality National{
+     --  Legislation 
 }
 
-subkind SpecificationRequirements of functional-complexes  specializes InternalStandardsPolicies {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
+quality International{
+     --  Legislation 
 }
 
-subkind Policy of functional-complexes  specializes InternalStandardsPolicies {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind ISO of functional-complexes  specializes ExternalStandards 
 
-subkind Term of functional-complexes  specializes InternalStandardsPolicies {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind NBR of functional-complexes  specializes ExternalStandards 
 
-subkind SocialEnvironmentalResponsibility of functional-complexes  specializes Policy {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind SpecificationRequirements of functional-complexes  specializes InternalStandardsPolicies 
 
-subkind CorporativeSecurity of functional-complexes  specializes Policy {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind Policy of functional-complexes  specializes InternalStandardsPolicies 
 
-subkind AcceptanceUse of functional-complexes  specializes Term {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind Term of functional-complexes  specializes InternalStandardsPolicies 
 
-subkind ofConfidentiality of functional-complexes  specializes Term {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind SocialEnvironmentalResponsibility of functional-complexes  specializes Policy 
 
-subkind ofResponsability of functional-complexes  specializes Term {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind CorporativeSecurity of functional-complexes  specializes Policy 
+
+subkind AcceptanceUse of functional-complexes  specializes Term 
+
+subkind ofConfidentiality of functional-complexes  specializes Term 
+
+subkind ofResponsability of functional-complexes  specializes Term 
 
 category Environment of functional-complexes 
 
@@ -395,61 +192,101 @@ subkind TemperatureSensor of functional-complexes  specializes Sensor
 
 category Requirement of functional-complexes 
 
-kind NonFunctionalRequirement specializes Requirement 
+kind NonFunctionalRequirement specializes Requirement {
+     -- PositivelyImpacts --  AALSystems 
+     -- CausesPositiveImpact --  FunctionalRequirement 
+     -- CausesNegativeImpact --  FunctionalRequirement 
+}
 
 kind FunctionalRequirement specializes Requirement 
 
-subkind RequirementQuality of functional-complexes  specializes NonFunctionalRequirement {
-     -- PositivelyImpacts --  AALSystems 
-     -- CausesPositiveImpact --  FunctionalRequirement 
-     -- CausesNegativeImpact --  FunctionalRequirement 
-}
+subkind RequirementQuality of functional-complexes  specializes NonFunctionalRequirement 
 
 subkind EthicalRequirement of functional-complexes  specializes NonFunctionalRequirement {
-     -- PositivelyImpacts --  AALSystems 
-     -- CausesPositiveImpact --  FunctionalRequirement 
-     -- CausesNegativeImpact --  FunctionalRequirement 
+    @characterization [1] -- [0..*] Autonomy 
+    @characterization [1] -- [0..*] Benefit 
+    @characterization [1] -- [0..*] Loyalty 
+    @characterization [1] -- [0..*] Independence 
+    @characterization [1] -- [0..*] Justice 
+    @characterization [1] -- [0..*] NonMaleficence 
+     -- [0..*] MoralGoodness 
+     -- [0..*] SocialAcceptance 
+     -- [0..*] Justice 
+     --  PrivacyOnUse 
 }
 
 subkind ProductQuality of functional-complexes  specializes RequirementQuality {
-     -- PositivelyImpacts --  AALSystems 
-     -- CausesPositiveImpact --  FunctionalRequirement 
-     -- CausesNegativeImpact --  FunctionalRequirement 
+    @characterization [1] -- [0..*] Adaptivity 
+    @characterization [1] -- [0..*] EfficiencyPerformance 
+    @characterization [1] -- [0..*] Maintainability 
+    @characterization [1] -- [0..*] Portability 
+    @characterization [1] -- [0..*] Security 
+    @characterization [1] -- [0..*] Usability 
+    @characterization [1] -- [0..*] Reliability 
+    @characterization [1] -- [0..*] Compatibility 
+    @characterization [1] -- [0..*] FunctionalAptitude 
+     -- [0..*] Traceability 
+     -- [0..*] PrivacyData 
 }
 
 subkind QualityUse of functional-complexes  specializes RequirementQuality {
-     -- PositivelyImpacts --  AALSystems 
-     -- CausesPositiveImpact --  FunctionalRequirement 
-     -- CausesNegativeImpact --  FunctionalRequirement 
+    @characterization [1] -- [0..*] RiskFree 
+    @characterization [1] -- [0..*] Efficacy 
+    @characterization [1] -- [0..*] Efficiency 
+    @characterization [1] -- [0..*] CoverageContext 
+    @characterization [1] -- [0..*] Satisfaction 
+     -- [0..*] PrivacyOnUse 
 }
 
 quality Adaptivity
 
 quality FunctionalAptitude
 
-mode FunctionalAdequacy
+mode FunctionalAdequacy{
+     --  FunctionalAptitude 
+}
 
-mode FunctionalCompleteness
+mode FunctionalCompleteness{
+     --  FunctionalAptitude 
+}
 
-mode FunctionalCorrection
+mode FunctionalCorrection{
+     --  FunctionalAptitude 
+}
 
 quality Compatibility
 
-mode Coexistence
+mode Coexistence{
+     --  Compatibility 
+}
 
-mode Interoperability
+mode Interoperability{
+     --  Compatibility 
+}
 
 quality Reliability
 
-mode Availability
+mode Availability{
+     --  Reliability 
+}
 
-mode Maturity
+mode Maturity{
+     --  Reliability 
+}
 
-mode Recoverability
+mode Recoverability{
+     --  Reliability 
+}
 
-mode ToleranceError
+mode ToleranceError{
+     --  Reliability 
+}
 
-quality EfficiencyPerformance
+quality EfficiencyPerformance{
+     --  UseResources 
+     --  Capacity 
+     --  BehaviorTime 
+}
 
 mode Capacity
 
@@ -457,7 +294,13 @@ mode BehaviorTime
 
 mode UseResources
 
-quality Maintainability
+quality Maintainability{
+     --  Analyzeability 
+     --  Reuse 
+     --  Testability 
+     --  Modibility 
+     --  Modularity 
+}
 
 mode Analyzeability
 
@@ -469,7 +312,11 @@ mode Reuse
 
 mode Testability
 
-quality Portability
+quality Portability{
+     --  Instability 
+     --  Adaptability 
+     --  Replaceability 
+}
 
 mode Adaptability
 
@@ -477,19 +324,38 @@ mode Instability
 
 mode Replaceability
 
-quality Security
+quality Security{
+     --  ConfidenceSecurity 
+}
 
-mode Authenticity
+mode Authenticity{
+     --  Security 
+}
 
-mode Confidentiality
+mode Confidentiality{
+     --  Security 
+}
 
-mode Responsibility
+mode Responsibility{
+     --  Security 
+}
 
-mode Integrity
+mode Integrity{
+     --  Security 
+}
 
-mode NotRepudiation
+mode NotRepudiation{
+     --  Security 
+}
 
-quality Usability
+quality Usability{
+     --  Learning 
+     --  Adequacy 
+     --  Accessibility 
+     --  UserOperability 
+     --  ProtectionAgainstUserErrors 
+     --  UserInterfaceAesthetics 
+}
 
 mode Accessibility
 
@@ -503,7 +369,10 @@ mode UserOperability
 
 mode ProtectionAgainstUserErrors
 
-quality CoverageContext
+quality CoverageContext{
+     --  CompletenessContext 
+     --  Flexibility 
+}
 
 mode CompletenessContext
 
@@ -513,7 +382,11 @@ quality Efficacy
 
 quality Efficiency
 
-quality RiskFree
+quality RiskFree{
+     --  MitigationEnvironmentalRisk 
+     --  EconomicRiskMitigation 
+     --  MitigationHealthSafetyRisks 
+}
 
 mode MitigationEnvironmentalRisk
 
@@ -521,7 +394,12 @@ mode EconomicRiskMitigation
 
 mode MitigationHealthSafetyRisks
 
-quality Satisfaction
+quality Satisfaction{
+     --  Utility 
+     --  TrustUse 
+     --  Comfort 
+     --  Pleasure 
+}
 
 mode TrustUse
 
@@ -529,7 +407,9 @@ mode Comfort
 
 mode Pleasure
 
-mode Utility
+mode Utility{
+     --  EthicalRequirement 
+}
 
 quality Autonomy
 
@@ -543,53 +423,23 @@ quality Justice
 
 quality NonMaleficence
 
-subkind PersonalMonitoringServices of functional-complexes  specializes ExternalAssistanceComfort, InternalAssistanceComfort {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind PersonalMonitoringServices of functional-complexes  specializes ExternalAssistanceComfort, InternalAssistanceComfort 
 
-subkind ServicesSupportProfessionalActivities of functional-complexes  specializes InternalAssistanceAutonomy, ExternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind ServicesSupportProfessionalActivities of functional-complexes  specializes InternalAssistanceAutonomy, ExternalAssistanceAutonomy 
 
-subkind EducationalSupportServices of functional-complexes  specializes InternalAssistanceAutonomy, ExternalAssistanceAutonomy {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind EducationalSupportServices of functional-complexes  specializes InternalAssistanceAutonomy, ExternalAssistanceAutonomy 
 
-subkind GovernmentServices of functional-complexes  specializes ExternalAssistanceComfort {
-     -- usedIn --  Environment 
-     -- hasRequirement --  Requirement 
-     -- have --  Hardware 
-     -- uses --  Software 
-}
+subkind GovernmentServices of functional-complexes  specializes ExternalAssistanceComfort 
 
-subkind DomesticCompanion of functional-complexes  specializes Stakeholder, People {
-     -- define --  Requirement 
-}
+subkind DomesticCompanion of functional-complexes  specializes Stakeholder, People 
 
-subkind Familiar of functional-complexes  specializes Stakeholder, People {
-     -- define --  Requirement 
-}
+subkind Familiar of functional-complexes  specializes Stakeholder, People 
 
-subkind Educator of functional-complexes  specializes People, Stakeholder {
-     -- define --  Requirement 
-}
+subkind Educator of functional-complexes  specializes People, Stakeholder 
 
-subkind Employer of functional-complexes  specializes Organization, Stakeholder {
-     -- define --  Requirement 
-}
+subkind Employer of functional-complexes  specializes Organization, Stakeholder 
 
-subkind EntertainmentAgent of functional-complexes  specializes Stakeholder, People {
-     -- define --  Requirement 
-}
+subkind EntertainmentAgent of functional-complexes  specializes Stakeholder, People 
 
 subkind GeriatricHouse of functional-complexes  specializes LongStayElderlyInstitution 
 
@@ -615,10 +465,7 @@ kind SignalDevices specializes Device
 
 kind SoundBox specializes Device 
 
-subkind StandardizationResearchEthicsCommittee of functional-complexes  specializes InternalStandardsPolicies {
-     -- influence --  AALSystems 
-     -- establishes --  Requirement 
-}
+subkind StandardizationResearchEthicsCommittee of functional-complexes  specializes InternalStandardsPolicies 
 
 mode ConfidenceSecurity
 
@@ -626,7 +473,9 @@ quality Traceability
 
 quality PrivacyOnUse
 
-mode SocialRiskMitigation
+mode SocialRiskMitigation{
+     --  RiskFree 
+}
 
 quality SocialAcceptance
 

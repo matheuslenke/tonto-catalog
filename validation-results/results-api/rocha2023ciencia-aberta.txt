@@ -1,5 +1,4 @@
 Validating...
-- Total of errors: 0
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Dados are not among the allowed ontological natures of its superclass Preservao_Digital
+Total of errors: 1
+undefined
 Validation finished

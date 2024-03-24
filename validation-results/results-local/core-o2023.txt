@@ -1,4 +1,45 @@
-2
+27
 
+Expecting: one of these possible Token sequences:
+  1. [INT]
+  2. [*]
+but found: ']'
+Expecting token of type 'ID' but found `]`.
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Expecting token of type 'ID' but found `specializes`.
+Expecting token of type 'ID' but found `--`.
+Expecting token of type 'ID' but found `specializes`.
+Expecting token of type 'ID' but found `--`.
+Expecting token of type 'ID' but found `specializes`.
+Expecting token of type 'ID' but found `--`.
+Expecting token of type 'ID' but found `specializes`.
+Expecting token of type 'ID' but found `--`.
+Expecting: one of these possible Token sequences:
+  1. [datatype]
+  2. [enum]
+  3. [disjoint, complete, genset]
+  4. [disjoint, genset, ID]
+  5. [complete, genset, ID]
+  6. [genset, ID, {]
+  7. [disjoint, complete, genset]
+  8. [disjoint, genset, ID]
+  9. [complete, genset, ID]
+  10. [genset, ID, where]
+  11. [@]
+  12. [relation]
+but found: 'genset'
+Expecting end of file but found `genset`.
+Could not resolve reference to ClassDeclaration named 'Physical_Agent'.
+Could not resolve reference to ClassDeclaration named 'Capability'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to ClassDeclaration named 'Capability'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Social_Agent'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Capability'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Capability'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Capability'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Capability'.
+Could not resolve reference to ClassDeclarationOrRelation named 'Agent'.

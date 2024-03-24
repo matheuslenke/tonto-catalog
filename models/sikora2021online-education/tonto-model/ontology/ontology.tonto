@@ -3,86 +3,91 @@ package ontology
 
 mode Cookie_consent
 
-kind IP_Visitor
+kind IP_Visitor{
+    @material [0..*] -- set_ -- [1..*] Cookie_consent 
+    @material [1] -- makes -- [0..*] Public_Interaction 
+    @material [1] -- visits -- [0..*] User 
+}
 
 subkind Public_Interaction of functional-complexes  specializes Interaction 
 
 subkind Logged_Visitor of functional-complexes  specializes IP_Visitor {
-    @material 
-    [0..*] -- set_ -- [1..*] Cookie_consent 
-    @material 
-    [1] -- makes -- [0..*] Public_Interaction 
-    @material 
-    [1] -- visits -- [0..*] User 
+    @material [0..*] -- instantiates -- [1] User 
 }
 
-subkind Anonymous_Visitor of functional-complexes  specializes IP_Visitor {
-    @material 
-    [0..*] -- set_ -- [1..*] Cookie_consent 
-    @material 
-    [1] -- makes -- [0..*] Public_Interaction 
-    @material 
-    [1] -- visits -- [0..*] User 
-}
+subkind Anonymous_Visitor of functional-complexes  specializes IP_Visitor 
 
-kind User specializes Followable 
+kind User specializes Followable {
+    @material [1] -- makes -- [0..*] Private_Interaction 
+    @material [1] -- subscribed_to -- [0..*] Feed 
+    @material [0..*] -- comments -- [0..*] Commentable 
+    @material [0..*] -- lives_in -- [0..1] Country 
+    @material [0..*] -- interested_in -- [0..*] Occupation 
+    @material [0..*] -- is_member_of -- [0..*] Organization 
+    [*] -- [*] Skill 
+}
 
 subkind Private_Interaction of functional-complexes  specializes Interaction 
 
-kind Feed
+kind Feed{
+    [0..*] -- [0..*] Followable 
+}
 
 category Followable of functional-complexes 
 
-mode Settings
+mode Settings{
+    @characterization [1] -- [1] User 
+}
 
-mode Terms
+mode Terms{
+    @characterization [1] -- [1] User 
+}
 
-category Resource of functional-complexes  specializes Commentable, Upvotable, Viewable 
-
-kind Collection specializes Resource, Creatable, Deletable, Editable {
+category Resource of functional-complexes  specializes Commentable, Upvotable, Viewable {
     [0..*] -- has_cluster_based -- [0..*] Tag 
     [0..*] -- has_content_based -- [0..*] Tag 
+}
+
+kind Collection specializes Resource, Creatable, Deletable, Editable {
+    [0..*] -- [0..*] Resource 
 }
 
 kind Learning_Path specializes Resource, Creatable, Deletable, Editable {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
+    [1] -- [0..*] Component 
 }
 
-kind Video specializes Resource {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
-}
+kind Video specializes Resource 
 
-kind Podcast specializes Resource {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
-}
+kind Podcast specializes Resource 
 
-kind Book specializes Resource {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
-}
+kind Book specializes Resource 
 
-kind Link specializes Resource {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
-}
+kind Link specializes Resource 
 
 kind Course specializes Resource {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
+    [1] -- [0..*] Offer 
 }
 
-kind Component
+kind Component{
+    [0..*] -- [0..*] Component 
+    [0..*] -- [0..*] Resource 
+}
 
 kind Offer
 
-kind Skill
+kind Skill{
+    [0..*] -- [0..*] Tag 
+    [0..*] -- [0..*] Skill 
+}
 
 kind Tag specializes Followable 
 
-kind Subject specializes Followable 
+kind Subject specializes Followable {
+    @material [0..1] -- described_by -- [0..*] Collection 
+    @material [0..1] -- described_by -- [0..*] Learning_Path 
+    @material [0..1] -- described_by -- [0..*] Course 
+    @material [0..1] -- described_by -- [0..*] Skill 
+}
 
 category Creatable of functional-complexes 
 
@@ -96,131 +101,165 @@ category Editable of functional-complexes
 
 category Upvotable of functional-complexes 
 
-subkind Creation of functional-complexes  specializes Interaction 
+subkind Creation of functional-complexes  specializes Interaction {
+    @material [0..1] -- [1..*] Creatable 
+}
 
-subkind Comment of functional-complexes  specializes Interaction, Creatable, Deletable, Editable, Commentable, Upvotable 
+subkind Comment of functional-complexes  specializes Interaction, Creatable, Deletable, Editable, Commentable, Upvotable {
+    @material [1..*] -- [1..*] Commentable 
+}
 
-subkind View of functional-complexes  specializes Interaction 
+subkind View of functional-complexes  specializes Interaction {
+    @material [1..*] -- [1..*] Viewable 
+}
 
-subkind Delete of functional-complexes  specializes Interaction 
+subkind Delete of functional-complexes  specializes Interaction {
+    @material [1..*] -- [1..*] Deletable 
+}
 
-subkind Upvote of functional-complexes  specializes Interaction 
+subkind Upvote of functional-complexes  specializes Interaction {
+    @material [1..*] -- [1..*] Upvotable 
+}
 
 subkind Search of functional-complexes  specializes Interaction 
 
-subkind Edit of functional-complexes  specializes Interaction 
+subkind Edit of functional-complexes  specializes Interaction {
+    @material [1..*] -- [1..*] Editable 
+}
 
-subkind Follow of functional-complexes  specializes Interaction 
+subkind Follow of functional-complexes  specializes Interaction {
+    @material [1..*] -- [1..*] Followable 
+}
 
 kind Interaction
 
-relator Comment0
+relator Comment0{
+    @mediation [0..*] -- [1] User 
+    @mediation [0..*] -- [1] Commentable 
+}
 
 category Selection of functional-complexes 
 
-kind Popular_Selection specializes Selection 
+kind Popular_Selection specializes Selection {
+    @material [0..*] -- placed_in -- [1] Country 
+}
 
 subkind Occupation_Popularity of functional-complexes  specializes Popular_Selection {
-    @material 
-    [0..*] -- placed_in -- [1] Country 
+    @characterization [1] -- [1] Popular_Occupation 
 }
 
 subkind Skill_Popularity of functional-complexes  specializes Popular_Selection {
-    @material 
-    [0..*] -- placed_in -- [1] Country 
+    @characterization [1] -- [1] Popular_Skill 
 }
 
-mode Popular_Occupation
+mode Popular_Occupation{
+    @material [0..*] -- similar_to -- [0..*] Occupation 
+}
 
-class Popular_Skill
+class Popular_Skill{
+    @material [0..*] -- similar_to -- [0..*] Skill 
+}
 
 kind Occupation
 
-mode Selected_Activity
+mode Selected_Activity{
+    @characterization [1] -- [1] Popular_Selection 
+    @material [0..*] -- similar_to -- [0..*] Economic_Activity_Classification_NACE 
+}
 
 kind Country
 
 kind Economic_Activity_Classification_NACE
 
-kind Job_Description
-
-kind Company specializes Organization {
-    @material 
-    [0..*] -- operates_in -- [0..*] Country 
+kind Job_Description{
+    @material [0..*] -- located_in -- [0..1] Country 
+    @material [0..*] -- similar_to -- [0..*] Occupation 
 }
 
-category Organization of functional-complexes 
+kind Company specializes Organization {
+    [1] -- [0..*] Job_Description 
+    [0..*] -- [0..*] Economic_Activity_Classification_NACE 
+}
 
-relator Record
+category Organization of functional-complexes {
+    @material [0..*] -- operates_in -- [0..*] Country 
+}
+
+relator Record{
+    @mediation [0..*] -- [1] User 
+    @mediation [0..*] -- [1] Organization 
+}
 
 kind Labor_Record specializes Record {
-    @mediation 
-    [0..*] -- [1] User 
-    @mediation 
-    [0..*] -- [1] Organization 
+    @material [0..*] -- similar_to -- [0..*] Occupation 
 }
 
 kind Education_Record specializes Record {
-    @mediation 
-    [0..*] -- [1] User 
-    @mediation 
-    [0..*] -- [1] Organization 
+    @material [0..*] -- similar_to -- [0..*] Skill 
 }
 
-category Public_Resource of functional-complexes  specializes Resource {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
-}
+category Public_Resource of functional-complexes  specializes Resource 
 
 category Corporate_Resource of functional-complexes  specializes Resource {
-    [0..*] -- has_cluster_based -- [0..*] Tag 
-    [0..*] -- has_content_based -- [0..*] Tag 
+    @material [0..*] -- supplied_by -- [1] Company 
 }
 
 subkind Corporate_User of functional-complexes  specializes User {
-    @material 
-    [1] -- makes -- [0..*] Private_Interaction 
-    @material 
-    [1] -- subscribed_to -- [0..*] Feed 
-    @material 
-    [0..*] -- comments -- [0..*] Commentable 
-    @material 
-    [0..*] -- lives_in -- [0..1] Country 
-    @material 
-    [0..*] -- interested_in -- [0..*] Occupation 
-    @material 
-    [0..*] -- is_member_of -- [0..*] Organization 
-    [*] -- [*] Skill 
+    @material [0..*] -- employed_by -- [1] Company 
 }
 
-subkind Learning_Manager of functional-complexes  specializes Corporate_User {
-    @material 
-    [0..*] -- employed_by -- [1] Company 
-    @material 
-    [1] -- makes -- [0..*] Private_Interaction 
-    @material 
-    [1] -- subscribed_to -- [0..*] Feed 
-    @material 
-    [0..*] -- comments -- [0..*] Commentable 
-    @material 
-    [0..*] -- lives_in -- [0..1] Country 
-    @material 
-    [0..*] -- interested_in -- [0..*] Occupation 
-    @material 
-    [0..*] -- is_member_of -- [0..*] Organization 
-    [*] -- [*] Skill 
+subkind Learning_Manager of functional-complexes  specializes Corporate_User 
+
+quality NACE_Section{
+    @characterization [1] -- [1] Economic_Activity_Classification_NACE 
 }
 
-quality NACE_Section
+quality NACE_Division{
+    @characterization [1] -- [1] Economic_Activity_Classification_NACE 
+}
 
-quality NACE_Division
+quality NACE_Group{
+    @characterization [1] -- [1] Economic_Activity_Classification_NACE 
+}
 
-quality NACE_Group
+quality NACE_Class{
+    @characterization [1] -- [1] Economic_Activity_Classification_NACE 
+}
 
-quality NACE_Class
+kind School specializes Organization 
 
-kind School specializes Organization {
-    @material 
-    [0..*] -- operates_in -- [0..*] Country 
+genset disjointcomplete {
+    general IP_Visitor
+    specifics Anonymous_Visitor, Logged_Visitor
+}
+
+genset dijoint_complete {
+    general Interaction
+    specifics Private_Interaction, Public_Interaction
+}
+
+genset disjoint_complete {
+    general Popular_Selection
+    specifics Occupation_Popularity, Skill_Popularity
+}
+
+genset disjoint_complete {
+    general Record
+    specifics Labor_Record, Education_Record
+}
+
+genset complete {
+    general Resource
+    specifics Public_Resource, Corporate_Resource
+}
+
+genset disjointcomplete {
+    general Interaction
+    specifics Search, Delete, Upvote, View, Comment, Creation, Edit, Follow
+}
+
+genset complete {
+    general Organization
+    specifics School, Company
 }
 

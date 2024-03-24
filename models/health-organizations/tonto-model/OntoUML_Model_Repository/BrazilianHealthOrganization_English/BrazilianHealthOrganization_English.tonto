@@ -1,4 +1,3 @@
-import OntoUML_Model_Repository
 
 package BrazilianHealthOrganization_English
 
@@ -6,7 +5,9 @@ collective DocumentType
 
 collective MedicalSpecialization
 
-kind Diagnosis
+kind Diagnosis{
+    @Formal [1] -- has -- [1] ICD 
+}
 
 category ICD of functional-complexes 
 
@@ -36,17 +37,49 @@ phase Elder of functional-complexes  specializes Person
 
 phase PregnantWoman of functional-complexes  specializes Woman 
 
-role Patient of functional-complexes  specializes Person 
+role Patient of functional-complexes  specializes Person {
+    @material [1] -- treats -- [1] HealthProfessional 
+    @material [1..*] -- lives_in -- [1] Neighborhood 
+}
 
-role HealthProfessional of functional-complexes  specializes Person 
+role HealthProfessional of functional-complexes  specializes Person {
+    @material [1..*] -- works_in -- [1..*] HealthUnit 
+    @Formal [*] -- has -- [*] MedicalSpecialization 
+    @material [1] -- performs -- [1..*] Diagnosis 
+}
 
-relator HealthAppointment
+relator HealthAppointment{
+    @mediation [1..*] -- [1] Patient 
+    @mediation [1..*] -- [1] HealthProfessional 
+    @Formal [*] -- generates -- [*] Document 
+}
 
-kind Neighborhood
+kind Neighborhood{
+    @material [1] -- located_in -- [1..*] Region 
+}
 
 kind Region
 
-kind HealthUnit
+kind HealthUnit{
+    @material [1..*] -- located_in -- [1] Region 
+}
 
-kind Document
+kind Document{
+    @Formal [*] -- hasType -- [1] DocumentType 
+}
+
+genset Set {
+    general Person
+    specifics Elder, Teenager, Adult, Child
+}
+
+genset Set2 {
+    general Person
+    specifics Woman, Man
+}
+
+genset Set3 {
+    general ICD
+    specifics NervousSystem, DigestiveSystem, MetabolicDisease, RespiratorySystem, CirculatorySystem
+}
 

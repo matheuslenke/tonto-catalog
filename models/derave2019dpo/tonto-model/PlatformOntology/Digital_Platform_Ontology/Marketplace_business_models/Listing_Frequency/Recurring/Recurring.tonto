@@ -1,4 +1,4 @@
-import PlatformOntology
+import Service
 
 package Recurring
 
@@ -8,7 +8,11 @@ phase Booked_Time_Slot of qualities  specializes Time_Slot
 
 quality Time_Slot
 
-class Start_Time specializes Time 
+class Start_Time specializes Time {
+    [1] -- [0..*] Time_Slot 
+}
 
-class End_Time specializes Time 
+class End_Time specializes Time {
+    [1] -- [0..*] Time_Slot 
+}
 

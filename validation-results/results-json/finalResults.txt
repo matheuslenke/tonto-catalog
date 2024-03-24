@@ -115,6 +115,7 @@ public-tender: 21
 qam: 0
 quality-assurance-process-ontology2017: 68
 ramirez2015userfeedback: 17
+ramos2021bias: 20
 real-estate-ontology: 0
 recommendation-ontology: 0
 repa2021public-administration: 40

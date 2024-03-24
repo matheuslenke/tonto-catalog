@@ -1,25 +1,30 @@
-import freddy
 
 package Equipment
 
 role Rack_Composed_Of_Shelf of functional-complexes  specializes Rack {
-    @mediation 
-    [1..*] -- is_in -- [1] Abstraction_Of_CoLocalization 
+    @material [1] -- rackHoldsShelf -- [1..*] Shelf 
+    @mediation [1] -- suffers -- [1..*] Fitting_ShelfRack 
 }
 
 role Shelf_Composed_Of_Slot of functional-complexes  specializes Shelf {
-    @mediation 
-    [1] -- fit_in -- [1] Fitting_ShelfRack 
+    @material [1] -- shelfHoldsSlot -- [1..*] Slot 
+    @mediation [1] -- suffers -- [1..*] Fitting_SlotShelf 
 }
 
 role Slot_Composed_Of_SubSlot of functional-complexes  specializes Slot {
-    @mediation 
-    [1] -- fit_in -- [1] Fitting_SlotShelf 
+    @material [1] -- slotHoldsSubSlot -- [1..*] SubSlot 
+    @mediation [1] -- suffers -- [1..*] Fitting_SubSlotSlot 
 }
 
-roleMixin Socket_Composed_Of_Equipment of functional-complexes  specializes Socket 
+roleMixin Socket_Composed_Of_Equipment of functional-complexes  specializes Socket {
+    @mediation [1] -- suffers -- [1] Fitting_SocketEquipment 
+}
 
-kind Equipment
+kind Equipment{
+    @material [1] -- socketHoldsEquipment -- [1] Socket_Composed_Of_Equipment 
+    @mediation [1] -- fit_in -- [1] Fitting_SocketEquipment 
+    @mediation [1] -- endsEquipment -- [1..*] Physical_Termination 
+}
 
 mixin EquipmentHolder of functional-complexes 
 
@@ -31,15 +36,23 @@ relator Fitting_SocketEquipment
 
 relator Fitting_SubSlotSlot
 
-kind Rack specializes EquipmentHolder 
+kind Rack specializes EquipmentHolder {
+    @mediation [1..*] -- is_in -- [1] Abstraction_Of_CoLocalization 
+}
 
-kind Shelf specializes EquipmentHolder 
+kind Shelf specializes EquipmentHolder {
+    @mediation [1] -- fit_in -- [1] Fitting_ShelfRack 
+}
 
-kind Slot specializes Socket 
+kind Slot specializes Socket {
+    @mediation [1] -- fit_in -- [1] Fitting_SlotShelf 
+}
 
 mixin Socket of functional-complexes  specializes EquipmentHolder 
 
-kind SubSlot specializes Socket 
+kind SubSlot specializes Socket {
+    @mediation [1] -- fit_in -- [1] Fitting_SubSlotSlot 
+}
 
 relator Abstraction_Of_CoLocalization
 

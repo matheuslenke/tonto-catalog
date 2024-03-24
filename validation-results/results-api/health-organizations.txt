@@ -1,13 +1,4 @@
 Validating...
-- Total of errors: 0
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of CirculatorySystem are not among the allowed ontological natures of its superclass ICD
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of NervousSystem are not among the allowed ontological natures of its superclass ICD
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of MetabolicDisease are not among the allowed ontological natures of its superclass ICD
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of RespiratorySystem are not among the allowed ontological natures of its superclass ICD
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of DigestiveSystem are not among the allowed ontological natures of its superclass ICD
+Total of errors: 10
+undefined
 Validation finished

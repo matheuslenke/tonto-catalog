@@ -1,6 +1,5 @@
-import ontology
-import Human
 import SAREF
+import Human
 
 package SAREF4Health
 
@@ -8,55 +7,21 @@ quantity ElectricPotential specializes UnitOfMeasurement
 
 role PersonUnderECGMonitoring specializes LivingPerson 
 
-class ECGRecordingSession specializes Task 
-
-subkind ECGDevice of functional-complexes  specializes Device {
-    [1] -- sarefconsistOf -- [0..*] Device 
-    @formal 
-    [1] -- sarefmakesMeasurement -- [0..*] Measurement 
-    @characterization 
-    [1] -- sarefmeasuresProperty -- [1..*] Property 
-    @formal 
-    [0..*] -- sarefaccomplishes -- [1..*] Task 
+class ECGRecordingSession specializes Task {
+    [0..*] -- hasParticipant -- [1] ECGDevice 
+    @formal [0..*] -- hasParticipant -- [1] PersonUnderECGMonitoring 
 }
+
+subkind ECGDevice of functional-complexes  specializes Device 
 
 kind ECGLead specializes Sensor {
-    [1] -- sarefconsistOf -- [0..*] Device 
-    @formal 
-    [1] -- sarefmakesMeasurement -- [0..*] Measurement 
-    @characterization 
-    [1] -- sarefmeasuresProperty -- [1..*] Property 
-    @formal 
-    [0..*] -- sarefaccomplishes -- [1..*] Task 
+    @formal [1] -- sarefmakesMeasurement -- [0..*] TimeSeriesMeasurements 
+    @componentOf [2..*] -- [1] ECGDevice 
 }
 
-subkind ECGLeadUnipolar of functional-complexes  specializes ECGLead {
-    @formal 
-    [1] -- sarefmakesMeasurement -- [0..*] TimeSeriesMeasurements 
-    @componentOf 
-    [2..*] -- [1] ECGDevice 
-    [1] -- sarefconsistOf -- [0..*] Device 
-    @formal 
-    [1] -- sarefmakesMeasurement -- [0..*] Measurement 
-    @characterization 
-    [1] -- sarefmeasuresProperty -- [1..*] Property 
-    @formal 
-    [0..*] -- sarefaccomplishes -- [1..*] Task 
-}
+subkind ECGLeadUnipolar of functional-complexes  specializes ECGLead 
 
-subkind ECGLeadBipolarLimb of functional-complexes  specializes ECGLead {
-    @formal 
-    [1] -- sarefmakesMeasurement -- [0..*] TimeSeriesMeasurements 
-    @componentOf 
-    [2..*] -- [1] ECGDevice 
-    [1] -- sarefconsistOf -- [0..*] Device 
-    @formal 
-    [1] -- sarefmakesMeasurement -- [0..*] Measurement 
-    @characterization 
-    [1] -- sarefmeasuresProperty -- [1..*] Property 
-    @formal 
-    [0..*] -- sarefaccomplishes -- [1..*] Task 
-}
+subkind ECGLeadBipolarLimb of functional-complexes  specializes ECGLead 
 
 collective TimeSeriesMeasurements{
     sarefhasTimestamp: undefined  

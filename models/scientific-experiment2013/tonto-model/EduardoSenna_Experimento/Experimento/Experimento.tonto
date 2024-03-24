@@ -1,43 +1,85 @@
 
 package Experimento
 
-kind Antecedente
+kind Antecedente{
+    @Formal [1] -- [1] Referncia 
+}
 
-kind Concluso
+kind Concluso{
+    @componentOf [1] -- [2..*] Problema 
+    @Formal [1] -- [1] Dedutivo 
+}
 
-kind Consequncia
+kind Consequncia{
+    @Formal [1] -- [1] Antecedente 
+}
 
-kind Contexto
+kind Contexto{
+    @componentOf [1] -- [2..*] Experimento 
+}
 
-kind Dedutivo
+kind Dedutivo{
+    @Formal [1] -- [1] Experimental 
+}
 
-kind Espao
+kind Espao{
+    @componentOf [1] -- [2..*] Contexto 
+}
 
-mode Experimental
+mode Experimental{
+    @Formal [1] -- [1] Raciocnio 
+}
 
-kind Experimento
+kind Experimento{
+    @componentOf [1] -- [2..*] Problema 
+    @componentOf [1] -- [2..*] Concluso 
+}
 
-collective Grupo
+collective Grupo{
+    @memberOf [1] -- [2..*] Contexto 
+}
 
-kind Hiptese
+kind Hiptese{
+    @componentOf [1] -- [1..*] Relatrio 
+    @componentOf [1] -- [2..*] Problema 
+}
 
-kind Indutivo
+kind Indutivo{
+    @Formal [1] -- [1] Experimental 
+    @Formal [1] -- [1] Concluso 
+}
 
-kind Medida
+kind Medida{
+    @componentOf [1] -- [2..*] Experimento 
+}
 
-kind Objetivo
+kind Objetivo{
+    @componentOf [1] -- [1..*] Hiptese 
+    @componentOf [1] -- [2..*] Experimento 
+    @componentOf [1] -- [2..*] Consequncia 
+}
 
 mode Pessoa
 
-kind Problema
+kind Problema{
+    @Formal [1] -- [1] Indutivo 
+}
 
-mode Raciocnio
+mode Raciocnio{
+    @characterization [1] -- [1] Pessoa 
+}
 
 kind Referncia
 
-kind Relatrio
+kind Relatrio{
+    @Formal [1] -- [1] Antecedente 
+}
 
-kind Resultado
+kind Resultado{
+    @componentOf [1] -- [2..*] Experimento 
+}
 
-mode Terico
+mode Terico{
+    @Formal [1] -- [1] Raciocnio 
+}
 

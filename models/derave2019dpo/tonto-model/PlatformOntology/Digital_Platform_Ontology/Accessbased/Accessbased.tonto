@@ -1,86 +1,44 @@
-import PlatformOntology
+import Transaction
+import MultiSided
+import Price_Calculation
+import Conversation_System
+import Digital_Platform_Ontology
+import Decentralized
+import Revenue_Stream
+import GDPO_part_1
+import UFOS
+import Review_by_Provider
+import Provider_Source
+import Review_System
+import Marketplace_business_models
+import Price_set_by_Provider
+import Payment
+import Review_by_Customer
+import In_House_Payment
+import Customer_Source
+import Price_Discovery
 
 package Accessbased
 
 subkind Immediate_Acces_Transaction of relators  specializes Transaction {
-    @mediation 
-    [1..*] -- bounds_customer -- [1] Platform_Customer 
-    @mediation 
-    [1..*] -- is_bound_to -- [1] Transaction_Platform_Company 
-    @mediation 
-    [1..*] -- bounds_hired_provider -- [1..*] Platform_Provider 
-    [1] -- partially_fulfills -- [0..*] Delivery 
-    @historicalDependence 
-    [0..*] -- conforms_to -- [1..*] Offering_On_The_Platform 
-    @componentOf 
-    [1] -- is_part_of -- [0..1] Investment 
-    [1] -- [1] Paid_Price 
-    [1] -- [1] Transaction_Price 
-    [1] -- [0..*] Transaction_Conversation 
-    [1] -- [1] Highest_Price_Offer 
-    [0..*] -- confirms_to -- [1] Listing 
-    [0..*] -- [1] Fixed_Fee 
-    @mediation 
-    [1] -- bounds_user -- [1] Platform_User 
-    @mediation 
-    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
-    @mediation 
-    [0..*] -- bounds_platform -- [1] Platform_Company 
-    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
-    @mediation 
-    [1..*] -- bounds_user -- [1..*] MS_Platform_User 
+    @mediation [1..*] -- bounds_hired_provider -- [1..*] immediate_Access_Provider 
+    @mediation [1..*] -- bounds_customer -- [1..*] Immediate_Access_Customer 
+    [1] -- is_part_of -- [0..*] Immediate_Access_Commitment 
 }
 
-subkind Immediate_Access_Claim of intrinsic-modes  specializes Service_Customer_Claim 
+subkind Immediate_Access_Claim of intrinsic-modes  specializes Service_Customer_Claim {
+    [1..*] -- is_part_of -- [1] Immediate_Acces_Transaction 
+    @externalDependence [1..*] -- depends_on -- [1..*] immediate_Access_Provider 
+}
 
 roleMixin immediate_Access_Provider of functional-complexes  specializes Platform_Provider {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- does -- [0..*] Review_Creation_by_Provider 
-    [1..*] -- by -- [1..*] Revenue_Stream_Payed_by_Provider 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- [0..*] Price_Proposal 
-    [1] -- participates -- [1..*] Listing_Creation 
-    [1] -- changes -- [0..*] Price_Setting_action_by_Provider 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
+    @characterization [1..*] -- inheres_in -- [1..*] Immediate_Access_Commitment 
 }
 
 roleMixin Immediate_Access_Customer of functional-complexes  specializes Platform_Customer {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- by -- [0..*] Transaction_Payment 
-    [1] -- does -- [0..*] Review_Creation_by_Customer 
-    [1] -- [1..*] Price_Acceptance 
-    [1] -- by -- [0..*] Inhouse_Payment 
-    [1] -- participates -- [1..*] Transaction_Conversation 
-    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
-    [*] -- [*] Paid_Transaction_Price 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
-    [*] -- suggests -- [*] Suggested_Price 
-    [1] -- initiates -- [0..*] Listing_Conversation 
-    @participation 
-    [1] -- [0..*] Price_Offer_Creation 
-    [1] -- [0..*] Request_Quote 
+    @characterization [1] -- inheres_in -- [1..*] Immediate_Access_Claim 
+    @externalDependence [1] -- depends_on -- [1..*] Immediate_Access_Commitment 
 }
 
-subkind Immediate_Access_Commitment of intrinsic-modes  specializes Hired_Provider_Commitment {
-    [1] -- is_counter_part_of -- [1] Service_Customer_Claim 
-}
+subkind Immediate_Access_Commitment of intrinsic-modes  specializes Hired_Provider_Commitment 
 

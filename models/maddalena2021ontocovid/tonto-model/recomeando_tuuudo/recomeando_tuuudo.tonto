@@ -5,353 +5,206 @@ kind Doena
 
 subkind Doena_Infecciosa of functional-complexes  specializes Doena 
 
-category Principal_agente_causador of functional-complexes 
+category Principal_agente_causador of functional-complexes {
+    [1..*] -- causa -- [0..*] Doena 
+}
 
 subkind Microorganismo_Patognicos specializes Principal_agente_causador {
-    [1..*] -- causa -- [0..*] Doena 
+    [1..*] -- causa -- [0..*] Doena_Infecciosa 
 }
 
-subkind Vrus specializes Microorganismo_Patognicos {
-    [1..*] -- causa -- [0..*] Doena_Infecciosa 
-    [1..*] -- causa -- [0..*] Doena 
-}
+subkind Vrus specializes Microorganismo_Patognicos 
 
 subkind SARSCoV2 specializes Vrus {
-    [1..*] -- causa -- [0..*] Doena_Infecciosa 
-    [1..*] -- causa -- [0..*] Doena 
-}
-
-phase Pessoa_Morta of functional-complexes  specializes Pessoa {
+    [1] -- causa -- [1] COVID19 
     [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
 }
 
-phase Pessoa_Viva of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
-}
+phase Pessoa_Morta of functional-complexes  specializes Pessoa 
 
-relator Diagnstico
+phase Pessoa_Viva of functional-complexes  specializes Pessoa 
 
-subkind Diagnstico_COVID19 of relators  specializes Diagnstico {
+relator Diagnstico{
     [0..*] -- [1] Doena 
 }
 
+subkind Diagnstico_COVID19 of relators  specializes Diagnstico 
+
 role Profissional_da_Sade of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
-}
-
-kind Exame
-
-role Mdico of functional-complexes  specializes Profissional_da_Sade {
     [1] -- atesta -- [0..*] Diagnstico 
     [1..*] -- aplica -- [0..*] Exame 
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
 }
 
-relator Transmisso_de_SARSCoV2
-
-subkind NAAT of functional-complexes  specializes Exame {
+kind Exame{
     [1..*] -- _ferramenta_de -- [0..*] Diagnstico 
 }
 
-kind Amostra_Clnica
+role Mdico of functional-complexes  specializes Profissional_da_Sade {
+    [1] -- atesta -- [0..*] Diagnstico_COVID19 
+}
 
-quality Carga_Viral_de_SARSCoV2
+relator Transmisso_de_SARSCoV2{
+    [0..*] -- [1] Pessoa_com_COVID19 
+    @externalDependence [1] -- [0..1] Infeco_de_SARSCoV2 
+}
 
-kind Pessoa
+subkind NAAT of functional-complexes  specializes Exame {
+    [0..*] -- _ferramenta_de -- [1] Diagnstico_COVID19 
+    [0..*] -- processa -- [1] Amostra_Clnica 
+}
 
-mode Disfuno
+kind Amostra_Clnica{
+    [0..*] -- _coletada_de -- [1] Pessoa 
+}
+
+quality Carga_Viral_de_SARSCoV2{
+    [1] -- [0..*] SARSCoV2 
+    @characterization [1] -- [1] Pessoa_com_COVID19 
+}
+
+kind Pessoa{
+    [1] -- [0..*] Transmisso_de_SARSCoV2 
+    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
+    [0..*] -- sofre_de -- [0..*] Doena 
+    [0..*] -- tem -- [*] Sintoma 
+    [0..*] -- reside_em -- [0..*] Estabelecimento 
+    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
+    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+}
+
+mode Disfuno{
+    @externalDependence [1] -- [1..*] Doena 
+    @characterization [0..*] -- [1] Pessoa 
+}
 
 event Manifestao_do_Sintoma{
     Data: undefined  
+    [*] -- [*] Sintoma 
 }
 
 event Desaparecimento_do_Sintoma{
     Data: undefined  
 }
 
-mode Detectvel_para_SARSCoV2
-
-phase Pessoa_com_COVID19_Assintomtica of functional-complexes  specializes Pessoa_com_COVID19 {
-    [1..*] -- transmite_para -- [0..*] Pessoa 
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+mode Detectvel_para_SARSCoV2{
+    @characterization [1] -- [1] NAAT 
 }
 
-phase Pessoa_com_COVID19_Sintomtica of functional-complexes  specializes Pessoa_com_COVID19 {
-    [1..*] -- transmite_para -- [0..*] Pessoa 
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
-}
+phase Pessoa_com_COVID19_Assintomtica of functional-complexes  specializes Pessoa_com_COVID19 
+
+phase Pessoa_com_COVID19_Sintomtica of functional-complexes  specializes Pessoa_com_COVID19 
 
 subkind Sintoma_COVID19 of intrinsic-modes  specializes Sintoma {
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
+    @characterization [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
+    @characterization [0] -- [1] Pessoa_com_COVID19_Assintomtica 
 }
 
 subkind COVID19 of functional-complexes  specializes Doena_Infecciosa 
 
 phase Pessoa_com_COVID19 of functional-complexes  specializes Pessoa_Viva {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+    [1..*] -- transmite_para -- [0..*] Pessoa 
 }
 
-mode Sintoma
+mode Sintoma{
+    @characterization [0..*] -- [1] Pessoa 
+    [*] -- [*] Desaparecimento_do_Sintoma 
+}
 
-kind Caso_COVID19_segundo_ECDC
+kind Caso_COVID19_segundo_ECDC{
+    [0..*] -- se_refere_ -- [1] Pessoa 
+}
 
-kind Caso_COVID19_segundo_OMS
+kind Caso_COVID19_segundo_OMS{
+    [0..*] -- se_refere_a -- [1] Pessoa 
+}
 
 role Caso_Possvel_de_COVID19_segundo_ECDC of functional-complexes  specializes Caso_COVID19_segundo_ECDC {
-    [0..*] -- se_refere_ -- [1] Pessoa 
+    [*] -- _descrito_por -- [1] Critrio_Clnico_segundo_ECDC 
+    [1..*] -- se_refere_ -- [1] Pessoa_Possivelmente_com_COVID19_segundo_ECDC 
 }
 
 role Caso_Provavl_de_COVID19_segundo_ECDC of functional-complexes  specializes Caso_COVID19_segundo_ECDC {
-    [0..*] -- se_refere_ -- [1] Pessoa 
+    [*] -- _descrito_por -- [0..1] Critrio_Epidemiolgico_segundo_ECDC 
+    [*] -- _descrito_por -- [0..1] Critrio_Clnico_segundo_ECDC 
+    [*] -- _descrito_por -- [0..1] Critrio_de_Diagnstigo_de_Imagem_segundo_ECDC 
+    [1..*] -- se_refere_ -- [1] Pessoa_Provavelmente_com_COVID19_segundo_ECDC 
 }
 
 role Caso_Confirmado_de_COVID19_segundo_ECDC of functional-complexes  specializes Caso_COVID19_segundo_ECDC {
-    [0..*] -- se_refere_ -- [1] Pessoa 
+    [*] -- _descrito_por -- [1] Critrio_Laboratorial_segundo_ECDC 
+    [1..*] -- se_refere_ -- [1] Pessoa_com_COVID19_Confirmada_segundo_ECDC 
 }
 
 role Caso_Provvel_de_COVID19_segundo_OMS of functional-complexes  specializes Caso_COVID19_segundo_OMS {
-    [0..*] -- se_refere_a -- [1] Pessoa 
+    [1..*] -- se_refere_a -- [1] Pessoa_com_Provvel_COVID19_segundo_OMS 
 }
 
 role Caso_Suspeito_de_COVID19_segundo_OMS of functional-complexes  specializes Caso_COVID19_segundo_OMS {
-    [0..*] -- se_refere_a -- [1] Pessoa 
+    [*] -- _descrito_por -- [0..1] Critrio_Epidemiolgico_segundo_OMS 
+    [*] -- _descrito_por -- [0..1] Critrio_Clnico_segundo_OMS 
+    [1..*] -- se_refere_a -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
 }
 
 role Caso_Confirmado_de_COVID19_segundo_OMS of functional-complexes  specializes Caso_COVID19_segundo_OMS {
-    [0..*] -- se_refere_a -- [1] Pessoa 
+    [1..*] -- se_refere_a -- [1] Pessoa_com_COVID19_Confirmada_segundo_OMS 
 }
 
 class Critrio_Clnico_segundo_ECDC
 
 kind Lugar_Geogrfico
 
-mode Taxa_de_Transmisso_de_COVID19
+mode Taxa_de_Transmisso_de_COVID19{
+    @characterization [1] -- [1] Lugar_Geogrfico 
+}
 
-kind Estabelecimento
+kind Estabelecimento{
+    [*] -- localizada_em -- [*] Lugar_Geogrfico 
+}
 
 subkind Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS of intrinsic-modes  specializes Sintoma_COVID19 {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
+    @characterization [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
 }
 
-subkind Coriza of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind Coriza of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
-subkind Anorexia_Nusea_Vmito of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind Anorexia_Nusea_Vmito of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
-subkind FraquezaFadiga_Geral of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind FraquezaFadiga_Geral of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
-subkind Diarreia of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind Diarreia of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
-subkind Estado_Mental_Alterado of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind Estado_Mental_Alterado of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
-subkind Mialgia of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind Mialgia of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
-subkind Dor_de_Garganta of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind Dor_de_Garganta of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
 subkind Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC of intrinsic-modes  specializes Sintoma_COVID19 {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
+    @characterization [1..*] -- [1] Pessoa_Possivelmente_com_COVID19_segundo_ECDC 
 }
 
-subkind Tosse of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-    @characterization 
-    [1..*] -- [1] Pessoa_Possivelmente_com_COVID19_segundo_ECDC 
-}
+subkind Tosse of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC 
 
-subkind Dispneia of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-    @characterization 
-    [1..*] -- [1] Pessoa_Possivelmente_com_COVID19_segundo_ECDC 
-}
+subkind Dispneia of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC 
 
-subkind Febre of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-    @characterization 
-    [1..*] -- [1] Pessoa_Possivelmente_com_COVID19_segundo_ECDC 
-}
+subkind Febre of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC 
 
-subkind Dor_de_Cabea of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [0..*] -- [1] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
-}
+subkind Dor_de_Cabea of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS 
 
 subkind AnosmiaHiposmiaAgeusia_Repentina of intrinsic-modes  specializes Sintoma_COVID19, Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC {
-    @characterization 
-    [1..*] -- [1] Pessoa_com_COVID19_Sintomtica 
-    @characterization 
-    [0] -- [1] Pessoa_com_COVID19_Assintomtica 
-    @characterization 
-    [0..*] -- [1] Pessoa 
-    [*] -- [*] Desaparecimento_do_Sintoma 
-    @characterization 
-    [1..*] -- [1] Pessoa_Possivelmente_com_COVID19_segundo_ECDC 
+    @characterization [1] -- [1] Pessoa_com_Provvel_COVID19_segundo_OMS 
 }
 
 event bito{
     Data: undefined  
+    [*] -- [*] Pessoa_Morta 
 }
 
-subkind Exame_Radiolgico of functional-complexes  specializes Exame {
-    [1..*] -- _ferramenta_de -- [0..*] Diagnstico 
-}
+subkind Exame_Radiolgico of functional-complexes  specializes Exame 
 
-mode Leses_Compatveis_com_a_COVID19
+mode Leses_Compatveis_com_a_COVID19{
+    @characterization [1] -- [1] Exame_Radiolgico 
+}
 
 relator Infeco_de_SARSCoV2
 
@@ -364,85 +217,96 @@ class Critrio_Clnico_segundo_OMS
 class Critrio_Epidemiolgico_segundo_OMS
 
 role Pessoa_Possivelmente_com_COVID19_segundo_ECDC of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+    [*] -- satisfaz_ao -- [1] Critrio_Clnico_segundo_ECDC 
 }
 
 role Pessoa_Provavelmente_com_COVID19_segundo_ECDC of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+    [*] -- tem -- [0..*] Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC 
+    [*] -- satisfaz_ao -- [0..1] Critrio_Epidemiolgico_segundo_ECDC 
+    [*] -- satisfaz_ao -- [0..1] Critrio_Clnico_segundo_ECDC 
+    [*] -- satisfaz_ao -- [0..1] Critrio_de_Diagnstigo_de_Imagem_segundo_ECDC 
+    [*] -- esteve_em_contato_prximo_com -- [0..*] Pessoa_com_COVID19_Confirmada_segundo_ECDC 
+    [*] -- possui -- [0..*] Exame_Radiolgico 
 }
 
 role Pessoa_com_COVID19_Confirmada_segundo_ECDC of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+    [*] -- satisfaz_ao -- [1] Critrio_Laboratorial_segundo_ECDC 
+    [*] -- possui -- [0..*] Teste_AntgenoRDT_para_SARSCoV2 
+    [*] -- possui -- [0..*] NAAT 
 }
 
 class Critrio_de_Diagnstigo_de_Imagem_segundo_ECDC
 
-subkind Teste_AntgenoRDT_para_SARSCoV2 of functional-complexes  specializes Exame {
-    [1..*] -- _ferramenta_de -- [0..*] Diagnstico 
+subkind Teste_AntgenoRDT_para_SARSCoV2 of functional-complexes  specializes Exame 
+
+mode Teste_Positivo{
+    @characterization [1] -- [1] Teste_AntgenoRDT_para_SARSCoV2 
 }
 
-mode Teste_Positivo
-
 role Pessoa_com_COVID19_Confirmada_segundo_OMS of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+    [*] -- possui -- [0..*] Teste_AntgenoRDT_para_SARSCoV2 
+    [*] -- posssui -- [*] NAAT 
+    [*] -- tem_contato_com -- [*] Pessoa_com_Suspeita_de_COVID_segundo_OMS 
 }
 
 role Pessoa_com_Provvel_COVID19_segundo_OMS of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+    [*] -- possui -- [0..*] Exame_Radiolgico 
+    [0..*] -- tem_contato_com -- [0..*] Pessoa_com_COVID19_Confirmada_segundo_OMS 
 }
 
 role Pessoa_com_Suspeita_de_COVID_segundo_OMS of functional-complexes  specializes Pessoa {
-    [1] -- [0..*] Transmisso_de_SARSCoV2 
-    [0..*] -- tem -- [0..*] Diagnstico_COVID19 
-    [0..*] -- sofre_de -- [0..*] Doena 
-    [0..*] -- tem -- [*] Sintoma 
-    [0..*] -- reside_em -- [0..*] Estabelecimento 
-    [0..*] -- trabalha_em -- [0..*] Estabelecimento 
-    [0..*] -- viaja_para -- [0..*] Lugar_Geogrfico 
+    [*] -- [*] Critrio_Clnico_segundo_OMS 
+    [*] -- possui -- [0..*] Teste_AntgenoRDT_para_SARSCoV2 
 }
 
-subkind Instituio_de_Tratamento_de_Pessoas_Vulnerveis of functional-complexes  specializes Estabelecimento {
-    [*] -- localizada_em -- [*] Lugar_Geogrfico 
+subkind Instituio_de_Tratamento_de_Pessoas_Vulnerveis of functional-complexes  specializes Estabelecimento 
+
+subkind SRAG of intrinsic-modes  specializes Disfuno 
+
+subkind Estabelecimento_de_Sade of functional-complexes  specializes Estabelecimento 
+
+genset P_NGZV6GAqAAdRDt {
+    general Pessoa
+    specifics Pessoa_Viva, Pessoa_Morta
 }
 
-subkind SRAG of intrinsic-modes  specializes Disfuno {
-    @externalDependence 
-    [1] -- [1..*] Doena 
-    @characterization 
-    [0..*] -- [1] Pessoa 
+genset f2sHEN6GAqACBQq5 {
+    general Pessoa_com_COVID19
+    specifics Pessoa_com_COVID19_Sintomtica, Pessoa_com_COVID19_Assintomtica
 }
 
-subkind Estabelecimento_de_Sade of functional-complexes  specializes Estabelecimento {
-    [*] -- localizada_em -- [*] Lugar_Geogrfico 
+genset zs0h_N6GAqCIew85 {
+    general Caso_COVID19_segundo_ECDC
+    specifics Caso_Possvel_de_COVID19_segundo_ECDC, Caso_Provavl_de_COVID19_segundo_ECDC, Caso_Confirmado_de_COVID19_segundo_ECDC
+}
+
+genset sh_N6GAqCIew9D {
+    general Caso_COVID19_segundo_OMS
+    specifics Caso_Provvel_de_COVID19_segundo_OMS, Caso_Suspeito_de_COVID19_segundo_OMS, Caso_Confirmado_de_COVID19_segundo_OMS
+}
+
+genset wpMgt6GAqCIexbI {
+    general Sintoma_COVID19
+    specifics Dor_de_Garganta, Estado_Mental_Alterado, Coriza, AnosmiaHiposmiaAgeusia_Repentina, Dispneia, FraquezaFadiga_Geral, Anorexia_Nusea_Vmito, Mialgia, Dor_de_Cabea, Tosse, Febre, Diarreia
+}
+
+genset pIdsgt6GAqCIexfJ {
+    general Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS
+    specifics Estado_Mental_Alterado, Febre, Diarreia, Anorexia_Nusea_Vmito, Tosse, Mialgia, Dor_de_Garganta, Coriza, FraquezaFadiga_Geral, Dispneia, Dor_de_Cabea
+}
+
+genset rgd3ot6FYFAUBgti {
+    general Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC
+    specifics Febre, Dispneia, Tosse, AnosmiaHiposmiaAgeusia_Repentina
+}
+
+genset EuQx0t6FYFAUBhXR {
+    general Pessoa
+    specifics Pessoa_Provavelmente_com_COVID19_segundo_ECDC, Pessoa_Possivelmente_com_COVID19_segundo_ECDC, Pessoa_com_COVID19_Confirmada_segundo_ECDC
+}
+
+genset IkB6Mt6FYFAUBh6W {
+    general Pessoa
+    specifics Pessoa_com_Suspeita_de_COVID_segundo_OMS, Pessoa_com_Provvel_COVID19_segundo_OMS, Pessoa_com_COVID19_Confirmada_segundo_OMS
 }
 

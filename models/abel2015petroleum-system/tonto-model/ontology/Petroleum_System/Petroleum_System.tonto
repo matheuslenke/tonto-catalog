@@ -1,71 +1,75 @@
-import ontology
 
 package Petroleum_System
 
 kind Boundary{
     boundary: BoundaryType  
+    @characterization [1] -- [1] Lithological_unit 
 }
 
 quality Porosity{
     value_: Value  
+    @characterization [1] -- [1] Siliciclastic_Rock 
 }
 
 quality Quantity_Organic_matter{
     value_: Value  
+    @characterization [1] -- [1] Siliciclastic_Rock 
 }
 
 quantity Hidrocarbon
 
-quantity Oil specializes Hidrocarbon 
+quantity Oil specializes Hidrocarbon {
+    [*] -- [*] Oil__Porous_rock 
+    [*] -- [*] Oil__Trap 
+    [*] -- [*] Oil__Mudstone__Porous_Rock 
+}
 
 situation Pregeneration{
     pressure: undefined  
     temperature: undefined  
+    @prestate [*] -- [*] Generation 
 }
 
-event Generation
+event Generation{
+    @posstate [*] -- [*] Oil__Mudstone__Porous_Rock 
+}
 
-situation Oil__Mudstone__Porous_Rock
+situation Oil__Mudstone__Porous_Rock{
+    @prestate [*] -- [*] Migration 
+}
 
-event Migration
+event Migration{
+    @posstate [*] -- [*] Oil__Porous_rock 
+}
 
-situation Oil__Porous_rock
+situation Oil__Porous_rock{
+    @prestate [*] -- [*] Acumulation 
+}
 
-event Acumulation
+event Acumulation{
+    @posstate [*] -- [*] Oil__Trap 
+}
 
 situation Oil__Trap
 
 role Source_Rock of functional-complexes  specializes LithologicUnit_qua_shale {
     porosity: Value  { const }
     organic_matter: Value  { const }
-    [*] -- [*] Oil__Mudstone__Porous_Rock 
-    @constitute 
-    [*] -- [*] Shale 
-    @constitute 
-    [*] -- [*] Rock 
 }
 
 role Seal of functional-complexes  specializes LithologicUnit_qua_shale {
     porosity: Value  { const }
-    [*] -- [*] Oil__Mudstone__Porous_Rock 
-    @constitute 
-    [*] -- [*] Shale 
-    @constitute 
-    [*] -- [*] Rock 
+    [*] -- [*] Trap 
 }
 
 role Reservoir of functional-complexes  specializes LithologicUnit_qua_sandstone {
     porosity: Value  { const }
-    [*] -- [*] Oil__Porous_rock 
-    [*] -- [*] Oil__Mudstone__Porous_Rock 
-    @constitute 
-    [*] -- [*] Sandstone 
-    @constitute 
-    [*] -- [*] Rock 
+    [*] -- [*] Trap 
 }
 
 mixin Trap of functional-complexes {
     structure: Structure  
+    [*] -- [*] Oil__Trap 
 }
 
 quantity Shale specializes Siliciclastic_Rock {
@@ -79,13 +83,14 @@ quantity Sandstone specializes Siliciclastic_Rock {
 }
 
 kind LithologicUnit_qua_shale specializes Lithological_unit {
-    @constitute 
-    [*] -- [*] Rock 
+    [*] -- [*] Oil__Mudstone__Porous_Rock 
+    @constitute [*] -- [*] Shale 
 }
 
 kind LithologicUnit_qua_sandstone specializes Lithological_unit {
-    @constitute 
-    [*] -- [*] Rock 
+    [*] -- [*] Oil__Porous_rock 
+    [*] -- [*] Oil__Mudstone__Porous_Rock 
+    @constitute [*] -- [*] Sandstone 
 }
 
 quantity Siliciclastic_Rock specializes Rock 
@@ -96,21 +101,7 @@ kind Lithological_unit{
     Dimensions: Dimensions  
     Top_Contact: contact  
     Bottom_Contact: contact  
+    @constitute [*] -- [*] Rock 
 }
 
 datatype contact
-enum Dimensions{
-    thickness, length, depth
-}
-enum Structure{
-    anticlinal, dome, fault
-}
-enum Value{
-    high, medium, low, not_present
-}
-enum BoundaryType{
-    abrupt, gradational
-}
-enum Granulometry{
-    argile, sand
-}

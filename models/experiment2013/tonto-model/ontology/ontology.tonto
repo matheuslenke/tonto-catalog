@@ -1,33 +1,66 @@
 
 package ontology
 
-mode Reasoning
+mode Reasoning{
+    @characterization [1] -- [1] Person 
+    @Formal [1] -- [1] Theoretical 
+    @Formal [1] -- [1] Experimental 
+}
 
 mode Person
 
 mode Theoretical
 
-mode Experimental
+mode Experimental{
+    @Formal [1] -- [1] Inductive 
+    @Formal [1] -- [1] Deductive 
+}
 
-kind Inductive
+kind Inductive{
+    @Formal [1] -- [1] Conclusion 
+    @Formal [1] -- [1] Problem 
+}
 
-kind Deductive
+kind Deductive{
+    @Formal [1] -- [1] Conclusion 
+}
 
-kind Conclusion
+kind Conclusion{
+    @componentOf [2..*] -- [1] Experiment 
+}
 
-kind Experiment
+kind Experiment{
+    @componentOf [2..*] -- [1] Goal 
+    @componentOf [2..*] -- [1] Result 
+    @componentOf [2..*] -- [1] Measure 
+    @componentOf [2..*] -- [1] Context 
+}
 
 kind Goal
 
-kind Hypothesis
+kind Hypothesis{
+    @componentOf [1..*] -- [1] Goal 
+}
 
-kind Problem
+kind Problem{
+    @componentOf [2..*] -- [1] Conclusion 
+    @componentOf [2..*] -- [1] Experiment 
+    @componentOf [2..*] -- [1] Hypothesis 
+}
 
-kind Precedent
+kind Precedent{
+    @Formal [1] -- [1] Report 
+    @Formal [1] -- [1] Outcome 
+    @Formal [1] -- [1] Reference 
+}
 
-kind Report
+kind Report{
+    @componentOf [1..*] -- [1] Hypothesis 
+}
 
-kind Outcome
+kind Outcome{
+    @componentOf [1..*] -- [1] Goal 
+}
 
 kind Reference
 
@@ -35,7 +68,12 @@ kind Result
 
 kind Measure
 
-kind Context
+kind Context{
+    @Formal [*] -- [*] InitialDate 
+    @Formal [*] -- [*] EndDate 
+    @memberOf [2..*] -- [1] Group 
+    @componentOf [2..*] -- [1] Location 
+}
 
 kind Location
 

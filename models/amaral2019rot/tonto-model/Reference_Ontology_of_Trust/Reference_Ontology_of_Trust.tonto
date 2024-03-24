@@ -2,3 +2,28 @@
 package Reference_Ontology_of_Trust
 
 datatype int
+genset K1j7et6GAqACCgbs {
+    general Endurant
+    specifics Moment, Substantial
+}
+
+genset agency {
+    general Substantial
+    specifics Agent, Object
+}
+
+genset w9ZXet6GAqACCgj3 {
+    general Mental_Moment
+    specifics Belief, Intention, Perception, Desire
+}
+
+genset intentionality {
+    general Intention
+    specifics Complex_Intention, Atomic_Intention
+}
+
+genset XoJKsP6GAqACB0Pm {
+    general Trust_Calibration_Signal
+    specifics Uncertainty_Signal, TrustWarranting_Signal
+}
+

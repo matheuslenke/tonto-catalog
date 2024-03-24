@@ -1,4 +1,4 @@
-import PlatformOntology
+import Transaction
 
 package Listing_Type
 
@@ -7,7 +7,6 @@ subkind Offering_description_of_Ownership_transfer of functional-complexes  spec
 }
 
 event Ownership_Transfer specializes Delivery {
-    @participation 
-    [0..*] -- received_by -- [1..*] Platform_Customer 
+    @participation [0..*] -- involves -- [1..*] Good 
 }
 

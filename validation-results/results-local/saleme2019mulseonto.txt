@@ -1,4 +1,4 @@
-77
+89
 
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
@@ -10,10 +10,17 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
+Expecting token of type 'specifics' but found `Directly_Transmitted_Medium`.
+Expecting token of type 'specifics' but found `Continuous_Medium`.
+Expecting token of type 'specifics' but found `Graphic_Medium`.
+Expecting token of type 'specifics' but found `Audio_Medium`.
+Expecting token of type 'specifics' but found `Sound`.
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name
 Duplicated reference name
 Duplicated reference name
 Consider using an annotation or a more specific class
@@ -73,6 +80,11 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Computer_Machine'.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class

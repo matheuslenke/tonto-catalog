@@ -1,0 +1,158 @@
+import opm
+import schema
+import seas
+import bpo
+import dice
+import bot
+import ifc
+
+package BPO_ontology
+
+quality Property specializes Property, Property, Property {
+    @material [0..*] -- omgisExplicitlyDerivedFrom -- [0..*] Property 
+    @material [0..*] -- omghasInferredPropertyState -- [0..*] PropertyState 
+    @material [0..*] -- opmhasPropertyState -- [0..*] PropertyState 
+    @material [0..*] -- omgisImplicitlyDerivedFrom -- [0..*] Geometry 
+}
+
+event ProjectDevelopment specializes Event 
+
+subkind Housing_Block of functional-complexes  specializes Building 
+
+subkind House of functional-complexes  specializes Building {
+    specialCareFacilityHome: boolean_  
+    cornerhouse: boolean_  
+    Mirrored: boolean_  
+    adresHouseNumber: undefined  
+    streetName: string_  
+    zipCode: double  
+    city: string_  
+    country: string_  
+    @componentOf [3..*] -- [1] Housing_Block 
+}
+
+kind Module specializes Assembly {
+    @componentOf [1..*] -- [1] House 
+}
+
+relator describesAttribute{
+    @mediation [0..*] -- [1] List2D 
+    @mediation [0..*] -- [1] RangedAttribute 
+}
+
+subkind describedAttributeInFirstColumn of relators  specializes describesAttribute 
+
+subkind describedAttributeInSecondColumn of relators  specializes describesAttribute 
+
+event WIP_project specializes ProjectDevelopment 
+
+event Finished_project specializes ProjectDevelopment 
+
+subkind E_Wanden of functional-complexes  specializes BuildingElement 
+
+subkind F_Vloeren of functional-complexes  specializes BuildingElement 
+
+subkind G_Daken of functional-complexes  specializes BuildingElement 
+
+subkind L_LosLeveren of functional-complexes  specializes BuildingElement 
+
+subkind W_WInstallaties of functional-complexes  specializes BuildingElement 
+
+subkind E_EInstallaties of functional-complexes  specializes BuildingElement 
+
+subkind Y_Kozijnen of functional-complexes  specializes BuildingElement 
+
+subkind Z_Fundering of functional-complexes  specializes BuildingElement 
+
+subkind S_Sanitair of functional-complexes  specializes BuildingElement 
+
+subkind Q_Afwerking of functional-complexes  specializes BuildingElement 
+
+event ConceptDevelopment specializes Event 
+
+event UpcommingProject specializes ProjectDevelopment 
+
+event InitiationPhase specializes WIP_project 
+
+event DevelopmentPhase specializes WIP_project 
+
+event RealisationPhase specializes WIP_project 
+
+event PremoduDevelopment specializes ConceptDevelopment 
+
+event ProductDevelopment specializes ConceptDevelopment 
+
+event NeedsAndDemands specializes PremoduDevelopment 
+
+event AnalysisAndDefinition specializes PremoduDevelopment 
+
+event DevelopmentPlanning specializes PremoduDevelopment 
+
+event Integration specializes PremoduDevelopment 
+
+event VersionRelease specializes PremoduDevelopment 
+
+event ExploreOptions specializes ProductDevelopment 
+
+event PreliminaryDesign specializes ProductDevelopment 
+
+event FinalDesign specializes ProductDevelopment 
+
+event TechnicalDesign specializes ProductDevelopment 
+
+event Testing specializes ProductDevelopment 
+
+event Complementing specializes ProductDevelopment 
+
+kind internalProducts specializes Product 
+
+kind externalProducts specializes Product {
+    @material [1..*] -- schemamanufacturer -- [1..*] organisation 
+}
+
+subkind ManufacturingSchedule of functional-complexes  specializes Schedule 
+
+subkind ProcurementSchedule of functional-complexes  specializes Schedule 
+
+subkind WorkPreparationSchedule of functional-complexes  specializes Schedule 
+
+subkind AssemblySchedule of functional-complexes  specializes ConstructionSchedule 
+
+subkind ConstructionSchedule of functional-complexes  specializes Schedule 
+
+subkind EngineeringSchedule of functional-complexes  specializes Schedule 
+
+category Agent of functional-complexes  specializes Agent, Agent {
+    [*] -- hasAgent -- [*] activity 
+}
+
+genset Disjoined {
+    general Entity
+    specifics DynamicEntity, SingularEntity
+}
+
+genset Disjoined {
+    general Component
+    specifics element, Assembly
+}
+
+genset Disjoined {
+    general StructuredValue
+    specifics List2D, Interval, Entry2D
+}
+
+genset Disjoined {
+    general ClassifiedObject
+    specifics Attribute, RangedAttribute, componentConnection, Component
+}
+
+genset Disjoined {
+    general PropertyState
+    specifics deleted, CurrentPropertyState, OutdatedPropertyState
+}
+
+genset disjoined {
+    general Event
+    specifics ConceptDevelopment, ProjectDevelopment
+}
+

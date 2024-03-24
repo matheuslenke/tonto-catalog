@@ -1,5 +1,4 @@
 Validating...
-- Total of errors: 1
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class RearEndCollision is specializing other classes that represent ultimate sortals: «relator»
+Total of errors: 1
+undefined
 Validation finished

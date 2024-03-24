@@ -1,3 +1,8 @@
 
 package Digital_Platform_Ontology
 
+genset _zj2dx6DAAAAUkX {
+    general Registered_User
+    specifics Offering_Creator
+}
+

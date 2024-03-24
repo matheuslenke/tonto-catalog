@@ -1,30 +1,29 @@
-import PlatformOntology
+import GDPO_part_1
+import Transaction
+import GDPO_User_Roles
+import Airbnb
 
 package Conversation_System
 
-event InterUser_Conversation specializes Digital_Communication 
-
-event Transaction_Conversation specializes InterUser_Conversation {
+event InterUser_Conversation specializes Digital_Communication {
     [0..*] -- participates -- [1] Offering_Creator 
 }
 
+event Transaction_Conversation specializes InterUser_Conversation 
+
 event Listing_Conversation specializes InterUser_Conversation {
-    [0..*] -- participates -- [1] Offering_Creator 
+    [0..*] -- participates_in -- [1] Offering_Creator 
 }
 
 event Send_Message specializes User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    [1] -- [1] Digital_Message 
+    @componentOf [1..*] -- [1] InterUser_Conversation 
 }
 
 event Booking_Conversation specializes Transaction_Conversation {
     message: undefined  
-    [0..*] -- participates -- [1] Offering_Creator 
+    [0..*] -- concerns -- [1] Booking 
+    [0..*] -- participates -- [1] Platform_Customer 
+    [0..*] -- participates -- [1] Platform_Provider 
 }
 

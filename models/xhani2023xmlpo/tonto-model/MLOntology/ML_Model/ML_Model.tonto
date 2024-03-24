@@ -1,120 +1,78 @@
-import MLOntology
 import Data_Input_and_Preprocessing
-import Explanation
 import General_Module
+import Explanation
+
 package ML_Model
 
 subkind SupervisedLearningApproach of functional-complexes  specializes MLApproach {
-    @characterization 
-    [1] -- [1] MLApproachCharacteristic 
+    @participation [1..*] -- [0..*] SupervisedLearningApproachImplemenation 
 }
 
 subkind UnsupervisedLearningApproach of functional-complexes  specializes MLApproach {
-    @characterization 
-    [1] -- [1] MLApproachCharacteristic 
+    @participation [1..*] -- [0..*] UnsupervisedLearningApproachImplemenation 
 }
 
-kind MLApproach
-
-subkind RegressionAlgorithm of functional-complexes  specializes SupervisedLearningApproach {
-    @participation 
-    [1..*] -- [0..*] SupervisedLearningApproachImplemenation 
-    @characterization 
-    [1] -- [1] MLApproachCharacteristic 
+kind MLApproach{
+    @characterization [1] -- [1] MLApproachCharacteristic 
 }
 
-subkind ClassificationAlgorithm of functional-complexes  specializes SupervisedLearningApproach {
-    @participation 
-    [1..*] -- [0..*] SupervisedLearningApproachImplemenation 
-    @characterization 
-    [1] -- [1] MLApproachCharacteristic 
-}
+subkind RegressionAlgorithm of functional-complexes  specializes SupervisedLearningApproach 
+
+subkind ClassificationAlgorithm of functional-complexes  specializes SupervisedLearningApproach 
 
 subkind LabeledDataset of functional-complexes  specializes Dataset {
-     --  Feature 
-     --  Data 
-    @characterization 
-    [1] -- [1] DatasetCharacteristic 
-    @participation 
-    [1..*] -- [0..*] Operation 
+    @participation [1..*] -- [0..*] SupervisedLearningApproachImplemenation 
 }
 
 subkind UnlabeledDataset of functional-complexes  specializes Dataset {
-     --  Feature 
-     --  Data 
-    @characterization 
-    [1] -- [1] DatasetCharacteristic 
-    @participation 
-    [1..*] -- [0..*] Operation 
+    @participation [1..*] -- [0..*] UnsupervisedLearningApproachImplemenation 
 }
 
-event SupervisedLearningApproachImplemenation specializes Implementation {
-    @participation 
-    [1] -- ExecutedBy -- [0..*] Operation 
+event SupervisedLearningApproachImplemenation specializes Implementation 
+
+event UnsupervisedLearningApproachImplemenation specializes Implementation 
+
+subkind ClusteringAlgorithm of functional-complexes  specializes UnsupervisedLearningApproach 
+
+category Library of functional-complexes {
+    @participation [1..*] -- [0..*] ImportLibraries 
 }
 
-event UnsupervisedLearningApproachImplemenation specializes Implementation {
-    @participation 
-    [1] -- ExecutedBy -- [0..*] Operation 
+kind PythonLibrary specializes Library 
+
+subkind Pandas of functional-complexes  specializes PythonLibrary 
+
+subkind ScikitLearn of functional-complexes  specializes PythonLibrary 
+
+event ImportLibraries{
+    @participational [1..*] -- [1] MLModelImplementation 
+    @characterization [1] -- [1] LibraryCharacteristic 
 }
-
-subkind ClusteringAlgorithm of functional-complexes  specializes UnsupervisedLearningApproach {
-    @participation 
-    [1..*] -- [0..*] UnsupervisedLearningApproachImplemenation 
-    @characterization 
-    [1] -- [1] MLApproachCharacteristic 
-}
-
-category Library of functional-complexes 
-
-kind PythonLibrary specializes Library {
-    @participation 
-    [1..*] -- [0..*] ImportLibraries 
-}
-
-subkind Pandas of functional-complexes  specializes PythonLibrary {
-    @participation 
-    [1..*] -- [0..*] ImportLibraries 
-}
-
-subkind ScikitLearn of functional-complexes  specializes PythonLibrary {
-    @participation 
-    [1..*] -- [0..*] ImportLibraries 
-}
-
-event ImportLibraries
 
 event MLModelImplementation specializes Implementation {
-    @participation 
-    [1] -- ExecutedBy -- [0..*] Operation 
+    @creation [1] -- [1] BlackboxMLmodel 
+    @creation [1] -- [1] Result 
 }
 
 event MLModelEvaluation
 
 subkind BlackboxMLmodel of functional-complexes  specializes MLModel {
-    @participation 
-    [1..*] -- [0..*] MLModelImplementation 
-    @participation 
-    [1..*] -- [0..*] AntehocImplementation 
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
+    @participation [1..*] -- [0..*] MLModelEvaluation 
+    @participation [1..*] -- [0..*] PosthocImplementation 
+    @mediation [0..*] -- [1] Vizualization 
 }
 
-category ModelVisualization of functional-complexes 
-
-kind Graphs specializes ModelVisualization {
-    @mediation 
-    [0..*] -- [1] Vizualization 
+category ModelVisualization of functional-complexes {
+    @mediation [0..*] -- [1] Vizualization 
 }
 
-kind Image specializes ModelVisualization {
-    @mediation 
-    [0..*] -- [1] Vizualization 
-}
+kind Graphs specializes ModelVisualization 
 
-relator Vizualization
+kind Image specializes ModelVisualization 
+
+relator Vizualization{
+    @characterization [1] -- [1] VizualizationCharacteristic 
+}
 
 quality MLApproachCharacteristic
 
@@ -122,10 +80,5 @@ quality LibraryCharacteristic
 
 quality VizualizationCharacteristic
 
-kind Result specializes Output {
-    @creation 
-    [1] -- [1] Operation 
-    @participation 
-    [0..*] -- [0..*] Operation 
-}
+kind Result specializes Output 
 

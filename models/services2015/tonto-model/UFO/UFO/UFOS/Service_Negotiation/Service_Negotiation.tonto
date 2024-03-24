@@ -1,69 +1,68 @@
-import UFO
-import ufoa_first_Order_Entities
-import ufoa_second_Order_Entities
-import ufob_first_Order_Entities
-import ufob_second_Order_Entities
-import UFOA
-import UFOB
-import UFOC
-import ufoc_1st_Order_Entities
-import ufoc_2nd_Order_Entities
 import Service_Delivery
-import Service_Negotiation
-import ServiceOffer
+import nd_Order_Entities
+import Service_Offer
 
 package Service_Negotiation
 
-roleMixin ClaimedHiredProvider of functional-complexes  specializes HiredServiceProvider {
-    @Formal 
-    [1] -- performed_by -- [0..*] HiredProvider_ServiceCustomer_Interaction 
-    [*] -- instance_of -- [*] Universal 
+roleMixin ClaimedHiredProvider of functional-complexes  specializes HiredServiceProvider 
+
+roleMixin CommittedServiceCustomer of functional-complexes  specializes ServiceCustomer 
+
+mode HiredProviderClaim{
+    @characterization [1..*] -- externallydependenton -- [1] CommittedServiceCustomer 
+    @characterization [1..*] -- inheres_in -- [1] ClaimedHiredProvider 
 }
 
-roleMixin CommittedServiceCustomer of functional-complexes  specializes ServiceCustomer {
-    [*] -- instance_of -- [*] Universal 
+mode HiredProviderCommitment{
+    @characterization [1..*] -- inheres_in -- [1] HiredServiceProvider 
+    @characterization [1..*] -- externallydependenton -- [1] ServiceCustomer 
+    @Formal [1] -- counterpart_of -- [1] ServiceCustomerClaim 
 }
-
-mode HiredProviderClaim
-
-mode HiredProviderCommitment
 
 roleMixin HiredServiceProvider of functional-complexes  specializes ServiceProviderOnNegotiation {
-    [*] -- instance_of -- [*] Universal 
+    @Formal [1] -- performed_by -- [0..*] HiredProvider_ServiceCustomer_Interaction 
 }
 
-relator ServiceAgreement
-
-category ServiceAgreementDescription of functional-complexes 
-
-roleMixin ServiceCustomer of functional-complexes  specializes TargetCustomerOnNegotiation {
-    [*] -- instance_of -- [*] Universal 
+relator ServiceAgreement{
+    @componentOf [1] -- [1..*] ServiceCustomerClaim 
+    @Formal [0..*] -- conforms_to -- [1] ServiceOffering 
+    @mediation [1..*] -- is_bound_to -- [1..*] ServiceCustomer 
+    @mediation [1..*] -- is_bound_to -- [1] HiredServiceProvider 
+    @componentOf [1] -- [1..*] HiredProviderCommitment 
 }
 
-mode ServiceCustomerClaim
-
-mode ServiceCustomerCommitment
-
-relator ServiceNegotiation
-
-roleMixin ServiceProviderOnNegotiation of functional-complexes  specializes ServiceProvider {
-    [*] -- instance_of -- [*] Universal 
+category ServiceAgreementDescription of functional-complexes {
+    @Formal [0..*] -- describes -- [1..*] ServiceAgreement 
 }
+
+roleMixin ServiceCustomer of functional-complexes  specializes TargetCustomerOnNegotiation 
+
+mode ServiceCustomerClaim{
+    @characterization [1..*] -- inheres_in -- [1] ServiceCustomer 
+    @characterization [1..*] -- externallydependenton -- [1] HiredServiceProvider 
+}
+
+mode ServiceCustomerCommitment{
+    @Formal [1] -- counterpart_of -- [1] HiredProviderClaim 
+    @characterization [1..*] -- inheres_in -- [1] CommittedServiceCustomer 
+    @characterization [1..*] -- externallydependenton -- [1] ClaimedHiredProvider 
+}
+
+relator ServiceNegotiation{
+    @mediation [1..*] -- participates_in -- [1] ServiceProviderOnNegotiation 
+    @mediation [1..*] -- participates_in -- [1..*] TargetCustomerOnNegotiation 
+    @Formal [0..*] -- refers_to -- [1] ServiceOffering 
+    @Formal [1] -- results_in -- [0..1] ServiceAgreement 
+}
+
+roleMixin ServiceProviderOnNegotiation of functional-complexes  specializes ServiceProvider 
 
 relator SpecializedServiceAgreement specializes ServiceAgreement {
-    @componentOf 
-    [1] -- [1..*] ServiceCustomerClaim 
-    @Formal 
-    [0..*] -- conforms_to -- [1] ServiceOffering 
-    @mediation 
-    [1..*] -- is_bound_to -- [1..*] ServiceCustomer 
-    @mediation 
-    [1..*] -- is_bound_to -- [1] HiredServiceProvider 
-    @componentOf 
-    [1] -- [1..*] HiredProviderCommitment 
+    @componentOf [1] -- [1..*] ServiceCustomerCommitment 
+    @componentOf [1] -- [1..*] HiredProviderClaim 
+    @mediation [1..*] -- is_bound_to -- [1..*] CommittedServiceCustomer 
+    @mediation [1..*] -- is_bound_to -- [1] ClaimedHiredProvider 
 }
 
-roleMixin TargetCustomerOnNegotiation of functional-complexes  specializes TargetCustomer {
-    [*] -- instance_of -- [*] Universal 
-}
+roleMixin TargetCustomerOnNegotiation of functional-complexes  specializes TargetCustomer 
 

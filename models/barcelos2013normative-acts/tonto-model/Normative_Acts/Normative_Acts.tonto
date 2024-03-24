@@ -4,3 +4,53 @@ package Normative_Acts
 datatype string_
 datatype int
 datatype char
+genset gUOS1z6GAqBwAQzZ {
+    general Article
+    specifics Ordinary_Article, Duration_Clause, Revocation_Clause
+}
+
+genset Ddiu1z6GAqBwARAs {
+    general Article
+    specifics Simple_Article, Composed_Article
+}
+
+genset Dfge1z6GAqBwARDv {
+    general Composed_Article
+    specifics Article_composed_of_Paragraph, Article_composed_of_Item
+}
+
+genset D271z6GAqBwARLC {
+    general Item
+    specifics Composed_Item, Simple_Item
+}
+
+genset 64h1z6GAqBwARRE {
+    general Letter
+    specifics Composed_Letter, Simple_Letter
+}
+
+genset Tzp1z6GAqBwARXk {
+    general Article
+    specifics Article_component_of_Section, Article_component_of_Chapter
+}
+
+genset pDZ1z6GAqBwARY5 {
+    general Section
+    specifics Simple_Section, Composed_Section
+}
+
+genset Aw51z6GAqBwARaa {
+    general Chapter
+    specifics Chapter_composed_by_Section, Chapter_composed_by_Article
+}
+
+genset ZWV1z6GAqBwARlQ {
+    general Part
+    specifics Double_Part, Multiple_Part
+}
+
+genset bURV1z6GAqBwARlo {
+    general Double_Part
+    specifics Special_Part, General_Part
+}
+

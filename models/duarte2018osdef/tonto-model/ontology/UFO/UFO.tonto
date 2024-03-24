@@ -1,28 +1,30 @@
-import ontology
 
 package UFO
 
-class Mental_Moment
-
-class Belief specializes Mental_Moment {
+class Mental_Moment{
     [0..*] -- inheres_in -- [1] Agent 
 }
 
-class Intention specializes Mental_Moment {
-    [0..*] -- inheres_in -- [1] Agent 
+class Belief specializes Mental_Moment 
+
+class Intention specializes Mental_Moment 
+
+class Agent{
+    [1] -- performs -- [0..*] Action 
 }
 
-class Agent
+class Action specializes Event_Perdurant 
 
-class Action specializes Event_Perdurant {
+class Event_Perdurant{
     [0..*] -- causes -- [0..*] Event_Perdurant 
     [0..*] -- brings_about -- [1] Situation 
     [0..*] -- manifestation_of -- [1] Disposition 
 }
 
-class Event_Perdurant
-
-class Situation
+class Situation{
+    [1] -- triggers_ -- [0..*] Event_Perdurant 
+    [0..*] -- activates -- [0..*] Disposition 
+}
 
 class Disposition
 

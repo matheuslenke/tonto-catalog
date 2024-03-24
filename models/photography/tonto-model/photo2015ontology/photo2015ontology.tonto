@@ -5,15 +5,25 @@ kind Organization
 
 subkind Archive of functional-complexes  specializes Organization 
 
-kind Principle_of_Respect_for_Original_Order
+kind Principle_of_Respect_for_Original_Order{
+    @memberOf [1] -- [1] Archive 
+}
 
-kind Theory_of_the_Tree_Ages
+kind Theory_of_the_Tree_Ages{
+    @memberOf [1] -- [1] Archive 
+}
 
-kind Principle_of_Provenance
+kind Principle_of_Provenance{
+    @memberOf [1] -- [1] Archive 
+}
 
-role ArchiveManaged of functional-complexes  specializes Archive 
+role ArchiveManaged of functional-complexes  specializes Archive {
+    @material [1..*] -- [1..*] Archivist 
+}
 
-collective Funds
+collective Funds{
+    @memberOf [1..*] -- [1..*] Document 
+}
 
 kind Document
 
@@ -25,15 +35,26 @@ kind Traditional specializes Photography
 
 role Archivist of functional-complexes  specializes Individual 
 
-collective Collection
+collective Collection{
+    @memberOf [1] -- [1] Document 
+}
 
 kind Individual
 
-relator Management
+relator Management{
+    @mediation [1..*] -- [1] ArchiveManaged 
+    @mediation [1..*] -- [1] Archivist 
+}
 
-relator Operation
+relator Operation{
+    @mediation [1..*] -- [1] Operator 
+}
 
-relator Document_Operated specializes Document 
+relator Document_Operated specializes Document {
+    @mediation [1] -- [1..*] Operation 
+}
 
-role Operator of functional-complexes  specializes Individual 
+role Operator of functional-complexes  specializes Individual {
+    @material [0..*] -- [1..*] Document_Operated 
+}
 

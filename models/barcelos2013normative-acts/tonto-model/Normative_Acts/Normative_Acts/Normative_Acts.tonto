@@ -1,16 +1,21 @@
 
 package Normative_Acts
-datatype int
 
 kind Article{
     number_: int  
 }
 
-subkind Duration_Clause of functional-complexes  specializes Article 
+subkind Duration_Clause of functional-complexes  specializes Article {
+    @componentOf [0..*] -- [1] Normative_Act 
+}
 
-subkind Revocation_Clause of functional-complexes  specializes Article 
+subkind Revocation_Clause of functional-complexes  specializes Article {
+    @componentOf [0..*] -- [1] Normative_Act 
+}
 
-subkind Ordinary_Article of functional-complexes  specializes Article 
+subkind Ordinary_Article of functional-complexes  specializes Article {
+    @componentOf [1..*] -- [1] Normative_Act 
+}
 
 kind Normative_Act{
     duration: undefined  
@@ -20,25 +25,29 @@ kind Normative_Act{
 }
 
 kind Brief{
-    text: string 
+    text: string_  
+    @componentOf [1] -- [1] Normative_Act 
 }
 
 kind Epigraph{
-    text: string  
+    text: string_  
+    @componentOf [1] -- [1] Normative_Act 
 }
 
 kind Preamble{
-    text: string  
+    text: string_  
+    @componentOf [1] -- [1] Normative_Act 
 }
 
 subkind Composed_Article of functional-complexes  specializes Article 
 
 subkind Simple_Article of functional-complexes  specializes Article {
-    text: string  
+    text: string_  
 }
 
 kind Caput{
-    text: string  
+    text: string_  
+    @componentOf [1] -- [1] Composed_Article 
 }
 
 subkind Article_composed_of_Item of functional-complexes  specializes Composed_Article 
@@ -49,39 +58,40 @@ kind Item{
     roman_number: int  
 }
 
-subkind Item_component_of_Article of functional-complexes  specializes Item 
+subkind Item_component_of_Article of functional-complexes  specializes Item {
+    @componentOf [2..*] -- [1] Article_composed_of_Item 
+}
 
 kind Paragraph{
-    identification: string  
+    identification: string_  
+    @componentOf [1..*] -- [1] Article_composed_of_Paragraph 
 }
 
 subkind Composed_Item of functional-complexes  specializes Item 
 
 subkind Simple_Item of functional-complexes  specializes Item 
 
-datatype char 
-
 kind Letter{
     letter: char  
+    @componentOf [2..*] -- [1] Composed_Item 
 }
 
-subkind Simple_Letter of functional-complexes  specializes Letter {
-    @componentOf 
-    [2..*] -- [1] Composed_Item 
-}
+subkind Simple_Letter of functional-complexes  specializes Letter 
 
-subkind Composed_Letter of functional-complexes  specializes Letter {
-    @componentOf 
-    [2..*] -- [1] Composed_Item 
-}
+subkind Composed_Letter of functional-complexes  specializes Letter 
 
 kind Letter_Discriminator{
     cardinal_number: int  
+    @componentOf [2..*] -- [1] Composed_Letter 
 }
 
-subkind Article_component_of_Chapter of functional-complexes  specializes Article 
+subkind Article_component_of_Chapter of functional-complexes  specializes Article {
+    @memberOf [2..*] -- [1] Chapter_composed_by_Article 
+}
 
-subkind Article_component_of_Section of functional-complexes  specializes Article 
+subkind Article_component_of_Section of functional-complexes  specializes Article {
+    @memberOf [2..*] -- [1] Simple_Section 
+}
 
 collective Section{
     roman_number: int  
@@ -89,11 +99,15 @@ collective Section{
 
 subkind Simple_Section of collectives  specializes Section 
 
-subkind Subsection of collectives  specializes Simple_Section 
+subkind Subsection of collectives  specializes Simple_Section {
+    @subCollectionOf [2..*] -- [1] Composed_Section 
+}
 
 subkind Composed_Section of collectives  specializes Section 
 
-subkind Component_Section of collectives  specializes Section 
+subkind Component_Section of collectives  specializes Section {
+    @subCollectionOf [1] -- [1] Chapter_composed_by_Section 
+}
 
 subkind Chapter_composed_by_Section of collectives  specializes Chapter 
 
@@ -103,9 +117,13 @@ collective Chapter{
     roman_number: int  
 }
 
-subkind Component_Chapter of collectives  specializes Chapter 
+subkind Component_Chapter of collectives  specializes Chapter {
+    @subCollectionOf [2..*] -- [1] Charter 
+}
 
-subkind Component_Charter of collectives  specializes Charter 
+subkind Component_Charter of collectives  specializes Charter {
+    @subCollectionOf [2..*] -- [1] Book 
+}
 
 collective Charter{
     roman_number: int  
@@ -115,7 +133,9 @@ collective Book{
     roman_number: int  
 }
 
-subkind Component_Book of collectives  specializes Book 
+subkind Component_Book of collectives  specializes Book {
+    @subCollectionOf [2..*] -- [1] Part 
+}
 
 collective Part
 

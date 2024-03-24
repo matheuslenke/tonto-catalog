@@ -1,3 +1,18 @@
 
 package Reference_Ontology_of_Money_and_Virtual_Currencies
 
+genset iNNzZe6GAqACBFrh {
+    general Monetary_Authority_CreditDebt_Relation
+    specifics Objectbased_CreditDebt, Registrybased_CreditDebt
+}
+
+genset wJAq5e6GAqACBHBi {
+    general Virtual_Currency_Token
+    specifics Purchaseble_VC_Token, Closed_VC_Token
+}
+
+genset Lf2q5e6GAqACBHDa {
+    general Purchaseble_VC_Token
+    specifics Unidirectional_Flow_VC_Token, Bidirectional_Flow_VC_Token
+}
+

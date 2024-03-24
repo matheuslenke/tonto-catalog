@@ -1,14 +1,22 @@
-12
+20
 
-Classes representing ultimate sortals cannot specialize other ultimate sortals
-This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Prohibited generalization: non-sortal specializing a sortal. The non-sortal class Event_Type cannot specialize the sortal class Conference_Type
 Prohibited generalization: non-sortal specializing a sortal. The non-sortal class Event_Type cannot specialize the sortal class Workshop_Type
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to DataTypeOrClassOrRelation named 'Journal'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)

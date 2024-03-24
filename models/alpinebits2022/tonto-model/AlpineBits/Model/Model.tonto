@@ -1,9 +1,5 @@
-import AlpineBits
 
 package Model
-
-datatype Time_Instant
-datatype Time_Interval
 
 relator Event_Plan specializes Named_Entity {
     start_date: Time_Instant  
@@ -13,136 +9,40 @@ relator Event_Plan specializes Named_Entity {
     participation_url: string_  
     registration_url: string_  
     recorded: boolean_  
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @mediation [1..*] -- [1..*] Organizer 
+    @material [1..*] -- [*] Sponsor 
+    @material [1..*] -- [*] Contributor 
+    @material [1..*] -- [1] Publisher 
+    @material [1..*] -- [1..*] Venue 
+    @instantiation [*] -- [0..1] Event_Series 
+    @instantiation [*] -- [0..*] Event_Plan_Category 
+    @material [0..*] -- [0..*] Streaming_Platform 
+    @mediation [0..*] -- [1] Target_Audience 
 }
 
-phase Cancelled of relators  specializes Event_Plan {
-    @mediation 
-    [1..*] -- [1..*] Organizer 
-    @material 
-    [1..*] -- [*] Sponsor 
-    @material 
-    [1..*] -- [*] Contributor 
-    @material 
-    [1..*] -- [1] Publisher 
-    @material 
-    [1..*] -- [1..*] Venue 
-    @instantiation 
-    [*] -- [0..1] Event_Series 
-    @instantiation 
-    [*] -- [0..*] Event_Plan_Category 
-    @material 
-    [0..*] -- [0..*] Streaming_Platform 
-    @mediation 
-    [0..*] -- [1] Target_Audience 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phase Cancelled of relators  specializes Event_Plan 
 
 category Agent specializes Named_Entity {
     contact_points: Contact_Point [1..*] 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
 }
 
-roleMixin Organizer specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin Organizer specializes Agent 
 
-kind Person specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+kind Person specializes Agent 
 
-kind Organization specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+kind Organization specializes Agent 
 
-roleMixin Sponsor specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin Sponsor specializes Agent 
 
 subkind Composite_Event of relators  specializes Event_Plan {
-    @mediation 
-    [1..*] -- [1..*] Organizer 
-    @material 
-    [1..*] -- [*] Sponsor 
-    @material 
-    [1..*] -- [*] Contributor 
-    @material 
-    [1..*] -- [1] Publisher 
-    @material 
-    [1..*] -- [1..*] Venue 
-    @instantiation 
-    [*] -- [0..1] Event_Series 
-    @instantiation 
-    [*] -- [0..*] Event_Plan_Category 
-    @material 
-    [0..*] -- [0..*] Streaming_Platform 
-    @mediation 
-    [0..*] -- [1] Target_Audience 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    [*] -- [2..*] Event_Plan 
 }
 
-subkind Simple_Event of relators  specializes Event_Plan {
-    @mediation 
-    [1..*] -- [1..*] Organizer 
-    @material 
-    [1..*] -- [*] Sponsor 
-    @material 
-    [1..*] -- [*] Contributor 
-    @material 
-    [1..*] -- [1] Publisher 
-    @material 
-    [1..*] -- [1..*] Venue 
-    @instantiation 
-    [*] -- [0..1] Event_Series 
-    @instantiation 
-    [*] -- [0..*] Event_Plan_Category 
-    @material 
-    [0..*] -- [0..*] Streaming_Platform 
-    @mediation 
-    [0..*] -- [1] Target_Audience 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Simple_Event of relators  specializes Event_Plan 
 
-roleMixin Contributor specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin Contributor specializes Agent 
 
-roleMixin Publisher specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin Publisher specializes Agent 
 
 category Geospatial_Feature{
     area: int  
@@ -154,178 +54,88 @@ category Geospatial_Feature{
 kind Image_Object specializes Media_Object {
     height: int  
     width: int  
-    @historicalDependence 
-    [*] -- [*] Named_Entity 
-    @instantiation 
-    [*] -- [0..*] Media_Object_Category 
-    @material 
-    [*] -- [0..1] License_Type 
-    @material 
-    [1..*] -- [0..1] License_Holder 
-    @material 
-    [1..*] -- [0..1] Author 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
 }
 
 kind Video_Object specializes Media_Object {
     height: int  
     width: int  
     duration: Time_Interval  
-    @historicalDependence 
-    [*] -- [*] Named_Entity 
-    @instantiation 
-    [*] -- [0..*] Media_Object_Category 
-    @material 
-    [*] -- [0..1] License_Type 
-    @material 
-    [1..*] -- [0..1] License_Holder 
-    @material 
-    [1..*] -- [0..1] Author 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
 }
 
 category Media_Object of functional-complexes  specializes Named_Entity {
     content_type: string_  
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @historicalDependence [*] -- [*] Named_Entity 
+    @instantiation [*] -- [0..*] Media_Object_Category 
+    @material [*] -- [0..1] License_Type 
+    @material [1..*] -- [0..1] License_Holder 
+    @material [1..*] -- [0..1] Author 
 }
 
-subkind Event_Plan_Category specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Event_Plan_Category specializes Category 
 
-roleMixin Venue of functional-complexes  specializes Place {
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin Venue of functional-complexes  specializes Place 
 
 quality Geometry{
     coordinate: Coordinate [1..*] 
+    @characterization [1..*] -- [1] Geospatial_Feature 
 }
 
-subkind Polygon of qualities  specializes Geometry {
-    @characterization 
-    [1..*] -- [1] Geospatial_Feature 
-}
+subkind Polygon of qualities  specializes Geometry 
 
-subkind Line_String of qualities  specializes Geometry {
-    @characterization 
-    [1..*] -- [1] Geospatial_Feature 
-}
+subkind Line_String of qualities  specializes Geometry 
 
-subkind Point of qualities  specializes Geometry {
-    @characterization 
-    [1..*] -- [1] Geospatial_Feature 
-}
+subkind Point of qualities  specializes Geometry 
 
 category Place of functional-complexes  specializes Geospatial_Feature, Named_Entity {
     address: Address  
     how_to_arrive: string_  
     opening_hours: Hours_Specification [1..*] 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @material [*] -- [*] Place 
 }
 
 subkind Event_Series specializes Event_Plan_Category, Named_Entity {
-    frequency: undefined
-
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    frequency: undefined  
+    @instantiation [*] -- [0..*] Event_Series_Category 
 }
 
 kind Lift specializes Place, Named_Entity {
     capacity: int  
     persons_per_chair: int  
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @componentOf [1..*] -- [1..*] Mountain_Area 
+    @instantiation [*] -- [0..*] Lift_Category 
 }
 
 kind Trail specializes Place {
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @componentOf [1..*] -- [1..*] Mountain_Area 
+    @instantiation [*] -- [0..*] Trail_Category 
 }
 
 category Named_Entity{
-    abstract: string  
-    description: string  
-    name: string  
-    short_name: string  
-    url: string  
+    abstract: string_  
+    description: string_  
+    name: string_  
+    short_name: string_  
+    url: string_  
+    @instantiation [*] -- [0..*] Category 
+    @material [0..*] -- [0..*] Feature 
 }
 
 subkind Snowpark of functional-complexes  specializes Trail, Named_Entity {
-    @componentOf 
-    [1..*] -- [1..*] Mountain_Area 
-    @instantiation 
-    [*] -- [0..*] Trail_Category 
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @material [0..*] -- [0..*] Snowpark_Feature 
+    @instantiation [*] -- [0..*] Snowpark_Category 
 }
 
 kind Mountain_Area specializes Place, Named_Entity {
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @material [1..*] -- [1..*] Area_Owner 
+    @instantiation [*] -- [0..*] Mountain_Area_Category 
+    @componentOf [2..*] -- [0..1] Composite_Area 
 }
 
-subkind Lift_Category specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Lift_Category specializes Category 
 
-subkind Trail_Category specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Trail_Category specializes Category 
 
-subkind Snowpark_Feature of types  specializes Feature {
-    [*] -- [*] Feature 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Snowpark_Feature of types  specializes Feature 
 
 relator Snow_Measurement specializes Geospatial_Feature {
     obtained_in: Time_Instant  
@@ -335,326 +145,146 @@ relator Snow_Measurement specializes Geospatial_Feature {
     snow_over_night: int  
     groomed: boolean_  
     snow_making: boolean_  
+    @mediation [*] -- [1] Agent 
+    @mediation [*] -- [1..*] Place 
+    @mediation [*] -- [1] Snow_Type 
+    @mediation [*] -- [1] Snow_Type 
 }
 
 type Snow_Type
 
-phaseMixin Operational of functional-complexes  specializes Place {
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phaseMixin Operational of functional-complexes  specializes Place 
 
-phaseMixin Closed of functional-complexes  specializes Place {
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phaseMixin Closed of functional-complexes  specializes Place 
 
-phaseMixin Permanently_Closed of functional-complexes  specializes Place {
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phaseMixin Permanently_Closed of functional-complexes  specializes Place 
 
-roleMixin Area_Owner specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin Area_Owner specializes Agent 
 
-subkind Composite_Area of functional-complexes  specializes Mountain_Area {
-    @material 
-    [1..*] -- [1..*] Area_Owner 
-    @instantiation 
-    [*] -- [0..*] Mountain_Area_Category 
-    @componentOf 
-    [2..*] -- [0..1] Composite_Area 
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Composite_Area of functional-complexes  specializes Mountain_Area 
 
-subkind SimpleArea of functional-complexes  specializes Mountain_Area {
-    @material 
-    [1..*] -- [1..*] Area_Owner 
-    @instantiation 
-    [*] -- [0..*] Mountain_Area_Category 
-    @componentOf 
-    [2..*] -- [0..1] Composite_Area 
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind SimpleArea of functional-complexes  specializes Mountain_Area 
 
 subkind Ski_Slope of functional-complexes  specializes Trail, Named_Entity {
-    @componentOf 
-    [1..*] -- [1..*] Mountain_Area 
-    @instantiation 
-    [*] -- [0..*] Trail_Category 
-    @material 
-    [*] -- [*] Place 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    @instantiation [*] -- [0..*] Ski_Slope_Category 
 }
 
 kind Audio_Object specializes Media_Object {
     duration: Time_Interval  
-    @historicalDependence 
-    [*] -- [*] Named_Entity 
-    @instantiation 
-    [*] -- [0..*] Media_Object_Category 
-    @material 
-    [*] -- [0..1] License_Type 
-    @material 
-    [1..*] -- [0..1] License_Holder 
-    @material 
-    [1..*] -- [0..1] Author 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
 }
 
 type License_Type
 
-roleMixin License_Holder specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin License_Holder specializes Agent 
 
-subkind Media_Object_Category specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Media_Object_Category specializes Category 
 
-subkind MultiPoint of qualities  specializes Geometry {
-    @characterization 
-    [1..*] -- [1] Geospatial_Feature 
-}
+subkind MultiPoint of qualities  specializes Geometry 
 
-subkind Multi_Line_String of qualities  specializes Geometry {
-    @characterization 
-    [1..*] -- [1] Geospatial_Feature 
-}
+subkind Multi_Line_String of qualities  specializes Geometry 
 
-subkind MultiPolygon of qualities  specializes Geometry {
-    @characterization 
-    [1..*] -- [1] Geospatial_Feature 
-}
+subkind MultiPolygon of qualities  specializes Geometry 
 
-phase Published of relators  specializes Event_Plan {
-    @mediation 
-    [1..*] -- [1..*] Organizer 
-    @material 
-    [1..*] -- [*] Sponsor 
-    @material 
-    [1..*] -- [*] Contributor 
-    @material 
-    [1..*] -- [1] Publisher 
-    @material 
-    [1..*] -- [1..*] Venue 
-    @instantiation 
-    [*] -- [0..1] Event_Series 
-    @instantiation 
-    [*] -- [0..*] Event_Plan_Category 
-    @material 
-    [0..*] -- [0..*] Streaming_Platform 
-    @mediation 
-    [0..*] -- [1] Target_Audience 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phase Published of relators  specializes Event_Plan 
 
-subkind Mountain_Area_Category specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Mountain_Area_Category specializes Category 
 
-quality Difficulty
+quality Difficulty{
+    @characterization [1] -- [1] Trail 
+}
 
 type Category specializes Named_Entity {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    [*] -- [*] Category 
 }
 
 type Feature specializes Named_Entity {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
+    [*] -- [*] Feature 
 }
 
-roleMixin Author of functional-complexes  specializes Agent {
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+roleMixin Author of functional-complexes  specializes Agent 
 
-subkind Ski_Slope_Category specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Ski_Slope_Category specializes Category 
 
-subkind Snowpark_Category specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Snowpark_Category specializes Category 
 
-subkind Event_Series_Category of types  specializes Category {
-    [*] -- [*] Category 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+subkind Event_Series_Category of types  specializes Category 
 
-phase Virtual_Event of functional-complexes  specializes Event_Plan {
-    @mediation 
-    [1..*] -- [1..*] Organizer 
-    @material 
-    [1..*] -- [*] Sponsor 
-    @material 
-    [1..*] -- [*] Contributor 
-    @material 
-    [1..*] -- [1] Publisher 
-    @material 
-    [1..*] -- [1..*] Venue 
-    @instantiation 
-    [*] -- [0..1] Event_Series 
-    @instantiation 
-    [*] -- [0..*] Event_Plan_Category 
-    @material 
-    [0..*] -- [0..*] Streaming_Platform 
-    @mediation 
-    [0..*] -- [1] Target_Audience 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phase Virtual_Event of functional-complexes  specializes Event_Plan 
 
-phase InPerson_Event of functional-complexes  specializes Event_Plan {
-    @mediation 
-    [1..*] -- [1..*] Organizer 
-    @material 
-    [1..*] -- [*] Sponsor 
-    @material 
-    [1..*] -- [*] Contributor 
-    @material 
-    [1..*] -- [1] Publisher 
-    @material 
-    [1..*] -- [1..*] Venue 
-    @instantiation 
-    [*] -- [0..1] Event_Series 
-    @instantiation 
-    [*] -- [0..*] Event_Plan_Category 
-    @material 
-    [0..*] -- [0..*] Streaming_Platform 
-    @mediation 
-    [0..*] -- [1] Target_Audience 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phase InPerson_Event of functional-complexes  specializes Event_Plan 
 
-phase Hybrid_Event of functional-complexes  specializes Event_Plan {
-    @mediation 
-    [1..*] -- [1..*] Organizer 
-    @material 
-    [1..*] -- [*] Sponsor 
-    @material 
-    [1..*] -- [*] Contributor 
-    @material 
-    [1..*] -- [1] Publisher 
-    @material 
-    [1..*] -- [1..*] Venue 
-    @instantiation 
-    [*] -- [0..1] Event_Series 
-    @instantiation 
-    [*] -- [0..*] Event_Plan_Category 
-    @material 
-    [0..*] -- [0..*] Streaming_Platform 
-    @mediation 
-    [0..*] -- [1] Target_Audience 
-    @instantiation 
-    [*] -- [0..*] Category 
-    @material 
-    [0..*] -- [0..*] Feature 
-}
+phase Hybrid_Event of functional-complexes  specializes Event_Plan 
 
 kind Streaming_Platform
 
 collective Target_Audience
 
-enum Contact_Point{
-telephone,email,address,available_hours}
+datatype Contact_Point{
+telephone,email,address,available hours,}
 
-enum Hours_Specification{
-opens,closes,day_of_week,valid_from,valid_to}
+datatype Hours_Specification{
+opens,closes,day of week,valid from,valid to,}
 
-enum Coordinate{
-longitude,latitude,elevation}
+datatype Coordinate{
+longitude,latitude,elevation,}
 
-enum Address{
-street,city,region,country,category2, zipcode,complement
-}
+datatype Address{
+street,city,region,country,category,zipcode,complement,}
 
 datatype Time_Instant
 datatype Time_Interval
 datatype Time
 datatype Frequency
-enum Range{
-lower,upper
+datatype Range{
+lower,upper,}
+
+genset Agent_Type {
+    general Agent
+    specifics Organization, Person
 }
 
-enum EU_Difficulty{
-    Novice, Beginner, Intermediate, Expert
+genset Object_Type {
+    general Media_Object
+    specifics Image_Object, Video_Object, Audio_Object
 }
-enum US_Difficulty{
-    Beginner, Beginner_Intermediate, Intermediate, Intermediate_Advanced, Advanced, Expert, TerrainPark
+
+genset Event_Status {
+    general Event_Plan
+    specifics Cancelled, Published
 }
-enum Snowpark_Difficulty{
-    S, M, L, XL
+
+genset Event_Structure {
+    general Event_Plan
+    specifics Simple_Event, Composite_Event
 }
-enum Day_of_Week{
-    Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+
+genset Geometry_Type {
+    general Geometry
+    specifics MultiPoint, Polygon, Point, Multi_Line_String, Line_String, MultiPolygon
 }
+
+genset Trail_Type {
+    general Trail
+    specifics Snowpark, Ski_Slope
+}
+
+genset Place_Type {
+    general Place
+    specifics Lift, Mountain_Area, Trail
+}
+
+genset Place_Structure {
+    general Mountain_Area
+    specifics Composite_Area, SimpleArea
+}
+
+genset Operational_Status {
+    general Place
+    specifics Permanently_Closed, Operational
+}
+
+genset Event_Attendance {
+    general Event_Plan
+    specifics InPerson_Event, Hybrid_Event, Virtual_Event
+}
+

@@ -1,4 +1,3 @@
-import ontologia_de_publicao
 
 package Events
 
@@ -10,11 +9,17 @@ kind Conference_Type
 
 kind Workshop_Type
 
-kind Conference specializes Event 
+kind Conference specializes Event {
+    @material [1] -- [1] Conference_Type 
+}
 
-kind Workshop specializes Event 
+kind Workshop specializes Event {
+    @material [1] -- [1] Workshop_Type 
+}
 
-subkind Host_Event of functional-complexes  specializes Event 
+subkind Host_Event of functional-complexes  specializes Event {
+    @componentOf [1] -- [1..*] Colocated_Event 
+}
 
 subkind Colocated_Event of functional-complexes  specializes Event 
 

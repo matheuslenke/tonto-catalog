@@ -1,13 +1,4 @@
 Validating...
-- Total of errors: 2
-[error] Not unique class stereotype:
-The class Popular_Skill must have a unique OntoUML stereotype.
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Labor_Record is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Education_Record is specializing other classes that represent ultimate sortals: «relator»
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Labor_Record are not among the allowed ontological natures of its superclass Record
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Education_Record are not among the allowed ontological natures of its superclass Record
+Total of errors: 7
+undefined
 Validation finished

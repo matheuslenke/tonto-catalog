@@ -1,10 +1,14 @@
-import Trab1
 
 package GerenciamentoEstacionamentos
 
-collective Estacionamento
+collective Estacionamento{
+    @Formal [1] -- [1..*] TabelaPreco 
+    @memberOf [1] -- [2..*] Vaga 
+}
 
-kind Vaga
+kind Vaga{
+    @Formal [1..*] -- [1] Tipo_de_Vaga 
+}
 
 roleMixin Cliente of functional-complexes 
 
@@ -18,143 +22,68 @@ role ClientePJ of functional-complexes  specializes Empresa, Cliente
 
 relator UsodeVaga{
     HorarioEntrada: undefined  
+    @mediation [1..*] -- [1] VeiculoEstacionado 
+    @mediation [1..*] -- [1] ProvedorVaga 
 }
 
-kind Veculo
+kind Veculo{
+    @Formal [1..*] -- [1] Tipo_de_Veiculo 
+}
 
 relator ReservaVaga{
     dataHoraReserva: undefined  
     valor: undefined  
     DataHoraInicio: undefined  
     DataHoraFim: undefined  
+    @mediation [1..*] -- [1] Cliente 
+    @mediation [1..*] -- [1] ProvedorVaga 
+    @Formal [1] -- [1] Pagamento 
+    @mediation [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
 }
 
 relator ReservaTipoVaga
 
 relator ReservaVagaEspecifica specializes ReservaVaga {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
+    @mediation [1..*] -- [1] VagaReservada 
 }
 
-relator ReservaUsoUnico specializes ReservaVaga {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
-}
+relator ReservaUsoUnico specializes ReservaVaga 
 
-relator ReservaDiaria specializes ReservaVaga {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
-}
+relator ReservaDiaria specializes ReservaVaga 
 
 role VeiculoEstacionado of functional-complexes  specializes Veculo {
     placa: undefined  
-    @Formal 
-    [1..*] -- [1] Tipo_de_Veiculo 
 }
 
-role ProvedorVaga of collectives  specializes Estacionamento {
-    @Formal 
-    [1] -- [1..*] TabelaPreco 
-    @memberOf 
-    [1] -- [2..*] Vaga 
-}
+role ProvedorVaga of collectives  specializes Estacionamento 
 
-subkind PasseioSUV of functional-complexes  specializes Veculo {
-    @Formal 
-    [1..*] -- [1] Tipo_de_Veiculo 
-}
+subkind PasseioSUV of functional-complexes  specializes Veculo 
 
-subkind OnibusCaminhao of functional-complexes  specializes Veculo {
-    @Formal 
-    [1..*] -- [1] Tipo_de_Veiculo 
-}
+subkind OnibusCaminhao of functional-complexes  specializes Veculo 
 
 phase UsoDeVagaFinalizado of relators  specializes UsodeVaga {
     HorarioSaida: undefined  
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
 }
 
-phase UsoDeVagaAtivo of relators  specializes UsodeVaga {
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-}
+phase UsoDeVagaAtivo of relators  specializes UsodeVaga 
 
 relator ReservaTipoVaga_2 specializes ReservaVaga {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
+    @mediation [1..*] -- [1] TipoDeVagaReservada 
 }
 
-relator UsoComReservaUsoUnico specializes UsoComReserva {
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-}
+relator UsoComReservaUsoUnico specializes UsoComReserva 
 
 phase ReservaUsoUnicoUtilizada of relators  specializes ReservaUsoUnico {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
+    @mediation [1] -- [1] UsoComReservaUsoUnico 
 }
 
 phase ReservaVariosUsosUtilizada of relators  specializes ReservaVariosUsos {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
+    @mediation [1] -- [1..*] UsoComReservaPeriodo 
 }
 
-relator UsoComReserva specializes UsodeVaga {
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-}
+relator UsoComReserva specializes UsodeVaga 
 
-relator UsoComReservaPeriodo specializes UsoComReserva {
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-}
+relator UsoComReservaPeriodo specializes UsoComReserva 
 
 relator UtilizacaoReserva
 
@@ -162,28 +91,21 @@ kind TabelaPreco{
     valorDiaria: undefined  
     valorMensalidade: undefined  
     dataInicioVigencia: undefined  
+    @Formal [1] -- aplicavel_a -- [1] Tipo_de_Vaga 
+    @Formal [1] -- [1..*] ValorPeriodoCurto 
 }
 
 type Tipo_de_Veiculo
 
-type Tipo_de_Vaga
-
-role VagaReservada of functional-complexes  specializes Vaga {
-    @Formal 
-    [1..*] -- [1] Tipo_de_Vaga 
+type Tipo_de_Vaga{
+    @Formal [1] -- [1..*] Tipo_de_Veiculo 
 }
 
-role TabelaDePrecoUtilizadaReserva of functional-complexes  specializes TabelaPreco {
-    @Formal 
-    [1] -- aplicavel_a -- [1] Tipo_de_Vaga 
-    @Formal 
-    [1] -- [1..*] ValorPeriodoCurto 
-}
+role VagaReservada of functional-complexes  specializes Vaga 
 
-role TipoDeVagaReservada specializes Tipo_de_Vaga {
-    @Formal 
-    [1] -- [1..*] Tipo_de_Veiculo 
-}
+role TabelaDePrecoUtilizadaReserva of functional-complexes  specializes TabelaPreco 
+
+role TipoDeVagaReservada specializes Tipo_de_Vaga 
 
 kind ValorPeriodoCurto{
     ordem: undefined  
@@ -192,23 +114,10 @@ kind ValorPeriodoCurto{
     qtdRepeticoes: undefined  
 }
 
-relator ReservaMensal specializes ReservaVaga {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
-}
+relator ReservaMensal specializes ReservaVaga 
 
 phase TabelaPrecoExpirada of functional-complexes  specializes TabelaPreco {
     dataFimVigencia: undefined  
-    @Formal 
-    [1] -- aplicavel_a -- [1] Tipo_de_Vaga 
-    @Formal 
-    [1] -- [1..*] ValorPeriodoCurto 
 }
 
 kind Pagamento
@@ -223,72 +132,30 @@ subkind PagamentoDebito of functional-complexes  specializes Pagamento {
     idTransacao: undefined  
 }
 
-phase TabelaPrecoValida of functional-complexes  specializes TabelaPreco {
-    @Formal 
-    [1] -- aplicavel_a -- [1] Tipo_de_Vaga 
-    @Formal 
-    [1] -- [1..*] ValorPeriodoCurto 
-}
+phase TabelaPrecoValida of functional-complexes  specializes TabelaPreco 
 
-role TabelaPrecoUtilizada of functional-complexes  specializes TabelaPreco {
-    @Formal 
-    [1] -- aplicavel_a -- [1] Tipo_de_Vaga 
-    @Formal 
-    [1] -- [1..*] ValorPeriodoCurto 
-}
+role TabelaPrecoUtilizada of functional-complexes  specializes TabelaPreco 
 
 relator UsodeVagaEspecfica specializes UsodeVaga {
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
+    @mediation [1..*] -- [1] VagaUtilizada 
 }
 
-role VagaUtilizada of functional-complexes  specializes Vaga {
-    @Formal 
-    [1..*] -- [1] Tipo_de_Vaga 
-}
+role VagaUtilizada of functional-complexes  specializes Vaga 
 
-relator UsoSemReserva specializes UsodeVaga {
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-}
+relator UsoSemReserva specializes UsodeVaga 
 
 relator UsoGeradorDeDebito specializes UsodeVaga {
-    @mediation 
-    [1..*] -- [1] VeiculoEstacionado 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
+    @Formal [1] -- [1] Pagamento 
+    @mediation [1..*] -- [1] TabelaPrecoUtilizada 
 }
 
-relator ReservaVariosUsos specializes ReservaVaga {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
+relator ReservaVariosUsos specializes ReservaVaga 
+
+subkind EmpresaEstacionamento of functional-complexes  specializes Empresa {
+    @componentOf [1] -- [1..*] Estacionamento 
 }
 
-subkind EmpresaEstacionamento of functional-complexes  specializes Empresa 
+relator ReservaHorasMinutos specializes ReservaVaga 
 
-relator ReservaHorasMinutos specializes ReservaVaga {
-    @mediation 
-    [1..*] -- [1] Cliente 
-    @mediation 
-    [1..*] -- [1] ProvedorVaga 
-    @Formal 
-    [1] -- [1] Pagamento 
-    @mediation 
-    [1..*] -- [1] TabelaDePrecoUtilizadaReserva 
-}
-
-subkind Motocicleta of functional-complexes  specializes Veculo {
-    @Formal 
-    [1..*] -- [1] Tipo_de_Veiculo 
-}
+subkind Motocicleta of functional-complexes  specializes Veculo 
 

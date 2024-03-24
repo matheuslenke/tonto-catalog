@@ -3,30 +3,29 @@ package SEBIM
 
 kind Zone{
     description: undefined  
-}
-
-subkind Space of functional-complexes  specializes Zone {
     [1] -- [1] Geometry 
     [1] -- [0..*] Equipment 
     [1] -- [1..*] Material 
     [1] -- [1] Area 
 }
+
+subkind Space of functional-complexes  specializes Zone 
 
 subkind Construction of functional-complexes  specializes Zone {
-    [1] -- [1] Geometry 
-    [1] -- [0..*] Equipment 
-    [1] -- [1..*] Material 
-    [1] -- [1] Area 
+     --  LightAnalysis 
+     --  EnhancedCommissioning 
+     --  EnergyPerformance 
+     --  ImpactReduction 
+     --  ConfortSimulation 
+     --  ConstructionPlan 
+     --  LightAnalysis 
 }
 
-subkind Floor of functional-complexes  specializes Zone {
-    [1] -- [1] Geometry 
-    [1] -- [0..*] Equipment 
-    [1] -- [1..*] Material 
-    [1] -- [1] Area 
-}
+subkind Floor of functional-complexes  specializes Zone 
 
-category Geometry of functional-complexes 
+category Geometry of functional-complexes {
+    [1] -- [1] CityData 
+}
 
 kind CityData
 
@@ -39,6 +38,10 @@ subkind Park of functional-complexes  specializes CityData
 kind Material{
     description: undefined  
     value_: undefined  
+    [1] -- [1] MaterialClassification 
+     --  MaterialAnalysis 
+     --  MaterialIngredients 
+     --  MaterialSustainable 
 }
 
 kind Equipment{
@@ -49,7 +52,10 @@ mode MaterialClassification{
     description: undefined  
 }
 
-relator Certificate
+relator Certificate{
+    @mediation [0..*] -- [1] Certification 
+    @mediation [0..*] -- [1] Construction 
+}
 
 quality Area
 
@@ -57,7 +63,9 @@ quality Score
 
 subkind BuildinCertified of functional-complexes  specializes CityData 
 
-mode StyleZone
+mode StyleZone{
+     --  Zone 
+}
 
 subkind SpecialArea of functional-complexes  specializes CityData 
 
@@ -91,65 +99,32 @@ kind ConfortSimulation
 
 kind ConstructionPlan
 
-role LEEDCertified of functional-complexes  specializes Certification {
+role LEEDCertified of functional-complexes  specializes Certification 
+
+subkind IndoorEnvironmentQuality of functional-complexes  specializes CertificationArea 
+
+subkind CertificationArea of functional-complexes  specializes Certification 
+
+subkind IntegrativeProcess of functional-complexes  specializes CertificationArea 
+
+role LEEDGold of functional-complexes  specializes Certification 
+
+subkind SustainableSite of functional-complexes  specializes CertificationArea 
+
+subkind WaterEfficiency of functional-complexes  specializes CertificationArea 
+
+role LEEDSilver of functional-complexes  specializes Certification 
+
+subkind LocationTransportation of functional-complexes  specializes CertificationArea 
+
+subkind MaterialResource of functional-complexes  specializes CertificationArea 
+
+role LEEDPlatinum of functional-complexes  specializes Certification 
+
+kind Certification{
      -- Certificate --  Construction 
-     [1] -- [1] Score 
+     --  Score 
 }
 
-subkind IndoorEnvironmentQuality of functional-complexes  specializes CertificationArea {
-     -- Certificate --  Construction 
-    [1] -- [1] Score 
-}
-
-subkind CertificationArea of functional-complexes  specializes Certification {
-     -- Certificate --  Construction 
-     [1] -- [1] Score 
-}
-
-subkind IntegrativeProcess of functional-complexes  specializes CertificationArea {
-     -- Certificate --  Construction 
-     [1] -- [1] Score 
-}
-
-role LEEDGold of functional-complexes  specializes Certification {
-     -- Certificate --  Construction 
-     [1] -- [1] Score 
-}
-
-subkind SustainableSite of functional-complexes  specializes CertificationArea {
-     -- Certificate --  Construction 
-     [1] -- [1]  Score 
-}
-
-subkind WaterEfficiency of functional-complexes  specializes CertificationArea {
-     -- Certificate --  Construction 
-    [1] -- [1] Score 
-}
-
-role LEEDSilver of functional-complexes  specializes Certification {
-     -- Certificate --  Construction 
-    [1] -- [1]  Score 
-}
-
-subkind LocationTransportation of functional-complexes  specializes CertificationArea {
-     -- Certificate --  Construction 
-    [1] -- [1] Score 
-}
-
-subkind MaterialResource of functional-complexes  specializes CertificationArea {
-     -- Certificate --  Construction 
-     [1] -- [1] Score 
-}
-
-role LEEDPlatinum of functional-complexes  specializes Certification {
-     -- Certificate --  Construction 
-    [1] -- [1] Score 
-}
-
-kind Certification
-
-subkind EnergyAtmosphere of functional-complexes  specializes CertificationArea {
-     -- Certificate --  Construction 
-    [1] -- [1] Score 
-}
+subkind EnergyAtmosphere of functional-complexes  specializes CertificationArea 
 

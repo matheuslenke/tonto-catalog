@@ -1,3 +1,8 @@
 
 package PlatformOntology
 
+genset CpMEiI6GAqAAokU8 {
+    general Delivery
+    specifics ResultOriented_Delivery, ProductOriented_Delivery
+}
+

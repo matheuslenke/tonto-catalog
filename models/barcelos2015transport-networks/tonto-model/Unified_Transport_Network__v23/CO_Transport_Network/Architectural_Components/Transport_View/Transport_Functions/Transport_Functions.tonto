@@ -1,8 +1,13 @@
-import Unified_Transport_Network__v23
+import Architectural_Components
 
 package Transport_Functions
 
 kind Forwarding_Function specializes Transport_Function 
 
 category Transport_Function of functional-complexes  specializes Architectural_Component 
+
+genset yhPSnb6GAqBwASgs {
+    general Transport_Function
+    specifics Forwarding_Function, Transport_Processing_Function, Subnetwork, Physical_Media, Matrix
+}
 

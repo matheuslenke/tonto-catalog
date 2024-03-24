@@ -1,22 +1,25 @@
 
 package QAM
 
-kind Standard_Process
+kind Standard_Process{
+    @formal [1..*] -- defined_for -- [1] Organization 
+    @formal [0..1] -- tailors -- [0..*] Project_Process 
+}
 
-mode Process_Occurrence
+mode Process_Occurrence{
+    @characterization [1] -- caused_by -- [1] Project_Process 
+}
 
-kind Evaluation_Criteria
+kind Evaluation_Criteria{
+    @formal [0..*] -- defined_for -- [1] Project_Process 
+    @memberOf [2..*] -- [1..*] Evaluation_Checklist 
+}
 
 phase Identified_NC of functional-complexes  specializes Noncompliance 
 
 kind Person
 
-subkind Work_Product_Evaluation_Criteria of functional-complexes  specializes Evaluation_Criteria {
-    @formal 
-    [0..*] -- defined_for -- [1] Project_Process 
-    @memberOf 
-    [2..*] -- [1..*] Evaluation_Checklist 
-}
+subkind Work_Product_Evaluation_Criteria of functional-complexes  specializes Evaluation_Criteria 
 
 phase Registered_NC of functional-complexes  specializes Noncompliance 
 
@@ -24,7 +27,10 @@ role NC_Issue of functional-complexes  specializes Issue
 
 kind Organization
 
-relator Employment
+relator Employment{
+    @mediation [1..*] -- [1] Human_Resource 
+    @mediation [1..*] -- [1] Organization 
+}
 
 role NC_Cause of functional-complexes  specializes Cause 
 
@@ -34,34 +40,42 @@ phase Finished_Issue of functional-complexes  specializes Issue
 
 phase Planned_Issue of functional-complexes  specializes Issue 
 
-subkind Process_Evaluation_Criteria of functional-complexes  specializes Evaluation_Criteria {
-    @formal 
-    [0..*] -- defined_for -- [1] Project_Process 
-    @memberOf 
-    [2..*] -- [1..*] Evaluation_Checklist 
-}
+subkind Process_Evaluation_Criteria of functional-complexes  specializes Evaluation_Criteria 
 
 subkind Preventive_Action of functional-complexes  specializes Issue 
 
 subkind Improvement_Suggestion of functional-complexes  specializes Issue 
 
-relator Item_Evaluation
+relator Item_Evaluation{
+    @mediation [1..*] -- assesses -- [1] Evaluation_Criteria 
+    @formal [0..*] -- composes -- [1] Objective_Evaluation 
+    @mediation [1..*] -- finds -- [1..*] Evaluation_Find 
+}
 
 kind Issue
 
 role Appraiser of functional-complexes  specializes Human_Resource 
 
-kind Project_Process
+kind Project_Process{
+    @formal [1..*] -- defined_for -- [1] Project 
+}
 
 phase Implementing_Issue of functional-complexes  specializes Issue 
 
-relator Objective_Evaluation
+relator Objective_Evaluation{
+    @mediation [1..*] -- aplies -- [1..*] Evaluation_Checklist 
+    @mediation [1..*] -- allocates -- [1] Appraiser 
+    @mediation [1..*] -- assesses -- [1] Project 
+}
 
 kind Lesson_Learned specializes Evaluation_Find 
 
 phase Non_Effective_Issue of functional-complexes  specializes Finished_Issue 
 
-relator NC_Action_Item
+relator NC_Action_Item{
+    @mediation [1..*] -- [1] NC_Issue 
+    @mediation [1..*] -- [1] Registered_NC 
+}
 
 role Finished_NC of functional-complexes  specializes Registered_NC 
 
@@ -83,13 +97,44 @@ phase Canceled_NC of functional-complexes  specializes Noncompliance
 
 category Evaluation_Find of functional-complexes 
 
-relator Cause_Identification
+relator Cause_Identification{
+    @mediation [1..*] -- [1] NC_Cause 
+    @mediation [1..*] -- [1] Registered_NC 
+}
 
 kind Project
 
 phase Effective_Issue of functional-complexes  specializes Finished_Issue 
 
-relator Problem_Action_Item
+relator Problem_Action_Item{
+    @mediation [1..*] -- [1] Problem 
+    @mediation [1..*] -- [1] Problem_Issue 
+}
 
 role Problem_Issue of functional-complexes  specializes Issue 
+
+genset dlloI76AUB2ySAuZ {
+    general Evaluation_Find
+    specifics Noncompliance, Problem, Lesson_Learned
+}
+
+genset mv3bm36DAAAARhF {
+    general Noncompliance
+    specifics Registered_NC, Identified_NC, Canceled_NC
+}
+
+genset ouk7m36DAAAARhp {
+    general Registered_NC
+    specifics Resolving_NC, Finished_NC, Planned_NC
+}
+
+genset mAZMMP6GAqACBS0J {
+    general Issue
+    specifics Preventive_Action, Corretive_Action, Improvement_Suggestion
+}
+
+genset klLMMP6GAqACBS1E {
+    general Issue
+    specifics Finished_Issue, Planned_Issue, Implementing_Issue
+}
 

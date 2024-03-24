@@ -1,4 +1,6 @@
 
-package DigitalDoctorDatatypes
+package DigitalDoctor
 
+datatype string_
+datatype boolean_
 datatype float

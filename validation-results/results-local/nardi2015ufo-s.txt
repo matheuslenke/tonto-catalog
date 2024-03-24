@@ -1,4 +1,6 @@
-2
+4
 
 Classes representing ultimate sortals cannot specialize other ultimate sortals
+Duplicated reference name
+Duplicated reference name
 Duplicated reference name

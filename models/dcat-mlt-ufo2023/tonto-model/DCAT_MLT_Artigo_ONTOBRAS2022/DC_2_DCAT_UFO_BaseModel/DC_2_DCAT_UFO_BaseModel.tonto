@@ -3,9 +3,14 @@ package DC_2_DCAT_UFO_BaseModel
 
 category skosConceptScheme of functional-complexes 
 
-category skosConcept of functional-complexes 
+category skosConcept of functional-complexes {
+    [*] -- skosinScheme -- [*] skosConceptScheme 
+}
 
 category foafAgent of functional-complexes 
 
-type dcatRelationShip
+type dcatRelationShip{
+    [*] -- dctrelation -- [*] dcatResource 
+    [1..*] -- dcathadRole -- [1] dcatRole 
+}
 

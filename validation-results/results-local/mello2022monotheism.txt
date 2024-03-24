@@ -1,7 +1,7 @@
 52
 
-Duplicated reference name
-Duplicated reference name
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name

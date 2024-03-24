@@ -1,0 +1,49 @@
+import st_Order_Entities
+import UFOB
+
+package nd_Order_Entities
+
+class Event specializes Individual {
+    [2,,*] -- has_part -- [*] Complex_Event 
+    [*] -- causes -- [*] Event 
+    [*] -- directly_causes -- [*] Event 
+    [*] -- brings_about -- [1] Situation 
+    [*] -- triggers_ -- [1] Situation 
+    [*] -- prestate -- [*] Situation 
+    [*] -- poststate -- [*] Situation 
+    [*] -- framed_by -- [1] Time_Interval 
+}
+
+class Atomic_Event specializes Event {
+    [*] -- depends_on -- [1] Substantial 
+}
+
+class Complex_Event specializes Event 
+
+class Participation specializes Event {
+    [*] -- participation_of -- [1] Substantial 
+    [*] -- exclusively_dependent_on -- [1] Substantial 
+    [2..*] -- [*] Complex_Action 
+}
+
+class Situation specializes Endurant {
+    [1] -- triggers -- [*] Atomic_Event 
+    [1..*] -- obtains_in -- [0..1] Time_Point 
+}
+
+class Fact specializes Situation {
+    [1..*] -- obtains_in -- [1] Time_Point 
+}
+
+class Before specializes Time_Interval_Relation 
+
+class Meets specializes Time_Interval_Relation 
+
+class Overlaps specializes Time_Interval_Relation 
+
+class Starts specializes Time_Interval_Relation 
+
+class During specializes Time_Interval_Relation 
+
+class Equals specializes Time_Interval_Relation 
+

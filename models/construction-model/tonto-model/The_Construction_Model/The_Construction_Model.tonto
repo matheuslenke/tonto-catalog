@@ -7,29 +7,36 @@ subkind Organization of functional-complexes  specializes Agent
 
 subkind Person of functional-complexes  specializes Agent 
 
-role Organizational_Customer of functional-complexes  specializes Organization, Customer {
-    @material 
-    [1] -- requests -- [*] Construction_Work 
-}
+role Organizational_Customer of functional-complexes  specializes Organization, Customer 
 
-role Personal_Customer of functional-complexes  specializes Person, Customer {
-    @material 
-    [1] -- requests -- [*] Construction_Work 
-}
+role Personal_Customer of functional-complexes  specializes Person, Customer 
 
 role Employee of functional-complexes  specializes Person 
 
-roleMixin Customer of functional-complexes 
+roleMixin Customer of functional-complexes {
+    @material [1] -- requests -- [*] Construction_Work 
+}
 
-kind Construction_Work
+kind Construction_Work{
+    @material [1] -- has -- [1] Budget 
+}
 
-relator Allocation
+relator Allocation{
+    @mediation [0..*] -- [1] Construction_Work 
+    @mediation [*] -- [1] Employee 
+}
 
-kind Photo
+kind Photo{
+    @material [*] -- depicts -- [1] Construction_Work 
+}
 
 collective Budget
 
-collective Stage
+collective Stage{
+    @subCollectionOf [1] -- [1] Budget 
+}
 
-collective Subtstage
+collective Subtstage{
+    @subCollectionOf [1] -- [1] Stage 
+}
 

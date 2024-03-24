@@ -1,7 +1,4 @@
 Validating...
-- Total of errors: 2
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Resource_Type are not among the allowed ontological natures of its superclass Resource
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Resource_Stock are not among the allowed ontological natures of its superclass Resource
+Total of errors: 2
+undefined
 Validation finished

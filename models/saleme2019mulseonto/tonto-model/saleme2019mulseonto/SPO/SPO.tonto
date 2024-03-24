@@ -1,12 +1,16 @@
-import saleme2019mulseonto
 import UFO
+
 package SPO
 
-class Hardware_Equipment specializes Object 
+class Hardware_Equipment specializes Object {
+    [0..*] -- connected_to -- [0..*] Computer_Machine 
+}
 
 class Artifact specializes Object 
 
 class Software_Item specializes Artifact 
 
-class Data_File specializes Software_Item 
+class Data_File specializes Software_Item {
+    [0..*] -- stored_in -- [1..*] Hardware_Equipment 
+}
 

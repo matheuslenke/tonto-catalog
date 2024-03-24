@@ -1,4 +1,3 @@
-import IDAFStructv03__Maria
 
 package IDAF
 
@@ -6,11 +5,20 @@ category Estrutura of functional-complexes
 
 category EstruturaOrganizacional of functional-complexes  specializes Estrutura 
 
-category EstruturaOcupacional of functional-complexes  specializes Estrutura 
+category EstruturaOcupacional of functional-complexes  specializes Estrutura {
+    @memberOf [1] -- PartGO -- [2..*] GrupoOcupacional 
+}
 
-kind EstruturaAdministrativa specializes EstruturaOrganizacional 
+kind EstruturaAdministrativa specializes EstruturaOrganizacional {
+    @componentOf [1] -- PartDir -- [1] Diretoria 
+    @componentOf [1] -- PartAsses -- [1..*] Assessoria 
+    @componentOf [1] -- PartDepto -- [1..*] Departamento 
+}
 
-kind EstruturaOperacional specializes EstruturaOrganizacional 
+kind EstruturaOperacional specializes EstruturaOrganizacional {
+    @componentOf [1] -- PartLabDiag -- [1..*] LaboratorioDiagnostico 
+    @componentOf [1] -- PartEscrit -- [1..*] Escritorio 
+}
 
 kind Organizacao
 
@@ -18,19 +26,15 @@ subkind Diretoria of functional-complexes  specializes OrganizacaoAdministrativa
 
 subkind Assessoria of functional-complexes  specializes OrganizacaoAdministrativa 
 
-subkind Departamento of functional-complexes  specializes OrganizacaoAdministrativa 
+subkind Departamento of functional-complexes  specializes OrganizacaoAdministrativa {
+    @componentOf [1] -- PartSec -- [2..*] Secao 
+}
 
 subkind Secao of functional-complexes  specializes OrganizacaoAdministrativa 
 
-subkind DepartamentoTecnico of functional-complexes  specializes Departamento {
-    @componentOf 
-    [1] -- PartSec -- [2..*] Secao 
-}
+subkind DepartamentoTecnico of functional-complexes  specializes Departamento 
 
-subkind DepartamentoAdminstrativo of functional-complexes  specializes Departamento {
-    @componentOf 
-    [1] -- PartSec -- [2..*] Secao 
-}
+subkind DepartamentoAdminstrativo of functional-complexes  specializes Departamento 
 
 subkind Escritorio of functional-complexes  specializes OrganizacaoOperacional 
 
@@ -42,25 +46,46 @@ subkind LaboratorioDiagnostico of functional-complexes  specializes OrganizacaoO
 
 kind Pessoa
 
-relator Lotacao
+relator Lotacao{
+    @mediation [1..*] -- UnitParaLot -- [1] UnidadeLotacao 
+    @mediation [1] -- ServParaLot -- [1] Servidor 
+}
 
-role Servidor of functional-complexes  specializes Pessoa 
+role Servidor of functional-complexes  specializes Pessoa {
+    @material [1..*] -- ehLotadoEm -- [1] UnidadeLotacao 
+    @material [1..*] -- ehDesignadoEm -- [1..*] CargoDesignado 
+}
 
 role UnidadeLotacao
 
 kind Cargo
 
-relator Designacao
+relator Designacao{
+    @mediation [1..*] -- CargoParaDesig -- [1] CargoDesignado 
+    @mediation [1] -- ServParaDesig -- [1] Servidor 
+}
 
 role CargoDesignado of functional-complexes  specializes Cargo 
 
 collective GrupoOcupacional
 
-phase ServicoAuxiliar of collectives  specializes GrupoOcupacional 
+phase ServicoAuxiliar of collectives  specializes GrupoOcupacional {
+    @memberOf [1] -- PartAuxServ -- [2..*] AuxiliarServicos 
+}
 
-phase ApoioTecnicoAdministrativo of collectives  specializes GrupoOcupacional 
+phase ApoioTecnicoAdministrativo of collectives  specializes GrupoOcupacional {
+    @memberOf [1] -- PartSupAdm -- [1..*] SuporteAdministrativo 
+    @memberOf [1] -- PartSupTec -- [1..*] SuporteTecnico 
+}
 
-phase Finalistico of collectives  specializes GrupoOcupacional 
+phase Finalistico of collectives  specializes GrupoOcupacional {
+    @memberOf [1] -- PartTecLab -- [1..*] TecnicoLaboratorio 
+    @memberOf [1] -- PartTecDesFund -- [1..*] TecnicoDesenvolvimentoFundiario 
+    @memberOf [1] -- PartTecRecNat -- [1..*] TecnicoRecursosNaturais 
+    @memberOf [1] -- PartTecCart -- [1..*] TecnicoCartografia 
+    @memberOf [1] -- PartTecSanInspVeg -- [1..*] TecnicoSanidadeInspecaoVegetal 
+    @memberOf [1] -- PartTecSanInspAni -- [1..*] TecnicoSanidadeInspecaoAnimal 
+}
 
 subkind TecnicoSanidadeInspecaoAnimal of functional-complexes  specializes Cargo 
 
@@ -86,15 +111,22 @@ phase Fronteira of functional-complexes  specializes Posto
 
 phase Central of functional-complexes  specializes Escritorio 
 
-phase Regional of functional-complexes  specializes Escritorio 
+phase Regional of functional-complexes  specializes Escritorio {
+    @componentOf [1] -- PartLocal -- [1..*] Local 
+    @componentOf [1] -- PartUnitVol -- [1..*] UnidadeVolante 
+}
 
-phase Local of functional-complexes  specializes Escritorio 
+phase Local of functional-complexes  specializes Escritorio {
+    @componentOf [1] -- PartPosto -- [2..*] Posto 
+}
 
-relator LotacaoDepartamento
+relator LotacaoDepartamento{
+    @mediation [1..*] -- MedEscrLot -- [1] EscritorioLotacao 
+    @mediation [1] -- MedDeptLot -- [1] DepartamentoLotacao 
+}
 
 role DepartamentoLotacao of functional-complexes  specializes Departamento {
-    @componentOf 
-    [1] -- PartSec -- [2..*] Secao 
+    @material [1..*] -- LotDeptoEscr -- [1..*] EscritorioLotacao 
 }
 
 role EscritorioLotacao of functional-complexes  specializes Central 

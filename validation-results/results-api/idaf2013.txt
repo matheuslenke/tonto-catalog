@@ -1,5 +1,4 @@
 Validating...
-- Total of errors: 1
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Allocation_Unit must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+Total of errors: 1
+undefined
 Validation finished

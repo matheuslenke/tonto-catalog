@@ -1,256 +1,96 @@
 import buridan_ontology
-import Human_Mind
 import Mental_natural_language
-import buridan_ontology
 
 package Conventional_spoken_written_language
 
 subkind Inscription of functional-complexes  specializes Token {
     language: undefined  
-    @material 
-    [1..*] -- [1] TokenType 
 }
 
 subkind Utterance of functional-complexes  specializes Token {
     language: undefined  
-    @material 
-    [1..*] -- [1] TokenType 
 }
 
-mode Convention
+mode Convention{
+    @characterization [1] -- [1] ProperSense 
+}
 
-kind Token
+kind Token{
+    @material [1..*] -- [1] TokenType 
+}
 
 kind TokenType
 
-subkind ProperSuppositon of relators  specializes SuppositionInConventionalLanguage {
-    @mediation 
-    [1] -- [1] SpokenWrittenTerm 
-    @mediation 
-    [1] -- [1] SpokenWrittenSuppositum 
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
-}
+subkind ProperSuppositon of relators  specializes SuppositionInConventionalLanguage 
 
 subkind MaterialSupposition of relators  specializes Supposition, ProperSuppositon {
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
-    @mediation 
-    [1] -- [1] SpokenWrittenTerm 
-    @mediation 
-    [1] -- [1] SpokenWrittenSuppositum 
+    @mediation [0..1] -- [2] CategorematicTerm 
 }
 
-subkind SimpleSupposition of relators  specializes ProperSuppositon {
-    @mediation 
-    [1] -- [1] SpokenWrittenTerm 
-    @mediation 
-    [1] -- [1] SpokenWrittenSuppositum 
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
-}
+subkind SimpleSupposition of relators  specializes ProperSuppositon 
 
-subkind ImproperSupposition of relators  specializes SuppositionInConventionalLanguage {
-    @mediation 
-    [1] -- [1] SpokenWrittenTerm 
-    @mediation 
-    [1] -- [1] SpokenWrittenSuppositum 
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
-}
+subkind ImproperSupposition of relators  specializes SuppositionInConventionalLanguage 
 
 subkind SuppositionInConventionalLanguage of relators  specializes Supposition {
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
+    @mediation [1] -- [1] SpokenWrittenTerm 
+    @mediation [1] -- [1] SpokenWrittenSuppositum 
 }
 
-subkind Expression
-
-role SpokenWrittenSuppositum of functional-complexes  specializes SpokenWrittenTerm {
-    @material 
-    [1] -- refers_to -- [1] SpokenWrittenSuppositum 
-    [1] -- [*] Concept 
-    [1..*] -- [1] Concept 
-    [1] -- signifies -- [1] Concept 
-    @componentOf 
-    [2..*] -- [1] Expression 
-
-    // @componentOf 
-    // [1..*] -- [1] SpokenWrittenProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
-}
+role SpokenWrittenSuppositum of functional-complexes  specializes SpokenWrittenTerm 
 
 subkind MaterialSuppositionForSyncatogramaticTerm of relators  specializes Supposition {
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
+    @mediation [1] -- [2] SyncategorematicTerm 
 }
 
-subkind SpokenWrittenTerm of functional-complexes specializes Term {
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
-}
-
-subkind SyncategorematicTerm of functional-complexes specializes SpokenWrittenTerm {
-    @material 
-    [1] -- refers_to -- [1] SpokenWrittenSuppositum 
+subkind SpokenWrittenTerm of functional-complexes  specializes Term, Term, Term, Term {
+    @material [1] -- refers_to -- [1] SpokenWrittenSuppositum 
     [1] -- [*] Concept 
     [1..*] -- [1] Concept 
     [1] -- signifies -- [1] Concept 
-    @componentOf 
-    [2..*] -- [1] Expression 
-    // TODO: Buggy reference?
-    // @componentOf 
-    // [1..*] -- [1] SpokenWrittenProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
+    @componentOf [2..*] -- [1] Expression 
+    @componentOf [1..*] -- [1] SpokenWrittenProposition 
+}
+
+subkind SyncategorematicTerm of functional-complexes  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm {
+    [*] -- [1] SyncategorematicConcept 
+    [1] -- signifies -- [1] SyncategorematicConcept 
 }
 
 subkind PersonalSupposition of relators  specializes Supposition, ProperSuppositon {
-    @mediation 
-    [1] -- [1] Term 
-    @mediation 
-    [1] -- [1] Suppositum 
-    @mediation 
-    [1] -- [2] Term 
-    @mediation 
-    [1] -- [1] Proposition 
-    @mediation 
-    [1] -- [1] SpokenWrittenTerm 
-    @mediation 
-    [1] -- [1] SpokenWrittenSuppositum 
+    @mediation [0..1] -- [1] CategorematicTerm 
 }
 
-// TODO: Buggy specializes?
-subkind CategorematicTerm of functional-complexes  specializes SpokenWrittenTerm
-// , MixedTerm, SpokenWrittenTerm 
-{
-    @material 
-    [1] -- refers_to -- [1] SpokenWrittenSuppositum 
-    [1] -- [*] Concept 
-    [1..*] -- [1] Concept 
-    [1] -- signifies -- [1] Concept 
-    @componentOf 
-    [2..*] -- [1] Expression 
-    @componentOf 
-    [1..*] -- [1] SpokenWrittenProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
+subkind CategorematicTerm of functional-complexes  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm {
+    [1..*] -- [*] CategorematicConcept 
+    [1..*] -- [1] Object 
+    [1..*] -- signifies -- [1] CategorematicConcept 
 }
 
 mixin MixedTerm of functional-complexes 
 
-subkind SpokenWrittenProposition of functional-complexes  specializes Proposition 
+subkind SpokenWrittenProposition of functional-complexes  specializes Proposition {
+    [1..*] -- signifies_fine_grained -- [1] MentalProposition 
+}
 
 subkind SemanticallyComplexSpokenWrittenTerm of functional-complexes  specializes SpokenWrittenTerm {
-    @material 
-    [1] -- refers_to -- [1] SpokenWrittenSuppositum 
-    [1] -- [*] Concept 
-    [1..*] -- [1] Concept 
-    [1] -- signifies -- [1] Concept 
-    @componentOf 
-    [2..*] -- [1] Expression 
-    @componentOf 
-    [1..*] -- [1] SpokenWrittenProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
+    [1] -- signifies -- [1] ComplexConcept 
 }
 
-subkind Expression of functional-complexes  specializes SpokenWrittenTerm {
-    @material 
-    [1] -- refers_to -- [1] SpokenWrittenSuppositum 
-    [1] -- [*] Concept 
-    [1..*] -- [1] Concept 
-    [1] -- signifies -- [1] Concept 
-    @componentOf 
-    [2..*] -- [1] Expression 
-    @componentOf 
-    [1..*] -- [1] SpokenWrittenProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
-}
+subkind Expression of functional-complexes  specializes SpokenWrittenTerm 
 
 role SemanticallyComplexExpression of functional-complexes  specializes Expression {
-    @material 
-    [1] -- refers_to -- [1] SpokenWrittenSuppositum 
-    [1] -- [*] Concept 
-    [1..*] -- [1] Concept 
-    [1] -- signifies -- [1] Concept 
-    @componentOf 
-    [2..*] -- [1] Expression 
-    @componentOf 
-    [1..*] -- [1] SpokenWrittenProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
+    [1] -- signifies -- [1] ComplexConcept 
 }
 
 role SemanticallySimple_Expression of functional-complexes  specializes Expression {
-    @material 
-    [1] -- refers_to -- [1] SpokenWrittenSuppositum 
-    [1] -- [*] Concept 
-    [1..*] -- [1] Concept 
     [1] -- signifies -- [1] Concept 
-    @componentOf 
-    [2..*] -- [1] Expression 
-    @componentOf 
-    [1..*] -- [1] SpokenWrittenProposition 
-    @material 
-    [1..*] -- refers_to -- [1] Suppositum 
-    @componentOf 
-    [1..*] -- [1] Proposition 
 }
 
-mode SyntacticallyComplex
+mode SyntacticallyComplex{
+    @characterization [1] -- [1] Expression 
+}
 
-mode SyntacticallySimple
+mode SyntacticallySimple{
+    @characterization [1] -- [1] SpokenWrittenTerm 
+}
 

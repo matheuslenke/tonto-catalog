@@ -1,40 +1,24 @@
-import PlatformOntology
+import GDPO_part_1
+import Review_System
+import GDPO_User_Roles
+import Airbnb
 
 package GDPO_Interaction
 
-roleMixin Content_Consumer of functional-complexes  specializes Platform_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-}
+roleMixin Content_Consumer of functional-complexes  specializes Platform_User 
 
 event Platform_Supported_Interaction
 
-roleMixin Content_Creator of functional-complexes  specializes Platform_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-}
+roleMixin Content_Creator of functional-complexes  specializes Platform_User 
 
 kind Digital_Content
 
 subkind Main_Digital_Content of functional-complexes  specializes Digital_Content 
 
 event Main_Digital_Content_Creation specializes Digital_Content_Creation, User_Affiliation_Action, User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @participation [1] -- created -- [1] Main_Digital_Content 
+    @participation [1..*] -- performed_by -- [1] Content_Creator 
+    @participational [1..*] -- is_part_of -- [0..*] Platform_Supported_Communication 
 }
 
 subkind Personal_Data of functional-complexes  specializes Main_Digital_Content 
@@ -43,16 +27,18 @@ subkind Digital_Message of functional-complexes  specializes Main_Digital_Conten
 
 subkind Digital_File of functional-complexes  specializes Main_Digital_Content 
 
-event Platform_Supported_Communication
+event Platform_Supported_Communication{
+    @participational [2..*] -- is_part_of -- [0..*] Platform_Supported_Interaction 
+}
 
 event Main_Digital_Content_Consumption specializes Digital_Content_Consumption, User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @participational [1..*] -- is_part_of -- [1..*] Platform_Supported_Communication 
+    @participation [1..*] -- performed_by -- [1] Content_Consumer 
+    @participation [0..*] -- consumed -- [1..*] Main_Digital_Content 
+}
+
+genset WsLwiC6FYEWG2yIl {
+    general Main_Digital_Content
+    specifics Digital_Message, Digital_File, Offering_Description, Personal_Data
 }
 

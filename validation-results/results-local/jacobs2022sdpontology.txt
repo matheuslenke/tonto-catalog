@@ -1,5 +1,41 @@
-3
+39
 
+Expecting token of type '--' but found `[`.
+Expecting token of type 'ID' but found `--`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `[`.
+Expecting token of type 'ID' but found `--`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `[`.
+Expecting token of type 'ID' but found `--`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Could not resolve reference to DataType named 'Resources'.
+Could not resolve reference to DataType named 'Platforms'.
+Could not resolve reference to DataType named 'Attributes'.
+Could not resolve reference to DataType named 'Quality_Levels'.
+Could not resolve reference to DataType named 'Experience_Levels'.
+Could not resolve reference to DataType named 'Types'.
+Could not resolve reference to DataType named 'Architectural_styles'.
+Could not resolve reference to DataType named 'Methods'.
+Could not resolve reference to DataType named 'Types'.
+Could not resolve reference to DataType named 'Roles'.
+Could not resolve reference to DataType named 'Proficiency_Levels'.
+Could not resolve reference to DataType named 'Programming_langauge'.
+Could not resolve reference to DataType named 'Requirements'.
+Could not resolve reference to DataType named 'Importance_levels'.
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

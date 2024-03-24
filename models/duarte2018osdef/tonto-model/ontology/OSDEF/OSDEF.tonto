@@ -1,106 +1,90 @@
-import ontology
-import UFO
 import SPO
+import UFO
 
 package OSDEF
 
 class User specializes Stakeholder {
-    [1] -- performs -- [0..*] Action 
+    [1] -- performs -- [0..*] User_Action 
 }
 
-class User_Action specializes Action {
-    [0..*] -- causes -- [0..*] Event_Perdurant 
-    [0..*] -- brings_about -- [1] Situation 
-    [0..*] -- manifestation_of -- [1] Disposition 
-}
+class User_Action specializes Action 
 
 class Failure specializes Event_Perdurant {
-    [0..*] -- causes -- [0..*] Event_Perdurant 
-    [0..*] -- brings_about -- [1] Situation 
-    [0..*] -- manifestation_of -- [1] Disposition 
+    [0..*] -- causes -- [0..*] Failure 
+    [0..*] -- brings_about -- [1] Failure_State 
+    [1..*] -- manifestation_of -- [1..*] Vulnerability 
 }
 
 class Erroneous_User_Action specializes User_Action {
-    [0..*] -- causes -- [0..*] Event_Perdurant 
-    [0..*] -- brings_about -- [1] Situation 
-    [0..*] -- manifestation_of -- [1] Disposition 
+    [1..*] -- causes -- [1..*] Usergenerated_Failure 
 }
 
 class User_Malicious_Intention specializes Intention {
-    [0..*] -- inheres_in -- [1] Agent 
+    [0..*] -- inheres_in -- [1] User 
 }
 
 class User_False_Belief specializes Belief {
-    [0..*] -- inheres_in -- [1] Agent 
+    [0..*] -- inheres_in -- [1] User 
 }
 
 class Intentional_Usergenerated_Failure specializes Usergenerated_Failure {
-    [0..*] -- manifestation_of -- [1..*] Usage_Limit_Vulnerability 
-    [0..*] -- causes -- [0..*] Failure 
-    [0..*] -- brings_about -- [1] Failure_State 
-    [1..*] -- manifestation_of -- [1..*] Vulnerability 
-    [0..*] -- causes -- [0..*] Event_Perdurant 
-    [0..*] -- brings_about -- [1] Situation 
-    [0..*] -- manifestation_of -- [1] Disposition 
+    [0..*] -- stems_from -- [1..*] User_Malicious_Intention 
 }
 
 class Nonintentional_Usergenerated_Failure specializes Usergenerated_Failure {
-    [0..*] -- manifestation_of -- [1..*] Usage_Limit_Vulnerability 
-    [0..*] -- causes -- [0..*] Failure 
-    [0..*] -- brings_about -- [1] Failure_State 
-    [1..*] -- manifestation_of -- [1..*] Vulnerability 
-    [0..*] -- causes -- [0..*] Event_Perdurant 
-    [0..*] -- brings_about -- [1] Situation 
-    [0..*] -- manifestation_of -- [1] Disposition 
+    [0..*] -- stems_from -- [1..*] User_False_Belief 
 }
 
 class Usergenerated_Failure specializes Failure {
-    [0..*] -- causes -- [0..*] Failure 
-    [0..*] -- brings_about -- [1] Failure_State 
-    [1..*] -- manifestation_of -- [1..*] Vulnerability 
-    [0..*] -- causes -- [0..*] Event_Perdurant 
-    [0..*] -- brings_about -- [1] Situation 
-    [0..*] -- manifestation_of -- [1] Disposition 
+    [0..*] -- manifestation_of -- [1..*] Usage_Limit_Vulnerability 
 }
 
-class Failure_State specializes Situation {
-    [1] -- triggers_ -- [0..*] Event_Perdurant 
-    [0..*] -- activates -- [0..*] Disposition 
-}
+class Failure_State specializes Situation 
 
 class Vulnerable_State specializes Situation {
-    [1] -- triggers_ -- [0..*] Event_Perdurant 
-    [0..*] -- activates -- [0..*] Disposition 
+    [1] -- triggers_ -- [1..*] Failure 
+    [1..*] -- activates -- [1..*] Vulnerability 
 }
 
-class Vulnerability specializes Disposition 
+class Vulnerability specializes Disposition {
+    [*] -- inheres_in -- [1] Endurant 
+}
 
 class Hardware_Vulnerability specializes Vulnerability {
-    [*] -- inheres_in -- [1] Endurant 
+    [0..*] -- inheres_in -- [1] Hardware_Equipment 
 }
 
 class Loaded_Program_Vulnerability specializes Vulnerability {
-    [*] -- inheres_in -- [1] Endurant 
+    [0..*] -- inheres_in -- [1] Loaded_Program_Copy 
 }
 
 class Fault_Manifestation_Failure specializes Failure {
-    [0..*] -- causes -- [0..*] Failure 
-    [0..*] -- brings_about -- [1] Failure_State 
-    [1..*] -- manifestation_of -- [1..*] Vulnerability 
-    [0..*] -- causes -- [0..*] Event_Perdurant 
-    [0..*] -- brings_about -- [1] Situation 
-    [0..*] -- manifestation_of -- [1] Disposition 
+    [1..*] -- manifestation_of -- [1..*] Fault_Runtime_Defect 
 }
 
-class Defect specializes Vulnerability {
-    [*] -- inheres_in -- [1] Endurant 
+class Defect specializes Vulnerability 
+
+class Usage_Limit_Vulnerability specializes Vulnerability 
+
+class Fault_Runtime_Defect specializes Defect 
+
+genset oPeFx36GAqACBRZr {
+    general Usergenerated_Failure
+    specifics Nonintentional_Usergenerated_Failure, Intentional_Usergenerated_Failure
 }
 
-class Usage_Limit_Vulnerability specializes Vulnerability {
-    [*] -- inheres_in -- [1] Endurant 
+genset ezNFx36GAqACBRaM {
+    general Failure
+    specifics Fault_Manifestation_Failure, Usergenerated_Failure
 }
 
-class Fault_Runtime_Defect specializes Defect {
-    [*] -- inheres_in -- [1] Endurant 
+genset bKwVx36GAqACBReZ {
+    general Vulnerability
+    specifics Defect, Usage_Limit_Vulnerability
+}
+
+genset YDBVx36GAqACBRgs {
+    general Vulnerability
+    specifics Hardware_Vulnerability, Loaded_Program_Vulnerability
 }
 

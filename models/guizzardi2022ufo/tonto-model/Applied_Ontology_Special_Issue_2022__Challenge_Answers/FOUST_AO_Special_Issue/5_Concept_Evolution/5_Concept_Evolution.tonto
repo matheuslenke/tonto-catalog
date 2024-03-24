@@ -1,0 +1,44 @@
+
+package 5_Concept_Evolution
+
+kind Person
+
+subkind Man of functional-complexes  specializes Person 
+
+subkind Woman of functional-complexes  specializes Person 
+
+role Husband of functional-complexes  specializes Man, Spouse 
+
+role Wife of functional-complexes  specializes Woman, Spouse 
+
+relator Conjugal_Relationship{
+    @mediation [1..*] -- [2..*] Spouse 
+}
+
+role Spouse of functional-complexes  specializes Person {
+    @instantiation [0..*] -- [0..*] Spouse_Type 
+}
+
+subkind Monogamous_Heteresexual_Marriage of relators  specializes Conjugal_Relationship {
+    @mediation [1] -- [1] Husband 
+    @mediation [1] -- [1] Wife 
+}
+
+type Conjugal_Relationship_Type{
+    @instantiation [0..*] -- [0..*] Conjugal_Relationship 
+}
+
+type Spouse_Type{
+    @formal [1..*] -- compatible_with -- [0..*] Conjugal_Relationship_Type 
+}
+
+genset Vn_BV6GAqACDC5v {
+    general Person
+    specifics Man, Woman
+}
+
+genset IUkhV6GAqACDDR5 {
+    general Spouse
+    categorizerSpouse_Typespecifics Husband, Wife
+}
+

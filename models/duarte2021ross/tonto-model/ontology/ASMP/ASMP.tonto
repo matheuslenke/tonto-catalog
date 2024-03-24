@@ -1,9 +1,3 @@
-import ontology
-import ASMP
-import EO
-import ROSS
-import SPO
-import SwO
 import UFO
 
 package ASMP

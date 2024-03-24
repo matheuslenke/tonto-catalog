@@ -4,3 +4,13 @@ package InfoSysDes1
 datatype string_
 datatype int
 datatype float
+genset FrIb6FYHQ6eQmA {
+    general ManagementUsers
+    specifics Employee, Owner
+}
+
+genset lKfob6FYHQ6eQsW {
+    general FacilityBooking
+    specifics Single_Booking, Shared_Booking
+}
+

@@ -5,17 +5,29 @@ class Intention
 
 class Belief
 
-class Agent
+class Agent{
+    [1] -- performs -- [*] Action 
+}
 
-class Event
+class Event{
+    [*] -- causes -- [*] Event 
+    [*] -- brings_about -- [1] Situation 
+}
 
-class Disposition
+class Disposition{
+    [1] -- is_manifested_by -- [*] Event 
+}
 
 class Object
 
-class Action
+class Action{
+    [1..*] -- satisfy -- [1..*] Goal 
+    [1..*] -- postsituation -- [1..*] Situation 
+}
 
 class Goal
 
-class Situation
+class Situation{
+    [1..*] -- activates -- [1..*] Disposition 
+}
 

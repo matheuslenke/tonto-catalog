@@ -1,57 +1,28 @@
-import Unified_Transport_Network__v23
+import Link_Connections
+import Forwarding_End_Points
+import Termination_Function
+import Forwarding_Points
+import Adaptation_Function
+import Complementary_Categorizations
+import Transport_Functions
 
 package Forwarding_Function
 
 roleMixin Egress_LC of functional-complexes  specializes Possible_Egress_LC 
 
-role Egress_MC_Sk of functional-complexes  specializes T_Sk_Input__Sk_MFEP_Bound {
-    @material 
-    [1] -- binds_Sk_MFEP -- [1] M_Output__Sk_MFEP_Bound 
-    @componentOf 
-    [1..*] -- [1] Termination_Sink 
-}
+role Egress_MC_Sk of functional-complexes  specializes T_Sk_Input__Sk_MFEP_Bound 
 
-role Egress_MC_SkSo of functional-complexes  specializes A_So_Input__So_MFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Egress_MC_SkSo of functional-complexes  specializes A_So_Input__So_MFP_Bound 
 
-role Egress_MC_So of functional-complexes  specializes A_So_Input__So_MFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Egress_MC_So of functional-complexes  specializes A_So_Input__So_MFP_Bound 
 
-role Egress_SN_Sk of functional-complexes  specializes T_Sk_Input__Sk_SNFEP_Bound {
-    @material 
-    [1] -- binds_Sk_SNFEP -- [1] SN_Output__Sk_SFEP_Bound 
-    @componentOf 
-    [1..*] -- [1] Termination_Sink 
-}
+role Egress_SN_Sk of functional-complexes  specializes T_Sk_Input__Sk_SNFEP_Bound 
 
-role Egress_SN_SkSo of functional-complexes  specializes T_Sk_Input__Sk_SNFEP_Bound {
-    @material 
-    [1] -- binds_Sk_SNFEP -- [1] SN_Output__Sk_SFEP_Bound 
-    @componentOf 
-    [1..*] -- [1] Termination_Sink 
-}
+role Egress_SN_SkSo of functional-complexes  specializes T_Sk_Input__Sk_SNFEP_Bound 
 
-role Egress_SN_SkSo_2 of functional-complexes  specializes A_So_Input__So_SNFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Egress_SN_SkSo_2 of functional-complexes  specializes A_So_Input__So_SNFP_Bound 
 
-role Egress_SN_So of functional-complexes  specializes A_So_Input__So_SNFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Source 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Egress_SN_So of functional-complexes  specializes A_So_Input__So_SNFP_Bound 
 
 subkind Forwarding_Function_CFTE of functional-complexes  specializes Forwarding_Function 
 
@@ -75,72 +46,118 @@ role Forwarding_Function_SkSo_Connected of functional-complexes  specializes For
 
 role Forwarding_Function_So_M_Connected of functional-complexes  specializes Forwarding_Function_Matrix 
 
-relator Forwarding_Rule_LC specializes Forwarding_Rule 
+relator Forwarding_Rule_LC specializes Forwarding_Rule {
+    @mediation [1..*] -- set_ingress -- [1..*] Ingress_LC 
+    @mediation [1..*] -- isDefinedBy -- [1] Forwarding_Function_LC_Connected 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_LC 
+}
 
-relator Forwarding_Rule_MC_Sk specializes Forwarding_Rule 
+relator Forwarding_Rule_MC_Sk specializes Forwarding_Rule {
+    @mediation [1..*] -- is_defined_by -- [1] Sk_MC_Forwarding 
+    @mediation [1..*] -- set_ingress -- [1..*] Ingress_MC_Sk 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_MC_Sk 
+}
 
-relator Forwarding_Rule_MC_SkSo specializes Forwarding_Rule 
+relator Forwarding_Rule_MC_SkSo specializes Forwarding_Rule {
+    @mediation [1..*] -- set_ingress -- [1..*] Ingress_MC_SkSo 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_MC_SkSo 
+}
 
-relator Forwarding_Rule_MC_So specializes Forwarding_Rule 
+relator Forwarding_Rule_MC_So specializes Forwarding_Rule {
+    @mediation [1..*] -- set_ingress -- [1..*] Ingress_MC_So 
+    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_So_M_Connected 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_MC_So 
+}
 
-relator Forwarding_Rule_SkSo specializes Forwarding_Rule 
+relator Forwarding_Rule_SkSo specializes Forwarding_Rule {
+    @mediation [1..*] -- set_ingress -- [1..*] Ingress_SN_SkSo 
+    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_CFTE_SkSo 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_SkSo_2 
+}
 
-relator Forwarding_Rule_So_SN specializes Forwarding_Rule 
+relator Forwarding_Rule_So_SN specializes Forwarding_Rule {
+    @mediation [1..*] -- set_ingress -- [1..] Ingress_SN_So 
+    @mediation [1] -- is_defined_by -- [1] Forwarding_Function_CFTE_So 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_So 
+}
 
-relator Forwarding_Rule_SoSk specializes Forwarding_Rule 
+relator Forwarding_Rule_SoSk specializes Forwarding_Rule {
+    @mediation [1..*] -- set_ingress -- [1..*] Ingress_SN_SoSk 
+    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_CFTE_SoSk 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_SkSo 
+}
 
-relator Fowarding_Rule_Sk_SN specializes Forwarding_Rule 
+relator Fowarding_Rule_Sk_SN specializes Forwarding_Rule {
+    @mediation [1..*] -- set_ingress -- [1..*] Ingress_SN_Sk 
+    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_CFTE_Sk 
+    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_Sk 
+}
 
 roleMixin Ingress_LC of functional-complexes  specializes Possible_Ingress_LC 
 
-role Ingress_MC_Sk of functional-complexes  specializes A_Sk_Output__Sk_MFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Ingress_MC_Sk of functional-complexes  specializes A_Sk_Output__Sk_MFP_Bound 
 
-role Ingress_MC_SkSo of functional-complexes  specializes A_Sk_Output__Sk_MFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Ingress_MC_SkSo of functional-complexes  specializes A_Sk_Output__Sk_MFP_Bound 
 
-role Ingress_MC_So of functional-complexes  specializes T_So_Output__So_MFEP_Bound {
-    @material 
-    [1] -- binds_So_MFEP -- [1] M_Input__So_MFEP_Bound 
-    @componentOf 
-    [1..*] -- [1] Termination_Source 
-}
+role Ingress_MC_So of functional-complexes  specializes T_So_Output__So_MFEP_Bound 
 
-role Ingress_SN_Sk of functional-complexes  specializes A_Sk_Output__Sk_SNFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Ingress_SN_Sk of functional-complexes  specializes A_Sk_Output__Sk_SNFP_Bound 
 
-role Ingress_SN_SkSo of functional-complexes  specializes A_Sk_Output__Sk_SNFP_Bound {
-    @componentOf 
-    [1..*] -- [1] Adaptation_Sink 
-    @material 
-    [1] -- binds -- [1] Bound_InputOutput 
-}
+role Ingress_SN_SkSo of functional-complexes  specializes A_Sk_Output__Sk_SNFP_Bound 
 
-role Ingress_SN_So of functional-complexes  specializes T_So_Output__So_SNFEP_Bound {
-    @material 
-    [1] -- binds_So_SNFEP -- [1] SN_Input__So_SFEP_Bound 
-    @componentOf 
-    [1..*] -- [1] Termination_Source 
-}
+role Ingress_SN_So of functional-complexes  specializes T_So_Output__So_SNFEP_Bound 
 
-role Ingress_SN_SoSk of functional-complexes  specializes T_So_Output__So_SNFEP_Bound {
-    @material 
-    [1] -- binds_So_SNFEP -- [1] SN_Input__So_SFEP_Bound 
-    @componentOf 
-    [1..*] -- [1] Termination_Source 
-}
+role Ingress_SN_SoSk of functional-complexes  specializes T_So_Output__So_SNFEP_Bound 
 
 relator Forwarding_Rule
+
+genset Tsynb6GAqBwASii {
+    general Forwarding_Function
+    specifics Forwarding_Function_CFTE, Forwarding_Function_LC, Forwarding_Function_Matrix
+}
+
+genset XwGynb6GAqBwASi5 {
+    general Forwarding_Function_CFTE
+    specifics Forwarding_Function_CFTE_Sk, Forwarding_Function_CFTE_SoSk, Forwarding_Function_CFTE_SkSo, Forwarding_Function_CFTE_So
+}
+
+genset QEynb6GAqBwASjN {
+    general Forwarding_Function_Matrix
+    specifics Forwarding_Function_Sk_M_Connected, Forwarding_Function_SkSo_Connected, Forwarding_Function_So_M_Connected
+}
+
+genset iAzanb6GAqBwASoV {
+    general T_So_Output__So_SNFEP_Bound
+    specifics Ingress_SN_SoSk, Ingress_SN_So
+}
+
+genset jlb6nb6GAqBwASq7 {
+    general A_Sk_Output__Sk_SNFP_Bound
+    specifics Ingress_SN_SkSo, Ingress_SN_Sk
+}
+
+genset G18Gnb6GAqBwASsF {
+    general T_Sk_Input__Sk_SNFEP_Bound
+    specifics Egress_SN_SkSo, Egress_SN_Sk
+}
+
+genset FzRGnb6GAqBwASsk {
+    general A_So_Input__So_SNFP_Bound
+    specifics Egress_SN_So, Egress_SN_SkSo_2
+}
+
+genset GGWnb6GAqBwASw1 {
+    general A_So_Input__So_MFP_Bound
+    specifics Egress_MC_So, Egress_MC_SkSo
+}
+
+genset wJWnb6GAqBwASxN {
+    general A_Sk_Output__Sk_MFP_Bound
+    specifics Ingress_MC_SkSo, Ingress_MC_Sk
+}
+
+genset iCkn6AUAgInB6d {
+    general Forwarding_Rule
+    specifics Forwarding_Rule_MC_So, Forwarding_Rule_So_SN, Forwarding_Rule_SoSk, Forwarding_Rule_LC, Forwarding_Rule_MC_SkSo, Fowarding_Rule_Sk_SN, Forwarding_Rule_MC_Sk, Forwarding_Rule_SkSo
+}
 

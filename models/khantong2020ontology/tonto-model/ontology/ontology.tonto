@@ -10,24 +10,39 @@ kind Organization
 role HighWaterController of functional-complexes  specializes FloodManagementOrganization 
 
 phase SelectedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
-    [*] -- control -- [*] FloodEvent 
+    [*] -- selected_by -- [*] HighWaterController 
 }
 
 role HighWaterProtectionMeasureEvaluator of functional-complexes  specializes FloodManagementOrganization 
 
 kind People
 
-role Victim of functional-complexes  specializes People 
+role Victim of functional-complexes  specializes People {
+    [*] -- register -- [*] EvacuationRegistration 
+    [*] -- live_in -- [*] Area 
+}
 
-role FloodEvacuationImplementer of functional-complexes  specializes EvacuationOrganization 
+role FloodEvacuationImplementer of functional-complexes  specializes EvacuationOrganization {
+    [*] -- imeplement -- [*] FloodEvacuation 
+}
 
-kind FloodForecast
+kind FloodForecast{
+    [*] -- use -- [*] WeatherForecast 
+    [*] -- predict -- [*] FloodEvent 
+}
 
-kind FloodEvent
+kind FloodEvent{
+    [*] -- occure_in -- [*] Area 
+    [*] -- has -- [*] FloodDamage 
+}
 
-role FloodForecaster of functional-complexes  specializes FloodManagementOrganization 
+role FloodForecaster of functional-complexes  specializes FloodManagementOrganization {
+    [*] -- produce -- [*] FloodForecast 
+}
 
-role WeatherForecaster of functional-complexes  specializes WeatherOrganization 
+role WeatherForecaster of functional-complexes  specializes WeatherOrganization {
+    [*] -- produce -- [*] WeatherForecast 
+}
 
 kind Area
 
@@ -37,33 +52,50 @@ kind Resource
 
 kind FloodDamage
 
-kind EvacuationRegistration
+kind EvacuationRegistration{
+    [*] -- register_for -- [*] FloodEvacuation 
+}
 
 phase EvaluatedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
+    [*] -- evaluated_by -- [*] HighWaterProtectionMeasureEvaluator 
+}
+
+kind HighWaterProtectionMeasure{
     [*] -- control -- [*] FloodEvent 
 }
 
-kind HighWaterProtectionMeasure
-
 phase ImplementedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
-    [*] -- control -- [*] FloodEvent 
+    [*] -- implemented_by -- [*] HighWaterProtectionImplementer 
 }
 
 role HighWaterProtectionImplementer of functional-complexes  specializes FloodManagementOrganization 
 
-kind FloodEvacuation
+kind FloodEvacuation{
+    [*] -- use -- [*] Resource 
+    [*] -- has -- [*] FloodEvacuationPlan 
+    [*] -- take_place_in -- [*] Area 
+}
 
-role FloodDefenseMeasuresImplementer of functional-complexes  specializes FloodDefenseOrganization 
+role FloodDefenseMeasuresImplementer of functional-complexes  specializes FloodDefenseOrganization {
+    [*] -- implement -- [*] FloodDefenseMeasures 
+}
 
-role FloodDefenseManager of functional-complexes  specializes FloodDefenseOrganization 
+role FloodDefenseManager of functional-complexes  specializes FloodDefenseOrganization {
+    [*] -- assess -- [*] FloodDamage 
+}
 
 subkind FloodDefenseOrganization of functional-complexes  specializes Organization 
 
 subkind EvacuationOrganization of functional-complexes  specializes Organization 
 
-role FloodEvacuationManager of functional-complexes  specializes EvacuationOrganization 
+role FloodEvacuationManager of functional-complexes  specializes EvacuationOrganization {
+    [*] -- create -- [*] FloodEvacuationPlan 
+}
 
 kind FloodEvacuationPlan
 
-kind FloodDefenseMeasures
+kind FloodDefenseMeasures{
+    [*] -- mitigate -- [*] FloodDamage 
+    [*] -- use -- [*] Resource 
+}
 

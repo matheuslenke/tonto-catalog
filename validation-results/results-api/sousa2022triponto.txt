@@ -1,7 +1,8 @@
 Validating...
-- Total of errors: 8
-Could not create relation named (needs) between International_Trip and Date because one or both of them was not created.
-Could not create relation named (needs) between International_Trip and Travel_Investment because one or both of them was not created.
-Could not create relation named (needs) between National_Trip and Date because one or both of them was not created.
-Could not create relation named (needs) between National_Trip and Travel_Investment because one or both of them was not created.
+Could not create relation named (needs) between Trip and Date because one or both of them was not created.
+Could not create relation named (needs) between Trip and Travel_Investment because one or both of them was not created.
+Could not create relation named ((No name)) between Route and Arrival_Date because one or both of them was not created.
+Could not create relation named ((No name)) between Route and Departure_Date because one or both of them was not created.
+Total of errors: 0
+undefined
 Validation finished

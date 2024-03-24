@@ -3,9 +3,15 @@ package Project_Management_Ontology
 
 kind Project
 
-mode Performed_Schedule
+mode Performed_Schedule{
+    @characterization [1] -- [1] Project 
+    @formal [1] -- [1..*] Performed_Activity 
+}
 
-mode Planned_Schedule
+mode Planned_Schedule{
+    @characterization [1] -- [1] Project 
+    @formal [1] -- [1..*] Planned_Activity 
+}
 
 phase Planned_Activity of functional-complexes  specializes Activity 
 
@@ -15,9 +21,14 @@ kind Activity
 
 subkind Composed of functional-complexes  specializes Activity 
 
-subkind Atomic of functional-complexes  specializes Activity 
+subkind Atomic of functional-complexes  specializes Activity {
+    @componentOf [2..*] -- [1] Composed 
+}
 
-relator Resource_Allocation
+relator Resource_Allocation{
+    @mediation [1..*] -- [1] Performed_Activity 
+    @mediation [1..*] -- [1] Resource 
+}
 
 roleMixin Resource of functional-complexes 
 
@@ -28,4 +39,19 @@ role Human_Resource of functional-complexes  specializes Resource, Person
 role Financial_Resource of functional-complexes  specializes Resource, Money 
 
 kind Money
+
+genset RkbPO76GAqBwAQjC {
+    general Activity
+    specifics Planned_Activity, Performed_Activity
+}
+
+genset dffPO76GAqBwAQjY {
+    general Activity
+    specifics Atomic, Composed
+}
+
+genset ymvO76GAqBwAQlm {
+    general Resource
+    specifics Financial_Resource, Human_Resource
+}
 

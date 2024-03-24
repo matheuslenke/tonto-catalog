@@ -1,55 +1,70 @@
-import Brazilian_Governmental_Organizational_Structures
 
 package Model
 
 category OrganizationalUnit of functional-complexes 
 
-kind rgo_Colegiado specializes OrganizationalUnit 
+kind rgo_Colegiado specializes OrganizationalUnit {
+    @Formal [1] -- representedBy -- [1..*] PublicOrganization 
+    @Formal [*] -- [1] rgo 
+}
 
 category PublicOrganization of functional-complexes  specializes OrganizationalUnit, Organization 
 
 subkind PublicAdmnistrativeUnit of functional-complexes  specializes OrganizationalUnit, UnityOfOrganization {
-    @componentOf 
-    [1] -- composedBy -- [1..*] Organization 
+    @Formal [*] -- subordinatedTo -- [0..1] PublicAdmnistrativeUnit 
+    @componentOf [1..*] -- composedBy -- [1] PublicOrganization 
 }
 
 category Organization of functional-complexes 
 
-kind UnityOfOrganization
+kind UnityOfOrganization{
+    @componentOf [1] -- composedBy -- [1..*] Organization 
+}
 
 kind Company specializes Organization 
 
-category PublicEntity of functional-complexes  specializes PublicOrganization 
-
-kind rgo specializes PublicOrganization 
-
-kind NonEmpresarialPublicEntity specializes PublicEntity {
-    @Formal 
-    [*] -- relatedTo -- [1] rgo 
+category PublicEntity of functional-complexes  specializes PublicOrganization {
+    @Formal [*] -- relatedTo -- [1] rgo 
 }
 
-phase StateCompany of functional-complexes  specializes PublicEntity, Company {
-    @Formal 
-    [*] -- relatedTo -- [1] rgo 
+kind rgo specializes PublicOrganization {
+    @Formal [*] -- subordinatedTo -- [0..1] rgo 
 }
 
-subkind Autarchy of functional-complexes  specializes NonEmpresarialPublicEntity {
-    @Formal 
-    [*] -- relatedTo -- [1] rgo 
+kind NonEmpresarialPublicEntity specializes PublicEntity 
+
+phase StateCompany of functional-complexes  specializes PublicEntity, Company 
+
+subkind Autarchy of functional-complexes  specializes NonEmpresarialPublicEntity 
+
+subkind Foundation of functional-complexes  specializes NonEmpresarialPublicEntity 
+
+phase PublicCompany of functional-complexes  specializes StateCompany 
+
+phase MixedEconomyCompany of functional-complexes  specializes StateCompany 
+
+genset gs4 {
+    general StateCompany
+    specifics MixedEconomyCompany, PublicCompany
 }
 
-subkind Foundation of functional-complexes  specializes NonEmpresarialPublicEntity {
-    @Formal 
-    [*] -- relatedTo -- [1] rgo 
+genset gs3 {
+    general PublicEntity
+    specifics StateCompany, NonEmpresarialPublicEntity
 }
 
-phase PublicCompany of functional-complexes  specializes StateCompany {
-    @Formal 
-    [*] -- relatedTo -- [1] rgo 
+genset gs2 {
+    general OrganizationalUnit
+    specifics rgo_Colegiado, PublicOrganization, PublicAdmnistrativeUnit
 }
 
-phase MixedEconomyCompany of functional-complexes  specializes StateCompany {
-    @Formal 
-    [*] -- relatedTo -- [1] rgo 
+genset gs {
+    general Organization
+    specifics Company, PublicOrganization
+}
+
+genset wwX53v6GAqAAaAjG {
+    general PublicOrganization
+    specifics PublicEntity, rgo
 }
 

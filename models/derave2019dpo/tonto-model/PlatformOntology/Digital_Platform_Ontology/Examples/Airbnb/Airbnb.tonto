@@ -1,116 +1,59 @@
-import PlatformOntology
+import GDPO_part_1
+import Transaction
+import P2P
+import FOAF
+import Review_System
+import MultiSided
+import Payment
+import Review_by_Customer
+import Marketplace_business_models
+import In_House_Payment
+import Conversation_System
+import Customer_Source
+import Price_Discovery
+import Price_Calculation
+import UnderUtilisation
+import Service
+import Useroriented
+import Recurring
+import Productoriented
+import Decentralized
+import Price_set_by_Provider
+import Customer_Type
 
 package Airbnb
 
-roleMixin Airbnb_Home_Seeker of functional-complexes  specializes Platform_User, Platform_Customer, Peer_User, Person {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- by -- [0..*] Transaction_Payment 
-    [1] -- does -- [0..*] Review_Creation_by_Customer 
-    [1] -- [1..*] Price_Acceptance 
-    [1] -- by -- [0..*] Inhouse_Payment 
-    [1] -- participates -- [1..*] Transaction_Conversation 
-    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
-    [*] -- [*] Paid_Transaction_Price 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
-    [*] -- suggests -- [*] Suggested_Price 
-    [1] -- initiates -- [0..*] Listing_Conversation 
-    @participation 
-    [1] -- [0..*] Price_Offer_Creation 
-    [1] -- [0..*] Request_Quote 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
-}
+roleMixin Airbnb_Home_Seeker of functional-complexes  specializes Platform_User, Platform_Customer, Peer_User, Person 
 
-subkind Accommodation of functional-complexes  specializes Physical_Good 
+subkind Accommodation of functional-complexes  specializes Physical_Good {
+    @material [0..*] -- personally_uses -- [0..1] Private_Airbnb_Homeowner 
+}
 
 event Rent_Home specializes OuterPlatform_Delivery, Service_Delivery, UserOriented_Delivery {
-    @participation 
-    [0..*] -- received_by -- [1..*] Platform_Customer 
-    [1] -- happens_on -- [1..*] Booked_Time_Slot 
-    @participation 
-    [0..*] -- involves -- [1..*] Good 
-    @participation 
-    [1..*] -- performed_by -- [1..*] Platform_Provider 
+    @participation [0..*] -- made_possible_by -- [1] Airbnb_Homeowner 
+    @participation [0..*] -- by -- [1] Airbnb_Home_Renter 
+    @participation [0..*] -- rented -- [1] Accommodation 
 }
 
-role Private_Airbnb_Homeowner of functional-complexes  specializes Airbnb_Homeowner, Person {
-    @participation 
-    [1] -- accepted_by -- [1..*] Transaction_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- [0..*] Price_Proposal 
-    [1] -- participates -- [1..*] Listing_Creation 
-    [1] -- changes -- [0..*] Price_Setting_action_by_Provider 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
-}
+role Private_Airbnb_Homeowner of functional-complexes  specializes Airbnb_Homeowner, Person 
 
 kind Product
 
 roleMixin Airbnb_Homeowner of functional-complexes  specializes Offering_Creator, Peer_User {
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- [0..*] Price_Proposal 
-    [1] -- participates -- [1..*] Listing_Creation 
-    [1] -- changes -- [0..*] Price_Setting_action_by_Provider 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
+    @participation [1] -- accepted_by -- [1..*] Transaction_Creation 
 }
 
 subkind Airbnb_Software of functional-complexes  specializes Platform_Software 
 
-roleMixin Airbnb_Home_Renter of functional-complexes  specializes Airbnb_Home_Seeker, Private_Customer {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- by -- [0..*] Transaction_Payment 
-    [1] -- does -- [0..*] Review_Creation_by_Customer 
-    [1] -- [1..*] Price_Acceptance 
-    [1] -- by -- [0..*] Inhouse_Payment 
-    [1] -- participates -- [1..*] Transaction_Conversation 
-    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
-    [*] -- [*] Paid_Transaction_Price 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
-    [*] -- suggests -- [*] Suggested_Price 
-    [1] -- initiates -- [0..*] Listing_Conversation 
-    @participation 
-    [1] -- [0..*] Price_Offer_Creation 
-    [1] -- [0..*] Request_Quote 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
+roleMixin Airbnb_Home_Renter of functional-complexes  specializes Airbnb_Home_Seeker, Private_Customer 
+
+genset XK46GAqAAokH3 {
+    general Platform_User
+    specifics Platform_Customer, Offering_Creator
+}
+
+genset fBykbB6DAAAASNz {
+    general Price
+    specifics Paid_Price, Market_Price
 }
 

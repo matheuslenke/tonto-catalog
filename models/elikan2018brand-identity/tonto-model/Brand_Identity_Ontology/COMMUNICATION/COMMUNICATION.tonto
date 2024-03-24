@@ -1,15 +1,22 @@
-import Brand_Identity_Ontology
 
 package COMMUNICATION
 
-category Noise of functional-complexes 
-
-kind Environmental_Influences specializes Noise {
-    @formal 
-    [*] -- [*] Communication 
+category Noise of functional-complexes {
+    @formal [*] -- [*] Communication 
 }
 
-relator Communication
+kind Environmental_Influences specializes Noise {
+    [*] -- [*] Identity 
+}
+
+relator Communication{
+    @formal [1..*] -- [1..*] Behaviors 
+    @formal [1..*] -- [*] Value_Proposition 
+    @formal [*] -- [*] Expression 
+    @formal [1..*] -- [1..*] Visual_components 
+    @mediation [0..*] -- [1] Identity 
+    @mediation [1..*] -- [1..*] Stakeholders 
+}
 
 kind Behaviors
 

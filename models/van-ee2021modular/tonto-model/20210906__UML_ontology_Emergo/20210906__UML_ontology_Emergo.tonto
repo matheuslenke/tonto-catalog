@@ -1,6 +1,0 @@
-
-package UML_ontology_Emergo
-
-datatype double
-datatype string
-datatype boolean_

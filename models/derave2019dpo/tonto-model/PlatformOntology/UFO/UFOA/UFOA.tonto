@@ -1,19 +1,24 @@
-import PlatformOntology
+import UFOC
 
 package UFOA
 
-kind Object_A
-
-subkind Subobject_A of functional-complexes  specializes Object_A {
-    @mediation 
-    [1..*] -- [1..*] Relator 
+kind Object_A{
+    @mediation [1..*] -- [1..*] Relator 
 }
 
-kind Object_B
+subkind Subobject_A of functional-complexes  specializes Object_A 
 
-roleMixin Object of functional-complexes 
+kind Object_B{
+    @mediation [1..*] -- [1..*] Relator 
+}
 
-phase Class_C
+roleMixin Object of functional-complexes {
+    @participation [1..*] -- [1..*] Event 
+}
+
+phase Class_C{
+    @instantiation [1..*] -- [0..*] Object_C 
+}
 
 phase Object_C
 

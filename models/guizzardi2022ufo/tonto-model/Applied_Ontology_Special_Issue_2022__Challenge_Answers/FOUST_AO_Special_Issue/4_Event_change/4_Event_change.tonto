@@ -1,0 +1,52 @@
+
+package 4_Event_change
+
+kind Person
+
+role Walker of functional-complexes  specializes Person 
+
+mode Walk{
+    @externalDependence [1..*] -- [1] Originally_Intended_Destination 
+    @characterization [1..*] -- [1] Walker 
+}
+
+phase Ongoing_Walk of intrinsic-modes  specializes Walk 
+
+phase Finalized_Walk of intrinsic-modes  specializes Walk 
+
+phase Sucessful_Walk of intrinsic-modes  specializes Finalized_Walk {
+    @formal [0..*] -- arrived_at -- [1] Originally_Intended_Destination 
+}
+
+phase Redirected_Walk of intrinsic-modes  specializes Finalized_Walk {
+    @material [0..*] -- arrived_at -- [1..*] Redirected_Destination 
+}
+
+mode Redirected_Destination_Intention{
+    @externalDependence [0..*] -- [1..*] Redirected_Destination 
+    @characterization [1] -- [1] Redirected_Walk 
+}
+
+role Redirected_Destination of functional-complexes  specializes Destination 
+
+role Originally_Intended_Destination of functional-complexes  specializes Destination 
+
+role Destination of functional-complexes  specializes Place 
+
+kind Place
+
+genset rCP3BV6GAqACDClK {
+    general Walk
+    specifics Finalized_Walk, Ongoing_Walk
+}
+
+genset TO8PBV6GAqACDCnj {
+    general Finalized_Walk
+    specifics Sucessful_Walk, Redirected_Walk
+}
+
+genset gMVPBV6GAqACDCq5 {
+    general Destination
+    specifics Redirected_Destination, Originally_Intended_Destination
+}
+

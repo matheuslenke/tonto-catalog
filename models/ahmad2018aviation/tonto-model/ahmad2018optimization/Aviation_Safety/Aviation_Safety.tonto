@@ -1,79 +1,44 @@
-import ahmad2018optimization
 import UFO
 
 package Aviation_Safety
 
-class Flight specializes Event {
-    [*] -- has_participant -- [*] Agent 
-}
+class Flight specializes Event 
 
-class Accident specializes Event {
-    [*] -- has_participant -- [*] Agent 
-}
+class Accident specializes Event 
 
 class Handling specializes Action {
     [*] -- is_performed_by -- [*] Agent 
-    [*] -- is_performed_by -- [*] Cabin_Crew 
-    [*] -- has_participant -- [*] Agent 
 }
 
-class Landing specializes Action {
-    [*] -- is_performed_by -- [*] Agent 
-    [*] -- is_performed_by -- [*] Cabin_Crew 
-    [*] -- has_participant -- [*] Agent 
-}
+class Landing specializes Action 
 
-class Data specializes Object {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Data specializes Object 
 
-class Physical_Object specializes Object {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Physical_Object specializes Object 
 
-class Spatial_Object specializes Physical_Object {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Spatial_Object specializes Physical_Object 
 
-class Technical_System specializes Physical_Object, Object {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Technical_System specializes Physical_Object, Object 
 
 class Aerodrome specializes Ground_Object, Technical_System {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
+    [*] -- has_part -- [*] Aerodrome_Part 
 }
 
 class Aircraft specializes Technical_System {
     [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
 }
 
-class Vehicle specializes Technical_System {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Vehicle specializes Technical_System 
 
-class Ground_Object specializes Spatial_Object {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Ground_Object specializes Spatial_Object 
 
-class Aerodrome_Part specializes Ground_Object {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Aerodrome_Part specializes Ground_Object 
 
-class Crew specializes Cabin_Crew, Agent {
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Crew specializes Cabin_Crew, Agent 
 
 class Cabin_Crew
 
-class Aircraft_Parti
+class Aircraft_Parti{
+    [*] -- is_object_part_of -- [*] Aircraft 
+}
 

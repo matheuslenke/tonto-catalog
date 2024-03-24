@@ -3,86 +3,94 @@ package franco2018ontology
 
 kind Game
 
-category Planning of functional-complexes 
+category Planning of functional-complexes {
+    @componentOf [2..*] -- essential -- [1] Game 
+    [1] -- [1..*] Event 
+}
 
-class Event
+class Event{
+    [1] -- [1] State 
+}
 
 class Action specializes Event {
-    [1] -- [1] State 
+    @characterization [1] -- has -- [1] State 
 }
 
 mode State
 
-category Entity of functional-complexes 
+category Entity of functional-complexes {
+    @componentOf [2..*] -- essential -- [1] Game 
+    [1] -- execute -- [1] Action 
+    @componentOf [1..*] -- estarEm_essential -- [1] Match 
+}
 
 category Object of functional-complexes  specializes Entity {
-    @componentOf 
-    [2..*] -- essential -- [1] Game 
-    [1] -- execute -- [1] Action 
-    @componentOf 
-    [1..*] -- estarEm_essential -- [1] Match 
+    [1..*] -- carringBy -- [1] Player 
 }
 
 role Player of functional-complexes  specializes Character {
+    [1] -- use -- [1] Object 
+}
+
+kind Etc specializes Object 
+
+kind Consumable specializes Object 
+
+kind Equipment specializes Object 
+
+kind Character{
     [*] -- [*] Location 
 }
 
-kind Etc specializes Object {
-    [1..*] -- carringBy -- [1] Player 
-    @componentOf 
-    [2..*] -- essential -- [1] Game 
-    [1] -- execute -- [1] Action 
-    @componentOf 
-    [1..*] -- estarEm_essential -- [1] Match 
+relator Encounter{
+    @mediation [1] -- [1] Player 
+    @mediation [1] -- [1] NonPlayerCharacter 
+    @memberOf [1] -- [1] Mission 
+    [1] -- has -- [1] Goal 
 }
 
-kind Consumable specializes Object {
-    [1..*] -- carringBy -- [1] Player 
-    @componentOf 
-    [2..*] -- essential -- [1] Game 
-    [1] -- execute -- [1] Action 
-    @componentOf 
-    [1..*] -- estarEm_essential -- [1] Match 
+kind NonPlayerCharacter specializes Entity 
+
+collective Mission{
+    [*] -- has -- [1] Goal 
 }
-
-kind Equipment specializes Object {
-    [1..*] -- carringBy -- [1] Player 
-    @componentOf 
-    [2..*] -- essential -- [1] Game 
-    [1] -- execute -- [1] Action 
-    @componentOf 
-    [1..*] -- estarEm_essential -- [1] Match 
-}
-
-kind Character
-
-relator Encounter
-
-kind NonPlayerCharacter specializes Entity {
-    @componentOf 
-    [2..*] -- essential -- [1] Game 
-    [1] -- execute -- [1] Action 
-    @componentOf 
-    [1..*] -- estarEm_essential -- [1] Match 
-}
-
-collective Mission
 
 class Goal
 
 kind Location
 
-mode Adventure
+mode Adventure{
+    @characterization [1] -- has -- [1..*] Mission 
+    [1] -- has -- [1] Goal 
+    @characterization [1] -- [1] Match 
+}
 
-mode Campaign
+mode Campaign{
+    [1] -- [2..*] Adventure 
+    @characterization [1] -- [1] Match 
+    [1] -- has -- [1] Goal 
+}
 
-category Match of functional-complexes 
-
-subkind Scenario of functional-complexes  specializes Location 
-
-kind DigitalGame specializes Match {
+category Match of functional-complexes {
     [1] -- essential -- [2..*] Game 
 }
 
-collective Session
+subkind Scenario of functional-complexes  specializes Location 
+
+kind DigitalGame specializes Match 
+
+collective Session{
+    @componentOf [2..*] -- [1] Adventure 
+    @componentOf [2..*] -- [1] Campaign 
+}
+
+genset disjoint_complete {
+    general Object
+    specifics Equipment, Etc, Consumable
+}
+
+genset vTJjQGGGAqAAEQsd {
+    general Entity
+    specifics NonPlayerCharacter
+}
 

@@ -1,15 +1,29 @@
 
 package Formula_One
 
-kind F1_Season
+kind F1_Season{
+    @componentOf [8..*] -- [1] Race 
+}
 
-relator Race
+relator Race{
+    @mediation [0..*] -- [1] Circuit 
+    @mediation [1..*] -- [1] Grand_Prix 
+    @mediation [0..*] -- [1] F1_Car 
+}
 
-kind Grand_Prix
+kind Grand_Prix{
+    @material [0..*] -- performed_in -- [1..*] Circuit 
+}
 
-role Driver of functional-complexes  specializes Racing_Team_Member 
+role Driver of functional-complexes  specializes Racing_Team_Member {
+    @mediation [0..*] -- [2..*] Race 
+    @material [0..*] -- [1..*] F1_Car 
+    @characterization [1] -- [1] Driving_Strategy 
+}
 
-collective Racing_Team
+collective Racing_Team{
+    @memberOf [2..*] -- [1] Racing_Team_Member 
+}
 
 kind Circuit
 
@@ -19,7 +33,11 @@ kind Tire specializes F1_Car_Piece
 
 kind Chassis specializes F1_Car_Piece 
 
-kind F1_Car
+kind F1_Car{
+    [1] -- [4] Tire 
+    [1] -- [1] Engine 
+    [1] -- [1] Chassis 
+}
 
 kind Person
 
@@ -33,42 +51,13 @@ role Racing_Team_Member of functional-complexes  specializes Person
 
 role Team_Manager of functional-complexes  specializes Racing_Team_Member 
 
-subkind Regular_Race of relators  specializes Race {
-    @mediation 
-    [0..*] -- [1] Circuit 
-    @mediation 
-    [1..*] -- [1] Grand_Prix 
-    @mediation 
-    [0..*] -- [1] F1_Car 
-    // TODO: Missing performed_in relation?
-    // @derivation 
-    // [1] -- [1] performed_in 
-}
+subkind Regular_Race of relators  specializes Race 
 
-subkind Sprint_Race of relators  specializes Race {
-    @mediation 
-    [0..*] -- [1] Circuit 
-    @mediation 
-    [1..*] -- [1] Grand_Prix 
-    @mediation 
-    [0..*] -- [1] F1_Car 
-    // @derivation 
-    // [1] -- [1] performed_in 
-}
+subkind Sprint_Race of relators  specializes Race 
 
-role Championship_Winner_Driver of functional-complexes  specializes Driver, Champion {
-    @mediation 
-    [0..*] -- [2..*] Race 
-    @material 
-    [0..*] -- [1..*] F1_Car 
-    @characterization 
-    [1] -- [1] Driving_Strategy 
-}
+role Championship_Winner_Driver of functional-complexes  specializes Driver, Champion 
 
-role Championship_Winner_Constructor of collectives  specializes Racing_Team, Champion {
-    @memberOf 
-    [2..*] -- [1] Racing_Team_Member 
-}
+role Championship_Winner_Constructor of collectives  specializes Racing_Team, Champion 
 
 roleMixin Champion
 
@@ -81,4 +70,34 @@ mode Driving_Strategy
 phase Aggressive_Strategy of intrinsic-modes  specializes Driving_Strategy 
 
 phase Conservative_Strategy of intrinsic-modes  specializes Driving_Strategy 
+
+genset Set1 {
+    general Racing_Team_Member
+    specifics Engineer, Team_Manager, Mechanic, Driver
+}
+
+genset Set2 {
+    general F1_Car_Piece
+    specifics Engine, Tire, Chassis
+}
+
+genset Set3 {
+    general Race
+    specifics Sprint_Race, Regular_Race
+}
+
+genset Set4 {
+    general Champion
+    specifics Championship_Winner_Constructor, Championship_Winner_Driver
+}
+
+genset Set5 {
+    general Champion
+    specifics Current_Champion, Past_Champion
+}
+
+genset Set6 {
+    general Driving_Strategy
+    specifics Aggressive_Strategy
+}
 

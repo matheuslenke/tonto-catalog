@@ -1,35 +1,4 @@
 Validating...
-- Total of errors: 11
-[error] Not unique class stereotype:
-The class BiologicalPerson must have a unique OntoUML stereotype.
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class PersonUnderECGMonitoring must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class PersonUnderECGMonitoring must specify the possible ontological natures of its instances
-[error] Not unique class stereotype:
-The class ECGRecordingSession must have a unique OntoUML stereotype.
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class ECGLead is specializing other classes that represent ultimate sortals: «kind»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class ECGLeadUnipolar is specializing multiple classes that represent ultimate sortals: «kind»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class ECGLeadBipolarLimb is specializing multiple classes that represent ultimate sortals: «kind»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class HeartElectricalActivity is specializing other classes that represent ultimate sortals: «quality»
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of ElectricPotential are not among the allowed ontological natures of its superclass UnitOfMeasurement
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of PersonUnderECGMonitoring are not among the allowed ontological natures of its superclass LivingPerson
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of ECGRecordingSession are not among the allowed ontological natures of its superclass Task
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Sensor is specializing other classes that represent ultimate sortals: «kind»
-[error] Not unique class stereotype:
-The class Task must have a unique OntoUML stereotype.
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class LivingPerson must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
-[error] The meta-property 'restrictedTo' is not assigned:
-The meta-property 'restrictedTo' of class LivingPerson must specify the possible ontological natures of its instances
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of LivingPerson are not among the allowed ontological natures of its superclass BiologicalPerson
+Total of errors: 16
+undefined
 Validation finished

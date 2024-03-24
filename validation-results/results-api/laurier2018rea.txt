@@ -1,19 +1,4 @@
 Validating...
-- Total of errors: 8
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class inflow is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class outflow is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class transformationduality is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class transferduality is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class insideparty is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class outsideparty is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class from_ is specializing other classes that represent ultimate sortals: «relator»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class to is specializing other classes that represent ultimate sortals: «relator»
+Total of errors: 8
+undefined
 Validation finished

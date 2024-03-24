@@ -1,27 +1,138 @@
-26
+98
 
+Could not resolve reference to DataTypeOrClassOrRelation named 'ECGRecordingSession'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'ECGRecord'.
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to DataTypeOrClassOrRelation named 'HeartAsPump'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting: one of these possible Token sequences:
+  1. [datatype]
+  2. [enum]
+  3. [disjoint, complete, genset]
+  4. [disjoint, genset, ID]
+  5. [complete, genset, ID]
+  6. [genset, ID, {]
+  7. [disjoint, complete, genset]
+  8. [disjoint, genset, ID]
+  9. [complete, genset, ID]
+  10. [genset, ID, where]
+  11. [@]
+  12. [relation]
+but found: 'genset'
+Expecting end of file but found `genset`.
+Could not resolve reference to DataTypeOrClassOrRelation named 'DepolarizationOfCSAMyocytes'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'DepolarizationOfCSVMyocytes'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'RepolarizationOfCSVMyocytes'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting token of type '--' but found `}`.
+Expecting token of type 'ID' but found `}`.
+Expecting: one of these possible Token sequences:
+  1. [datatype]
+  2. [enum]
+  3. [disjoint, complete, genset]
+  4. [disjoint, genset, ID]
+  5. [complete, genset, ID]
+  6. [genset, ID, {]
+  7. [disjoint, complete, genset]
+  8. [disjoint, genset, ID]
+  9. [complete, genset, ID]
+  10. [genset, ID, where]
+  11. [@]
+  12. [relation]
+but found: 'genset'
+Expecting end of file but found `genset`.
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Expecting: one of these possible Token sequences:
+  1. [datatype]
+  2. [enum]
+  3. [disjoint, complete, genset]
+  4. [disjoint, genset, ID]
+  5. [complete, genset, ID]
+  6. [genset, ID, {]
+  7. [disjoint, complete, genset]
+  8. [disjoint, genset, ID]
+  9. [complete, genset, ID]
+  10. [genset, ID, where]
+  11. [@]
+  12. [relation]
+but found: 'genset'
+Expecting end of file but found `genset`.
 Classes representing ultimate sortals cannot specialize other ultimate sortals
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name
-Duplicated reference name
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

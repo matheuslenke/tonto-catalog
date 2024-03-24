@@ -1,76 +1,58 @@
-import CristineGriffo_ContratoSocialEstado
 
 package ContratoSocialEstado
 
 kind individuo
 
-kind sociedade
-
-subkind sociedade_familiar of functional-complexes  specializes sociedade {
-    @componentOf 
-    [*] -- componentofsociedade -- [2] individuo 
-    @componentOf 
-    [1] -- componentofsociedade_familiar -- [1] sociedade_familiar 
-    @componentOf 
-    [1] -- componentofsociedade_religiosa -- [1] sociedade_religiosa 
-    @componentOf 
-    [1] -- componentofsociedade_educacional -- [1] sociedade_educacional 
-    @componentOf 
-    [1] -- componentofsociedadesociedade_politica -- [1] sociedade_politica 
+kind sociedade{
+    @componentOf [*] -- componentofsociedade -- [2] individuo 
+    @componentOf [1] -- componentofsociedade_familiar -- [1] sociedade_familiar 
+    @componentOf [1] -- componentofsociedade_religiosa -- [1] sociedade_religiosa 
+    @componentOf [1] -- componentofsociedade_educacional -- [1] sociedade_educacional 
+    @componentOf [1] -- componentofsociedadesociedade_politica -- [1] sociedade_politica 
 }
 
-subkind sociedade_religiosa of functional-complexes  specializes sociedade {
-    @componentOf 
-    [*] -- componentofsociedade -- [2] individuo 
-    @componentOf 
-    [1] -- componentofsociedade_familiar -- [1] sociedade_familiar 
-    @componentOf 
-    [1] -- componentofsociedade_religiosa -- [1] sociedade_religiosa 
-    @componentOf 
-    [1] -- componentofsociedade_educacional -- [1] sociedade_educacional 
-    @componentOf 
-    [1] -- componentofsociedadesociedade_politica -- [1] sociedade_politica 
+subkind sociedade_familiar of functional-complexes  specializes sociedade 
+
+subkind sociedade_religiosa of functional-complexes  specializes sociedade 
+
+subkind sociedade_educacional of functional-complexes  specializes sociedade 
+
+subkind sociedade_politica of functional-complexes  specializes sociedade 
+
+kind Estado{
+    @componentOf [1] -- populaocompeEstado -- [1] populao 
+    @componentOf [1] -- governoindependentecompeEstado -- [1] governo_independente 
+    @componentOf [1] -- territoriocompeEstado -- [1] territorio 
+    @Formal [1] -- detm -- [1] supremacia_do_poder 
+    @material [1] -- sujeita -- [1] sociedade 
+    @mediation [1] -- mediationojestado -- [1] ordenamento_jurdico 
+    @material [1] -- obrigase_a -- [1] sociedade 
+    @mediation [1] -- mediationEstadobempublico -- [1] bem_publico 
 }
 
-subkind sociedade_educacional of functional-complexes  specializes sociedade {
-    @componentOf 
-    [*] -- componentofsociedade -- [2] individuo 
-    @componentOf 
-    [1] -- componentofsociedade_familiar -- [1] sociedade_familiar 
-    @componentOf 
-    [1] -- componentofsociedade_religiosa -- [1] sociedade_religiosa 
-    @componentOf 
-    [1] -- componentofsociedade_educacional -- [1] sociedade_educacional 
-    @componentOf 
-    [1] -- componentofsociedadesociedade_politica -- [1] sociedade_politica 
+relator contrato_social{
+    @Formal [1] -- partede -- [1] objeto_do_contrato_social 
 }
 
-subkind sociedade_politica of functional-complexes  specializes sociedade {
-    @componentOf 
-    [*] -- componentofsociedade -- [2] individuo 
-    @componentOf 
-    [1] -- componentofsociedade_familiar -- [1] sociedade_familiar 
-    @componentOf 
-    [1] -- componentofsociedade_religiosa -- [1] sociedade_religiosa 
-    @componentOf 
-    [1] -- componentofsociedade_educacional -- [1] sociedade_educacional 
-    @componentOf 
-    [1] -- componentofsociedadesociedade_politica -- [1] sociedade_politica 
+role governante of functional-complexes  specializes individuo {
+    @mediation [1..*] -- assinam -- [1] contrato_social 
 }
 
-kind Estado
-
-relator contrato_social
-
-role governante of functional-complexes  specializes individuo 
-
-role governado of functional-complexes  specializes individuo 
+role governado of functional-complexes  specializes individuo {
+    @mediation [1..*] -- firmam -- [1] contrato_social 
+    @material [1..*] -- abdica_do_direito_da_vingana_privada -- [1..*] governante 
+}
 
 kind populao
 
 kind governo_independente
 
-kind territorio
+kind territorio{
+    @componentOf [1] -- poroterrestrecompoeterritorio -- [1] poro_terrestre 
+    @componentOf [1] -- poroaereacompoeterritorio -- [1] poro_area 
+    @componentOf [1] -- aguasterritoriaiscompoeterritorio -- [1] poro_de_guas_territoriais 
+    @componentOf [1..*] -- fronteiracomporterritorio -- [1..*] fronteira 
+}
 
 kind fronteira
 
@@ -80,23 +62,43 @@ subkind fronteira_viva of functional-complexes  specializes fronteira
 
 subkind fronteira_morta of functional-complexes  specializes fronteira 
 
-collective principio
+collective principio{
+    @Formal [1..*] -- formam -- [1..*] ordenamento_jurdico 
+}
 
-collective regra
+collective regra{
+    @Formal [1..*] -- pertencem -- [1..*] ordenamento_jurdico 
+}
 
-collective norma
+collective norma{
+    @Formal [1..*] -- compem -- [1..*] ordenamento_jurdico 
+}
 
-relator ordenamento_jurdico
+relator ordenamento_jurdico{
+    @mediation [1] -- mediationojsociedade -- [1] sociedade 
+}
 
 kind objeto_do_contrato_social
 
-collective direito
+collective direito{
+    @Formal [1..*] -- prescreve -- [1] contrato_social 
+    @subCollectionOf [1..*] -- subcolletionofDireitoEstado -- [1] direito_do_Estado 
+    @subCollectionOf [1..*] -- subcolletionofDireitoSociedade -- [1] direito_da_Sociedade 
+}
 
-collective dever
+collective dever{
+    @subCollectionOf [1..*] -- subcollectionofDeverEstad -- [1] dever_do_Estado 
+    @subCollectionOf [1..*] -- subcollectionofDeverSociedade -- [1] dever_da_Sociedade 
+    @Formal [1..*] -- delimita -- [1] contrato_social 
+}
 
-kind supremacia_do_poder
+kind supremacia_do_poder{
+    @Formal [1] -- partede -- [1] objeto_do_contrato_social 
+}
 
-relator bem_publico
+relator bem_publico{
+    @mediation [1] -- mediationsociedadebempublico -- [1] sociedade 
+}
 
 collective direito_do_Estado
 

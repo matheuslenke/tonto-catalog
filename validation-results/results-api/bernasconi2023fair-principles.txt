@@ -1,5 +1,4 @@
 Validating...
-- Total of errors: 6
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Data are not among the allowed ontological natures of its superclass Data_Entity
+Total of errors: 2
+undefined
 Validation finished

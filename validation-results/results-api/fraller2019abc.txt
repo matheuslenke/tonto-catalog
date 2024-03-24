@@ -1,3 +1,6 @@
 Validating...
-- Total of errors: 51
+Warning: Could not create specializations for Class undefined             because it was not found in context module REA_ontology)
+Warning: Could not create specializations for Class undefined             because it was not found in context module REA_ontology)
+Total of errors: 2
+undefined
 Validation finished

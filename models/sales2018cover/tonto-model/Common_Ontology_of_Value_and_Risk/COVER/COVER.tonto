@@ -1,333 +1,270 @@
-import Common_Ontology_of_Value_and_Risk
-import UFOA
 import UFOB
 import UFOC
+import UFOA
 
 package COVER
 
 roleMixin Vulnerability of intrinsic-modes  specializes Disposition {
-    [1..*] -- [*] Experience_Value_Asc 
-    @characterization 
-    [1..*] -- [0..1] Value_Object 
-    @characterization 
-    [1..*] -- [0..1] Value_Enabler 
-    @manifestation 
-    [1..*] -- [*] Value_Event 
+    @characterization [1..*] -- [0..1] Risk_Enabler 
+    @manifestation [*] -- [1..*] Risk_Event 
+    @characterization [1..*] -- [0..1] Object_at_Risk 
+    [1..*] -- [1..*] Experience_Risk_Assessment 
 }
 
-situation Hazardous_Situation
+situation Hazardous_Situation{
+    @triggers [1..*] -- [1..*] Threat_Event 
+}
 
 event Threat_Event specializes Risk_Event, Trigger_Event {
-    [2..*] -- [1..*] Risk_Experience 
-    @historicalDependence 
-    [*] -- directly_caused -- [*] Risk_Event 
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-    @historicalDependence 
-    [1..*] -- causes -- [1..*] Impact_Event 
+    @historicalDependence [1..*] -- causes -- [1..*] Loss_Event 
 }
 
 event Loss_Event specializes Risk_Event, Impact_Event {
-    [2..*] -- [1..*] Risk_Experience 
-    @historicalDependence 
-    [*] -- directly_caused -- [*] Risk_Event 
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-    @bringsAbout 
-    [1..*] -- brings_about_impactful_outcome -- [0..1] Impactful_Outcome 
-    [*] -- impacts -- [*] Intention 
+    @bringsAbout [1..*] -- [0..1] Loss_Situation 
 }
 
 situation Loss_Situation
 
 roleMixin Risk_Subject of functional-complexes  specializes Value_Subject {
-    @participation 
-    [1..*] -- [1..*] Value_Experience 
+    @participation [1..*] -- [1..*] Risk_Experience 
 }
 
 roleMixin Threat_Object of functional-complexes  specializes Value_Object {
-    @participation 
-    [0..1] -- [1..*] Value_Experience 
+    @participation [*] -- [1..*] Threat_Event 
+    @participation [*] -- [1..*] Risk_Experience 
 }
 
-event Risk_Experience specializes Value_Experience {
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-}
+event Risk_Experience specializes Value_Experience 
 
 event Risk_Event specializes Value_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
+    [2..*] -- [1..*] Risk_Experience 
+    @historicalDependence [*] -- directly_caused -- [*] Risk_Event 
 }
 
 roleMixin Risk_Enabler of functional-complexes  specializes Value_Enabler {
-    @participation 
-    [*] -- [1..*] Value_Experience 
-    @participation 
-    [*] -- [1..*] Value_Event 
+    @participation [*] -- [1..*] Risk_Event 
+    @participation [*] -- [1..*] Risk_Experience 
 }
 
 roleMixin Object_at_Risk of functional-complexes  specializes Value_Object {
-    @participation 
-    [0..1] -- [1..*] Value_Experience 
+    @participation [0..1] -- [1..*] Loss_Event 
+    @participation [0..1] -- [1..*] Risk_Experience 
 }
 
 roleMixin Threat_Capability specializes Capability {
-    [1..*] -- [*] Experience_Value_Asc 
-    @characterization 
-    [1..*] -- [0..1] Value_Object 
-    @characterization 
-    [1..*] -- [0..1] Value_Enabler 
-    @manifestation 
-    [1..*] -- [*] Value_Event 
+    @characterization [1..*] -- [1] Threat_Object 
+    @manifestation [*] -- [1..*] Threat_Event 
 }
 
-roleMixin Value_Object of functional-complexes  specializes Endurant 
-
-roleMixin Value_Enabler of functional-complexes  specializes Endurant 
-
-roleMixin Threat_Agent of functional-complexes  specializes Agent, Threat_Object {
-    @participation 
-    [*] -- [1..*] Threat_Event 
-    @participation 
-    [*] -- [1..*] Risk_Experience 
-    @participation 
-    [0..1] -- [1..*] Value_Experience 
+roleMixin Value_Object of functional-complexes  specializes Endurant {
+    @participation [0..1] -- [1..*] Value_Experience 
 }
+
+roleMixin Value_Enabler of functional-complexes  specializes Endurant {
+    @participation [*] -- [1..*] Value_Experience 
+    @participation [*] -- [1..*] Value_Event 
+}
+
+roleMixin Threat_Agent of functional-complexes  specializes Agent, Threat_Object 
 
 roleMixin Value_Assessor of functional-complexes  specializes Agent 
 
-roleMixin Value_Subject of functional-complexes  specializes Agent 
+roleMixin Value_Subject of functional-complexes  specializes Agent {
+    @participation [1..*] -- [1..*] Value_Experience 
+}
 
 roleMixin Risk_Assessor of functional-complexes  specializes Value_Assessor 
 
-event Value_Experience specializes Event {
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-}
+event Value_Experience specializes Event 
 
 event Value_Event specializes Event {
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
+    [2..*] -- [1..*] Value_Experience 
+    @historicalDependence [*] -- directly_causes -- [*] Value_Event 
 }
 
-event Valuation specializes Action {
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-}
+event Valuation specializes Action 
 
 event Impact_Event specializes Value_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
+    @bringsAbout [1..*] -- brings_about_impactful_outcome -- [0..1] Impactful_Outcome 
+    [*] -- impacts -- [*] Intention 
 }
 
 event Trigger_Event specializes Value_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
+    @historicalDependence [1..*] -- causes -- [1..*] Impact_Event 
 }
 
-event Gain_Event specializes Impact_Event {
-    @bringsAbout 
-    [1..*] -- brings_about_impactful_outcome -- [0..1] Impactful_Outcome 
-    [*] -- impacts -- [*] Intention 
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-}
+event Gain_Event specializes Impact_Event 
 
-event Opportunity_Event specializes Trigger_Event {
-    @historicalDependence 
-    [1..*] -- causes -- [1..*] Impact_Event 
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-}
+event Opportunity_Event specializes Trigger_Event 
 
-event Root_Cause_Event specializes Threat_Event {
-    @historicalDependence 
-    [1..*] -- causes -- [1..*] Loss_Event 
-    [2..*] -- [1..*] Risk_Experience 
-    @historicalDependence 
-    [*] -- directly_caused -- [*] Risk_Event 
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-    @historicalDependence 
-    [1..*] -- causes -- [1..*] Impact_Event 
-}
+event Root_Cause_Event specializes Threat_Event 
 
-event Attack specializes Action, Threat_Event {
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
-    @historicalDependence 
-    [1..*] -- causes -- [1..*] Loss_Event 
-    [2..*] -- [1..*] Risk_Experience 
-    @historicalDependence 
-    [*] -- directly_caused -- [*] Risk_Event 
-    [2..*] -- [1..*] Value_Experience 
-    @historicalDependence 
-    [*] -- directly_causes -- [*] Value_Event 
-    @historicalDependence 
-    [1..*] -- causes -- [1..*] Impact_Event 
-}
+event Attack specializes Action, Threat_Event 
 
 category Likelihood of qualities  specializes Quality 
 
-quality Value specializes Quality 
+quality Value specializes Quality {
+    @characterization [1] -- [1] Value_Ascription 
+}
 
 subkind Risk of qualities  specializes Value {
-    @characterization 
-    [1] -- [1] Value_Ascription 
+    @characterization [1] -- [1] Risk_Assessment 
 }
 
-quality Triggering_Likelihood specializes Likelihood 
-
-quality Causal_Likelihood specializes Likelihood 
-
-roleMixin Capability specializes Disposition {
-    [1..*] -- [*] Experience_Value_Asc 
-    @characterization 
-    [1..*] -- [0..1] Value_Object 
-    @characterization 
-    [1..*] -- [0..1] Value_Enabler 
-    @manifestation 
-    [1..*] -- [*] Value_Event 
+quality Triggering_Likelihood specializes Likelihood {
+    @characterization [*] -- [1] Situation_Type 
+    @externalDependence [*] -- [1] Event_Type 
 }
 
-relator Value_Ascription specializes Relator 
+quality Causal_Likelihood specializes Likelihood {
+    @characterization [*] -- [1] Event_Type 
+    @externalDependence [*] -- [1] Event_Type 
+}
+
+roleMixin Capability specializes Disposition 
+
+relator Value_Ascription specializes Relator {
+    @mediation [1..*] -- [1] Value_Assessor 
+}
 
 relator Value_Asc_Component specializes Relator 
 
-subkind Value_Asc_Ex_Ante of relators  specializes Value_Ascription {
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
-}
+subkind Value_Asc_Ex_Ante of relators  specializes Value_Ascription 
 
-subkind Value_Asc_Ex_Post of relators  specializes Value_Ascription {
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
-}
+subkind Value_Asc_Ex_Post of relators  specializes Value_Ascription 
 
 subkind Object_Value_Asc of relators  specializes Value_Ascription {
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
+    @mediation [1..*] -- [1] Value_Object 
 }
 
 subkind Experience_Value_Asc of relators  specializes Value_Ascription {
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
+    [1..*] -- [0..1] Object_Value_Asc 
+    @mediation [1..*] -- [1] Value_Experience 
 }
 
-subkind Value_Perception of relators  specializes Value_Ascription {
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
-}
+subkind Value_Perception of relators  specializes Value_Ascription 
 
-subkind Value_Assertion of relators  specializes Value_Ascription {
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
-}
+subkind Value_Assertion of relators  specializes Value_Ascription 
 
 subkind Gain_Ascription of relators  specializes Value_Asc_Component 
 
 subkind Loss_Ascription of relators  specializes Value_Asc_Component 
 
 subkind Risk_Assessment of relators  specializes Value_Asc_Ex_Ante {
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
+    @mediation [1..*] -- [1] Risk_Assessor 
 }
 
 subkind Object_Risk_Assess of relators  specializes Object_Value_Asc, Risk_Assessment {
-    @mediation 
-    [1..*] -- [1] Value_Object 
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
-    @mediation 
-    [1..*] -- [1] Risk_Assessor 
+    @mediation [1..*] -- [1] Object_at_Risk 
 }
 
 subkind Experience_Risk_Assessment of relators  specializes Experience_Value_Asc, Risk_Assessment {
-    [1..*] -- [0..1] Object_Value_Asc 
-    @mediation 
-    [1..*] -- [1] Value_Experience 
-    @mediation 
-    [1..*] -- [1] Value_Assessor 
-    @mediation 
-    [1..*] -- [1] Risk_Assessor 
+    [1..*] -- [0..1] Object_Risk_Assess 
+    @mediation [1..*] -- [1] Risk_Experience 
+    [1..*] -- [*] Threat_Capability 
 }
 
-situation Impactful_Outcome
+situation Impactful_Outcome{
+    [*] -- impacts -- [1..*] Intention 
+}
+
+genset QiYnet6GAqACCgeg {
+    general Substantial
+    specifics Agent, Object
+}
+
+genset gEPwtt6GAqACCglT {
+    general Value_Object
+    specifics Threat_Object, Object_at_Risk
+}
+
+genset hLAItt6GAqACCglw {
+    general Agent
+    specifics Value_Subject, Value_Assessor
+}
+
+genset McItt6GAqACCgng {
+    general Event
+    specifics Value_Event, Value_Experience
+}
+
+genset ATSItt6GAqACCgnu {
+    general Value_Event
+    specifics Impact_Event, Trigger_Event
+}
+
+genset vB2Itt6GAqACCgp {
+    general Impact_Event
+    specifics Loss_Event, Gain_Event
+}
+
+genset cAJItt6GAqACCgqa {
+    general Risk_Event
+    specifics Threat_Event, Loss_Event
+}
+
+genset R4FItt6GAqACCgqq {
+    general Threat_Event
+    specifics Attack, Root_Cause_Event
+}
+
+genset gKNItt6GAqACCgrA {
+    general Trigger_Event
+    specifics Threat_Event, Opportunity_Event
+}
+
+genset oXnItt6GAqACCgsq {
+    general Trope
+    specifics Mode, Quality
+}
+
+genset clgott6GAqACCgtI {
+    general Quality
+    specifics Likelihood, Value
+}
+
+genset kIIott6GAqACCgtY {
+    general Mode
+    specifics Mental_Aspect, Disposition
+}
+
+genset pYott6GAqACCgto {
+    general Likelihood
+    specifics Triggering_Likelihood, Causal_Likelihood
+}
+
+genset MVUott6GAqACCguJ {
+    general Disposition
+    specifics Capability, Vulnerability
+}
+
+genset pgqott6GAqACCgvn {
+    general Relator
+    specifics Value_Ascription, Value_Asc_Component
+}
+
+genset qSGott6GAqACCgv3 {
+    general Value_Ascription
+    specifics Value_Asc_Ex_Ante, Value_Asc_Ex_Post
+}
+
+genset Ziuott6GAqACCgwL {
+    general Value_Ascription
+    specifics Experience_Value_Asc, Object_Value_Asc
+}
+
+genset gjRott6GAqACCgwn {
+    general Value_Ascription
+    specifics Value_Perception, Value_Assertion
+}
+
+genset inZott6GAqACCgw3 {
+    general Value_Asc_Component
+    specifics Gain_Ascription, Loss_Ascription
+}
+
+genset QFtott6GAqACCgxX {
+    general Risk_Assessment
+    specifics Experience_Risk_Assessment, Object_Risk_Assess
+}
 

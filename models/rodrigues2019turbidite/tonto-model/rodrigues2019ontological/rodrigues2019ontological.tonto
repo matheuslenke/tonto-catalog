@@ -4,19 +4,25 @@ package rodrigues2019ontological
 kind Turbidite_Channel{
     sinuosity: undefined  
     attribute: undefined  
+    [*] -- [1..*] Outer_Bank 
+    [1] -- [1..*] Inner_Bank 
+    @being_present_at_ [1] -- [1] Channel_with_Increased_Sinuosity 
 }
 
 subkind Outer_Bank of functional-complexes  specializes Bank {
     sinuosity: undefined  
-    [1] -- [1..*] Sediment 
+    @being_present_at_ [*] -- [*] Strong_Flow_over_Outer_Bank 
+    [1] -- unstablyConnected -- [*] Unstable_Sediment 
 }
 
 subkind Inner_Bank of functional-complexes  specializes Bank {
     sinuosity: undefined  
-    [1] -- [1..*] Sediment 
+    @being_present_at_ [1] -- [*] Inner_Bank_with_New_Sediment 
 }
 
-kind Bank
+kind Bank{
+    [1] -- [1..*] Sediment 
+}
 
 quantity Water{
     kineticEnergy: undefined  
@@ -28,183 +34,204 @@ phase Still_Water of quantities  specializes Water {
 
 phase Moving_Water of quantities  specializes Water {
     kineticEnergy: undefined  
+    @being_present_at_ [*] -- [*] Erosion_of_Outer_Bank 
 }
 
 phase Low_Energy_Water of quantities  specializes Moving_Water {
     kineticEnergy: undefined  
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
 }
 
 phase High_Energy_Water of quantities  specializes Moving_Water {
     kineticEnergy: undefined  
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
 }
 
 role Confining_Channel of functional-complexes  specializes Turbidite_Channel {
-    [*] -- [1..*] Outer_Bank 
-    [1] -- [1..*] Inner_Bank 
-    @being_present_at  
-    [1] -- [1] Channel_with_Increased_Sinuosity 
+    [1] -- fils -- [1] Water_Stream 
 }
 
 historicalRole Reshaped_Channel of functional-complexes  specializes Turbidite_Channel {
-    [*] -- [1..*] Outer_Bank 
-    [1] -- [1..*] Inner_Bank 
-    @being_present_at  
-    [1] -- [1] Channel_with_Increased_Sinuosity 
+    @induces [*] -- [*] Changing_Shape 
 }
 
 historicalRole ShapeChanging_Channel of functional-complexes  specializes Confining_Channel {
-    [1] -- fils -- [1] Water_Stream 
-    [*] -- [1..*] Outer_Bank 
-    [1] -- [1..*] Inner_Bank 
-    @being_present_at  
-    [1] -- [1] Channel_with_Increased_Sinuosity 
+    @induces [*] -- [*] Changing_Shape 
 }
 
 class Changing_Shape
 
-relator Dynamic_Fill
+relator Dynamic_Fill{
+    @mediation [1] -- [1] Confining_Channel 
+    @mediation [1] -- [1] Water_Stream 
+}
 
 role Water_Stream of quantities  specializes Moving_Water {
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    [*] -- [*] Water_Flowing_through_Channel 
 }
 
 historicalRole Channel_Sculptor of quantities  specializes Water_Stream {
-    [*] -- [*] Water_Flowing_through_Channel 
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    @induces [*] -- [*] Sculpting 
 }
 
 class Sculpting
 
-situation Water_Flowing_through_Channel
+situation Water_Flowing_through_Channel{
+    [*] -- [*] Dynamic_Fill 
+    @being_present_at_ [*] -- [1] Confining_Channel 
+    @prestate [*] -- [*] Turbidite_Channel_Migration 
+    [*] -- [1..*] Strong_Flow_over_Outer_Bank 
+}
 
-event Turbidite_Channel_Migration
+event Turbidite_Channel_Migration{
+    @post_state [*] -- [*] Channel_with_Increased_Sinuosity 
+    [*] -- [1] Sculpting 
+    [*] -- [1] Changing_Shape 
+    [*] -- [1..*] Sediment_Transportion_to_Inner_Bank 
+    [*] -- [1..*] Sediment_Desposition_onto_Inner_Bank 
+    [*] -- [1..*] Erosion_of_Outer_Bank 
+}
 
-situation Channel_with_Increased_Sinuosity
+situation Channel_with_Increased_Sinuosity{
+    [*] -- [1..*] Inner_Bank_with_New_Sediment 
+    [*] -- [1..*] Outer_Bank_in_New_Shape 
+}
 
-situation Strong_Flow_over_Outer_Bank
+situation Strong_Flow_over_Outer_Bank{
+    @being_present_at_ [*] -- [*] Moving_Water 
+    @prestate [*] -- [*] Erosion_of_Outer_Bank 
+}
 
-event Erosion_of_Outer_Bank
+event Erosion_of_Outer_Bank{
+    @post_state [*] -- [*] Erosion_Result 
+    [*] -- [1] Losing_Material 
+    [*] -- [1] Eroding 
+    [*] -- [1] Being_Removed 
+}
 
-situation Erosion_Result
+situation Erosion_Result{
+    [*] -- [1] Outer_Bank_in_New_Shape 
+    [*] -- [1] Loaded_Flow 
+}
 
-situation Loaded_Flow
+situation Loaded_Flow{
+    @prestate [*] -- [*] Sediment_Transportion_to_Inner_Bank 
+    @mediation [1] -- [1] Traction 
+}
 
-situation Outer_Bank_in_New_Shape
+situation Outer_Bank_in_New_Shape{
+    @being_present_at_ [*] -- [*] Outer_Bank 
+}
 
-event Sediment_Transportion_to_Inner_Bank
+event Sediment_Transportion_to_Inner_Bank{
+    @post_state [*] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
+    [*] -- [*] Being_Transported 
+    [*] -- [1] Transporting 
+    [*] -- [1] Receiving_Flow 
+}
 
-situation Loaded_Weak_Flow_on_Inner_Bank
+situation Loaded_Weak_Flow_on_Inner_Bank{
+    @prestate [*] -- [*] Sediment_Desposition_onto_Inner_Bank 
+}
 
-event Sediment_Desposition_onto_Inner_Bank
+event Sediment_Desposition_onto_Inner_Bank{
+    [*] -- [1] Unloading 
+    [*] -- [1] Being_Deposited 
+    [*] -- [1] Receiving_Sediment 
+}
 
-situation Inner_Bank_with_New_Sediment
+situation Inner_Bank_with_New_Sediment{
+    @post_state [*] -- [*] Sediment_Desposition_onto_Inner_Bank 
+}
 
 role Frictionality_Pressed_Outer_Bank of functional-complexes  specializes Outer_Bank {
-    @being_present_at  
-    [*] -- [*] Strong_Flow_over_Outer_Bank 
-    [1] -- unstablyConnected -- [*] Unstable_Sediment 
-    [1] -- [1..*] Sediment 
+    [1..*] -- pressing -- [1] Frictioning_Water 
+    @being_present_at_ [*] -- [*] Strong_Flow_over_Outer_Bank 
 }
 
 roleMixin Unstable_Sediment of functional-complexes  specializes Deposited_Sediment {
-    [1..*] -- depositedOn -- [1] Deposition_Bank 
-    [1] -- [*] Inner_Bank_with_New_Sediment 
+    [*] -- frictioning -- [*] Frictioning_Water 
+    @being_present_at_ [*] -- [*] Strong_Flow_over_Outer_Bank 
 }
 
 role Frictioning_Water of quantities  specializes High_Energy_Water {
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    [*] -- [*] Strong_Flow_over_Outer_Bank 
+    [1] -- [*] Strong_Flow_over_Outer_Bank 
 }
 
-relator Frictional_Contact
-
-class Losing_Material
-
-historicalRole Erosion_Patient of functional-complexes  specializes Frictionality_Pressed_Outer_Bank {
-    [1..*] -- pressing -- [1] Frictioning_Water 
-    @being_present_at  
-    [*] -- [*] Strong_Flow_over_Outer_Bank 
-    @being_present_at  
-    [*] -- [*] Strong_Flow_over_Outer_Bank 
-    [1] -- unstablyConnected -- [*] Unstable_Sediment 
-    [1] -- [1..*] Sediment 
+relator Frictional_Contact{
+    @mediation [1] -- [1] Frictioning_Water 
+    @mediation [1] -- [1] Frictionality_Pressed_Outer_Bank 
+    [1] -- [*] Strong_Flow_over_Outer_Bank 
+    @mediation [1] -- [1] Unstable_Sediment 
 }
 
-historicalRole Eroded_Bank of functional-complexes  specializes Outer_Bank {
-    @being_present_at  
-    [*] -- [*] Strong_Flow_over_Outer_Bank 
-    [1] -- unstablyConnected -- [*] Unstable_Sediment 
-    [1] -- [1..*] Sediment 
+class Losing_Material{
+    @induces [*] -- [*] Erosion_Patient 
+    @induces [*] -- [*] Eroded_Bank 
 }
+
+historicalRole Erosion_Patient of functional-complexes  specializes Frictionality_Pressed_Outer_Bank 
+
+historicalRole Eroded_Bank of functional-complexes  specializes Outer_Bank 
 
 historicalRole Frictioned_Sediment specializes Unstable_Sediment {
-    [*] -- frictioning -- [*] Frictioning_Water 
-    @being_present_at  
-    [*] -- [*] Strong_Flow_over_Outer_Bank 
-    [1..*] -- depositedOn -- [1] Deposition_Bank 
-    [1] -- [*] Inner_Bank_with_New_Sediment 
+    @induces [*] -- [*] Being_Removed 
 }
 
-historicalRole Removed_Sediment
+historicalRole Removed_Sediment{
+    @induces [*] -- [*] Being_Removed 
+}
 
 class Eroding
 
 class Being_Removed
 
-roleMixin Deposited_Sediment of functional-complexes  specializes Sediment 
+roleMixin Deposited_Sediment of functional-complexes  specializes Sediment {
+    [1..*] -- depositedOn -- [1] Deposition_Bank 
+    [1] -- [*] Inner_Bank_with_New_Sediment 
+}
 
 historicalRole Erosive_Agent of quantities  specializes Frictioning_Water {
-    [*] -- [*] Strong_Flow_over_Outer_Bank 
-    [1] -- [*] Strong_Flow_over_Outer_Bank 
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    @induces [*] -- [*] Eroding 
 }
 
 historicalRole Sediment_Receiver of quantities  specializes Tractive_Water {
-    [1] -- [*] Loaded_Flow 
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    @induces [*] -- [1] Eroding 
 }
 
 category Sediment of functional-complexes 
 
 role Tractive_Water of quantities  specializes Moving_Water {
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    [1] -- [*] Loaded_Flow 
 }
 
-roleMixin Drawn_Sediment of functional-complexes  specializes Sediment 
+roleMixin Drawn_Sediment of functional-complexes  specializes Sediment {
+    [1..*] -- carries -- [1] Tractive_Water 
+    [*] -- [*] Loaded_Flow 
+}
 
-relator carries
+relator carries{
+    @mediation [1..*] -- [1] Drawn_Sediment 
+    @mediation [1..*] -- [1] Tractive_Water 
+    @being_present_at_ [1] -- [*] Loaded_Flow 
+}
 
-relator Traction
+relator Traction{
+    @mediation [1..*] -- [1] Tractive_Water 
+    @being_present_at_ [*] -- [*] Loaded_Flow 
+}
 
-class Being_Transported
+class Being_Transported{
+    @induces [*] -- [*] Blocked_Load 
+}
 
 historicalRole Transported_Load specializes Drawn_Sediment {
-    [1..*] -- carries -- [1] Tractive_Water 
-    [*] -- [*] Loaded_Flow 
+    @induces [*] -- [*] Being_Transported 
 }
 
-historicalRole Blocked_Load specializes Obstacled_Sediment {
-    [1..*] -- blocks -- [1] Obstacle_Inner_Bank 
-    [1..*] -- carries -- [1] Obstacled_Loaded_Water 
-    @being_present_at  
-    [*] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
-    [1..*] -- carries -- [1] Tractive_Water 
-    [*] -- [*] Loaded_Flow 
-}
+historicalRole Blocked_Load specializes Obstacled_Sediment 
 
 historicalRole Vehicle of quantities  specializes Tractive_Water {
-    [1] -- [*] Loaded_Flow 
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    @induces [*] -- [*] Transporting 
 }
 
 class Transporting
@@ -212,71 +239,57 @@ class Transporting
 class Receiving_Flow
 
 historicalRole Arriving_Point of functional-complexes  specializes Obstacle_Inner_Bank {
-    [1] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
-    @being_present_at  
-    [1] -- [*] Inner_Bank_with_New_Sediment 
-    [1] -- [1..*] Sediment 
+    @induces [*] -- [*] Receiving_Flow 
 }
 
 roleMixin Obstacled_Sediment of functional-complexes  specializes Drawn_Sediment {
-    [1..*] -- carries -- [1] Tractive_Water 
-    [*] -- [*] Loaded_Flow 
+    [1..*] -- blocks -- [1] Obstacle_Inner_Bank 
+    [1..*] -- carries -- [1] Obstacled_Loaded_Water 
+    @being_present_at_ [*] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
 }
 
 role Obstacled_Loaded_Water of quantities  specializes Tractive_Water, Low_Energy_Water {
-    [1] -- [*] Loaded_Flow 
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
+    [1] -- touches -- [1] Obstacle_Inner_Bank 
+    @being_present_at_ [1] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
 }
 
 role Obstacle_Inner_Bank of functional-complexes  specializes Inner_Bank {
-    @being_present_at  
-    [1] -- [*] Inner_Bank_with_New_Sediment 
-    [1] -- [1..*] Sediment 
-}
-
-relator Obstacle_Contact
-
-historicalRole Unloading_Vehicle of quantities  specializes Obstacled_Loaded_Water {
-    [1] -- touches -- [1] Obstacle_Inner_Bank 
-    @being_present_at  
     [1] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
-    [1] -- [*] Loaded_Flow 
-    @being_present_at  
-    [*] -- [*] Erosion_of_Outer_Bank 
 }
 
-class Unloading
+relator Obstacle_Contact{
+    @mediation [1..*] -- [1] Obstacled_Sediment 
+    @mediation [1..*] -- [1] Obstacle_Inner_Bank 
+    @mediation [1..*] -- [1] Obstacled_Loaded_Water 
+    [1] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
+}
 
-role Deposition_Bank
+historicalRole Unloading_Vehicle of quantities  specializes Obstacled_Loaded_Water 
 
-relator Deposition
+class Unloading{
+    @induces [*] -- [*] Unloading_Vehicle 
+}
+
+role Deposition_Bank{
+    @mediation [1] -- [1..*] Deposition 
+}
+
+relator Deposition{
+    @mediation [1] -- [1] Deposited_Sediment 
+    [*] -- [*] Inner_Bank_with_New_Sediment 
+}
 
 role Inner_Bank_with_Deposited_Sediment of functional-complexes  specializes Deposition_Bank, Inner_Bank {
-    @mediation 
-    [1] -- [1..*] Deposition 
-    @being_present_at  
-    [1] -- [*] Inner_Bank_with_New_Sediment 
-    [1] -- [1..*] Sediment 
+    @being_present_at_ [1] -- [*] Inner_Bank_with_New_Sediment 
 }
 
 historicalRole Depositing_Place of functional-complexes  specializes Inner_Bank_with_Deposited_Sediment {
-    @being_present_at  
-    [1] -- [*] Inner_Bank_with_New_Sediment 
-    @mediation 
-    [1] -- [1..*] Deposition 
-    @being_present_at  
-    [1] -- [*] Inner_Bank_with_New_Sediment 
-    [1] -- [1..*] Sediment 
+    @induces [*] -- [*] Obstacle_Inner_Bank 
+    @induces [*] -- [*] Receiving_Sediment 
 }
 
 historicalRole Captured_Sediment specializes Obstacled_Sediment {
-    [1..*] -- blocks -- [1] Obstacle_Inner_Bank 
-    [1..*] -- carries -- [1] Obstacled_Loaded_Water 
-    @being_present_at  
-    [*] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
-    [1..*] -- carries -- [1] Tractive_Water 
-    [*] -- [*] Loaded_Flow 
+    @induces [*] -- [*] Being_Deposited 
 }
 
 class Being_Deposited
@@ -284,9 +297,21 @@ class Being_Deposited
 class Receiving_Sediment
 
 historicalRole Obstacle of functional-complexes  specializes Obstacle_Inner_Bank {
-    [1] -- [*] Loaded_Weak_Flow_on_Inner_Bank 
-    @being_present_at  
-    [1] -- [*] Inner_Bank_with_New_Sediment 
-    [1] -- [1..*] Sediment 
+    @induces [*] -- [*] Receiving_Sediment 
+}
+
+genset complete_disjoint {
+    general Bank
+    specifics Outer_Bank, Inner_Bank
+}
+
+genset complete_disjoint {
+    general Moving_Water
+    specifics High_Energy_Water, Low_Energy_Water
+}
+
+genset complete_disjoint {
+    general Water
+    specifics Moving_Water, Still_Water
 }
 

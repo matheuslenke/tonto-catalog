@@ -1,18 +1,22 @@
-import DCAT_MLT_Artigo_ONTOBRAS2022
 import DC_5_MLT_UFO_DCAT_Relationship_Instances
 
 package DC_3_MLT_UFO_DCAT_Classes_Concepts_Relations
 
 mode dcatDistribution specializes Individual {
-    [1..*] -- instanceOf2 -- [1..*] firstOT 
+    @characterization [1..*] -- [1] dcatDataset 
+    @characterization [1..*] -- dcatdistribution -- [1] dcatDataset 
+    [*] -- dcataccessService -- [0..*] dcatDataService 
 }
 
 relator dcatCatalogRecord specializes Individual {
-    [1..*] -- instanceOf2 -- [1..*] firstOT 
+    [*] -- foafPrimaryTopic -- [1] dcatResource 
+    [1..*] -- dctrecord -- [1] dcatCatalog 
+    @mediation [0..*] -- foafprimaryTopic -- [1] dcatResource 
+    @mediation [0..*] -- dctrecord -- [1] dcatCatalog 
 }
 
 subkind AttributionRole of qualities  specializes dcatRole {
-    [1..*] -- instanceOf2 -- [1..*] secondOT 
+    [*] -- dcathadRole -- [*] Attribution_RoleValue 
 }
 
 datatype Attribution_RoleValue

@@ -1,19 +1,43 @@
 
 package UFO
 
-category Agent of functional-complexes 
+category Agent of functional-complexes {
+    [*] -- creates -- [*] Action 
+}
 
-category Disposition of intrinsic-modes 
+category Disposition of intrinsic-modes {
+    @characterization [1..*] -- [0..1] Value_Object 
+    [1..*] -- manifested_by -- [*] Value_Event 
+    @characterization [1..*] -- [0..1] Value_Enabler 
+}
 
-category Intention of intrinsic-modes 
+category Intention of intrinsic-modes {
+    @characterization [1..*] -- [0..1] Value_Subject 
+    @characterization [1..*] -- [*] Risk_Subject 
+    @characterization [1..*] -- [1] Attacker 
+    @instantiation [*] -- [1..*] Intention_Type 
+    @characterization [1..*] -- [1] Security_Designer 
+    @characterization [1..*] -- [1] Protected_Subject 
+}
 
-event Event
+event Event{
+    @historicalDependence [*] -- causes -- [*] Event 
+    @bringsAbout [*] -- [1] Situation 
+}
 
-situation Situation
+situation Situation{
+    @triggers [1] -- [*] Event 
+}
 
-type Event_Type
+type Event_Type{
+    @instantiation [1..*] -- [*] Event 
+}
 
-type Situation_Type
+type Situation_Type{
+    @instantiation [1..*] -- [*] Situation 
+}
 
-event Action
+event Action{
+    [*] -- caused_by -- [1] Intention 
+}
 

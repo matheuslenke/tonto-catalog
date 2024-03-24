@@ -1,6 +1,12 @@
-import Unified_Transport_Network__v23
+import Transport_Functions
+import General_Elements
 
 package Transport_Processing_Functions
 
 category Transport_Processing_Function of functional-complexes  specializes Transport_Function, Geographical_Element 
+
+genset YA2nb6GAqBwASyc {
+    general Transport_Processing_Function
+    specifics Termination_Function, Layer_Processor_Function, Adaptation_Function
+}
 

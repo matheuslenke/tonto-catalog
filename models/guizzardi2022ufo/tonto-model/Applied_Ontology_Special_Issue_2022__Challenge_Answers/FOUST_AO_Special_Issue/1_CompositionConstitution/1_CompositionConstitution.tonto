@@ -1,0 +1,42 @@
+
+package 1_CompositionConstitution
+
+kind Wooden_Table
+
+role Left_Rear_Leg of functional-complexes  specializes Table_Leg_Component {
+    @componentOf [1] -- [1] Wooden_Table 
+}
+
+role Right_Front_Leg of functional-complexes  specializes Table_Leg_Component {
+    @componentOf [1] -- [1] Wooden_Table 
+}
+
+role Right_Rear_Leg of functional-complexes  specializes Table_Leg_Component {
+    @componentOf [1] -- [1] Wooden_Table 
+}
+
+kind Wooden_Table_Component{
+    @formal [1] -- constituted_by -- [1] Wood_Component_Constituent 
+}
+
+subkind Table_Leg_Component of functional-complexes  specializes Wooden_Table_Component 
+
+subkind Table_Top_Component of functional-complexes  specializes Wooden_Table_Component 
+
+quantity Wood_Portion
+
+role Top_Component of functional-complexes  specializes Table_Top_Component {
+    @componentOf [1] -- [1] Wooden_Table 
+}
+
+role Wood_Component_Constituent of quantities  specializes Wood_Portion 
+
+role Left_Front_Leg of functional-complexes  specializes Table_Leg_Component {
+    @componentOf [1] -- [1] Wooden_Table 
+}
+
+genset component_function {
+    general Wooden_Table_Component
+    specifics Table_Leg_Component, Table_Top_Component
+}
+

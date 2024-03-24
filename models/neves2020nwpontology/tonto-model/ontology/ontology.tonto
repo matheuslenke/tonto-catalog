@@ -1,49 +1,49 @@
 
 package ontology
 
-kind Global_Observation_System
+kind Global_Observation_System{
+    [*] -- observe -- [*] Meteorological_Parameters 
+}
 
-kind Meteorological_Parameters
-
-role Local_Data_Manager of functional-complexes  specializes Software_Agent 
-
-subkind Relative_Humidity of functional-complexes  specializes Meteorological_Parameters {
+kind Meteorological_Parameters{
     [*] -- received_by -- [*] Local_Data_Manager 
 }
 
-subkind Precipitation of functional-complexes  specializes Meteorological_Parameters {
-    [*] -- received_by -- [*] Local_Data_Manager 
+role Local_Data_Manager of functional-complexes  specializes Software_Agent {
+    [*] -- observed_by -- [*] Weather_Forecaster 
 }
 
-subkind Surface_Wind of functional-complexes  specializes Meteorological_Parameters {
-    [*] -- received_by -- [*] Local_Data_Manager 
-}
+subkind Relative_Humidity of functional-complexes  specializes Meteorological_Parameters 
 
-subkind Temperature of functional-complexes  specializes Meteorological_Parameters {
-    [*] -- received_by -- [*] Local_Data_Manager 
-}
+subkind Precipitation of functional-complexes  specializes Meteorological_Parameters 
 
-subkind Atmospheric_Pressure of functional-complexes  specializes Meteorological_Parameters {
-    [*] -- received_by -- [*] Local_Data_Manager 
-}
+subkind Surface_Wind of functional-complexes  specializes Meteorological_Parameters 
+
+subkind Temperature of functional-complexes  specializes Meteorological_Parameters 
+
+subkind Atmospheric_Pressure of functional-complexes  specializes Meteorological_Parameters 
 
 kind Software_Agent
 
-subkind Cloudiness of functional-complexes  specializes Meteorological_Parameters {
-    [*] -- received_by -- [*] Local_Data_Manager 
-}
+subkind Cloudiness of functional-complexes  specializes Meteorological_Parameters 
 
 kind Numerical_Weather_Prediction_Models
 
-subkind World_Numerical_Models of functional-complexes  specializes Numerical_Weather_Prediction_Models 
+subkind World_Numerical_Models of functional-complexes  specializes Numerical_Weather_Prediction_Models {
+    [*] -- input_data -- [*] Regional_Numerical_Models 
+}
 
-subkind Regional_Numerical_Models of functional-complexes  specializes Numerical_Weather_Prediction_Models 
+subkind Regional_Numerical_Models of functional-complexes  specializes Numerical_Weather_Prediction_Models {
+    [*] -- model_output -- [*] Weather_Forecast 
+}
 
 category Spatial_Thing of functional-complexes 
 
 kind Geographic_Object specializes Spatial_Thing 
 
-kind Geographic_Coverage specializes Spatial_Thing 
+kind Geographic_Coverage specializes Spatial_Thing {
+    [*] -- boundary_by -- [*] Polygon 
+}
 
 subkind Point of functional-complexes  specializes Geographic_Object 
 
@@ -51,47 +51,60 @@ subkind Line of functional-complexes  specializes Geographic_Object
 
 subkind Polygon of functional-complexes  specializes Geographic_Object 
 
-kind National_Meteorological_Service
-
-kind Air_Temperature specializes Temperature {
-    [*] -- received_by -- [*] Local_Data_Manager 
+kind National_Meteorological_Service{
+    [*] -- [*] Weather_Forecaster 
 }
 
-kind Sea_Surface specializes Temperature {
-    [*] -- received_by -- [*] Local_Data_Manager 
-}
+kind Air_Temperature specializes Temperature 
+
+kind Sea_Surface specializes Temperature 
 
 role Weather_Forecaster of functional-complexes  specializes Person {
+    [*] -- produce -- [*] Weather_Forecast 
+}
+
+kind Weather_Forecast{
+    [*] -- disseminated_by -- [*] Weather_Reports 
+    [*] -- framed_by -- [*] Time_Interval 
+    [*] -- occurs_in -- [*] Spatial_Thing 
+}
+
+kind Person{
     [*] -- present_in -- [*] Damage 
 }
 
-kind Weather_Forecast
-
-kind Person
-
-kind Time_Interval
+kind Time_Interval{
+    [1] -- begin -- [1..*] Weather_Forecast_Time_Point 
+    [1] -- end -- [1..*] Weather_Forecast_Time_Point 
+}
 
 class Weather_Forecast_Time_Point
 
 class Severe_Weather_Event_Moment
 
-situation Damage
-
-role VIctim of functional-complexes  specializes Person {
-    [*] -- present_in -- [*] Damage 
+situation Damage{
+    [*] -- obtains_in -- [*] Severe_Weather_Event_Moment 
 }
 
-role Material_Property of functional-complexes  specializes Property {
-    [*] -- present_in -- [*] Damage 
-}
+role VIctim of functional-complexes  specializes Person 
 
-event Severe_Weather_Events
+role Material_Property of functional-complexes  specializes Property 
+
+event Severe_Weather_Events{
+    [*] -- endpoint -- [*] Severe_Weather_Event_Moment 
+    [*] -- triggers_ -- [*] Severe_Weather_Indicators 
+    [*] -- participation_of -- [*] VIctim 
+    [*] -- brings_about -- [*] Damage 
+    [*] -- participation_of -- [*] Material_Property 
+    [*] -- interest_of -- [*] Weather_Reports 
+}
 
 situation Severe_Weather_Indicators
 
-kind Property
-
-enum Weather_Reports {
-    Spatial_Things, Timestamp,Warnings
+kind Property{
+    [*] -- present_in -- [*] Damage 
 }
+
+datatype Weather_Reports{
+Spatial Things,Timestamp,Warnings,}
 

@@ -1,11 +1,4 @@
 Validating...
-- Total of errors: 1
-[error] Not unique class stereotype:
-The class InfluenceList must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class OwnerShipList must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class SupplyFlowList must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class MembershipTypeList must have a unique OntoUML stereotype.
+Total of errors: 4
+undefined
 Validation finished

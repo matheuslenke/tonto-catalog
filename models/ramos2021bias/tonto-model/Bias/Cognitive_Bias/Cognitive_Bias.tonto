@@ -1,4 +1,3 @@
-import Bias
 import Intuition_Deliberation_and_Decision
 
 package Cognitive_Bias
@@ -6,26 +5,28 @@ package Cognitive_Bias
 category Mental_Moment of functional-complexes 
 
 roleMixin ValueBeholder of functional-complexes  specializes Agent {
-    @characterization 
-    [*] -- [*] Mental_Moment 
-    @participation 
-    [1..*] -- [0..*] Action 
-    @participation 
-    [1..*] -- [0..*] motivating_INTENTION 
+    @participation [1..*] -- [0..*] Deliberation 
+    @participation [1..*] -- [0..*] Intuitive_Choice 
 }
 
-category Agent of functional-complexes 
-
-event Deliberation specializes Choice {
-    @creation 
-    [1] -- [1] Decision 
-    @manifestation 
-    [*] -- [1] Intention 
+category Agent of functional-complexes {
+    @characterization [*] -- [*] Mental_Moment 
+    @participation [1..*] -- [0..*] Action 
+    @participation [1..*] -- [0..*] motivating_INTENTION 
 }
 
-mode Preference specializes Belief 
+event Deliberation specializes Choice 
 
-mode Intuition
+mode Preference specializes Belief {
+    @manifestation [1] -- [*] Deliberation 
+    @characterization [1..*] -- [1] ValueBeholder 
+    [*] -- [*] Value_Ascription_VA 
+}
+
+mode Intuition{
+    @characterization [1] -- [1] ValueBeholder 
+    @manifestation [*] -- [1] Preference 
+}
 
 mode Belief
 
@@ -36,19 +37,11 @@ roleMixin Preferred_Bearer of functional-complexes  specializes Value_Bearer
 roleMixin Deprecated_Bearer of functional-complexes  specializes Value_Bearer 
 
 mode Psychological_Value_Ascription_PVA specializes Value_Ascription_VA {
-    @externalDependence 
-    [1..*] -- [1] Value_Bearer 
-    [*] -- [*] VA_Component 
-    @characterization 
-    [1] -- [1] Value 
-    [*] -- [*] motivating_INTENTION 
+    @characterization [1] -- [1] Cognitive_Bias 
 }
 
 mode PVA_Component specializes VA_Component {
-    @characterization 
-    [*] -- [1..*] Value_Component 
-    [*] -- [*] Intrinsinc_Moment 
-    [*] -- [*] Intention 
+    @characterization [1] -- [1] Psychological_Value_Component 
 }
 
 quality Psychological_Value_Component specializes Value_Component 
@@ -59,14 +52,7 @@ subkind Loss of qualities  specializes Psychological_Value_Component, Psychologi
 
 mode Reference_Point specializes Belief 
 
-mode Rational_Value_Ascription_RVA specializes Value_Ascription_VA {
-    @externalDependence 
-    [1..*] -- [1] Value_Bearer 
-    [*] -- [*] VA_Component 
-    @characterization 
-    [1] -- [1] Value 
-    [*] -- [*] motivating_INTENTION 
-}
+mode Rational_Value_Ascription_RVA specializes Value_Ascription_VA 
 
 quality Rational_Value_Component specializes Value_Component 
 
@@ -82,16 +68,22 @@ quality Psychological_Value specializes Value
 
 quality Rational_Value specializes Value 
 
-mode Value_Ascription_VA
+mode Value_Ascription_VA{
+    @externalDependence [1..*] -- [1] Value_Bearer 
+    [*] -- [*] VA_Component 
+    @characterization [1] -- [1] Value 
+    [*] -- [*] motivating_INTENTION 
+}
 
 mode RVA_Component specializes VA_Component {
-    @characterization 
-    [*] -- [1..*] Value_Component 
+    @characterization [1] -- [1] Rational_Value_Component 
+}
+
+mode VA_Component{
+    @characterization [*] -- [1..*] Value_Component 
     [*] -- [*] Intrinsinc_Moment 
     [*] -- [*] Intention 
 }
-
-mode VA_Component
 
 quality Value_Component
 
@@ -103,21 +95,9 @@ roleMixin Rational_Preferred_Bearer of functional-complexes  specializes Preferr
 
 roleMixin Psychological_Preferred_Bearer of functional-complexes  specializes Preferred_Bearer 
 
-mode Risk_Seeking_Preference specializes Preference {
-    @manifestation 
-    [1] -- [*] Deliberation 
-    @characterization 
-    [1..*] -- [1] ValueBeholder 
-    [*] -- [*] Value_Ascription_VA 
-}
+mode Risk_Seeking_Preference specializes Preference 
 
-mode Risk_Averse_Preference specializes Preference {
-    @manifestation 
-    [1] -- [*] Deliberation 
-    @characterization 
-    [1..*] -- [1] ValueBeholder 
-    [*] -- [*] Value_Ascription_VA 
-}
+mode Risk_Averse_Preference specializes Preference 
 
 mode Intention
 
@@ -125,7 +105,11 @@ category Intrinsinc_Moment
 
 mode motivating_INTENTION
 
-type Intrinsic_Moment_Type
+type Intrinsic_Moment_Type{
+    @instantiation [1] -- [1..*] Intrinsinc_Moment 
+}
 
-event Intuitive_Choice
+event Intuitive_Choice{
+    @participation [1..*] -- [0..*] Intuition 
+}
 

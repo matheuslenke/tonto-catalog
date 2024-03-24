@@ -1,4 +1,9 @@
-import PlatformOntology
+import GDPO_part_1
+import Review_System
+import MultiSided
+import OneSided
+import GDPO_User_Roles
+import Airbnb
 
 package Registration
 
@@ -8,26 +13,10 @@ roleMixin Registered_User of functional-complexes  specializes Platform_User, Pl
     lastName: undefined  
     email: undefined  
     birthDate: undefined  
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
 }
 
 subkind Registration of relators  specializes User_Affiliation_Agreement, MS_User_Affiliation, OneSided_Platform_User_Affiliation {
-    @mediation 
-    [1] -- bounds_user -- [1] Platform_User 
-    @mediation 
-    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
-    @mediation 
-    [0..*] -- bounds_platform -- [1] Platform_Company 
-    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
-    @mediation 
-    [1..*] -- bounds_user -- [1..*] MS_Platform_User 
-    @mediation 
-    [1..*] -- bounds_user -- [1] OneSided_Platform_User 
+    @mediation [1..*] -- bounds_user -- [1] Registered_User 
 }
 
 event Registration_Action specializes Digital_Content_Creation, User_Affiliation_Action, User_Action {
@@ -36,13 +25,10 @@ event Registration_Action specializes Digital_Content_Creation, User_Affiliation
     setEmail: undefined  
     setPassword: undefined  
     setBirthDate: undefined  
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @participation [1..*] -- performed_by -- [1] Registered_User 
+    @creation [1] -- creates -- [1] Registration 
+    @participation [1] -- performed_by -- [1] Uber_Eats_Customer 
+    @participation [1] -- performed_by -- [1] Uber_Eats_Restaurant 
+    @participation [1] -- collects -- [1..*] Personal_Data 
 }
 

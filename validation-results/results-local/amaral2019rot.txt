@@ -1,5 +1,19 @@
-13
+27
 
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to ClassDeclarationOrRelation named 'Endurant'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Complex_Intention'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Trust'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Trustor'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Loss_Situation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Loss_Event'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Trustee'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Substantial'.
+Could not resolve reference to DataType named 'int'.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Incompatible nature restrictions. Parent has nature intrinsic-mode while this class has natures: extrinsic-mode
 Incompatible nature restrictions. Parent has nature intrinsic-mode while this class has natures: extrinsic-mode
 Incompatible nature restrictions. Parent has nature intrinsic-mode while this class has natures: extrinsic-mode

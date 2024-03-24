@@ -7,17 +7,38 @@ roleMixin Duty_Holder of functional-complexes
 
 role Carrier specializes Duty_Holder 
 
-role Shipper specializes Right_Holder 
+role Shipper specializes Right_Holder {
+    @material [1] -- has_a_right_to_indemnity_against -- [1] Carrier 
+}
 
-relator Right_Duty_to_Indemnity
+relator Right_Duty_to_Indemnity{
+    @mediation [1..*] -- mediates -- [1] Shipper 
+    [1] -- [1] Right_to_Indemnity 
+    [1] -- [1] Duty_to_Indemnity 
+    @mediation [1..*] -- mediates -- [1] Carrier 
+}
 
-mode Right_to_Indemnity
+mode Right_to_Indemnity{
+    @characterization [1..*] -- inheres_in -- [1] Shipper 
+    @formal [1] -- correlates -- [1] Duty_to_Indemnity 
+    @characterization [1] -- externally_depends_on -- [1] Carrier 
+}
 
-mode Duty_to_Indemnity
+mode Duty_to_Indemnity{
+    @characterization [1..*] -- inheres_in -- [1] Carrier 
+    @characterization [1..*] -- externally_depends_on -- [1] Shipper 
+}
 
-kind Inaccuracies
+kind Inaccuracies{
+    @triggers [1..*] -- [1] Loss_or_Damage_of_Goods 
+    [1..*] -- has_part -- [1] Carrier 
+}
 
-subkind Legal_Rule
+subkind Legal_Rule{
+    [1..*] -- defines -- [1..*] Right_Duty_to_Indemnity 
+}
 
-event Loss_or_Damage_of_Goods
+event Loss_or_Damage_of_Goods{
+    [1] -- grounds -- [1..*] Right_Duty_to_Indemnity 
+}
 

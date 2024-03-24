@@ -1,17 +1,5 @@
 Validating...
-- Total of errors: 0
-[error] Not unique class stereotype:
-The class Participation must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class CollaborativeAction must have a unique OntoUML stereotype.
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of CollaborativeAction are not among the allowed ontological natures of its superclass Participation
-[error] Not unique class stereotype:
-The class Send must have a unique OntoUML stereotype.
-[error] Not unique class stereotype:
-The class Receive must have a unique OntoUML stereotype.
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Send are not among the allowed ontological natures of its superclass Participation
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Receive are not among the allowed ontological natures of its superclass Participation
+Could not create relation named ((No name)) between Objective and PriorityLevel because one or both of them was not created.
+Total of errors: 7
+undefined
 Validation finished

@@ -1,15 +1,27 @@
 
 package PERCEPTION
 
-kind CommonSense
+kind CommonSense{
+    @componentOf [1] -- [1] Mind 
+}
 
-kind SeePerception
+kind SeePerception{
+    @componentOf [1] -- [1] CommonSense 
+}
 
-kind HearPerception
+kind HearPerception{
+    @componentOf [1] -- [1] CommonSense 
+}
 
-kind TouchPerception
+kind TouchPerception{
+    @componentOf [1] -- [1] CommonSense 
+}
 
-kind TastePerception
+kind TastePerception{
+    @componentOf [1] -- [1] CommonSense 
+}
 
-kind SmellPerception
+kind SmellPerception{
+    @componentOf [1] -- [1] CommonSense 
+}
 

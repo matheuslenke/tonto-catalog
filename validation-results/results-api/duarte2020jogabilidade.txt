@@ -1,3 +1,9 @@
 Validating...
-- Total of errors: 0
+Could not create relation named (percebe) between Jogador and Usabilidade because one or both of them was not created.
+Could not create relation named ((No name)) between QualidadeMecnica and MedidaQualidadeMecnica because one or both of them was not created.
+Could not create relation named ((No name)) between QualidadeRegra and MedidaQualidadeRegra because one or both of them was not created.
+Could not create relation named ((No name)) between QualidadeDesign and MedidaQualidadeDesign because one or both of them was not created.
+Could not create relation named ((No name)) between Jogabilidade and Usabilidade because one or both of them was not created.
+Total of errors: 0
+undefined
 Validation finished

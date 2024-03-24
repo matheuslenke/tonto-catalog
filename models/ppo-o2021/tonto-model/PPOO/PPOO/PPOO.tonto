@@ -1,101 +1,68 @@
-import ML_Schema
 import DMOP
+import ML_Schema
 import RDBSO
 
 package PPOO
 
-quality Parameter
-
-subkind Data_Preprocessing_Operator of functional-complexes  specializes Operator {
-    [1] -- implements_ -- [1] Algorithm 
+quality Parameter{
+    @characterization [1..*] -- parameterized_by -- [1] Operator 
 }
 
-subkind Data_Transformation_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
+subkind Data_Preprocessing_Operator of functional-complexes  specializes Operator 
+
+subkind Data_Transformation_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator 
+
+subkind Data_Cleaning_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator 
+
+subkind Data_Type_Convert of functional-complexes  specializes Data_Transformation_Preprocessing_Operator 
+
+subkind Data_Discretization of functional-complexes  specializes Data_Transformation_Preprocessing_Operator 
+
+subkind Data_Create of functional-complexes  specializes Data_Transformation_Preprocessing_Operator 
+
+subkind Data_Normalization of functional-complexes  specializes Data_Transformation_Preprocessing_Operator 
+
+subkind Data_Coding of functional-complexes  specializes Data_Transformation_Preprocessing_Operator 
+
+subkind Data_Standardization of functional-complexes  specializes Data_Normalization 
+
+subkind Data_Partition_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator 
+
+subkind Holdout of functional-complexes  specializes Data_Partition_Preprocessing_Operator 
+
+subkind Cross_Validation of functional-complexes  specializes Data_Partition_Preprocessing_Operator 
+
+subkind Data_Outlier_Treatment of functional-complexes  specializes Data_Cleaning_Preprocessing_Operator 
+
+subkind Data_Missing_Imputation of functional-complexes  specializes Data_Cleaning_Preprocessing_Operator 
+
+subkind Data_Reduction_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator 
+
+subkind Line_Selection of functional-complexes  specializes Data_Reduction_Preprocessing_Operator 
+
+subkind Column_Selection of functional-complexes  specializes Data_Reduction_Preprocessing_Operator 
+
+subkind Data_Sampling_Correction_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator 
+
+subkind Oversampling of functional-complexes  specializes Data_Sampling_Correction_Preprocessing_Operator 
+
+subkind Undersampling of functional-complexes  specializes Data_Sampling_Correction_Preprocessing_Operator 
+
+kind Dataset specializes Data {
+    [*] -- [*] Line 
+    [*] -- is_characterized_by -- [1..*] Dataset_Characteristic 
+    [1] -- defines -- [1] Line_Type 
 }
 
-subkind Data_Cleaning_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
+kind Column_Value specializes Data {
+    [*] -- instance_of -- [1] Column 
 }
-
-subkind Data_Type_Convert of functional-complexes  specializes Data_Transformation_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Discretization of functional-complexes  specializes Data_Transformation_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Create of functional-complexes  specializes Data_Transformation_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Normalization of functional-complexes  specializes Data_Transformation_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Coding of functional-complexes  specializes Data_Transformation_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Standardization of functional-complexes  specializes Data_Normalization {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Partition_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Holdout of functional-complexes  specializes Data_Partition_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Cross_Validation of functional-complexes  specializes Data_Partition_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Outlier_Treatment of functional-complexes  specializes Data_Cleaning_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Missing_Imputation of functional-complexes  specializes Data_Cleaning_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Reduction_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Line_Selection of functional-complexes  specializes Data_Reduction_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Column_Selection of functional-complexes  specializes Data_Reduction_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Data_Sampling_Correction_Preprocessing_Operator of functional-complexes  specializes Data_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Oversampling of functional-complexes  specializes Data_Sampling_Correction_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-subkind Undersampling of functional-complexes  specializes Data_Sampling_Correction_Preprocessing_Operator {
-    [1] -- implements_ -- [1] Algorithm 
-}
-
-kind Dataset specializes Data 
-
-kind Column_Value specializes Data 
 
 quality Column_Characteristic
 
 subkind Labeled_Dataset of functional-complexes  specializes Dataset {
-    [*] -- [*] Line 
-    [*] -- is_characterized_by -- [1..*] Dataset_Characteristic 
-    [1] -- defines -- [1] Line_Type 
+    [1] -- processed_by -- [1] Supervised_Learning_Task 
+    [1] -- has -- [1] Target_Column 
 }
 
 quality Dataset_Characteristic
@@ -103,15 +70,8 @@ quality Dataset_Characteristic
 kind Supervised_Learning_Task
 
 subkind Target_Column of functional-complexes  specializes Column {
-    [*] -- defined_by -- [1] Data_Type 
-    [*] -- is_characterized_by -- [1..*] Column_Characteristic 
-    [*] -- executed_over -- [*] Operator_Execution 
-    @material 
-    [*] -- [*] Data_Preprocessing_Executable_Operator 
-    @participation 
-    [1..*] -- [*] Exploratory_Data_Analysis 
-    @participation 
-    [1..*] -- [*] Data_Preprocessing_Operator_Execution 
+    [1] -- predict -- [1] Supervised_Learning_Classification_Task 
+    [*] -- defined_by -- [1] Nominal_Qualitative_Data_Type 
 }
 
 subkind Supervised_Learning_Classification_Task of functional-complexes  specializes Supervised_Learning_Task 
@@ -128,37 +88,125 @@ subkind Discreet_Quantitative_Data_Type of functional-complexes  specializes Qua
 
 subkind Continuous_Quantitative_Data_Type of functional-complexes  specializes Quantitative_Data_Type 
 
-kind Data_Transformation
+kind Data_Transformation{
+    [1] -- implements_ -- [1..*] Data_Preprocessing_Executable_Operator 
+}
 
-kind Data_Preprocessing_Workflow_Plan
+kind Data_Preprocessing_Workflow_Plan{
+    [*] -- hasPart -- [2..*] Data_Transformation 
+    [1] -- implements_ -- [1] Data_Preprocessing_Executable_Workflow 
+}
 
-class User of functional-complexes  specializes Person 
+class User of functional-complexes  specializes Person {
+    [*] -- executed_by -- [*] Operator_Execution 
+    @participation [1..*] -- [*] Exploratory_Data_Analysis 
+    @participation [1..*] -- [*] Data_Preprocessing_Operator_Execution 
+}
 
 relator Operator_Execution
 
 kind Person
 
-kind Data_Preprocessing_Assistant specializes Software 
+kind Data_Preprocessing_Assistant specializes Software {
+    [1] -- supports -- [1..*] Data_Preprocessing_Workflow_Plan 
+}
 
 category Software of functional-complexes 
 
-subkind Data_Preprocessing_Executable_Operator of functional-complexes  specializes Operator 
+subkind Data_Preprocessing_Executable_Operator of functional-complexes  specializes Operator {
+    [*] -- executed_by -- [*] Operator_Execution 
+    @participation [1..*] -- [*] Exploratory_Data_Analysis 
+    @participation [1] -- [*] Data_Preprocessing_Operator_Execution 
+}
 
-kind Data_Preprocessing_Executable_Workflow
+kind Data_Preprocessing_Executable_Workflow{
+    [*] -- hasPart -- [2..*] Data_Preprocessing_Executable_Operator 
+}
 
 kind Operator
 
-situation Column_Characteristic_Initial
+situation Column_Characteristic_Initial{
+    @triggers [1] -- [*] Exploratory_Data_Analysis 
+}
 
-class Exploratory_Data_Analysis
+class Exploratory_Data_Analysis{
+    [*] -- cause -- [*] Data_Preprocessing_Operator_Execution 
+    @bringsAbout [1] -- [1..*] Column_Characteristic_Identified 
+}
 
-class Data_Preprocessing
+class Data_Preprocessing{
+    [*] -- [*] Exploratory_Data_Analysis 
+    [*] -- [*] Data_Preprocessing_Operator_Execution 
+}
 
-event Data_Preprocessing_Operator_Execution
+event Data_Preprocessing_Operator_Execution{
+    @bringsAbout [1] -- [1..*] Processed_Column 
+}
 
 situation Processed_Column
 
-situation Column_Characteristic_Identified
+situation Column_Characteristic_Identified{
+    @triggers [1] -- [*] Data_Preprocessing_Operator_Execution 
+    [*] -- activates -- [*] Data_Processing_Ability 
+}
 
-class Data_Processing_Ability
+class Data_Processing_Ability{
+    [*] -- inheresin -- [*] Data_Preprocessing_Executable_Operator 
+    [*] -- manifestedBy -- [*] Data_Preprocessing_Operator_Execution 
+}
+
+genset qK5G36DAAAARcv {
+    general Operator
+    specifics Data_Preprocessing_Operator
+}
+
+genset c9r5G36DAAAARdz {
+    general Data_Cleaning_Preprocessing_Operator
+    specifics Data_Outlier_Treatment, Data_Missing_Imputation
+}
+
+genset cXIFG36DAAAAReV {
+    general Data_Reduction_Preprocessing_Operator
+    specifics Line_Selection, Column_Selection
+}
+
+genset KJ8FG36DAAAARe9 {
+    general Data_Sampling_Correction_Preprocessing_Operator
+    specifics Oversampling, Undersampling
+}
+
+genset MeDFG36DAAAARgf {
+    general Data_Partition_Preprocessing_Operator
+    specifics Cross_Validation, Holdout
+}
+
+genset MnFG36DAAAARhL {
+    general Data_Normalization
+    specifics Data_Standardization
+}
+
+genset aglG36DAAAARhg {
+    general Data_Transformation_Preprocessing_Operator
+    specifics Data_Normalization, Data_Discretization, Data_Type_Convert, Data_Coding, Data_Create
+}
+
+genset l4VG36DAAAARlP {
+    general Supervised_Learning_Task
+    specifics Supervised_Learning_Classification_Task
+}
+
+genset KwyVG36DAAAARmF {
+    general Qualitative_Data_Type
+    specifics Ordinal_Quantitative_Data_Type, Nominal_Qualitative_Data_Type
+}
+
+genset dOhVG36DAAAARm {
+    general Quantitative_Data_Type
+    specifics Continuous_Quantitative_Data_Type, Discreet_Quantitative_Data_Type
+}
+
+genset ceNVG36DAAAARnt {
+    general Data_Type
+    specifics Qualitative_Data_Type, Quantitative_Data_Type
+}
 

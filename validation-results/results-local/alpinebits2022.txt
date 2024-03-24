@@ -1,9 +1,83 @@
-35
+109
 
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `hours`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `of`.
+Expecting token of type '}' but found `of`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `from`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `to`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to DataType named 'Time_Instant'.
+Could not resolve reference to DataType named 'Time_Instant'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'Time_Interval'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'string_'.
+Could not resolve reference to DataType named 'Time_Instant'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'int'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'boolean_'.
+Could not resolve reference to DataType named 'Time_Interval'.
+Could not resolve reference to DataType named 'hours'.
+Could not resolve reference to DataType named 'from'.
+Could not resolve reference to DataType named 'to'.
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)

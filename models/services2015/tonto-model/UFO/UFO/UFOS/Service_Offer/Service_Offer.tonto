@@ -1,33 +1,39 @@
-import UFO
-import ufoa_first_Order_Entities
-import ufoa_second_Order_Entities
-import ufob_first_Order_Entities
-import ufob_second_Order_Entities
-import UFOA
-import UFOB
-import UFOC
-import ufoc_1st_Order_Entities
-import ufoc_2nd_Order_Entities
+import st_Order_Entities
+import nd_Order_Entities
 
-package ServiceOffer
+package Service_Offer
 
-kind ServiceOffer
-
-relator ServiceOffering
-
-mode ServiceOfferingClaim
-
-mode ServiceOfferingCommitment
-
-category ServiceOfferingDescription of functional-complexes 
-
-roleMixin ServiceProvider of functional-complexes  specializes Agent {
-    [*] -- instance_of -- [*] Universal 
+kind ServiceOffer{
+    @Formal [1] -- creates -- [1] ServiceOffering 
 }
 
-roleMixin TargetCustomer of functional-complexes  specializes Agent {
-    [*] -- instance_of -- [*] Universal 
+relator ServiceOffering{
+    @mediation [1..*] -- provides -- [1] ServiceProvider 
+    @componentOf [1] -- [1..*] ServiceOfferingClaim 
+    @componentOf [1] -- [1..*] ServiceOfferingCommitment 
+    @mediation [1..*] -- offered_to -- [1] TargetCustomerCommunity 
 }
 
-collective TargetCustomerCommunity
+mode ServiceOfferingClaim{
+    @characterization [1..*] -- externallydependenton -- [1] ServiceProvider 
+    @characterization [1..*] -- inheres_in -- [1] TargetCustomerCommunity 
+}
+
+mode ServiceOfferingCommitment{
+    @characterization [1..*] -- externallydependenton -- [1] TargetCustomerCommunity 
+    @characterization [1..*] -- inheres_in -- [1] ServiceProvider 
+    @Formal [1] -- counterpart_of -- [1] ServiceOfferingClaim 
+}
+
+category ServiceOfferingDescription of functional-complexes {
+    @Formal [0..*] -- describes -- [1] ServiceOffering 
+}
+
+roleMixin ServiceProvider of functional-complexes  specializes Agent 
+
+roleMixin TargetCustomer of functional-complexes  specializes Agent 
+
+collective TargetCustomerCommunity{
+    @memberOf [1..*] -- memberOf_ -- [1..*] TargetCustomer 
+}
 

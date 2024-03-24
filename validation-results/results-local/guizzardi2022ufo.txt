@@ -1,21 +1,37 @@
-19
+14
 
-Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
-Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '35'
+Expecting end of file but found `35`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '34'
+Expecting end of file but found `34`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '33'
+Expecting end of file but found `33`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '32'
+Expecting end of file but found `32`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '31'
+Expecting end of file but found `31`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '33'
+Expecting end of file but found `33`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '32'
+Expecting end of file but found `32`.

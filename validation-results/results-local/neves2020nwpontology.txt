@@ -1,7 +1,18 @@
-16
+27
 
+Expecting token of type ':' but found `Things`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Expecting token of type ':' but found `,`.
+Expecting token of type '}' but found `,`.
+Could not resolve reference to DataType named 'Things'.
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Duplicated reference name
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

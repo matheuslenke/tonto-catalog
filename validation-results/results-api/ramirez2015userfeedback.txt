@@ -1,36 +1,4 @@
 Validating...
-- Total of errors: 15
-Could not create relation named (presented_in) between SharedDescription and PresentationFormat because one or both of them was not created.
-Could not create relation named (presented_in) between FeedbackAnalyzed and PresentationFormat because one or both of them was not created.
-Could not create relation named (presented_in) between FeedbackClassified and PresentationFormat because one or both of them was not created.
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class CommunicativeCommitment is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class CommunicativeIntention is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class InterpretedIntention is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class IllocutionaryAct is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class PerlocutionaryAct is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class LocutionaryAct is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Gesture is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class AttachedInformation is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Drawing is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class MobileTechnology is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class IssueTrackingSystem is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class MailingList is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class OpenForum is specializing other classes that represent ultimate sortals: «mode»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class AppStore is specializing other classes that represent ultimate sortals: «mode»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class FeedbackProvider must specialize (directly or indirectly) a unique class decorated as one of the following: «kind», «collective», «quantity», «relator», «quality», «mode»
+Total of errors: 15
+undefined
 Validation finished

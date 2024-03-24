@@ -1,5 +1,26 @@
-15
+32
 
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to ClassDeclarationOrRelation named 'Monetary_Authority_CreditDebt_Relation'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Agent'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Monetary_System'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Virtual_Currency_System'.
+Expecting: one of these possible Token sequences:
+  1. [datatype]
+  2. [enum]
+  3. [disjoint, complete, genset]
+  4. [disjoint, genset, ID]
+  5. [complete, genset, ID]
+  6. [genset, ID, {]
+  7. [disjoint, complete, genset]
+  8. [disjoint, genset, ID]
+  9. [complete, genset, ID]
+  10. [genset, ID, where]
+  11. [@]
+  12. [relation]
+but found: 'genset'
+Expecting end of file but found `genset`.
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name
@@ -15,3 +36,12 @@ Redundant nature declaration. The ontological natures of this element is already
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to DataTypeOrClassOrRelation named 'Monetary_System'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Exchange_Power'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Virtual_Currency_System'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Exchange_Power_in_Currency'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Monetary_System'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Virtual_Currency_System'.
+Duplicated reference name
+Duplicated reference name
+Duplicated reference name

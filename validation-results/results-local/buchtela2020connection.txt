@@ -1,5 +1,9 @@
-13
+17
 
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Duplicated reference name
+Duplicated reference name
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations

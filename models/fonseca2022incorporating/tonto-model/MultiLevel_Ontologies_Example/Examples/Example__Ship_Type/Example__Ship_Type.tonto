@@ -6,16 +6,15 @@ type Ship_Type{
     fleet: undefined  
 }
 
-kind Ship
+kind Ship{
+    @instantiation [0..*] -- [1..*] Ship_Type 
+    @instantiation [0..*] -- [0..*] Ship_Class_by_Size 
+}
 
 subkind Panamaclass_Ship specializes Ship {
     max_length: undefined  
     max_weight: undefined  
     max_draft: undefined  
-    @instantiation 
-    [0..*] -- [1..*] Ship_Type 
-    @instantiation 
-    [0..*] -- [0..*] Ship_Class_by_Size 
 }
 
 subkind Ship_Class_by_Size specializes Ship_Type {
@@ -28,48 +27,38 @@ subkind Suezclass_Ship specializes Ship {
     max_length: undefined  
     max_weight: undefined  
     max_draft: undefined  
-    @instantiation 
-    [0..*] -- [1..*] Ship_Type 
-    @instantiation 
-    [0..*] -- [0..*] Ship_Class_by_Size 
 }
 
 kind Person
 
 role Captain specializes Person 
 
-mode Captain_License
-
-phase Commissioned specializes Ship {
-    @instantiation 
-    [0..*] -- [1..*] Ship_Type 
-    @instantiation 
-    [0..*] -- [0..*] Ship_Class_by_Size 
+mode Captain_License{
+    @characterization [1..*] -- [1] Captain 
+    @externalDependence [0..*] -- [1] Licensed_Ship_Type 
 }
 
-phase On_Route specializes Ship {
-    @instantiation 
-    [0..*] -- [1..*] Ship_Type 
-    @instantiation 
-    [0..*] -- [0..*] Ship_Class_by_Size 
-}
+phase Commissioned specializes Ship 
 
-phase Decommissioned specializes Ship {
-    @instantiation 
-    [0..*] -- [1..*] Ship_Type 
-    @instantiation 
-    [0..*] -- [0..*] Ship_Class_by_Size 
-}
+phase On_Route specializes Ship 
+
+phase Decommissioned specializes Ship 
 
 phase Current_Ship_Type specializes Ship_Type 
 
 phase Discontinued_Ship_Type specializes Ship_Type 
 
-relator Assignment
+relator Assignment{
+    @mediation [0..*] -- [1] Captain 
+    @mediation [0..*] -- [1] Ship 
+}
 
 kind Canal
 
-relator Canal_Restrictions
+relator Canal_Restrictions{
+    @mediation [1..*] -- [1] Ship_Class_by_Size 
+    @mediation [0..*] -- [1] Canal 
+}
 
 role Licensed_Ship_Type specializes Ship_Type 
 
@@ -77,19 +66,31 @@ quality Size{
     length: undefined  
     weight: undefined  
     draft: undefined  
+    @characterization [1] -- [0..1] Ship 
+    @characterization [1] -- [0..1] Ship_Class_by_Size 
 }
 
-phase Temporary specializes Assignment {
-    @mediation 
-    [0..*] -- [1] Captain 
-    @mediation 
-    [0..*] -- [1] Ship 
+phase Temporary specializes Assignment 
+
+phase Permanent specializes Assignment 
+
+genset SEC8wgGGAqACHRi {
+    general Ship
+    categorizerShip_Class_by_Sizespecifics Panamaclass_Ship, Suezclass_Ship
 }
 
-phase Permanent specializes Assignment {
-    @mediation 
-    [0..*] -- [1] Captain 
-    @mediation 
-    [0..*] -- [1] Ship 
+genset disjoint_complete {
+    general Ship
+    specifics Commissioned, Decommissioned
+}
+
+genset disjoint_complete {
+    general Ship_Type
+    specifics Current_Ship_Type, Discontinued_Ship_Type
+}
+
+genset disjoint_complete {
+    general Assignment
+    specifics Temporary, Permanent
 }
 

@@ -3,33 +3,54 @@ package Grain_Production_Ontology
 
 kind Digital_Images
 
-subkind Satellite_Images of functional-complexes  specializes Digital_Images 
+subkind Satellite_Images of functional-complexes  specializes Digital_Images {
+    [*] -- [*] NDVI_Index 
+    [*] -- Georef_ImagesTIFF -- [*] TIFF 
+}
 
 category NDVI_Index of functional-complexes 
 
-kind Oher_Variables
+kind Oher_Variables{
+    [*] -- [*] Production_Evolution_States 
+}
 
 category Production_Evolution_States of functional-complexes 
 
-subkind Geolocation of functional-complexes  specializes Crop {
+subkind Geolocation of functional-complexes  specializes Crop 
+
+kind Crop{
     [*] -- CropDigital_Images -- [*] Digital_Images 
     [*] -- CropOther_Variables -- [*] Oher_Variables 
     [*] -- CropClimate_Station -- [*] Climate_Station 
 }
 
-kind Crop
+kind Climate_Station{
+    [*] -- [*] Leaf_Wetting_Duration 
+    [*] -- [*] Air_Relative_Humidity 
+    [*] -- [*] Accumulated_Precipitation 
+    [*] -- [*] Maximum_Temperature 
+    [*] -- [*] Minimum_Temperature 
+}
 
-kind Climate_Station
+category Leaf_Wetting_Duration of functional-complexes {
+    [*] -- [*] Hoursday 
+}
 
-category Leaf_Wetting_Duration of functional-complexes 
+category Air_Relative_Humidity of functional-complexes {
+    [*] -- [*] Percentage 
+}
 
-category Air_Relative_Humidity of functional-complexes 
+category Accumulated_Precipitation of functional-complexes {
+    [*] -- [*] Milimeters 
+}
 
-category Accumulated_Precipitation of functional-complexes 
+category Maximum_Temperature of functional-complexes {
+    [*] -- [*] Degrees_Celsius 
+}
 
-category Maximum_Temperature of functional-complexes 
-
-category Minimum_Temperature of functional-complexes 
+category Minimum_Temperature of functional-complexes {
+    [*] -- [*] Degrees_Celsius 
+}
 
 datatype TIFF
 datatype Hoursday

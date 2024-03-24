@@ -1,4 +1,3 @@
-import MultiLevel_Ontologies_Example
 
 package Example__Bird_Species
 
@@ -20,21 +19,29 @@ role Recognized_Species specializes Bird_Species
 kind Bird{
     age: undefined  
     height: undefined  
+    @instantiation [*] -- [1] Bird_Species 
 }
 
-subkind Emperor_Penguin of functional-complexes  specializes Bird {
-    @instantiation 
-    [*] -- [1] Bird_Species 
-}
+subkind Emperor_Penguin of functional-complexes  specializes Bird 
 
-subkind Golden_Eagle of functional-complexes  specializes Bird {
-    @instantiation 
-    [*] -- [1] Bird_Species 
-}
+subkind Golden_Eagle of functional-complexes  specializes Bird 
 
 kind Person
 
 role Discoverer of functional-complexes  specializes Person 
 
-relator Discovery_Entitlement
+relator Discovery_Entitlement{
+    @mediation [1..*] -- [1] Recognized_Species 
+    @mediation [1..*] -- [1] Discoverer 
+}
+
+genset pESCIgGGAqACHSRq {
+    general Bird_Species
+    specifics Least_Concern_Species, Threatened_Species, Extinct_Species
+}
+
+genset mbgiIgGGAqACHSUY {
+    general Bird
+    categorizerBird_Speciesspecifics Emperor_Penguin, Golden_Eagle
+}
 

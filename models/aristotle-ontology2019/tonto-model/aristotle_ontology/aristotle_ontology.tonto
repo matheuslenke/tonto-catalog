@@ -1,36 +1,52 @@
-import MIND
 import Human_Soul
-import PERCEPTION
 
 package aristotle_ontology
 
-subkind Aether of quantities  specializes Matter 
+subkind Aether of quantities  specializes Matter {
+    [1] -- moves -- [1..*] Element 
+    @subQuantityOf [1] -- [1] CelestialBody 
+}
 
-subkind SublunaryMatter of quantities  specializes Matter 
+subkind SublunaryMatter of quantities  specializes Matter {
+    [1] -- is -- [1] MaterialCause 
+    @subQuantityOf [1] -- [1] Element 
+    @subQuantityOf [1] -- [1] SublunaryBody 
+    @subQuantityOf [1] -- [1] Object 
+}
 
 subkind PrimeMatter of quantities  specializes SublunaryMatter {
-    [1] -- is -- [1] MaterialCause 
-    @subQuantityOf 
-    [1] -- [1] Element 
-    @subQuantityOf 
-    [1] -- [1] SublunaryBody 
-    @subQuantityOf 
-    [1] -- [1] Object 
+    @subQuantityOf [1] -- [1] Fire 
+    @subQuantityOf [1] -- [1] Air 
+    @subQuantityOf [1] -- [1] Earth 
 }
 
 quality Cold
 
-quality Dry
+quality Dry{
+    @characterization [1] -- [1] Earth 
+}
 
-quality Wet
+quality Wet{
+    @characterization [1] -- [1] Water 
+}
 
-quality Hot
+quality Hot{
+    @characterization [1] -- [1] Air 
+    @characterization [1] -- [1] Fire 
+}
 
-subkind Earth of functional-complexes  specializes Element 
+subkind Earth of functional-complexes  specializes Element {
+    @characterization [1] -- [1] Cold 
+}
 
-subkind Air of functional-complexes  specializes Element 
+subkind Air of functional-complexes  specializes Element {
+    @characterization [1] -- [1] Wet 
+}
 
-subkind Water of functional-complexes  specializes Element 
+subkind Water of functional-complexes  specializes Element {
+    @characterization [1] -- [1] Cold 
+    @subQuantityOf [1] -- [1] PrimeMatter 
+}
 
 kind Element
 
@@ -40,7 +56,16 @@ kind Goal
 
 kind Mean
 
-kind Object
+kind Object{
+    @characterization [1] -- [1] Form 
+    [1..*] -- created_with -- [1] Mean 
+    @subQuantityOf [1] -- [1] FormedMatter 
+    @subQuantityOf [1] -- [1] Matter 
+    [1] -- moves -- [0..1] Object 
+    [*] -- created_for -- [1..*] Goal 
+    @componentOf [1] -- [1] Nature 
+    @participation [1..*] -- [0..*] Change 
+}
 
 mode Form{
     name: string_  
@@ -48,64 +73,76 @@ mode Form{
     temporal: boolean_  { const }
     spatial: boolean_  { const }
     sensible: boolean_  
+    [1] -- [1] FormedMatter 
 }
 
-relator Actuality
+relator Actuality{
+    @mediation [1..*] -- [1] Form 
+    @mediation [1] -- [1] Object 
+    @mediation [1] -- [1] ObjectOfPerception 
+    @mediation [1] -- [1] Perception 
+    @mediation [1] -- [1] ObjectOfTought 
+    @mediation [1] -- [1] Thinking 
+    @mediation [1] -- [1] LivingBeing 
+}
 
-relator Potentiality
+relator Potentiality{
+    @mediation [1] -- [1] Object 
+    @mediation [1] -- [1] Matter 
+    @mediation [1] -- [1] LivingBeing 
+    @mediation [1] -- [1] PerceptiveFaculty 
+    @mediation [1] -- [1] Perception 
+    @mediation [1] -- [1] StateOfMind 
+    @mediation [1] -- [1] SublunaryMatter 
+    @mediation [1] -- [1] Thinking 
+    @mediation [1] -- [1] LivingBody 
+}
 
 subkind FormalCause of functional-complexes  specializes Cause {
-    @componentOf 
-    [1..*] -- [1] Knowledge_ofObject 
+    [1] -- is -- [1] Form 
 }
 
 subkind FinalCause of functional-complexes  specializes Cause {
-    @componentOf 
-    [1..*] -- [1] Knowledge_ofObject 
+    [1] -- is -- [1] Goal 
 }
 
 subkind EfficientCause of functional-complexes  specializes Cause {
-    @componentOf 
-    [1..*] -- [1] Knowledge_ofObject 
+    [1] -- is -- [1] Mean 
 }
 
-subkind MaterialCause of functional-complexes  specializes Cause {
-    @componentOf 
-    [1..*] -- [1] Knowledge_ofObject 
+subkind MaterialCause of functional-complexes  specializes Cause 
+
+kind Cause{
+    @componentOf [1..*] -- [1] Knowledge_ofObject 
 }
 
-kind Cause
+phase FormedMatter of quantities  specializes SublunaryMatter 
 
-phase FormedMatter of quantities  specializes SublunaryMatter {
-    [1] -- is -- [1] MaterialCause 
-    @subQuantityOf 
-    [1] -- [1] Element 
-    @subQuantityOf 
-    [1] -- [1] SublunaryBody 
-    @subQuantityOf 
-    [1] -- [1] Object 
+kind Proof{
+    [1] -- has -- [1] Mood 
 }
 
-kind Proof
+mode Mood{
+    @characterization [1] -- [1] Syllogism 
+}
 
-mode Mood
-
-relator Figure
+relator Figure{
+    @mediation [1] -- [2] Extreme 
+    @mediation  --  MiddleTerm 
+    [1] -- has -- [1..*] Mood 
+}
 
 role Extreme of functional-complexes  specializes Term 
 
-subkind Denial of functional-complexes  specializes Assertion {
-    [1] -- essential -- [1] Predicate 
-}
+subkind Denial of functional-complexes  specializes Assertion 
 
 role MiddleTerm of functional-complexes  specializes Term 
 
-subkind Affirmation of functional-complexes  specializes Assertion {
-    [1] -- essential -- [1] Predicate 
-}
+subkind Affirmation of functional-complexes  specializes Assertion 
 
 kind Assertion{
     textOfAssertion: string_  { derived }
+    [1] -- essential -- [1] Predicate 
 }
 
 kind Term{
@@ -118,260 +155,217 @@ subkind Predicate of functional-complexes  specializes Term {
 
 subkind Subject of functional-complexes  specializes Term {
     universal: boolean_  
+    @componentOf [1] -- [1] Assertion 
 }
 
 role Premise of functional-complexes  specializes Assertion {
-    [1] -- essential -- [1] Predicate 
+     --  MiddleTerm 
+     -- [2] Extreme 
+    @material [2] -- Deduction -- [1] Conclusion 
 }
 
-role Conclusion of functional-complexes  specializes Assertion {
-    [1] -- essential -- [1] Predicate 
-}
+role Conclusion of functional-complexes  specializes Assertion 
 
-relator Syllogism
+relator Syllogism{
+    @mediation [1] -- [1] Conclusion 
+    @mediation [1] -- [2] Premise 
+}
 
 collective Community
 
-kind GoodLife
+kind GoodLife{
+    [1] -- is_the -- [1] FinalCause 
+}
 
-relator Right
+relator Right{
+    @mediation [1..*] -- [1] Citizen 
+    @mediation [0..*] -- [1] PoliticalOffice 
+}
 
-kind PoliticalOffice
+kind PoliticalOffice{
+    @natural [1..*] -- [1..*] Citizen 
+}
 
-kind TerritoryAssets
+kind TerritoryAssets{
+    [1] -- is_the -- [1] MaterialCause 
+    @componentOf [1..*] -- [1] CityState 
+}
 
 role Ruler of functional-complexes  specializes Politician {
-    [1..*] -- holds -- [1..*] PoliticalOffice 
-    [1] -- is_the -- [1] MaterialCause 
-    @componentOf 
-    [1..*] -- [1] CityState 
-    @memberOf 
-    [1..*] -- [1] Community 
+    [1] -- is_the -- [1] EfficientCause 
 }
 
-collective ResidentPopulation
-
-kind Constitution
-
-role NonCitizen of functional-complexes  specializes ResidentPerson {
-    @memberOf 
-    [1..*] -- [1] Community 
+collective ResidentPopulation{
+    @memberOf [1..*] -- [1] ResidentPerson 
 }
 
-kind ResidentPerson
-
-role Lawgiver of functional-complexes  specializes Politician {
-    [1..*] -- holds -- [1..*] PoliticalOffice 
-    [1] -- is_the -- [1] MaterialCause 
-    @componentOf 
-    [1..*] -- [1] CityState 
-    @memberOf 
-    [1..*] -- [1] Community 
+kind Constitution{
+    [1] -- is_the -- [1] FormalCause 
+    [1] -- [1..*] Lawgiver 
+    [1] -- [1..*] ResidentPerson 
+    @componentOf [1] -- [1] CityState 
 }
+
+role NonCitizen of functional-complexes  specializes ResidentPerson 
+
+kind ResidentPerson{
+    @memberOf [1..*] -- [1] Community 
+}
+
+role Lawgiver of functional-complexes  specializes Politician 
 
 role Citizen of functional-complexes  specializes ResidentPerson {
-    @memberOf 
-    [1..*] -- [1] Community 
+    [1] -- is_the -- [1] MaterialCause 
+    @componentOf [1..*] -- [1] CityState 
 }
 
 role Politician of functional-complexes  specializes Citizen {
-    [1] -- is_the -- [1] MaterialCause 
-    @componentOf 
-    [1..*] -- [1] CityState 
-    @memberOf 
-    [1..*] -- [1] Community 
+    [1..*] -- holds -- [1..*] PoliticalOffice 
 }
 
-kind CityState
+kind CityState{
+    [1] -- rules -- [1] Ruler 
+    [1] -- aims_to -- [1] GoodLife 
+}
 
 subkind Kingship of intrinsic-modes  specializes CorrectForm {
     numberOfRulers: undefined  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
 subkind Aristocracy of intrinsic-modes  specializes CorrectForm {
     numberOfRulers: undefined  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
 subkind Polity of intrinsic-modes  specializes CorrectForm {
     numberOfRulers: undefined  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
 subkind Tiranny of intrinsic-modes  specializes DeviantForm {
     numberOfRulers: undefined  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
 subkind Oligarchy of intrinsic-modes  specializes DeviantForm {
     numberOfRulers: undefined  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
 subkind Democraty of intrinsic-modes  specializes DeviantForm {
     numberOfRulers: undefined  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
-mode ConstitutionalForm
+mode ConstitutionalForm{
+    @characterization [1] -- [1] Constitution 
+}
 
 subkind CorrectForm of intrinsic-modes  specializes ConstitutionalForm {
     just: boolean_  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
 subkind DeviantForm of intrinsic-modes  specializes ConstitutionalForm {
     just: boolean_  
-    @characterization 
-    [1] -- [1] Constitution 
 }
 
 kind Word{
     Language: string_  
+    @material [1..*] -- [1..*] MentalState 
 }
 
-kind Meaning
+kind Meaning{
+    @componentOf [1] -- [1] MentalState 
+}
 
 subkind SpokenWord of functional-complexes  specializes Word {
     senseRelated: undefined  
-    @material 
-    [1..*] -- [1..*] MentalState 
 }
 
 subkind WrittenWord of functional-complexes  specializes Word {
     senseRelated: undefined  
-    @material 
-    [1..*] -- [1..*] MentalState 
+    @mediation [1..*] -- [1] Convention 
 }
 
-kind MentalState
+kind MentalState{
+    [1] -- refersTo -- [1] NameBearerObject 
+}
 
-relator Convention
+relator Convention{
+    @mediation [1..*] -- [1] MentalState 
+    @mediation [1] -- [1..*] SpokenWord 
+}
 
 kind NameBearerObject
 
-kind UnmovedMover
+kind UnmovedMover{
+    [1] -- moves -- [0..1] Object 
+    [1] -- moves -- [1] Aether 
+}
 
 quantity Matter{
     activity: undefined  
 }
 
 role MoverActiveObject of functional-complexes  specializes Object {
-    @characterization 
-    [1] -- [1] Form 
-    [1..*] -- created_with -- [1] Mean 
-    @subQuantityOf 
-    [1] -- [1] FormedMatter 
-    @subQuantityOf 
-    [1] -- [1] Matter 
-    [1] -- moves -- [0..1] Object 
-    [*] -- created_for -- [1..*] Goal 
-    @componentOf 
-    [1] -- [1] Nature 
-    @participation 
-    [1..*] -- [0..*] Change 
+    @componentOf [1] -- [1] ActivePotentiality 
+    [0..1] -- [0..1] Cause 
 }
 
 role MovedPassiveObject of functional-complexes  specializes Object {
-    @characterization 
-    [1] -- [1] Form 
-    [1..*] -- created_with -- [1] Mean 
-    @subQuantityOf 
-    [1] -- [1] FormedMatter 
-    @subQuantityOf 
-    [1] -- [1] Matter 
-    [1] -- moves -- [0..1] Object 
-    [*] -- created_for -- [1..*] Goal 
-    @componentOf 
-    [1] -- [1] Nature 
-    @participation 
-    [1..*] -- [0..*] Change 
+    @componentOf [1] -- [1] PassivePotentiality 
 }
 
 role PassivePotentiality of relators  specializes Potentiality {
-    @mediation 
-    [1] -- [1] Object 
-    @mediation 
-    [1] -- [1] Matter 
-    @mediation 
-    [1] -- [1] LivingBeing 
-    @mediation 
-    [1] -- [1] PerceptiveFaculty 
-    @mediation 
-    [1] -- [1] Perception 
-    @mediation 
-    [1] -- [1] StateOfMind 
-    @mediation 
-    [1] -- [1] SublunaryMatter 
-    @mediation 
-    [1] -- [1] Thinking 
-    @mediation 
-    [1] -- [1] LivingBody 
+    [0..1] -- initiates_motion_in -- [0..1] ActivePotentiality 
+    [0..1] -- necessary_for -- [0..1] ForcedMotion 
 }
 
 role ActivePotentiality of relators  specializes Potentiality {
-    @mediation 
-    [1] -- [1] Object 
-    @mediation 
-    [1] -- [1] Matter 
-    @mediation 
-    [1] -- [1] LivingBeing 
-    @mediation 
-    [1] -- [1] PerceptiveFaculty 
-    @mediation 
-    [1] -- [1] Perception 
-    @mediation 
-    [1] -- [1] StateOfMind 
-    @mediation 
-    [1] -- [1] SublunaryMatter 
-    @mediation 
-    [1] -- [1] Thinking 
-    @mediation 
-    [1] -- [1] LivingBody 
+    [0..1] -- necessary_for -- [0..1] ForcedMotion 
 }
 
 event ForcedMotion specializes Change 
 
 event NaturalMotion specializes Change 
 
-kind Nature
+kind Nature{
+    [1] -- initiates -- [0..1] NaturalMotion 
+    [0..1] -- relates_to_Nature_XOR_ActiveObject -- [0..1] Cause 
+}
 
-mode InPlace
+mode InPlace{
+    @characterization [0..1] -- [1] Change 
+}
 
-mode InQuality
+mode InQuality{
+    @characterization [0..1] -- [1] Change 
+}
 
-mode InQuantity
+mode InQuantity{
+    @characterization [0..1] -- [1] Change 
+}
 
-mode InSubstance
+mode InSubstance{
+    @characterization [0..1] -- [1] Change 
+}
 
 kind Intelligible_Form
 
-role Passive_Intellect of functional-complexes  specializes Mind {
-    [1] -- counts -- [1] Time 
-}
+role Passive_Intellect of functional-complexes  specializes Mind 
 
 role ActiveIntellect of functional-complexes  specializes Mind {
+    @material [1] -- [1] Intelligible_Form 
+}
+
+kind Mind{
     [1] -- counts -- [1] Time 
 }
 
-kind Mind
-
 subkind BeforeAfterInPlace of intrinsic-modes  specializes BeforeAfterInChange {
-    @characterization 
-    [1] -- [1] Change 
+    @characterization [1] -- [1] ChangeInPlace 
 }
 
 mode BeforeAfter
 
-subkind BeforeAfterInChange of intrinsic-modes  specializes BeforeAfter 
+subkind BeforeAfterInChange of intrinsic-modes  specializes BeforeAfter {
+    @characterization [1] -- [1] Change 
+}
 
 event ChangeInPlace specializes Change 
 
@@ -407,25 +401,24 @@ kind EssentialParticularPrimarySubstance specializes Being {
     saidoff: boolean_  
     presentin: boolean_  
     particular: boolean_  
+    @componentOf [1] -- [1,,*] EssentialUniversalSecondarySubstance 
+    @material [1] -- [1..*] AccidentalParticularNonSubstantialParticular 
 }
 
 subkind Genus of functional-complexes  specializes SupremeGenusHighestKind {
-    // TODO: Tonto does not allow kinds as datatypes
-    // superiorGenus: Genus  
+    superiorGenus: Genus  
     answerToDifferentia: undefined  
+    [2..*] -- _is_superiorGenus -- [1] Genus 
 }
 
 mode Differentia{
     question: string_  
 }
 
-subkind Species of functional-complexes specializes Genus {
+subkind Species of functional-complexes  specializes Genus {
     essential: boolean_  
-    // TODO: Tonto does not allow kinds as datatypes
-    // superiorGenus: Genus  
+    superiorGenus: Genus  
     answerToDifferentia: undefined  
-    // TODO: Tonto does not allow kinds as datatypes
-    // [2..*] -- _is_superiorGenus -- [1] Genus 
 }
 
 kind SupremeGenusHighestKind
@@ -473,197 +466,161 @@ kind TheoreticalSciences specializes ScienceKnowledge
 category ScienceKnowledge of functional-complexes {
     universal: boolean_  
     necessarily_the_case: boolean_  
-    // known_causes: Cause  
+    known_causes: Cause  
 }
 
 kind CelestialSphere
 
-subkind Fire of functional-complexes  specializes Element, Element 
-
-subkind SublunaryBody of functional-complexes  specializes Object {
-    @characterization 
-    [1] -- [1] Form 
-    [1..*] -- created_with -- [1] Mean 
-    @subQuantityOf 
-    [1] -- [1] FormedMatter 
-    @subQuantityOf 
-    [1] -- [1] Matter 
-    [1] -- moves -- [0..1] Object 
-    [*] -- created_for -- [1..*] Goal 
-    @componentOf 
-    [1] -- [1] Nature 
-    @participation 
-    [1..*] -- [0..*] Change 
+subkind Fire of functional-complexes  specializes Element, Element {
+    @characterization [1] -- [1] Dry 
 }
 
-subkind Universe of functional-complexes  specializes Object {
-    @characterization 
-    [1] -- [1] Form 
-    [1..*] -- created_with -- [1] Mean 
-    @subQuantityOf 
-    [1] -- [1] FormedMatter 
-    @subQuantityOf 
-    [1] -- [1] Matter 
-    [1] -- moves -- [0..1] Object 
-    [*] -- created_for -- [1..*] Goal 
-    @componentOf 
-    [1] -- [1] Nature 
-    @participation 
-    [1..*] -- [0..*] Change 
-}
+subkind SublunaryBody of functional-complexes  specializes Object 
+
+subkind Universe of functional-complexes  specializes Object 
 
 subkind CelestialBody of functional-complexes  specializes Object {
-    @characterization 
-    [1] -- [1] Form 
-    [1..*] -- created_with -- [1] Mean 
-    @subQuantityOf 
-    [1] -- [1] FormedMatter 
-    @subQuantityOf 
-    [1] -- [1] Matter 
-    [1] -- moves -- [0..1] Object 
-    [*] -- created_for -- [1..*] Goal 
-    @componentOf 
-    [1] -- [1] Nature 
-    @participation 
-    [1..*] -- [0..*] Change 
+    @componentOf [1..*] -- [1] Universe 
+    [1..*] -- located_on -- [1] CelestialSphere 
 }
 
-subkind PracticalWisdom of intrinsic-modes  specializes IntelectualVirtue {
-    @characterization 
-    [1] -- [1] VirtuousActivity 
+subkind PracticalWisdom of intrinsic-modes  specializes IntelectualVirtue 
+
+subkind TheroraticalWisdom of intrinsic-modes  specializes IntelectualVirtue 
+
+subkind EthicalVirtue of intrinsic-modes  specializes Virtue 
+
+subkind Pleasure of functional-complexes  specializes SubordinateGoal 
+
+subkind IntelectualVirtue of intrinsic-modes  specializes Virtue 
+
+subkind Wealth of functional-complexes  specializes SubordinateGoal 
+
+subkind Health of functional-complexes  specializes SubordinateGoal 
+
+mode GoldenMean{
+    @characterization [1] -- [1] Virtue 
 }
 
-subkind TheroraticalWisdom of intrinsic-modes  specializes IntelectualVirtue {
-    @characterization 
-    [1] -- [1] VirtuousActivity 
+mode Virtue{
+    @characterization [1] -- [1] VirtuousActivity 
 }
-
-subkind EthicalVirtue of intrinsic-modes  specializes Virtue {
-    @characterization 
-    [1] -- [1] VirtuousActivity 
-}
-
-subkind Pleasure of functional-complexes  specializes SubordinateGoal {
-    [*] -- promotes -- [1] Happiness 
-}
-
-subkind IntelectualVirtue of intrinsic-modes  specializes Virtue {
-    @characterization 
-    [1] -- [1] VirtuousActivity 
-}
-
-subkind Wealth of functional-complexes  specializes SubordinateGoal {
-    [*] -- promotes -- [1] Happiness 
-}
-
-subkind Health of functional-complexes  specializes SubordinateGoal {
-    [*] -- promotes -- [1] Happiness 
-}
-
-mode GoldenMean
-
-mode Virtue
 
 kind VirtuousActivity
 
-subkind SubordinateGoal of functional-complexes  specializes Goal 
-
-subkind HighestGoal of functional-complexes  specializes Goal 
-
-kind Person
-
-subkind WeakPerson of functional-complexes  specializes IncontinentPerson {
-    [1] -- sometimes_does -- [0..*] VirtuousActivity 
-    [1] -- has -- [1..*] Goal 
-    @material 
-    [1] -- [1..*] VirtuousActivity 
+subkind SubordinateGoal of functional-complexes  specializes Goal {
+    [*] -- promotes --  Happiness 
 }
 
-subkind ImpetuousPerson of functional-complexes  specializes IncontinentPerson {
-    [1] -- sometimes_does -- [0..*] VirtuousActivity 
-    [1] -- has -- [1..*] Goal 
-    @material 
-    [1] -- [1..*] VirtuousActivity 
+subkind HighestGoal of functional-complexes  specializes Goal {
+    [1] -- is_the -- [1] Happiness 
 }
+
+kind Person{
+    [1] -- has -- [1..*] Goal 
+    @material [1] -- [1..*] VirtuousActivity 
+}
+
+subkind WeakPerson of functional-complexes  specializes IncontinentPerson 
+
+subkind ImpetuousPerson of functional-complexes  specializes IncontinentPerson 
 
 subkind EvilPerson of functional-complexes  specializes Person {
-    mind: undefined
+    mind: undefined  
     desire: undefined  
     rulingFaculty: undefined  
-
-    // [1] -- has -- [1..*] Goal
-    @material 
-    [1] -- [1..*] VirtuousActivity 
 }
 
 subkind VirtuousPerson of functional-complexes  specializes Person {
     mind: undefined  
     desire: undefined  
     rulingFaculty: undefined  
-    @stereotype
-    [1] -- has -- [1..*] Goal 
-    @material 
-    [1] -- [1..*] VirtuousActivity 
+    [1] -- always_does -- [1..*] VirtuousActivity 
+    @characterization [1] -- [1] Virtue 
 }
 
 subkind IncontinentPerson of functional-complexes  specializes Person {
     mind: undefined  
     desire: undefined  
     rulingFaculty: undefined  
-    @stereotype
-    [1] -- has -- [1..*] Goal 
-    @material 
-    [1] -- [1..*] VirtuousActivity 
+    [1] -- sometimes_does -- [0..*] VirtuousActivity 
 }
 
 subkind ContinentPerson of functional-complexes  specializes Person {
     mind: undefined  
     desire: undefined  
     rulingFaculty: undefined  
-
-    // TODO: Error on relation when missing stereotype
-    @stereotype
-    [1] -- has -- [1..*] Goal 
-    @material 
-    [1] -- [1..*] VirtuousActivity 
+    [1] -- generally_does -- [1..*] VirtuousActivity 
 }
 
-kind Soul
+kind Soul{
+    @mediation [1] -- [1] Actuality 
+    @componentOf [1] -- [1] LivingBeing 
+}
 
 kind LivingBody{
     exist: boolean_  
     real: boolean_  
+    [1] -- forms_acts -- [1] Soul 
+    @componentOf [1] -- [1] LivingBeing 
 }
 
 kind LivingBeing
 
 kind ObjectOfPerception
 
-kind PerceptiveFaculty
+kind PerceptiveFaculty{
+    @material [1] -- acts_upon_enforms -- [1] ObjectOfPerception 
+}
 
-relator Perception
+relator Perception{
+    @mediation [1] -- [1] PerceptiveFaculty 
+    @mediation [1] -- [1] ObjectOfPerception 
+}
 
-kind ObjectOfTought
+kind ObjectOfTought{
+    @material [0..*] -- acts_upon_enforms -- [0..*] StateOfMind 
+}
 
 kind StateOfMind
 
-relator Thinking
-
-role DifferentiaForGenus of intrinsic-modes  specializes Differentia 
-
-role DifferentiaForSpecies of intrinsic-modes  specializes Differentia 
-
-kind Reproduction
-
-kind Nutrition
-
-kind Desire
-
-subkind Particular of functional-complexes  specializes Species {
-    [2..*] -- _is_superiorGenus -- [1] Genus 
+relator Thinking{
+    @mediation [1] -- [1] StateOfMind 
+    @mediation [1] -- [1] ObjectOfTought 
+    @mediation [1] -- [1] ActiveIntellect 
+    @mediation [0..*] -- [1] Intelligible_Form 
 }
 
-kind Happiness
+role DifferentiaForGenus of intrinsic-modes  specializes Differentia {
+    @characterization [1] -- [1] Genus 
+}
+
+role DifferentiaForSpecies of intrinsic-modes  specializes Differentia {
+    @characterization [1] -- [1] Species 
+}
+
+kind Reproduction{
+    @componentOf [1] -- [1] CommonSense 
+}
+
+kind Nutrition{
+    @componentOf [1] -- [1] CommonSense 
+}
+
+kind Desire{
+    @componentOf [1] -- [1] PracticalMind 
+}
+
+subkind Particular of functional-complexes  specializes Species 
+
+kind Happiness{
+    [1] -- is_the -- [1..*] VirtuousActivity 
+}
 
 datatype string_
 datatype boolean_
+genset Yr3ab6GAqAAZSYs {
+    general Element
+    specifics Water
+}
+

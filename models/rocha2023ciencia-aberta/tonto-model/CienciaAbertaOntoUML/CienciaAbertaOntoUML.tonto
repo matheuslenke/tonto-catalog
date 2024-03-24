@@ -2,42 +2,70 @@
 package CienciaAbertaOntoUML
 
 role Dados_Abertos of collectives  specializes Dados {
-     -- utiliza --  Pesquisa_Reprodutvel_Aberta 
+     -- tem --  Cincia_Aberta 
+    @mediation [1..*] -- [1..*] Utilizao_Aberta 
 }
 
-role Acesso_Aberto of functional-complexes  specializes Acesso 
+role Acesso_Aberto of functional-complexes  specializes Acesso {
+     -- tem --  Cincia_Aberta 
+    @mediation [1..*] -- [1..*] Utilizao_Aberta 
+}
 
 kind Pesquisa
 
 subkind Pesquisa_Reprodutvel of functional-complexes  specializes Pesquisa 
 
-role Pesquisa_Reprodutvel_Aberta of functional-complexes  specializes Pesquisa_Reprodutvel 
+role Pesquisa_Reprodutvel_Aberta of functional-complexes  specializes Pesquisa_Reprodutvel {
+    @mediation [1..*] -- [1..*] Utilizao_Aberta 
+     -- gera --  Cincia_Aberta 
+     -- produz --  Documento 
+}
 
 phase Licenciamento_Proprietrio of functional-complexes  specializes Licenciamento 
 
-collective Dados specializes Preservao_Digital 
+collective Dados specializes Preservao_Digital {
+     -- utiliza --  Pesquisa_Reprodutvel_Aberta 
+}
 
 kind Acesso
 
-kind Avaliao_Cincia_Aberta
+kind Avaliao_Cincia_Aberta{
+     -- faz_parte --  Cincia_Aberta 
+     -- avalia --  Pesquisa_Reprodutvel_Aberta 
+}
 
-kind Cincia_Aberta specializes Cincia 
+kind Cincia_Aberta specializes Cincia {
+     -- tem --  Ferramenta_Aberta 
+     -- tem --  Preservao_Digital 
+     -- tem --  Inovao_Aberta 
+}
 
 kind Ferramenta specializes Preservao_Digital 
 
-role Ferramenta_Aberta of functional-complexes  specializes Ferramenta 
+role Ferramenta_Aberta of functional-complexes  specializes Ferramenta {
+    @mediation [1..*] -- [1..*] Utilizao_Aberta 
+     --  Inovao_Aberta 
+}
 
-role Educao_Aberta of functional-complexes  specializes Educao 
+role Educao_Aberta of functional-complexes  specializes Educao {
+     -- tem --  Cincia_Aberta 
+    @mediation [1..*] -- [1..*] Utilizao_Aberta 
+}
 
 kind Educao
 
-role Polticas_Cincia_Aberta of collectives  specializes Polticas 
+role Polticas_Cincia_Aberta of collectives  specializes Polticas {
+     -- faz_parte --  Cincia_Aberta 
+    @mediation [1..*] -- [1..*] Utilizao_Aberta 
+}
 
 collective Polticas
 
 kind Licenciamento
 
-kind Cincia_Cidad specializes Cincia 
+kind Cincia_Cidad specializes Cincia {
+     --  Cincia_Aberta 
+}
 
 category Cincia of functional-complexes 
 
@@ -47,7 +75,26 @@ mixin Preservao_Digital of intrinsic-modes
 
 phase Licenciamento_Aberto of functional-complexes  specializes Licenciamento 
 
-relator Utilizao_Aberta
+relator Utilizao_Aberta{
+     --  Licenciamento_Aberto 
+}
 
-mixin Inovao_Aberta of intrinsic-modes 
+mixin Inovao_Aberta of intrinsic-modes {
+     --  Pesquisa_Reprodutvel_Aberta 
+}
+
+genset disjoint {
+    general Cincia
+    specifics Cincia_Cidad, Cincia_Aberta
+}
+
+genset disjoint_complete {
+    general Licenciamento
+    specifics Licenciamento_Proprietrio, Licenciamento_Aberto
+}
+
+genset disjoint {
+    general Preservao_Digital
+    specifics Dados, Ferramenta, Documento
+}
 

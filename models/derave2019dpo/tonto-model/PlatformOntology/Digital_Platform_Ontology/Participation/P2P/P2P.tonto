@@ -1,96 +1,52 @@
-import PlatformOntology
+import GDPO_part_1
+import Registration
+import GDPO_User_Roles
+import Airbnb
+import Uber_eats
+import GDPO_Interaction
+import Review_System
 
 package P2P
 
 event Manual_Affiliation_Check specializes Platform_Company_Action {
-    @participation 
-    [0..*] -- performed_by -- [1] Platform_Company 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    [1..*] -- is_part_of -- [1] ManuallyChecked_Affiliation_Action 
 }
 
 event Automated_Affiliation_Action specializes User_Affiliation_Action, Registration_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1..*] -- performed_by -- [1] Registered_User 
-    @creation 
-    [1] -- creates -- [1] Registration 
-    @participation 
-    [1] -- performed_by -- [1] Uber_Eats_Customer 
-    @participation 
-    [1] -- performed_by -- [1] Uber_Eats_Restaurant 
-    @participation 
-    [1] -- collects -- [1..*] Personal_Data 
+    @participation [1..*] -- performed_by -- [1] Peer_User 
+    @participation [1] -- performed_by -- [1] Airbnb_Homeowner 
+    @participation [1] -- performed_by -- [1] Airbnb_Home_Seeker 
+    @participation [1] -- performed_by -- [1] Uber_Eats_Rider 
 }
 
 event ManuallyChecked_Affiliation_Action specializes User_Affiliation_Action, Platform_Company_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [0..*] -- performed_by -- [1] Platform_Company 
+    @participation [1..*] -- performed_by -- [1] NonPeer_User 
 }
 
-roleMixin Peer_Creator of functional-complexes  specializes Peer_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-}
+roleMixin Peer_Creator of functional-complexes  specializes Peer_User 
 
-roleMixin Peer_Consumer of functional-complexes  specializes Peer_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Peer_Action 
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
-}
+roleMixin Peer_Consumer of functional-complexes  specializes Peer_User 
 
 roleMixin Peer_User of functional-complexes  specializes Platform_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+    @participation [1..*] -- performed_by -- [0..*] Peer_Action 
 }
 
-roleMixin NonPeer_User of functional-complexes  specializes Platform_User {
-    @participation 
-    [1..*] -- performed_by -- [0..*] Offline_Action 
-    [*] -- [*] Review_Creation 
-    @memberOf 
-    [1..*] -- is_part_of -- [1..*] Target_Platform_User_Community 
-    [1] -- can_initiate -- [0..1] User_Affiliation_Action 
+roleMixin NonPeer_User of functional-complexes  specializes Platform_User 
+
+event Peer_Action specializes User_Action 
+
+genset vSzbTa6E6wQKjxXt {
+    general User_Affiliation_Action
+    specifics ManuallyChecked_Affiliation_Action, Automated_Affiliation_Action
 }
 
-event Peer_Action specializes User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+genset dQvQDe6DAAAAS3 {
+    general Peer_User
+    specifics Peer_Creator, Peer_Consumer
+}
+
+genset ChaxDe6DAAAAU2M {
+    general Platform_User
+    specifics NonPeer_User, Peer_User
 }
 

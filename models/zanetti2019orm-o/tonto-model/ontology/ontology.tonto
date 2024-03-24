@@ -5,92 +5,86 @@ subkind Instance_Variable
 
 kind Class
 
-relator Relationship_Mapping
+relator Relationship_Mapping{
+    [0..1] -- [1] Relationship_Mapping 
+    @mediation [0..1] -- [1] Instance_Variable 
+}
 
 role Entity_Class of functional-complexes  specializes Class 
 
-relator Class_Mapping
+relator Class_Mapping{
+    @mediation [1..*] -- [1] Entity_Table 
+    @mediation [1] -- [1] Entity_Class 
+}
 
-role Entity_Table of functional-complexes  specializes Table 
+role Entity_Table of functional-complexes  specializes Table {
+    [0..1] -- directly_related_to -- [1] Entity_Class 
+}
 
 kind Table
 
-relator One_To_One_Relationship_Mapping specializes Relationship_Mapping {
-    [0..1] -- [1] Relationship_Mapping 
-    @mediation 
-    [0..1] -- [1] Instance_Variable 
-}
+relator One_To_One_Relationship_Mapping specializes Relationship_Mapping 
 
 relator One_To_Many_Relationship_Mapping specializes Relationship_Mapping {
-    [0..1] -- [1] Relationship_Mapping 
-    @mediation 
-    [0..1] -- [1] Instance_Variable 
+    @mediation [1] -- [0..1] Relationship_Association_Table 
 }
 
-relator Many_To_One_Relationship_Mapping specializes Relationship_Mapping {
-    [0..1] -- [1] Relationship_Mapping 
-    @mediation 
-    [0..1] -- [1] Instance_Variable 
-}
+relator Many_To_One_Relationship_Mapping specializes Relationship_Mapping 
 
 relator Many_to_Many_Relationship_Mapping specializes Relationship_Mapping {
-    [0..1] -- [1] Relationship_Mapping 
-    @mediation 
-    [0..1] -- [1] Instance_Variable 
+    @mediation [1] -- [1] Relationship_Association_Table 
 }
 
 role Relationship_Association_Table of functional-complexes  specializes Table 
 
 subkind Extendable_Class of functional-complexes  specializes Class 
 
-role Spuerclass of functional-complexes  specializes Extendable_Class 
+role Spuerclass of functional-complexes  specializes Extendable_Class {
+    [1..*] -- [1..*] Inheritance 
+}
 
-relator Inheritance
+relator Inheritance{
+    [1] -- [1] Subclass 
+}
 
 role Subclass of functional-complexes  specializes Class 
 
 role Entity_Subclass of functional-complexes  specializes Subclass 
 
-relator Inheritance_Mapping
-
-role Entity_Superclass of functional-complexes  specializes Spuerclass {
-    [1..*] -- [1..*] Inheritance 
+relator Inheritance_Mapping{
+    @mediation [1..*] -- [1..*] Entity_Superclass 
+    @mediation [1] -- [1] Entity_Subclass 
 }
 
+role Entity_Superclass of functional-complexes  specializes Spuerclass 
+
 relator Single_Table_Inheritance_Mapping specializes Inheritance_Mapping {
-    @mediation 
-    [1..*] -- [1..*] Entity_Superclass 
-    @mediation 
-    [1] -- [1] Entity_Subclass 
+    @mediation [1..*] -- [1] Multiple_Entities_Table 
 }
 
 relator Table_per_Class_Inheritance_Mapping specializes Inheritance_Mapping {
-    @mediation 
-    [1..*] -- [1..*] Entity_Superclass 
-    @mediation 
-    [1] -- [1] Entity_Subclass 
+    @mediation [1] -- [2..*] Single_Entity_Table 
 }
 
 relator Table_per_Concrete_Class_Inheritance_Mapping specializes Inheritance_Mapping {
-    @mediation 
-    [1..*] -- [1..*] Entity_Superclass 
-    @mediation 
-    [1] -- [1] Entity_Subclass 
+    @mediation [1] -- [0..1] Single_Entity_Table 
+    @mediation [1] -- [1..*] Multiple_Entities_Table 
 }
 
-role Single_Entity_Table of functional-complexes  specializes Entity_Table {
-    [0..1] -- directly_related_to -- [1] Entity_Class 
-}
+role Single_Entity_Table of functional-complexes  specializes Entity_Table 
 
-role Multiple_Entities_Table of functional-complexes  specializes Entity_Table {
-    [0..1] -- directly_related_to -- [1] Entity_Class 
-}
+role Multiple_Entities_Table of functional-complexes  specializes Entity_Table 
 
 role Mapped_Variable specializes Instance_Variable 
 
-quality Nullability
+quality Nullability{
+    @characterization [1] -- [1] Mapped_Variable 
+}
 
-relator Variable_Mapping
+relator Variable_Mapping{
+    @mediation [0..1] -- [1] Mapped_Variable 
+    @mediation [1] -- [1..*] Column 
+}
 
 kind Column
 
@@ -99,20 +93,26 @@ role Primary_Key_Column of functional-complexes  specializes Column
 role Foreign_Key_Column of functional-complexes  specializes Column 
 
 relator Foreign_Key_Mapping specializes Variable_Mapping {
-    @mediation 
-    [0..1] -- [1] Mapped_Variable 
-    @mediation 
-    [1] -- [1..*] Column 
+    @mediation [1..*] -- [1] Mapped_Foreign_Key 
+    @mediation [1] -- [1..*] Foreign_Key_Column 
 }
 
 relator Primary_Key_Mapping specializes Variable_Mapping {
-    @mediation 
-    [0..1] -- [1] Mapped_Variable 
-    @mediation 
-    [1] -- [1..*] Column 
+    @mediation [1] -- [1..*] Mapped_Primary_Key 
+    @mediation [1] -- [1..*] Primary_Key_Column 
 }
 
 role Mapped_Primary_Key specializes Mapped_Variable 
 
 role Mapped_Foreign_Key specializes Mapped_Variable 
+
+genset SH5Dzv6GAqAABQoy {
+    general Inheritance_Mapping
+    specifics Table_per_Concrete_Class_Inheritance_Mapping, Table_per_Class_Inheritance_Mapping, Single_Table_Inheritance_Mapping
+}
+
+genset WTHDzv6GAqAABQpg {
+    general Table
+    specifics Relationship_Association_Table, Entity_Table
+}
 

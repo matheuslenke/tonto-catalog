@@ -3,9 +3,27 @@ Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​
 <manifestation, [> may appears as a prefix path in all these alternatives.
 See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
 For Further details.
-- Total of errors: 0
-Ambiguous Alternatives Detected: <16, 24> in <OR1> inside <RelationStereotype​> Rule,
-<manifestation, [> may appears as a prefix path in all these alternatives.
-See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
-For Further details.
+Could not create relation named ((No name)) between Capability and Object because one or both of them was not created.
+Could not create relation named (results_from) between Capability and Disposition because one or both of them was not created.
+Could not create relation named (has_part) between Capability and Capability because one or both of them was not created.
+Could not create relation named (is_disabled_by) between Capability and Capability because one or both of them was not created.
+Could not create relation named (is_enabled_by) between Capability and Capability because one or both of them was not created.
+Could not create relation named (is_changed_by) between Capability and Capability because one or both of them was not created.
+Could not create relation named (is_reciprocal_to) between Capability and Disposition because one or both of them was not created.
+Could not create relation named (is_additional_to) between Capability and Disposition because one or both of them was not created.
+Could not create relation named ((No name)) between Capability and Capability_Manifestation because one or both of them was not created.
+Could not create relation named ((No name)) between Object and Object because one or both of them was not created.
+Could not create relation named ((No name)) between Agent and Social_Agent because one or both of them was not created.
+Warning: Could not create specializations for Class Capability             because it was not found in context module competence_ontology)
+Warning: Could not create specializations for Class Social_Agent             because it was not found in context module competence_ontology)
+Warning: Could not create specializations for Class Physical_Agent             because it was not found in context module competence_ontology)
+Warning: Could not create specializations for Class Agent             because it was not found in context module competence_ontology)
+Warning: Could not create specialization between class Person and 
+                undefined not found in context module competence_ontology)
+Warning: Could not create specialization between class Human_Capability and 
+                undefined not found in context module competence_ontology)
+Warning: Could not create specialization between class Social_Capability and 
+                undefined not found in context module capability_ontology)
+Total of errors: 0
+undefined
 Validation finished

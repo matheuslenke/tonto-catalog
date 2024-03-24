@@ -1,0 +1,14 @@
+
+package 2_Rose_color_changing
+
+kind Flower
+
+subkind Rose of functional-complexes  specializes Flower 
+
+quality Color
+
+subkind Flower_Color of qualities  specializes Color {
+    @characterization [1] -- inheres_in -- [1] Flower 
+    [0..*] -- has_value -- [1] Flower_Color_Values 
+}
+

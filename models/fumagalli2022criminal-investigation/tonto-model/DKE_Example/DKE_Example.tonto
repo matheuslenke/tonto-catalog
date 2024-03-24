@@ -5,22 +5,42 @@ kind Person
 
 role Detective of functional-complexes  specializes Person 
 
-relator Interrogation
+relator Interrogation{
+    @mediation [*] -- contributes_to -- [1] Criminal_Investigation 
+    @mediation [*] -- conducted_by -- [1] Detective 
+    @mediation [1..*] -- questions -- [1] Witness 
+}
 
 role Witness of functional-complexes  specializes Person 
 
 role Suspect of functional-complexes  specializes Person 
 
-relator Criminal_Investigation
+relator Criminal_Investigation{
+    @mediation [1..*] -- involves_suspect -- [1..*] Suspect 
+    @mediation [1] -- is_led_by -- [1] Lead_Detective 
+    @mediation [1..*] -- involves_detective -- [1..*] Detective 
+    @mediation [1..*] -- involves_witness -- [*] Witness 
+}
 
 role Lead_Detective of functional-complexes  specializes Detective 
 
-role Senior_Detective of functional-complexes  specializes Detective 
+role Senior_Detective of functional-complexes  specializes Detective {
+    @material [1..*] -- manages -- [2..*] Junior_Detective 
+}
 
-role Junior_Detective of functional-complexes  specializes Detective 
+role Junior_Detective of functional-complexes  specializes Detective {
+    @material [1..*] -- teams_up -- [1..*] Junior_Detective 
+}
 
-role Superintendent of functional-complexes  specializes Senior_Detective, Lead_Detective {
-    @material 
-    [1..*] -- manages -- [2..*] Junior_Detective 
+role Superintendent of functional-complexes  specializes Senior_Detective, Lead_Detective 
+
+genset Seniority {
+    general Detective
+    specifics Junior_Detective, Senior_Detective
+}
+
+genset PersonRole {
+    general Person
+    specifics Witness, Detective, Suspect
 }
 

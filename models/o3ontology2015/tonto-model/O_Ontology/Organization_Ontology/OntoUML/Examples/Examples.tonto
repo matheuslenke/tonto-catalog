@@ -1,0 +1,21 @@
+import OntoUML
+import Organization_Ontology
+
+package Examples
+
+role Analista_de_Pesquisa_Energtica of functional-complexes  specializes Effective_Organization_Member 
+
+role Analista_de_Gesto_Corporativa of functional-complexes  specializes Effective_Organization_Member 
+
+role Analista_de_Sistemas of functional-complexes  specializes Allocated_Unit_Member 
+
+role Analista_Ambiental of functional-complexes  specializes Allocated_Unit_Member 
+
+role Analista_de_Desenvolvimento_Regional of functional-complexes  specializes Allocated_Unit_Member 
+
+role Gerente_de_Riscos of functional-complexes  specializes Missionary_Unit_Member 
+
+role Gerente_de_Escopo of functional-complexes  specializes Missionary_Unit_Member 
+
+role Gerente_de_Projeto of functional-complexes  specializes Missionary_Unit_Member 
+

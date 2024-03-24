@@ -1,78 +1,82 @@
-import Model
-import Class
 import Core
+import Class
 
 package Class_Member
 
 subkind Method_Variable of functional-complexes  specializes Variable 
 
 subkind Overridable_Method of functional-complexes  specializes Method_Member_Function {
-    @componentOf 
-    [0..*] -- [1] Class 
+    @componentOf [0..*] -- [1] Extendable_Class 
 }
 
-subkind NonOverridable_Method of functional-complexes  specializes Method_Member_Function {
-    @componentOf 
-    [0..*] -- [1] Class 
-}
+subkind NonOverridable_Method of functional-complexes  specializes Method_Member_Function 
 
-subkind Class_Method of functional-complexes  specializes NonOverridable_Method, Concrete_Method {
-    @componentOf 
-    [0..*] -- [1] Class 
-}
+subkind Class_Method of functional-complexes  specializes NonOverridable_Method, Concrete_Method 
 
-subkind Instance_Method of functional-complexes  specializes Concrete_Method {
-    @componentOf 
-    [0..*] -- [1] Class 
-}
+subkind Instance_Method of functional-complexes  specializes Concrete_Method 
 
 subkind Abstract_Method of functional-complexes  specializes Overridable_Method, Method_Member_Function {
-    @componentOf 
-    [0..*] -- [1] Extendable_Class 
-    @componentOf 
-    [0..*] -- [1] Class 
+    @componentOf [0..*] -- [1] Abstract_Class 
 }
 
-subkind Concrete_Method of functional-complexes  specializes Method_Member_Function {
-    @componentOf 
-    [0..*] -- [1] Class 
+subkind Concrete_Method of functional-complexes  specializes Method_Member_Function 
+
+subkind Generic_Method of functional-complexes  specializes Method_Member_Function 
+
+subkind Class_Variable of functional-complexes  specializes Attribute_Member_Variable 
+
+subkind Instance_Variable of functional-complexes  specializes Attribute_Member_Variable 
+
+subkind Parameter_Variabe of functional-complexes  specializes Method_Variable {
+    @componentOf [0..*] -- [1] Method_Member_Function 
 }
 
-subkind Generic_Method of functional-complexes  specializes Method_Member_Function {
-    @componentOf 
-    [0..*] -- [1] Class 
+subkind Local_Variable of functional-complexes  specializes Method_Variable {
+    @componentOf [0..*] -- [1] Block 
 }
 
-subkind Class_Variable of functional-complexes  specializes Attribute_Member_Variable {
-    @componentOf 
-    [0..*] -- [1] Class 
+kind Type_Parameter{
+    @componentOf [1..*] -- [1] Generic_Method 
 }
 
-subkind Instance_Variable of functional-complexes  specializes Attribute_Member_Variable {
-    @componentOf 
-    [0..*] -- [1] Class 
+kind Block{
+    @componentOf [1] -- [1] Concrete_Method 
+    @componentOf [0..*] -- [0..1] Block 
 }
 
-subkind Parameter_Variabe of functional-complexes  specializes Method_Variable 
+subkind Constructor_Method of functional-complexes  specializes NonOverridable_Method, Instance_Method 
 
-subkind Local_Variable of functional-complexes  specializes Method_Variable 
+subkind Destructor_Method of functional-complexes  specializes Instance_Method 
 
-kind Type_Parameter
+subkind Accessor_Method of functional-complexes  specializes Instance_Method 
 
-kind Block
-
-subkind Constructor_Method of functional-complexes  specializes NonOverridable_Method, Instance_Method {
-    @componentOf 
-    [0..*] -- [1] Class 
+genset Sharing {
+    general Attribute_Member_Variable
+    specifics Instance_Variable, Class_Variable
 }
 
-subkind Destructor_Method of functional-complexes  specializes Instance_Method {
-    @componentOf 
-    [0..*] -- [1] Class 
+genset nejYe36DAAAAS9_ {
+    general Method_Variable
+    specifics Parameter_Variabe, Local_Variable
 }
 
-subkind Accessor_Method of functional-complexes  specializes Instance_Method {
-    @componentOf 
-    [0..*] -- [1] Class 
+genset Override {
+    general Method_Member_Function
+    specifics Overridable_Method, NonOverridable_Method
+}
+
+genset Implementation {
+    general Method_Member_Function
+    specifics Concrete_Method, Abstract_Method
+}
+
+genset nub4e36DAAAATB6 {
+    general Instance_Method
+    specifics Destructor_Method, Constructor_Method, Accessor_Method
+}
+
+genset Parametrization {
+    general Method_Member_Function
+    specifics Generic_Method
 }
 

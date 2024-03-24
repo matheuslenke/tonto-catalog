@@ -1,50 +1,36 @@
-import ontology
 
 package COVER
 
-event Value_Event
+event Value_Event{
+    [2..*] -- [1..*] Value_Experience 
+    @bringsAbout [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
+}
 
 event Value_Experience
 
 situation Resulting_Situation
 
-situation Threatening_Situation specializes Resulting_Situation 
+situation Threatening_Situation specializes Resulting_Situation {
+    @triggers [1..*] -- contributes_to_trigger_threat_event -- [0..*] Threat_Event 
+}
 
 event Threat_Event specializes Trigger_Event, Risk_Event {
-    @historicalDependence 
-    [1..*] -- causes_impact -- [1..*] Impact_Event 
-    [2..*] -- [1..*] Value_Experience 
-    @bringsAbout 
-    [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
+    @historicalDependence [1..*] -- causes_loss -- [0..*] Loss_Event 
 }
 
 event Trigger_Event specializes Value_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @bringsAbout 
-    [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
+    @historicalDependence [1..*] -- causes_impact -- [1..*] Impact_Event 
 }
 
-event Risk_Event specializes Value_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @bringsAbout 
-    [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
-}
+event Risk_Event specializes Value_Event 
 
-event Impact_Event specializes Value_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @bringsAbout 
-    [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
-}
+event Impact_Event specializes Value_Event 
 
 event Gain_Event specializes Impact_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @bringsAbout 
-    [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
+    [0..*] -- positively_impacts -- [1..*] Intention 
 }
 
 event Loss_Event specializes Impact_Event, Risk_Event {
-    [2..*] -- [1..*] Value_Experience 
-    @bringsAbout 
-    [0..*] -- brings_about_resulting_situation -- [1] Resulting_Situation 
+    [0..*] -- negatively_impact__hurts -- [1..*] Intention 
 }
 

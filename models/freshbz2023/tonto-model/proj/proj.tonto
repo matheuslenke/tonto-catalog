@@ -4,78 +4,57 @@ package proj
 quality date
 
 kind SportActivityPost specializes post {
-    @characterization 
-    [1] -- [1] rating 
-    @characterization 
-    [1] -- [1] date 
-    @componentOf 
-    [0..*] -- [1..*] image 
-    @componentOf 
-    [0..*] -- [1..*] video 
+    @componentOf [1..*] -- [1..*] sportEvent 
 }
 
 quality rating
 
-kind housingAdPost specializes post {
-    @characterization 
-    [1] -- [1] rating 
-    @characterization 
-    [1] -- [1] date 
-    @componentOf 
-    [0..*] -- [1..*] image 
-    @componentOf 
-    [0..*] -- [1..*] video 
+kind housingAdPost specializes post 
+
+subkind pub of qualities  specializes nearbyHouseFacilities 
+
+collective locationCollection{
+    @componentOf [0..*] -- [0..1] school 
+    @componentOf [0..*] -- [0..1] parkArea 
+    @componentOf [0..*] -- [0..1] pub 
+    @componentOf [0..*] -- [0..1] hospital 
 }
 
-subkind pub of qualities  specializes nearbyHouseFacilities {
-    @characterization 
-    [1] -- [1] houseLocation 
+quality nearbyHouseFacilities{
+    @characterization [1] -- [1] houseLocation 
 }
 
-collective locationCollection
-
-quality nearbyHouseFacilities
-
-kind house
+kind house{
+    @componentOf [1..*] -- [0..*] housingAdPost 
+    @characterization [1] -- [1..*] houseLocation 
+}
 
 subkind kitchenAmenity of functional-complexes  specializes amenity {
-    @characterization 
-    [1] -- [1] house 
+    @componentOf [1..*] -- [1] amenitiesCollection 
 }
 
 subkind bathroomAmenity of functional-complexes  specializes amenity {
-    @characterization 
-    [1] -- [1] house 
+    @componentOf [1..*] -- [1] amenitiesCollection 
 }
 
-subkind bedroomAmentity of functional-complexes  specializes amenity {
-    @characterization 
-    [1] -- [1] house 
+subkind bedroomAmentity of functional-complexes  specializes amenity 
+
+subkind school of qualities  specializes nearbyHouseFacilities 
+
+subkind hospital of qualities  specializes nearbyHouseFacilities 
+
+collective amenitiesCollection{
+    @componentOf [1..*] -- [1] bedroomAmentity 
+    @componentOf [0..*] -- [1] entertainmentAmentity 
 }
 
-subkind school of qualities  specializes nearbyHouseFacilities {
-    @characterization 
-    [1] -- [1] houseLocation 
+kind amenity{
+    @characterization [1] -- [1] house 
 }
 
-subkind hospital of qualities  specializes nearbyHouseFacilities {
-    @characterization 
-    [1] -- [1] houseLocation 
-}
+subkind entertainmentAmentity of functional-complexes  specializes amenity 
 
-collective amenitiesCollection
-
-kind amenity
-
-subkind entertainmentAmentity of functional-complexes  specializes amenity {
-    @characterization 
-    [1] -- [1] house 
-}
-
-subkind parkArea of qualities  specializes nearbyHouseFacilities {
-    @characterization 
-    [1] -- [1] houseLocation 
-}
+subkind parkArea of qualities  specializes nearbyHouseFacilities 
 
 subkind indoor of functional-complexes  specializes sportLocation 
 
@@ -89,7 +68,10 @@ subkind outdoor of functional-complexes  specializes sportLocation
 
 kind sportOrganization specializes organization 
 
-kind sportEvent specializes event_ 
+kind sportEvent specializes event_ {
+    @componentOf [1..*] -- [1..*] sportLocation 
+    @componentOf [1..*] -- [1..*] sportActivity 
+}
 
 category event_ of functional-complexes 
 
@@ -97,31 +79,58 @@ kind sportActivity
 
 subkind neutralSport of functional-complexes  specializes sportActivity 
 
-relator sportorganizationBoard
+relator sportorganizationBoard{
+    @mediation [1] -- [1] sportOrganization 
+}
 
-role sportOrganizationMember of functional-complexes  specializes person 
+role sportOrganizationMember of functional-complexes  specializes person {
+    @mediation [1..*] -- [1] sportorganizationBoard 
+}
 
 kind person
 
-quality label
+quality label{
+    @characterization [1] -- [1] post 
+}
 
-role teachingAssistant of functional-complexes  specializes person 
+role teachingAssistant of functional-complexes  specializes person {
+    @mediation [1] -- [1..*] universityBoard 
+    @mediation [0..*] -- [1] appRegistration 
+}
 
-role professor of functional-complexes  specializes person 
+role professor of functional-complexes  specializes person {
+    @mediation [1] -- [1..*] universityBoard 
+    @mediation [0..*] -- [1] appRegistration 
+}
 
 role user of functional-complexes  specializes person 
 
-relator universityBoard
+relator universityBoard{
+    @mediation [1] -- [1] university 
+}
 
 kind university specializes EducationalOrganization 
 
 category organization of functional-complexes 
 
-role phdStudent of functional-complexes  specializes person 
+role phdStudent of functional-complexes  specializes person {
+    @mediation [0..*] -- [1] appRegistration 
+    @mediation [1] -- [1..*] universityBoard 
+}
 
-relator appRegistration
+relator appRegistration{
+    @mediation [1] -- [1] user 
+}
 
-kind Profile specializes creativeWork 
+kind Profile specializes creativeWork {
+    @characterization [1] -- [1] profilePicture 
+    @characterization [1] -- [1] profileName 
+    @characterization [1] -- [1] profileEmail 
+    @characterization [1] -- [1] profileUserAge 
+    @characterization [1] -- [1] profileSpokenLanguage 
+    @characterization [1] -- [1] profileLearningLanguage 
+    @mediation [1..*] -- [1] ownProfileInteraction 
+}
 
 quality profilePicture
 
@@ -131,139 +140,126 @@ quality profileEmail
 
 quality profileUserAge
 
-quality housePrice
-
-quality houseNumOfOccupants
-
-quality numberOfRooms
-
-subkind houseLocation of functional-complexes  specializes location {
-    @characterization 
-    [1] -- [1] postalAddress 
-    @componentOf 
-    [1..*] -- [1] university 
+quality housePrice{
+    @characterization [1] -- [1] house 
 }
+
+quality houseNumOfOccupants{
+    @characterization [1] -- [1] house 
+}
+
+quality numberOfRooms{
+    @characterization [1] -- [1] house 
+}
+
+subkind houseLocation of functional-complexes  specializes location 
 
 quality profileSpokenLanguage
 
-role profileInteractor of functional-complexes  specializes user 
-
-relator othersProfileInteraction
-
-subkind profileSearch of relators  specializes othersProfileInteraction {
-    @mediation 
-    [0..*] -- [1] Profile 
+role profileInteractor of functional-complexes  specializes user {
+    @mediation [0..*] -- [1..*] othersProfileInteraction 
+    @mediation [1..*] -- [1..*] ownProfileInteraction 
 }
 
-subkind profileView of relators  specializes othersProfileInteraction {
-    @mediation 
-    [0..*] -- [1] Profile 
+relator othersProfileInteraction{
+    @mediation [0..*] -- [1] Profile 
 }
+
+subkind profileSearch of relators  specializes othersProfileInteraction 
+
+subkind profileView of relators  specializes othersProfileInteraction 
 
 quality profileLearningLanguage
 
-subkind profileMessage of relators  specializes othersProfileInteraction {
-    @mediation 
-    [0..*] -- [1] Profile 
-}
+subkind profileMessage of relators  specializes othersProfileInteraction 
 
 kind discountPost specializes post {
-    @characterization 
-    [1] -- [1] rating 
-    @characterization 
-    [1] -- [1] date 
-    @componentOf 
-    [0..*] -- [1..*] image 
-    @componentOf 
-    [0..*] -- [1..*] video 
+    @componentOf [1..*] -- [1..*] product 
 }
 
-kind product
-
-subkind food of functional-complexes  specializes product {
-    @componentOf 
-     [1] -- [1]  store 
+kind product{
+    @componentOf  --  store 
 }
 
-subkind services of functional-complexes  specializes product {
-    @componentOf 
-     [1] -- [1] store 
-}
+subkind food of functional-complexes  specializes product 
 
-subkind clothing of functional-complexes  specializes product {
-    @componentOf 
-     [1] -- [1]  store 
-}
+subkind services of functional-complexes  specializes product 
 
-phase productDiscount of functional-complexes  specializes product {
-    @componentOf 
-     [1] -- [1]  store 
-}
+subkind clothing of functional-complexes  specializes product 
 
-phase productRegularPrice of functional-complexes  specializes product {
-    @componentOf 
-     [1] -- [1]  store 
-}
+phase productDiscount of functional-complexes  specializes product 
+
+phase productRegularPrice of functional-complexes  specializes product 
 
 kind store specializes organization 
 
 subkind storeLocation of functional-complexes  specializes location {
-    @characterization 
-    [1] -- [1] postalAddress 
-    @componentOf 
-    [1..*] -- [1] university 
+    @characterization [1] -- [0..*] store 
 }
 
-kind location
+kind location{
+    @characterization [1] -- [1] postalAddress 
+    @componentOf [1..*] -- [1] university 
+}
 
 quality postalAddress
 
-role postAuthor of functional-complexes  specializes user 
-
-category post of functional-complexes 
-
-role postInteractor of functional-complexes  specializes user 
-
-relator postCreation
-
-relator postInteraction
-
-subkind postRating of relators  specializes postInteraction {
-    @mediation 
-    [0..*] -- [1..*] post 
+role postAuthor of functional-complexes  specializes user {
+    @mediation [1..*] -- [1..*] postCreation 
 }
 
-subkind postSearch of relators  specializes postInteraction {
-    @mediation 
-    [0..*] -- [1..*] post 
+category post of functional-complexes {
+    @characterization [1] -- [1] rating 
+    @characterization [1] -- [1] date 
+    @componentOf [0..*] -- [1..*] image 
+    @componentOf [0..*] -- [1..*] video 
 }
 
-subkind postEditing of relators  specializes postCreation {
-    @mediation 
-    [1..*] -- [1..*] post 
+role postInteractor of functional-complexes  specializes user {
+    @mediation [1..*] -- [1..*] postInteraction 
 }
 
-subkind postDeletion of relators  specializes postCreation {
-    @mediation 
-    [1..*] -- [1..*] post 
+relator postCreation{
+    @mediation [1..*] -- [1..*] post 
 }
 
-subkind postComment of relators  specializes postInteraction {
-    @mediation 
-    [0..*] -- [1..*] post 
+relator postInteraction{
+    @mediation [0..*] -- [1..*] post 
 }
 
-role masterStudent of functional-complexes  specializes person 
+subkind postRating of relators  specializes postInteraction 
 
-role bachelorStudent of functional-complexes  specializes person 
+subkind postSearch of relators  specializes postInteraction 
 
-quantity discountAmount
+subkind postEditing of relators  specializes postCreation 
+
+subkind postDeletion of relators  specializes postCreation 
+
+subkind postComment of relators  specializes postInteraction 
+
+role masterStudent of functional-complexes  specializes person {
+    @mediation [0..*] -- [1] appRegistration 
+    @mediation [1] -- [1..*] universityBoard 
+}
+
+role bachelorStudent of functional-complexes  specializes person {
+    @mediation [0..*] -- [1] appRegistration 
+    @mediation [1] -- [1..*] universityBoard 
+}
+
+quantity discountAmount{
+    @characterization [1] -- [1] productDiscount 
+}
 
 category EducationalOrganization of functional-complexes  specializes organization 
 
-kind text specializes creativeWork 
+kind text specializes creativeWork {
+    @componentOf [1..*] -- [1..*] post 
+}
 
-kind audio specializes creativeWork 
+kind audio specializes creativeWork {
+    @componentOf [0..*] -- [1..*] post 
+}
 
 kind image specializes creativeWork 
 
@@ -271,33 +267,21 @@ kind video specializes creativeWork
 
 category creativeWork of functional-complexes 
 
-subkind postLabeling of relators  specializes postCreation {
-    @mediation 
-    [1..*] -- [1..*] post 
+subkind postLabeling of relators  specializes postCreation 
+
+relator eventHostsBoard{
+    @mediation [1] -- [1] sportOrganization 
+    @mediation [1] -- [1..*] sportEvent 
 }
 
-relator eventHostsBoard
-
-relator ownProfileInteraction
-
-subkind ownProfileEditing of relators  specializes ownProfileInteraction {
-    @mediation 
-    [1..*] -- [1..*] profileInteractor 
-    @mediation 
-    [1..*] -- [1] Profile 
+relator ownProfileInteraction{
+    @mediation [1..*] -- [1..*] profileInteractor 
+    @mediation [1..*] -- [1] Profile 
 }
 
-subkind ownProfileView of relators  specializes ownProfileInteraction {
-    @mediation 
-    [1..*] -- [1..*] profileInteractor 
-    @mediation 
-    [1..*] -- [1] Profile 
-}
+subkind ownProfileEditing of relators  specializes ownProfileInteraction 
 
-subkind ownProfileDetetion of relators  specializes ownProfileInteraction, ownProfileInteraction {
-    @mediation 
-    [1..*] -- [1..*] profileInteractor 
-    @mediation 
-    [1..*] -- [1] Profile 
-}
+subkind ownProfileView of relators  specializes ownProfileInteraction 
+
+subkind ownProfileDetetion of relators  specializes ownProfileInteraction, ownProfileInteraction 
 

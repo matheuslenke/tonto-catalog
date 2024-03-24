@@ -1,4 +1,4 @@
-import PlatformOntology
+import FOAF
 
 package Customer_Type
 

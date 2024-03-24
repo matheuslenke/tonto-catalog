@@ -1,4 +1,3 @@
-import Model
 import SPO
 import SWO
 
@@ -7,52 +6,74 @@ package Core
 subkind ObjectOriented_Programming_Language of functional-complexes  specializes Programming_Language 
 
 subkind ObjectOriented_Source_Code of functional-complexes  specializes Source_Code {
-    [0..*] -- represented_in -- [1..*] Programming_Language 
-    [0..*] -- represented_in -- [1..*] Programming_Language 
-    [0..*] -- represented_in -- [1..*] Language 
+    [0..*] -- represented_by -- [1..*] ObjectOriented_Programming_Language 
+    [0..*] -- constituted_of -- [1..*] Physical_Module 
 }
 
-kind Module
+kind Module{
+    @componentOf [0..*] -- [0..1] Module 
+}
 
-quality Name
+quality Name{
+    @characterization [1] -- characterized_by -- [1] Named_Element 
+}
 
 category Named_Element of functional-complexes 
 
-quality Element_Visibility
+quality Element_Visibility{
+    @characterization [0..1] -- characterized_by -- [1] Named_Element 
+}
 
-kind Class specializes Named_Element, Type 
+kind Class specializes Named_Element, Type {
+    @componentOf [1..*] -- [1] Physical_Module 
+    [0..*] -- organized_in -- [1] Logical_Module 
+    [1] -- contains -- [0..*] Nesting 
+}
 
-category Member of functional-complexes 
+category Member of functional-complexes {
+    @componentOf [0..*] -- [1] Class 
+}
 
 kind Variable specializes Named_Element 
 
-quality Mutability
+quality Mutability{
+    @characterization [1] -- characterized_by -- [1] Variable 
+}
 
 subkind Primitive_Type specializes Type 
 
-subkind Physical_Module of functional-complexes  specializes Module {
-    @componentOf 
-    [0..*] -- [0..1] Module 
-}
+subkind Physical_Module of functional-complexes  specializes Module 
 
 category Type of functional-complexes 
 
-quality Return_Type
-
-subkind Logical_Module of functional-complexes  specializes Module {
-    @componentOf 
-    [0..*] -- [0..1] Module 
+quality Return_Type{
+    [0..*] -- refers_to -- [0..1] Type 
+    @characterization [0..1] -- characterized_by -- [1] Method_Member_Function 
 }
 
-kind Method_Member_Function specializes Member, Named_Element {
-    @componentOf 
-    [0..*] -- [1] Class 
+subkind Logical_Module of functional-complexes  specializes Module 
+
+kind Method_Member_Function specializes Member, Named_Element 
+
+subkind Attribute_Member_Variable of functional-complexes  specializes Member, Variable 
+
+quality Value_Type{
+    @characterization [0..1] -- characterized_by -- [1] Variable 
+    [0..*] -- refers_to -- [1] Type 
 }
 
-subkind Attribute_Member_Variable of functional-complexes  specializes Member, Variable {
-    @componentOf 
-    [0..*] -- [1] Class 
+genset o5Jzu36DAAAASU0 {
+    general Module
+    specifics Logical_Module, Physical_Module
 }
 
-quality Value_Type
+genset q3RLu36DAAAASXT {
+    general Named_Element
+    specifics Class, Variable, Method_Member_Function
+}
+
+genset lPGru36DAAAASZ5 {
+    general Type
+    specifics Primitive_Type, Class
+}
 

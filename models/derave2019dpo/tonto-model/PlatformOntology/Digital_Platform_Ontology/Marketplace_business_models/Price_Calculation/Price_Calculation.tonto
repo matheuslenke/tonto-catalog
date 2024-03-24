@@ -1,30 +1,33 @@
-import PlatformOntology
+import Price_Discovery
+import Price_set_by_Provider
+import Decentralized
+import Recurring
+import GDPO_part_1
+import GDPO_User_Roles
+import Airbnb
 
 package Price_Calculation
 
 subkind Paid_Price of intrinsic-modes  specializes Price 
 
 subkind FeatureBased_Price of intrinsic-modes  specializes Price_set_by_Provider {
-    [0..*] -- has -- [1] Listing 
-    [1] -- has -- [0..*] Time_Slot 
-    @subQuantityOf 
-    [1..*] -- used_in -- [0..*] Booking_Price 
+    [0..*] -- [1] Feature 
 }
 
 quality Feature
 
 event Price_Offer_Creation specializes User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @creation [1] -- [1] Offering_Price 
 }
 
-subkind Transaction_Price of intrinsic-modes  specializes Price 
+subkind Transaction_Price of intrinsic-modes  specializes Price {
+    [1] -- depends_on -- [0..1] Commission_Fee 
+    [*] -- used_for -- [*] Booked_Quantity 
+}
 
-subkind Booking_Price of intrinsic-modes  specializes Price 
+subkind Booking_Price of intrinsic-modes  specializes Price {
+    [1] -- includes -- [1] Commission_Fee 
+    [1] -- linked_to -- [1] Booking 
+    [1] -- influences -- [0..1] External_Payment 
+}
 

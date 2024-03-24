@@ -1,4 +1,5 @@
-import Unified_Transport_Network__v23
+import Transport_Processing_Functions
+import Complementary_Categorizations
 
 package Adaptation_Function
 
@@ -6,23 +7,39 @@ kind Adaptation_Function specializes Transport_Processing_Function
 
 subkind Adaptation_Sink of functional-complexes  specializes Adaptation_Function 
 
-kind Adaptation_Sink_Input specializes Input 
+kind Adaptation_Sink_Input specializes Input {
+    @componentOf [1..*] -- [1] Adaptation_Sink 
+}
 
-kind Adaptation_Sink_Output specializes Output 
+kind Adaptation_Sink_Output specializes Output {
+    @componentOf [1..*] -- [1] Adaptation_Sink 
+}
 
-kind Adaptation_Sink_Process
+kind Adaptation_Sink_Process{
+    @componentOf [1] -- [1] Adaptation_Sink 
+}
 
-subkind Adaptation_Sk_Bidirectional_Component of functional-complexes  specializes Adaptation_Sink 
+subkind Adaptation_Sk_Bidirectional_Component of functional-complexes  specializes Adaptation_Sink {
+    @componentOf [1] -- [1] Bidirectional_Adaptation 
+}
 
-subkind Adaptation_So_Bidirectional_Component of functional-complexes  specializes Adaptation_Source 
+subkind Adaptation_So_Bidirectional_Component of functional-complexes  specializes Adaptation_Source {
+    @componentOf [1] -- [1] Bidirectional_Adaptation 
+}
 
 subkind Adaptation_Source of functional-complexes  specializes Adaptation_Function 
 
-kind Adaptation_Source_Input specializes Input 
+kind Adaptation_Source_Input specializes Input {
+    @componentOf [1..*] -- [1] Adaptation_Source 
+}
 
-kind Adaptation_Source_Output specializes Output 
+kind Adaptation_Source_Output specializes Output {
+    @componentOf [1..*] -- [1] Adaptation_Source 
+}
 
-kind Adaptation_Source_Process
+kind Adaptation_Source_Process{
+    @componentOf [1] -- [1] Adaptation_Source 
+}
 
 subkind Bidirectional_Adaptation of functional-complexes  specializes Adaptation_Function 
 
@@ -31,4 +48,14 @@ subkind PathPath_Layers_AF of functional-complexes  specializes Adaptation_Funct
 subkind PathSection_Layers_AF of functional-complexes  specializes Adaptation_Function 
 
 subkind SectionPhysical_Media_Layers_AF of functional-complexes  specializes Adaptation_Function 
+
+genset c5YOnb6GAqBwAS05 {
+    general Adaptation_Function
+    specifics SectionPhysical_Media_Layers_AF, PathPath_Layers_AF, PathSection_Layers_AF
+}
+
+genset cvOnb6GAqBwAS2N {
+    general Adaptation_Function
+    specifics Adaptation_Source, Bidirectional_Adaptation, Adaptation_Sink
+}
 

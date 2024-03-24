@@ -1,7 +1,10 @@
 
 package ontology
 
-class Ethical_Object specializes Social_Object 
+class Ethical_Object specializes Social_Object {
+    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
+    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+}
 
 class Ethical_Agent specializes Social_Agent 
 
@@ -13,100 +16,112 @@ class Normative_Description
 
 class Physical_Object
 
-class Person specializes Physical_Agent 
+class Person specializes Physical_Agent {
+    [0..*] -- envelops -- [1] Spiritual_Agent 
+}
 
 class Communicative_Act
 
 class Physical_Agent
 
-class Ethical_Norm specializes Ethical_Object {
-    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
-    [1..*] -- recognized_by -- [1..*] Physical_Agent 
-}
+class Ethical_Norm specializes Ethical_Object 
 
 class Ethical_Normative_Description specializes Normative_Description, Ethical_Object {
-    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
-    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+    [1..*] -- defines -- [1..*] Ethical_Object 
 }
 
 class Beingintheworld{
     philosophical: char  
+    [0..*] -- state_of -- [1] Dasein 
 }
 
 class Dasein{
     philosophical: char  
+    [0..*] -- state_of -- [1] Being 
 }
 
 class Being{
     philosophical: char  
 }
 
-class Style
+class Style{
+    [*] -- [*] Composition 
+}
 
-class Discourse specializes Communicative_Act 
+class Discourse specializes Communicative_Act {
+    [0..*] -- utters -- [1..*] Prophet 
+}
 
 class Composition
 
 class Genre specializes Discourse {
-    [0..*] -- utters -- [1..*] Prophet 
+    [1..*] -- originates -- [0..*] Parable 
 }
 
 class Narrative
 
-class Wisdom
+class Wisdom{
+    [1..*] -- originates -- [0..*] Teaching 
+}
 
-class Prescriptive
+class Prescriptive{
+    [1..*] -- originates -- [0..*] Principle 
+    [1..*] -- originates -- [0..*] Rule 
+}
 
-class Hymnic
+class Hymnic{
+    [1..*] -- originates -- [0..*] Prise 
+    [*] -- [0..*] Supplication 
+    [*] -- originates -- [0..*] Thanksgiving 
+}
 
-class Prophetic
+class Prophetic{
+    [1..*] -- originates -- [0..*] Prophecy 
+}
 
-class God
+class God{
+    [1] -- creates -- [0..*] Spirit 
+}
 
 class Spirit
 
-class Spiritual_Agent
-
-class Supernatural_Being specializes Spiritual_Agent {
+class Spiritual_Agent{
     [*] -- envelops -- [*] Spirit 
 }
 
-class Angel specializes Supernatural_Being {
-    [*] -- envelops -- [*] Spirit 
-}
+class Supernatural_Being specializes Spiritual_Agent 
 
-class Demon specializes Supernatural_Being {
-    [*] -- envelops -- [*] Spirit 
-}
+class Angel specializes Supernatural_Being 
+
+class Demon specializes Supernatural_Being 
 
 class Role
 
 class Proposition
 
-class Teaching specializes Ethical_Norm {
-    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
-    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+class Teaching specializes Ethical_Norm 
+
+class Principle specializes Ethical_Norm 
+
+class Rule specializes Ethical_Norm 
+
+class Institutional_text specializes Physical_Object {
+    [1] -- is_content_of -- [1..*] BookorPart 
 }
 
-class Principle specializes Ethical_Norm {
-    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
-    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+class BookorPart{
+    [1] -- is_content_of -- [1..*] ChapterorSurah 
 }
 
-class Rule specializes Ethical_Norm {
-    [1..*] -- recognized_by -- [1..*] Ethical_Agent 
-    [1..*] -- recognized_by -- [1..*] Physical_Agent 
+class ChapterorSurah{
+    [1] -- is_content_of -- [1..*] VerseorItem 
 }
-
-class Institutional_text specializes Physical_Object 
-
-class BookorPart
-
-class ChapterorSurah
 
 class VerseorItem
 
-class Disciple specializes Role 
+class Disciple specializes Role {
+    [0..*] -- follows -- [1..*] Prophet 
+}
 
 class Prophet specializes Role 
 
@@ -125,3 +140,13 @@ class Supplication
 class Thanksgiving
 
 datatype char
+genset disjoint_complete {
+    general Ethical_Object
+    specifics Ethical_Norm, Ethical_Normative_Description
+}
+
+genset overlapping_incomplete {
+    general Ethical_Norm
+    specifics Rule, Teaching, Principle
+}
+

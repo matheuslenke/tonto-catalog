@@ -1,13 +1,8 @@
-import ontology
-import ontology
 import UFO
-import SPO
 
 package SPO
 
-class Stakeholder specializes Agent {
-    [1] -- performs -- [0..*] Action 
-}
+class Stakeholder specializes Agent 
 
 class Artifact specializes Object 
 

@@ -1,52 +1,39 @@
-import paper_example
 
 package example
 
-kind Person
-
-role Detective of functional-complexes  specializes Person {
-    @material 
-    [*] -- knows -- [*] Person 
+kind Person{
+    @material [*] -- knows -- [*] Person 
 }
 
-relator Criminal_Investigation
+role Detective of functional-complexes  specializes Person 
 
-role Suspect of functional-complexes  specializes Person {
-    @material 
-    [*] -- knows -- [*] Person 
+relator Criminal_Investigation{
+    @mediation [1] -- participatesIn -- [2..*] Detective 
+    @mediation [1..*] -- investigates -- [1..*] Suspect 
+    @mediation [1] -- responsibleFor -- [1] Lead_Detective 
+    @mediation [1..*] -- relatedTo -- [1..*] Witness 
 }
 
-role Lead_Detective of functional-complexes  specializes Detective {
-    @material 
-    [*] -- knows -- [*] Person 
+role Suspect of functional-complexes  specializes Person 
+
+role Lead_Detective of functional-complexes  specializes Detective 
+
+role Witness of functional-complexes  specializes Person 
+
+relator Interrogation{
+    @mediation [1..*] -- targetOf -- [1] Witness 
+    @mediation [*] -- conducts -- [1..*] Detective 
 }
 
-role Witness of functional-complexes  specializes Person {
-    @material 
-    [*] -- knows -- [*] Person 
-}
+role Captain of functional-complexes  specializes Detective 
 
-relator Interrogation
-
-role Captain of functional-complexes  specializes Detective {
-    @material 
-    [*] -- knows -- [*] Person 
-}
-
-role Officer of functional-complexes  specializes Detective {
-    @material 
-    [*] -- knows -- [*] Person 
-}
+role Officer of functional-complexes  specializes Detective 
 
 role Parent of functional-complexes  specializes Person {
-    @material 
-    [*] -- knows -- [*] Person 
+    @material [1..2] -- parentOf -- [*] Child 
 }
 
-role Child of functional-complexes  specializes Person {
-    @material 
-    [*] -- knows -- [*] Person 
-}
+role Child of functional-complexes  specializes Person 
 
 role Interrogator
 

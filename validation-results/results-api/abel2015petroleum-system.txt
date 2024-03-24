@@ -1,21 +1,4 @@
 Validating...
-- Total of errors: 9
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Oil is specializing other classes that represent ultimate sortals: «quantity»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Source_Rock is specializing multiple classes that represent ultimate sortals: «kind»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Seal is specializing multiple classes that represent ultimate sortals: «kind»
-[error] Every sortal class must specialize a unique ultimate sortal:
-The class Reservoir is specializing multiple classes that represent ultimate sortals: «kind»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Shale is specializing other classes that represent ultimate sortals: «quantity»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Sandstone is specializing other classes that represent ultimate sortals: «quantity»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class LithologicUnit_qua_shale is specializing other classes that represent ultimate sortals: «kind»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class LithologicUnit_qua_sandstone is specializing other classes that represent ultimate sortals: «kind»
-[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
-The class Siliciclastic_Rock is specializing other classes that represent ultimate sortals: «quantity»
+Total of errors: 9
+undefined
 Validation finished

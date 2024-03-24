@@ -1,0 +1,195 @@
+import UFOB
+import UFOA
+import UFOPW
+import OntoUML
+
+package UFOC
+
+event Action specializes Event_Individual {
+    @Formal [0..*] -- instantiates -- [1..*] Plan_Action_Universal 
+    @Formal [0..*] -- caused_by -- [1] Intention 
+}
+
+category Agent of functional-complexes  specializes Substance {
+    @Formal [1..*] -- creates -- [0..*] Action 
+    @Formal [0..*] -- perceives -- [0..*] Event_Individual 
+}
+
+roleMixin Agent_in_Social_Relation of functional-complexes  specializes Agent 
+
+mode Appointment specializes Commitment 
+
+class Appoitment_Goal specializes Goal {
+    @Formal [1] -- propositional_content_of -- [1..*] Appointment 
+}
+
+event Atomic_Action specializes Atomic_Event, Action {
+    @Formal [0..*] -- instantiates -- [1..*] Atomic_Plan 
+}
+
+mode Atomic_Commitment specializes Commitment, Atomic_Individual 
+
+type Atomic_Plan specializes Plan_Action_Universal 
+
+mode Belief specializes Mental_Moment 
+
+event Change specializes Resource_Participation 
+
+mode Claim specializes Social_Moment 
+
+mode Closed_Commitment specializes Commitment {
+    @Formal [0..*] -- based_on -- [1] Plan_Action_Universal 
+}
+
+category Collective_Social_Agent of functional-complexes  specializes Collective_Individual, Social_Agent {
+    @memberOf [1..*] -- [2..*] Member_of_Collective_Social_Agent 
+}
+
+category Commitment of functional-complexes 
+
+mixin Commitment_Part of functional-complexes  specializes Commitment, Part 
+
+event Complex_Action specializes Complex_Event, Action {
+    @Formal [0..*] -- instantiates -- [1..*] Complex_Plan 
+    @componentOf [1] -- [1] Paricipation_Individual 
+}
+
+mode Complex_Commitment specializes Commitment, Whole_Complex_Individual {
+    @sum [1..*] -- [2..*] Commitment_Part 
+}
+
+type Complex_Plan specializes Plan_Action_Universal 
+
+event Contribution_Performance specializes Paricipation_Individual, Action {
+    @Formal [1..*] -- performance_of -- [1] Performer 
+}
+
+event Creation specializes Resource_Participation 
+
+roleMixin Delegatee of functional-complexes  specializes Physical_Agent_in_Social_Relation 
+
+roleMixin Delegator of functional-complexes  specializes Physical_Agent_in_Social_Relation {
+    @material [1..*] -- delegates_to -- [1..*] Delegatee 
+}
+
+relator Delegatum specializes Social_Relator {
+    @sum [0..1] -- [1..*] Social_Commitment 
+    @mediation [1..*] -- [1] Delegator 
+    @mediation [1..*] -- [1] Delegatee 
+    @sum [0..1] -- [1..*] Claim 
+}
+
+mode Desire specializes Mental_Moment 
+
+class Goal specializes Proposition_Individual {
+    @Formal [1] -- propositional_content_of -- [1..*] Commitment 
+}
+
+category Individual_Social_Agent of functional-complexes  specializes Functional_Complex_Individual, Social_Agent, Atomic_Individual 
+
+mode Intention specializes Commitment, Mental_Moment {
+    @characterization [1..*] -- [1] Agent 
+}
+
+mode Intentional_Moment{
+    @characterization [1..*] -- [1] Agent 
+}
+
+event Interaction specializes Complex_Action {
+    @componentOf [0..*] -- [2..*] Contribution_Performance 
+}
+
+roleMixin Member_of_Collective_Social_Agent of functional-complexes  specializes Agent, Part 
+
+mode Mental_Moment specializes Intentional_Moment 
+
+category Normative_Description of functional-complexes  specializes Social_Object {
+    @Formal [0..1] -- defines -- [0..*] Plan_Action_Universal 
+    @Formal [0..*] -- instantiates -- [1..*] Normative_Description_Universal 
+    @Formal [1] -- defines -- [0..*] Normatized_Social_Object 
+    @Formal [0..1] -- defines -- [0..*] Social_Role 
+    @mediation [1..*] -- defines -- [0..*] Recognition_Contract 
+    @mediation [1..*] -- defines -- [0..*] Recognition_Contract_Attachment 
+}
+
+type Normative_Description_Universal
+
+mixin Normatized_Social_Object of functional-complexes  specializes Social_Object 
+
+category Object of functional-complexes  specializes Substance 
+
+mode Open_Commitment specializes Commitment 
+
+roleMixin Performer of functional-complexes  specializes Participant, Agent 
+
+category Physical_Agent of functional-complexes  specializes Social_Entity, Agent 
+
+roleMixin Physical_Agent_in_Social_Relation of functional-complexes  specializes Agent_in_Social_Relation, Physical_Agent 
+
+category Physical_Object of functional-complexes  specializes Object 
+
+type Plan_Action_Universal specializes Event 
+
+category Plan_Description of functional-complexes  specializes Normative_Description {
+    @Formal [0..*] -- instantiates -- [1..*] Plan_Description_Universal 
+    @Formal [0..1] -- describes -- [1..*] Complex_Plan 
+}
+
+type Plan_Description_Universal specializes Normative_Description_Universal 
+
+class Proposition_Individual{
+    @Formal [1] -- propositional_content_of -- [0..*] Intentional_Moment 
+}
+
+mode QuaIndividual
+
+relator Recognition{
+    @material [1..*] -- [1] Recognizer 
+    @mediation [1..*] -- [1] Normative_Description 
+}
+
+roleMixin Recognizer of functional-complexes  specializes Agent {
+    @material [1..*] -- [1..*] Normative_Description 
+}
+
+relator Relator_Individual{
+    @sum [1] -- [2..*] QuaIndividual 
+}
+
+roleMixin Resource of functional-complexes  specializes Good, Participant, Object {
+    @Formal [0..*] -- located_at -- [1] Location 
+}
+
+event Resource_Participation specializes Paricipation_Individual {
+    @Formal [1..*] -- participates_as_resource -- [1] Resource 
+}
+
+category Social_Agent of functional-complexes  specializes Social_Entity, Agent 
+
+roleMixin Social_Agent_in_Agreement of functional-complexes  specializes Agent_in_Social_Relation, Social_Agent 
+
+mode Social_Commitment specializes Commitment, Social_Moment {
+    @Formal [0..*] -- causes -- [0..*] Action 
+}
+
+mode Social_Moment specializes Intentional_Moment, QuaIndividual {
+    @characterization [1..*] -- [1] Agent_in_Social_Relation 
+}
+
+category Social_Object of functional-complexes  specializes Object 
+
+relator Social_Relator specializes Relator_Individual {
+    @sum [1] -- [2..*] Social_Moment 
+    @mediation [1] -- [2..*] Agent_in_Social_Relation 
+}
+
+type Social_Role{
+    @Formal [1..*] -- recognizes -- [1..*] Normative_Description 
+}
+
+event Speech_Act specializes Atomic_Action 
+
+event Termination specializes Resource_Participation 
+
+event Usage specializes Resource_Participation 
+

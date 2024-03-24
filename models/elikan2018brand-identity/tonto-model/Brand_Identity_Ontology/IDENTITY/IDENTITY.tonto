@@ -1,30 +1,51 @@
-import Brand_Identity_Ontology
 
 package IDENTITY
 
 category Identity of functional-complexes 
 
-kind Vision specializes Identity 
+kind Vision specializes Identity {
+    @material [1] -- [1] Official_stakeholders 
+}
 
-mode Essence
+mode Essence{
+    @characterization [1..*] -- [1] Vision 
+}
 
-mode Mission
+mode Mission{
+    @characterization [1..*] -- [1] Vision 
+}
 
-mode Aims_and_goals
+mode Aims_and_goals{
+    @characterization [1..*] -- [1] Vision 
+}
 
-kind Culture specializes Identity 
+kind Culture specializes Identity {
+    @material [1] -- [1..*] Internal_stakeholders 
+}
 
-mode Structure
+mode Structure{
+    @characterization [1..*] -- [1] Culture 
+}
 
-mode Values
+mode Values{
+    @characterization [1..*] -- [1] Culture 
+}
 
-mode Personality
+mode Personality{
+    @characterization [1..*] -- [1] Culture 
+}
 
-kind Desired_Image specializes Identity, Image 
+kind Desired_Image specializes Identity, Image {
+    @material [1] -- [1] External_stekaholders 
+}
 
 category Image of functional-complexes 
 
-mode Positioning
+mode Positioning{
+    @characterization [1..*] -- [1] Desired_Image 
+}
 
-mode Presentation
+mode Presentation{
+    @characterization [1..*] -- Characterization11 -- [1] Desired_Image 
+}
 

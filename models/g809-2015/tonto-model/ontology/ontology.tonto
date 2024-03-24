@@ -15,49 +15,86 @@ subkind Flow_Termination_Sink of functional-complexes  specializes Flow_Terminat
 
 subkind Flow_Termination_Source of functional-complexes  specializes Flow_Termination_Function 
 
-kind Adaptation_Source_Output
+kind Adaptation_Source_Output{
+    @componentOf [1] -- [1] Adaptation_Source 
+}
 
-kind Adaptation_Source_Input
+kind Adaptation_Source_Input{
+    @componentOf [1] -- [1] Adaptation_Source 
+}
 
-kind Adaptation_Sink_Input
+kind Adaptation_Sink_Input{
+    @componentOf [1] -- [1] Adaptation_Sink 
+}
 
-kind Adaptation_Sink_Output
+kind Adaptation_Sink_Output{
+    @componentOf [1] -- [1] Adaptation_Sink 
+}
 
-kind Flow_Termination_Sink_Output
+kind Flow_Termination_Sink_Output{
+    @componentOf [1] -- [1] Flow_Termination_Sink 
+}
 
-kind Flow_Termination_Sink_Input
+kind Flow_Termination_Sink_Input{
+    @componentOf [1] -- [1] Flow_Termination_Sink 
+}
 
-kind Flow_Termination_Source_Output
+kind Flow_Termination_Source_Output{
+    @componentOf [1] -- [1] Flow_Termination_Source 
+}
 
-kind Flow_Termination_Source_Input
+kind Flow_Termination_Source_Input{
+    @componentOf [1] -- [1] Flow_Termination_Source 
+}
 
 role A_Sk_Input__Sk_AP_Binded of functional-complexes  specializes Adaptation_Sink_Input {
-    @componentOf 
-    [1] -- [1] Adaptation_Sink 
+    @material [1] -- Sk_AP_binds -- [1] FT_Sk_Output__Sk_AP_Binded 
 }
 
-role FT_Sk_Output__Sk_AP_Binded of functional-complexes  specializes Flow_Termination_Sink_Output {
-    @componentOf 
-    [1] -- [1] Flow_Termination_Sink 
-}
+role FT_Sk_Output__Sk_AP_Binded of functional-complexes  specializes Flow_Termination_Sink_Output 
 
-relator Sink_AP_Binding
+relator Sink_AP_Binding{
+    @mediation [1] -- Sink_AP_Binding_A_SK -- [1] A_Sk_Input__Sk_AP_Binded 
+    @mediation [1] -- Sink_AP_Binding_FT_SK -- [1] FT_Sk_Output__Sk_AP_Binded 
+}
 
 kind AP
 
-role Sink_AP of functional-complexes  specializes AP 
+role Sink_AP of functional-complexes  specializes AP {
+    @mediation [1] -- SK_AP_Binding_SK_AP -- [1] Sink_AP_Binding 
+}
 
 role Source_AP of functional-complexes  specializes AP 
 
-relator Source_AP_Binding
-
-role FT_So_Input__So_AP_Binded of functional-complexes  specializes Flow_Termination_Source_Input {
-    @componentOf 
-    [1] -- [1] Flow_Termination_Source 
+relator Source_AP_Binding{
+    @mediation [1] -- SO_AP_Binding_FT_SO -- [1] FT_So_Input__So_AP_Binded 
+    @mediation [1] -- A_SO_SO_AP -- [1] A_So_Output__So_AP_Binding 
+    @mediation [1] -- [1] Source_AP 
 }
 
+role FT_So_Input__So_AP_Binded of functional-complexes  specializes Flow_Termination_Source_Input 
+
 role A_So_Output__So_AP_Binding of functional-complexes  specializes Adaptation_Source_Output {
-    @componentOf 
-    [1] -- [1] Adaptation_Source 
+    @material [1] -- So_AP_binds -- [1] FT_So_Input__So_AP_Binded 
+}
+
+genset OUBTSf6GAqAAbwdd {
+    general Transport_Processing_Function
+    specifics Adaptation_Function, Flow_Termination_Function
+}
+
+genset gbZTSf6GAqAAbweB {
+    general Adaptation_Function
+    specifics Adaptation_Source, Adaptation_Sink
+}
+
+genset jFtTSf6GAqAAbwen {
+    general Flow_Termination_Function
+    specifics Flow_Termination_Source, Flow_Termination_Sink
+}
+
+genset RzILSf6GAqAAbwoA {
+    general AP
+    specifics Sink_AP, Source_AP
 }
 

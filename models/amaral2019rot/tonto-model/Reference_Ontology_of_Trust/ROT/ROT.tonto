@@ -1,179 +1,128 @@
-import Reference_Ontology_of_Trust
+import UFOC
 import UFOA
 import UFOB
-import UFOC
 import COVER
 
 package ROT
 
 mode Aspectual_Belief specializes Belief {
-    @characterization 
-    [0..*] -- inheres_in_agent -- [1] Agent 
+    @externalDependence [0..*] -- depends_on_substantial -- [1] Substantial 
+    [1..*] -- is_belief_part_of_trust -- [0..*] Trust 
+    @characterization [1..*] -- aspectual_belief_inheres_in_trustor -- [0..1] Trustor 
 }
 
 subkind Intention_Belief of extrinsic-modes  specializes Aspectual_Belief {
-    @externalDependence 
-    [0..*] -- depends_on_substantial -- [1] Substantial 
-    [1..*] -- is_belief_part_of_trust -- [0..*] Trust 
-    @characterization 
-    [1..*] -- aspectual_belief_inheres_in_trustor -- [0..1] Trustor 
-    @characterization 
-    [0..*] -- inheres_in_agent -- [1] Agent 
+    @externalDependence [0..*] -- depends_on_intention -- [0..1] Intention 
+    [1..*] -- is_belief_part_of_social_trust -- [0..*] Social_Trust 
 }
 
 subkind Disposition_Belief of extrinsic-modes  specializes Aspectual_Belief {
-    @externalDependence 
-    [0..*] -- depends_on_substantial -- [1] Substantial 
-    [1..*] -- is_belief_part_of_trust -- [0..*] Trust 
-    @characterization 
-    [1..*] -- aspectual_belief_inheres_in_trustor -- [0..1] Trustor 
-    @characterization 
-    [0..*] -- inheres_in_agent -- [1] Agent 
+    @externalDependence [0..*] -- depends_on_disposition -- [0..1] Disposition 
 }
 
 role Capability_Belief of extrinsic-modes  specializes Disposition_Belief {
-    @externalDependence 
-    [0..*] -- depends_on_disposition -- [0..1] Disposition 
-    @externalDependence 
-    [0..*] -- depends_on_substantial -- [1] Substantial 
-    [1..*] -- is_belief_part_of_trust -- [0..*] Trust 
-    @characterization 
-    [1..*] -- aspectual_belief_inheres_in_trustor -- [0..1] Trustor 
-    @characterization 
-    [0..*] -- inheres_in_agent -- [1] Agent 
+    @externalDependence [0..*] -- depends_on_capability -- [0..1] Capability 
 }
 
 role Vulnerability_Belief of extrinsic-modes  specializes Disposition_Belief {
-    @externalDependence 
-    [0..*] -- depends_on_disposition -- [0..1] Disposition 
-    @externalDependence 
-    [0..*] -- depends_on_substantial -- [1] Substantial 
-    [1..*] -- is_belief_part_of_trust -- [0..*] Trust 
-    @characterization 
-    [1..*] -- aspectual_belief_inheres_in_trustor -- [0..1] Trustor 
-    @characterization 
-    [0..*] -- inheres_in_agent -- [1] Agent 
+    @externalDependence [0..*] -- depends_on_vulnerability -- [0..1] Vulnerability 
 }
 
-roleMixin Vulnerability of intrinsic-modes  specializes Disposition {
-    @characterization 
-    [1..*] -- disposition_inheres_in_trustee -- [0..1] Trustee 
-    @characterization 
-    [0..*] -- inheres_in_substantial -- [1] Substantial 
+roleMixin Vulnerability of intrinsic-modes  specializes Disposition 
+
+roleMixin Capability of intrinsic-modes  specializes Disposition 
+
+roleMixin Trustor of functional-complexes  specializes Agent {
+    @material [1..*] -- trusts -- [1..*] Trustee 
+    [1] -- performed_action -- [0..*] Trustor_Action 
 }
 
-roleMixin Capability of intrinsic-modes  specializes Disposition {
-    @characterization 
-    [1..*] -- disposition_inheres_in_trustee -- [0..1] Trustee 
-    @characterization 
-    [0..*] -- inheres_in_substantial -- [1] Substantial 
+roleMixin Trustee of functional-complexes  specializes Substantial {
+    [1] -- emits -- [0..*] Trust_Calibration_Signal 
+    [1] -- performed_action -- [0..*] Trustee_Action 
 }
 
-roleMixin Trustor of functional-complexes  specializes Agent 
-
-roleMixin Trustee of functional-complexes  specializes Substantial 
-
-mode Trust
-
-quality Trust_Degree
-
-quality Belief_Intensity
-
-quality Performance_Level
-
-quality Manifestation_Likelihood
-
-category Complex_Intention specializes Intention {
-    [2..*] -- is_component_part_of_complex_intention -- [0..*] Complex_Intention 
-    [1] -- [0..*] Trust 
-    @characterization 
-    [1..*] -- intention_inhreres_in_trustor -- [0..1] Trustor 
-    [1..*] -- hurt_by_loss_situation -- [0..*] Loss_Situation 
-    [0..*] -- hurt_by_loss_event -- [0..*] Loss_Event 
-    @characterization 
-    [0..*] -- inheres_in_agent -- [1] Agent 
+mode Trust{
+    @characterization [1..*] -- inheres_in_trustor -- [1] Trustor 
+    @externalDependence [1..*] -- depends_on_trustee -- [1] Trustee 
 }
 
-category Atomic_Intention specializes Intention {
-    [2..*] -- is_component_part_of_complex_intention -- [0..*] Complex_Intention 
-    [1] -- [0..*] Trust 
-    @characterization 
-    [1..*] -- intention_inhreres_in_trustor -- [0..1] Trustor 
-    [1..*] -- hurt_by_loss_situation -- [0..*] Loss_Situation 
-    [0..*] -- hurt_by_loss_event -- [0..*] Loss_Event 
-    @characterization 
-    [0..*] -- inheres_in_agent -- [1] Agent 
+quality Trust_Degree{
+    @characterization [1] -- inheres_in_trust -- [1] Trust 
 }
 
-category Trustworthiness_Evidence specializes Endurant 
+quality Belief_Intensity{
+    @characterization [1] -- inheres_in_aspectual_belief -- [1] Aspectual_Belief 
+}
+
+quality Performance_Level{
+    @characterization [1] -- inheres_in_dispositional_belief -- [1] Disposition_Belief 
+}
+
+quality Manifestation_Likelihood{
+    @characterization [1] -- inheres_in_dispositional_belief -- [1] Disposition_Belief 
+}
+
+category Complex_Intention specializes Intention 
+
+category Atomic_Intention specializes Intention 
+
+category Trustworthiness_Evidence specializes Endurant {
+    [0..*] -- refers_to -- [1..*] Trustee 
+    [0..*] -- is_about -- [1..*] Disposition 
+}
 
 kind Social_System specializes Object 
 
-role Social_System_Trustee of functional-complexes  specializes Trustee, Social_System {
-    [1] -- emits -- [0..*] Trust_Calibration_Signal 
-    [1] -- performed_action -- [0..*] Trustee_Action 
-}
+role Social_System_Trustee of functional-complexes  specializes Trustee, Social_System 
 
 subkind Institutionbased_Trust of extrinsic-modes  specializes Trust {
-    @characterization 
-    [1..*] -- inheres_in_trustor -- [1] Trustor 
-    @externalDependence 
-    [1..*] -- depends_on_trustee -- [1] Trustee 
-    // Missing trusts reference
-    // @derivation 
-    // [1] -- [1] trusts 
+    @externalDependence [1..*] -- depends_on_social_system_trustee -- [1] Social_System_Trustee 
 }
 
-roleMixin Agent_Trustee of functional-complexes  specializes Agent, Trustee {
-    [1] -- emits -- [0..*] Trust_Calibration_Signal 
-    [1] -- performed_action -- [0..*] Trustee_Action 
-}
+roleMixin Agent_Trustee of functional-complexes  specializes Agent, Trustee 
 
 subkind Social_Trust of extrinsic-modes  specializes Trust {
-    @characterization 
-    [1..*] -- inheres_in_trustor -- [1] Trustor 
-    @externalDependence 
-    [1..*] -- depends_on_trustee -- [1] Trustee 
-    // Missing trusts reference
-    // @derivation 
-    // [1] -- [1] trusts 
+    @externalDependence [1..*] -- depends_on_agent_trustee -- [1] Agent_Trustee 
 }
 
-event Trustor_Action
+event Trustor_Action{
+    [0..*] -- based_on_trust -- [1] Trust 
+    [0..*] -- motivated_by -- [1] Intention 
+    @bringsAbout [0..*] -- brought_about_hazardous_situation -- [1] Hazardous_Situation 
+}
 
-roleMixin Trust_Calibration_Signal of functional-complexes  specializes Endurant 
-
-roleMixin TrustWarranting_Signal of functional-complexes  specializes Trust_Calibration_Signal {
+roleMixin Trust_Calibration_Signal of functional-complexes  specializes Endurant {
     [0..*] -- refers_to -- [1] Disposition 
 }
 
-roleMixin Uncertainty_Signal of functional-complexes  specializes Trust_Calibration_Signal {
-    [0..*] -- refers_to -- [1] Disposition 
-}
+roleMixin TrustWarranting_Signal of functional-complexes  specializes Trust_Calibration_Signal 
 
-event Trustee_Action
+roleMixin Uncertainty_Signal of functional-complexes  specializes Trust_Calibration_Signal 
+
+event Trustee_Action{
+    [0..*] -- refers_to -- [1] Trust 
+    @bringsAbout [0..*] -- brought_about_hazardous_situation -- [1] Hazardous_Situation 
+}
 
 relator Influence{
     weight: int  
+    @mediation [0..*] -- influences -- [1] Aspectual_Belief 
 }
 
 subkind Trust_influence of relators  specializes Influence {
-    @mediation 
-    [0..*] -- influences -- [1] Aspectual_Belief 
+    @mediation [0..*] -- is_about_trust -- [1] Trust 
 }
 
 subkind Mental_Moment_Influence of relators  specializes Influence {
-    @mediation 
-    [0..*] -- influences -- [1] Aspectual_Belief 
+    @mediation [0..*] -- is_about_mental_moment -- [1] Mental_Moment 
 }
 
 subkind Trustworthiness_Evidence_Influence of relators  specializes Influence {
-    @mediation 
-    [0..*] -- influences -- [1] Aspectual_Belief 
+    @mediation [0..*] -- is_about_evidence -- [1] Trustworthiness_Evidence 
 }
 
 subkind Trust_Calibration_Signal_Influence of relators  specializes Influence {
-    @mediation 
-    [0..*] -- influences -- [1] Aspectual_Belief 
+    @mediation [0..*] -- is_about_signal -- [1] Trust_Calibration_Signal 
 }
 

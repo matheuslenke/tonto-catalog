@@ -1,8 +1,11 @@
-18
+21
 
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Goal'.
 Consider using an annotation or a more specific class
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class

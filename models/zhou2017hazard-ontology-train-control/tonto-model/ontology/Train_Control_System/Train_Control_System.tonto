@@ -1,33 +1,67 @@
 
 package Train_Control_System
 
-kind Dispatcher
+kind Dispatcher{
+    [*] -- play -- [*] Provider 
+}
 
-role Provider
+role Provider{
+    [*] -- [*] Communication 
+    [*] -- [*] Communication 
+}
 
-relator Communication
+relator Communication{
+    [*] -- [*] Channel 
+    [*] -- [*] Message 
+    [*] -- [*] Channel 
+}
 
-role Channel
+role Channel{
+    [*] -- [*] Control_Parameter_Communication 
+}
 
-kind Wireless_Network
+kind Wireless_Network{
+    [*] -- play -- [*] Channel 
+}
 
-role Receiver
+role Receiver{
+    [*] -- [*] Communication 
+    [*] -- play -- [*] RBC 
+}
 
 role Message
 
-kind RBC
+kind RBC{
+    [*] -- play -- [*] Provider 
+}
 
-kind Onboard_System
+kind Onboard_System{
+    [*] -- play -- [*] Receiver 
+    [*] -- play -- [*] Controller 
+}
 
-kind MA_with_TSR
+kind MA_with_TSR{
+    [*] -- play -- [*] Message 
+}
 
-kind Train
+kind Train{
+    [*] -- play -- [*] BeingControlled 
+    [*] -- play -- [*] Mover 
+}
 
-kind TSR_Area
+kind TSR_Area{
+    [*] -- play -- [*] Place 
+}
 
-relator SpeedControl
+relator SpeedControl{
+    [*] -- [*] BeingControlled 
+    [*] -- [*] Controller 
+}
 
-relator Transportation
+relator Transportation{
+    [*] -- [*] Place 
+    [*] -- [*] Mover 
+}
 
 role Controller
 
@@ -39,15 +73,29 @@ role Place
 
 role Sensor
 
-relator Monitor
+relator Monitor{
+    [*] -- [*] Sensor 
+    [*] -- [*] BeingSensed 
+}
 
 role BeingSensed
 
-kind Train_Wheel
+kind Train_Wheel{
+    [*] -- play -- [*] BeingSensed 
+}
 
-kind SDU
+kind SDU{
+    [*] -- play -- [*] Sensor 
+    [*] -- play -- [*] Provider 
+}
 
-relator Control_Parameter_Communication
+relator Control_Parameter_Communication{
+    [*] -- [*] Provider 
+    [*] -- [*] Receiver 
+    [*] -- [*] Message 
+}
 
-kind SpeedDistance_Message
+kind SpeedDistance_Message{
+    [*] -- play -- [*] Message 
+}
 

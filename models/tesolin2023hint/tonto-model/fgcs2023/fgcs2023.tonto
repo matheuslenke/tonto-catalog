@@ -7,72 +7,71 @@ role Signal of functional-complexes  specializes EMWave
 
 kind Interface
 
-role Receiver of functional-complexes  specializes Interface 
+role Receiver of functional-complexes  specializes Interface {
+     --  Sender 
+     -- decodesSignal --  WantedSignal 
+     -- decodes --  WantedSender 
+     -- monitors --  MonitoredSender 
+     -- isServedBy --  SelectedSender 
+}
 
-role Sender of functional-complexes  specializes Interface 
+role Sender of functional-complexes  specializes Interface {
+     -- generates --  Signal 
+}
 
 kind FreeSpace
 
 role Medium of functional-complexes  specializes FreeSpace 
 
-mode DetectBond
+mode DetectBond{
+    @characterization [1] -- [1] Receiver 
+    @externalDependence [*] -- [1..*] Signal 
+    @externalDependence [*] -- [1..*] Medium 
+}
 
 role WantedSignal of functional-complexes  specializes Signal 
 
 role UnWantedSignal of functional-complexes  specializes Signal 
 
-role WantedSender of functional-complexes  specializes Sender, Sender {
-     -- generates --  Signal 
+role WantedSender of functional-complexes  specializes Sender, Sender 
+
+mode Information{
+    @characterization [1] -- [1] WantedSignal 
 }
 
-mode Information
+role SelectedSender of functional-complexes  specializes WantedSender 
 
-role SelectedSender of functional-complexes  specializes WantedSender {
-     -- generates --  Signal 
-}
-
-role MonitoredSender of functional-complexes  specializes WantedSender {
-     -- generates --  Signal 
-}
+role MonitoredSender of functional-complexes  specializes WantedSender 
 
 mode DecodedBond specializes DetectBond {
-    @characterization 
-    [1] -- [1] Receiver 
-    @externalDependence 
-    [*] -- [1..*] Signal 
-    @externalDependence 
-    [*] -- [1..*] Medium 
+    @externalDependence [*] -- [1..*] WantedSignal 
 }
 
-role MonitoredBond of intrinsic-modes  specializes DecodedBond {
-    @externalDependence 
-    [*] -- [1..*] WantedSignal 
-    @characterization 
-    [1] -- [1] Receiver 
-    @externalDependence 
-    [*] -- [1..*] Signal 
-    @externalDependence 
-    [*] -- [1..*] Medium 
-}
+role MonitoredBond of intrinsic-modes  specializes DecodedBond 
 
 role SelectedBond of intrinsic-modes  specializes DecodedBond {
-    @externalDependence 
-    [*] -- [1..*] WantedSignal 
-    @characterization 
-    [1] -- [1] Receiver 
-    @externalDependence 
-    [*] -- [1..*] Signal 
-    @externalDependence 
-    [*] -- [1..*] Medium 
+    @characterization [1] -- [1] Receiver 
+    @externalDependence [*] -- [1..*] SelectedSender 
 }
 
-role Source of functional-complexes  specializes Interface 
+role Source of functional-complexes  specializes Interface {
+     -- handShakes --  Sink 
+    @mediation [1..*] -- [1] HandShakeBond 
+}
 
 role Sink of functional-complexes  specializes Interface 
 
-relator HandShakeBond
+relator HandShakeBond{
+    @mediation [1..*] -- [1] Sink 
+     -- [2..*] SelectedBond 
+}
 
-class Interface2 of functional-complexes 
+class Interface2 of functional-complexes {
+     -- standsIn --  TXIntfSituation 
+     -- standsIn --  EMWIsGenerated 
+     -- standsIn --  EMWIsDetected 
+     -- standsIn --  RxIntfSituation 
+}
 
 class TXIntfSituation of situations {
     poweredOn: undefined  
@@ -80,51 +79,71 @@ class TXIntfSituation of situations {
     ableToRx: undefined  
     startAt: undefined  
     finishAt: undefined  
+     --  EMField 
 }
 
-class EMField
+class EMField{
+    [1] -- [1] Sender2 
+    [1..*] -- [*] GenerateEMWave 
+}
 
 class Sender2 of functional-complexes  specializes Interface2 {
-     -- standsIn --  TXIntfSituation 
-     -- standsIn --  EMWIsGenerated 
-     -- standsIn --  EMWIsDetected 
-     -- standsIn --  RxIntfSituation 
+    [1] -- [1] GenerateEMWave 
+    [1] -- generates -- [1] Signal2 
 }
 
-class GenerateEMWave of events 
+class GenerateEMWave of events {
+    [1] -- [1] EMWIsGenerated 
+}
 
 class EMWIsGenerated of situations {
     startAt: undefined  
     finishAt: undefined  
+     -- activates --  Permittivity 
 }
 
 class EMWave2 of functional-complexes {
     frequency: undefined  
     bandwidth: undefined  
     power: undefined  
+     -- standsIn --  EMWIsGenerated 
+    [1] -- [1] GenerateEMWave 
+     --  EMWIsDetected 
 }
 
-class Permittivity
+class Permittivity{
+    [1..*] -- [*] PropagateEMW 
+    [1] -- [1] Medium2 
+}
 
-class FreeSpace2 of functional-complexes 
+class FreeSpace2 of functional-complexes {
+     -- standsIn --  EMWIsPropagated 
+}
 
-class PropagateEMW of events 
+class PropagateEMW of events {
+    [1] -- [1] EMWIsPropagated 
+}
 
 class EMWIsPropagated of situations {
     startAt: undefined  
     finishAt: undefined  
+     --  EMWave2 
+     -- activates --  Sensitivity 
 }
 
-class Sensitivity
+class Sensitivity{
+    [1..*] -- [*] DetectEMW 
+}
 
 class Receiver2 of functional-complexes  specializes Interface2 {
-     -- standsIn --  TXIntfSituation 
-     -- standsIn --  EMWIsGenerated 
-     -- standsIn --  EMWIsDetected 
-     -- standsIn --  RxIntfSituation 
+    [1] -- [1] Sensitivity 
+     -- detectsSignal --  Signal2 
 }
 
-class DetectEMW of events 
+class DetectEMW of events {
+    [1..*] -- [0..*] Receiver2 
+    [1] -- [1] EMWIsDetected 
+}
 
 class EMWIsDetected of situations {
     startAt: undefined  
@@ -132,13 +151,14 @@ class EMWIsDetected of situations {
 }
 
 class Signal2 of functional-complexes  specializes EMWave2 {
-     -- standsIn --  EMWIsGenerated 
-    [1] -- [1] GenerateEMWave 
-    [1] -- [1] EMWIsDetected 
+    [1..*] -- [0..*] PropagateEMW 
+    [1..*] -- [0..*] DetectEMW 
 }
 
 class Medium2 of functional-complexes  specializes FreeSpace2 {
-     -- standsIn --  EMWIsPropagated 
+    [1..*] -- [0..*] PropagateEMW 
+     -- propagates --  Signal2 
+    [1..*] -- [0..*] DetectEMW 
 }
 
 class RxIntfSituation of situations {
@@ -147,5 +167,26 @@ class RxIntfSituation of situations {
     ableToRx: undefined  
     startAt: undefined  
     finishAt: undefined  
+     -- activates --  Sensitivity 
+}
+
+genset intf {
+    general Interface
+    specifics Receiver, Sender
+}
+
+genset SgnRoles {
+    general Signal
+    specifics UnWantedSignal, WantedSignal
+}
+
+genset senderTypes {
+    general WantedSender
+    specifics SelectedSender, MonitoredSender
+}
+
+genset srcsnk {
+    general Interface
+    specifics Source, Sink
 }
 

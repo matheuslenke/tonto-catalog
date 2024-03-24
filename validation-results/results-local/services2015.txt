@@ -1,4 +1,4 @@
-97
+55
 
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
@@ -8,92 +8,68 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
+Expecting token of type 'ID' but found `1`.
+Expecting token of type 'ID' but found `2`.
+Could not resolve reference to ContextModule named 'st_Order_Entities'.
+Could not resolve reference to ContextModule named 'nd_Order_Entities'.
+Could not resolve reference to ClassDeclaration named 'Agent'.
+Could not resolve reference to ClassDeclaration named 'Agent'.
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+An error occurred during validation: Cannot read properties of undefined (reading 'classElementType')
+Expecting token of type 'ID' but found `2`.
+Could not resolve reference to ContextModule named 'nd_Order_Entities'.
 Classes representing ultimate sortals cannot specialize other ultimate sortals
+Duplicated reference name
+Duplicated reference name
 Duplicated reference name
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'HiredServiceProvider'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'HiredProviderCommitment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'HiredProviderCommitment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'ServiceCustomerCommitment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'ServiceCustomer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'ServiceCustomerCommitment'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'CommittedServiceCustomer'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'ServiceAgreement'.
+Duplicated reference name
+Expecting token of type 'ID' but found `1`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '2'
+Expecting end of file but found `2`.
+Could not resolve reference to ContextModule named 'st_Order_Entities'.
+Expecting token of type 'ID' but found `2`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '1'
+Expecting end of file but found `1`.
+Could not resolve reference to ContextModule named 'nd_Order_Entities'.
+Expecting token of type 'ID' but found `1`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '2'
+Expecting end of file but found `2`.
+Could not resolve reference to ContextModule named 'st_Order_Entities'.
+Expecting token of type 'ID' but found `2`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '1'
+Expecting end of file but found `1`.
+Could not resolve reference to ContextModule named 'nd_Order_Entities'.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '2'
+Expecting end of file but found `2`.
+Expecting token of type 'ID' but found `2`.
+Expecting: one of these possible Token sequences:
+  1. [ID]
+  2. [STRING]
+but found: '1'
+Expecting end of file but found `1`.
+Could not resolve reference to ContextModule named 'nd_Order_Entities'.

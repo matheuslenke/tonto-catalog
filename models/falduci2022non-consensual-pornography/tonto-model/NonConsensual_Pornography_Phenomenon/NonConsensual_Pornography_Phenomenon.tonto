@@ -3,69 +3,113 @@ package NonConsensual_Pornography_Phenomenon
 
 kind NaturalPerson
 
-role Depicted_Person_in_Intimacy of functional-complexes  specializes NaturalPerson 
+role Depicted_Person_in_Intimacy of functional-complexes  specializes NaturalPerson {
+    @material [1..*] -- has_a_right_to_privacy_as_against -- [1..*] Depicter_Person 
+}
 
 role Depicter_Person of functional-complexes  specializes NaturalPerson 
 
 role Perpetrator of functional-complexes  specializes Publisher {
-    @material 
-    [1..*] -- uploads_private_intimate_media_object_on -- [1..*] Acessible_Digital_Platform 
+    @material [1..*] -- [1..*] Depicted_Person_with_Privacy_Violated 
 }
 
 role Content_Consumer of functional-complexes  specializes NaturalPerson 
 
 role Depicted_Person_with_Privacy_Violated of functional-complexes  specializes Depicted_Person_in_Intimacy {
-    @material 
-    [1..*] -- has_a_right_to_privacy_as_against -- [1..*] Depicter_Person 
+    @characterization [1..*] -- Inheres_in -- [1] Violated_Right_to_Privacy_of_Intimate_Media_Object 
 }
 
-relator RightDuty_to_Keep_the_Intimate_Media_Object_Privately
+relator RightDuty_to_Keep_the_Intimate_Media_Object_Privately{
+    @mediation [1..*] -- [1] Depicter_Person 
+    @mediation [1..*] -- [1] Depicted_Person_in_Intimacy 
+    [1] -- [1..*] Right_to_Privacy_of_Intimate_Media_Object 
+    [1] -- [1..*] Duty_to_Keep_the_Intimate_Media_Object_Privately 
+    @creation [1..*] -- grounded_on -- [1] Publication_of_the_Criminal_Law 
+    @mediation [1..*] -- [1] Private_Intimate_Media_Object 
+}
 
-mode Right_to_Privacy_of_Intimate_Media_Object
+mode Right_to_Privacy_of_Intimate_Media_Object{
+    [1] -- correlates -- [1] Duty_to_Keep_the_Intimate_Media_Object_Privately 
+    @characterization [1..*] -- inheres_in -- [1] Depicted_Person_in_Intimacy 
+    @characterization [1..*] -- externally_depends_on -- [1] Depicter_Person 
+}
 
-mode Duty_to_Keep_the_Intimate_Media_Object_Privately
+mode Duty_to_Keep_the_Intimate_Media_Object_Privately{
+    @characterization [1..*] -- inheres_in -- [1] Depicter_Person 
+    @characterization [1..*] -- externally_depends_on -- [1] Depicted_Person_in_Intimacy 
+}
 
 event Publication_of_the_Criminal_Law
 
-roleMixin Intimate_Private_Media_Object_with_Uploading_Consent of functional-complexes  specializes Private_Intimate_Media_Object {
+roleMixin Intimate_Private_Media_Object_with_Uploading_Consent of functional-complexes  specializes Private_Intimate_Media_Object 
+
+category Private_Intimate_Media_Object specializes Media_Object {
     [1..*] -- [1] Depicted_Person_in_Intimacy 
 }
 
-category Private_Intimate_Media_Object specializes Media_Object 
-
 kind Digital_Platform
 
-role Acessible_Digital_Platform of functional-complexes  specializes Digital_Platform 
+role Acessible_Digital_Platform of functional-complexes  specializes Digital_Platform {
+    @material [1..*] -- [1..*] Content_Consumer 
+}
 
 event Upload_Private_Media_Object_to_the_Digital_Platform
 
-relator Private_Media_Objects_Uploading
+relator Private_Media_Objects_Uploading{
+    @creation [1] -- [1] Upload_Private_Media_Object_to_the_Digital_Platform 
+    @mediation [1..*] -- [1] Acessible_Digital_Platform 
+    @mediation [1..*] -- [1] Publisher 
+    @mediation [1..*] -- [1..*] Uploaded_Private_Intimate_Media_Object_without_Consent 
+}
 
-role Publisher of functional-complexes  specializes Depicter_Person 
+role Publisher of functional-complexes  specializes Depicter_Person {
+    @material [1..*] -- uploads_private_intimate_media_object_on -- [1..*] Acessible_Digital_Platform 
+}
 
 category Media_Object of functional-complexes 
 
 category Public_Media_Object specializes Media_Object 
 
-roleMixin Private_Intimate_Media_Object_without_Consent specializes Private_Intimate_Media_Object {
-    [1..*] -- [1] Depicted_Person_in_Intimacy 
-}
+roleMixin Private_Intimate_Media_Object_without_Consent specializes Private_Intimate_Media_Object 
 
 event Access_the_Published_Private_Intimate_Media
 
-relator Private_Intimate_Media_Accessing
-
-role Uploaded_Private_Intimate_Media_Object_without_Consent specializes Private_Intimate_Media_Object_without_Consent {
-    [1..*] -- [1] Depicted_Person_in_Intimacy 
+relator Private_Intimate_Media_Accessing{
+    @creation [1..*] -- [1] Access_the_Published_Private_Intimate_Media 
+    @mediation [1..*] -- [1] Content_Consumer 
+    @mediation [1..*] -- [1] Acessible_Digital_Platform 
+    @mediation [1..*] -- [1..*] Accessed_Private_Intimate_Media_Object_without_Consent 
 }
 
-role Accessed_Private_Intimate_Media_Object_without_Consent specializes Uploaded_Private_Intimate_Media_Object_without_Consent {
-    [1..*] -- [1] Depicted_Person_in_Intimacy 
+role Uploaded_Private_Intimate_Media_Object_without_Consent specializes Private_Intimate_Media_Object_without_Consent 
+
+role Accessed_Private_Intimate_Media_Object_without_Consent specializes Uploaded_Private_Intimate_Media_Object_without_Consent 
+
+relator Violation_of_Depicted_Persons_Right_to_Privacy{
+    @creation [1..*] -- [1] Access_the_Published_Private_Intimate_Media 
+    @mediation [1..*] -- [1] Perpetrator 
+    @mediation [1..*] -- [1] Depicted_Person_with_Privacy_Violated 
+    [1] -- [1..*] Violated_Duty_to_Keep_the_Intimate_Media_Object_Privately 
+    [1] -- [1..*] Violated_Right_to_Privacy_of_Intimate_Media_Object 
 }
 
-relator Violation_of_Depicted_Persons_Right_to_Privacy
+mode Violated_Duty_to_Keep_the_Intimate_Media_Object_Privately{
+    @characterization [1..*] -- inheres_in -- [1] Perpetrator 
+    [1] -- correlates -- [1] Violated_Right_to_Privacy_of_Intimate_Media_Object 
+    @characterization [1..*] -- externally_depends_on -- [1] Depicted_Person_with_Privacy_Violated 
+}
 
-mode Violated_Duty_to_Keep_the_Intimate_Media_Object_Privately
+mode Violated_Right_to_Privacy_of_Intimate_Media_Object{
+    @characterization [1..*] -- externally_depends_on -- [1] Perpetrator 
+}
 
-mode Violated_Right_to_Privacy_of_Intimate_Media_Object
+genset gsroles {
+    general NaturalPerson
+    specifics Content_Consumer, Depicted_Person_in_Intimacy, Depicter_Person
+}
+
+genset gsintimatemedia {
+    general Private_Intimate_Media_Object
+    specifics Private_Intimate_Media_Object_without_Consent, Intimate_Private_Media_Object_with_Uploading_Consent
+}
 

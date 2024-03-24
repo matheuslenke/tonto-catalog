@@ -1,100 +1,91 @@
-import fischer2018ontorea
 
 package OntoREA
 
-relator Balance_Duality_Spot_Market_Contract
-
-phase Liability specializes Derivative_Instrument, Economic_Resource {
-    @memberOf 
-    [2] -- [1..*] Derivative_Instrument 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Debit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Commitment 
-    @formal 
-    [0..*] -- outinflow -- [1] Debit_Commitment 
+relator Balance_Duality_Spot_Market_Contract{
+    @mediation [1] -- [1..*] Credit_Event 
+    @mediation [1] -- [1..*] Debit_Event 
+    [*] -- Hybrid_Contract -- [*] Balanced_Reciprocity_Future_Market_Contract 
 }
 
-phase Off_Balance specializes Derivative_Instrument, Economic_Resource {
-    @memberOf 
-    [2] -- [1..*] Derivative_Instrument 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Debit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Commitment 
-    @formal 
-    [0..*] -- outinflow -- [1] Debit_Commitment 
-}
+phase Liability specializes Derivative_Instrument, Economic_Resource 
 
-phase Asset specializes Derivative_Instrument, Economic_Resource {
-    @memberOf 
-    [2] -- [1..*] Derivative_Instrument 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Debit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Commitment 
-    @formal 
-    [0..*] -- outinflow -- [1] Debit_Commitment 
-}
+phase Off_Balance specializes Derivative_Instrument, Economic_Resource 
+
+phase Asset specializes Derivative_Instrument, Economic_Resource 
 
 collective Derivative_Instrument
 
-kind Economic_Resource
-
-phase Equity specializes Economic_Resource, Derivative_Instrument {
-    @memberOf 
-    [2] -- [1..*] Derivative_Instrument 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Debit_Event 
-    @formal 
-    [1..*] -- outinflow -- [1] Credit_Commitment 
-    @formal 
-    [0..*] -- outinflow -- [1] Debit_Commitment 
+kind Economic_Resource{
+    @memberOf [2] -- [1..*] Derivative_Instrument 
+    @formal [1..*] -- outinflow -- [1] Credit_Event 
+    @formal [1..*] -- outinflow -- [1] Debit_Event 
+    @formal [1..*] -- outinflow -- [1] Credit_Commitment 
+    @formal [0..*] -- outinflow -- [1] Debit_Commitment 
 }
 
-event Economic_Event
+phase Equity specializes Economic_Resource, Derivative_Instrument 
+
+event Economic_Event{
+    @formal [1..*] -- stochastic_fulfillment_process -- [0..1] Economic_Commitment 
+    [1..*] -- [1] Economic_Event 
+}
 
 subkind Debit_Event specializes Economic_Event {
-    @formal 
-    [1..*] -- stochastic_fulfillment_process -- [0..1] Economic_Commitment 
-    [1..*] -- [1] Economic_Event 
+    @material [1..*] -- duality -- [1..*] Credit_Event 
 }
 
-subkind Credit_Event specializes Economic_Event {
-    @formal 
-    [1..*] -- stochastic_fulfillment_process -- [0..1] Economic_Commitment 
-    [1..*] -- [1] Economic_Event 
-}
+subkind Credit_Event specializes Economic_Event 
 
-kind Economic_Commitment
-
-subkind Debit_Commitment of functional-complexes  specializes Economic_Commitment {
-    @formal 
-    [1] -- identifying_future_occurrences -- [0..1] Uncertainty_Sample_Space 
+kind Economic_Commitment{
+    @formal [1] -- identifying_future_occurrences -- [0..1] Uncertainty_Sample_Space 
     [1..*] -- [1] Economic_Commitment 
 }
+
+subkind Debit_Commitment of functional-complexes  specializes Economic_Commitment 
 
 subkind Credit_Commitment of functional-complexes  specializes Economic_Commitment {
-    @formal 
-    [1] -- identifying_future_occurrences -- [0..1] Uncertainty_Sample_Space 
-    [1..*] -- [1] Economic_Commitment 
+    @material [1..*] -- reciprocity -- [1..*] Debit_Commitment 
 }
 
-kind Economic_Agent
+kind Economic_Agent{
+    @formal [2..*] -- participation_ -- [1] Economic_Event 
+    @formal [2..*] -- participation_ -- [0..1] Balanced_Reciprocity_Future_Market_Contract 
+}
 
-relator Balanced_Reciprocity_Future_Market_Contract
+relator Balanced_Reciprocity_Future_Market_Contract{
+    @mediation [1] -- [1..*] Credit_Commitment 
+    @mediation [1] -- [1..*] Debit_Commitment 
+}
 
-kind Planning_and_Control_Policy
+kind Planning_and_Control_Policy{
+    @formal [0..*] -- setting_commitments -- [1] Economic_Commitment 
+}
 
-kind Uncertainty_Sample_Space
+kind Uncertainty_Sample_Space{
+    @formal [1] -- assigning_plan_events -- [0..1] Plan_Event_Tree 
+}
 
-event Plan_Event_Tree
+event Plan_Event_Tree{
+    [0..*] -- [0..*] Economic_Resource 
+}
+
+genset rHAJG06GAqACHQo4 {
+    general Derivative_Instrument
+    specifics Off_Balance, Liability, Equity, Asset
+}
+
+genset eEa5G06GAqACHQrm {
+    general Economic_Event
+    specifics Debit_Event, Credit_Event
+}
+
+genset aeHlG06GAqACHQyY {
+    general Economic_Commitment
+    specifics Credit_Commitment, Debit_Commitment
+}
+
+genset UDDV_6AUB1CSi3Z {
+    general Economic_Resource
+    specifics Asset, Liability, Equity, Off_Balance
+}
 

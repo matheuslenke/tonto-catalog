@@ -1,11 +1,26 @@
 
 package Service_Delivery
 
-kind HiredProviderAction
+kind HiredProviderAction{
+    @Formal [0..*] -- performed_by -- [1] HiredServiceProvider 
+    @Formal [0..*] -- motivated_by -- [1..*] HiredProviderCommitment 
+}
 
-kind HiredProvider_ServiceCustomer_Interaction
+kind HiredProvider_ServiceCustomer_Interaction{
+    @Formal [0..*] -- motivated_by -- [0..*] HiredProviderCommitment 
+    @Formal [0..*] -- motivated_by -- [0..*] ServiceCustomerCommitment 
+    @Formal [0..*] -- performed_by -- [1..*] ServiceCustomer 
+}
 
-kind ServiceCustomerAction
+kind ServiceCustomerAction{
+    @Formal [0..*] -- motivated_by -- [1..*] ServiceCustomerCommitment 
+    @Formal [0..*] -- performed_by -- [1] CommittedServiceCustomer 
+}
 
-kind ServiceDelivery
+kind ServiceDelivery{
+    @Formal [0..*] -- related_to -- [1] ServiceAgreement 
+    @componentOf [1] -- [0..*] ServiceCustomerAction 
+    @componentOf [1] -- [0..*] HiredProvider_ServiceCustomer_Interaction 
+    @componentOf [1] -- [0..*] HiredProviderAction 
+}
 

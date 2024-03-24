@@ -1,50 +1,83 @@
-import ontology
 
 package Model
 
-kind Object_of_Contract
+kind Object_of_Contract{
+    @Formal [1] -- part_of -- [1] Social_Contract 
+}
 
-relator Social_Contract
+relator Social_Contract{
+    @Formal [1] -- prescribes -- [1..*] Claim 
+    @Formal [1] -- defines -- [1..*] Commitment 
+}
 
 collective Claim
 
 collective Commitment
 
 role Rulee of functional-complexes  specializes Individual {
-    @componentOf 
-    [1..*] -- [1] Society 
+    @mediation [1..*] -- sign -- [1] Social_Contract 
 }
 
 role Ruler of functional-complexes  specializes Individual {
-    @componentOf 
-    [1..*] -- [1] Society 
+    @material [1..*] -- waives_the_right_of_private_revenge -- [1..*] Rulee 
+    @mediation [1..*] -- sign -- [1] Social_Contract 
 }
 
-kind Individual
+kind Individual{
+    @componentOf [1..*] -- [1] Society 
+}
 
 kind Society
 
-collective State_Claim
+collective State_Claim{
+    @subCollectionOf [1] -- [1..*] Claim 
+}
 
-collective Society_Claim
+collective Society_Claim{
+    @subCollectionOf [1] -- [1..*] Claim 
+}
 
-collective State_Commitment
+collective State_Commitment{
+    @subCollectionOf [1] -- [1..*] Commitment 
+}
 
-collective Society_Commitment
+collective Society_Commitment{
+    @subCollectionOf [1] -- [1..*] Commitment 
+}
 
-subkind Familiar_Society of functional-complexes  specializes Society 
+subkind Familiar_Society of functional-complexes  specializes Society {
+    @componentOf [1] -- [1] Society 
+}
 
-subkind Religious_Society of functional-complexes  specializes Society 
+subkind Religious_Society of functional-complexes  specializes Society {
+    @componentOf [1] -- [1] Society 
+}
 
-subkind Educational_Society of functional-complexes  specializes Society 
+subkind Educational_Society of functional-complexes  specializes Society {
+    @componentOf [1] -- [1] Society 
+}
 
-subkind Political_Society of functional-complexes  specializes Society 
+subkind Political_Society of functional-complexes  specializes Society {
+    @componentOf [1] -- [1] Society 
+}
 
-kind State
+kind State{
+    @Formal [1] -- holds -- [1] Supremacy_of_Power 
+    @material [1] -- subjects -- [1] Society 
+}
 
-relator Public_Asset
+relator Public_Asset{
+    @mediation [1] -- [1] State 
+    @mediation [1] -- [1] Society 
+}
 
-relator Legal_System
+relator Legal_System{
+    @mediation [1] -- [1] State 
+    @mediation [1] -- [1] Society 
+    @mediation [1..*] -- [1..*] Norm 
+    @mediation [1..*] -- [1..*] Rule 
+    @mediation [1..*] -- [1..*] Principal 
+}
 
 collective Principal
 
@@ -52,34 +85,41 @@ collective Rule
 
 collective Norm
 
-kind Population
-
-kind Independent_Goverment
-
-kind Territory
-
-kind Land_Part
-
-kind Aerial_Part
-
-kind Terrritorial_Waters_Part
-
-kind Border_Part
-
-subkind Sketched_Border of functional-complexes  specializes Border_Part {
-    @componentOf 
-    [1..*] -- [1..*] Territory 
+kind Population{
+    @componentOf [1] -- population_composes_state -- [1] State 
 }
 
-subkind Live_Border of functional-complexes  specializes Border_Part {
-    @componentOf 
-    [1..*] -- [1..*] Territory 
+kind Independent_Goverment{
+    @componentOf [1] -- independent_goverment_composes_state -- [1] State 
 }
 
-subkind Dead_Border of functional-complexes  specializes Border_Part {
-    @componentOf 
-    [1..*] -- [1..*] Territory 
+kind Territory{
+    @componentOf [1] -- territriocompeEstado -- [1] State 
 }
 
-kind Supremacy_of_Power
+kind Land_Part{
+    @componentOf [1] -- [1] Territory 
+}
+
+kind Aerial_Part{
+    @componentOf [1] -- [1] Territory 
+}
+
+kind Terrritorial_Waters_Part{
+    @componentOf [1..*] -- [1] Territory 
+}
+
+kind Border_Part{
+    @componentOf [1..*] -- [1..*] Territory 
+}
+
+subkind Sketched_Border of functional-complexes  specializes Border_Part 
+
+subkind Live_Border of functional-complexes  specializes Border_Part 
+
+subkind Dead_Border of functional-complexes  specializes Border_Part 
+
+kind Supremacy_of_Power{
+    @Formal [1] -- is_part_of -- [1] Object_of_Contract 
+}
 

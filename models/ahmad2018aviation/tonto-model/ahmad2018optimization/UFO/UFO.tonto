@@ -1,19 +1,23 @@
-import ahmad2018optimization
 
 package UFO
 
-class Trope
-
-class Object
-
-class Event
-
-class Action specializes Event {
-    [*] -- has_participant -- [*] Agent 
+class Trope{
+    [*] -- inheres_in -- [*] Physical_Object 
 }
 
-class Agent specializes Object {
+class Object{
     [*] -- has_object_part -- [*] Object 
     [*] -- is_participant_of -- [*] Event 
 }
+
+class Event{
+    [*] -- has_participant -- [*] Agent 
+}
+
+class Action specializes Event {
+    [*] -- is_performed_by -- [*] Agent 
+    [*] -- is_performed_by -- [*] Cabin_Crew 
+}
+
+class Agent specializes Object 
 

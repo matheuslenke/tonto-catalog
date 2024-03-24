@@ -3,17 +3,22 @@ package despesagovernamental
 
 category Governo of functional-complexes 
 
-kind rgo
+kind rgo{
+    @componentOf [2..*] -- [1] Governo 
+}
 
-kind Governo_Federal specializes Governo 
+kind Governo_Federal specializes Governo {
+    [1] -- [1..*] Governo_Estadual 
+}
 
-kind Governo_Estadual specializes Governo 
+kind Governo_Estadual specializes Governo {
+    [1] -- [1..*] Governo_Municipal 
+}
 
 kind Governo_Municipal specializes Governo 
 
 role Unidade_Gestora of functional-complexes  specializes rgo {
-    @componentOf 
-    [2..*] -- [1] Governo 
+    [1] -- gere -- [*] Processo 
 }
 
 relator Processo
@@ -22,82 +27,82 @@ relator Processo_Licitatrio specializes Processo
 
 relator Processo_Execuco specializes Processo 
 
-relator Aco_Licitatria
+relator Aco_Licitatria{
+    [1] -- estabelece -- [1] Processo_Licitatrio 
+}
 
 relator Licitaco specializes Aco_Licitatria {
-    [1] -- estabelece -- [1] Processo_Licitatrio 
+    [1] -- adjudica -- [1] Contrato_com_Licitaco 
 }
 
-relator Dispensa_Licitaco specializes Aco_Licitatria {
-    [1] -- estabelece -- [1] Processo_Licitatrio 
-}
+relator Dispensa_Licitaco specializes Aco_Licitatria 
 
-relator Contrato_com_Licitaco specializes Contrato_Inicial {
-    [1..*] -- favorece -- [1] Credor 
-}
+relator Contrato_com_Licitaco specializes Contrato_Inicial 
 
 relator Contrato_com_Dispensa specializes Contrato_Inicial {
-    [1..*] -- favorece -- [1] Credor 
+    [1] -- ratifica -- [1] Dispensa_Licitaco 
 }
 
-relator Contrato_Inicial specializes Contrato {
+relator Contrato_Inicial specializes Contrato 
+
+relator Contrato{
     [1..*] -- favorece -- [1] Credor 
 }
-
-relator Contrato
 
 relator Contrato_Aditivo specializes Contrato {
-    [1..*] -- favorece -- [1] Credor 
+    [*] -- Incrementa -- [1] Contrato_Inicial 
 }
 
-roleMixin Credor of functional-complexes 
+roleMixin Credor of functional-complexes {
+    [1] -- realiza -- [1..*] Execuco_Despesa 
+}
 
 kind Pessoa
 
 kind Empresa
 
-role Pessoa_Credor of functional-complexes  specializes Credor, Pessoa {
-    [1] -- realiza -- [1..*] Execuco_Despesa 
-}
+role Pessoa_Credor of functional-complexes  specializes Credor, Pessoa 
 
-role Empresa_Credor of functional-complexes  specializes Credor, Empresa {
-    [1] -- realiza -- [1..*] Execuco_Despesa 
-}
+role Empresa_Credor of functional-complexes  specializes Credor, Empresa 
 
 relator Execuco_Despesa
 
-relator Exeuco_com_Contrato specializes Execuco_Despesa 
+relator Exeuco_com_Contrato specializes Execuco_Despesa {
+    [1..*] -- estabelece -- [1] Contrato 
+}
 
-relator Execuco_sem_Contrato specializes Execuco_Despesa 
+relator Execuco_sem_Contrato specializes Execuco_Despesa {
+    [1..*] -- estabelece -- [1] Processo_Execuco 
+}
 
-relator Empenho specializes Execuco_Despesa 
+relator Empenho specializes Execuco_Despesa {
+    [1] -- refere_a -- [*] Liquidaco 
+}
 
-relator Liquidaco specializes Execuco_Despesa 
+relator Liquidaco specializes Execuco_Despesa {
+    [1] -- refere_a -- [0..1] Pagamento 
+}
 
 relator Pagamento specializes Execuco_Despesa 
 
 role Despesa_Empenhada of functional-complexes  specializes Despesa {
-    [*] -- classifica -- [1] Aco 
-    [*] -- classifica -- [1] SubFunco 
-    [*] -- classifica -- [1] Natureza_Despesa 
-    [*] -- classifica -- [1] Subttulo 
+    [1] -- empenha -- [1] Empenho 
 }
 
 role Despesa_Liquidada of functional-complexes  specializes Despesa {
-    [*] -- classifica -- [1] Aco 
-    [*] -- classifica -- [1] SubFunco 
-    [*] -- classifica -- [1] Natureza_Despesa 
-    [*] -- classifica -- [1] Subttulo 
+    [1] -- liquida -- [1..*] Liquidaco 
 }
 
 role Despesa_Paga of functional-complexes  specializes Despesa {
+    [1] -- paga -- [1..*] Pagamento 
+}
+
+kind Despesa{
     [*] -- classifica -- [1] Aco 
     [*] -- classifica -- [1] SubFunco 
     [*] -- classifica -- [1] Natureza_Despesa 
     [*] -- classifica -- [1] Subttulo 
 }
-
-kind Despesa
 
 role Subttulo of functional-complexes  specializes Local 
 
@@ -105,17 +110,72 @@ kind Local
 
 kind Natureza_Despesa
 
-kind Aco
+kind Aco{
+    @componentOf [2..*] -- [1] Programa 
+}
 
 kind Programa
 
-kind SubFunco
+kind SubFunco{
+    @componentOf [2..*] -- [1] Funco 
+}
 
 kind Funco
 
-kind Grupo_Natureza
+kind Grupo_Natureza{
+    @componentOf [1..*] -- [1] Natureza_Despesa 
+}
 
-kind Categoria_Econmica
+kind Categoria_Econmica{
+    @componentOf [1..*] -- [1] Natureza_Despesa 
+}
 
-kind Modalidade_Aplicaco
+kind Modalidade_Aplicaco{
+    @componentOf [1..*] -- [1] Natureza_Despesa 
+}
+
+genset RqwsLv6GAqAABQvD {
+    general Governo
+    specifics Governo_Federal, Governo_Estadual, Governo_Municipal
+}
+
+genset SUUsLv6GAqAABQvX {
+    general Processo
+    specifics Processo_Licitatrio, Processo_Execuco
+}
+
+genset TYJsLv6GAqAABQwL {
+    general Aco_Licitatria
+    specifics Licitaco, Dispensa_Licitaco
+}
+
+genset ylsLv6GAqAABQwd {
+    general Contrato_Inicial
+    specifics Contrato_com_Dispensa, Contrato_com_Licitaco
+}
+
+genset yUDsLv6GAqAABQwv {
+    general Contrato
+    specifics Contrato_Aditivo, Contrato_Inicial
+}
+
+genset U07sLv6GAqAABQxN {
+    general Credor
+    specifics Pessoa_Credor, Empresa_Credor
+}
+
+genset TGxcLv6GAqAABQ1Z {
+    general Execuco_Despesa
+    specifics Empenho, Pagamento, Liquidaco
+}
+
+genset Vo1cLv6GAqAABQ1t {
+    general Execuco_Despesa
+    specifics Execuco_sem_Contrato, Exeuco_com_Contrato
+}
+
+genset TyQ8Lv6GAqAABQ2B {
+    general Despesa
+    specifics Despesa_Empenhada, Despesa_Paga, Despesa_Liquidada
+}
 

@@ -1,21 +1,25 @@
-import BGoncalves_HeartElectrophisiology
-import ecg
-import circulatoryPhenomenom
-import heart
-import humanProtocol
-import bioelectricPhenomena
 
 package heart
 
-kind HumanHeart specializes Chamber, Muscle 
+kind HumanHeart specializes Chamber, Muscle {
+    @componentOf [1] -- [1] HumanBody 
+}
 
-kind LeftVentricle specializes Chamber, Muscle 
+kind LeftVentricle specializes Chamber, Muscle {
+    @componentOf [1] -- [1] HumanHeart 
+}
 
-kind RightVentricle specializes Chamber, Muscle 
+kind RightVentricle specializes Chamber, Muscle {
+    @componentOf [1] -- [1] HumanHeart 
+}
 
-kind RightAtrium specializes Chamber, Muscle 
+kind RightAtrium specializes Chamber, Muscle {
+    @componentOf [1] -- [1] HumanHeart 
+}
 
-kind LeftAtrium specializes Chamber, Muscle 
+kind LeftAtrium specializes Chamber, Muscle {
+    @componentOf [1] -- [1] HumanHeart 
+}
 
 kind HumanBody specializes Chamber 
 
@@ -23,21 +27,17 @@ category Muscle of functional-complexes
 
 category Chamber of functional-complexes 
 
-collective SANodeMyocytes
+collective SANodeMyocytes{
+    @subCollectionOf  --  CSAMyocytes 
+}
 
 collective CSAMyocytes
 
 collective CSVMyocytes
 
-phase SANodeMyocytesPolarized of collectives  specializes SANodeMyocytes {
-    @subCollectionOf 
-    [1] -- [1]  CSAMyocytes 
-}
+phase SANodeMyocytesPolarized of collectives  specializes SANodeMyocytes 
 
-phase SANodeMyocytesDepolarized of collectives  specializes SANodeMyocytes {
-    @subCollectionOf 
-    [1] -- [1] CSAMyocytes 
-}
+phase SANodeMyocytesDepolarized of collectives  specializes SANodeMyocytes 
 
 phase CSAMyocytesPolarized of collectives  specializes CSAMyocytes 
 
@@ -53,7 +53,36 @@ quantity ECMOfCSA
 
 quantity ECMOfCSV
 
-collective PacemakerSANodeMyocytes
+collective PacemakerSANodeMyocytes{
+    @subCollectionOf  --  SANodeMyocytes 
+}
 
-collective TransitionalSANodeMyocytes
+collective TransitionalSANodeMyocytes{
+    @subCollectionOf  --  SANodeMyocytes 
+}
+
+genset disjoint {
+    general Muscle
+    specifics LeftVentricle, RightAtrium, LeftAtrium, RightVentricle
+}
+
+genset disjoint {
+    general Chamber
+    specifics LeftAtrium, RightAtrium, RightVentricle, LeftVentricle
+}
+
+genset disjoint {
+    general SANodeMyocytes
+    specifics SANodeMyocytesPolarized, SANodeMyocytesDepolarized
+}
+
+genset disjoint {
+    general CSAMyocytes
+    specifics CSAMyocytesPolarized, CSAMyocytesDepolarized
+}
+
+genset disjoint {
+    general CSVMyocytes
+    specifics CSVMyocytesPolarized, CSVMyocytesDepolarized
+}
 

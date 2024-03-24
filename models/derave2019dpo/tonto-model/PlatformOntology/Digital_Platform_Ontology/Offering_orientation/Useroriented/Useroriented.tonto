@@ -1,13 +1,8 @@
-import PlatformOntology
+import Transaction
+import Productoriented
+import Resultoriented
 
 package Useroriented
 
-event UserOriented_Delivery specializes Delivery, ProductOriented_Delivery, ResultOriented_Delivery {
-    @participation 
-    [0..*] -- received_by -- [1..*] Platform_Customer 
-    @participation 
-    [0..*] -- involves -- [1..*] Good 
-    @participation 
-    [1..*] -- performed_by -- [1..*] Platform_Provider 
-}
+event UserOriented_Delivery specializes Delivery, ProductOriented_Delivery, ResultOriented_Delivery 
 

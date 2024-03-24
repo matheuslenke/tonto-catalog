@@ -1,32 +1,26 @@
-import ontology
 
 package diagram1
 
-role High_School_Student of functional-complexes  specializes Student {
-    @material 
-    [1..*] -- studies_at -- [1..*] Educational_Institution 
+role High_School_Student of functional-complexes  specializes Student 
+
+role College_Student of functional-complexes  specializes Student 
+
+role Post_Graduate_Student of functional-complexes  specializes Student 
+
+role Student of functional-complexes  specializes Natural_Person {
+    @material [1..*] -- studies_at -- [1..*] Educational_Institution 
 }
 
-role College_Student of functional-complexes  specializes Student {
-    @material 
-    [1..*] -- studies_at -- [1..*] Educational_Institution 
+role Educational_Institution of functional-complexes  specializes Employer {
+    @mediation [1] -- [1..*] Internship 
 }
 
-role Post_Graduate_Student of functional-complexes  specializes Student {
-    @material 
-    [1..*] -- studies_at -- [1..*] Educational_Institution 
+relator Enrolment{
+    @mediation [1..*] -- [1] Student 
+    @mediation [1..*] -- [1] Educational_Institution 
 }
 
-role Student of functional-complexes  specializes Natural_Person 
-
-role Educational_Institution of functional-complexes  specializes Employer 
-
-relator Enrolment
-
-role Intern of functional-complexes  specializes Student {
-    @material 
-    [1..*] -- studies_at -- [1..*] Educational_Institution 
-}
+role Intern of functional-complexes  specializes Student 
 
 kind Legal_Person
 
@@ -34,88 +28,74 @@ subkind Natural_Person of functional-complexes  specializes Legal_Person
 
 subkind Juridical_Person of functional-complexes  specializes Legal_Person 
 
-relator Employment
+relator Employment{
+    @mediation [1..*] -- [1] Employee 
+    @mediation [1..*] -- [1] Employer 
+}
 
-role Employee of functional-complexes  specializes Natural_Person 
+role Employee of functional-complexes  specializes Natural_Person {
+    @material [1..*] -- works_at -- [1..*] Employer 
+}
 
 role Employer of functional-complexes  specializes Juridical_Person 
 
-role Educational_Supervisor of functional-complexes  specializes Employee {
-    @material 
-    [1..*] -- works_at -- [1..*] Employer 
-}
+role Educational_Supervisor of functional-complexes  specializes Employee 
 
-role Supervisor of functional-complexes  specializes Employee {
-    @material 
-    [1..*] -- works_at -- [1..*] Employer 
-}
+role Supervisor of functional-complexes  specializes Employee 
 
 role Internship_Provider_Organization of functional-complexes  specializes Employer, Organization_Insured 
 
 relator Internship{
     hours_per_day: undefined  
     income: undefined  
+    @mediation [1..*] -- [1] Supervisor 
+    @mediation [1..*] -- [1] Internship_Provider_Organization 
+    @mediation [1..*] -- [1] Educational_Supervisor 
+    @mediation [1] -- [1] Term_of_commitment 
+    @mediation [1] -- [1] Intern 
 }
 
-relator Obligatory_Internship specializes Internship {
-    @mediation 
-    [1..*] -- [1] Supervisor 
-    @mediation 
-    [1..*] -- [1] Internship_Provider_Organization 
-    @mediation 
-    [1..*] -- [1] Educational_Supervisor 
-    @mediation 
-    [1] -- [1] Term_of_commitment 
-    @mediation 
-    [1] -- [1] Intern 
-}
+relator Obligatory_Internship specializes Internship 
 
-relator Voluntary_Internship specializes Internship {
-    @mediation 
-    [1..*] -- [1] Supervisor 
-    @mediation 
-    [1..*] -- [1] Internship_Provider_Organization 
-    @mediation 
-    [1..*] -- [1] Educational_Supervisor 
-    @mediation 
-    [1] -- [1] Term_of_commitment 
-    @mediation 
-    [1] -- [1] Intern 
-}
+relator Voluntary_Internship specializes Internship 
 
 kind Term_of_commitment
 
-relator Full_Time_Internship specializes Internship {
-    @mediation 
-    [1..*] -- [1] Supervisor 
-    @mediation 
-    [1..*] -- [1] Internship_Provider_Organization 
-    @mediation 
-    [1..*] -- [1] Educational_Supervisor 
-    @mediation 
-    [1] -- [1] Term_of_commitment 
-    @mediation 
-    [1] -- [1] Intern 
-}
+relator Full_Time_Internship specializes Internship 
 
-relator Part_Time_Internship specializes Internship {
-    @mediation 
-    [1..*] -- [1] Supervisor 
-    @mediation 
-    [1..*] -- [1] Internship_Provider_Organization 
-    @mediation 
-    [1..*] -- [1] Educational_Supervisor 
-    @mediation 
-    [1] -- [1] Term_of_commitment 
-    @mediation 
-    [1] -- [1] Intern 
-}
+relator Part_Time_Internship specializes Internship 
 
-role Insurance_Carrier of functional-complexes  specializes Juridical_Person 
+role Insurance_Carrier of functional-complexes  specializes Juridical_Person {
+    @material [1..*] -- provides_insurance_to -- [1..*] Organization_Insured 
+}
 
 role Organization_Insured
 
-relator Personal_Injury_Insurance
+relator Personal_Injury_Insurance{
+    @mediation [1..*] -- [1] Insurance_Carrier 
+    @mediation [1..*] -- [1] Organization_Insured 
+    @mediation [1] -- [1] Insurance_Policy 
+}
 
 kind Insurance_Policy
+
+genset QrXGe36DAAAATwW {
+    general Student
+    specifics College_Student, High_School_Student, Post_Graduate_Student
+}
+
+genset eVdWe36DAAAAT2o {
+    general Legal_Person
+    specifics Juridical_Person, Natural_Person
+}
+
+genset qVTue36DAAAAUB9 {
+    general Internship
+    specifics Voluntary_Internship, Obligatory_Internship
+}
+
+genset bBse36DAAAAUGv {
+    general Internship
+    specifics Part_Time_Internship, Full_Time_Internship
+}
 

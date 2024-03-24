@@ -1,27 +1,33 @@
-26
+32
 
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
+Could not resolve reference to ClassDeclarationOrRelation named 'Performed_Process'.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
-Duplicated reference name
-Duplicated reference name
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Classes representing ultimate sortals cannot specialize other ultimate sortals
-Classes representing ultimate sortals cannot specialize other ultimate sortals
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Estimated_Process'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Estimated_Activity'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Work_Package'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'Estimated_Stakeholder_Allocation'.
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
-Consider using an annotation or a more specific class
+Could not resolve reference to DataTypeOrClassOrRelation named 'Deliverable'.
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 This class does not specialize a Ultimate Sortal. Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode, extrinsicMode, type or powertype)
 This class must specify the ontological nature of its instances. Specify a Nature or specialize an Ultimate Sortal that provides a nature
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Classes representing ultimate sortals cannot specialize other ultimate sortals
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
+Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class

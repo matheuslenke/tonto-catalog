@@ -1,5 +1,4 @@
 Validating...
-- Total of errors: 0
-[error] Prohibited generalization: incompatible 'restrictedTo' values:
-The allowed ontological natures of instances of Championship_Winner_Constructor are not among the allowed ontological natures of its superclass Champion
+Total of errors: 2
+undefined
 Validation finished

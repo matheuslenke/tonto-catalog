@@ -1,22 +1,26 @@
-import Common_Ontology_of_Value_and_Risk
 import UFOA
 
 package UFOB
 
-category Disposition specializes Mode 
-
-event Event
-
-event Action specializes Event {
-    @historicalDependence 
-    [*] -- causes -- [*] Event 
-    @bringsAbout 
-    [*] -- [1] Situation 
-    @instantiation 
-    [*] -- categorizes -- [1..*] Event_Type 
+category Disposition specializes Mode {
+    [1..*] -- [*] Experience_Value_Asc 
+    @characterization [1..*] -- [0..1] Value_Object 
+    @characterization [1..*] -- [0..1] Value_Enabler 
+    @manifestation [1..*] -- [*] Value_Event 
 }
 
-situation Situation
+event Event{
+    @historicalDependence [*] -- causes -- [*] Event 
+    @bringsAbout [*] -- [1] Situation 
+    @instantiation [*] -- categorizes -- [1..*] Event_Type 
+}
+
+event Action specializes Event 
+
+situation Situation{
+    @triggers [1] -- [*] Event 
+    @instantiation [*] -- categorizes -- [1..*] Situation_Type 
+}
 
 type Event_Type
 

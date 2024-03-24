@@ -1,5 +1,7 @@
-27
+25
 
+Expecting token of type 'specifics' but found `,`.
+Expecting end of file but found `,`.
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
@@ -13,12 +15,8 @@ Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
 Classes representing ultimate sortals cannot specialize other ultimate sortals
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
-Duplicated reference name
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Duplicated reference name
 Duplicated reference name
 Duplicated reference name

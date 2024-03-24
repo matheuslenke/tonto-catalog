@@ -1,46 +1,57 @@
-import BGoncalves_HeartElectrophisiology
-import ecg
-import circulatoryPhenomenom
 import heart
 
 package bioelectricPhenomena
 
-kind HeartAsPump specializes HumanHeart {
-    @componentOf 
-    [1] -- [1] HumanBody 
+kind HeartAsPump specializes HumanHeart 
+
+collective HeartCells{
+    [1] -- [1] HumanHeart 
 }
 
-collective HeartCells
-
 role LeftVentricleAsPump of functional-complexes  specializes LeftVentricle {
-    @componentOf 
-    [1] -- [1] HumanHeart 
+    [1] -- [1] HeartAsPump 
+    @mediation [1] -- [1..*] LVContraction 
+    @material [1] -- contraction -- [1..*] PurkinjeElectircalImpulse 
 }
 
 role RightVentricleAsPump of functional-complexes  specializes RightVentricle {
-    @componentOf 
-    [1] -- [1] HumanHeart 
+    [1] -- [1] HeartAsPump 
+    @mediation [1] -- [1..*] RVContraction 
+    @material [1] -- contraction -- [1..*] PurkinjeElectircalImpulse 
 }
 
 role RightAtriumAsPump of functional-complexes  specializes RightAtrium {
-    @componentOf 
-    [1] -- [1] HumanHeart 
+    [0..1] -- [1] HeartAsPump 
+    @mediation [1] -- [1..*] RAContraction 
+    @material [0..*] -- contraction -- [1..*] SAElecticalImpulse 
 }
 
 role LeftAtriumAsPump of functional-complexes  specializes LeftAtrium {
-    @componentOf 
-    [1] -- [1] HumanHeart 
+    [0..1] -- [1] HeartAsPump 
+    @mediation [1] -- [1..*] LAContraction 
+    @material [1] -- contraction -- [1..*] SAElecticalImpulse 
 }
 
-relator LVContraction
+relator LVContraction{
+    @mediation [1] -- [1] PurkinjeElectircalImpulse 
+}
 
-relator RVContraction
+relator RVContraction{
+    @mediation [1] -- [1] PurkinjeElectircalImpulse 
+}
 
-relator RAContraction
+relator RAContraction{
+    @mediation [1] -- [1] SAElecticalImpulse 
+}
 
-relator LAContraction
+relator LAContraction{
+    @mediation [1] -- [1] SAElecticalImpulse 
+}
 
-kind SAElecticalImpulse
+kind SAElecticalImpulse{
+    [1] -- [1] HisPurkinjeElectricalImpulse 
+    [1..*] -- givesRiseTo -- [1] SANodeCells 
+}
 
 phase PurkinjeElectircalImpulse of functional-complexes  specializes HisPurkinjeElectricalImpulse 
 
@@ -48,90 +59,107 @@ kind HisPurkinjeElectricalImpulse
 
 phase HisElectricalImpulse of functional-complexes  specializes HisPurkinjeElectricalImpulse 
 
-kind AVElectricalImpulse
-
-subkind PacemakerCells of collectives  specializes HeartCells {
-    [1] -- [1] HumanHeart 
+kind AVElectricalImpulse{
+    [1] -- [1] HisPurkinjeElectricalImpulse 
 }
 
-subkind NonPacemakerCells of collectives  specializes HeartCells {
-    [1] -- [1] HumanHeart 
-}
+subkind PacemakerCells of collectives  specializes HeartCells 
 
-subkind SANodeCells of collectives  specializes PacemakerCells {
-    [1] -- [1] HumanHeart 
-}
+subkind NonPacemakerCells of collectives  specializes HeartCells 
+
+subkind SANodeCells of collectives  specializes PacemakerCells 
 
 subkind AVNodeCells of collectives  specializes PacemakerCells {
-    [1] -- [1] HumanHeart 
+    [1] -- givesRiseTo -- [1..*] AVElectricalImpulse 
 }
 
-kind SANode
-
-mode ToGenerateCEI
-
-role SANodeAsCEIConductor of functional-complexes  specializes SANode, CEIConductor {
-    @characterization 
-    [1] -- inheresIn -- [0..1] ToConductCEI 
+kind SANode{
+    @characterization [1] -- inheresIn -- [0..1] ToConductCEI 
      -- partOf --  ConductingSystemOfAtria 
      -- partiallyConstitutedBy --  ECMOfSANode 
      -- partiallyConstitutedBy --  SANodeMyocytes 
 }
 
-role SANodeAsCEIGenerator of functional-complexes  specializes SANode, CEIGenerator {
-    @characterization 
-    [1] -- inheresIn -- [0..1] ToConductCEI 
-     -- partOf --  ConductingSystemOfAtria 
-     -- partiallyConstitutedBy --  ECMOfSANode 
-     -- partiallyConstitutedBy --  SANodeMyocytes 
+mode ToGenerateCEI{
+    @characterization [1] -- inheresIn -- [1] SANode 
+     -- realizedBy --  DepolarizationOfPacemakerSANodeMyocytes 
 }
+
+role SANodeAsCEIConductor of functional-complexes  specializes SANode, CEIConductor 
+
+role SANodeAsCEIGenerator of functional-complexes  specializes SANode, CEIGenerator 
 
 roleMixin CEIGenerator of functional-complexes 
 
 roleMixin CEIConductor of functional-complexes 
 
-mode CardiacElectricalImpulse
+mode CardiacElectricalImpulse{
+     -- generatedBy --  CEIGenerator 
+     -- conductedBy --  CEIConductor 
+}
 
-event DepolarizationOfPacemakerSANodeMyocytes
+event DepolarizationOfPacemakerSANodeMyocytes{
+     -- hasParticipant --  CardiacElectricalImpulse 
+    @participation [1..*] -- participatedIn -- [0..*] SANodeAsCEIGenerator 
+}
 
-mode ToConductCEI
+mode ToConductCEI{
+     -- realizedBy --  DepolarizationOfCSAMyocytes 
+     -- realizedBy --  DepolarizationOfCSVMyocytes 
+}
 
-event DepolarizationOfCSAMyocytes
+event DepolarizationOfCSAMyocytes{
+     -- hasParticipant --  CardiacElectricalImpulse 
+    @participation [1..*] -- participatedIn -- [0..*] CSAAsCEIConductor 
+    @participation [1..*] -- participatedIn -- [0..*] SANodeAsCEIConductor 
+}
 
-event DepolarizationOfCSVMyocytes
+event DepolarizationOfCSVMyocytes{
+     -- hasParticipant --  CardiacElectricalImpulse 
+    @participation [1..*] -- participatedIn -- [0..*] CSVAsCEIConductor 
+}
 
-kind ConductingSystemOfAtria
-
-role CSAAsCEIConductor of functional-complexes  specializes CEIConductor, ConductingSystemOfAtria {
-    @characterization 
-    [1] -- inheresIn -- [0..1] ToConductCEI 
+kind ConductingSystemOfAtria{
+    @characterization [1] -- inheresIn -- [0..1] ToConductCEI 
      -- partiallyConstitutedBy --  ECMOfCSA 
      -- partiallyConstitutedBy --  CSAMyocytes 
 }
 
-event RepolarizationOfCSVMyocytes
+role CSAAsCEIConductor of functional-complexes  specializes CEIConductor, ConductingSystemOfAtria 
 
-mode ToRestoreEPs
+event RepolarizationOfCSVMyocytes{
+    @participation [1..*] -- participatedIn -- [0..*] CSVAsEPsAccumulator 
+}
 
-kind ConductingSystemOfVentricles
+mode ToRestoreEPs{
+     -- realizedBy --  RepolarizationOfCSVMyocytes 
+}
 
-role CSVAsCEIConductor of functional-complexes  specializes ConductingSystemOfVentricles, CEIConductor {
-    @characterization 
-    [1..*] -- inheresIn -- [1] ToRestoreEPs 
-    @characterization 
-    [1] -- inheresIn -- [0..1] ToConductCEI 
+kind ConductingSystemOfVentricles{
+    @characterization [1..*] -- inheresIn -- [1] ToRestoreEPs 
+    @characterization [1] -- inheresIn -- [0..1] ToConductCEI 
      -- partiallyConstitutedBy --  ECMOfCSV 
      -- partiallyConstitutedBy --  CSVMyocytes 
 }
 
-role CSVAsEPsAccumulator of functional-complexes  specializes ConductingSystemOfVentricles, EPsAccumulator {
-    @characterization 
-    [1..*] -- inheresIn -- [1] ToRestoreEPs 
-    @characterization 
-    [1] -- inheresIn -- [0..1] ToConductCEI 
-     -- partiallyConstitutedBy --  ECMOfCSV 
-     -- partiallyConstitutedBy --  CSVMyocytes 
-}
+role CSVAsCEIConductor of functional-complexes  specializes ConductingSystemOfVentricles, CEIConductor 
+
+role CSVAsEPsAccumulator of functional-complexes  specializes ConductingSystemOfVentricles, EPsAccumulator 
 
 roleMixin EPsAccumulator of functional-complexes 
+
+genset disjoint {
+    general HisPurkinjeElectricalImpulse
+    specifics PurkinjeElectircalImpulse, HisElectricalImpulse
+}
+
+genset disjoint {
+    general PacemakerCells
+    specifics SANodeCells, AVNodeCells
+}
+
+genset disjoint_complete {
+    general HeartCells
+    specifics PacemakerCells, NonPacemakerCells
+}
 

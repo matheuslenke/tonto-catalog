@@ -1,19 +1,28 @@
 
 package jogabilidadeOntology
 
-relator Jogar
+relator Jogar{
+    @mediation [1] -- envolve_agente_de_software -- [1] Jogo_qua_agente 
+    @mediation [1] -- envolve_pessoa -- [1] Jogador 
+}
 
-role Jogador of functional-complexes  specializes Pessoa 
+role Jogador of functional-complexes  specializes Pessoa {
+    [*] -- percebe -- [*] Usabilidade 
+    @material [1] -- joga_com -- [1] Jogo_qua_agente 
+    @participation [1..*] -- [1] Gameplay 
+}
 
 role Jogo_qua_agente of functional-complexes  specializes Jogo_de_Videogame_software {
-    [1] -- [2..*] Mecnica 
-    [1] -- [2..*] Regra 
-    [1] -- [2..*] Design 
+    @participation [1..*] -- [1] Gameplay 
 }
 
 kind Pessoa
 
-kind Jogo_de_Videogame_software
+kind Jogo_de_Videogame_software{
+    [1] -- [2..*] Mecnica 
+    [1] -- [2..*] Regra 
+    [1] -- [2..*] Design 
+}
 
 kind Mecnica
 
@@ -21,23 +30,39 @@ kind Regra
 
 kind Design
 
-quality QualidadeMecnica
+quality QualidadeMecnica{
+    @characterization [1] -- [1] Mecnica 
+    @structuration [1] -- [1] MedidaQualidadeMecnica 
+}
 
-quality QualidadeRegra
+quality QualidadeRegra{
+    @characterization [1] -- [1] Regra 
+    @structuration [1] -- [1] MedidaQualidadeRegra 
+}
 
-quality QualidadeDesign
+quality QualidadeDesign{
+    @characterization [1] -- [1] Design 
+    @structuration [1] -- [1] MedidaQualidadeDesign 
+}
 
-event Gameplay
+event Gameplay{
+    [1] -- Encerra -- [1] Final_da_partidade_de_videogame 
+}
 
-situation Inicio_da_partida_de_videogame
+situation Inicio_da_partida_de_videogame{
+    @triggers [1] -- [1] Gameplay 
+}
 
 situation Final_da_partidade_de_videogame
 
-quality Jogabilidade
-
-enum Usabilidade {
-    mecanica,regra,design
+quality Jogabilidade{
+    @characterization [1] -- [1] Jogo_de_Videogame_software 
+    @structuration [1] -- [1] Usabilidade 
+    [1..*] -- Influencia -- [1] Gameplay 
 }
+
+datatype Usabilidade{
+mecanica,regra,design,}
 
 datatype MedidaQualidadeMecnica
 datatype MedidaQualidadeRegra

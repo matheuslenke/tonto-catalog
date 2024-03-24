@@ -1,64 +1,29 @@
-import Model
 import Core
 
 package Class
 
-subkind Generic_Class of functional-complexes  specializes Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
+subkind Generic_Class of functional-complexes  specializes Class 
+
+kind Type_Parameter{
+    @componentOf [1..*] -- [1] Generic_Class 
 }
 
-kind Type_Parameter
+subkind Concrete_Class of functional-complexes  specializes Class 
 
-subkind Concrete_Class of functional-complexes  specializes Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
-}
+subkind Abstract_Class of functional-complexes  specializes Class, Extendable_Class 
 
-subkind Abstract_Class of functional-complexes  specializes Class, Extendable_Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
-}
+subkind NonExtendable_Class of functional-complexes  specializes Class 
 
-subkind NonExtendable_Class of functional-complexes  specializes Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
-}
+subkind Extendable_Class of functional-complexes  specializes Class 
 
-subkind Extendable_Class of functional-complexes  specializes Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
-}
-
-subkind Root_Class of functional-complexes  specializes Extendable_Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
-}
+subkind Root_Class of functional-complexes  specializes Extendable_Class 
 
 role Superclass of functional-complexes  specializes Extendable_Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
+    [1..*] -- inherited_in -- [1..*] Inheritance 
 }
 
 role Subclass of functional-complexes  specializes Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
+    [1] -- inherits_in -- [1] Inheritance 
 }
 
 relator Nesting
@@ -66,11 +31,30 @@ relator Nesting
 relator Inheritance
 
 role Nested_Class of functional-complexes  specializes Class {
-    @componentOf 
-    [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
+    [1] -- nested_in -- [1] Nesting 
 }
 
-quality Inheritance_Visibility
+quality Inheritance_Visibility{
+    @characterization [0..1] -- characterized_by -- [1] Inheritance 
+}
+
+genset Parametrization {
+    general Class
+    specifics Generic_Class
+}
+
+genset Implementation {
+    general Class
+    specifics Concrete_Class, Abstract_Class
+}
+
+genset Extension {
+    general Class
+    specifics Extendable_Class, NonExtendable_Class
+}
+
+genset Inheritance {
+    general Class
+    specifics Subclass
+}
 

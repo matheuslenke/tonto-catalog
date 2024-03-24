@@ -1,15 +1,28 @@
 
 package ontology
 
-role Traveler
+role Traveler{
+    @mediation [1] -- [*] Reservation 
+    @mediation [1] -- [1] Check 
+    @mediation [1] -- [1] Application 
+    @mediation [1] -- [1] Revision 
+}
 
-relator Reservation
+relator Reservation{
+    @mediation [1] -- [1..*] Ticket 
+}
 
-relator Check
+relator Check{
+    @mediation [1] -- [1] Schedule 
+}
 
-relator Application
+relator Application{
+    @mediation [1] -- [1] Visa 
+}
 
-relator Revision
+relator Revision{
+    @mediation [1] -- [1] Kind 
+}
 
 relator Ticket
 
@@ -27,54 +40,47 @@ subkind Flight of functional-complexes  specializes Schedule
 
 subkind Railway of functional-complexes  specializes Schedule 
 
-quality Status
+quality Status{
+    @characterization [1] -- [1] Flight 
+}
 
-role Student
+role Student{
+    @mediation [1] -- [1] Equivalence 
+}
 
-relator Enrollment
+relator Enrollment{
+    @mediation [1] -- [1] Secondary_Certificate 
+    @mediation [1] -- [1] Student 
+}
 
-relator Coordination
+relator Coordination{
+    @mediation [1] -- [1] Student 
+    @mediation [1] -- [*] Wish 
+}
 
-relator Equivalence
+relator Equivalence{
+    @mediation [1] -- [1] Scientific_Degree 
+}
 
-kind Secondary_Certificate
+kind Secondary_Certificate{
+    @characterization [1] -- [1] Results 
+}
 
 quality Results
 
-subkind Secondary_Azhar of functional-complexes  specializes Secondary_Certificate {
-    @characterization 
-    [1] -- [1] Results 
-}
+subkind Secondary_Azhar of functional-complexes  specializes Secondary_Certificate 
 
-subkind Secondary_General of functional-complexes  specializes Secondary_Certificate {
-    @characterization 
-    [1] -- [1] Results 
-}
+subkind Secondary_General of functional-complexes  specializes Secondary_Certificate 
 
-subkind Technical of functional-complexes  specializes Secondary_Certificate {
-    @characterization 
-    [1] -- [1] Results 
-}
+subkind Technical of functional-complexes  specializes Secondary_Certificate 
 
-subkind Nile_School of functional-complexes  specializes Secondary_Certificate {
-    @characterization 
-    [1] -- [1] Results 
-}
+subkind Nile_School of functional-complexes  specializes Secondary_Certificate 
 
-subkind STEM_School of functional-complexes  specializes Secondary_Certificate {
-    @characterization 
-    [1] -- [1] Results 
-}
+subkind STEM_School of functional-complexes  specializes Secondary_Certificate 
 
-subkind Arab_Country of functional-complexes  specializes Secondary_Certificate {
-    @characterization 
-    [1] -- [1] Results 
-}
+subkind Arab_Country of functional-complexes  specializes Secondary_Certificate 
 
-subkind Foreing_Country of functional-complexes  specializes Secondary_Certificate {
-    @characterization 
-    [1] -- [1] Results 
-}
+subkind Foreing_Country of functional-complexes  specializes Secondary_Certificate 
 
 kind Wish
 

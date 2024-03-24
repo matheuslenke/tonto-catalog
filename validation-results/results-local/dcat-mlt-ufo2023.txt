@@ -1,5 +1,19 @@
-9
+26
 
+Expecting token of type 'ID' but found `instanceOf`.
+Expecting token of type '}' but found `instanceOf`.
+Expecting token of type 'ID' but found `1`.
+Expecting token of type 'ID' but found `1`.
+Expecting token of type 'ID' but found `instanceOf`.
+Expecting token of type '}' but found `instanceOf`.
+Expecting token of type 'ID' but found `2`.
+Expecting token of type 'ID' but found `2`.
+Expecting token of type 'ID' but found `1`.
+Expecting token of type 'ID' but found `1`.
+Expecting token of type 'ID' but found `1`.
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
+Every sortal class must specialize a unique Ultimate Sortal (kind, collective, quantity, relator, quality, mode, intrinsicMode or extrinsicMode)
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
@@ -8,4 +22,7 @@ Consider using an annotation or a more specific class
 Consider using an annotation or a more specific class
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Duplicated reference name
 Redundant nature declaration. The ontological natures of this element is already defined from its specializations
+Could not resolve reference to DataTypeOrClassOrRelation named 'dcatResource'.
+Could not resolve reference to DataTypeOrClassOrRelation named 'dcatRole'.

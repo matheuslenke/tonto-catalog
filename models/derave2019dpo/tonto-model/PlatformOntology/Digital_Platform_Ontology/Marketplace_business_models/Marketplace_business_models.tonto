@@ -1,83 +1,50 @@
-import PlatformOntology
+import GDPO_part_1
+import Listing_Type
+import Productoriented
+import Transaction
+import GDPO_User_Roles
+import Airbnb
+import Price_Discovery
+import MultiSided
+import Price_Calculation
+import Conversation_System
+import Digital_Platform_Ontology
+import Decentralized
+import Revenue_Stream
 
 package Marketplace_business_models
 
-event Digital_Good_Upload
+event Digital_Good_Upload{
+    [0..*] -- [*] Offering_Creation 
+    [1] -- [1] Digital_Good 
+}
 
 event Offline_Good_Transfer specializes Offline_Action, Ownership_Transfer {
-    @participation 
-    [0..*] -- involves -- [1..*] Good 
-    @participation 
-    [0..*] -- received_by -- [1..*] Platform_Customer 
+    @participation [0..*] -- involves -- [1..*] Physical_Good 
+    [0..*] -- [1] Platform_Customer_of_Offline_Physical_Good 
 }
 
 event Request_Quote specializes User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+    @creation [1] -- [1] Quote 
 }
 
-kind Quote
-
-event Price_Proposal specializes User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
+kind Quote{
+    [0..*] -- [1] Offering_On_The_Platform 
 }
 
-subkind Proposed_Price of intrinsic-modes  specializes Price 
+event Price_Proposal specializes User_Action 
 
-event Price_Acceptance specializes User_Action {
-    @participation 
-    [1..*] -- performed_by -- [1] Platform_User 
-    @instantiation 
-    [0..*] -- [1] User_Action_Type 
-    [1..*] -- enables -- [1] Airbnb_Software 
-    [1] -- enables -- [1..*] Platform_Software 
-    @participation 
-    [1] -- enables -- [1..*] Platform_Software 
-}
-
-subkind Accepted_Quote_Price of intrinsic-modes  specializes Proposed_Price {
+subkind Proposed_Price of intrinsic-modes  specializes Price {
     [*] -- [*] Price_Proposal 
 }
 
-subkind Quoted_Transaction of relators  specializes Transaction {
-    @mediation 
-    [1..*] -- bounds_customer -- [1] Platform_Customer 
-    @mediation 
-    [1..*] -- is_bound_to -- [1] Transaction_Platform_Company 
-    @mediation 
-    [1..*] -- bounds_hired_provider -- [1..*] Platform_Provider 
-    [1] -- partially_fulfills -- [0..*] Delivery 
-    @historicalDependence 
-    [0..*] -- conforms_to -- [1..*] Offering_On_The_Platform 
-    @componentOf 
-    [1] -- is_part_of -- [0..1] Investment 
-    [1] -- [1] Paid_Price 
-    [1] -- [1] Transaction_Price 
-    [1] -- [0..*] Transaction_Conversation 
-    [1] -- [1] Highest_Price_Offer 
-    [0..*] -- confirms_to -- [1] Listing 
-    [0..*] -- [1] Fixed_Fee 
-    @mediation 
-    [1] -- bounds_user -- [1] Platform_User 
-    @mediation 
-    [0..*] -- conforms_to -- [1] Digital_Platform_Offering 
-    @mediation 
-    [0..*] -- bounds_platform -- [1] Platform_Company 
-    [1] -- is_followed_by -- [1..*] User_Affiliation_Action 
-    @mediation 
-    [1..*] -- bounds_user -- [1..*] MS_Platform_User 
+event Price_Acceptance specializes User_Action {
+    [1] -- [1] Accepted_Quote_Price 
 }
+
+subkind Accepted_Quote_Price of intrinsic-modes  specializes Proposed_Price {
+    [1] -- [1] Quoted_Transaction 
+}
+
+subkind Quoted_Transaction of relators  specializes Transaction 
 
