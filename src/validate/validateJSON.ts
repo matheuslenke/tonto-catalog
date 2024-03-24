@@ -11,7 +11,7 @@ interface ResultObject {
     severity: string;
 }
 interface ResultResponse {
-    result: ResultObject[]
+    result: ResultObject[];
 }
 export const navigateAndRunCommandFromJSON = async (opts: RunOpts): Promise<ValidationResult | undefined> => {
     let correctModels = 0

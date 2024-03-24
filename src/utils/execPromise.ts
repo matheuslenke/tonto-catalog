@@ -1,13 +1,10 @@
 import { spawn } from "node:child_process";
 
 // Function to execute a shell command and return its output as a promise
-export const execPromise = (cmd: string, cwd: string): Promise<string> => {
+export const execPromise = (cmd: string, args: string, cwd: string): Promise<string> => {
     return new Promise((resolve, reject) => {
         try {
-            // Example: Using the full path to the command
-            const fullPathToCommand = 'tonto-cli';
-            const args = ['validate', './tonto-model', '--local'];
-            const child = spawn(fullPathToCommand, args, {
+            const child = spawn(cmd, args.split(" "), {
                 cwd
             })
 

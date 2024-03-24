@@ -1,6 +1,5 @@
-export function extractNumberFromText(text: string): number | null {
+export function extractNumberFromText(text: string, regex: RegExp): number | null {
     // Define the regular expression pattern
-    const regex = /Total of errors: (\d+)/;
 
     // Attempt to match the pattern in the given text
     const matches = text.match(regex);

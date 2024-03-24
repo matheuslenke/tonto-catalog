@@ -1,6 +1,12 @@
+import chalk from "chalk";
 import { exec } from "child_process";
 import * as fs from "node:fs";
-import { join } from "path";
+import path, { join } from "path";
+import { createAndWriteFile } from "./src/utils/createAndWriteFile.js";
+import { extractNumberFromText } from "./src/utils/extractNumberFromText.js";
+
+const willValidateLargeModel = false
+const willGenerateAsync = false
 
 // Function to execute a shell command and return its output as a promise
 const execPromise = (cmd: string, cwd: string): Promise<string> => {
@@ -20,21 +26,51 @@ const execPromise = (cmd: string, cwd: string): Promise<string> => {
     });
 };
 
+interface Result {
+    originalElements: number;
+    createdElements: number;
+    percentageDiff: number;
+}
 // Recursive function to navigate through directories and run the command
 const navigateAndRunCommand = async (dir: string): Promise<void> => {
     try {
         const files = fs.readdirSync(dir, {
             recursive: false,
         });
-
+        let results: Result[] = []
         for (const file of files as string[]) {
+            if (file === "mgic-antt2011" && !willValidateLargeModel) {
+                continue;
+            }
             const ontologyPath = join(dir, file);
             // Run the command in the current directory
-            await execPromise(
+            const response = await execPromise(
                 "tonto-cli import ontology.json -d tonto-model",
                 ontologyPath
             );
+            const originalNumberOfElements = extractNumberFromText(response, /- Number of elements in Project: (\d+)/);
+            const createdElements = extractNumberFromText(response, /- Number of elements in Tonto: (\d+)/);
+            const percentage: number = Number((100 - (createdElements ?? 0) / (originalNumberOfElements ?? 1) * 100).toFixed(2));
+            if (originalNumberOfElements !== createdElements) {
+                console.log(chalk.red.bold(`Created ${createdElements} elements from ${originalNumberOfElements} original amount. ${percentage}% difference.`))
+            } else {
+                console.log(chalk.green(`Created the same amount of elements than original project: ${originalNumberOfElements}`))
+            }
+            results.push({
+                originalElements: originalNumberOfElements,
+                createdElements: createdElements,
+                percentageDiff: percentage
+            } as Result)
         }
+        /**
+         * Write final results to file
+         */
+        const finalDir = path.join(path.dirname(dir), "creation-results.csv");
+        const header = `Original Elements; Created Elements; Percentage difference;\n`
+        const finalFileContent: string = results.reduce((previous, item) => {
+            return previous + `${item.originalElements};${item.createdElements};${item.percentageDiff};\n`
+        }, "")
+        createAndWriteFile(finalDir, header.concat(finalFileContent))
     } catch (error) {
         console.error(`Error processing directory ${dir}: ${error}`);
     }
@@ -48,7 +84,7 @@ const navigateAndRunCommandPromises = async (dir: string): Promise<void> => {
         const promises: Promise<string>[] = []
 
         for (const file of files as string[]) {
-            if (file === "mgic-antt2011") {
+            if (file === "mgic-antt2011" && !willValidateLargeModel) {
                 continue;
             }
             const ontologyPath = join(dir, file);
@@ -65,5 +101,8 @@ const navigateAndRunCommandPromises = async (dir: string): Promise<void> => {
     }
 }
 
-// Example usage: replace 'yourFolderPath' with the path of your selected folder
-navigateAndRunCommandPromises("./models").then(() => console.log("Done!"));
+if (willGenerateAsync) {
+    navigateAndRunCommandPromises("./models").then(() => console.log(chalk.green("Done!")));
+} else {
+    navigateAndRunCommand("./models").then(() => console.log(chalk.green("Done!")));
+}

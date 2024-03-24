@@ -16,6 +16,7 @@ export interface RunOpts {
 
 export interface RunCommandOpts extends RunOpts {
     command: string;
+    args: string;
 }
 
 export interface ModelResult {
@@ -44,10 +45,11 @@ export const navigateAndRunCommand = async (opts: RunCommandOpts): Promise<Valid
                 // Run the command in the current directory
                 const response = await execPromise(
                     opts.command,
+                    opts.args,
                     ontologyPath
                 );
                 // Add Result to Final Array
-                const totalErrors = extractNumberFromText(response)
+                const totalErrors = extractNumberFromText(response, /Total of errors: (\d+)/)
                 const result = {
                     modelName: file,
                     totalErrors: totalErrors
