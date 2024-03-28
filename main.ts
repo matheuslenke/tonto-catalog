@@ -9,7 +9,7 @@ const willValidateLargeModel = false
 const willGenerateAsync = false
 
 // Function to execute a shell command and return its output as a promise
-const execPromise = (cmd: string, cwd: string): Promise<string> => {
+export const execPromise = (cmd: string, cwd: string): Promise<string> => {
     return new Promise((resolve, reject) => {
         console.log(`Running command in: ${cwd}`);
         exec(cmd, { cwd }, (error, stdout, stderr) => {

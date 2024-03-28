@@ -2,14 +2,9 @@ import Integrated_Ontology
 
 package Integrated_Ontology
 
-category SpatialThing{
-    [*] -- [1..*] LocationCoordinates 
-    @formal [1..*] -- locatedIn -- [*] Physical_Object 
-}
+category SpatialThing
 
-category GeographicalSpace specializes SpatialThing {
-    @formal [*] -- spatiallySubsumes -- [*] GeographicalSpace 
-}
+category GeographicalSpace specializes SpatialThing 
 
 kind SurgeryRoom specializes GeographicalSpace 
 
@@ -17,10 +12,7 @@ kind Gallery specializes GeographicalSpace
 
 kind Museum specializes GeographicalSpace 
 
-quantity Physical_Object{
-    [*] -- [1] LocationCoordinates 
-    @formal [1] -- isConstitutedBy -- [0..1] Material_Entity 
-}
+quantity Physical_Object
 
 category Material_Entity
 
@@ -32,29 +24,19 @@ kind Statue specializes Inanimate_Entity
 
 category Human_Organ specializes Biological_Entity 
 
-kind Human_Heart specializes Human_Organ {
-    @componentOf [1] -- [1] Person 
-}
+kind Human_Heart specializes Human_Organ 
 
 mode Belief specializes MentalState 
 
 mode Desire specializes MentalState 
 
-mode MentalState{
-    @characterization [1..*] -- [1] ActiveAgent 
-}
+mode MentalState
 
-mode Intention specializes MentalState {
-    [*] -- moreImportantThan -- [*] Intention 
-    [*] -- [1] PriorityLevel 
-}
+mode Intention specializes MentalState 
 
 mixin ActiveAgent specializes Agent 
 
-category Agent{
-    @memberOf [2..*] -- [*] Group 
-    @componentOf [2..*] -- [*] Organization 
-}
+category Agent
 
 phase Deceased_Person of functional-complexes  specializes Person 
 
@@ -62,9 +44,7 @@ phase Living_Person of functional-complexes  specializes Person, ActiveAgent
 
 kind Person specializes Agent 
 
-role Offspring of functional-complexes  specializes Person {
-    @material [1..*] -- parentOf -- [1..2] Parent 
-}
+role Offspring of functional-complexes  specializes Person 
 
 phase ActiveOrganization of functional-complexes  specializes ActiveAgent, Organization 
 
@@ -72,14 +52,9 @@ phase ExtinctOrganization of functional-complexes  specializes Organization
 
 kind Organization specializes Agent 
 
-collective Group{
-    @formal [1] -- isConstitutedBy -- [*] Organization 
-}
+collective Group
 
-relator Registration{
-    @mediation [1] -- [1] Offspring 
-    @mediation [1..*] -- [1..2] Parent 
-}
+relator Registration
 
 role Parent of functional-complexes  specializes Person 
 
@@ -91,42 +66,54 @@ role Father of functional-complexes  specializes Male_Person, Parent
 
 role Mother of functional-complexes  specializes Female_Person, Parent 
 
-mixin Performer_Artist{
-    @material [1..*] -- records -- [1..*] Track 
-}
+mixin Performer_Artist
 
 role Individual_Artist of functional-complexes  specializes Performer_Artist, Person 
 
-role Band_Member of functional-complexes  specializes Individual_Artist {
-    @componentOf [2..*] -- records -- [1..*] Band 
-}
+role Band_Member of functional-complexes  specializes Individual_Artist 
 
 subkind Band of functional-complexes  specializes Organization, Performer_Artist 
 
-relator Authorship{
-    @mediation [1] -- [1] Album 
-    @mediation [1..*] -- [1..*] Performer_Artist 
-}
+relator Authorship
 
 kind Album
 
 kind Track
 
-role AlbumTrack of functional-complexes  specializes Track {
-    @componentOf [2..*] -- [1..*] Album 
-}
+role AlbumTrack of functional-complexes  specializes Track 
 
-relator Recording{
-    @mediation [1] -- [1] Track 
-    @mediation [1..*] -- [1..*] Performer_Artist 
-}
+relator Recording
 
 datatype LocationCoordinates{
-latitude,altitude,longitude,}
+latitude,altitude,longitude
+}
 
 datatype PriorityLevel
 genset ZwFOHb6GAqBwAQt2 {
     general Person
     specifics Living_Person, Deceased_Person
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

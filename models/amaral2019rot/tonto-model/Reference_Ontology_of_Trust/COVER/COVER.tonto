@@ -1,17 +1,15 @@
+import COVER
 
 package COVER
 
-situation Hazardous_Situation{
-    @triggers [1..*] -- contributed_to_trigger_threat_event -- [1..*] Threat_Event 
-}
+situation Hazardous_Situation
 
-event Threat_Event{
-    @historicalDependence [1..*] -- caused_loss_event -- [1..*] Loss_Event 
-}
+event Threat_Event
 
-event Loss_Event{
-    @bringsAbout [1..*] -- brought_about_loss_situation -- [0..1] Loss_Situation 
-}
+event Loss_Event
 
 situation Loss_Situation
+
+
+
 

@@ -1,3 +1,4 @@
+import Beneficence__Nonmaleficence
 
 package Beneficence__Nonmaleficence
 
@@ -11,28 +12,23 @@ category Beneficence_Requirement of functional-complexes  specializes NFRQuality
 
 category Nonmaleficence_Requirement of functional-complexes  specializes NFRQuality_Requirement 
 
-mode Intention{
-    @characterization [1..*] -- inheres_in -- [1] UFOAgent 
-    [1..*] -- [1..*] UFOCGoal 
-}
+mode Intention
 
 category UFOAgent of functional-complexes 
 
-event COVERGain_Event{
-    [0..*] -- positively_impacts -- [1..*] Intention 
-}
+event COVERGain_Event
 
-event COVERLoss_Event{
-    [0..*] -- [1..*] Intention 
-}
+event COVERLoss_Event
 
-role Beneficence_Intention of intrinsic-modes  specializes Intention {
-    [1..*] -- propositional_content_of -- [1..*] Beneficence_Requirement 
-    @externalDependence [0..*] -- intends_to_create -- [1..*] COVERGain_Event 
-}
+role Beneficence_Intention of intrinsic-modes  specializes Intention 
 
-role Nonmaleficence_Intention of intrinsic-modes  specializes Intention {
-    [1..*] -- propositional_content_of -- [1..*] Nonmaleficence_Requirement 
-    @externalDependence [0..*] -- intends_to_prevent -- [1..*] COVERLoss_Event 
-}
+role Nonmaleficence_Intention of intrinsic-modes  specializes Intention 
+
+
+
+
+
+
+
+
 

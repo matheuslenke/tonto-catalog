@@ -1,26 +1,24 @@
+import Service_Delivery
+import Service_Negotiation
 
 package Service_Delivery
 
-kind HiredProviderAction{
-    @Formal [0..*] -- performed_by -- [1] HiredServiceProvider 
-    @Formal [0..*] -- motivated_by -- [1..*] HiredProviderCommitment 
-}
+kind HiredProviderAction
 
-kind HiredProvider_ServiceCustomer_Interaction{
-    @Formal [0..*] -- motivated_by -- [0..*] HiredProviderCommitment 
-    @Formal [0..*] -- motivated_by -- [0..*] ServiceCustomerCommitment 
-    @Formal [0..*] -- performed_by -- [1..*] ServiceCustomer 
-}
+kind HiredProvider_ServiceCustomer_Interaction
 
-kind ServiceCustomerAction{
-    @Formal [0..*] -- motivated_by -- [1..*] ServiceCustomerCommitment 
-    @Formal [0..*] -- performed_by -- [1] CommittedServiceCustomer 
-}
+kind ServiceCustomerAction
 
-kind ServiceDelivery{
-    @Formal [0..*] -- related_to -- [1] ServiceAgreement 
-    @componentOf [1] -- [0..*] ServiceCustomerAction 
-    @componentOf [1] -- [0..*] HiredProvider_ServiceCustomer_Interaction 
-    @componentOf [1] -- [0..*] HiredProviderAction 
-}
+kind ServiceDelivery
+
+
+
+
+
+
+
+
+
+
+
 

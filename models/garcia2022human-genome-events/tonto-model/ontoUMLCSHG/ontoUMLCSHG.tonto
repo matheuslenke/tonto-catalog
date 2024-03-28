@@ -8,10 +8,7 @@ category biological_entity of functional-complexes {
     creation_: undefined  
 }
 
-historicalRoleMixin Entity_in_process of functional-complexes  specializes biological_entity {
-    @participation [1] -- [1..*] participation_in_biological_event 
-    @instantiation [*] -- [1..*] role_in_biological_event 
-}
+historicalRoleMixin Entity_in_process of functional-complexes  specializes biological_entity 
 
 historicalRoleMixin output of functional-complexes  specializes Entity_in_process 
 
@@ -27,32 +24,30 @@ event biological_event specializes event_ {
     name: string_  
     start: undefined  
     end: undefined  
-    @historicalDependence [*] -- [*] biological_event 
 }
 
-event pathway specializes biological_event {
-    [*] -- [2..*] biological_event 
-}
+event pathway specializes biological_event 
 
-phaseMixin degraded_entity of functional-complexes  specializes biological_entity {
-    @termination [*] -- [1] process_ 
-}
+phaseMixin degraded_entity of functional-complexes  specializes biological_entity 
 
-phaseMixin active_entity of functional-complexes  specializes biological_entity {
-    @creation [*] -- [1] process_ 
-}
+phaseMixin active_entity of functional-complexes  specializes biological_entity 
 
 event event_{
     start: undefined  
     end: undefined  
 }
 
-event participation_in_biological_event specializes event_ {
-    @participational [1..*] -- [1] process_ 
-    @externalDependence [*] -- [1] role_in_biological_event 
-}
+event participation_in_biological_event specializes event_ 
 
 type role_in_biological_event
 
 datatype string_
 datatype int
+
+
+
+
+
+
+
+

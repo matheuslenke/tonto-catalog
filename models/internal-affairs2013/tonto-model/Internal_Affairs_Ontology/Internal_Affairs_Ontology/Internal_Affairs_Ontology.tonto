@@ -1,48 +1,30 @@
+import Internal_Affairs_Ontology
 
 package Internal_Affairs_Ontology
 
 subkind Composed of functional-complexes  specializes system 
 
-subkind organization of functional-complexes  specializes Composed {
-    @formal [1] -- arePartOf -- [1] organizationalPart 
-}
+subkind organization of functional-complexes  specializes Composed 
 
 subkind organizationalPart of functional-complexes  specializes Composed 
 
 subkind Atomic of functional-complexes  specializes system 
 
-subkind individual of functional-complexes  specializes Atomic {
-    @memberOf [2..*] -- [1..*] team 
-    @componentOf [2..*] -- [1] organization 
-}
+subkind individual of functional-complexes  specializes Atomic 
 
 collective team
 
-kind system{
-    @material [1..*] -- abides -- [1..*] norm 
-}
+kind system
 
-relator phenomenon{
-    @mediation [1..*] -- subsume -- [1] norm 
-    @mediation [1..*] -- [1] system 
-}
+relator phenomenon
 
-relator commitment{
-    @mediation [1..*] -- [1] system 
-    @mediation [1..*] -- [1] norm 
-}
+relator commitment
 
-kind norm{
-    @material [1] -- generates -- [1] system 
-}
+kind norm
 
 role major_premisse of functional-complexes  specializes norm 
 
-relator applicationNorm{
-    @mediation [1..*] -- [1] conclusion 
-    @mediation [1..*] -- [1] secondary_premisse 
-    @mediation [1..*] -- [1] major_premisse 
-}
+relator applicationNorm
 
 role secondary_premisse of functional-complexes  specializes facto 
 
@@ -56,14 +38,9 @@ subkind penalty of functional-complexes  specializes sanction
 
 subkind reward of functional-complexes  specializes sanction 
 
-role civil of functional-complexes  specializes individual {
-    @material [1..*] -- [1] civilServiceUnit 
-}
+role civil of functional-complexes  specializes individual 
 
-relator civilCommitment{
-    @mediation [1..*] -- [1] civilServiceUnit 
-    @mediation [1] -- [1] civil 
-}
+relator civilCommitment
 
 role civilServiceUnit of functional-complexes  specializes policeIAD 
 
@@ -71,72 +48,39 @@ subkind policeIAD of functional-complexes  specializes internalAffairDepartment
 
 subkind internalAffairDepartment of functional-complexes  specializes organization 
 
-subkind section of functional-complexes  specializes organizationalPart {
-    @formal [1..*] -- arePartOfPoliceIAD -- [1] policeIAD 
-}
+subkind section of functional-complexes  specializes organizationalPart 
 
-subkind registry of functional-complexes  specializes organizationalPart {
-    @formal [0..1] -- isPartOf -- [1] section 
-}
+subkind registry of functional-complexes  specializes organizationalPart 
 
-role commandUnit of functional-complexes  specializes policeIAD {
-    @material [1..*] -- [1..*] generalInspector 
-}
+role commandUnit of functional-complexes  specializes policeIAD 
 
-relator command{
-    @mediation [1..*] -- [1] commandUnit 
-    @mediation [1] -- [1] generalInspector 
-}
+relator command
 
-role generalInspector of functional-complexes  specializes military {
-    @material [1] -- canSubstitute -- [1] viceInspector 
-}
+role generalInspector of functional-complexes  specializes military 
 
-relator substitution{
-    @mediation [1..*] -- [1] generalInspector 
-    @mediation [1..*] -- [1] viceInspector 
-}
+relator substitution
 
 role viceInspector of functional-complexes  specializes military 
 
-relator designationResponsabilitySection{
-    @mediation [1..*] -- [1] designatedSection 
-    @mediation [1..*] -- [1] sectionResponsible 
-}
+relator designationResponsabilitySection
 
-role serviceUnit of functional-complexes  specializes policeIAD {
-    @material [1..*] -- [1..*] military 
-}
+role serviceUnit of functional-complexes  specializes policeIAD 
 
 role military of functional-complexes  specializes individual 
 
-relator militaryCommitment{
-    @mediation [1..*] -- [1] serviceUnit 
-    @mediation [1] -- [1] military 
-}
+relator militaryCommitment
 
-role designatedSection of functional-complexes  specializes section {
-    @material [1..*] -- [1] sectionResponsible 
-}
+role designatedSection of functional-complexes  specializes section 
 
 role sectionResponsible of functional-complexes  specializes military 
 
 role registryResponsible of functional-complexes  specializes military 
 
-relator designationResponsabilityRegistry{
-    @mediation [1..*] -- [1] designatedRegistry 
-    @mediation [1..*] -- [1] registryResponsible 
-}
+relator designationResponsabilityRegistry
 
-role designatedRegistry of functional-complexes  specializes registry {
-    @material [1..*] -- [1..*] registryResponsible 
-}
+role designatedRegistry of functional-complexes  specializes registry 
 
-relator action{
-    @mediation [1..*] -- [1] individual 
-    @mediation [1..*] -- [1] activity 
-    @mediation [1] -- [1] document 
-}
+relator action
 
 kind activity
 
@@ -148,51 +92,31 @@ subkind delete_ of functional-complexes  specializes activity
 
 subkind search of functional-complexes  specializes activity 
 
-kind document{
-    @formal [0..*] -- isRelated -- [0..*] document 
-    @formal [1..*] -- isPartOfDoc2 -- [1] keywordSet 
-    @formal [1] -- isPartOfDoc -- [0..1] title 
-}
+kind document
 
 collective keywordSet
 
-kind keyword{
-    @memberOf [2..5] -- [1..*] keywordSet 
-}
+kind keyword
 
-kind subject{
-    @componentOf [1] -- [1] document 
-}
+kind subject
 
-kind content{
-    @componentOf [1] -- [1] document 
-}
+kind content
 
 kind title
 
-kind attachment{
-    @componentOf [0..*] -- [1] message 
-}
+kind attachment
 
-kind destiny{
-    @componentOf [1..*] -- [1] message 
-}
+kind destiny
 
 subkind message of functional-complexes  specializes document 
 
 subkind experience of functional-complexes  specializes document 
 
-kind source{
-    @componentOf [1] -- [1] message 
-}
+kind source
 
-phase public_ of functional-complexes  specializes document {
-    @memberOf [2..*] -- [1] organizationalBase 
-}
+phase public_ of functional-complexes  specializes document 
 
-phase personal of functional-complexes  specializes document {
-    @memberOf [2..*] -- [1] individualBase 
-}
+phase personal of functional-complexes  specializes document 
 
 phase organizationalBase of collectives  specializes base 
 
@@ -244,4 +168,58 @@ genset GSBase {
     general base
     specifics individualBase, organizationalBase
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

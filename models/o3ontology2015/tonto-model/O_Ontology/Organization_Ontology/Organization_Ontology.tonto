@@ -1,25 +1,23 @@
 import OntoUML
+import Organization_Ontology
 
 package Organization_Ontology
 
 subkind Composite_Line_Unit of functional-complexes  specializes Line_Unit 
 
-relator Missionary_Assignment_by_Appointment specializes Missionary_Assignment {
-    @mediation [1] -- formalizes -- [1] Appointed_Team_Member 
-}
+relator Missionary_Assignment_by_Appointment specializes Missionary_Assignment 
 
-relator Missionary_Assignment_by_Election specializes Missionary_Assignment {
-    @mediation [0..*] -- participates -- [2..*] Formal_Organization_Member 
-    @mediation [1] -- formalizes -- [1] Ellected_Team_Member 
-}
+relator Missionary_Assignment_by_Election specializes Missionary_Assignment 
 
-relator Missionary_Assignment_by_Allocation specializes Missionary_Assignment {
-    @mediation [1] -- formalizes -- [1] Allocated_Team_Member 
-}
+relator Missionary_Assignment_by_Allocation specializes Missionary_Assignment 
 
 role Appointed_Team_Member of functional-complexes  specializes Missionary_Unit_Member 
 
 role Ellected_Team_Member of functional-complexes  specializes Missionary_Unit_Member 
 
 role Allocated_Team_Member of functional-complexes  specializes Missionary_Unit_Member 
+
+
+
+
 

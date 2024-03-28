@@ -1,3 +1,4 @@
+import The_Construction_Model
 
 package The_Construction_Model
 
@@ -13,30 +14,24 @@ role Personal_Customer of functional-complexes  specializes Person, Customer
 
 role Employee of functional-complexes  specializes Person 
 
-roleMixin Customer of functional-complexes {
-    @material [1] -- requests -- [*] Construction_Work 
-}
+roleMixin Customer of functional-complexes 
 
-kind Construction_Work{
-    @material [1] -- has -- [1] Budget 
-}
+kind Construction_Work
 
-relator Allocation{
-    @mediation [0..*] -- [1] Construction_Work 
-    @mediation [*] -- [1] Employee 
-}
+relator Allocation
 
-kind Photo{
-    @material [*] -- depicts -- [1] Construction_Work 
-}
+kind Photo
 
 collective Budget
 
-collective Stage{
-    @subCollectionOf [1] -- [1] Budget 
-}
+collective Stage
 
-collective Subtstage{
-    @subCollectionOf [1] -- [1] Stage 
-}
+collective Subtstage
+
+
+
+
+
+
+
 

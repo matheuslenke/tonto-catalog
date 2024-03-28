@@ -1,19 +1,7 @@
-import opm
-import schema
-import seas
-import bpo
-import dice
-import bot
-import ifc
 
 package BPO_ontology
 
-quality Property specializes Property, Property, Property {
-    @material [0..*] -- omgisExplicitlyDerivedFrom -- [0..*] Property 
-    @material [0..*] -- omghasInferredPropertyState -- [0..*] PropertyState 
-    @material [0..*] -- opmhasPropertyState -- [0..*] PropertyState 
-    @material [0..*] -- omgisImplicitlyDerivedFrom -- [0..*] Geometry 
-}
+quality Property specializes Property, Property, Property 
 
 event ProjectDevelopment specializes Event 
 
@@ -28,17 +16,11 @@ subkind House of functional-complexes  specializes Building {
     zipCode: double  
     city: string_  
     country: string_  
-    @componentOf [3..*] -- [1] Housing_Block 
 }
 
-kind Module specializes Assembly {
-    @componentOf [1..*] -- [1] House 
-}
+kind Module specializes Assembly 
 
-relator describesAttribute{
-    @mediation [0..*] -- [1] List2D 
-    @mediation [0..*] -- [1] RangedAttribute 
-}
+relator describesAttribute
 
 subkind describedAttributeInFirstColumn of relators  specializes describesAttribute 
 
@@ -106,9 +88,7 @@ event Complementing specializes ProductDevelopment
 
 kind internalProducts specializes Product 
 
-kind externalProducts specializes Product {
-    @material [1..*] -- schemamanufacturer -- [1..*] organisation 
-}
+kind externalProducts specializes Product 
 
 subkind ManufacturingSchedule of functional-complexes  specializes Schedule 
 
@@ -122,9 +102,7 @@ subkind ConstructionSchedule of functional-complexes  specializes Schedule
 
 subkind EngineeringSchedule of functional-complexes  specializes Schedule 
 
-category Agent of functional-complexes  specializes Agent, Agent {
-    [*] -- hasAgent -- [*] activity 
-}
+category Agent of functional-complexes  specializes Agent, Agent 
 
 genset Disjoined {
     general Entity
@@ -155,4 +133,14 @@ genset disjoined {
     general Event
     specifics ConceptDevelopment, ProjectDevelopment
 }
+
+
+
+
+
+
+
+
+
+
 

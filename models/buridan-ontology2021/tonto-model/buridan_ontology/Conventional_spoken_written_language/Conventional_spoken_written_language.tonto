@@ -1,5 +1,3 @@
-import buridan_ontology
-import Mental_natural_language
 
 package Conventional_spoken_written_language
 
@@ -11,86 +9,71 @@ subkind Utterance of functional-complexes  specializes Token {
     language: undefined  
 }
 
-mode Convention{
-    @characterization [1] -- [1] ProperSense 
-}
+mode Convention
 
-kind Token{
-    @material [1..*] -- [1] TokenType 
-}
+kind Token
 
 kind TokenType
 
 subkind ProperSuppositon of relators  specializes SuppositionInConventionalLanguage 
 
-subkind MaterialSupposition of relators  specializes Supposition, ProperSuppositon {
-    @mediation [0..1] -- [2] CategorematicTerm 
-}
+subkind MaterialSupposition of relators  specializes Supposition, ProperSuppositon 
 
 subkind SimpleSupposition of relators  specializes ProperSuppositon 
 
 subkind ImproperSupposition of relators  specializes SuppositionInConventionalLanguage 
 
-subkind SuppositionInConventionalLanguage of relators  specializes Supposition {
-    @mediation [1] -- [1] SpokenWrittenTerm 
-    @mediation [1] -- [1] SpokenWrittenSuppositum 
-}
+subkind SuppositionInConventionalLanguage of relators  specializes Supposition 
 
 role SpokenWrittenSuppositum of functional-complexes  specializes SpokenWrittenTerm 
 
-subkind MaterialSuppositionForSyncatogramaticTerm of relators  specializes Supposition {
-    @mediation [1] -- [2] SyncategorematicTerm 
-}
+subkind MaterialSuppositionForSyncatogramaticTerm of relators  specializes Supposition 
 
-subkind SpokenWrittenTerm of functional-complexes  specializes Term, Term, Term, Term {
-    @material [1] -- refers_to -- [1] SpokenWrittenSuppositum 
-    [1] -- [*] Concept 
-    [1..*] -- [1] Concept 
-    [1] -- signifies -- [1] Concept 
-    @componentOf [2..*] -- [1] Expression 
-    @componentOf [1..*] -- [1] SpokenWrittenProposition 
-}
+subkind SpokenWrittenTerm of functional-complexes  specializes Term, Term, Term, Term 
 
-subkind SyncategorematicTerm of functional-complexes  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm {
-    [*] -- [1] SyncategorematicConcept 
-    [1] -- signifies -- [1] SyncategorematicConcept 
-}
+subkind SyncategorematicTerm of functional-complexes  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm 
 
-subkind PersonalSupposition of relators  specializes Supposition, ProperSuppositon {
-    @mediation [0..1] -- [1] CategorematicTerm 
-}
+subkind PersonalSupposition of relators  specializes Supposition, ProperSuppositon 
 
-subkind CategorematicTerm of functional-complexes  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm {
-    [1..*] -- [*] CategorematicConcept 
-    [1..*] -- [1] Object 
-    [1..*] -- signifies -- [1] CategorematicConcept 
-}
+subkind CategorematicTerm of functional-complexes  specializes SpokenWrittenTerm, MixedTerm, SpokenWrittenTerm 
 
 mixin MixedTerm of functional-complexes 
 
-subkind SpokenWrittenProposition of functional-complexes  specializes Proposition {
-    [1..*] -- signifies_fine_grained -- [1] MentalProposition 
-}
+subkind SpokenWrittenProposition of functional-complexes  specializes Proposition 
 
-subkind SemanticallyComplexSpokenWrittenTerm of functional-complexes  specializes SpokenWrittenTerm {
-    [1] -- signifies -- [1] ComplexConcept 
-}
+subkind SemanticallyComplexSpokenWrittenTerm of functional-complexes  specializes SpokenWrittenTerm 
 
 subkind Expression of functional-complexes  specializes SpokenWrittenTerm 
 
-role SemanticallyComplexExpression of functional-complexes  specializes Expression {
-    [1] -- signifies -- [1] ComplexConcept 
-}
+role SemanticallyComplexExpression of functional-complexes  specializes Expression 
 
-role SemanticallySimple_Expression of functional-complexes  specializes Expression {
-    [1] -- signifies -- [1] Concept 
-}
+role SemanticallySimple_Expression of functional-complexes  specializes Expression 
 
-mode SyntacticallyComplex{
-    @characterization [1] -- [1] Expression 
-}
+mode SyntacticallyComplex
 
-mode SyntacticallySimple{
-    @characterization [1] -- [1] SpokenWrittenTerm 
-}
+mode SyntacticallySimple
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,163 @@
+import GC
+import Model
+
+package Model
+
+event Weathering
+
+event Chemical_Weathering specializes Weathering 
+
+event Physical_Weathering specializes Weathering 
+
+event Rock_Physical_Weathering specializes Physical_Weathering 
+
+event Sediment_Physical_Weathering specializes Physical_Weathering 
+
+situation Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition specializes Geological_Solid_Object_exposed_to_surface_conditions 
+
+situation Brokendown_Geological_Solid_Object specializes Weathered_Geologic_Solid_Object 
+
+situation Geological_Solid_Object_exposed_to_surface_conditions
+
+situation Geological_Solid_Object_infilled_with_Meteoric_Water specializes Geological_Solid_Object_exposed_to_surface_conditions 
+
+situation Weathered_Geologic_Solid_Object
+
+situation Chemical_altered_Geological_Solid_Object specializes Weathered_Geologic_Solid_Object 
+
+category Biological_Entity of functional-complexes 
+
+role Pore_Water of quantities  specializes Water, Pore_Fluid 
+
+quantity Solar_Radiation
+
+category Geological_Solid_Object of functional-complexes  specializes Geological_Object 
+
+situation Rock_exposed_to_physical_stress_due_to_surface_exposition specializes Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition 
+
+situation Brokendown_Sediment specializes Brokendown_Geological_Solid_Object 
+
+situation Brokendown_Sediment_and_Rock specializes Brokendown_Geological_Solid_Object 
+
+kind Sediment_Object specializes Geological_Solid_Object 
+
+situation Brokendown_Rock specializes Brokendown_Geological_Solid_Object 
+
+historicalRole Source_Rock specializes Rock 
+
+kind Rock_Object specializes Geological_Solid_Object 
+
+situation Sediment_exposed_to_physical_stress_due_to_surface_exposition specializes Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition 
+
+quantity Water specializes Earth_Fluid 
+
+historicalRole Meteoric_Water of quantities  specializes Water 
+
+situation Chemically_altered_Geological_Solid_Object
+
+roleMixin Pore_Fluid of functional-complexes  specializes Earth_Fluid 
+
+category Earth_Solid of functional-complexes  specializes Earth_Material 
+
+class Sediment specializes Earth_Solid 
+
+quality Petrographic_Composition
+
+quality Particle_Size_Average
+
+quality Mass
+
+quality Geochemical_Composition
+
+quality Fracture_Density
+
+relator Pore_Filling
+
+genset TirqFn6DAAAAQni {
+    general Weathering
+    specifics Physical_Weathering, Chemical_Weathering
+}
+
+genset B8SaFn6DAAAAQo5 {
+    general Physical_Weathering
+    specifics Sediment_Physical_Weathering, Rock_Physical_Weathering
+}
+
+genset c8q_Gf6GAqACC0T3 {
+    general Earth_Material
+    specifics Earth_Fluid, Earth_Solid
+}
+
+genset IO1_Gf6GAqACC0V3 {
+    general Earth_Solid
+    specifics Rock, Sediment
+}
+
+genset bZWAmf6GAqACC0YM {
+    general Geological_Solid_Object
+    specifics Sediment_Object, Rock_Object
+}
+
+relation :Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition [*] -- triggers_ -- [*]  
+
+
+
+relation :Weathering [*] -- [0..1]  
+
+
+
+
+
+
+
+
+
+
+
+relation :Rock_exposed_to_physical_stress_due_to_surface_exposition [*] -- triggers_ -- [*]  
+
+
+
+
+
+
+
+
+
+
+
+
+
+@participation relation :Rock_Object [1] -- broken_in -- [0..*]  
+
+@creation relation :Sediment_Object [0..1] -- [1]  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

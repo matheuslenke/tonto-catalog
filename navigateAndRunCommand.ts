@@ -1,6 +1,7 @@
 import * as fs from "node:fs";
 import { join } from "path";
 import { execPromise } from "./main";
+import { extractNumberFromText } from "./src/utils/extractNumberFromText.js";
 
 // Recursive function to navigate through directories and run the command
 export const navigateAndRunCommand = async (dir: string): Promise<void> => {

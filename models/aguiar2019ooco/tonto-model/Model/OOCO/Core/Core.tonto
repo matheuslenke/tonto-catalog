@@ -1,44 +1,29 @@
 import SPO
 import SWO
+import Core
+import Class
 
 package Core
 
 subkind ObjectOriented_Programming_Language of functional-complexes  specializes Programming_Language 
 
-subkind ObjectOriented_Source_Code of functional-complexes  specializes Source_Code {
-    [0..*] -- represented_by -- [1..*] ObjectOriented_Programming_Language 
-    [0..*] -- constituted_of -- [1..*] Physical_Module 
-}
+subkind ObjectOriented_Source_Code of functional-complexes  specializes Source_Code 
 
-kind Module{
-    @componentOf [0..*] -- [0..1] Module 
-}
+kind Module
 
-quality Name{
-    @characterization [1] -- characterized_by -- [1] Named_Element 
-}
+quality Name
 
 category Named_Element of functional-complexes 
 
-quality Element_Visibility{
-    @characterization [0..1] -- characterized_by -- [1] Named_Element 
-}
+quality Element_Visibility
 
-kind Class specializes Named_Element, Type {
-    @componentOf [1..*] -- [1] Physical_Module 
-    [0..*] -- organized_in -- [1] Logical_Module 
-    [1] -- contains -- [0..*] Nesting 
-}
+kind Class specializes Named_Element, Type 
 
-category Member of functional-complexes {
-    @componentOf [0..*] -- [1] Class 
-}
+category Member of functional-complexes 
 
 kind Variable specializes Named_Element 
 
-quality Mutability{
-    @characterization [1] -- characterized_by -- [1] Variable 
-}
+quality Mutability
 
 subkind Primitive_Type specializes Type 
 
@@ -46,10 +31,7 @@ subkind Physical_Module of functional-complexes  specializes Module
 
 category Type of functional-complexes 
 
-quality Return_Type{
-    [0..*] -- refers_to -- [0..1] Type 
-    @characterization [0..1] -- characterized_by -- [1] Method_Member_Function 
-}
+quality Return_Type
 
 subkind Logical_Module of functional-complexes  specializes Module 
 
@@ -57,10 +39,7 @@ kind Method_Member_Function specializes Member, Named_Element
 
 subkind Attribute_Member_Variable of functional-complexes  specializes Member, Variable 
 
-quality Value_Type{
-    @characterization [0..1] -- characterized_by -- [1] Variable 
-    [0..*] -- refers_to -- [1] Type 
-}
+quality Value_Type
 
 genset o5Jzu36DAAAASU0 {
     general Module
@@ -76,4 +55,18 @@ genset lPGru36DAAAASZ5 {
     general Type
     specifics Primitive_Type, Class
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

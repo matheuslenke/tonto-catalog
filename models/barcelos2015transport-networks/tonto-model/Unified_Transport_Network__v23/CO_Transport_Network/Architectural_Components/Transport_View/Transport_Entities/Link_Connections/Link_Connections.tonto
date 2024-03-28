@@ -2,6 +2,8 @@ import Forwarding_End_Points
 import Complementary_Categorizations
 import Layer_Network
 import Transport_Entities
+import Link_Connections
+import Forwarding_Function
 
 package Link_Connections
 
@@ -11,50 +13,29 @@ roleMixin Active_Possible_Bi_LC_Connected_RP of functional-complexes  specialize
 
 role Active_Sk_PMFEP__PM_LC_connected of functional-complexes  specializes Sink_PMFEP, Connected_Reference_Point 
 
-role Active_So_PMFEP__PM_LC_connected of functional-complexes  specializes Source_PMFEP, Connected_Reference_Point {
-    @material [1] -- Forwarding_PM_LC -- [1] Active_Sk_PMFEP__PM_LC_connected 
-}
+role Active_So_PMFEP__PM_LC_connected of functional-complexes  specializes Source_PMFEP, Connected_Reference_Point 
 
-subkind Bi_PM_LC of functional-complexes  specializes Bidirectional_LC {
-    @material [1..*] -- Forwarding_Bidirectional_PM_FEP -- [2] Active_Bidirectional_PMFEP__PM_LC_Connected 
-}
+subkind Bi_PM_LC of functional-complexes  specializes Bidirectional_LC 
 
-subkind Bi_Path_LC of functional-complexes  specializes Bidirectional_LC {
-    @material [1..*] -- Forwarding_Bidirectional_Path_LC -- [2] Active_Possible_Bi_LC_Connected_RP 
-}
+subkind Bi_Path_LC of functional-complexes  specializes Bidirectional_LC 
 
 subkind Bidirectional_LC of functional-complexes  specializes Link_Connection 
 
 roleMixin LC_Connected_RP of functional-complexes  specializes Possible_LC_Connected_RP 
 
-kind Link_Connection specializes Transport_Entity {
-    @componentOf [1..*] -- [1] LC_Composed_Layer_Network 
-}
+kind Link_Connection specializes Transport_Entity 
 
 subkind PM_LC of functional-complexes  specializes Unidirectional_LC 
 
-role PM_LC_Bi_Component of functional-complexes  specializes PM_LC {
-    @componentOf [2] -- [1] Bi_PM_LC 
-}
+role PM_LC_Bi_Component of functional-complexes  specializes PM_LC 
 
-relator PM_LC_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_PM_LC -- [1] PM_LC 
-    @mediation [1] -- Forwarding_from_PM_LC -- [1] Active_So_PMFEP__PM_LC_connected 
-    @mediation [1] -- Forwarding_to_PM_LC -- [1] Active_Sk_PMFEP__PM_LC_connected 
-}
+relator PM_LC_Forwarding specializes Forwarding 
 
 subkind Path_LC of functional-complexes  specializes Unidirectional_LC 
 
-role Path_LC_Bi_Component of functional-complexes  specializes Path_LC {
-    @componentOf [2] -- [1] Bi_Path_LC 
-}
+role Path_LC_Bi_Component of functional-complexes  specializes Path_LC 
 
-relator Path_LC_Forwarding specializes Forwarding {
-    @mediation [1..*] -- Forwarding_to_Path_LC -- [1] Sink_Active_RP__Path_LC_connected 
-    @mediation [1..*] -- Forwarding_from_Path_LC -- [1] Source_Active_RP__Path_LC_connected 
-    @mediation [1] -- is_represented_by_Path_LC -- [1] Path_LC 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_LC_Connected 
-}
+relator Path_LC_Forwarding specializes Forwarding 
 
 category Possible_Bi_LC_Connected_RP of functional-complexes 
 
@@ -66,9 +47,7 @@ category Possible_LC_Connected_RP of functional-complexes
 
 roleMixin Sink_Active_RP__Path_LC_connected of functional-complexes  specializes LC_Connected_RP, Connected_Reference_Point 
 
-roleMixin Source_Active_RP__Path_LC_connected of functional-complexes  specializes LC_Connected_RP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Path_LC -- [1..*] Sink_Active_RP__Path_LC_connected 
-}
+roleMixin Source_Active_RP__Path_LC_connected of functional-complexes  specializes LC_Connected_RP, Connected_Reference_Point 
 
 subkind Unidirectional_LC of functional-complexes  specializes Link_Connection 
 
@@ -106,4 +85,18 @@ genset EMzdwn6AUBAIKES7 {
     general Possible_Ingress_LC
     specifics SN_Outtput__So_SNFP_Bound, M_Output__So_MFP_Bound, T_So_Output__So_SNFEP_Bound, A_Sk_Output__AFP_Bound, LPF_Output__So_LFP_Bound, T_So_Output__So_AFEP_Bound, T_So_Output__So_PMFEP_Bound, T_So_Output__So_LPFFEP_Bound, T_So_Output__So_MFEP_Bound
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

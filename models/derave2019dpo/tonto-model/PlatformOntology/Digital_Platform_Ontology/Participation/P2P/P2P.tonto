@@ -5,31 +5,21 @@ import Airbnb
 import Uber_eats
 import GDPO_Interaction
 import Review_System
+import P2P
 
 package P2P
 
-event Manual_Affiliation_Check specializes Platform_Company_Action {
-    [1..*] -- is_part_of -- [1] ManuallyChecked_Affiliation_Action 
-}
+event Manual_Affiliation_Check specializes Platform_Company_Action 
 
-event Automated_Affiliation_Action specializes User_Affiliation_Action, Registration_Action {
-    @participation [1..*] -- performed_by -- [1] Peer_User 
-    @participation [1] -- performed_by -- [1] Airbnb_Homeowner 
-    @participation [1] -- performed_by -- [1] Airbnb_Home_Seeker 
-    @participation [1] -- performed_by -- [1] Uber_Eats_Rider 
-}
+event Automated_Affiliation_Action specializes User_Affiliation_Action, Registration_Action 
 
-event ManuallyChecked_Affiliation_Action specializes User_Affiliation_Action, Platform_Company_Action {
-    @participation [1..*] -- performed_by -- [1] NonPeer_User 
-}
+event ManuallyChecked_Affiliation_Action specializes User_Affiliation_Action, Platform_Company_Action 
 
 roleMixin Peer_Creator of functional-complexes  specializes Peer_User 
 
 roleMixin Peer_Consumer of functional-complexes  specializes Peer_User 
 
-roleMixin Peer_User of functional-complexes  specializes Platform_User {
-    @participation [1..*] -- performed_by -- [0..*] Peer_Action 
-}
+roleMixin Peer_User of functional-complexes  specializes Platform_User 
 
 roleMixin NonPeer_User of functional-complexes  specializes Platform_User 
 
@@ -49,4 +39,11 @@ genset ChaxDe6DAAAAU2M {
     general Platform_User
     specifics NonPeer_User, Peer_User
 }
+
+
+
+
+
+
+
 

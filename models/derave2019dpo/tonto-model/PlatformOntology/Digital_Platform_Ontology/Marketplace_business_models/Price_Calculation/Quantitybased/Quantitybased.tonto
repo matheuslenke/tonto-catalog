@@ -2,18 +2,18 @@ import Price_Discovery
 import Decentralized
 import Recurring
 import Price_Calculation
+import Quantitybased
+import Transaction
 
 package Quantitybased
 
-subkind Price_per_Quantity of intrinsic-modes  specializes Offering_Price {
-    [1] -- used_for -- [0..*] Transaction_Price 
-}
+subkind Price_per_Quantity of intrinsic-modes  specializes Offering_Price 
 
 mode Quantity
 
 subkind Available_Quantity of intrinsic-modes  specializes Quantity 
 
-subkind Booked_Quantity of intrinsic-modes  specializes Quantity {
-    [1] -- [0..*] Transaction 
-}
+subkind Booked_Quantity of intrinsic-modes  specializes Quantity 
+
+
 

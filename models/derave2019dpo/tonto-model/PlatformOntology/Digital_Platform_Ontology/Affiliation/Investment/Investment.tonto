@@ -15,30 +15,26 @@ import Customer_Source
 import Price_Discovery
 import Price_Calculation
 import UFOS
+import Investment
 
 package Investment
 
-roleMixin CapitalSeeking_Agent of functional-complexes  specializes Platform_Provider {
-    @externalDependence [1] -- depends_on -- [1..*] Resource_Claim 
-}
+roleMixin CapitalSeeking_Agent of functional-complexes  specializes Platform_Provider 
 
-roleMixin CapitalGiving_Agent of functional-complexes  specializes Platform_Customer {
-    @characterization [1..*] -- inheres_in -- [1] Resource_Claim 
-}
+roleMixin CapitalGiving_Agent of functional-complexes  specializes Platform_Customer 
 
 category Resource of functional-complexes 
 
-subkind Future_Reimbursement_Commitment of intrinsic-modes  specializes Hired_Provider_Commitment {
-    @characterization [1..*] -- inheres_in -- [1] CapitalSeeking_Agent 
-    @externalDependence [1..*] -- depends_on -- [1] CapitalGiving_Agent 
-    [1..*] -- is_part_of -- [1] Investment 
-}
+subkind Future_Reimbursement_Commitment of intrinsic-modes  specializes Hired_Provider_Commitment 
 
-category Reimbursement of functional-complexes {
-    @mediation [1..*] -- bounds_to -- [0..1] Future_Reimbursement_Commitment 
-}
+category Reimbursement of functional-complexes 
 
-subkind Resource_Claim of intrinsic-modes  specializes Service_Customer_Claim {
-    @mediation [0..1] -- bounds_to -- [1..*] Resource 
-}
+subkind Resource_Claim of intrinsic-modes  specializes Service_Customer_Claim 
+
+
+
+
+
+
+
 

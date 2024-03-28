@@ -3,18 +3,14 @@ import GDPO_User_Roles
 import Airbnb
 import Registration
 import Review_System
+import Subscription
+import MultiSided
 
 package Subscription
 
-event User_Payment_Action specializes User_Action {
-    [1..*] -- is_part_of -- [1] Subscription_Action 
-}
+event User_Payment_Action specializes User_Action 
 
-event Subscription_Action specializes User_Affiliation_Action {
-    @historicalDependence [0..1] -- Followed_by -- [1] Registration_Action 
-    @participation [1..*] -- performed_by -- [1] Subscribed_Platform_User 
-    @creation [1] -- creates -- [1] Subscription 
-}
+event Subscription_Action specializes User_Affiliation_Action 
 
 roleMixin Subscribed_Platform_User of functional-complexes  specializes Registered_User 
 
@@ -22,4 +18,8 @@ genset oTLSpC6FYEWG27Tp {
     general User_Affiliation_Agreement
     specifics Subscription, Registration
 }
+
+
+
+
 

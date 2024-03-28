@@ -1,16 +1,10 @@
+import Social_Relator_Pattern
 
 package Social_Relator_Pattern
 
-relator Social_Relator{
-    @mediation [1..*] -- [1..*] Claimer 
-    @mediation [1..*] -- [1..*] Committer 
-    @sum [1] -- [1..*] Social_Commitment 
-    @sum [1] -- [1..*] Social_Claim 
-}
+relator Social_Relator
 
-roleMixin Committer of functional-complexes  specializes A {
-    @material [1..*] -- [1..*] Claimer 
-}
+roleMixin Committer of functional-complexes  specializes A 
 
 roleMixin Claimer of functional-complexes  specializes B 
 
@@ -18,14 +12,17 @@ category A of functional-complexes
 
 category B of functional-complexes 
 
-mode Social_Commitment{
-    @characterization [1..*] -- inheres_in -- [1] Committer 
-    @externalDependence [1..*] -- [1] Claimer 
-    @Formal [1] -- isCounterPartOf -- [1] Social_Claim 
-}
+mode Social_Commitment
 
-mode Social_Claim{
-    @externalDependence [1..*] -- [1] Committer 
-    @characterization [1..*] -- inheres_in -- [1] Claimer 
-}
+mode Social_Claim
+
+
+
+
+
+
+
+
+
+
 

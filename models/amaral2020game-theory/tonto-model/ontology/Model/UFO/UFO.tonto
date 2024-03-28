@@ -1,9 +1,9 @@
+import UFO
 
 package UFO
 
-mode Intention{
-    @characterization [1..*] -- inheres_in -- [1] Agent 
-}
+mode Intention
 
 category Agent of functional-complexes 
+
 

@@ -1,5 +1,6 @@
 import nd_Order_Entities
 import UFOA
+import st_Order_Entities
 
 package st_Order_Entities
 
@@ -9,9 +10,7 @@ class Mode specializes Relator
 
 class Qua_Individual specializes Mode 
 
-class Individual specializes Urelement {
-    [*] -- instance_of -- [*] Universal 
-}
+class Individual specializes Urelement 
 
 class Endurant specializes Individual 
 
@@ -30,4 +29,5 @@ class Object specializes Substantial
 class Amount_of_Matter specializes Substantial 
 
 class Quantity specializes Object 
+
 

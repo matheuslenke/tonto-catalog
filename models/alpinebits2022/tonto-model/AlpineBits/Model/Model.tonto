@@ -9,15 +9,6 @@ relator Event_Plan specializes Named_Entity {
     participation_url: string_  
     registration_url: string_  
     recorded: boolean_  
-    @mediation [1..*] -- [1..*] Organizer 
-    @material [1..*] -- [*] Sponsor 
-    @material [1..*] -- [*] Contributor 
-    @material [1..*] -- [1] Publisher 
-    @material [1..*] -- [1..*] Venue 
-    @instantiation [*] -- [0..1] Event_Series 
-    @instantiation [*] -- [0..*] Event_Plan_Category 
-    @material [0..*] -- [0..*] Streaming_Platform 
-    @mediation [0..*] -- [1] Target_Audience 
 }
 
 phase Cancelled of relators  specializes Event_Plan 
@@ -34,9 +25,7 @@ kind Organization specializes Agent
 
 roleMixin Sponsor specializes Agent 
 
-subkind Composite_Event of relators  specializes Event_Plan {
-    [*] -- [2..*] Event_Plan 
-}
+subkind Composite_Event of relators  specializes Event_Plan 
 
 subkind Simple_Event of relators  specializes Event_Plan 
 
@@ -64,11 +53,6 @@ kind Video_Object specializes Media_Object {
 
 category Media_Object of functional-complexes  specializes Named_Entity {
     content_type: string_  
-    @historicalDependence [*] -- [*] Named_Entity 
-    @instantiation [*] -- [0..*] Media_Object_Category 
-    @material [*] -- [0..1] License_Type 
-    @material [1..*] -- [0..1] License_Holder 
-    @material [1..*] -- [0..1] Author 
 }
 
 subkind Event_Plan_Category specializes Category 
@@ -77,7 +61,6 @@ roleMixin Venue of functional-complexes  specializes Place
 
 quality Geometry{
     coordinate: Coordinate [1..*] 
-    @characterization [1..*] -- [1] Geospatial_Feature 
 }
 
 subkind Polygon of qualities  specializes Geometry 
@@ -90,25 +73,18 @@ category Place of functional-complexes  specializes Geospatial_Feature, Named_En
     address: Address  
     how_to_arrive: string_  
     opening_hours: Hours_Specification [1..*] 
-    @material [*] -- [*] Place 
 }
 
 subkind Event_Series specializes Event_Plan_Category, Named_Entity {
     frequency: undefined  
-    @instantiation [*] -- [0..*] Event_Series_Category 
 }
 
 kind Lift specializes Place, Named_Entity {
     capacity: int  
     persons_per_chair: int  
-    @componentOf [1..*] -- [1..*] Mountain_Area 
-    @instantiation [*] -- [0..*] Lift_Category 
 }
 
-kind Trail specializes Place {
-    @componentOf [1..*] -- [1..*] Mountain_Area 
-    @instantiation [*] -- [0..*] Trail_Category 
-}
+kind Trail specializes Place 
 
 category Named_Entity{
     abstract: string_  
@@ -116,20 +92,11 @@ category Named_Entity{
     name: string_  
     short_name: string_  
     url: string_  
-    @instantiation [*] -- [0..*] Category 
-    @material [0..*] -- [0..*] Feature 
 }
 
-subkind Snowpark of functional-complexes  specializes Trail, Named_Entity {
-    @material [0..*] -- [0..*] Snowpark_Feature 
-    @instantiation [*] -- [0..*] Snowpark_Category 
-}
+subkind Snowpark of functional-complexes  specializes Trail, Named_Entity 
 
-kind Mountain_Area specializes Place, Named_Entity {
-    @material [1..*] -- [1..*] Area_Owner 
-    @instantiation [*] -- [0..*] Mountain_Area_Category 
-    @componentOf [2..*] -- [0..1] Composite_Area 
-}
+kind Mountain_Area specializes Place, Named_Entity 
 
 subkind Lift_Category specializes Category 
 
@@ -145,10 +112,6 @@ relator Snow_Measurement specializes Geospatial_Feature {
     snow_over_night: int  
     groomed: boolean_  
     snow_making: boolean_  
-    @mediation [*] -- [1] Agent 
-    @mediation [*] -- [1..*] Place 
-    @mediation [*] -- [1] Snow_Type 
-    @mediation [*] -- [1] Snow_Type 
 }
 
 type Snow_Type
@@ -165,9 +128,7 @@ subkind Composite_Area of functional-complexes  specializes Mountain_Area
 
 subkind SimpleArea of functional-complexes  specializes Mountain_Area 
 
-subkind Ski_Slope of functional-complexes  specializes Trail, Named_Entity {
-    @instantiation [*] -- [0..*] Ski_Slope_Category 
-}
+subkind Ski_Slope of functional-complexes  specializes Trail, Named_Entity 
 
 kind Audio_Object specializes Media_Object {
     duration: Time_Interval  
@@ -189,17 +150,11 @@ phase Published of relators  specializes Event_Plan
 
 subkind Mountain_Area_Category specializes Category 
 
-quality Difficulty{
-    @characterization [1] -- [1] Trail 
-}
+quality Difficulty
 
-type Category specializes Named_Entity {
-    [*] -- [*] Category 
-}
+type Category specializes Named_Entity 
 
-type Feature specializes Named_Entity {
-    [*] -- [*] Feature 
-}
+type Feature specializes Named_Entity 
 
 roleMixin Author of functional-complexes  specializes Agent 
 
@@ -220,24 +175,41 @@ kind Streaming_Platform
 collective Target_Audience
 
 datatype Contact_Point{
-telephone,email,address,available hours,}
+telephone,email,address,available_hours
+}
 
 datatype Hours_Specification{
-opens,closes,day of week,valid from,valid to,}
+opens,closes,day_of_week,valid_from,valid_to
+}
 
 datatype Coordinate{
-longitude,latitude,elevation,}
+longitude,latitude,elevation
+}
 
 datatype Address{
-street,city,region,country,category,zipcode,complement,}
+street,city,region,country,category_,zipcode,complement
+}
 
 datatype Time_Instant
 datatype Time_Interval
 datatype Time
 datatype Frequency
 datatype Range{
-lower,upper,}
+lower,upper
+}
 
+enum EU_Difficulty{
+    Novice, Beginner, Intermediate, Expert
+}
+enum US_Difficulty{
+    Beginner, Beginner_Intermediate, Intermediate, Intermediate_Advanced, Advanced, Expert, TerrainPark
+}
+enum Snowpark_Difficulty{
+    S, M, L, XL
+}
+enum Day_of_Week{
+    Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+}
 genset Agent_Type {
     general Agent
     specifics Organization, Person
@@ -287,4 +259,41 @@ genset Event_Attendance {
     general Event_Plan
     specifics InPerson_Event, Hybrid_Event, Virtual_Event
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

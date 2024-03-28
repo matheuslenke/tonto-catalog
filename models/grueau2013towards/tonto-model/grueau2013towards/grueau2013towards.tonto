@@ -1,17 +1,12 @@
+import grueau2013towards
 
 package grueau2013towards
 
-class Intention{
-    [*] -- [*] Agent 
-}
+class Intention
 
-class Activity{
-    [*] -- [*] Agent 
-}
+class Activity
 
-class Agent{
-    [*] -- subagents -- [*] social_agent 
-}
+class Agent
 
 class social_agent specializes Agent 
 
@@ -32,4 +27,7 @@ class Landlord specializes PhysicalAgent
 class ServiceCenter_Agent specializes PhysicalAgent 
 
 class LandOwner specializes PhysicalAgent 
+
+
+
 

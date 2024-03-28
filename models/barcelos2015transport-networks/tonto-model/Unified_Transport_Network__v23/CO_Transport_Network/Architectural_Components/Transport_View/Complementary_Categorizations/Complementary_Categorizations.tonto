@@ -1,28 +1,19 @@
 import General_Elements
+import Complementary_Categorizations
+import Transport_Entities
+import Reference_Points
 
 package Complementary_Categorizations
 
-relator Binding{
-    @mediation [1..*] -- is_binding -- [2] Bound_InputOutput 
-    @mediation [1] -- binding_is_represented_by -- [1] Directly_Bound_Reference_Point 
-}
+relator Binding
 
-roleMixin Bound_InputOutput of functional-complexes {
-    @material [1] -- binds -- [1] Bound_InputOutput 
-}
+roleMixin Bound_InputOutput of functional-complexes 
 
-roleMixin Bound_Transport_Function of functional-complexes {
-    @material [1..*] -- tf_connection -- [1..*] Bound_Transport_Function 
-}
+roleMixin Bound_Transport_Function of functional-complexes 
 
-roleMixin Connected_Reference_Point of functional-complexes {
-    @material [1..*] -- has_forwarding -- [1..*] Connected_Reference_Point 
-}
+roleMixin Connected_Reference_Point of functional-complexes 
 
-relator Forwarding{
-    @mediation [1..*] -- is_connecting -- [2] Connected_Reference_Point 
-    @mediation [1] -- IT_is_represented_by -- [1] Directly_Connected_Transport_Entity 
-}
+relator Forwarding
 
 category Input of functional-complexes  specializes Geographical_Element 
 
@@ -59,4 +50,11 @@ genset S4Oxon6AUBAIKExE {
     general Bound_InputOutput
     specifics A_So_Input__AFP_Bound, A_So_Input__So_SNFP_Bound, M_Input__Sk_MFP_Bound, M_Output__So_MFP_Bound, A_Sk_Output__Sk_MFP_Bound, A_So_Input__So_MFP_Bound, SN_Outtput__So_SNFP_Bound, A_Sk_Output__Sk_SNFP_Bound, T_So_Input__So_AP_Bound, A_Sk_Output__AFP_Bound, A_So_Output__So_AP_Bound, A_Sk_Input__Sk_AP_Bound, SN_Intput__Sk_SNFP_Bound, T_Sk_Output__Sk_AP_Bound
 }
+
+
+
+
+
+
+
 

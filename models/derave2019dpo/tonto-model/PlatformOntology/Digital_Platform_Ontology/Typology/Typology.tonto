@@ -1,5 +1,3 @@
-import MultiSided
-import GDPO_part_1
 
 package Typology
 
@@ -29,8 +27,6 @@ subkind P2P_Sharing_and_CC_Platform_Chasin_et_al_2018 of relators  specializes D
 
 subkind MultiSided_Platform_Hagiu_and_Wright_2015 of relators  specializes Digital_Platform_Offering {
     market_sides: undefined  
-    @mediation [1..*] -- designed_for -- [2..*] Target_MS_Platform_User_Side 
-    @mediation [1] -- conforms_to -- [0..*] User_Affiliation_Agreement 
 }
 
 type Digital_Platform_Type
@@ -55,4 +51,6 @@ subkind TwoSided_Platform of relators  specializes MultiSided_Platform_Hagiu_and
 subkind OneSided_Platform_Filistrucchi_et_al_2014 of relators  specializes Digital_Platform_Offering {
     market_sides: undefined  
 }
+
+
 

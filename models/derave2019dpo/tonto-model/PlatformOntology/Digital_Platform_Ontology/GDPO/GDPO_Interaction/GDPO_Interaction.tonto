@@ -2,6 +2,7 @@ import GDPO_part_1
 import Review_System
 import GDPO_User_Roles
 import Airbnb
+import GDPO_Interaction
 
 package GDPO_Interaction
 
@@ -15,11 +16,7 @@ kind Digital_Content
 
 subkind Main_Digital_Content of functional-complexes  specializes Digital_Content 
 
-event Main_Digital_Content_Creation specializes Digital_Content_Creation, User_Affiliation_Action, User_Action {
-    @participation [1] -- created -- [1] Main_Digital_Content 
-    @participation [1..*] -- performed_by -- [1] Content_Creator 
-    @participational [1..*] -- is_part_of -- [0..*] Platform_Supported_Communication 
-}
+event Main_Digital_Content_Creation specializes Digital_Content_Creation, User_Affiliation_Action, User_Action 
 
 subkind Personal_Data of functional-complexes  specializes Main_Digital_Content 
 
@@ -27,18 +24,19 @@ subkind Digital_Message of functional-complexes  specializes Main_Digital_Conten
 
 subkind Digital_File of functional-complexes  specializes Main_Digital_Content 
 
-event Platform_Supported_Communication{
-    @participational [2..*] -- is_part_of -- [0..*] Platform_Supported_Interaction 
-}
+event Platform_Supported_Communication
 
-event Main_Digital_Content_Consumption specializes Digital_Content_Consumption, User_Action {
-    @participational [1..*] -- is_part_of -- [1..*] Platform_Supported_Communication 
-    @participation [1..*] -- performed_by -- [1] Content_Consumer 
-    @participation [0..*] -- consumed -- [1..*] Main_Digital_Content 
-}
+event Main_Digital_Content_Consumption specializes Digital_Content_Consumption, User_Action 
 
 genset WsLwiC6FYEWG2yIl {
     general Main_Digital_Content
     specifics Digital_Message, Digital_File, Offering_Description, Personal_Data
 }
+
+
+
+
+
+
+
 

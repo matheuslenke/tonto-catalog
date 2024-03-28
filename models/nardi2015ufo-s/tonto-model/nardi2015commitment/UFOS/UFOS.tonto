@@ -1,127 +1,106 @@
+import UFOS
 
 package UFOS
 
 category Agent
 
-relator Service_Offering{
-    @sum [1] -- [1..*] Service_Offering_Claim 
-    @sum [1] -- [1..*] Service_Offering_Commitment 
-    @mediation [1..*] -- offered_to -- [1] Target_Customer_Community 
-    @mediation [1..*] -- provides -- [1] Service_Provider 
-}
+relator Service_Offering
 
-event Service_Offer{
-    @formal [1] -- creates -- [1] Service_Offering 
-}
+event Service_Offer
 
-category Service_Offering_Description{
-    @formal [0..*] -- describes -- [1] Service_Offering 
-}
+category Service_Offering_Description
 
-roleMixin Target_Customer specializes Agent {
-    @memberOf [1..*] -- [1..*] Target_Customer_Community 
-}
+roleMixin Target_Customer specializes Agent 
 
 collective Target_Customer_Community
 
 roleMixin Service_Provider specializes Agent 
 
-mode Service_Offering_Commitment{
-    @characterization [1..*] -- inheres_In -- [1] Service_Provider 
-    @externalDependence [1..*] -- [1] Target_Customer_Community 
-}
+mode Service_Offering_Commitment
 
-mode Service_Offering_Claim{
-    @characterization [1..*] -- inheres_In -- [1] Target_Customer_Community 
-    @externalDependence [1..*] -- [1] Service_Provider 
-    @formal [1] -- is_counterpart_of -- [1] Service_Offering_Commitment 
-}
+mode Service_Offering_Claim
 
-event Service_Negotiation{
-    @formal [1] -- results_in -- [0..1] Service_Agreement 
-    @formal [0..*] -- regards_to -- [1] Service_Offering 
-}
+event Service_Negotiation
 
-category Service_Agreement_Description{
-    @formal [0..*] -- describes -- [1..*] Service_Agreement 
-}
+category Service_Agreement_Description
 
-roleMixin Hired_Service_Provider specializes Service_Provider_On_Negotiation {
-    @participation [1] -- [0..*] Hired_ProviderCustomer_Interaction 
-}
+roleMixin Hired_Service_Provider specializes Service_Provider_On_Negotiation 
 
-roleMixin Service_Customer specializes Target_Customer_On_Negotiation {
-    @participation [1..*] -- [0..*] Hired_ProviderCustomer_Interaction 
-}
+roleMixin Service_Customer specializes Target_Customer_On_Negotiation 
 
-relator Service_Agreement{
-    @mediation [1..*] -- is_bound_to -- [1] Hired_Service_Provider 
-    @mediation [1..*] -- is_bound_to -- [1..*] Service_Customer 
-    @formal [0..*] -- conforms_to -- [1] Service_Offering 
-    @sum [1] -- [1..*] Hired_Provider_Commitment 
-    @sum [1] -- [1..*] Service_Customer_Claim 
-}
+relator Service_Agreement
 
-mode Hired_Provider_Commitment{
-    @characterization [1..*] -- inheres_in -- [1] Hired_Service_Provider 
-    @externalDependence [1..*] -- [1] Service_Customer 
-}
+mode Hired_Provider_Commitment
 
-mode Hired_Provider_Claim{
-    @formal [1] -- is_counterpart_of -- [1] Service_Customer_Commitment 
-    @characterization [1] -- inheres_in -- [1] Claimed_Hired_Provider 
-    @externalDependence [1..*] -- [1] Committed_Service_Customer 
-}
+mode Hired_Provider_Claim
 
-mode Service_Customer_Claim{
-    @formal [1] -- is_counterpart_of -- [1] Hired_Provider_Commitment 
-    @characterization [1..*] -- inheres_in -- [1] Service_Customer 
-    @externalDependence [1..*] -- [1] Hired_Service_Provider 
-}
+mode Service_Customer_Claim
 
-mode Service_Customer_Commitment{
-    @characterization [1..*] -- inheres_in -- [1] Committed_Service_Customer 
-    @externalDependence [1..*] -- [1] Claimed_Hired_Provider 
-}
+mode Service_Customer_Commitment
 
-event Service_Delivery{
-    @formal [0..*] -- related_to -- [1] Service_Agreement 
-}
+event Service_Delivery
 
-event Hired_Provider_Action{
-    @sum [0..*] -- [1] Service_Delivery 
-    @formal [0..*] -- motivated_by -- [1..*] Hired_Provider_Commitment 
-    @formal [0..*] -- performed_by -- [1] Hired_Service_Provider 
-}
+event Hired_Provider_Action
 
-event Customer_Action{
-    @sum [0..*] -- [1] Service_Delivery 
-    @formal [0..*] -- motivated_by -- [1..*] Service_Customer_Commitment 
-    @formal [0..*] -- performed_by -- [1] Committed_Service_Customer 
-}
+event Customer_Action
 
-event Hired_ProviderCustomer_Interaction{
-    @sum [0..*] -- [1] Service_Delivery 
-    @formal [0..*] -- motivated_by -- [0..*] Service_Customer_Commitment 
-    @formal [0..*] -- motivated_by -- [0..*] Hired_Provider_Commitment 
-}
+event Hired_ProviderCustomer_Interaction
 
-relator Specialized_Service_Agreement specializes Service_Agreement {
-    @sum [1] -- [1..*] Hired_Provider_Claim 
-    @sum [1] -- [1..*] Service_Customer_Commitment 
-    @mediation [1..*] -- is_bound_to -- [1] Committed_Service_Customer 
-    @mediation [1..*] -- is_bound_to -- [1] Claimed_Hired_Provider 
-}
+relator Specialized_Service_Agreement specializes Service_Agreement 
 
 roleMixin Committed_Service_Customer of functional-complexes  specializes Service_Customer 
 
 roleMixin Claimed_Hired_Provider of functional-complexes  specializes Hired_Service_Provider 
 
-roleMixin Target_Customer_On_Negotiation specializes Target_Customer {
-    @participation [1..*] -- [1..*] Service_Negotiation 
-}
+roleMixin Target_Customer_On_Negotiation specializes Target_Customer 
 
-roleMixin Service_Provider_On_Negotiation specializes Service_Provider {
-    @participation [1] -- [1..*] Service_Negotiation 
-}
+roleMixin Service_Provider_On_Negotiation specializes Service_Provider 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

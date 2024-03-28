@@ -1,49 +1,26 @@
+import Model
 
 package Model
 
-kind BuyerPersona{
-    @memberOf [2..*] -- [1..*] Market 
-    @participation [1..*] -- [0..*] CustomerJourneyActivity 
-    @characterization [1] -- [1..*] CustomerJourneyExperience 
-}
+kind BuyerPersona
 
-event CustomerRelationshipActivity{
-    [1] -- [1..*] Attract 
-    [1] -- [1..*] Engage 
-    [1] -- [1..*] Delight 
-    @historicalDependence [0..*] -- [1] Analytic 
-}
+event CustomerRelationshipActivity
 
-kind Organization{
-    @participation [1..*] -- [0..*] CustomerRelationshipActivity 
-    @participation [1..*] -- [0..*] Strategy 
-    @participation [1..*] -- [0..*] Analytic 
-}
+kind Organization
 
 event CustomerJourneyActivity
 
 event Analytic
 
-event Strategy{
-    @historicalDependence [0..*] -- [1] CustomerRelationshipActivity 
-}
+event Strategy
 
-kind InformationElement{
-    @creation [0..*] -- [1] CustomerRelationshipActivity 
-    @creation [1..*] -- [1] Strategy 
-    @creation [1..*] -- [1] Analytic 
-}
+kind InformationElement
 
 mode CustomerJourneyExperience
 
-kind Channel{
-    @participation [1..*] -- [0..*] CustomerRelationshipActivity 
-}
+kind Channel
 
-relator ValueProposition{
-    @mediation [1..*] -- [1] Organization 
-    @mediation [1..*] -- [1] Market 
-}
+relator ValueProposition
 
 collective Market
 
@@ -59,10 +36,7 @@ phase Faithful of functional-complexes  specializes BuyerPersona
 
 phase Advocacy of functional-complexes  specializes BuyerPersona 
 
-relator CustomerRelationshipStatus{
-    @mediation [0..*] -- [1] Organization 
-    @mediation [0..*] -- [1] BuyerPersona 
-}
+relator CustomerRelationshipStatus
 
 phase Lead of relators  specializes CustomerRelationshipStatus 
 
@@ -76,13 +50,9 @@ phase Stranger of relators  specializes CustomerRelationshipStatus
 
 phase Promoter of relators  specializes CustomerRelationshipStatus 
 
-event Attract{
-    @historicalDependence [0..*] -- [1] Engage 
-}
+event Attract
 
-event Engage{
-    @historicalDependence [0..*] -- [1] Delight 
-}
+event Engage
 
 event Delight
 
@@ -104,4 +74,25 @@ genset ChannelTypes {
     general Channel
     specifics DigitalChannel, PhysicalChannel
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

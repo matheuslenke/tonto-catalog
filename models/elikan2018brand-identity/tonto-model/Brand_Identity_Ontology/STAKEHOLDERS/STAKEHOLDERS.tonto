@@ -1,44 +1,36 @@
 import IDENTITY
+import STAKEHOLDERS
 
 package STAKEHOLDERS
 
-collective Stakeholders{
-    [*] -- [*] Perceived_image_Perception 
-}
+collective Stakeholders
 
-collective External_stekaholders{
-    @memberOf [2..*] -- [1] Stakeholders 
-}
+collective External_stekaholders
 
-collective Official_stakeholders{
-    @memberOf [2..*] -- [1] Stakeholders 
-}
+collective Official_stakeholders
 
-collective Internal_stakeholders{
-    @memberOf [2..*] -- [1] Stakeholders 
-}
+collective Internal_stakeholders
 
-collective Customers{
-    @memberOf [2..*] -- [1] External_stekaholders 
-}
+collective Customers
 
-kind Customer_reflection{
-    [1..*] -- creates -- [1..*] Customers 
-}
+kind Customer_reflection
 
-kind Perceived_image_Perception specializes Image {
-    [*] -- [*] Reputation 
-    [*] -- [*] Brand_heritage 
-    [*] -- [*] Customer_reflection 
-}
+kind Perceived_image_Perception specializes Image 
 
-collective Employees{
-    @memberOf [2..*] -- [1] Internal_stakeholders 
-}
+collective Employees
 
 subkind Brand_heritage
 
-subkind Reputation{
-    [*] -- [*] Brand_heritage 
-}
+subkind Reputation
+
+
+
+
+
+
+
+
+
+
+
 

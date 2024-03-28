@@ -1,79 +1,38 @@
-import Human
 
 package platoontology
 
-subkind Temperance of intrinsic-modes  specializes CardinalVirtue {
-    @componentOf [1] -- [0..1] Justice 
-}
+subkind Temperance of intrinsic-modes  specializes CardinalVirtue 
 
 subkind Justice of intrinsic-modes  specializes CardinalVirtue 
 
-subkind Courage of intrinsic-modes  specializes CardinalVirtue {
-    @componentOf [1] -- [0..1] Justice 
-}
+subkind Courage of intrinsic-modes  specializes CardinalVirtue 
 
-subkind Wisdom of intrinsic-modes  specializes CardinalVirtue {
-    @componentOf [1] -- [0..1] Justice 
-}
+subkind Wisdom of intrinsic-modes  specializes CardinalVirtue 
 
-mode CardinalVirtue{
-    @characterization [1..4] -- [1] HumanSoul 
-}
+mode CardinalVirtue
 
-kind Spirit{
-    @componentOf [1] -- [1] HumanSoul 
-    [1] -- if_Reason_and_Spirit_in_harmony -- [0..1] Courage 
-    [0..1] -- in_harmony -- [0..1] Appetite 
-    [1] -- rules -- [1] Timocratic 
-}
+kind Spirit
 
-kind Reason{
-    [1] -- [0..1] Wisdom 
-    [0..1] -- in_harmony -- [0..1] Spirit 
-    [0..1] -- in_harmony -- [0..1] Appetite 
-    [1] -- rules -- [1] Aristocratic 
-    @componentOf [1] -- [1] Belief 
-    @componentOf [1] -- [1] Thinking 
-    @componentOf [1] -- [1] Recollection 
-    @componentOf [1] -- [1] Imagination 
-    @componentOf [1] -- [1] HumanSoul 
-}
+kind Reason
 
-kind Appetite{
-    [1] -- if_Reason_Spirit_Appetite_in_harmony -- [0..1] Temperance 
-    [1] -- rules -- [1] Oligarchic 
-    [1] -- rules -- [1] Democratic 
-    [1] -- rules -- [1] Tyrannical 
-    @componentOf [1] -- [1] SensePerception 
-}
+kind Appetite
 
-kind HumanSoul{
-    @componentOf [1] -- [1] Reason 
-    @componentOf [1] -- [1] Appetite 
-    @componentOf [1..*] -- [1] HumanBeing 
-}
+kind HumanSoul
 
 role Philosopherking of functional-complexes  specializes GuardianPerson 
 
-kind NobleLie{
-    @componentOf [1..*] -- [1] Education 
-}
+kind NobleLie
 
-kind Education{
-    [1] -- provided_to -- [1] Citizen 
-}
+kind Education
 
 subkind StateProperty of functional-complexes  specializes Property 
 
 subkind PrivateProperty of functional-complexes  specializes Property 
 
-collective Family{
-    @memberOf [*] -- [1] ProducerPerson 
-}
+collective Family
 
 role ProducerPerson of functional-complexes  specializes Citizen {
     sex: undefined  
-    [1] -- [1..*] PrivateProperty 
 }
 
 role AuxiliaryPerson of functional-complexes  specializes Citizen {
@@ -86,32 +45,17 @@ role GuardianPerson of functional-complexes  specializes Citizen {
 
 role Citizen of functional-complexes  specializes HumanBeing 
 
-kind IdealCity{
-    [1] -- [1..*] StateProperty 
-}
+kind IdealCity
 
-mode Constitution{
-    @characterization [1] -- [1] IdealCity 
-}
+mode Constitution
 
-collective Producers specializes Class {
-    @memberOf [2..*] -- [1] ProducerPerson 
-    @memberOf [1..*] -- provides -- [1..*] IdealCity 
-}
+collective Producers specializes Class 
 
-collective Auxiliaries specializes Class {
-    @memberOf [2..*] -- [1] AuxiliaryPerson 
-    @memberOf [1] -- defends -- [1] IdealCity 
-}
+collective Auxiliaries specializes Class 
 
-collective Guardians specializes Class {
-    @memberOf [2..*] -- [1] GuardianPerson 
-    @memberOf [1] -- rules -- [1] IdealCity 
-}
+collective Guardians specializes Class 
 
-mode PsychologicalConstitution{
-    @characterization [1] -- [1] HumanSoul 
-}
+mode PsychologicalConstitution
 
 subkind Tyrannical of intrinsic-modes  specializes PsychologicalConstitution {
     motivation: undefined  
@@ -136,11 +80,7 @@ subkind Aristocratic of intrinsic-modes  specializes PsychologicalConstitution {
     motivation: undefined  
 }
 
-relator Being{
-    @mediation [1] -- [1] Form 
-    @mediation [1] -- [1] Essence 
-    @componentOf [1..*] -- [1] WorldsSoul 
-}
+relator Being
 
 kind Particular{
     name: string_  
@@ -148,68 +88,41 @@ kind Particular{
     temporal: boolean_  
     spatial: boolean_  
     sensible: boolean_  
-    [1..*] -- becomingTakesPlace -- [1] Receptacle 
 }
 
-mode Good{
-    @characterization [1] -- [1] Form 
-}
+mode Good
 
 kind Essence
 
 category God of functional-complexes 
 
-kind Demiurge specializes God {
-    [1] -- represents -- [1] Intellect 
-    [1] -- creates -- [0..*] Universe 
-    [1] -- creates -- [1..*] HumanSoul 
-    [1] -- looks_to -- [1..*] Form 
-}
+kind Demiurge specializes God 
 
 subkind Universe of functional-complexes  specializes LivingThing 
 
-kind WorldsBody{
-    @componentOf [1] -- [1] Universe 
-}
+kind WorldsBody
 
 subkind LivingThing of functional-complexes  specializes Particular 
 
-subkind Earth of functional-complexes  specializes Element {
-    [1..*] -- [1] Isosceles 
-}
+subkind Earth of functional-complexes  specializes Element 
 
-subkind Fire of functional-complexes  specializes Element {
-    [1..*] -- [1] Scalene 
-}
+subkind Fire of functional-complexes  specializes Element 
 
-subkind Water of functional-complexes  specializes Element {
-    [1..*] -- [1] Scalene 
-}
+subkind Water of functional-complexes  specializes Element 
 
-subkind Air of functional-complexes  specializes Element {
-    [1..*] -- [1] Scalene 
-}
+subkind Air of functional-complexes  specializes Element 
 
-kind WorldsSoul{
-    @componentOf [1] -- [1] Universe 
-}
+kind WorldsSoul
 
-kind Sameness{
-    @componentOf [1..*] -- [1] WorldsSoul 
-}
+kind Sameness
 
 kind Receptacle
 
 kind Intellect
 
-subkind LesserGod of functional-complexes  specializes LivingThing, God {
-    [1] -- creates -- [1..*] HumanBody 
-}
+subkind LesserGod of functional-complexes  specializes LivingThing, God 
 
-kind Element{
-    @componentOf [1..*] -- [1] HumanBody 
-    @componentOf [1..*] -- [1] WorldsBody 
-}
+kind Element
 
 subkind Isosceles of functional-complexes  specializes Triangle 
 
@@ -217,24 +130,15 @@ subkind Scalene of functional-complexes  specializes Triangle
 
 kind Triangle
 
-kind HeavenlyBody{
-    @componentOf [1..*] -- [1] Universe 
-}
+kind HeavenlyBody
 
 subkind Name of functional-complexes  specializes Particular {
     language: string_  
-    @material [1..*] -- [1] NameBearerObject 
-    [1..*] -- [1] SpecificFormOfTheName 
 }
 
-subkind NameBearerObject of functional-complexes  specializes Particular {
-    [1] -- [1] Form 
-}
+subkind NameBearerObject of functional-complexes  specializes Particular 
 
-relator Convention{
-    @mediation [1..*] -- [1] NameBearerObject 
-    @mediation [1] -- [1] Name 
-}
+relator Convention
 
 subkind SpecificFormOfTheName of functional-complexes  specializes Form 
 
@@ -248,20 +152,13 @@ kind Form{
     composite: boolean_  { const }
     temporal: boolean_  { const }
     sensible: boolean_  
-    @material [1] -- is_being -- [1] Essence 
-    @componentOf [1..*] -- [1..*] Particular 
 }
 
-kind Difference{
-    @componentOf [1..*] -- [1] WorldsSoul 
-}
+kind Difference
 
 kind Property
 
-relator Citiznship{
-    @mediation [1] -- [1] Citizen 
-    @mediation [1] -- [1] IdealCity 
-}
+relator Citiznship
 
 category Class of collectives 
 
@@ -281,4 +178,73 @@ genset R21ouz6GAqACaRRs {
     general PsychologicalConstitution
     specifics Timocratic, Oligarchic, Democratic, Aristocratic, Tyrannical
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

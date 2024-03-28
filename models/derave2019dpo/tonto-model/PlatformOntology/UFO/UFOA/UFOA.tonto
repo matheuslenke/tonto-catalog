@@ -1,24 +1,22 @@
 import UFOC
+import UFOA
+import UFOB
 
 package UFOA
 
-kind Object_A{
-    @mediation [1..*] -- [1..*] Relator 
-}
+kind Object_A
 
 subkind Subobject_A of functional-complexes  specializes Object_A 
 
-kind Object_B{
-    @mediation [1..*] -- [1..*] Relator 
-}
+kind Object_B
 
-roleMixin Object of functional-complexes {
-    @participation [1..*] -- [1..*] Event 
-}
+roleMixin Object of functional-complexes 
 
-phase Class_C{
-    @instantiation [1..*] -- [0..*] Object_C 
-}
+phase Class_C
 
 phase Object_C
+
+
+
+
 

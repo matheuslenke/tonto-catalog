@@ -1,3 +1,4 @@
+import IDAF
 
 package IDAF
 
@@ -5,20 +6,11 @@ category Estrutura of functional-complexes
 
 category EstruturaOrganizacional of functional-complexes  specializes Estrutura 
 
-category EstruturaOcupacional of functional-complexes  specializes Estrutura {
-    @memberOf [1] -- PartGO -- [2..*] GrupoOcupacional 
-}
+category EstruturaOcupacional of functional-complexes  specializes Estrutura 
 
-kind EstruturaAdministrativa specializes EstruturaOrganizacional {
-    @componentOf [1] -- PartDir -- [1] Diretoria 
-    @componentOf [1] -- PartAsses -- [1..*] Assessoria 
-    @componentOf [1] -- PartDepto -- [1..*] Departamento 
-}
+kind EstruturaAdministrativa specializes EstruturaOrganizacional 
 
-kind EstruturaOperacional specializes EstruturaOrganizacional {
-    @componentOf [1] -- PartLabDiag -- [1..*] LaboratorioDiagnostico 
-    @componentOf [1] -- PartEscrit -- [1..*] Escritorio 
-}
+kind EstruturaOperacional specializes EstruturaOrganizacional 
 
 kind Organizacao
 
@@ -26,9 +18,7 @@ subkind Diretoria of functional-complexes  specializes OrganizacaoAdministrativa
 
 subkind Assessoria of functional-complexes  specializes OrganizacaoAdministrativa 
 
-subkind Departamento of functional-complexes  specializes OrganizacaoAdministrativa {
-    @componentOf [1] -- PartSec -- [2..*] Secao 
-}
+subkind Departamento of functional-complexes  specializes OrganizacaoAdministrativa 
 
 subkind Secao of functional-complexes  specializes OrganizacaoAdministrativa 
 
@@ -46,46 +36,25 @@ subkind LaboratorioDiagnostico of functional-complexes  specializes OrganizacaoO
 
 kind Pessoa
 
-relator Lotacao{
-    @mediation [1..*] -- UnitParaLot -- [1] UnidadeLotacao 
-    @mediation [1] -- ServParaLot -- [1] Servidor 
-}
+relator Lotacao
 
-role Servidor of functional-complexes  specializes Pessoa {
-    @material [1..*] -- ehLotadoEm -- [1] UnidadeLotacao 
-    @material [1..*] -- ehDesignadoEm -- [1..*] CargoDesignado 
-}
+role Servidor of functional-complexes  specializes Pessoa 
 
 role UnidadeLotacao
 
 kind Cargo
 
-relator Designacao{
-    @mediation [1..*] -- CargoParaDesig -- [1] CargoDesignado 
-    @mediation [1] -- ServParaDesig -- [1] Servidor 
-}
+relator Designacao
 
 role CargoDesignado of functional-complexes  specializes Cargo 
 
 collective GrupoOcupacional
 
-phase ServicoAuxiliar of collectives  specializes GrupoOcupacional {
-    @memberOf [1] -- PartAuxServ -- [2..*] AuxiliarServicos 
-}
+phase ServicoAuxiliar of collectives  specializes GrupoOcupacional 
 
-phase ApoioTecnicoAdministrativo of collectives  specializes GrupoOcupacional {
-    @memberOf [1] -- PartSupAdm -- [1..*] SuporteAdministrativo 
-    @memberOf [1] -- PartSupTec -- [1..*] SuporteTecnico 
-}
+phase ApoioTecnicoAdministrativo of collectives  specializes GrupoOcupacional 
 
-phase Finalistico of collectives  specializes GrupoOcupacional {
-    @memberOf [1] -- PartTecLab -- [1..*] TecnicoLaboratorio 
-    @memberOf [1] -- PartTecDesFund -- [1..*] TecnicoDesenvolvimentoFundiario 
-    @memberOf [1] -- PartTecRecNat -- [1..*] TecnicoRecursosNaturais 
-    @memberOf [1] -- PartTecCart -- [1..*] TecnicoCartografia 
-    @memberOf [1] -- PartTecSanInspVeg -- [1..*] TecnicoSanidadeInspecaoVegetal 
-    @memberOf [1] -- PartTecSanInspAni -- [1..*] TecnicoSanidadeInspecaoAnimal 
-}
+phase Finalistico of collectives  specializes GrupoOcupacional 
 
 subkind TecnicoSanidadeInspecaoAnimal of functional-complexes  specializes Cargo 
 
@@ -111,27 +80,45 @@ phase Fronteira of functional-complexes  specializes Posto
 
 phase Central of functional-complexes  specializes Escritorio 
 
-phase Regional of functional-complexes  specializes Escritorio {
-    @componentOf [1] -- PartLocal -- [1..*] Local 
-    @componentOf [1] -- PartUnitVol -- [1..*] UnidadeVolante 
-}
+phase Regional of functional-complexes  specializes Escritorio 
 
-phase Local of functional-complexes  specializes Escritorio {
-    @componentOf [1] -- PartPosto -- [2..*] Posto 
-}
+phase Local of functional-complexes  specializes Escritorio 
 
-relator LotacaoDepartamento{
-    @mediation [1..*] -- MedEscrLot -- [1] EscritorioLotacao 
-    @mediation [1] -- MedDeptLot -- [1] DepartamentoLotacao 
-}
+relator LotacaoDepartamento
 
-role DepartamentoLotacao of functional-complexes  specializes Departamento {
-    @material [1..*] -- LotDeptoEscr -- [1..*] EscritorioLotacao 
-}
+role DepartamentoLotacao of functional-complexes  specializes Departamento 
 
 role EscritorioLotacao of functional-complexes  specializes Central 
 
 subkind OrganizacaoAdministrativa of functional-complexes  specializes Organizacao 
 
 subkind OrganizacaoOperacional of functional-complexes  specializes Organizacao 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,19 +1,13 @@
 import UFOB
+import UFOC
 
 package UFOC
 
-class Action_Universal_Plan{
-    [2..*] -- [0..*] Complex_Action_Universal 
-}
+class Action_Universal_Plan
 
-class Normative_Description specializes Social_Object {
-    [0..*] -- recognized_by -- [1..*] Social_Agent 
-}
+class Normative_Description specializes Social_Object 
 
-class Plan_Description specializes Normative_Description {
-    [0..1] -- describes -- [1..*] Atomic_Action_Universal 
-    [0..1] -- describes -- [1..*] Complex_Action_Universal 
-}
+class Plan_Description specializes Normative_Description 
 
 class Atomic_Action_Universal specializes Action_Universal_Plan 
 
@@ -31,9 +25,7 @@ class Intention specializes Commitment
 
 class Commitment
 
-class Closed_Commitment specializes Commitment {
-    [0..*] -- based_on -- [1] Action_Universal_Plan 
-}
+class Closed_Commitment specializes Commitment 
 
 category Agent of functional-complexes 
 
@@ -47,9 +39,7 @@ class Atomic_Action specializes Action
 
 class Complex_Action specializes Action 
 
-class Object_Participation specializes Participation {
-    [0..*] -- participation_of -- [1] Object 
-}
+class Object_Participation specializes Participation 
 
 class Change specializes Object_Participation 
 
@@ -57,9 +47,7 @@ class Creation specializes Object_Participation
 
 class Usage specializes Object_Participation 
 
-class Object{
-    [*] -- instance_of -- [*] Object_Kind 
-}
+class Object
 
 class Agent_Participation specializes Participation 
 
@@ -68,4 +56,11 @@ class Action_Contribution specializes Agent_Participation
 kind Person specializes Physical_Agent 
 
 category Physical_Agent of functional-complexes  specializes Agent 
+
+
+
+
+
+
+
 

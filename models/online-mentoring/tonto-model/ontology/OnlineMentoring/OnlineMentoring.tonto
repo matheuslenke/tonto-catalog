@@ -1,3 +1,4 @@
+import OnlineMentoring
 
 package OnlineMentoring
 
@@ -9,10 +10,7 @@ subkind Person of functional-complexes  specializes Agent
 
 subkind EducationalInstitution of functional-complexes  specializes Organization 
 
-relator WorkContract{
-    @mediation [1..*] -- [1] EducationalInstitution 
-    @mediation [1..*] -- [1] Professor 
-}
+relator WorkContract
 
 role Professor of functional-complexes  specializes Participant 
 
@@ -20,22 +18,13 @@ role Participant of functional-complexes  specializes Person
 
 role Student of functional-complexes  specializes Participant 
 
-relator Enrollment{
-    @mediation [1..*] -- [1] Course 
-    @mediation [1..*] -- [1] Student 
-}
+relator Enrollment
 
-role ParticipantWithanswer of functional-complexes  specializes Participant {
-    @material [1] -- provides -- [1..*] Answer 
-}
+role ParticipantWithanswer of functional-complexes  specializes Participant 
 
-kind Answer{
-    @material [1] -- answers -- [1] AnsweredQuestion 
-}
+kind Answer
 
-role ParticipantWithQuestion of functional-complexes  specializes Participant {
-    @material [1] -- asks -- [1..*] Question 
-}
+role ParticipantWithQuestion of functional-complexes  specializes Participant 
 
 kind Question
 
@@ -45,20 +34,13 @@ role OpenQuestion of functional-complexes  specializes Question
 
 role ActiveStudent of functional-complexes  specializes Student 
 
-kind Course{
-    @material [1] -- has -- [1] Curriculum 
-}
+kind Course
 
 collective Curriculum
 
-role Tutor of functional-complexes  specializes ActiveStudent {
-    @material [1..*] -- tutors -- [1..*] TutoredDiscipline 
-}
+role Tutor of functional-complexes  specializes ActiveStudent 
 
-relator Tutoring{
-    @mediation [1..*] -- [1] Tutor 
-    @mediation [1..*] -- [1] TutoredDiscipline 
-}
+relator Tutoring
 
 role TutoredDiscipline of functional-complexes  specializes Discipline 
 
@@ -66,22 +48,15 @@ role CharacterizedQuestion of functional-complexes  specializes Question
 
 role NonCharacterizedQuestion of functional-complexes  specializes Question 
 
-kind Discipline{
-    @memberOf [1..*] -- [1..*] Curriculum 
-    @material [1] -- [1] Ementa 
-}
+kind Discipline
 
 collective Ementa
 
 role NonTutoredDiscipline of functional-complexes  specializes Discipline 
 
-kind Topic{
-    @memberOf [1..*] -- [1..*] Ementa 
-}
+kind Topic
 
-role CharacterizingTopic of functional-complexes  specializes Topic {
-    @material [1..*] -- characterizes -- [1..*] CharacterizedQuestion 
-}
+role CharacterizingTopic of functional-complexes  specializes Topic 
 
 role NonCharacterizingTopic of functional-complexes  specializes Topic 
 
@@ -114,4 +89,19 @@ genset status {
     general Question
     specifics AnsweredQuestion, OpenQuestion
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

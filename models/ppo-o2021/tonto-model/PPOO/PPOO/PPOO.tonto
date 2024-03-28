@@ -1,12 +1,11 @@
 import DMOP
 import ML_Schema
 import RDBSO
+import PPOO
 
 package PPOO
 
-quality Parameter{
-    @characterization [1..*] -- parameterized_by -- [1] Operator 
-}
+quality Parameter
 
 subkind Data_Preprocessing_Operator of functional-complexes  specializes Operator 
 
@@ -48,31 +47,19 @@ subkind Oversampling of functional-complexes  specializes Data_Sampling_Correcti
 
 subkind Undersampling of functional-complexes  specializes Data_Sampling_Correction_Preprocessing_Operator 
 
-kind Dataset specializes Data {
-    [*] -- [*] Line 
-    [*] -- is_characterized_by -- [1..*] Dataset_Characteristic 
-    [1] -- defines -- [1] Line_Type 
-}
+kind Dataset specializes Data 
 
-kind Column_Value specializes Data {
-    [*] -- instance_of -- [1] Column 
-}
+kind Column_Value specializes Data 
 
 quality Column_Characteristic
 
-subkind Labeled_Dataset of functional-complexes  specializes Dataset {
-    [1] -- processed_by -- [1] Supervised_Learning_Task 
-    [1] -- has -- [1] Target_Column 
-}
+subkind Labeled_Dataset of functional-complexes  specializes Dataset 
 
 quality Dataset_Characteristic
 
 kind Supervised_Learning_Task
 
-subkind Target_Column of functional-complexes  specializes Column {
-    [1] -- predict -- [1] Supervised_Learning_Classification_Task 
-    [*] -- defined_by -- [1] Nominal_Qualitative_Data_Type 
-}
+subkind Target_Column of functional-complexes  specializes Column 
 
 subkind Supervised_Learning_Classification_Task of functional-complexes  specializes Supervised_Learning_Task 
 
@@ -88,72 +75,39 @@ subkind Discreet_Quantitative_Data_Type of functional-complexes  specializes Qua
 
 subkind Continuous_Quantitative_Data_Type of functional-complexes  specializes Quantitative_Data_Type 
 
-kind Data_Transformation{
-    [1] -- implements_ -- [1..*] Data_Preprocessing_Executable_Operator 
-}
+kind Data_Transformation
 
-kind Data_Preprocessing_Workflow_Plan{
-    [*] -- hasPart -- [2..*] Data_Transformation 
-    [1] -- implements_ -- [1] Data_Preprocessing_Executable_Workflow 
-}
+kind Data_Preprocessing_Workflow_Plan
 
-class User of functional-complexes  specializes Person {
-    [*] -- executed_by -- [*] Operator_Execution 
-    @participation [1..*] -- [*] Exploratory_Data_Analysis 
-    @participation [1..*] -- [*] Data_Preprocessing_Operator_Execution 
-}
+class User of functional-complexes  specializes Person 
 
 relator Operator_Execution
 
 kind Person
 
-kind Data_Preprocessing_Assistant specializes Software {
-    [1] -- supports -- [1..*] Data_Preprocessing_Workflow_Plan 
-}
+kind Data_Preprocessing_Assistant specializes Software 
 
 category Software of functional-complexes 
 
-subkind Data_Preprocessing_Executable_Operator of functional-complexes  specializes Operator {
-    [*] -- executed_by -- [*] Operator_Execution 
-    @participation [1..*] -- [*] Exploratory_Data_Analysis 
-    @participation [1] -- [*] Data_Preprocessing_Operator_Execution 
-}
+subkind Data_Preprocessing_Executable_Operator of functional-complexes  specializes Operator 
 
-kind Data_Preprocessing_Executable_Workflow{
-    [*] -- hasPart -- [2..*] Data_Preprocessing_Executable_Operator 
-}
+kind Data_Preprocessing_Executable_Workflow
 
 kind Operator
 
-situation Column_Characteristic_Initial{
-    @triggers [1] -- [*] Exploratory_Data_Analysis 
-}
+situation Column_Characteristic_Initial
 
-class Exploratory_Data_Analysis{
-    [*] -- cause -- [*] Data_Preprocessing_Operator_Execution 
-    @bringsAbout [1] -- [1..*] Column_Characteristic_Identified 
-}
+class Exploratory_Data_Analysis
 
-class Data_Preprocessing{
-    [*] -- [*] Exploratory_Data_Analysis 
-    [*] -- [*] Data_Preprocessing_Operator_Execution 
-}
+class Data_Preprocessing
 
-event Data_Preprocessing_Operator_Execution{
-    @bringsAbout [1] -- [1..*] Processed_Column 
-}
+event Data_Preprocessing_Operator_Execution
 
 situation Processed_Column
 
-situation Column_Characteristic_Identified{
-    @triggers [1] -- [*] Data_Preprocessing_Operator_Execution 
-    [*] -- activates -- [*] Data_Processing_Ability 
-}
+situation Column_Characteristic_Identified
 
-class Data_Processing_Ability{
-    [*] -- inheresin -- [*] Data_Preprocessing_Executable_Operator 
-    [*] -- manifestedBy -- [*] Data_Preprocessing_Operator_Execution 
-}
+class Data_Processing_Ability
 
 genset qK5G36DAAAARcv {
     general Operator
@@ -209,4 +163,34 @@ genset ceNVG36DAAAARnt {
     general Data_Type
     specifics Qualitative_Data_Type, Quantitative_Data_Type
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

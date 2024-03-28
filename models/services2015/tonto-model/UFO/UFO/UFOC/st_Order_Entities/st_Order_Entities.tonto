@@ -1,5 +1,6 @@
 import nd_Order_Entities
 import UFOB
+import st_Order_Entities
 
 package st_Order_Entities
 
@@ -9,25 +10,17 @@ class Atomic_Action specializes Atomic_Event, Action
 
 class Communicative_Act specializes Atomic_Action 
 
-class Action_Contribution specializes Action {
-    [*] -- performed_by -- [*] Agent 
-}
+class Action_Contribution specializes Action 
 
 class Social_Relator specializes Relator 
 
-class Intentional_Moment specializes Intrinsic_Moment {
-    [0..*] -- propositional_content_of -- [1] Prpositon 
-    [1..*] -- inheres_in -- [1] Agent 
-}
+class Intentional_Moment specializes Intrinsic_Moment 
 
 class Externally_Dependent_Moment specializes Intrinsic_Moment 
 
 class Mental_Moment specializes Intentional_Moment 
 
-class Social_Moment specializes Externally_Dependent_Moment, Intentional_Moment {
-    [2..*] -- part_of -- [1] Social_Relator 
-    [0..*] -- external_dependence -- [1..*] Agent 
-}
+class Social_Moment specializes Externally_Dependent_Moment, Intentional_Moment 
 
 class Commitment specializes Social_Moment 
 
@@ -37,9 +30,7 @@ class Belief specializes Mental_Moment
 
 class Desire specializes Mental_Moment 
 
-class Intention specializes Mental_Moment {
-    [1..*] -- propositional_content_of -- [1] Goal 
-}
+class Intention specializes Mental_Moment 
 
 class Prpositon
 
@@ -47,9 +38,7 @@ class Goal specializes Prpositon
 
 class Open_Commitment specializes Commitment 
 
-class Closed_Commitment specializes Commitment {
-    [0..*] -- based_on -- [1] Action_Universal_Plan 
-}
+class Closed_Commitment specializes Commitment 
 
 class Pending specializes Open_Commitment 
 
@@ -63,13 +52,18 @@ class Social_Agent specializes Agent
 
 class Social_Object specializes Object 
 
-class Normative_Description specializes Social_Object {
-    [*] -- reconized_by -- [*] Social_Agent 
-}
+class Normative_Description specializes Social_Object 
 
-class Action specializes Event {
-    [0..*] -- caused_by -- [1..*] Intention 
-}
+class Action specializes Event 
 
 class Complex_Action specializes Complex_Event, Action 
+
+
+
+
+
+
+
+
+
 

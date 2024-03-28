@@ -1,23 +1,21 @@
+import UFO
+import Aviation_Safety
 
 package UFO
 
-class Trope{
-    [*] -- inheres_in -- [*] Physical_Object 
-}
+class Trope
 
-class Object{
-    [*] -- has_object_part -- [*] Object 
-    [*] -- is_participant_of -- [*] Event 
-}
+class Object
 
-class Event{
-    [*] -- has_participant -- [*] Agent 
-}
+class Event
 
-class Action specializes Event {
-    [*] -- is_performed_by -- [*] Agent 
-    [*] -- is_performed_by -- [*] Cabin_Crew 
-}
+class Action specializes Event 
 
 class Agent specializes Object 
+
+
+
+
+
+
 

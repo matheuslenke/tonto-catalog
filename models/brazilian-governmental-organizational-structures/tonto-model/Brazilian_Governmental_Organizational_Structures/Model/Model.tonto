@@ -1,35 +1,24 @@
+import Model
 
 package Model
 
 category OrganizationalUnit of functional-complexes 
 
-kind rgo_Colegiado specializes OrganizationalUnit {
-    @Formal [1] -- representedBy -- [1..*] PublicOrganization 
-    @Formal [*] -- [1] rgo 
-}
+kind rgo_Colegiado specializes OrganizationalUnit 
 
 category PublicOrganization of functional-complexes  specializes OrganizationalUnit, Organization 
 
-subkind PublicAdmnistrativeUnit of functional-complexes  specializes OrganizationalUnit, UnityOfOrganization {
-    @Formal [*] -- subordinatedTo -- [0..1] PublicAdmnistrativeUnit 
-    @componentOf [1..*] -- composedBy -- [1] PublicOrganization 
-}
+subkind PublicAdmnistrativeUnit of functional-complexes  specializes OrganizationalUnit, UnityOfOrganization 
 
 category Organization of functional-complexes 
 
-kind UnityOfOrganization{
-    @componentOf [1] -- composedBy -- [1..*] Organization 
-}
+kind UnityOfOrganization
 
 kind Company specializes Organization 
 
-category PublicEntity of functional-complexes  specializes PublicOrganization {
-    @Formal [*] -- relatedTo -- [1] rgo 
-}
+category PublicEntity of functional-complexes  specializes PublicOrganization 
 
-kind rgo specializes PublicOrganization {
-    @Formal [*] -- subordinatedTo -- [0..1] rgo 
-}
+kind rgo specializes PublicOrganization 
 
 kind NonEmpresarialPublicEntity specializes PublicEntity 
 
@@ -67,4 +56,11 @@ genset wwX53v6GAqAAaAjG {
     general PublicOrganization
     specifics PublicEntity, rgo
 }
+
+
+
+
+
+
+
 

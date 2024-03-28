@@ -1,4 +1,5 @@
 import TDO
+import UFO
 
 package UFO
 
@@ -6,7 +7,6 @@ category Social_Object of functional-complexes  specializes Object
 
 category Physical_Object of functional-complexes  specializes Object 
 
-category Object of functional-complexes {
-     --  Component_Part 
-}
+category Object of functional-complexes 
+
 

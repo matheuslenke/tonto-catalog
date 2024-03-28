@@ -5,17 +5,11 @@ kind Article{
     number_: int  
 }
 
-subkind Duration_Clause of functional-complexes  specializes Article {
-    @componentOf [0..*] -- [1] Normative_Act 
-}
+subkind Duration_Clause of functional-complexes  specializes Article 
 
-subkind Revocation_Clause of functional-complexes  specializes Article {
-    @componentOf [0..*] -- [1] Normative_Act 
-}
+subkind Revocation_Clause of functional-complexes  specializes Article 
 
-subkind Ordinary_Article of functional-complexes  specializes Article {
-    @componentOf [1..*] -- [1] Normative_Act 
-}
+subkind Ordinary_Article of functional-complexes  specializes Article 
 
 kind Normative_Act{
     duration: undefined  
@@ -26,17 +20,14 @@ kind Normative_Act{
 
 kind Brief{
     text: string_  
-    @componentOf [1] -- [1] Normative_Act 
 }
 
 kind Epigraph{
     text: string_  
-    @componentOf [1] -- [1] Normative_Act 
 }
 
 kind Preamble{
     text: string_  
-    @componentOf [1] -- [1] Normative_Act 
 }
 
 subkind Composed_Article of functional-complexes  specializes Article 
@@ -47,7 +38,6 @@ subkind Simple_Article of functional-complexes  specializes Article {
 
 kind Caput{
     text: string_  
-    @componentOf [1] -- [1] Composed_Article 
 }
 
 subkind Article_composed_of_Item of functional-complexes  specializes Composed_Article 
@@ -58,13 +48,10 @@ kind Item{
     roman_number: int  
 }
 
-subkind Item_component_of_Article of functional-complexes  specializes Item {
-    @componentOf [2..*] -- [1] Article_composed_of_Item 
-}
+subkind Item_component_of_Article of functional-complexes  specializes Item 
 
 kind Paragraph{
     identification: string_  
-    @componentOf [1..*] -- [1] Article_composed_of_Paragraph 
 }
 
 subkind Composed_Item of functional-complexes  specializes Item 
@@ -73,7 +60,6 @@ subkind Simple_Item of functional-complexes  specializes Item
 
 kind Letter{
     letter: char  
-    @componentOf [2..*] -- [1] Composed_Item 
 }
 
 subkind Simple_Letter of functional-complexes  specializes Letter 
@@ -82,16 +68,11 @@ subkind Composed_Letter of functional-complexes  specializes Letter
 
 kind Letter_Discriminator{
     cardinal_number: int  
-    @componentOf [2..*] -- [1] Composed_Letter 
 }
 
-subkind Article_component_of_Chapter of functional-complexes  specializes Article {
-    @memberOf [2..*] -- [1] Chapter_composed_by_Article 
-}
+subkind Article_component_of_Chapter of functional-complexes  specializes Article 
 
-subkind Article_component_of_Section of functional-complexes  specializes Article {
-    @memberOf [2..*] -- [1] Simple_Section 
-}
+subkind Article_component_of_Section of functional-complexes  specializes Article 
 
 collective Section{
     roman_number: int  
@@ -99,15 +80,11 @@ collective Section{
 
 subkind Simple_Section of collectives  specializes Section 
 
-subkind Subsection of collectives  specializes Simple_Section {
-    @subCollectionOf [2..*] -- [1] Composed_Section 
-}
+subkind Subsection of collectives  specializes Simple_Section 
 
 subkind Composed_Section of collectives  specializes Section 
 
-subkind Component_Section of collectives  specializes Section {
-    @subCollectionOf [1] -- [1] Chapter_composed_by_Section 
-}
+subkind Component_Section of collectives  specializes Section 
 
 subkind Chapter_composed_by_Section of collectives  specializes Chapter 
 
@@ -117,13 +94,9 @@ collective Chapter{
     roman_number: int  
 }
 
-subkind Component_Chapter of collectives  specializes Chapter {
-    @subCollectionOf [2..*] -- [1] Charter 
-}
+subkind Component_Chapter of collectives  specializes Chapter 
 
-subkind Component_Charter of collectives  specializes Charter {
-    @subCollectionOf [2..*] -- [1] Book 
-}
+subkind Component_Charter of collectives  specializes Charter 
 
 collective Charter{
     roman_number: int  
@@ -133,9 +106,7 @@ collective Book{
     roman_number: int  
 }
 
-subkind Component_Book of collectives  specializes Book {
-    @subCollectionOf [2..*] -- [1] Part 
-}
+subkind Component_Book of collectives  specializes Book 
 
 collective Part
 
@@ -148,4 +119,22 @@ subkind Double_Part of collectives  specializes Part
 subkind Special_Part of collectives  specializes Double_Part 
 
 subkind General_Part of collectives  specializes Double_Part 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

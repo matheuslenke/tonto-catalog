@@ -7,27 +7,15 @@ role Signal of functional-complexes  specializes EMWave
 
 kind Interface
 
-role Receiver of functional-complexes  specializes Interface {
-     --  Sender 
-     -- decodesSignal --  WantedSignal 
-     -- decodes --  WantedSender 
-     -- monitors --  MonitoredSender 
-     -- isServedBy --  SelectedSender 
-}
+role Receiver of functional-complexes  specializes Interface 
 
-role Sender of functional-complexes  specializes Interface {
-     -- generates --  Signal 
-}
+role Sender of functional-complexes  specializes Interface 
 
 kind FreeSpace
 
 role Medium of functional-complexes  specializes FreeSpace 
 
-mode DetectBond{
-    @characterization [1] -- [1] Receiver 
-    @externalDependence [*] -- [1..*] Signal 
-    @externalDependence [*] -- [1..*] Medium 
-}
+mode DetectBond
 
 role WantedSignal of functional-complexes  specializes Signal 
 
@@ -35,43 +23,25 @@ role UnWantedSignal of functional-complexes  specializes Signal
 
 role WantedSender of functional-complexes  specializes Sender, Sender 
 
-mode Information{
-    @characterization [1] -- [1] WantedSignal 
-}
+mode Information
 
 role SelectedSender of functional-complexes  specializes WantedSender 
 
 role MonitoredSender of functional-complexes  specializes WantedSender 
 
-mode DecodedBond specializes DetectBond {
-    @externalDependence [*] -- [1..*] WantedSignal 
-}
+mode DecodedBond specializes DetectBond 
 
 role MonitoredBond of intrinsic-modes  specializes DecodedBond 
 
-role SelectedBond of intrinsic-modes  specializes DecodedBond {
-    @characterization [1] -- [1] Receiver 
-    @externalDependence [*] -- [1..*] SelectedSender 
-}
+role SelectedBond of intrinsic-modes  specializes DecodedBond 
 
-role Source of functional-complexes  specializes Interface {
-     -- handShakes --  Sink 
-    @mediation [1..*] -- [1] HandShakeBond 
-}
+role Source of functional-complexes  specializes Interface 
 
 role Sink of functional-complexes  specializes Interface 
 
-relator HandShakeBond{
-    @mediation [1..*] -- [1] Sink 
-     -- [2..*] SelectedBond 
-}
+relator HandShakeBond
 
-class Interface2 of functional-complexes {
-     -- standsIn --  TXIntfSituation 
-     -- standsIn --  EMWIsGenerated 
-     -- standsIn --  EMWIsDetected 
-     -- standsIn --  RxIntfSituation 
-}
+class Interface2 of functional-complexes 
 
 class TXIntfSituation of situations {
     poweredOn: undefined  
@@ -79,87 +49,50 @@ class TXIntfSituation of situations {
     ableToRx: undefined  
     startAt: undefined  
     finishAt: undefined  
-     --  EMField 
 }
 
-class EMField{
-    [1] -- [1] Sender2 
-    [1..*] -- [*] GenerateEMWave 
-}
+class EMField
 
-class Sender2 of functional-complexes  specializes Interface2 {
-    [1] -- [1] GenerateEMWave 
-    [1] -- generates -- [1] Signal2 
-}
+class Sender2 of functional-complexes  specializes Interface2 
 
-class GenerateEMWave of events {
-    [1] -- [1] EMWIsGenerated 
-}
+class GenerateEMWave of events 
 
 class EMWIsGenerated of situations {
     startAt: undefined  
     finishAt: undefined  
-     -- activates --  Permittivity 
 }
 
 class EMWave2 of functional-complexes {
     frequency: undefined  
     bandwidth: undefined  
     power: undefined  
-     -- standsIn --  EMWIsGenerated 
-    [1] -- [1] GenerateEMWave 
-     --  EMWIsDetected 
 }
 
-class Permittivity{
-    [1..*] -- [*] PropagateEMW 
-    [1] -- [1] Medium2 
-}
+class Permittivity
 
-class FreeSpace2 of functional-complexes {
-     -- standsIn --  EMWIsPropagated 
-}
+class FreeSpace2 of functional-complexes 
 
-class PropagateEMW of events {
-    [1] -- [1] EMWIsPropagated 
-}
+class PropagateEMW of events 
 
 class EMWIsPropagated of situations {
     startAt: undefined  
     finishAt: undefined  
-     --  EMWave2 
-     -- activates --  Sensitivity 
 }
 
-class Sensitivity{
-    [1..*] -- [*] DetectEMW 
-}
+class Sensitivity
 
-class Receiver2 of functional-complexes  specializes Interface2 {
-    [1] -- [1] Sensitivity 
-     -- detectsSignal --  Signal2 
-}
+class Receiver2 of functional-complexes  specializes Interface2 
 
-class DetectEMW of events {
-    [1..*] -- [0..*] Receiver2 
-    [1] -- [1] EMWIsDetected 
-}
+class DetectEMW of events 
 
 class EMWIsDetected of situations {
     startAt: undefined  
     finishAt: undefined  
 }
 
-class Signal2 of functional-complexes  specializes EMWave2 {
-    [1..*] -- [0..*] PropagateEMW 
-    [1..*] -- [0..*] DetectEMW 
-}
+class Signal2 of functional-complexes  specializes EMWave2 
 
-class Medium2 of functional-complexes  specializes FreeSpace2 {
-    [1..*] -- [0..*] PropagateEMW 
-     -- propagates --  Signal2 
-    [1..*] -- [0..*] DetectEMW 
-}
+class Medium2 of functional-complexes  specializes FreeSpace2 
 
 class RxIntfSituation of situations {
     poweredOn: undefined  
@@ -167,7 +100,6 @@ class RxIntfSituation of situations {
     ableToRx: undefined  
     startAt: undefined  
     finishAt: undefined  
-     -- activates --  Sensitivity 
 }
 
 genset intf {
@@ -189,4 +121,57 @@ genset srcsnk {
     general Interface
     specifics Source, Sink
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

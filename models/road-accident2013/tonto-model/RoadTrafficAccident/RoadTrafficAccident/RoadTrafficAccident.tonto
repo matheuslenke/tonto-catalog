@@ -3,24 +3,15 @@ package RoadTrafficAccident
 
 relator RoadTrafficAccident{
     fatalvictims: undefined  
-    @mediation [1..*] -- occurs_on -- [1] RoadwayWithAccident 
-    @mediation [1] -- has -- [1..*] Victim 
-    @mediation [1] -- involves -- [1..*] CrashedVehicle 
 }
 
 role TravelingVehicle of functional-complexes  specializes Vehicle 
 
 kind Vehicle
 
-relator Travel{
-    @mediation [1] -- made_by -- [1] TravelingVehicle 
-    @mediation [1] -- has -- [0..*] Passenger 
-    @mediation [1] -- has -- [1] Driver 
-}
+relator Travel
 
-role CrashedVehicle of functional-complexes  specializes TravelingVehicle {
-    @material [1..*] -- crashes_on -- [1] RoadwayWithAccident 
-}
+role CrashedVehicle of functional-complexes  specializes TravelingVehicle 
 
 relator RearEndCollision specializes RoadTrafficAccident 
 
@@ -41,4 +32,11 @@ phase DeceasedPerson of functional-complexes  specializes Person
 role Passenger of functional-complexes  specializes Traveler 
 
 role Driver of functional-complexes  specializes Traveler 
+
+
+
+
+
+
+
 

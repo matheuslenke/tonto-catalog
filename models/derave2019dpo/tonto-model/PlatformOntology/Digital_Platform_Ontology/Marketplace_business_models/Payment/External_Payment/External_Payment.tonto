@@ -5,13 +5,14 @@ import GDPO_part_1
 import GDPO_User_Roles
 import Airbnb
 import FOAF
+import External_Payment
+import SafaRide
 
 package External_Payment
 
-event External_Payment specializes Transaction_Payment {
-    [1..*] -- intermediates -- [1] Payment_Provider 
-    [0..*] -- [1] SafaRide_Customer 
-}
+event External_Payment specializes Transaction_Payment 
 
 subkind Payment_Provider of functional-complexes  specializes Organization 
+
+
 

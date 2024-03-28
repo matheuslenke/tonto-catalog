@@ -2,6 +2,8 @@ import Forwarding_End_Points
 import Complementary_Categorizations
 import Forwarding_Points
 import Transport_Entities
+import CFTE_Connections
+import Forwarding_Function
 
 package CFTE_Connections
 
@@ -15,40 +17,25 @@ role Active_Path_Bidirectional_SNFP of functional-complexes  specializes Bidirec
 
 role Active_Sk_SNFEP__End_CFTE_connected of functional-complexes  specializes Sink_SNFEP, Connected_Reference_Point 
 
-role Active_Sk_SNFEP__Sk_CFTE_connected of functional-complexes  specializes Sink_SNFEP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Sink_CFTE -- [1..*] Active_Sk_SNFP__Sk_CFTE_connected 
-}
+role Active_Sk_SNFEP__Sk_CFTE_connected of functional-complexes  specializes Sink_SNFEP, Connected_Reference_Point 
 
-role Active_Sk_SNFP__Int_CFTE_connected of functional-complexes  specializes Sink_SNFP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Int_CFTE -- [1..*] Active_So_SNFP__Int_CFTE_connected 
-}
+role Active_Sk_SNFP__Int_CFTE_connected of functional-complexes  specializes Sink_SNFP, Connected_Reference_Point 
 
 role Active_Sk_SNFP__Sk_CFTE_connected of functional-complexes  specializes Sink_SNFP, Connected_Reference_Point 
 
-role Active_So_SNFEP__End_CFTE_connected of functional-complexes  specializes Source_SNFEP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_End_CFTE -- [1..*] Active_Sk_SNFEP__End_CFTE_connected 
-}
+role Active_So_SNFEP__End_CFTE_connected of functional-complexes  specializes Source_SNFEP, Connected_Reference_Point 
 
-role Active_So_SNFEP__So_CFTE_connected of functional-complexes  specializes Source_SNFEP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Source_CFTE -- [1..*] Active_So_SNFP__So_CFTE_connected 
-}
+role Active_So_SNFEP__So_CFTE_connected of functional-complexes  specializes Source_SNFEP, Connected_Reference_Point 
 
 role Active_So_SNFP__Int_CFTE_connected of functional-complexes  specializes Source_SNFP, Connected_Reference_Point 
 
 role Active_So_SNFP__So_CFTE_connected of functional-complexes  specializes Source_SNFP, Connected_Reference_Point 
 
-subkind Bi_End_CFTE of functional-complexes  specializes Bidirectional_CFTE {
-    @material [1..*] -- Forwarding_Bidirectional_End_CFTE -- [2] Active_End_Bidirectional_SNFEP 
-}
+subkind Bi_End_CFTE of functional-complexes  specializes Bidirectional_CFTE 
 
-subkind Bi_Intermediate_CFTE of functional-complexes  specializes Bidirectional_CFTE {
-    @material [1..*] -- Forwarding_Bidirectional_Int_CFTE -- [2] Active_Intermediate_Bidirectional_SNFP 
-}
+subkind Bi_Intermediate_CFTE of functional-complexes  specializes Bidirectional_CFTE 
 
-subkind Bi_Path_CFTE of functional-complexes  specializes Bidirectional_CFTE {
-    @material [1..*] -- Forwarding_Bidirectional_Path_CFTE_FP -- [1] Active_Path_Bidirectional_SNFP 
-    @material [1..*] -- Forwarding_Bidirectional_Path_CFTE_FEP -- [1] Active_Path_Bidirectional_SNFEP 
-}
+subkind Bi_Path_CFTE of functional-complexes  specializes Bidirectional_CFTE 
 
 subkind Bidirectional_CFTE of functional-complexes  specializes Channel_Forwarding_Transport_Entity 
 
@@ -56,55 +43,27 @@ kind Channel_Forwarding_Transport_Entity specializes Transport_Entity
 
 subkind End_CFTE of functional-complexes  specializes Unidirectional_CFTE 
 
-role End_CFTE_Bi_Component of functional-complexes  specializes End_CFTE {
-    @componentOf [2] -- [1] Bi_End_CFTE 
-}
+role End_CFTE_Bi_Component of functional-complexes  specializes End_CFTE 
 
-relator End_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_End_CFTE -- [1] End_CFTE 
-    @mediation [1..*] -- Forwarding_from_End_CFTE -- [1] Active_So_SNFEP__End_CFTE_connected 
-    @mediation [1..*] -- Forwarding_to_End_CFTE -- [1] Active_Sk_SNFEP__End_CFTE_connected 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_CFTE_SoSk 
-}
+relator End_Forwarding specializes Forwarding 
 
-relator Int_CFTE_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Intermediate_CFTE -- [1] Intermediate_CFTE 
-    @mediation [1..*] -- Forwarding_to_Intermediate_CFTE -- [1] Active_So_SNFP__Int_CFTE_connected 
-    @mediation [1..*] -- Forwarding_from_Intermediate_CFTE -- [1] Active_Sk_SNFP__Int_CFTE_connected 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_CFTE_SkSo 
-}
+relator Int_CFTE_Forwarding specializes Forwarding 
 
 subkind Intermediate_CFTE of functional-complexes  specializes Unidirectional_CFTE 
 
-role Intermediate_CFTE_Bi_Component of functional-complexes  specializes Intermediate_CFTE {
-    @componentOf [2] -- [1] Bi_Intermediate_CFTE 
-}
+role Intermediate_CFTE_Bi_Component of functional-complexes  specializes Intermediate_CFTE 
 
 subkind Sink_CFTE of functional-complexes  specializes Unidirectional_CFTE 
 
-role Sink_CFTE_Bi_Component of functional-complexes  specializes Sink_CFTE {
-    @componentOf [1] -- [1] Bi_Path_CFTE 
-}
+role Sink_CFTE_Bi_Component of functional-complexes  specializes Sink_CFTE 
 
-relator Sk_CFTE_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Sink_CFTE -- [1] Sink_CFTE 
-    @mediation [1..*] -- Forwarding_to_Sink_CFTE -- [1] Active_Sk_SNFP__Sk_CFTE_connected 
-    @mediation [1..*] -- Forwarding_from_Sink_CFTE -- [1] Active_Sk_SNFEP__Sk_CFTE_connected 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_CFTE_Sk 
-}
+relator Sk_CFTE_Forwarding specializes Forwarding 
 
-relator So_CFTE_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Source_CFTE -- [1] Source_CFTE 
-    @mediation [1..*] -- Forwarding_to_Source_CFTE -- [1] Active_So_SNFP__So_CFTE_connected 
-    @mediation [1..*] -- Forwarding_from_Source_CFTE -- [1] Active_So_SNFEP__So_CFTE_connected 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_CFTE_So 
-}
+relator So_CFTE_Forwarding specializes Forwarding 
 
 subkind Source_CFTE of functional-complexes  specializes Unidirectional_CFTE 
 
-role Source_CFTE_Bi_Component of functional-complexes  specializes Source_CFTE {
-    @componentOf [1] -- [1] Bi_Path_CFTE 
-}
+role Source_CFTE_Bi_Component of functional-complexes  specializes Source_CFTE 
 
 subkind Unidirectional_CFTE of functional-complexes  specializes Channel_Forwarding_Transport_Entity 
 
@@ -122,4 +81,32 @@ genset Q9Vwn6AUBAIKD7j {
     general Bidirectional_CFTE
     specifics Bi_Path_CFTE, Bi_Intermediate_CFTE, Bi_End_CFTE
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

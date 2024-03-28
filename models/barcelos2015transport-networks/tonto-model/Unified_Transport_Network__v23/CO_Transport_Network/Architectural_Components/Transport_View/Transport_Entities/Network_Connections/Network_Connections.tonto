@@ -1,6 +1,7 @@
 import Forwarding_End_Points
 import Complementary_Categorizations
 import Transport_Entities
+import Network_Connections
 
 package Network_Connections
 
@@ -12,51 +13,31 @@ role Active_Sk_PMFEP__PM_NC_connected of functional-complexes  specializes Sink_
 
 roleMixin Active_Sk_PathFEP__Path_NC_connected of functional-complexes  specializes Sink_Path_FEP, Connected_Reference_Point 
 
-role Active_So_PMFEP__PM_NC_connected of functional-complexes  specializes Source_PMFEP, Connected_Reference_Point {
-    @material [1] -- Forwarding_PM_NC -- [1] Active_Sk_PMFEP__PM_NC_connected 
-}
+role Active_So_PMFEP__PM_NC_connected of functional-complexes  specializes Source_PMFEP, Connected_Reference_Point 
 
-roleMixin Active_So_PathFEP__Path_NC_connected of functional-complexes  specializes Source_Path_FEP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Path_NC -- [1..*] Active_Sk_PathFEP__Path_NC_connected 
-}
+roleMixin Active_So_PathFEP__Path_NC_connected of functional-complexes  specializes Source_Path_FEP, Connected_Reference_Point 
 
 subkind Bidirectional_NC of functional-complexes  specializes Network_Connection 
 
-subkind Bidirectional_PM_NC of functional-complexes  specializes Bidirectional_NC {
-    @material [1..*] -- Forwarding_Bidirectional_PM_NC -- [2] Active_Bidirectional_PMFEP__PM_NC_Connected 
-}
+subkind Bidirectional_PM_NC of functional-complexes  specializes Bidirectional_NC 
 
-subkind Bidirectional_Path_NC of functional-complexes  specializes Bidirectional_NC {
-    @material [1..*] -- Forwarding_Bidirectional_Path_NC -- [2] Active_Bidirectional_Path_FEP__Path_NC_Connected 
-}
+subkind Bidirectional_Path_NC of functional-complexes  specializes Bidirectional_NC 
 
 kind Network_Connection specializes Transport_Entity 
 
-relator Path_NC_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Uni_Path_NC -- [1] Unidirectional_Path_NC 
-    @mediation [1..*] -- Forwarding_from_Uni_Path_NC -- [1] Active_So_PathFEP__Path_NC_connected 
-    @mediation [1..*] -- Forwarding_to_Uni_Path_NC -- [1] Active_Sk_PathFEP__Path_NC_connected 
-}
+relator Path_NC_Forwarding specializes Forwarding 
 
-relator PM_NC_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Uni_PM_NC -- [1] Unidirectional_PM_NC 
-    @mediation [1] -- Forwarding_from_Uni_PM_NC -- [1] Active_So_PMFEP__PM_NC_connected 
-    @mediation [1] -- Forwarding_to_Uni_PM_NC -- [1] Active_Sk_PMFEP__PM_NC_connected 
-}
+relator PM_NC_Forwarding specializes Forwarding 
 
 subkind Unidirectional_NC of functional-complexes  specializes Network_Connection 
 
 subkind Unidirectional_PM_NC of functional-complexes  specializes Unidirectional_NC 
 
-role Unidirectional_PM_NC_Bidirectional_Component of functional-complexes  specializes Unidirectional_PM_NC {
-    @componentOf [2] -- [1] Bidirectional_PM_NC 
-}
+role Unidirectional_PM_NC_Bidirectional_Component of functional-complexes  specializes Unidirectional_PM_NC 
 
 subkind Unidirectional_Path_NC of functional-complexes  specializes Unidirectional_NC 
 
-role Unidirectional_Path_NC_Bidirectional_Component of functional-complexes  specializes Unidirectional_Path_NC {
-    @componentOf [2] -- [1] Bidirectional_Path_NC 
-}
+role Unidirectional_Path_NC_Bidirectional_Component of functional-complexes  specializes Unidirectional_Path_NC 
 
 genset SeuGon6AUBAIKEdx {
     general Network_Connection
@@ -72,4 +53,16 @@ genset wZxGon6AUBAIKEeV {
     general Bidirectional_NC
     specifics Bidirectional_PM_NC, Bidirectional_Path_NC
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

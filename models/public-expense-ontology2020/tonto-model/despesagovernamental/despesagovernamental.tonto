@@ -1,25 +1,18 @@
+import despesagovernamental
 
 package despesagovernamental
 
 category Governo of functional-complexes 
 
-kind rgo{
-    @componentOf [2..*] -- [1] Governo 
-}
+kind rgo
 
-kind Governo_Federal specializes Governo {
-    [1] -- [1..*] Governo_Estadual 
-}
+kind Governo_Federal specializes Governo 
 
-kind Governo_Estadual specializes Governo {
-    [1] -- [1..*] Governo_Municipal 
-}
+kind Governo_Estadual specializes Governo 
 
 kind Governo_Municipal specializes Governo 
 
-role Unidade_Gestora of functional-complexes  specializes rgo {
-    [1] -- gere -- [*] Processo 
-}
+role Unidade_Gestora of functional-complexes  specializes rgo 
 
 relator Processo
 
@@ -27,35 +20,23 @@ relator Processo_Licitatrio specializes Processo
 
 relator Processo_Execuco specializes Processo 
 
-relator Aco_Licitatria{
-    [1] -- estabelece -- [1] Processo_Licitatrio 
-}
+relator Aco_Licitatria
 
-relator Licitaco specializes Aco_Licitatria {
-    [1] -- adjudica -- [1] Contrato_com_Licitaco 
-}
+relator Licitaco specializes Aco_Licitatria 
 
 relator Dispensa_Licitaco specializes Aco_Licitatria 
 
 relator Contrato_com_Licitaco specializes Contrato_Inicial 
 
-relator Contrato_com_Dispensa specializes Contrato_Inicial {
-    [1] -- ratifica -- [1] Dispensa_Licitaco 
-}
+relator Contrato_com_Dispensa specializes Contrato_Inicial 
 
 relator Contrato_Inicial specializes Contrato 
 
-relator Contrato{
-    [1..*] -- favorece -- [1] Credor 
-}
+relator Contrato
 
-relator Contrato_Aditivo specializes Contrato {
-    [*] -- Incrementa -- [1] Contrato_Inicial 
-}
+relator Contrato_Aditivo specializes Contrato 
 
-roleMixin Credor of functional-complexes {
-    [1] -- realiza -- [1..*] Execuco_Despesa 
-}
+roleMixin Credor of functional-complexes 
 
 kind Pessoa
 
@@ -67,42 +48,23 @@ role Empresa_Credor of functional-complexes  specializes Credor, Empresa
 
 relator Execuco_Despesa
 
-relator Exeuco_com_Contrato specializes Execuco_Despesa {
-    [1..*] -- estabelece -- [1] Contrato 
-}
+relator Exeuco_com_Contrato specializes Execuco_Despesa 
 
-relator Execuco_sem_Contrato specializes Execuco_Despesa {
-    [1..*] -- estabelece -- [1] Processo_Execuco 
-}
+relator Execuco_sem_Contrato specializes Execuco_Despesa 
 
-relator Empenho specializes Execuco_Despesa {
-    [1] -- refere_a -- [*] Liquidaco 
-}
+relator Empenho specializes Execuco_Despesa 
 
-relator Liquidaco specializes Execuco_Despesa {
-    [1] -- refere_a -- [0..1] Pagamento 
-}
+relator Liquidaco specializes Execuco_Despesa 
 
 relator Pagamento specializes Execuco_Despesa 
 
-role Despesa_Empenhada of functional-complexes  specializes Despesa {
-    [1] -- empenha -- [1] Empenho 
-}
+role Despesa_Empenhada of functional-complexes  specializes Despesa 
 
-role Despesa_Liquidada of functional-complexes  specializes Despesa {
-    [1] -- liquida -- [1..*] Liquidaco 
-}
+role Despesa_Liquidada of functional-complexes  specializes Despesa 
 
-role Despesa_Paga of functional-complexes  specializes Despesa {
-    [1] -- paga -- [1..*] Pagamento 
-}
+role Despesa_Paga of functional-complexes  specializes Despesa 
 
-kind Despesa{
-    [*] -- classifica -- [1] Aco 
-    [*] -- classifica -- [1] SubFunco 
-    [*] -- classifica -- [1] Natureza_Despesa 
-    [*] -- classifica -- [1] Subttulo 
-}
+kind Despesa
 
 role Subttulo of functional-complexes  specializes Local 
 
@@ -110,29 +72,19 @@ kind Local
 
 kind Natureza_Despesa
 
-kind Aco{
-    @componentOf [2..*] -- [1] Programa 
-}
+kind Aco
 
 kind Programa
 
-kind SubFunco{
-    @componentOf [2..*] -- [1] Funco 
-}
+kind SubFunco
 
 kind Funco
 
-kind Grupo_Natureza{
-    @componentOf [1..*] -- [1] Natureza_Despesa 
-}
+kind Grupo_Natureza
 
-kind Categoria_Econmica{
-    @componentOf [1..*] -- [1] Natureza_Despesa 
-}
+kind Categoria_Econmica
 
-kind Modalidade_Aplicaco{
-    @componentOf [1..*] -- [1] Natureza_Despesa 
-}
+kind Modalidade_Aplicaco
 
 genset RqwsLv6GAqAABQvD {
     general Governo
@@ -178,4 +130,30 @@ genset TyQ8Lv6GAqAABQ2B {
     general Despesa
     specifics Despesa_Empenhada, Despesa_Paga, Despesa_Liquidada
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

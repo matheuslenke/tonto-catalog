@@ -2,6 +2,7 @@ import UFOC
 import UFOB
 import UFOA
 import GORO
+import ReqON
 
 package ReqON
 
@@ -9,71 +10,41 @@ class Software_Item specializes Artifact
 
 class Document specializes Artifact 
 
-class Requirement_Artifact specializes Information_Item, Information_Item, Simple_Artifact {
-    [0..*] -- describes -- [1] Requirement 
-    [1..*] -- [0..1] Requirement_Document 
-}
+class Requirement_Artifact specializes Information_Item, Information_Item, Simple_Artifact 
 
-class Program specializes Software_Item {
-    [0..*] -- implements_ -- [1..*] Software_Function_Universal 
-    [0..*] -- intends_to_satisfy -- [1..*] Requirement_Artifact 
-    [0..1] -- intends_to_implement -- [1] Program_Specification 
-    [1] -- materalization_of -- [0..*] Loaded_Program_Copy 
-}
+class Program specializes Software_Item 
 
-class Program_Specification specializes Document {
-    [0..*] -- intends_to_satisfy -- [1..*] Requirement_Artifact 
-    [0..*] -- describes -- [1..*] Software_Function_Universal 
-}
+class Program_Specification specializes Document 
 
-class Functional_Requirement specializes Requirement {
-    [0..*] -- refers_to -- [1] Software_Function_Universal 
-}
+class Functional_Requirement specializes Requirement 
 
 class Software_Function_Universal specializes Function_Universal 
 
-class Software_Function specializes Function {
-    [0..*] -- instance_of -- [1..*] Software_Function_Universal 
-}
+class Software_Function specializes Function 
 
-class Loaded_Program_Copy specializes Disposition {
-    [1] -- constituted_by -- [1..*] Software_Function 
-    [0..*] -- inheres_in -- [1] Machine 
-}
+class Loaded_Program_Copy specializes Disposition 
 
-class Porgram_Copy_Execution specializes Event {
-    [0..*] -- execution_of -- [1] Loaded_Program_Copy 
-    [1] -- brings_about -- [1] Observable_State 
-}
+class Porgram_Copy_Execution specializes Event 
 
 class Machine specializes Object 
 
-class Controller specializes Machine {
-    [1] -- participates_in -- [1..*] Porgram_Copy_Execution 
-}
+class Controller specializes Machine 
 
 class Observable_State specializes Situation 
 
-class Stakeholder specializes Agent {
-    [0..*] -- responsible_for -- [0..*] Artifact 
-}
+class Stakeholder specializes Agent 
 
 class Hardgoal specializes Goal 
 
 class Softgoal specializes Goal 
 
-class Task specializes Action_Universal_Plan {
-    [0..*] -- intends_to_operationalize -- [1] Requirement 
-    [2..*] -- [0..1] Complex_Task 
-}
+class Task specializes Action_Universal_Plan 
 
 class Atomic_Task specializes Task 
 
 class Complex_Task specializes Task 
 
-class Artifact specializes Object {
-    @componentOf [2..*] -- [0..*] Composite_Artifact 
-}
+class Artifact specializes Object 
 
 class Composite_Artifact specializes Artifact 
 
@@ -81,45 +52,27 @@ class Simple_Artifact specializes Artifact
 
 class Information_Item specializes Artifact, Artifact 
 
-class FUnctional_Requirement specializes Requirement {
-    [0..*] -- refers_to -- [1] Software_Function_Universal 
-}
+class FUnctional_Requirement specializes Requirement 
 
 class Nonfunctional_Requirement specializes Requirement 
 
-class Product_Quality_Requirement specializes Nonfunctional_Requirement {
-    [0..*] -- refers_to -- [1] Quality_Characteristic 
-}
+class Product_Quality_Requirement specializes Nonfunctional_Requirement 
 
 class Quality_Characteristic specializes Quality_Universal 
 
 class Requirement_Document specializes Document, Composite_Artifact 
 
-class Stakeholder_Belief specializes Belief {
-    [0..*] -- inheres_in -- [1..*] Requirements_Stakeholder 
-}
+class Stakeholder_Belief specializes Belief 
 
-class Assumption specializes Proposition {
-    [1] -- propositional_content_of -- [1..*] Stakeholder_Belief 
-    [1] -- got_from -- [1..*] Requirements_Stakeholder 
-}
+class Assumption specializes Proposition 
 
-class Requirements_Stakeholder specializes Stakeholder {
-    [1..*] -- interested_in -- [1..*] Requirement_Artifact 
-}
+class Requirements_Stakeholder specializes Stakeholder 
 
-class Requirements_Engineer specializes Stakeholder {
-    [1..*] -- responsible_for -- [0..*] Requirement_Document 
-}
+class Requirements_Engineer specializes Stakeholder 
 
-class Stakeholder_Intention specializes Intention {
-    [0..*] -- inheres_in -- [1..*] Requirements_Stakeholder 
-}
+class Stakeholder_Intention specializes Intention 
 
-class Requirement specializes Goal {
-    [0..*] -- got_from -- [1..*] Requirements_Stakeholder 
-    [1..*] -- propositional_content_of -- [1..*] Stakeholder_Intention 
-}
+class Requirement specializes Goal 
 
 genset mereological_structure_disjoint_complete {
     general Artifact
@@ -135,4 +88,33 @@ genset Vzv_6GGAqAAEQxl {
     general Nonfunctional_Requirement
     specifics Product_Quality_Requirement
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

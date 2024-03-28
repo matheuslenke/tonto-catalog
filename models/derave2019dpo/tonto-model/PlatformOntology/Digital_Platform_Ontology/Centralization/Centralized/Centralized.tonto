@@ -17,35 +17,30 @@ import Price_Discovery
 import Airbnb
 import Uber_eats
 import GDPO_User_Roles
+import Centralized
 
 package Centralized
 
-event Match_Target_Customer_To_Offering specializes Platform_Software_Action {
-    [1..*] -- is_part_of -- [1] Centralized_Transaction_Creation 
-}
+event Match_Target_Customer_To_Offering specializes Platform_Software_Action 
 
-subkind Centralized_Offering of relators  specializes Offering_On_The_Platform {
-    [1..*] -- towards -- [0..*] Match_Target_Customer_To_Offering 
-}
+subkind Centralized_Offering of relators  specializes Offering_On_The_Platform 
 
-roleMixin Centralized_Target_Platform_Customer of functional-complexes {
-    @memberOf [1..*] -- is_part_of -- [1] Centralized_Target_Platform_Customer_Community 
-}
+roleMixin Centralized_Target_Platform_Customer of functional-complexes 
 
-collective Centralized_Target_Platform_Customer_Community{
-    @subCollectionOf [0..*] -- is_part_fo -- [1] Target_MS_Platform_Customer_Community 
-}
+collective Centralized_Target_Platform_Customer_Community
 
-subkind Centralized_Transaction of relators  specializes Transaction {
-    @mediation [1..*] -- bounds_customer -- [1] Centralized_Platform_Customer 
-    @mediation [0..*] -- conforms_to -- [1] Offering_On_The_Platform 
-    [1] -- partially_fulfills -- [1] Meal_Delivery 
-}
+subkind Centralized_Transaction of relators  specializes Transaction 
 
 roleMixin Centralized_Platform_Customer of functional-complexes  specializes Platform_Customer, Centralized_Target_Platform_Customer 
 
-event Centralized_Transaction_Creation specializes Transaction_Creation {
-    @participation [1..*] -- performs -- [1] Centralized_Platform_Customer 
-    @creation [1] -- creates -- [1] Centralized_Transaction 
-}
+event Centralized_Transaction_Creation specializes Transaction_Creation 
+
+
+
+
+
+
+
+
+
 

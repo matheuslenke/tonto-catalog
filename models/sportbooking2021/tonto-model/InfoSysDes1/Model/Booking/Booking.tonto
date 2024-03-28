@@ -1,42 +1,44 @@
 import Model
+import Booking
+import Employment
 
 package Booking
 
-relator Purchase{
-    @mediation [1..*] -- [1] Customer 
-    [*] -- for_purchase -- [*] Payment 
-    @mediation [0..*] -- [1] Single_Booking 
-    @mediation [0..*] -- [0..*] Shared_Booking 
-}
+relator Purchase
 
-relator Store{
-    @mediation [0..*] -- involves_facility_booking -- [0..*] FacilityBooking 
-    @mediation [0..*] -- involves_booking_history -- [1] Booking_history 
-    @mediation [0..*] -- DependsOn -- [1] Confirmation 
-}
+relator Store
 
-relator Game{
-    @mediation [1..*] -- played_by -- [1] Customer 
-    @mediation [0..*] -- played_at -- [1] Physical_building 
-    @mediation [0..*] -- DependsOn -- [1] Purchase 
-}
+relator Game
 
-relator Confirmation{
-    @mediation [1..*] -- confirmed_by -- [1] Mediated_by_Confirmation 
-    @mediation [0..*] -- of_ -- [1] FacilityBooking 
-}
+relator Confirmation
 
-relator Instructor_confirmation{
-    @mediation [1..*] -- confirmed_by -- [1] Instructor 
-    @mediation [0..*] -- received_by -- [1] Instructor_Booking 
-}
+relator Instructor_confirmation
 
 phase Accepted of relators  specializes Instructor_confirmation 
 
 phase Cancelled of relators  specializes Instructor_confirmation 
 
+genset csfSw76AUB0wdg2J {
+    general undefined
+    specifics }
+
 genset OzVw76AUB0wdhfo {
     general Account
     specifics Customer, ManagementUsers
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

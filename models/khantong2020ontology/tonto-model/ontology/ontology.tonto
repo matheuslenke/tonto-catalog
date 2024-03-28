@@ -1,3 +1,4 @@
+import ontology
 
 package ontology
 
@@ -9,40 +10,23 @@ kind Organization
 
 role HighWaterController of functional-complexes  specializes FloodManagementOrganization 
 
-phase SelectedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
-    [*] -- selected_by -- [*] HighWaterController 
-}
+phase SelectedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure 
 
 role HighWaterProtectionMeasureEvaluator of functional-complexes  specializes FloodManagementOrganization 
 
 kind People
 
-role Victim of functional-complexes  specializes People {
-    [*] -- register -- [*] EvacuationRegistration 
-    [*] -- live_in -- [*] Area 
-}
+role Victim of functional-complexes  specializes People 
 
-role FloodEvacuationImplementer of functional-complexes  specializes EvacuationOrganization {
-    [*] -- imeplement -- [*] FloodEvacuation 
-}
+role FloodEvacuationImplementer of functional-complexes  specializes EvacuationOrganization 
 
-kind FloodForecast{
-    [*] -- use -- [*] WeatherForecast 
-    [*] -- predict -- [*] FloodEvent 
-}
+kind FloodForecast
 
-kind FloodEvent{
-    [*] -- occure_in -- [*] Area 
-    [*] -- has -- [*] FloodDamage 
-}
+kind FloodEvent
 
-role FloodForecaster of functional-complexes  specializes FloodManagementOrganization {
-    [*] -- produce -- [*] FloodForecast 
-}
+role FloodForecaster of functional-complexes  specializes FloodManagementOrganization 
 
-role WeatherForecaster of functional-complexes  specializes WeatherOrganization {
-    [*] -- produce -- [*] WeatherForecast 
-}
+role WeatherForecaster of functional-complexes  specializes WeatherOrganization 
 
 kind Area
 
@@ -52,50 +36,51 @@ kind Resource
 
 kind FloodDamage
 
-kind EvacuationRegistration{
-    [*] -- register_for -- [*] FloodEvacuation 
-}
+kind EvacuationRegistration
 
-phase EvaluatedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
-    [*] -- evaluated_by -- [*] HighWaterProtectionMeasureEvaluator 
-}
+phase EvaluatedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure 
 
-kind HighWaterProtectionMeasure{
-    [*] -- control -- [*] FloodEvent 
-}
+kind HighWaterProtectionMeasure
 
-phase ImplementedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure {
-    [*] -- implemented_by -- [*] HighWaterProtectionImplementer 
-}
+phase ImplementedHighWaterProtectionMeasure of functional-complexes  specializes HighWaterProtectionMeasure 
 
 role HighWaterProtectionImplementer of functional-complexes  specializes FloodManagementOrganization 
 
-kind FloodEvacuation{
-    [*] -- use -- [*] Resource 
-    [*] -- has -- [*] FloodEvacuationPlan 
-    [*] -- take_place_in -- [*] Area 
-}
+kind FloodEvacuation
 
-role FloodDefenseMeasuresImplementer of functional-complexes  specializes FloodDefenseOrganization {
-    [*] -- implement -- [*] FloodDefenseMeasures 
-}
+role FloodDefenseMeasuresImplementer of functional-complexes  specializes FloodDefenseOrganization 
 
-role FloodDefenseManager of functional-complexes  specializes FloodDefenseOrganization {
-    [*] -- assess -- [*] FloodDamage 
-}
+role FloodDefenseManager of functional-complexes  specializes FloodDefenseOrganization 
 
 subkind FloodDefenseOrganization of functional-complexes  specializes Organization 
 
 subkind EvacuationOrganization of functional-complexes  specializes Organization 
 
-role FloodEvacuationManager of functional-complexes  specializes EvacuationOrganization {
-    [*] -- create -- [*] FloodEvacuationPlan 
-}
+role FloodEvacuationManager of functional-complexes  specializes EvacuationOrganization 
 
 kind FloodEvacuationPlan
 
-kind FloodDefenseMeasures{
-    [*] -- mitigate -- [*] FloodDamage 
-    [*] -- use -- [*] Resource 
-}
+kind FloodDefenseMeasures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

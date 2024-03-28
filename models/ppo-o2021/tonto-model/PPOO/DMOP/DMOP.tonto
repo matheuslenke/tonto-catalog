@@ -1,11 +1,11 @@
+import DMOP
+import PPOO
 
 package DMOP
 
-kind Algorithm{
-    [*] -- has -- [1..*] Parameter 
-}
+kind Algorithm
 
-kind Operator{
-    [1] -- implements_ -- [1] Algorithm 
-}
+kind Operator
+
+
 

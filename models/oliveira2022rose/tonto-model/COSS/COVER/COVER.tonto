@@ -1,148 +1,72 @@
 import UFO
+import COVER
+import Security
 
 package COVER
 
-roleMixin Value_Subject of functional-complexes  specializes Agent {
-    [1..*] -- participates_in -- [1..*] Value_Experience 
-}
+roleMixin Value_Subject of functional-complexes  specializes Agent 
 
 event Value_Experience
 
-roleMixin Value_Object of functional-complexes {
-    [0..1] -- participates_in -- [1..*] Value_Experience 
-}
+roleMixin Value_Object of functional-complexes 
 
-event Value_Event{
-    [2...*] -- [1..*] Value_Experience 
-    [*] -- directly_causes -- [*] Value_Event 
-}
+event Value_Event
 
-roleMixin Value_Enabler of functional-complexes {
-    [*] -- participates_in -- [1..*] Value_Event 
-    [*] -- participates_in -- [1..*] Value_Experience 
-}
+roleMixin Value_Enabler of functional-complexes 
 
-event Trigger_Event specializes Value_Event {
-    @historicalDependence [1..*] -- causes -- [1..*] Impact_Event 
-}
+event Trigger_Event specializes Value_Event 
 
-event Impact_Event specializes Value_Event {
-    @bringsAbout [1..*] -- [0..1] Impactful_Outcome 
-    [*] -- impacts -- [*] Intention 
-}
+event Impact_Event specializes Value_Event 
 
-situation Impactful_Outcome{
-    [*] -- impacts -- [1..*] Intention 
-}
+situation Impactful_Outcome
 
-roleMixin Risk_Subject of functional-complexes  specializes Agent {
-    @participation [1..*] -- [1..*] Risk_Experience 
-}
+roleMixin Risk_Subject of functional-complexes  specializes Agent 
 
-event Risk_Experience{
-    [1..*] -- [2..*] Risk_Event 
-}
+event Risk_Experience
 
-event Risk_Event{
-    [*] -- causes -- [*] Risk_Event 
-}
+event Risk_Event
 
-roleMixin Risk_Enabler of functional-complexes {
-    @participation [*] -- [1..*] Risk_Event 
-    @participation [*] -- [1..*] Risk_Experience 
-}
+roleMixin Risk_Enabler of functional-complexes 
 
-situation Threatening_Situation{
-    @triggers [1] -- [*] Threat_Event 
-}
+situation Threatening_Situation
 
-event Threat_Event specializes Risk_Event {
-    @historicalDependence [*] -- causes -- [*] Loss_Event 
-}
+event Threat_Event specializes Risk_Event 
 
-event Loss_Event specializes Risk_Event {
-    [*] -- hurts -- [*] Intention 
-    @bringsAbout [1..*] -- [0..1] Loss_Situation 
-}
+event Loss_Event specializes Risk_Event 
 
-roleMixin Threat_Object of functional-complexes {
-    @participation [*] -- [1..*] Threat_Event 
-    @participation [*] -- [1..*] Risk_Experience 
-}
+roleMixin Threat_Object of functional-complexes 
 
-roleMixin Threat_Capability of intrinsic-modes {
-    @characterization [1..*] -- [1] Threat_Object 
-    @manifestation [*] -- [1..*] Threat_Event 
-    @instantiation [*] -- [1..*] Threat_Capability_Type 
-}
+roleMixin Threat_Capability of intrinsic-modes 
 
-situation Loss_Situation{
-    [*] -- hurts -- [1..*] Intention 
-}
+situation Loss_Situation
 
-roleMixin Object_at_Risk of functional-complexes {
-    @participation [0..1] -- [*] Loss_Event 
-    @participation [0..1] -- [1..*] Risk_Experience 
-}
+roleMixin Object_at_Risk of functional-complexes 
 
-roleMixin Vulnerability of intrinsic-modes {
-    @manifestation [1..*] -- [1..*] Risk_Event 
-    @characterization [1..*] -- [0..1] Risk_Enabler 
-    @characterization [1..*] -- [0..1] Object_at_Risk 
-    @instantiation [*] -- [1..*] Vulnerability_Type 
-}
+roleMixin Vulnerability of intrinsic-modes 
 
-relator Value_Ascription{
-    [1..*] -- involves -- [1] Value_Assessor 
-}
+relator Value_Ascription
 
-quality Value{
-    @characterization [1] -- [1] Value_Ascription 
-}
+quality Value
 
-subkind Experience_Value_Asc of relators  specializes Value_Ascription {
-    [*] -- [1..*] Disposition 
-    [*] -- [1..*] Intention 
-    [1..*] -- involves -- [1] Value_Experience 
-}
+subkind Experience_Value_Asc of relators  specializes Value_Ascription 
 
-subkind Object_Value_Asc of relators  specializes Value_Ascription {
-    [1..*] -- involves -- [1] Value_Object 
-    [0..1] -- [1..*] Experience_Value_Asc 
-}
+subkind Object_Value_Asc of relators  specializes Value_Ascription 
 
 roleMixin Value_Assessor of functional-complexes 
 
 roleMixin Risk_Assessor of functional-complexes  specializes Agent 
 
-subkind Object_Risk_Assesment of relators  specializes Risk_Assessment {
-    [1..*] -- involves -- [1] Object_at_Risk 
-    [0..1] -- [1..*] Experience_Risk_Assesment 
-}
+subkind Object_Risk_Assesment of relators  specializes Risk_Assessment 
 
-subkind Experience_Risk_Assesment of relators  specializes Risk_Assessment {
-    [1..*] -- [1..*] Vulnerability 
-    [1..*] -- [*] Threat_Capability 
-    [*] -- [1..*] Intention 
-}
+subkind Experience_Risk_Assesment of relators  specializes Risk_Assessment 
 
-quality Risk{
-    @characterization [1] -- [1] Risk_Assessment 
-}
+quality Risk
 
-relator Risk_Assessment{
-    [1..*] -- involves -- [1] Risk_Assessor 
-}
+relator Risk_Assessment
 
-quality Causal_Likelihood{
-    @characterization [*] -- [1] Event_Type 
-    @externalDependence [*] -- [1] Event_Type 
-}
+quality Causal_Likelihood
 
-quality Triggering_Likelihood{
-    @characterization [*] -- [1] Situation_Type 
-    @externalDependence [*] -- [1] Event_Type 
-}
+quality Triggering_Likelihood
 
 genset complete_disjoint {
     general Value_Event
@@ -163,4 +87,53 @@ genset vRcf6AUB2wihAM {
     general Risk_Event
     specifics Loss_Event, Threat_Event
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

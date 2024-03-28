@@ -1,22 +1,14 @@
+import COMMUNICATION
+import IDENTITY
+import STAKEHOLDERS
 
 package COMMUNICATION
 
-category Noise of functional-complexes {
-    @formal [*] -- [*] Communication 
-}
+category Noise of functional-complexes 
 
-kind Environmental_Influences specializes Noise {
-    [*] -- [*] Identity 
-}
+kind Environmental_Influences specializes Noise 
 
-relator Communication{
-    @formal [1..*] -- [1..*] Behaviors 
-    @formal [1..*] -- [*] Value_Proposition 
-    @formal [*] -- [*] Expression 
-    @formal [1..*] -- [1..*] Visual_components 
-    @mediation [0..*] -- [1] Identity 
-    @mediation [1..*] -- [1..*] Stakeholders 
-}
+relator Communication
 
 kind Behaviors
 
@@ -25,4 +17,12 @@ kind Value_Proposition
 kind Expression
 
 kind Visual_components
+
+
+
+
+
+
+
+
 

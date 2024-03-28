@@ -1,33 +1,30 @@
 import heart
+import humanProtocol
+import ecg
 
 package humanProtocol
 
-kind Person{
-    [1] -- constitutedOf -- [1] HumanBody 
-}
+kind Person
 
-role Patient of functional-complexes  specializes Person {
-    @material [0..*] -- treats -- [1..*] Physician 
-    @participation [1] -- [0..*] ECGRecordingSession 
-}
+role Patient of functional-complexes  specializes Person 
 
 role Physician of functional-complexes  specializes Person 
 
-relator Treatment{
-    @mediation [1..*] -- [1] Patient 
-    @mediation [0..*] -- [1] Physician 
-}
+relator Treatment
 
-kind EPR{
-    [1] -- [0..*] ECGRecord 
-    [1] -- has -- [1] Patient 
-}
+kind EPR
 
-kind BodySurface{
-    @componentOf [1..*] -- [1] HumanBody 
-}
+kind BodySurface
 
-kind BodySurfaceRegion{
-    @componentOf [1..*] -- [1] BodySurface 
-}
+kind BodySurfaceRegion
+
+
+
+
+
+
+
+
+
+
 

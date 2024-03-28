@@ -1,18 +1,12 @@
+import example
 
 package example
 
-kind Person{
-    @material [*] -- knows -- [*] Person 
-}
+kind Person
 
 role Detective of functional-complexes  specializes Person 
 
-relator Criminal_Investigation{
-    @mediation [1] -- participatesIn -- [2..*] Detective 
-    @mediation [1..*] -- investigates -- [1..*] Suspect 
-    @mediation [1] -- responsibleFor -- [1] Lead_Detective 
-    @mediation [1..*] -- relatedTo -- [1..*] Witness 
-}
+relator Criminal_Investigation
 
 role Suspect of functional-complexes  specializes Person 
 
@@ -20,20 +14,23 @@ role Lead_Detective of functional-complexes  specializes Detective
 
 role Witness of functional-complexes  specializes Person 
 
-relator Interrogation{
-    @mediation [1..*] -- targetOf -- [1] Witness 
-    @mediation [*] -- conducts -- [1..*] Detective 
-}
+relator Interrogation
 
 role Captain of functional-complexes  specializes Detective 
 
 role Officer of functional-complexes  specializes Detective 
 
-role Parent of functional-complexes  specializes Person {
-    @material [1..2] -- parentOf -- [*] Child 
-}
+role Parent of functional-complexes  specializes Person 
 
 role Child of functional-complexes  specializes Person 
 
 role Interrogator
+
+
+
+
+
+
+
+
 

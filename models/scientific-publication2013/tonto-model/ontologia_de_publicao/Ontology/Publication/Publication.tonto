@@ -1,5 +1,3 @@
-import Agents
-import Publisher
 
 package Publication
 
@@ -9,21 +7,13 @@ category Editored_Document of functional-complexes
 
 role Editor of functional-complexes  specializes Person 
 
-relator Editorship{
-    @mediation [1] -- [1] Editor 
-    @mediation [1] -- [1] Editored_Document 
-}
+relator Editorship
 
 roleMixin Main_Author of functional-complexes  specializes Agent 
 
-relator Compound_Authorship specializes Authorship {
-    @mediation [1..*] -- [1..*] Colaborator 
-}
+relator Compound_Authorship specializes Authorship 
 
-relator Authorship{
-    @mediation [1] -- [1] Authored_Document 
-    @mediation [1..*] -- [1] Main_Author 
-}
+relator Authorship
 
 subkind Editored_Book of functional-complexes  specializes Book, Editored_Document 
 
@@ -31,10 +21,7 @@ role Cited specializes Document
 
 category Citing_Document of functional-complexes  specializes Document 
 
-relator Citation{
-    @mediation [1..*] -- [1] Citing_Document 
-    @mediation [1..*] -- [1] Cited 
-}
+relator Citation
 
 kind Thesis specializes Publication, Authored_Document 
 
@@ -84,4 +71,11 @@ kind Booklet specializes Publication, Authored_Document
 kind Manual specializes Publication, Authored_Document 
 
 kind ResearchPaper specializes Publication, Authored_Document 
+
+
+
+
+
+
+
 

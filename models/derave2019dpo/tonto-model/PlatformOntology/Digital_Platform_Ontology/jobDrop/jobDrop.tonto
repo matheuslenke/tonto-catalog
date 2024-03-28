@@ -1,31 +1,7 @@
-import Transaction
-import MultiSided
-import Review_by_Provider
-import Provider_Source
-import GDPO_part_1
-import Review_System
-import Marketplace_business_models
-import Decentralized
-import Price_set_by_Provider
-import Payment
-import Review_by_Customer
-import In_House_Payment
-import Conversation_System
-import Customer_Source
-import Price_Discovery
-import Price_Calculation
-import Airbnb
-import Uber_eats
-import GDPO_User_Roles
-import Commission
-import Revenue_Stream
 
 package jobDrop
 
-roleMixin jobDropper of functional-complexes  specializes Platform_Provider {
-    [*] -- [*] Booking 
-    [*] -- [*] Payment_Action 
-}
+roleMixin jobDropper of functional-complexes  specializes Platform_Provider 
 
 roleMixin Worker of functional-complexes  specializes Platform_Customer 
 
@@ -35,33 +11,30 @@ event Add_Filter{
     date_and_time: undefined  
 }
 
-event Job_Interest{
-    [*] -- [*] Worker 
-    [*] -- [*] Job_acceptance 
-    @historicalDependence [0..*] -- [1] Listing_Conversation 
-}
+event Job_Interest
 
 event Job_acceptance specializes Transaction_Creation 
 
-event Job_done specializes Delivery {
-    [*] -- [*] Favorite_worker_selection 
-}
+event Job_done specializes Delivery 
 
-event Favorite_worker_selection{
-    [*] -- [*] jobDropper 
-    [*] -- [*] Worker 
-    [*] -- [*] Favorite_List 
-}
+event Favorite_worker_selection
 
-collective Favorite_List{
-    [*] -- [*] Worker 
-    [*] -- [*] jobDropper 
-}
+collective Favorite_List
 
 subkind Transportation_Cost of intrinsic-modes  specializes Commission_Fee 
 
-event Money_Receivement{
-    [*] -- [*] Worker 
-    @historicalDependence [0..*] -- [1] Job_done 
-}
+event Money_Receivement
+
+
+
+
+
+
+
+
+
+
+
+
+
 

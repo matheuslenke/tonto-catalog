@@ -1,0 +1,30 @@
+
+package Conversation_System
+
+relator Chat{
+    changedOn: undefined  
+    delivered: undefined  
+    deliveredOn: undefined  
+    amount: undefined  
+    seen: undefined  
+    confirmed: undefined  
+    madeOn: undefined  
+    id: undefined  
+    inPosession: undefined  
+    isbn: undefined  
+    buyerId: undefined  
+    problem: undefined  
+    bookListing: undefined  
+    sellerId: undefined  
+    senderRM: undefined  
+    dateRM: undefined  
+    openS: undefined  
+    openB: undefined  
+    usernameB: undefined  
+    usernameS: undefined  
+}
+
+
+
+
+

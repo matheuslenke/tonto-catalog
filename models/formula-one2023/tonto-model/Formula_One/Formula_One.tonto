@@ -1,29 +1,16 @@
+import Formula_One
 
 package Formula_One
 
-kind F1_Season{
-    @componentOf [8..*] -- [1] Race 
-}
+kind F1_Season
 
-relator Race{
-    @mediation [0..*] -- [1] Circuit 
-    @mediation [1..*] -- [1] Grand_Prix 
-    @mediation [0..*] -- [1] F1_Car 
-}
+relator Race
 
-kind Grand_Prix{
-    @material [0..*] -- performed_in -- [1..*] Circuit 
-}
+kind Grand_Prix
 
-role Driver of functional-complexes  specializes Racing_Team_Member {
-    @mediation [0..*] -- [2..*] Race 
-    @material [0..*] -- [1..*] F1_Car 
-    @characterization [1] -- [1] Driving_Strategy 
-}
+role Driver of functional-complexes  specializes Racing_Team_Member 
 
-collective Racing_Team{
-    @memberOf [2..*] -- [1] Racing_Team_Member 
-}
+collective Racing_Team
 
 kind Circuit
 
@@ -33,11 +20,7 @@ kind Tire specializes F1_Car_Piece
 
 kind Chassis specializes F1_Car_Piece 
 
-kind F1_Car{
-    [1] -- [4] Tire 
-    [1] -- [1] Engine 
-    [1] -- [1] Chassis 
-}
+kind F1_Car
 
 kind Person
 
@@ -100,4 +83,17 @@ genset Set6 {
     general Driving_Strategy
     specifics Aggressive_Strategy
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 

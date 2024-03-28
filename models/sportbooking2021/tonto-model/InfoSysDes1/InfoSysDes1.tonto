@@ -1,3 +1,4 @@
+import Model
 
 package InfoSysDes1
 
@@ -13,4 +14,5 @@ genset lKfob6FYHQ6eQsW {
     general FacilityBooking
     specifics Single_Booking, Shared_Booking
 }
+
 

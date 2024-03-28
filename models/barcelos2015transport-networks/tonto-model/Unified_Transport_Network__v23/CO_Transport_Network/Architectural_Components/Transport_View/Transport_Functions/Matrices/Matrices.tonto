@@ -3,6 +3,7 @@ import General_Elements
 import Complementary_Categorizations
 import Termination_Vertical_Connections
 import Matrix_Vertical_Connections
+import Matrices
 
 package Matrices
 
@@ -14,31 +15,21 @@ role Connected_Unidirectional_Matrix of functional-complexes  specializes Unidir
 
 category Matrix of functional-complexes  specializes Transport_Function, Geographical_Element 
 
-kind Matrix_Input specializes Input {
-    @componentOf [1..*] -- [1] Unidirectional_Matrix 
-}
+kind Matrix_Input specializes Input 
 
-kind Matrix_Output specializes Output {
-    @componentOf [1..*] -- [1] Unidirectional_Matrix 
-}
+kind Matrix_Output specializes Output 
 
 subkind Path_Bidirectional_Matrix of functional-complexes  specializes Bidirectional_Matrix 
 
 role Sink_Matrix of functional-complexes  specializes M__Termination_Sink_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_Sk_Connected 
 
-role Sk_Matrix_Bi_Component of functional-complexes  specializes Sink_Matrix {
-    @componentOf [1] -- [1] Path_Bidirectional_Matrix 
-}
+role Sk_Matrix_Bi_Component of functional-complexes  specializes Sink_Matrix 
 
-role So_Matrix_Bi_Component of functional-complexes  specializes Source_Matrix {
-    @componentOf [1] -- [1] Path_Bidirectional_Matrix 
-}
+role So_Matrix_Bi_Component of functional-complexes  specializes Source_Matrix 
 
 role Source_Matrix of functional-complexes  specializes M__Termination_Source_Connected, Connected_Unidirectional_Matrix, Uni_Matrix__A_So_Connected 
 
-role Uni_SkSo_Matrix_Bi_Component of functional-complexes  specializes Unidirectional_SinkSource_Matrix {
-    @componentOf [2] -- [1] Bidirectional_SinkSource_Matrix 
-}
+role Uni_SkSo_Matrix_Bi_Component of functional-complexes  specializes Unidirectional_SinkSource_Matrix 
 
 kind Unidirectional_Matrix specializes Matrix 
 
@@ -53,4 +44,9 @@ genset d9A7nb6GAqBwAUNC {
     general Bidirectional_Matrix
     specifics Bidirectional_SinkSource_Matrix, Path_Bidirectional_Matrix
 }
+
+
+
+
+
 

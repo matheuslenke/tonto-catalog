@@ -1,48 +1,32 @@
+import antipatterns
 
 package antipatterns
 
 kind Kind1
 
-kind ST1{
-    [*] -- SR -- [*] ST2 
-}
+kind ST1
 
 kind ST2
 
-subkind T1 of functional-complexes  specializes ST1 {
-    [*] -- R -- [*] T2 
-}
+subkind T1 of functional-complexes  specializes ST1 
 
 subkind T2 of functional-complexes  specializes ST2 
 
 kind ST
 
-role T1_2 of functional-complexes  specializes ST {
-    [*] -- R -- [*] T2_2 
-}
+role T1_2 of functional-complexes  specializes ST 
 
 role T2_2 of functional-complexes  specializes ST 
 
-kind T{
-    @Formal [1] -- R -- [1] T 
-}
+kind T
 
-kind T1_3{
-    @componentOf [1] -- R3 -- [1..*] T3 
-    @componentOf [1] -- R1 -- [1..*] T2_3 
-}
+kind T1_3
 
-kind T2_3{
-    @Formal [*] -- R2 -- [*] T3 
-}
+kind T2_3
 
 kind T3
 
-relator R1{
-    @mediation [1..*] -- M2 -- [1] T2_4 
-    @mediation [1..*] -- M1 -- [1] T1_4 
-    @mediation [1..*] -- M3 -- [1] T3_2 
-}
+relator R1
 
 role T1_4 of functional-complexes  specializes ST_2 
 
@@ -62,7 +46,16 @@ subkind SBT3 of functional-complexes  specializes T2_5
 
 kind Kind2
 
-kind T1_5{
-    [*] -- R -- [*] T2_5 
-}
+kind T1_5
+
+
+
+
+
+
+
+
+
+
+
 

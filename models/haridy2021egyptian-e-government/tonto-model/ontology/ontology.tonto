@@ -1,28 +1,16 @@
+import ontology
 
 package ontology
 
-role Traveler{
-    @mediation [1] -- [*] Reservation 
-    @mediation [1] -- [1] Check 
-    @mediation [1] -- [1] Application 
-    @mediation [1] -- [1] Revision 
-}
+role Traveler
 
-relator Reservation{
-    @mediation [1] -- [1..*] Ticket 
-}
+relator Reservation
 
-relator Check{
-    @mediation [1] -- [1] Schedule 
-}
+relator Check
 
-relator Application{
-    @mediation [1] -- [1] Visa 
-}
+relator Application
 
-relator Revision{
-    @mediation [1] -- [1] Kind 
-}
+relator Revision
 
 relator Ticket
 
@@ -40,31 +28,17 @@ subkind Flight of functional-complexes  specializes Schedule
 
 subkind Railway of functional-complexes  specializes Schedule 
 
-quality Status{
-    @characterization [1] -- [1] Flight 
-}
+quality Status
 
-role Student{
-    @mediation [1] -- [1] Equivalence 
-}
+role Student
 
-relator Enrollment{
-    @mediation [1] -- [1] Secondary_Certificate 
-    @mediation [1] -- [1] Student 
-}
+relator Enrollment
 
-relator Coordination{
-    @mediation [1] -- [1] Student 
-    @mediation [1] -- [*] Wish 
-}
+relator Coordination
 
-relator Equivalence{
-    @mediation [1] -- [1] Scientific_Degree 
-}
+relator Equivalence
 
-kind Secondary_Certificate{
-    @characterization [1] -- [1] Results 
-}
+kind Secondary_Certificate
 
 quality Results
 
@@ -91,4 +65,20 @@ subkind Bachelor of functional-complexes  specializes Scientific_Degree
 subkind Masters of functional-complexes  specializes Scientific_Degree 
 
 subkind PhD of functional-complexes  specializes Scientific_Degree 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

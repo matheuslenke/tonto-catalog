@@ -1,49 +1,43 @@
+import Human_Genome_Ontology
 
 package Human_Genome_Ontology
 
 collective Chromosome
 
-collective Gene{
-    @subCollectionOf [2..*] -- [1] Chromosome 
-}
+collective Gene
 
-collective Alelle{
-    @subCollectionOf [2..*] -- [1] Gene 
-}
+collective Alelle
 
-kind Nucleotide{
-    @memberOf [2..*] -- [1] Alelle 
-    @Formal [*] -- precedes -- [*] Nucleotide 
-}
+kind Nucleotide
 
-role Inserted_Nucleotide of functional-complexes  specializes Nucleotide {
-    @memberOf [*] -- [1] Allelic_Variant 
-}
+role Inserted_Nucleotide of functional-complexes  specializes Nucleotide 
 
-role Allelic_Reference of collectives  specializes Alelle {
-    @material [1] -- [*] Allelic_Variant 
-    @formal [1] -- overlap -- [1..*] Allelic_Variant 
-}
+role Allelic_Reference of collectives  specializes Alelle 
 
 role Allelic_Variant of collectives  specializes Alelle 
 
-collective RefSeq{
-    @material [1] -- [1..*] Allelic_Reference 
-}
+collective RefSeq
 
-relator Record{
-    @mediation [1] -- [1] Allelic_Reference 
-    @mediation [1] -- [1] RefSeq 
-}
+relator Record
 
-relator Insertion{
-    @mediation [*] -- [1] Allelic_Reference 
-    @mediation [*] -- [1] Allelic_Variant 
-    @formal [1] -- constitution_ -- [1..*] Inserted_Nucleotide 
-}
+relator Insertion
 
 genset qsoWf6GAqACCwxO {
     general Alelle
     specifics Allelic_Variant, Allelic_Reference
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

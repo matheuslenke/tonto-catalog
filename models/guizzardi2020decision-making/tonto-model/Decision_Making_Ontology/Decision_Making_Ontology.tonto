@@ -1,67 +1,34 @@
+import Decision_Making_Ontology
 
 package Decision_Making_Ontology
 
-mixin Agent of functional-complexes {
-    @characterization [1] -- [1..*] Mental_Moment 
-    @participation [1] -- [1..*] Action 
-    @characterization [1] -- [1..*] Value 
-    @participation [1] -- [0..*] Deliberative_Act 
-    @characterization [1] -- [0..*] Capability 
-    @mediation [1] -- [0..*] Preference 
-    @characterization [1] -- [1..*] Intention 
-}
+mixin Agent of functional-complexes 
 
-event Action{
-    @creation [0..1] -- [1] Situation 
-}
+event Action
 
-mode Mental_Moment{
-    @externalDependence [0..*] -- [1..*] Proposition 
-}
+mode Mental_Moment
 
 mode Belief specializes Mental_Moment 
 
 mode Desire specializes Mental_Moment 
 
-mode Intention specializes Mental_Moment {
-    @manifestation [0..*] -- [1] Action 
-    @internal [0..*] -- [0..*] Intention 
-}
+mode Intention specializes Mental_Moment 
 
-kind Goal specializes Proposition {
-    @externalDependence [1] -- [1..*] Intention 
-    [0..*] -- satisfies_ -- [0..*] Situation 
-}
+kind Goal specializes Proposition 
 
 kind Situation
 
 kind Proposition
 
-event Deliberative_Act specializes Action {
-    @creation [1..*] -- [1] Decision 
-    @participation [0..*] -- [0..*] Criterion 
-}
+event Deliberative_Act specializes Action 
 
-role Decision of intrinsic-modes  specializes Intention {
-    @manifestation [1] -- [1] Decision_Resulting_Action 
-}
+role Decision of intrinsic-modes  specializes Intention 
 
-relator Preference{
-    @mediation [0..*] -- [1] Preferred_Bearer 
-    @mediation [0..*] -- [1] Deprecated_Bearer 
-    [0..*] -- [2] Value 
-}
+relator Preference
 
-relator Value_Ascription{
-    @mediation [1..*] -- [1] Value_Bearer 
-    [*] -- [*] VA_Component 
-}
+relator Value_Ascription
 
-relator VA_Component{
-    [0..*] -- [1..*] Intrinsic_Moment 
-    @characterization [1] -- [1..*] Value_Component 
-    [0..*] -- [1] Intention 
-}
+relator VA_Component
 
 mode Intrinsic_Moment
 
@@ -77,10 +44,7 @@ quality Benefit specializes Value_Component
 
 quality Sacrifice specializes Value_Component 
 
-quality Value{
-    @characterization [1] -- [1] Value_Ascription 
-    @externalDependence [1..*] -- [1] Value_Bearer 
-}
+quality Value
 
 role Criterion specializes intrinsic_Moment_Type 
 
@@ -90,53 +54,23 @@ mode Individual_Capability specializes Capability
 
 mode Social_Capability specializes Capability 
 
-relator Delegation{
-    @mediation [0..*] -- [1] Agent 
-    @mediation [0..*] -- [1] Agent 
-    @externalDependence [1] -- [1..*] Social_Capability 
-    @mediation [0..*] -- [1] Goal 
-}
+relator Delegation
 
-event Decision_Resulting_Action specializes Action {
-    @manifestation [0..*] -- [0..*] Capability 
-    @creation [1] -- [1] Consequence 
-}
+event Decision_Resulting_Action specializes Action 
 
 role Consequence of functional-complexes  specializes Situation 
 
-class Netflix_VA_Value_Ascription{
-    [*] -- [*] Entertainment_Netflix_VAC_VA_Component 
-    [*] -- [*] Payment_Netflix_VAC_VA_Component 
-    [*] -- [*] Netflix_Value_Value 
-    [*] -- involves_ -- [*] Watching_film_on_Netflix_Value_Experience 
-}
+class Netflix_VA_Value_Ascription
 
-class YouTube_VA_Value_Ascription{
-    [*] -- [*] Payment_YouTube_VAC_VA_Component 
-    [*] -- [*] Entertainment_YouTube_VAC_VA_Component 
-    [*] -- [*] YouTube_Value_Value 
-    [*] -- [*] Watching_film_on_YouTube_Value_Experience 
-}
+class YouTube_VA_Value_Ascription
 
-class Payment_Netflix_VAC_VA_Component{
-    [*] -- [*] Netflix_Monthly_Fee_Quality 
-    [*] -- [*] Minimize_Cost_Intention 
-}
+class Payment_Netflix_VAC_VA_Component
 
-class Entertainment_Netflix_VAC_VA_Component{
-    [*] -- [*] Seeks_to_Relax_Intention 
-    [*] -- [*] Netflix_Entertainability_Quality 
-}
+class Entertainment_Netflix_VAC_VA_Component
 
-class Entertainment_YouTube_VAC_VA_Component{
-    [*] -- [*] Seeks_to_Relax_Intention 
-    [*] -- [*] YouTube_Entertainability_Quality 
-}
+class Entertainment_YouTube_VAC_VA_Component
 
-class Payment_YouTube_VAC_VA_Component{
-    [*] -- [*] Minimize_Cost_Intention 
-    [*] -- [*] YouTube_Cost_Quality 
-}
+class Payment_YouTube_VAC_VA_Component
 
 class Netflix_Monthly_Fee_Quality
 
@@ -150,24 +84,13 @@ class Netflix_Entertainability_Quality
 
 class YouTube_Entertainability_Quality
 
-class Netflix_Entertainment_Benefit{
-    [*] -- [*] Entertainment_Netflix_VAC_VA_Component 
-}
+class Netflix_Entertainment_Benefit
 
-class Cost_Sacrifice{
-    [*] -- _inheres_in -- [*] Payment_Netflix_VAC_VA_Component 
-}
+class Cost_Sacrifice
 
-class NoCost_Benefit{
-    [*] -- [*] Payment_YouTube_VAC_VA_Component 
-}
+class NoCost_Benefit
 
-class PreferenceMovieProvider_Preference{
-    [*] -- [*] Watching_film_on_YouTube_Value_Experience 
-    [*] -- [*] Watching_film_on_Netflix_Value_Experience 
-    [*] -- [*] Netflix_Value_Value 
-    [*] -- [*] YouTube_Value_Value 
-}
+class PreferenceMovieProvider_Preference
 
 class Watching_film_on_Netflix_Value_Experience
 
@@ -177,23 +100,74 @@ class Netflix_Value_Value
 
 class YouTube_Value_Value
 
-class Fred_Agent{
-    [*] -- _has -- [*] PreferenceMovieProvider_Preference 
-    [*] -- [*] Watch_Movies_on_YouTube_Decision 
-    [*] -- _executes -- [*] To_Watch_Movies_on_YouTube_Action 
-}
+class Fred_Agent
 
-class YouTube_Entertainment_Benefit{
-    [*] -- [*] Entertainment_YouTube_VAC_VA_Component 
-}
+class YouTube_Entertainment_Benefit
 
-class Watch_Movies_on_YouTube_Decision{
-    [*] -- caused_by_ -- [*] To_Watch_Movies_on_YouTube_Action 
-}
+class Watch_Movies_on_YouTube_Decision
 
 class To_Watch_Movies_on_YouTube_Action
 
-type intrinsic_Moment_Type{
-    @instantiation [1] -- [1..*] Intrinsic_Moment 
-}
+type intrinsic_Moment_Type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,6 +1,7 @@
 import GDPO_part_1
 import GDPO_User_Roles
 import Registration
+import Revenue_Stream
 
 package Revenue_Stream
 
@@ -8,8 +9,7 @@ roleMixin Marketplace_Company of functional-complexes  specializes Platform_Comp
 
 subkind Fixed_Fee of intrinsic-modes  specializes Revenue_Stream 
 
-mode Revenue_Stream{
-    [0..*] -- [1] Marketplace_Company 
-    [0..*] -- [1] Marketplace_Company 
-}
+mode Revenue_Stream
+
+
 

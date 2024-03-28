@@ -1,6 +1,7 @@
 import Adaptation_Function
 import Complementary_Categorizations
 import Layer_Processor_Function
+import LPF_Vertical_Connections
 
 package LPF_Vertical_Connections
 
@@ -10,15 +11,12 @@ role A__Layer_Processor_Sink_Connected of functional-complexes  specializes Adap
 
 role Bidirectional_Adaptation__LPF_Bi_Connected of functional-complexes  specializes Bidirectional_Adaptation 
 
-role Bidirectional_Layer_Processor__A_Bi_Connected of functional-complexes  specializes Bidirectional_Layer_Processor_Function {
-    @material [1..*] -- LA__Bidirectional_Connection -- [1] Bidirectional_Adaptation__LPF_Bi_Connected 
-}
+role Bidirectional_Layer_Processor__A_Bi_Connected of functional-complexes  specializes Bidirectional_Layer_Processor_Function 
 
-role Layer_Processor_Sink__A_Connected of functional-complexes  specializes Layer_Processor_Function_Sink, Bound_Transport_Function {
-    @material [1..*] -- LA_Sink_Connection -- [1] A__Layer_Processor_Sink_Connected 
-}
+role Layer_Processor_Sink__A_Connected of functional-complexes  specializes Layer_Processor_Function_Sink, Bound_Transport_Function 
 
-role Layer_Processor_Source__A_Connected of functional-complexes  specializes Layer_Processor_Function_Source, Bound_Transport_Function {
-    @material [1..*] -- LA_Source_Connection -- [1] A__LPF_Source_Connected 
-}
+role Layer_Processor_Source__A_Connected of functional-complexes  specializes Layer_Processor_Function_Source, Bound_Transport_Function 
+
+
+
 

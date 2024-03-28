@@ -1,23 +1,14 @@
+import ontology
 
 package ontology
 
 kind Game
 
-kind Mechanics{
-    @componentOf [1..*] -- [1..*] Game 
-    @causal [1..*] -- Discern -- [1..*] Dynamics 
-}
+kind Mechanics
 
-kind Dynamics{
-    @componentOf [1..*] -- [1..*] Game 
-    @causal [1..*] -- Afford -- [1..*] Mechanics 
-    @causal [1..*] -- Emerge -- [1..*] Aesthetics 
-}
+kind Dynamics
 
-kind Aesthetics{
-    @componentOf [1..*] -- [1..*] Game 
-    @causal [1..*] -- Evoke -- [1..*] Dynamics 
-}
+kind Aesthetics
 
 kind Variable_Player_Powers specializes Assymetry 
 
@@ -25,9 +16,7 @@ kind Assymetry specializes Game_Balance
 
 kind Game_Balance specializes Ruleset 
 
-kind RockPaperScizors specializes Game_Balance {
-    @componentOf [*] -- [*] Assymetry 
-}
+kind RockPaperScizors specializes Game_Balance 
 
 kind TimeTrack specializes Phase 
 
@@ -137,14 +126,9 @@ kind Area_Control specializes Goal
 
 kind Area_Enclosure specializes Goal 
 
-kind Resource specializes Data_Representation {
-    @componentOf [1..*] -- [1..*] Resource_Management 
-    @componentOf [1] -- [1..*] Pool_Building 
-}
+kind Resource specializes Data_Representation 
 
-kind Victory_Points specializes Resource {
-    @componentOf [0..1] -- [1..*] Goal 
-}
+kind Victory_Points specializes Resource 
 
 kind Action_Points specializes Resource 
 
@@ -154,40 +138,21 @@ kind Data_Representation
 
 kind Component specializes Data_Representation 
 
-kind Areas specializes Component {
-    @componentOf [1..*] -- [*] Area_Enclosure 
-    @componentOf [1..*] -- [0..1] Area_Control 
-    @componentOf [2..*] -- [0..1] Pickup_and_Delivery 
-    @componentOf [2..*] -- [*] Area_Movement 
-}
+kind Areas specializes Component 
 
-kind Pattern specializes Component {
-    @componentOf [1..*] -- [1] Pattern_Building 
-    @componentOf [1..*] -- [1] Pattern_Recognition 
-}
+kind Pattern specializes Component 
 
-kind Die specializes Component {
-    @componentOf [1..*] -- [0..1] Dice_Rolling 
-}
+kind Die specializes Component 
 
 kind Token specializes Component 
 
 kind Modular_Board specializes Component 
 
-kind Paper_And_Pencil specializes Component {
-    @componentOf [1] -- [1..*] Line_Drawing 
-}
+kind Paper_And_Pencil specializes Component 
 
-kind Tile specializes Token {
-    @componentOf [1..*] -- [1] Modular_Board 
-    @componentOf [1..*] -- [*] Tile_Placement 
-    @componentOf [*] -- [*] Areas 
-}
+kind Tile specializes Token 
 
-kind Card specializes Token {
-    @componentOf [1..*] -- [1..*] Card_Draft 
-    @componentOf [2..*] -- [1..*] Deck 
-}
+kind Card specializes Token 
 
 kind Die_Marker specializes Die 
 
@@ -201,26 +166,17 @@ kind Resource_extinction specializes Intention_of_use
 
 kind Game_state_change specializes Intention_of_use 
 
-kind Reduce_options specializes Intention_of_use {
-    @componentOf [0..1] -- [1..*] Game_state_change 
-}
+kind Reduce_options specializes Intention_of_use 
 
-kind Blocking specializes Intention_of_use {
-    @componentOf [0..1] -- [0..1] Camping 
-    @componentOf [0..1] -- [1] Reduce_options 
-}
+kind Blocking specializes Intention_of_use 
 
 kind Indirect_effect specializes Intention_of_use 
 
-kind Diversion specializes Intention_of_use {
-    @componentOf [1] -- [0..1] Small_talk 
-}
+kind Diversion specializes Intention_of_use 
 
 kind Acquire_information specializes Indirect_effect 
 
-kind Deduction{
-    @componentOf [*] -- [1..*] Acquire_information 
-}
+kind Deduction
 
 kind Sacrifice specializes Action_based 
 
@@ -232,15 +188,11 @@ category MetaGame of functional-complexes
 
 kind Count_resources specializes MetaGame 
 
-kind Convince specializes MetaGame {
-    @componentOf [1..*] -- [0..1] Forcefull_interpretation 
-}
+kind Convince specializes MetaGame 
 
 kind Small_talk specializes MetaGame 
 
-kind Bluffing specializes Convince {
-    @componentOf [*] -- [*] Acquire_information 
-}
+kind Bluffing specializes Convince 
 
 kind Camping specializes Playing_patterns 
 
@@ -296,11 +248,7 @@ subkind Aversion of functional-complexes  specializes Disgust
 
 subkind Dislike of functional-complexes  specializes Disgust 
 
-kind Fear{
-    @causal [1] -- Stimulate -- [1] Survival_A 
-    @causal [1] -- Evoke -- [1] Identification 
-    @causal [1] -- Evoke -- [1] Curiosity 
-}
+kind Fear
 
 subkind Terror of functional-complexes  specializes Fear 
 
@@ -318,13 +266,7 @@ subkind Anxiety of functional-complexes  specializes Fear
 
 subkind Panic of functional-complexes  specializes Fear 
 
-kind Anger{
-    @causal [1] -- Evoke -- [1] Identification 
-    @causal [1] -- Evoke -- [1] Protection 
-    @causal [1] -- Evoke -- [1] Competition 
-    @causal [1] -- Stimulate -- [1] Revenge 
-    @causal [1] -- Stimulate -- [1] Agressiveness 
-}
+kind Anger
 
 subkind Fury of functional-complexes  specializes Anger 
 
@@ -340,10 +282,7 @@ subkind Exasperation of functional-complexes  specializes Anger
 
 subkind Frustration of functional-complexes  specializes Anger 
 
-kind Sadness{
-    @causal [1] -- Evoke -- [1] Protection 
-    @causal [1] -- Evoke -- [1] Identification 
-}
+kind Sadness
 
 subkind Anguish of functional-complexes  specializes Sadness 
 
@@ -357,47 +296,27 @@ subkind Discouragement of functional-complexes  specializes Sadness
 
 subkind Resignation of functional-complexes  specializes Sadness 
 
-kind Survival_A{
-    @causal [1] -- Reinforce -- [1] Agressiveness 
-}
+kind Survival_A
 
-kind Identification{
-    @causal [1] -- Reinforce -- [1] Protection 
-    @causal [1] -- Reinforce -- [1] Curiosity 
-}
+kind Identification
 
-kind Protection{
-    @causal [1] -- Evoke -- [1] Joy 
-}
+kind Protection
 
-kind Curiosity{
-    @causal [1] -- Reinforce -- [1] Color_Appreciation 
-}
+kind Curiosity
 
-kind Competition{
-    @causal [1] -- Reinforce -- [1] Agressiveness 
-}
+kind Competition
 
-kind Revenge{
-    @causal [1] -- Reinforce -- [1] Agressiveness 
-}
+kind Revenge
 
-kind Agressiveness{
-    @causal [1] -- Reinforce -- [1] Competition 
-}
+kind Agressiveness
 
-kind Greed{
-    @causal [1] -- Reinforce -- [1] Agressiveness 
-    @causal [1] -- Reinforce -- [1] Collecting 
-}
+kind Greed
 
 kind Color_Appreciation
 
 kind Communication
 
-kind Collecting{
-    @causal [1] -- Reinforce -- [1] Curiosity 
-}
+kind Collecting
 
 subkind Misery of functional-complexes  specializes Sadness 
 
@@ -409,20 +328,9 @@ subkind Grief of functional-complexes  specializes Sadness
 
 subkind Hopelessness of functional-complexes  specializes Sadness 
 
-subkind Joy of functional-complexes  specializes Enjoyment {
-    @causal [1] -- Evoke -- [1] Color_Appreciation 
-    @causal [1] -- Evoke -- [1] Communication 
-}
+subkind Joy of functional-complexes  specializes Enjoyment 
 
-subkind Excitement of functional-complexes  specializes Enjoyment {
-    @causal [1] -- Evoke -- [1] Identification 
-    @causal [1] -- Evoke -- [1] Curiosity 
-    @causal [1] -- Evoke -- [1] Competition 
-    @causal [1] -- Evoke -- [1] Revenge 
-    @causal [1] -- Evoke -- [1] Agressiveness 
-    @causal [1] -- Evoke -- [1] Greed 
-    @causal [1] -- Evoke -- [1] Communication 
-}
+subkind Excitement of functional-complexes  specializes Enjoyment 
 
 kind Enjoyment
 
@@ -448,18 +356,77 @@ subkind Sensory_Pleasure of functional-complexes  specializes Enjoyment
 
 subkind Peace of functional-complexes  specializes Enjoyment 
 
-subkind Pride of functional-complexes  specializes Enjoyment {
-    [1] -- Evoke -- [1] Collecting 
-    @causal [1] -- Stimulate -- [1] Competition 
-    @causal [1] -- Evoke -- [1] Protection 
-    @causal [1] -- Evoke -- [1] Identification 
-}
+subkind Pride of functional-complexes  specializes Enjoyment 
 
-kind Compound_Emotions{
-    @componentOf [2..*] -- [1] Disgust 
-    @componentOf [2..*] -- [1] Fear 
-    @componentOf [2..*] -- [1] Anger 
-    @componentOf [2..*] -- [1] Sadness 
-    @componentOf [2..*] -- [1] Enjoyment 
-}
+kind Compound_Emotions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

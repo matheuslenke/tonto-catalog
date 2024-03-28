@@ -1,3 +1,4 @@
+import UFO
 
 package UFO
 
@@ -5,13 +6,12 @@ class Endurant
 
 class Substantial specializes Endurant 
 
-class Moment specializes Endurant {
-    [0..*] -- inheres_in -- [1] Endurant 
-}
+class Moment specializes Endurant 
 
 class Disposition specializes Intrinsic_Moment 
 
 class Object specializes Substantial 
 
 class Intrinsic_Moment specializes Moment 
+
 

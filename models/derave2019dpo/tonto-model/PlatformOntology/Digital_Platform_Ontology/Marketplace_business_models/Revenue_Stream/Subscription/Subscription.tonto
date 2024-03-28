@@ -4,14 +4,13 @@ import Digital_Platform_Ontology
 import GDPO_part_1
 import GDPO_User_Roles
 import Airbnb
+import Subscription
 
 package Subscription
 
-subkind Subscription_Fee of intrinsic-modes  specializes Revenue_Stream {
-    [1] -- [1] Subscription_Payment 
-}
+subkind Subscription_Fee of intrinsic-modes  specializes Revenue_Stream 
 
-event Subscription_Payment specializes Payment_Action {
-    @participational [1] -- includes -- [1] Subscription_Action 
-}
+event Subscription_Payment specializes Payment_Action 
+
+
 

@@ -1,0 +1,23 @@
+import GDPO_part_1
+import Registration
+import Conversation_System
+import PlatformOntology
+import Transaction
+
+package GDPO_part_1
+
+roleMixin Platform_Company of functional-complexes 
+
+roleMixin Platform_User of functional-complexes 
+
+genset FTQkug6GAAAAciRh {
+    general undefined
+    specifics }
+
+
+relation :Platform_User [1..2] -- [0..*]  
+
+
+
+
+

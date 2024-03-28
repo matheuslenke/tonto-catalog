@@ -1,8 +1,9 @@
 import UFO
+import EO
+import ROSS
 
 package EO
 
-class Organization specializes Agent {
-    [1] -- has_goal -- [*] Business_Requirement 
-}
+class Organization specializes Agent 
+
 

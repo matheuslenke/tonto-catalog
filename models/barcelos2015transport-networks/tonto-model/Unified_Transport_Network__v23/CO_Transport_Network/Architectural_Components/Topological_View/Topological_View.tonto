@@ -1,51 +1,38 @@
 import Termination_Function
 import Layer_Network
 import Architectural_Components
+import Topological_View
+import Link_Connections
+import Matrices
+import Subnetworks
 
 package Topological_View
 
-kind Access_Group specializes Topological_Component, Relatable_Topological_Components {
-    @componentOf [2] -- [1] Topological_Layer 
-}
+kind Access_Group specializes Topological_Component, Relatable_Topological_Components 
 
 phase Colocated_Termination of functional-complexes  specializes Termination_Function 
 
-subkind Composed_AG of functional-complexes  specializes Access_Group {
-    @formal [1] -- represents -- [1..*] Colocated_Termination 
-}
+subkind Composed_AG of functional-complexes  specializes Access_Group 
 
 role Composed_Topological_Layer of functional-complexes  specializes Topological_Layer 
 
-roleMixin Connected_Relatable_TC of functional-complexes  specializes Relatable_Topological_Components {
-    @material [1..*] -- connects -- [1..*] Connected_Relatable_TC 
-    @componentOf [1..*] -- [1] Composed_Topological_Layer 
-}
+roleMixin Connected_Relatable_TC of functional-complexes  specializes Relatable_Topological_Components 
 
 category Relatable_Topological_Components of functional-complexes 
 
-subkind Single_AG of functional-complexes  specializes Access_Group {
-    @formal [1] -- represents -- [1] Single_Termination 
-}
+subkind Single_AG of functional-complexes  specializes Access_Group 
 
 phase Single_Termination of functional-complexes  specializes Termination_Function 
 
 category Topological_Component of functional-complexes  specializes Architectural_Component 
 
-kind Topological_Layer specializes Topological_Component {
-    @formal [1] -- represents -- [1] Layer_Network 
-}
+kind Topological_Layer specializes Topological_Component 
 
-kind Topological_Link specializes Topological_Component, Relatable_Topological_Components {
-    @formal [1] -- represents -- [1] Link_Connection 
-}
+kind Topological_Link specializes Topological_Component, Relatable_Topological_Components 
 
-subkind Topological_M_Representation of functional-complexes  specializes Topological_Subnetwork {
-    @formal [1] -- represents -- [1] Matrix 
-}
+subkind Topological_M_Representation of functional-complexes  specializes Topological_Subnetwork 
 
-subkind Topological_SN_Representation of functional-complexes  specializes Topological_Subnetwork {
-    @formal [1] -- represents -- [1] Subnetwork 
-}
+subkind Topological_SN_Representation of functional-complexes  specializes Topological_Subnetwork 
 
 kind Topological_Subnetwork specializes Relatable_Topological_Components, Topological_Component 
 
@@ -73,4 +60,13 @@ genset tXqpon6AUBAIKEp {
     general Relatable_Topological_Components
     specifics Topological_Link, Topological_Subnetwork, Access_Group
 }
+
+
+
+
+
+
+
+
+
 

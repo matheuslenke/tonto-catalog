@@ -1,43 +1,38 @@
+import 2_Roles
 
 package 2_Roles
 
-relator Employment{
-    @mediation [1..*] -- [1] Teacher 
-    @mediation [0..*] -- [1] School 
-}
+relator Employment
 
 role Teacher of functional-complexes  specializes Person 
 
 kind Person
 
-role Student of functional-complexes  specializes Person {
-    @memberOf [1..*] -- [1..*] Class 
-}
+role Student of functional-complexes  specializes Person 
 
 collective Class
 
-relator School_Enrollment{
-    @mediation [1..*] -- [1] Student 
-    @mediation [0..*] -- [1] School 
-}
+relator School_Enrollment
 
-relator Course_Enrollment{
-    @mediation [0..*] -- [1] Course_Offering 
-    @mediation [0..*] -- [1] School_Enrollment 
-}
+relator Course_Enrollment
 
 kind School
 
 kind Course
 
-relator Course_Offering{
-    @mediation [0..1] -- offers -- [1] Course 
-    @mediation [0..*] -- is_offered_to -- [1] Class 
-    @mediation [0..*] -- provides -- [1] School 
-}
+relator Course_Offering
 
-relator Course_Teacher_Assignment{
-    @mediation [0..*] -- [1] Employment 
-    @mediation [0..1] -- [1] Course_Offering 
-}
+relator Course_Teacher_Assignment
+
+
+
+
+
+
+
+
+
+
+
+
 

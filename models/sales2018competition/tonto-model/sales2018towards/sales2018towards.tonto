@@ -3,28 +3,18 @@ package sales2018towards
 
 category Agent
 
-roleMixin Competitor specializes Agent {
-    [1..*] -- competes_with -- [1..*] Competitor 
-}
+roleMixin Competitor specializes Agent 
 
 mode Resource_Demand{
     quantity_: undefined [0..*] 
-    [*] -- inheres_in -- [1] Agent 
-    [*] -- ext_dep_on -- [1] Resource 
 }
 
 relator Collective_Demand{
     collectiveQuantity: undefined [0..*] { derived }
     competitiveness: undefined [0..*] { derived }
-    [*] -- involves -- [2..*] Agent 
-    [*] -- [2..*] Resource_Demand 
-    [*] -- involves -- [1] Resource 
 }
 
-phase Competition of relators  specializes Collective_Demand {
-    [1..*] -- involves -- [2..*] Competitor 
-    [1..*] -- involves -- [1] Scarce_Resource 
-}
+phase Competition of relators  specializes Collective_Demand 
 
 phase NonCompetition of relators  specializes Collective_Demand 
 
@@ -34,77 +24,41 @@ roleMixin Scarce_Resource specializes Resource
 
 roleMixin Single_Resource specializes Resource 
 
-type Resource_Type specializes Resource {
-    [1..*] -- categorizes -- [*] Single_Resource 
-}
+type Resource_Type specializes Resource 
 
-collective Resource_Stock specializes Resource {
-    [*] -- defined_by -- [1] Resource_Type 
-    [*] -- [2..*] Single_Resource 
-}
+collective Resource_Stock specializes Resource 
 
-relator Value_Proposition{
-    [1..*] -- involves -- [1] Supplier 
-    [1..*] -- involves -- [1] Market 
-}
+relator Value_Proposition
 
-mode Demand_for_Market{
-    [1..*] -- inheres_in -- [1] Supplier 
-    [1..*] -- inheres_in -- [1] Market 
-    [1] -- based_on -- [1] Value_Proposition 
-}
+mode Demand_for_Market
 
-relator Market_Competition{
-    [0..1] -- involves -- [1] Market 
-    [1..*] -- involves -- [2..*] Market_Competitor 
-    [*] -- [2..*] Demand_for_Market 
-}
+relator Market_Competition
 
 roleMixin Supplier specializes Economic_Agent 
 
-roleMixin Market_Competitor specializes Supplier {
-    [1..*] -- competes_with -- [1..*] Market_Competitor 
-}
+roleMixin Market_Competitor specializes Supplier 
 
 collective Market
 
 subkind Simple_Market of collectives  specializes Market 
 
-subkind Composed_Market of collectives  specializes Market {
-    [0..1] -- [2..*] Market 
-}
+subkind Composed_Market of collectives  specializes Market 
 
-roleMixin Direct_Competitor specializes Market_Competitor {
-    [1..*] -- directly_competes_with -- [1..*] Direct_Competitor 
-}
+roleMixin Direct_Competitor specializes Market_Competitor 
 
-roleMixin Indirect_Competitor specializes Market_Competitor {
-    [1..*] -- indirectly_competes_with -- [1..*] Indirect_Competitor 
-}
+roleMixin Indirect_Competitor specializes Market_Competitor 
 
 category Economic_Agent
 
-relator Potential_Competition{
-    [0..*] -- [1..*] Supplier_Capability 
-    [0..*] -- [1..*] Equivalent_Capability 
-    [1..*] -- involves -- [1] Potential_Competitor 
-    [0..*] -- involves -- [1] Supplier 
-}
+relator Potential_Competition
 
 roleMixin Potential_Competitor specializes Economic_Agent 
 
-quality Capability{
-    [1..*] -- inheres_in -- [1] Economic_Agent 
-}
+quality Capability
 
-role Supplier_Capability of qualities  specializes Capability {
-    [1..*] -- inheres_in -- [1] Supplier 
-}
+role Supplier_Capability of qualities  specializes Capability 
 
-role Equivalent_Capability of qualities  specializes Capability {
-    [0..*] -- equivalent_to -- [1..*] Supplier_Capability 
-    [1..*] -- inheres_in -- [1] Potential_Competitor 
-}
+role Equivalent_Capability of qualities  specializes Capability 
 
 genset Set {
     general Collective_Demand
@@ -120,4 +74,35 @@ genset Set3 {
     general Market_Competitor
     specifics Indirect_Competitor, Direct_Competitor
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

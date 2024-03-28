@@ -1,4 +1,3 @@
-import Performed_Process
 
 package Tracked_Process
 
@@ -6,20 +5,20 @@ class Tracked_Process specializes Performed_Project_Process {
     cost: undefined  
     duration: undefined  
     progressIndex: undefined  
-    [0..1] -- tracked_in_relation_to -- [1] Estimated_Process 
 }
 
 class Tracked_Activity specializes Performed_Project_Activity {
     cost: undefined  
     duration: undefined  
     progressIndex: undefined  
-    [0..1] -- tracked_in_relation_to -- [1] Estimated_Activity 
-    [0..*] -- contributes_to_produce -- [1..*] Work_Package 
 }
 
 class Tracked_Stakeholder_Participation specializes Stakeholder_Participation {
     cost: undefined  
     duration: undefined  
-    [0..*] -- refers_to -- [1] Estimated_Stakeholder_Allocation 
 }
+
+
+
+
 

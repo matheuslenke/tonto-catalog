@@ -1,10 +1,10 @@
 import platoontology
+import Human
 
 package Human
 
 subkind HumanBeing of functional-complexes  specializes LivingThing 
 
-kind HumanBody{
-    @componentOf [1] -- [1] HumanBeing 
-}
+kind HumanBody
+
 

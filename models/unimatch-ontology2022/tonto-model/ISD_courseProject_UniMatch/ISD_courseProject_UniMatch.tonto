@@ -1,9 +1,8 @@
+import ISD_courseProject_UniMatch
 
 package ISD_courseProject_UniMatch
 
-kind Educational_Organization{
-    @componentOf [0..*] -- [1..*] Student_Club 
-}
+kind Educational_Organization
 
 subkind University of functional-complexes  specializes Educational_Organization 
 
@@ -13,32 +12,19 @@ subkind Vocational_school of functional-complexes  specializes Educational_Organ
 
 subkind College of functional-complexes  specializes Educational_Organization 
 
-kind Study_Program{
-    @componentOf [1..*] -- [1..*] Course 
-    @mediation [0..*] -- [1] Admission_Period 
-}
+kind Study_Program
 
-kind Applicant{
-    @componentOf [0..*] -- [1] Employment_History 
-    @componentOf [0..*] -- [1] Educational_History 
-    @componentOf [0..*] -- [1] Hobbies 
-    @mediation [0..*] -- [1] Application 
-}
+kind Applicant
 
 kind Employment_History
 
 kind Educational_History
 
-kind Hobbies{
-    @comparative [*] -- [*] Hobbies 
-}
+kind Hobbies
 
 kind Course
 
-kind Academic_Instructor{
-    @memberOf [1..*] -- [1..*] Educational_Organization 
-    [1..*] -- Teaches -- [1..*] Course 
-}
+kind Academic_Instructor
 
 phase High_School_Graduate of functional-complexes  specializes Applicant 
 
@@ -54,42 +40,23 @@ subkind Online of functional-complexes  specializes Study_Program
 
 subkind Full_Time of functional-complexes  specializes Study_Program 
 
-class Machine_Learning of abstract-individuals {
-    [0..1] -- Recommend -- [1..*] Admission_Period 
-    [1..*] -- Help -- [1..*] Applicant 
-}
+class Machine_Learning of abstract-individuals 
 
 kind Country
 
-kind City{
-    @componentOf [1..*] -- [1] Country 
-    @componentOf [1..*] -- [0..*] Educational_Organization 
-}
+kind City
 
-kind Faculty{
-    @componentOf [1..*] -- [1] Educational_Organization 
-    [1] -- Manages -- [1..*] Study_Program 
-}
+kind Faculty
 
-kind Local_Languages{
-    @componentOf [0..1] -- [1] Language 
-    @characterization [1..*] -- [1..*] City 
-}
+kind Local_Languages
 
-relator Admission_Period{
-    @mediation [0..*] -- [1] Application 
-}
+relator Admission_Period
 
-kind Degree_Requirement{
-    @mediation [1] -- [0..1] Admission_Period 
-}
+kind Degree_Requirement
 
 kind Language
 
-kind Language_Requirement{
-    @componentOf [0..1] -- [1] Language 
-    @mediation [1] -- [0..*] Admission_Period 
-}
+kind Language_Requirement
 
 kind Student_Club
 
@@ -127,4 +94,26 @@ genset Study_Mode {
     general Study_Program
     specifics Hybrid, In_Presence, Online
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

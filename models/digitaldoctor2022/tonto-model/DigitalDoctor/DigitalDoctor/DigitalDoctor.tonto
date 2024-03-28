@@ -14,13 +14,9 @@ subkind User of functional-complexes  specializes Person {
     contactPoint: ContactPoint  
 }
 
-role Patient of functional-complexes  specializes User {
-    @material [1] -- has -- [1] MedicalHistory 
-}
+role Patient of functional-complexes  specializes User 
 
-role Doctor of functional-complexes  specializes User {
-    @mediation [1..*] -- [*] MedicalProcedure 
-}
+role Doctor of functional-complexes  specializes User 
 
 subkind Symptom of relators  specializes PatientReport {
     symptom: SymptomEnum  
@@ -43,10 +39,6 @@ relator MedicalProcedure specializes NamedEntity {
     address: Address  
     date: Date  
     patientPreparation: string_  
-    @mediation [*] -- [1] TreatmentPatient 
-    @material [1] -- triggeredBy -- [1] MedicalProcedureTrigger 
-    @material [1] -- resultsIn -- [1..*] MedicalProcedureOutcome 
-    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
 subkind TherapeuticProcedure of relators  specializes PresenceMedicalProcedure, RemoteMedicalProcedure 
@@ -86,11 +78,7 @@ category NamedEntity{
     description: string_  
 }
 
-relator Prescription specializes NamedEntity {
-    @mediation [1] -- [1..*] PrescribedDrug 
-    @mediation [1] -- [1..*] PrescribedDoseSchedule 
-    @componentOf [1] -- [1] TherapeuticProcedure 
-}
+relator Prescription specializes NamedEntity 
 
 mixin MedicalProcedureTrigger
 
@@ -99,7 +87,6 @@ subkind VisitRequest of relators  specializes MedicalProcedureTrigger, PatientRe
 subkind PreviousIllness of functional-complexes  specializes MedicalProcedureTrigger, MedicalCondition {
     discoveryDate: Date  
     healingDate: Date  
-    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
 kind MedicalProcedureOutcome specializes NamedEntity {
@@ -107,76 +94,75 @@ kind MedicalProcedureOutcome specializes NamedEntity {
     expiryDate: Date  
     date: Date  
     severity_rating: Rating  
-    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
 role SpecialistDoctor of functional-complexes  specializes Doctor {
     speciality: MedicalSpeciality  
-    @mediation [1..*] -- [*] SpecialistMedicalProcedure 
 }
 
-role GeneralPractitioner of functional-complexes  specializes Doctor {
-    @mediation [1] -- [*] PatientReport 
-}
+role GeneralPractitioner of functional-complexes  specializes Doctor 
 
 relator PatientReport specializes NamedEntity {
     date: Date  
     comment: string_  
-    @mediation [1..*] -- [1] ReportingPatient 
-    @componentOf [1..*] -- [1] MedicalHistory 
 }
 
 subkind RemoteMedicalProcedure of relators  specializes MedicalProcedure 
 
 subkind PresenceMedicalProcedure of relators  specializes MedicalProcedure 
 
-role SpecialistMedicalProcedure of relators  specializes PresenceMedicalProcedure {
-    @mediation [*] -- [1] TreatmentPatient 
-}
+role SpecialistMedicalProcedure of relators  specializes PresenceMedicalProcedure 
 
 phase SevereOutcome of functional-complexes  specializes MedicalProcedureOutcome, MedicalProcedureTrigger 
 
 phase NonSevereOutcome of functional-complexes  specializes MedicalProcedureOutcome 
 
-subkind Diagnosis of functional-complexes  specializes MedicalProcedureOutcome {
-    @material [1] -- leadsTo -- [1..*] MedicalCondition 
-}
+subkind Diagnosis of functional-complexes  specializes MedicalProcedureOutcome 
 
 kind MedicalCondition specializes NamedEntity {
     stage: MedicalConditionStage  
 }
 
-role ReportingPatient of functional-complexes  specializes Patient {
-    @material [1..*] -- reportTo -- [1] GeneralPractitioner 
-}
+role ReportingPatient of functional-complexes  specializes Patient 
 
-role TreatmentPatient of functional-complexes  specializes ReportingPatient {
-    @material [1..*] -- treatedBy -- [1..*] Doctor 
-    @material [1..*] -- treatedBy_redefines_doctor -- [1..*] GeneralPractitioner 
-    @material [1..*] -- treatedBy -- [1..*] SpecialistDoctor 
-}
+role TreatmentPatient of functional-complexes  specializes ReportingPatient 
 
 role PrescribedDrug of functional-complexes  specializes Drug 
 
-role PrescribedDoseSchedule of functional-complexes  specializes DoseSchedule {
-    @material [1] -- [1] PrescribedDrug 
-}
+role PrescribedDoseSchedule of functional-complexes  specializes DoseSchedule 
 
 datatype Date{
-date,time,}
+date,time
+}
 
 datatype Address{
-street,city,region,country,category,zipcode,complement,}
+street,city,region,country,category_,zipcode,complement
+}
 
 datatype MedicalSpeciality{
-Cardiovascular,Dentistry,Dermatology,DietNutrition,Endocrine,Geriatric,Gynecologic,Hematologic,Infectious,Musculoskeletal,Neurologic,Oncologic,Pediatric,Pulmonary,Radiography,Rheumatologic,SpeechPathology,Surgical,Toxicologic,Urologic,}
+Cardiovascular,Dentistry,Dermatology,DietNutrition,Endocrine,Geriatric,Gynecologic,Hematologic,Infectious,Musculoskeletal,Neurologic,Oncologic,Pediatric,Pulmonary,Radiography,Rheumatologic,SpeechPathology,Surgical,Toxicologic,Urologic
+}
 
 datatype ContactPoint{
-telephone,email,address,availableHours,}
+telephone,email,address,availableHours
+}
 
 datatype HoursSpecification{
-dayOfWeek,startTime,endTime,}
+dayOfWeek,startTime,endTime
+}
 
+enum SymptomEnum{
+    Headache, Fever, Dizzy, Impaired_Memory, Skin_Changes, Swelling, Painful_Swallowing, Sore_Throat, Cough, Hoarse_Voice, Itch, Shortness_of_Breath, Pain_in_Neck, Enlarged_Lymph_Nodes, Chest_Pain, Heartburn, Palpitations, Fast_Heart_Rate, Slow_Heart_Rate, Stomach_Pain, Vomiting, Indigestion, Weight_Loss, Diarrhea, Black_Stools, Red_Stools, Pain_When_Moving, Back_Pain, Leg_Pain, Cramps, Skin_Rash_or_Discoloration, Numbness, Injury, Other
+}
+enum Rating{
+    Negligible, Minimal, Significant, Serious, Severe, Very_Severe
+}
+enum MedicalConditionStage{
+    Undetermined, Good, Fair, Serious, Critical, Treated, Patient_Death
+}
+enum DiagnosisMethod{
+    Blood_Analysis, Urine_Analysis, Stool_Analysis, CT, MRI, Ultrasound, PET, ECG, Other
+}
 genset UserRole {
     general User
     specifics Doctor, Patient
@@ -216,4 +202,27 @@ genset MedicalProcedureMode {
     general MedicalProcedure
     specifics PresenceMedicalProcedure, RemoteMedicalProcedure
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

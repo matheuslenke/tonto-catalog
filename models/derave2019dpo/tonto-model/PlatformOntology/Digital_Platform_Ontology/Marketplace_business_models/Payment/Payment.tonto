@@ -6,22 +6,20 @@ import Price_Discovery
 import Price_Calculation
 import Commission
 import Quantitybased
+import Payment
+import Transaction
 
 package Payment
 
-event Transaction_Payment specializes Payment_Action {
-    [0..*] -- towards -- [1] Platform_Provider 
-}
+event Transaction_Payment specializes Payment_Action 
 
-event Payment_Action specializes User_Action, Platform_Supported_Action {
-    [*] -- [*] Job_Fee 
-}
+event Payment_Action specializes User_Action, Platform_Supported_Action 
 
-subkind Paid_Transaction_Price of intrinsic-modes  specializes Price, Transaction_Price {
-    [1] -- [1] Transaction_Payment 
-}
+subkind Paid_Transaction_Price of intrinsic-modes  specializes Price, Transaction_Price 
 
-subkind Received_Transaction_Price of intrinsic-modes  specializes Transaction_Price {
-    [*] -- [*] Platform_Provider 
-}
+subkind Received_Transaction_Price of intrinsic-modes  specializes Transaction_Price 
+
+
+
+
 

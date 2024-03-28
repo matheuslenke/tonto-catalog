@@ -4,12 +4,12 @@ import GDPO_User_Roles
 import Airbnb
 import Transaction
 import SafaRide
+import Review_by_Customer
 
 package Review_by_Customer
 
-event Review_Creation_by_Customer specializes Review_Creation {
-    [1] -- [1] Customer_Review 
-}
+event Review_Creation_by_Customer specializes Review_Creation 
 
 subkind Customer_Review of relators  specializes Review 
+
 

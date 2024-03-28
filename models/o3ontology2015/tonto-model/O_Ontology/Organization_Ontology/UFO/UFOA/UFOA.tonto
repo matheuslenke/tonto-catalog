@@ -1,5 +1,6 @@
 import UFOPW
 import UFOB
+import UFOA
 
 package UFOA
 
@@ -21,9 +22,7 @@ type Constitution specializes Internal_Relation, PartOf_Meronymic_Relation_Unive
 
 type Derivation specializes Internal_Relation 
 
-category Endurant of functional-complexes  specializes Individual {
-    @Formal [1..*] -- present_in -- [1..*] Situation_Individual 
-}
+category Endurant of functional-complexes  specializes Individual 
 
 type Endurant_Universal specializes Identity_Provider_Universal 
 
@@ -37,9 +36,7 @@ category Functional_Complex_Individual of functional-complexes  specializes Subs
 
 type Identity_Provider_Universal specializes Rigid_Universal 
 
-category Individual of functional-complexes {
-    @Formal [1..*] -- instance_of -- [1] Identity_Provider_Universal 
-}
+category Individual of functional-complexes 
 
 type Instantiation specializes Internal_Relation 
 
@@ -99,7 +96,8 @@ category Substance of functional-complexes  specializes Endurant
 
 type Substance_Sortal_Universal specializes Endurant_Universal 
 
-type Universal{
-    @Formal [1..*] -- instance_of -- [1..*] Individual 
-}
+type Universal
+
+
+
 

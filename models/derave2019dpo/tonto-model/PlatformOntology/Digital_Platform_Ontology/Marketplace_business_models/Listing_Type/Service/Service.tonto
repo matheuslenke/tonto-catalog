@@ -1,48 +1,33 @@
-import Transaction
-import MultiSided
-import Review_by_Provider
-import Provider_Source
-import GDPO_part_1
-import Review_System
-import Marketplace_business_models
-import Decentralized
-import Price_set_by_Provider
-import Price_Calculation
-import Conversation_System
-import Digital_Platform_Ontology
-import Revenue_Stream
 
 package Service
 
-roleMixin Platform_Service_Provider of functional-complexes  specializes Platform_Provider {
-    [1..*] -- [0..*] Service_Delivery 
-}
+roleMixin Platform_Service_Provider of functional-complexes  specializes Platform_Provider 
 
 subkind Booking of relators  specializes Transaction {
     personsBooked: undefined  
-    [1] -- has -- [1..*] Booked_Time_Slot 
-    [1] -- partially_fulfills -- [0..1] Service_Delivery 
-    [0..*] -- bounds -- [1] Airbnb_Homeowner 
-    [0..*] -- [1] Airbnb_Home_Renter 
-    [1] -- concerning -- [0..2] Review 
-    [1..*] -- from_ -- [1] SafaRide_Customer 
-    [0..*] -- according -- [1] Time 
-    [*] -- captured -- [*] Location 
-    [*] -- [*] Worker 
-    [*] -- [*] Money_Receivement 
 }
 
 event Booking_Creation{
     setPersonsToBook: undefined  
-    [0..*] -- accepts -- [1] Airbnb_Homeowner 
-    [1..*] -- initiates -- [1] Airbnb_Home_Seeker 
-    [1] -- creates -- [1] Booking 
-    [*] -- initiates -- [*] SafaRide_Customer 
 }
 
-event Service_Delivery specializes Delivery {
-    [1] -- happens_on -- [1..*] Booked_Time_Slot 
-}
+event Service_Delivery specializes Delivery 
 
 mode Time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

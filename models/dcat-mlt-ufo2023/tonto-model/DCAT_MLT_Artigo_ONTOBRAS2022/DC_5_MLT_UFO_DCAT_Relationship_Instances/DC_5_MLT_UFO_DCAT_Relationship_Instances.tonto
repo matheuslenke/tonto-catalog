@@ -1,57 +1,29 @@
-import DC_2_DCAT_UFO_BaseModel
-import DC_3_MLT_UFO_DCAT_Classes_Concepts_Relations
-import DCAT_MLT_Artigo_ONTOBRAS2022
 
 package DC_5_MLT_UFO_DCAT_Relationship_Instances
 
-category dcatResource of functional-complexes  specializes Individual {
-    [*] -- dctpublisher -- [*] foafAgent 
-    [*] -- dctcreator -- [*] foafAgent 
-    [*] -- dcattheme -- [0..*] skosConcept 
-    [*] -- dcatqualifiedRelation -- [*] dcatRelationShip 
-}
+category dcatResource of functional-complexes  specializes Individual 
 
-kind dcatDataset specializes dcatResource {
-    [*] -- dcatdistribution -- [0..*] dcatDistribution 
-}
+kind dcatDataset specializes dcatResource 
 
-kind dcatDataService specializes dcatResource {
-    [*] -- dcatservesDataset -- [0..*] dcatDataset 
-}
+kind dcatDataService specializes dcatResource 
 
-subkind dcatCatalog of functional-complexes  specializes dcatDataset {
-    [*] -- dcatthemeTaxonomy -- [*] skosConceptScheme 
-    [*] -- dcthasPart -- [1..*] dcatResource 
-    [*] -- dcatcatalog -- [0..*] dcatCatalog 
-    [*] -- dcatservice -- [0..*] dcatDataService 
-    [*] -- dcatdataset -- [*] dcatDataset 
-}
+subkind dcatCatalog of functional-complexes  specializes dcatDataset 
 
-class Individual{
-    [1..*] -- instanceOf -- [1..*] stOT 
-}
+class Individual
 
-class stOT{
-    [1..*] -- instanceOf -- [1..*] ndOT 
-}
+class stOT
 
 class ndOT
 
 category CataloguedResource_DescriptorType of functional-complexes  specializes stOT 
 
-relator dcatRelationship specializes stOT {
-    @mediation [1..*] -- dctrelation -- [1] SourceDescriptor_Type 
-    @mediation [1..*] -- dcatqualifiedRelation -- [1] TargetDataset_Type 
-}
+relator dcatRelationship specializes stOT 
 
 quality dcatRole specializes stOT 
 
 subkind DatasetDescriptorType of functional-complexes  specializes CataloguedData_DescriptorType 
 
-subkind RelationRole of qualities  specializes dcatRole {
-    @characterization [1] -- [1..*] dcatRelationship 
-    [*] -- dcathadRole -- [*] RelationRole_Value 
-}
+subkind RelationRole of qualities  specializes dcatRole 
 
 roleMixin SourceDescriptor_Type of functional-complexes  specializes CataloguedResource_DescriptorType 
 
@@ -61,8 +33,6 @@ kind CataloguedData_DescriptorType specializes CataloguedResource_DescriptorType
 
 relator Relation_isOwner{
     dcat: undefined  
-    @mediation [0..*] -- dctrelation -- [1] dcatCatalog 
-    @mediation [1] -- dcatqualifiedRelation -- [1] dcatDataset 
 }
 
 class _Relation_isOwner{
@@ -73,12 +43,30 @@ class _Relation_isOwner{
     dctmodify: undefined  
 }
 
-class exCOVID_19_Collection_Descriptor{
-    [*] -- Relation_isOwner -- [*] exCOVID19_Hospital1_Item_Descriptor 
-}
+class exCOVID_19_Collection_Descriptor
 
 class exCOVID19_Hospital1_Item_Descriptor
 
 datatype RelationRole_Value
 datatype IANA_relator_Value
 datatype ISO191151_Value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

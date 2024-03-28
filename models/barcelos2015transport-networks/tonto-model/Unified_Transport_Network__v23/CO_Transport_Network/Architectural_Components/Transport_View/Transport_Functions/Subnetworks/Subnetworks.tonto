@@ -1,5 +1,6 @@
 import Transport_Functions
 import Complementary_Categorizations
+import Subnetworks
 
 package Subnetworks
 
@@ -9,13 +10,9 @@ kind Subnetwork specializes Transport_Function
 
 role Unidirectional_Subnetwork of functional-complexes  specializes Subnetwork 
 
-kind Subnetwork_Input specializes Input {
-    @componentOf [1..*] -- [1] Unidirectional_Subnetwork 
-}
+kind Subnetwork_Input specializes Input 
 
-kind Subnetwork_Output specializes Output {
-    @componentOf [1..*] -- [1] Unidirectional_Subnetwork 
-}
+kind Subnetwork_Output specializes Output 
 
 genset Wdnb6GAqBwATqI {
     general Subnetwork
@@ -26,4 +23,6 @@ genset de49nb6GAqBwATqc {
     general Bidirectional_Connected_Subnetwork
     specifics Bi_SN__Bidirectional_Termination_Connected, Bi_Subnetwork__A_Bi_Connected
 }
+
+
 

@@ -1,67 +1,57 @@
 import General_Module
 import ML_Model
+import Explanation
 
 package Explanation
 
 kind ExplanationApproach
 
-subkind AntehocAprroach of functional-complexes  specializes ExplanationApproach {
-    @participation [1..*] -- [0..*] AntehocImplementation 
-}
+subkind AntehocAprroach of functional-complexes  specializes ExplanationApproach 
 
-subkind PosthocApproach of functional-complexes  specializes ExplanationApproach {
-    @participation [1..*] -- [0..*] PosthocImplementation 
-}
+subkind PosthocApproach of functional-complexes  specializes ExplanationApproach 
 
-event PosthocImplementation specializes Implementation {
-    @creation [1] -- [1] XAIModel 
-}
+event PosthocImplementation specializes Implementation 
 
-subkind XAIModel of functional-complexes  specializes MLModel {
-    @participation [1..*] -- [0..*] XAIModelEvaluation 
-}
+subkind XAIModel of functional-complexes  specializes MLModel 
 
 event XAIModelEvaluation
 
-kind XAIEvaluationMetric{
-    @participation [1..*] -- [0..*] XAIModelEvaluation 
-}
+kind XAIEvaluationMetric
 
 event AntehocImplementation
 
 event Explain
 
-quality XAIModelCharacteristic{
-    @characterization [1] -- [1] XAIModel 
-}
+quality XAIModelCharacteristic
 
-category Explanation of functional-complexes {
-     --  ExplanationComponent 
-     --  ExplanationApproach 
-    @participation [1..*] -- [0..*] Explain 
-}
+category Explanation of functional-complexes 
 
-kind ExplanationComponent{
-    @mediation [0..*] -- [1] EvaluatesExplanationComponent 
-}
+kind ExplanationComponent
 
-relator EvaluatesExplanationComponent{
-    @mediation [0..*] -- [1] ExplanationComponentEvaluation 
-}
+relator EvaluatesExplanationComponent
 
 kind ExplanationComponentEvaluation
 
-kind ExplanationEvaluation{
-     --  ExplanationComponentEvaluation 
-     --  XAIEvaluationMetric 
-}
+kind ExplanationEvaluation
 
-quality XAIMetricCharacteristic{
-    @characterization [1] -- [1] XAIEvaluationMetric 
-}
+quality XAIMetricCharacteristic
 
 genset disjointcomplete {
     general ExplanationApproach
     specifics AntehocAprroach, PosthocApproach
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

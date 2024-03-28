@@ -1,0 +1,9 @@
+
+package Offline_Good_Transfer
+
+event Physical_delivery specializes Delivery {
+    location: undefined  
+}
+
+
+

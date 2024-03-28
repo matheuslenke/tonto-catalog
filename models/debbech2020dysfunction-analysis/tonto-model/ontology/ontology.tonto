@@ -1,14 +1,11 @@
 import UFO
+import ontology
 
 package ontology
 
-class Stakeholder_False_Belief specializes Belief {
-    [*] -- inheres_in -- [*] Stakeholder 
-}
+class Stakeholder_False_Belief specializes Belief 
 
-class Stakeholder specializes Agent {
-    [1] -- performs -- [*] Stakeholder_Action 
-}
+class Stakeholder specializes Agent 
 
 class Stakeholder_Action specializes Action 
 
@@ -16,40 +13,23 @@ class Environment_Stakeholder specializes Stakeholder
 
 class System_Stakeholder specializes Stakeholder 
 
-class Erroneous_Stakeholder_Action specializes Stakeholder_Action {
-    [1..*] -- causes -- [1..*] Stakeholdercaused_Failure 
-}
+class Erroneous_Stakeholder_Action specializes Stakeholder_Action 
 
-class Stakeholdercaused_Failure specializes Failure {
-    [1..*] -- is_manifestation_of -- [1..*] Hazardous_Usage 
-}
+class Stakeholdercaused_Failure specializes Failure 
 
 class Stakeholder_illintention specializes Intention 
 
-class Nonintentional_Stakeholdercaused_Failure specializes Stakeholdercaused_Failure {
-    [*] -- is_led_by -- [1..*] Stakeholder_False_Belief 
-}
+class Nonintentional_Stakeholdercaused_Failure specializes Stakeholdercaused_Failure 
 
-class Illintentional_Stakeholdercaused_Failure specializes Stakeholdercaused_Failure {
-    [*] -- is_led_by -- [1..*] Stakeholder_illintention 
-}
+class Illintentional_Stakeholdercaused_Failure specializes Stakeholdercaused_Failure 
 
-class Failure specializes Event {
-    [*] -- causes -- [*] Failure 
-    [*] -- brings_about -- [1] Failure_State 
-    [*] -- is_manifestation_of -- [1] Exposure 
-}
+class Failure specializes Event 
 
-class Safety_Measures specializes Action {
-    [1..*] -- prevents -- [1] Hazard 
-}
+class Safety_Measures specializes Action 
 
 class Hazard specializes Situation 
 
-class Exposure specializes Disposition {
-    [1..*] -- inheres_in -- [1] Hazard 
-    [*] -- inheres_in -- [1] Object 
-}
+class Exposure specializes Disposition 
 
 class System_Equipment specializes Object 
 
@@ -57,43 +37,47 @@ class Environment_Object specializes Object
 
 class Failure_State specializes Situation 
 
-class Hazardous_State specializes Situation {
-    [1] -- triggers_ -- [*] Failure 
-    [1..*] -- activates -- [1..*] Exposure 
-}
+class Hazardous_State specializes Situation 
 
 class Hazardous_Usage specializes Exposure 
 
-class Fault_Emergency_Failure specializes Failure {
-    [1..*] -- is_manifestation_of -- [1..*] Fault 
-}
+class Fault_Emergency_Failure specializes Failure 
 
 class Defect specializes Exposure 
 
 class Fault specializes Defect 
 
-class Environment_Object_Fault specializes Fault {
-    [*] -- inheres_in -- [1] Environment_Object 
-}
+class Environment_Object_Fault specializes Fault 
 
-class System_Equipment_Fault specializes Fault {
-    [*] -- inheres_in -- [1] System_Equipment 
-}
+class System_Equipment_Fault specializes Fault 
 
-class Safety_Goal specializes Goal {
-    [*] -- subgoals -- [*] Safety_Goal 
-}
+class Safety_Goal specializes Goal 
 
-class Safety_Measures2 specializes Action {
-    [*] -- [1..*] Safety_Measures2 
-    [1..*] -- satisfy -- [1..*] Safety_Goal 
-}
+class Safety_Measures2 specializes Action 
 
-class Task{
-    [*] -- SM_context -- [1] Context 
-}
+class Task
 
-class Context specializes Situation {
-    [*] -- [1..*] Context 
-}
+class Context specializes Situation 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

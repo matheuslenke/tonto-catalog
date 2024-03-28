@@ -11,40 +11,37 @@ import Conversation_System
 import Digital_Platform_Ontology
 import Decentralized
 import Revenue_Stream
+import Marketplace_business_models
+import Digital_Good_Transfer
+import UnderUtilisation
+import Offline_Good_Transfer
 
 package Marketplace_business_models
 
-event Digital_Good_Upload{
-    [0..*] -- [*] Offering_Creation 
-    [1] -- [1] Digital_Good 
-}
+event Digital_Good_Upload
 
-event Offline_Good_Transfer specializes Offline_Action, Ownership_Transfer {
-    @participation [0..*] -- involves -- [1..*] Physical_Good 
-    [0..*] -- [1] Platform_Customer_of_Offline_Physical_Good 
-}
+event Offline_Good_Transfer specializes Offline_Action, Ownership_Transfer 
 
-event Request_Quote specializes User_Action {
-    @creation [1] -- [1] Quote 
-}
+event Request_Quote specializes User_Action 
 
-kind Quote{
-    [0..*] -- [1] Offering_On_The_Platform 
-}
+kind Quote
 
 event Price_Proposal specializes User_Action 
 
-subkind Proposed_Price of intrinsic-modes  specializes Price {
-    [*] -- [*] Price_Proposal 
-}
+subkind Proposed_Price of intrinsic-modes  specializes Price 
 
-event Price_Acceptance specializes User_Action {
-    [1] -- [1] Accepted_Quote_Price 
-}
+event Price_Acceptance specializes User_Action 
 
-subkind Accepted_Quote_Price of intrinsic-modes  specializes Proposed_Price {
-    [1] -- [1] Quoted_Transaction 
-}
+subkind Accepted_Quote_Price of intrinsic-modes  specializes Proposed_Price 
 
 subkind Quoted_Transaction of relators  specializes Transaction 
+
+
+
+
+
+
+
+
+
 

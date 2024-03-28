@@ -1,27 +1,19 @@
 
 package Model
 
-kind Concern{
-    @material [0..*] -- isRelatedTo -- [0..*] Concern 
-}
+kind Concern
 
 subkind NonFunctionalConcern of functional-complexes  specializes Concern 
 
 subkind FunctionalConcern of functional-complexes  specializes Concern 
 
-kind Keyword{
-    @componentOf [*] -- isKwOf -- [1] Concern 
-}
+kind Keyword
 
 kind Source{
     st: SourceType [0..*] 
-    @componentOf [*] -- isSourceOf -- [1] Concern 
 }
 
-relator Relationship{
-    @mediation [0..*] -- source -- [1] Concern 
-    @mediation [0..*] -- target -- [1] Concern 
-}
+relator Relationship
 
 relator Dependency specializes Relationship 
 
@@ -31,6 +23,8 @@ relator Contribution specializes Relationship {
 
 relator Composition specializes Relationship 
 
+enum ContributionType
+enum SourceType
 genset aW0Mm06GAqACHSH7 {
     general Relationship
     specifics Dependency, Composition, Contribution
@@ -40,4 +34,9 @@ genset zyMm06GAqACHSIK {
     general Concern
     specifics FunctionalConcern, NonFunctionalConcern
 }
+
+
+
+
+
 

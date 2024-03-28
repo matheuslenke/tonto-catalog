@@ -1,3 +1,4 @@
+import WBS
 
 package WBS
 
@@ -5,7 +6,6 @@ mode Deliverable
 
 class Work_Package specializes Deliverable 
 
-class Practical_Result specializes Deliverable {
-    [0..*] -- [2..*] Deliverable 
-}
+class Practical_Result specializes Deliverable 
+
 

@@ -1,10 +1,7 @@
 
 package Model
 
-category IT_Component of functional-complexes {
-    @material [0..*] -- Single_Point_of_Failure_removal -- [0..*] Service_Continuity 
-    [1..*] -- [1] IT_Architecture 
-}
+category IT_Component of functional-complexes 
 
 kind Site specializes IT_Component 
 
@@ -16,16 +13,11 @@ kind Data_Storage specializes IT_Component
 
 kind Service_Continuity
 
-relator Replication{
-    @mediation [0..*] -- [1] IT_Component 
-    @mediation [0..*] -- [1] Service_Continuity 
-}
+relator Replication
 
 category IT_Architecture of functional-complexes 
 
-category ITSC_Component of functional-complexes {
-    [1..*] -- [1] Service_Continuity 
-}
+category ITSC_Component of functional-complexes 
 
 kind Site_Model specializes ITSC_Component 
 
@@ -33,29 +25,19 @@ kind Data_Replication specializes ITSC_Component
 
 category Resilient_Network of functional-complexes  specializes ITSC_Component 
 
-kind Location{
-    [1] -- Installed_in -- [1] Site 
-}
+kind Location
 
-relator Installation{
-    [1] -- [1] Site 
-    [1] -- [1] Location 
-}
+relator Installation
 
 subkind Local of functional-complexes  specializes Location 
 
 subkind Remote of functional-complexes  specializes Location 
 
-role Online of functional-complexes  specializes Site {
-    @material [1] -- Suspension_of_Operation -- [1] Offline 
-}
+role Online of functional-complexes  specializes Site 
 
 role Offline of functional-complexes  specializes Site 
 
-relator Incident{
-    @mediation [1] -- [1] Online 
-    @mediation [1] -- [1] Offline 
-}
+relator Incident
 
 role Active of functional-complexes  specializes Online, Site 
 
@@ -65,9 +47,7 @@ role Contingency of functional-complexes  specializes Offline, Site
 
 role Passive of functional-complexes  specializes Offline, Site 
 
-category Replication_Technology of functional-complexes {
-    [1..*] -- [1] Data_Replication 
-}
+category Replication_Technology of functional-complexes 
 
 kind Mirroring specializes Replication_Technology 
 
@@ -107,13 +87,9 @@ kind Cooling specializes Platform
 
 kind Power specializes Platform 
 
-kind Warranty_And_Support specializes Platform {
-    [1] -- maintenance_and_troubleshooting -- [1..*] Computer_System 
-}
+kind Warranty_And_Support specializes Platform 
 
-kind Computer_System specializes Platform {
-    [1..*] -- failure -- [1..*] Monitoring 
-}
+kind Computer_System specializes Platform 
 
 kind Monitoring specializes Platform 
 
@@ -135,23 +111,15 @@ subkind Link of functional-complexes  specializes Network_Component
 
 subkind Telecom_Asset of functional-complexes  specializes Network_Component 
 
-relator Appropriate_Level_of_Warranty{
-    [1] -- [1..*] Warranty_And_Support 
-    [1] -- [1..*] Computer_System 
-}
+relator Appropriate_Level_of_Warranty
 
-relator Warning{
-    [1..*] -- [1..*] Computer_System 
-    [1..*] -- [1] Monitoring 
-}
+relator Warning
 
 subkind Monitoring_Software of functional-complexes  specializes Monitoring 
 
 subkind Management_Suite of functional-complexes  specializes Monitoring 
 
-subkind Power_Distributor of functional-complexes  specializes Power {
-    [1..*] -- Power_failure -- [1..*] UPS 
-}
+subkind Power_Distributor of functional-complexes  specializes Power 
 
 subkind Bank_of_Battery of functional-complexes  specializes Power 
 
@@ -161,25 +129,13 @@ subkind UPS_Standby of functional-complexes  specializes UPS
 
 subkind UPS_Online of functional-complexes  specializes UPS 
 
-relator Automatic_Switching{
-    [1..*] -- [1..*] Power_Distributor 
-    [1..*] -- [1..*] UPS 
-}
+relator Automatic_Switching
 
-kind UPS{
-    [1] -- [1..*] Bank_of_Battery 
-    [1] -- [1..*] Generator 
-}
+kind UPS
 
-relator UPSBattery_Switching{
-    [1] -- [1] UPS 
-    [1] -- [1..*] Bank_of_Battery 
-}
+relator UPSBattery_Switching
 
-relator UPSGenerator_Switching{
-    [1] -- [1..*] Generator 
-    [1] -- [1] UPS 
-}
+relator UPSGenerator_Switching
 
 genset EEODUn6GAqACBxPa {
     general IT_Component
@@ -255,4 +211,31 @@ genset IXbvUn6GAqACBzJ9 {
     general UPS
     specifics UPS_Online, UPS_Standby
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

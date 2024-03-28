@@ -1,10 +1,11 @@
 import Service
 import Recurring
 import Transaction
+import Offline_Service
+import Digital_Platform_Ontology
 
 package Offline_Service
 
-event Offline_Service_Delivery specializes Service_Delivery {
-    [*] -- at -- [*] Location 
-}
+event Offline_Service_Delivery specializes Service_Delivery 
+
 

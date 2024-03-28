@@ -2,6 +2,7 @@ import COVER
 import KIPO
 import UFOC
 import UFO
+import untitled
 
 package untitled
 
@@ -9,9 +10,7 @@ class Value_Assessor_Participant specializes Value_Assessor, Participant
 
 class Value_Subject_participant specializes Value_Subject, Participant 
 
-class Knowledge_Intensive_Activity specializes Value_Experience {
-    [*] -- [*] Knowledge_Intensive_Activity 
-}
+class Knowledge_Intensive_Activity specializes Value_Experience 
 
 class Preference_Belief specializes Belief 
 
@@ -21,17 +20,11 @@ class Assessment_Belief specializes Belief
 
 class Meansend_Belief specializes Belief 
 
-class Pursuable_Goal specializes Goal {
-    [1] -- evaluated_by -- [1..*] Assessment_Belief 
-}
+class Pursuable_Goal specializes Goal 
 
 class Belief_Type specializes Intrinsic_Moment_Universal 
 
-class Chosen_Goal specializes Goal {
-    [1] -- deliberated_by -- [0..*] Preference_Belief 
-    [1] -- deliberated_by -- [0..*] Incompatibility_Belief 
-    [1] -- deliberated_by -- [0..*] Cost_Belief 
-}
+class Chosen_Goal specializes Goal 
 
 class Cost_Belief specializes Belief 
 
@@ -39,14 +32,9 @@ class Goal_Type specializes Goal_Universal
 
 class Motivating_Belief specializes Belief 
 
-class Active_Goal specializes Goal {
-    [1] -- activated_by -- [1..*] Motivating_Belief 
-}
+class Active_Goal specializes Goal 
 
-class Executive_Goal specializes Goal {
-    [1] -- checked_by -- [0..*] Precondition_Belief 
-    [1] -- checked_by -- [0..*] Meansend_Belief 
-}
+class Executive_Goal specializes Goal 
 
 class Incompatibility_Belief specializes Belief 
 
@@ -54,4 +42,12 @@ genset Et63v6GAqAAaAm3 {
     general Participant
     specifics Value_Assessor_Participant, Value_Subject_participant
 }
+
+
+
+
+
+
+
+
 

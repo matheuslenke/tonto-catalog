@@ -1,0 +1,9 @@
+import External_Payment
+
+package External_Payment
+
+event External_payment
+
+kind Payment_provider
+
+

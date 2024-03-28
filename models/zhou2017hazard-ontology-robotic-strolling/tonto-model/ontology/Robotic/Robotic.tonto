@@ -1,52 +1,44 @@
+import Robotic
 
 package Robotic
 
-kind Patient{
-    [*] -- play -- [*] Being_Supported 
-    [*] -- play -- [*] Being_Lifted 
-}
+kind Patient
 
-role Being_Supported{
-    [*] -- [*] BalanceSupport 
-}
+role Being_Supported
 
-relator BalanceSupport{
-    [*] -- [*] Balance_Supporter 
-}
+relator BalanceSupport
 
 role Balance_Supporter
 
-role Being_Lifted{
-    [*] -- [*] LiftUp 
-}
+role Being_Lifted
 
-relator LiftUp{
-    [*] -- [*] Object_Lifter 
-}
+relator LiftUp
 
 role Object_Lifter
 
-kind Robot_Handle{
-    [*] -- play -- [*] Balance_Supporter 
-    [*] -- play -- [*] Object_Lifter 
-    [*] -- ispartof -- [*] Robot 
-}
+kind Robot_Handle
 
-kind Robot{
-    [*] -- play -- [*] Electricity_Consumer 
-}
+kind Robot
 
 role Electricity_Consumer
 
 role Electricity_Source
 
-kind Battery{
-    [*] -- play -- [*] Electricity_Source 
-    [*] -- ispartof -- [*] Robot 
-}
+kind Battery
 
-relator Electricity_Consumption{
-    [*] -- [*] Electricity_Consumer 
-    [*] -- [*] Electricity_Source 
-}
+relator Electricity_Consumption
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

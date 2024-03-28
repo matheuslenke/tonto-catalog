@@ -1,33 +1,22 @@
-import Employment
 
 package Model
 
 role Customer of functional-complexes  specializes Account {
     customerId: int  
     location: undefined  
-    [0..*] -- Plays_at -- [0..*] Physical_building 
-    [1] -- Makes_payment -- [0..*] Payment 
-    @material [2..*] -- Books -- [0..*] Shared_Booking 
-    @material [1] -- Books -- [0..*] Single_Booking 
 }
 
 role Instructor of functional-complexes  specializes Employee {
     instructorId: int  
     specialization: undefined  
-    [1] -- Recieves -- [0..*] Instructor_Booking 
-    @material [1..*] -- [1..*] Mediated_by_employment_contract 
 }
 
 role Owner of functional-complexes  specializes ManagementUsers {
     ownerId: int  
-    [1] -- owns -- [1..*] Company 
 }
 
 role Employee of functional-complexes  specializes ManagementUsers {
     employeeId: int  
-    @material [0..*] -- Works_at -- [1..*] Physical_building 
-    [1..*] -- Hired -- [1..*] Company 
-    @material [1..*] -- [1..*] Mediated_by_employment_contract 
 }
 
 role ManagementUsers of functional-complexes  specializes Account {
@@ -39,14 +28,12 @@ role User of functional-complexes  specializes Person {
     userId: int  
     password: undefined  
     role_: undefined  
-    @material [0..*] -- creating -- [0..*] Account 
 }
 
 category Physical_building of collectives {
     facilityId: int  
     location: undefined  
     sportType: string_  
-    [1] -- Receives -- [0..*] FacilityBooking 
 }
 
 category FacilityBooking of functional-complexes {
@@ -54,7 +41,6 @@ category FacilityBooking of functional-complexes {
     place: undefined  
     timeStamp: undefined  
     facilityId: int  
-    [1] -- Get_payment -- [1] Payment 
 }
 
 kind Payment{
@@ -86,10 +72,7 @@ kind Single_Booking specializes FacilityBooking {
 
 kind Instructor_Booking specializes FacilityBooking 
 
-relator Account_creation{
-    @mediation [1..*] -- includes_user -- [1] Account 
-    @mediation [0..*] -- includes_person -- [1] User 
-}
+relator Account_creation
 
 kind Person
 
@@ -108,4 +91,20 @@ genset Complete_Disjoint {
     general User
     specifics Active, Inactive
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

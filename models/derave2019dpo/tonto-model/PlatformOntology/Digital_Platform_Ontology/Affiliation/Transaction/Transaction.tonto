@@ -11,93 +11,93 @@ import Registration
 import Price_Discovery
 import Conversation_System
 import Price_Calculation
+import Transaction
+import Uber_eats
+import Payment
+import Review_by_Customer
+import Review_by_Provider
+import Digital_Platform_Ontology
+import In_House_Payment
+import Revenue_Stream
+import Provider_Source
+import Customer_Source
 
 package Transaction
 
-subkind Transaction of relators  specializes User_Affiliation_Agreement, MS_User_Affiliation {
-    @mediation [1..*] -- bounds_customer -- [1] Platform_Customer 
-    @mediation [1..*] -- is_bound_to -- [1] Transaction_Platform_Company 
-    @mediation [1..*] -- bounds_hired_provider -- [1..*] Platform_Provider 
-    [1] -- partially_fulfills -- [0..*] Delivery 
-    @historicalDependence [0..*] -- conforms_to -- [1..*] Offering_On_The_Platform 
-    @componentOf [1] -- is_part_of -- [0..1] Investment 
-    [1] -- [1] Paid_Price 
-    [1] -- [1] Transaction_Price 
-    [1] -- [0..*] Transaction_Conversation 
-    [1] -- [1] Highest_Price_Offer 
-    [0..*] -- confirms_to -- [1] Listing 
-    [0..*] -- [1] Fixed_Fee 
-}
+subkind Transaction of relators  specializes User_Affiliation_Agreement, MS_User_Affiliation 
 
-relator Offering_On_The_Platform{
-    @mediation [1] -- described_by -- [1] Offering_Description 
-    @mediation [1..*] -- offered_to -- [1] Target_MS_Platform_Customer_Community 
-    @mediation [0..*] -- mediated_by -- [1] Transaction_Platform_Company 
-    @mediation [1..*] -- offered_by -- [1] Offering_Creator 
-    [1..*] -- [1..*] Price_set_by_Provider 
-    [0..*] -- [0..*] Feature 
-}
+relator Offering_On_The_Platform
 
 subkind Offering_Description of functional-complexes  specializes Main_Digital_Content 
 
-roleMixin Platform_Provider of functional-complexes  specializes Platform_User, Offering_Creator {
-    @memberOf [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- does -- [0..*] Review_Creation_by_Provider 
-    [1..*] -- by -- [1..*] Revenue_Stream_Payed_by_Provider 
-}
+roleMixin Platform_Provider of functional-complexes  specializes Platform_User, Offering_Creator 
 
-event Offering_Creation specializes Main_Digital_Content_Creation {
-    @participation [1..*] -- is_performed_by -- [1] Offering_Creator 
-    @creation [1] -- created -- [1] Offering_On_The_Platform 
-    @creation [1] -- creates -- [1] Offering_Description 
-    @participation [1..*] -- performed_by -- [1] Airbnb_Homeowner 
-    @participation [0..*] -- performed_by -- [1] Uber_Eats_Restaurant 
-    @participation [0..*] -- performed_by -- [1] Uber_Eats_Rider 
-}
+event Offering_Creation specializes Main_Digital_Content_Creation 
 
-roleMixin Offering_Creator of functional-complexes  specializes Platform_User, Content_Creator, MS_Platform_User, Registered_User {
-    @memberOf [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- [0..*] Price_Proposal 
-    [1] -- participates -- [1..*] Listing_Creation 
-    [1] -- changes -- [0..*] Price_Setting_action_by_Provider 
-}
+roleMixin Offering_Creator of functional-complexes  specializes Platform_User, Content_Creator, MS_Platform_User, Registered_User 
 
-event Transaction_Creation specializes User_Action, Platform_Supported_Interaction {
-    @creation [1] -- creates -- [1] Transaction 
-    @participation [1..*] -- initiates -- [1] Platform_Customer 
-    @participation [1..*] -- accepted_by -- [1] Platform_Provider 
-    @participation [1..*] -- performed_by -- [1] Airbnb_Home_Seeker 
-    @participation [0..*] -- performed_by -- [1] Uber_Eats_Customer 
-}
+event Transaction_Creation specializes User_Action, Platform_Supported_Interaction 
 
-roleMixin Target_Platform_Customer of functional-complexes  specializes Platform_User, Platform_Visitor {
-    @memberOf [1..*] -- is_part_of -- [1..*] Target_MS_Platform_Customer_Community 
-    [*] -- suggests -- [*] Suggested_Price 
-    [1] -- initiates -- [0..*] Listing_Conversation 
-    @participation [1] -- [0..*] Price_Offer_Creation 
-    [1] -- [0..*] Request_Quote 
-}
+roleMixin Target_Platform_Customer of functional-complexes  specializes Platform_User, Platform_Visitor 
 
-subkind Target_MS_Platform_Customer_Community of collectives  specializes Target_MS_Platform_User_Side {
-    @subCollectionOf [0..*] -- is_part_of -- [1] Decentralized_Target_Platform_Customer_Community 
-}
+subkind Target_MS_Platform_Customer_Community of collectives  specializes Target_MS_Platform_User_Side 
 
-roleMixin Platform_Customer of functional-complexes  specializes Platform_User, Content_Consumer, MS_Platform_User, Registered_User, Target_Platform_Customer {
-    @memberOf [1..*] -- is_part_of -- [1..*] MS_Platform_User_Side 
-    [1] -- by -- [0..*] Transaction_Payment 
-    [1] -- does -- [0..*] Review_Creation_by_Customer 
-    [1] -- [1..*] Price_Acceptance 
-    [1] -- by -- [0..*] Inhouse_Payment 
-    [1] -- participates -- [1..*] Transaction_Conversation 
-    [1] -- by -- [1..*] Revenue_Stream_Payed_by_Customer 
-    [*] -- [*] Paid_Transaction_Price 
-}
+roleMixin Platform_Customer of functional-complexes  specializes Platform_User, Content_Consumer, MS_Platform_User, Registered_User, Target_Platform_Customer 
 
 roleMixin Transaction_Platform_Company of functional-complexes  specializes Platform_Company 
 
-event Delivery{
-    @participation [0..*] -- received_by -- [1..*] Platform_Customer 
-}
+event Delivery
 
 event OuterPlatform_Delivery specializes Delivery 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

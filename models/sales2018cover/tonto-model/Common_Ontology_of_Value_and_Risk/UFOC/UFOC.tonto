@@ -1,4 +1,6 @@
 import UFOA
+import UFOC
+import COVER
 
 package UFOC
 
@@ -6,14 +8,13 @@ category Object specializes Substantial
 
 category Agent specializes Substantial 
 
-category Intention specializes Mental_Aspect {
-    [1..*] -- hurt_by_loss_situation -- [*] Loss_Situation 
-    [*] -- hurt_by_los_event -- [*] Loss_Event 
-    @characterization [1..*] -- [0..1] Risk_Subject 
-    [1..*] -- [*] Experience_Risk_Assessment 
-    [1..*] -- [*] Experience_Value_Asc 
-    @characterization [1..*] -- [*] Value_Subject 
-}
+category Intention specializes Mental_Aspect 
 
 category Mental_Aspect specializes Mode 
+
+
+
+
+
+
 

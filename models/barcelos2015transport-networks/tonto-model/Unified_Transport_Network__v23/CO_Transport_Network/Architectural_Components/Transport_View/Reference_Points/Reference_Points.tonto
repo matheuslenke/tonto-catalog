@@ -1,21 +1,20 @@
 import Architectural_Components
+import Reference_Points
 
 package Reference_Points
 
 category Directly_Bound_Reference_Point of functional-complexes  specializes Reference_Point 
 
-roleMixin Path_Connected_Reference_Point of functional-complexes  specializes Directly_Bound_Reference_Point {
-    @material [1..*] -- path -- [1..*] Path_Connected_Reference_Point 
-}
+roleMixin Path_Connected_Reference_Point of functional-complexes  specializes Directly_Bound_Reference_Point 
 
 category Reference_Point of functional-complexes  specializes Architectural_Component 
 
-roleMixin TE_Connected_Reference_Point of functional-complexes  specializes Directly_Bound_Reference_Point {
-    @material [1..*] -- te_connected -- [1..*] TE_Connected_Reference_Point 
-}
+roleMixin TE_Connected_Reference_Point of functional-complexes  specializes Directly_Bound_Reference_Point 
 
 genset t1oAXb6GAqBwAUoX {
     general Reference_Point
     specifics Access_Point, Forwarding_Point, Forwarding_End_Point
 }
+
+
 

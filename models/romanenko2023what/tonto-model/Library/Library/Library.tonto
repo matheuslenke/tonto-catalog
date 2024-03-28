@@ -1,3 +1,4 @@
+import Library
 
 package Library
 
@@ -7,27 +8,15 @@ event Registration
 
 role Registered_Person of functional-complexes  specializes Person, Client 
 
-quality Age{
-    @characterization [1] -- [1] Person 
-}
+quality Age
 
-role Librarian of functional-complexes  specializes Employee {
-    @participation [1] -- [*] Registration 
-}
+role Librarian of functional-complexes  specializes Employee 
 
-subkind Library of functional-complexes  specializes Organization {
-    [1] -- provides_access_to -- [1..*] Artifact 
-    @memberOf [1..*] -- [1] Librarian 
-}
+subkind Library of functional-complexes  specializes Organization 
 
-relator Work_Contract{
-    @mediation [1] -- [1] Employee 
-    @mediation [1] -- [1] Organization 
-}
+relator Work_Contract
 
-kind Artifact{
-    @memberOf [2..*] -- [*] Artifact 
-}
+kind Artifact
 
 subkind Work of functional-complexes  specializes Artifact 
 
@@ -39,65 +28,39 @@ subkind Sound_Recording of functional-complexes  specializes Recording
 
 subkind Object of functional-complexes  specializes Artifact 
 
-relator Library_Account{
-     --  Loan 
-    @creation [1] -- [1] Registration 
-    @mediation [1] -- [1] Client 
-    @mediation [1] -- [1] Library 
-}
+relator Library_Account
 
-roleMixin Client of functional-complexes {
-    @participation [1] -- [1] Registration 
-    [1] -- owns -- [1] Library_Card 
-}
+roleMixin Client of functional-complexes 
 
 role Employee of functional-complexes  specializes Person 
 
-subkind Publisher of functional-complexes  specializes Organization {
-    @participation [1] -- [1..*] Publication 
-}
+subkind Publisher of functional-complexes  specializes Organization 
 
-quality Library_Number{
-    @characterization [1] -- [1] Library_Account 
-    @externalDependence [1] -- [1] Library_Card 
-}
+quality Library_Number
 
 collective Series
 
 phase Suspended_Account of relators  specializes Library_Account 
 
-kind Organization{
-    @memberOf [1..*] -- [1] Employee 
-}
+kind Organization
 
-relator Loan{
-    @mediation [1] -- [1] Client 
-    @mediation [1] -- [1] Lent_Copy 
-}
+relator Loan
 
-quality Access_Clearance{
-    @characterization [1] -- [1] Object 
-}
+quality Access_Clearance
 
 subkind Recording of functional-complexes  specializes Work 
 
 subkind Video_Recording of functional-complexes  specializes Recording 
 
-quality Data_Medium{
-    @characterization [1..*] -- [1] Recording 
-}
+quality Data_Medium
 
-subkind Article of functional-complexes  specializes Document {
-    [2..*] --  Proceedings 
-}
+subkind Article of functional-complexes  specializes Document 
 
 subkind Patent of functional-complexes  specializes Document 
 
 subkind Book of functional-complexes  specializes Document 
 
-subkind Chapter of functional-complexes  specializes Document {
-    [2..*] --  Book 
-}
+subkind Chapter of functional-complexes  specializes Document 
 
 subkind Proceedings of functional-complexes  specializes Document 
 
@@ -109,9 +72,7 @@ subkind Man of functional-complexes  specializes Person
 
 subkind Woman of functional-complexes  specializes Person 
 
-quality Address{
-    @characterization [1] -- [1] Client 
-}
+quality Address
 
 kind Library_Card
 
@@ -121,30 +82,19 @@ phase Finished of relators  specializes Loan
 
 role Translator of functional-complexes  specializes Person 
 
-relator Authorship{
-    @mediation [1..*] -- [1] Writer 
-    @mediation [1..*] -- [1] Work 
-}
+relator Authorship
 
-relator Translation{
-    @mediation [1..*] -- [1] Translator 
-    @mediation [1..*] -- [1] Translated_Edition 
-}
+relator Translation
 
 subkind Translated_Edition of intrinsic-modes  specializes Edition 
 
-mode Edition{
-    @creation [1] -- [1] Publication 
-    @characterization [1..*] -- [1] Work 
-}
+mode Edition
 
 event Publication
 
 phase Ongoing of relators  specializes Loan 
 
-mode Copy{
-    @characterization [1..*] -- [1] Edition 
-}
+mode Copy
 
 role Lent_Copy of intrinsic-modes  specializes Copy 
 
@@ -216,4 +166,35 @@ genset CopyState {
     general Copy
     specifics Undamaged, Damaged, Destroyed
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

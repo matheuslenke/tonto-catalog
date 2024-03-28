@@ -1,13 +1,11 @@
 import OntoEmergePlan
+import UFOC
 
 package UFOC
 
 mode Closed_Commitment specializes Commitment 
 
-mode Intention specializes Commitment {
-    @characterization [1..*] -- [1] Agent 
-    @characterization [1..*] -- [1] Agent 
-}
+mode Intention specializes Commitment 
 
 category Agent of functional-complexes 
 
@@ -15,15 +13,11 @@ roleMixin Agent_in_Social_Relation of functional-complexes  specializes Agent
 
 mode Atomic_Commitment specializes Commitment 
 
-category Collective_Social_Agent of functional-complexes  specializes Social_Agent {
-    @memberOf [0..1] -- [2..*] Agent 
-}
+category Collective_Social_Agent of functional-complexes  specializes Social_Agent 
 
 mode Commitment
 
-mode Complex_Commitment specializes Commitment {
-    @sum [0..*] -- [2..*] Commitment 
-}
+mode Complex_Commitment specializes Commitment 
 
 roleMixin Delegatee of functional-complexes 
 
@@ -41,13 +35,16 @@ category Physical_Agent of functional-complexes  specializes Agent
 
 category Social_Agent of functional-complexes  specializes Agent 
 
-type Social_Role{
-    @formal [1] -- creates -- [0..1] Normative_Description 
-}
+type Social_Role
 
 mode Open_Commitment
 
 category Physical_Component of functional-complexes  specializes Environmental_Component 
 
 category Social_Component of functional-complexes 
+
+
+
+
+
 

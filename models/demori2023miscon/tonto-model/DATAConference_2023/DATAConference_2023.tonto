@@ -1,76 +1,44 @@
+import DATAConference_2023
 
 package DATAConference_2023
 
-kind MilitaryOrganization{
-     -- hasMOPowerType --  MilitaryOrganizationPowerType 
-}
+kind MilitaryOrganization
 
-role CommDeviceOperator of functional-complexes  specializes MilitaryPerson {
-     -- operates --  CommDevice 
-}
+role CommDeviceOperator of functional-complexes  specializes MilitaryPerson 
 
-kind CommDevice specializes OperationalElement {
-     -- mayTalkTo --  CommDevice 
-     -- hasInterface --  Interface 
-}
+kind CommDevice specializes OperationalElement 
 
-role MilitaryPerson of functional-complexes  specializes OperationalElement, Person {
-    @material [1..*] -- [1] MilitaryOrganization 
-}
+role MilitaryPerson of functional-complexes  specializes OperationalElement, Person 
 
-relator MilitaryEmployment{
-    @mediation [1] -- [1..*] MilitaryPerson 
-    @mediation [1..*] -- [1] MilitaryOrganization 
-}
+relator MilitaryEmployment
 
-kind WirelessNetwork{
-     --  CommDevice 
-     --  AccessPoint 
-}
+kind WirelessNetwork
 
-role Subordinate of functional-complexes  specializes MilitaryOrganization {
-     -- isSubordinateTo --  Commander 
-}
+role Subordinate of functional-complexes  specializes MilitaryOrganization 
 
-role Commander of functional-complexes  specializes MilitaryOrganization {
-     -- hasDirectRelationshipWith --  Subordinate 
-}
+role Commander of functional-complexes  specializes MilitaryOrganization 
 
-mixin CommDeviceCarrier of functional-complexes {
-     -- carries --  CommDevice 
-}
+mixin CommDeviceCarrier of functional-complexes 
 
-category MilitaryPlatform of functional-complexes  specializes CommDeviceCarrier, OperationalElement {
-     -- belongsTo --  MilitaryOrganization 
-}
+category MilitaryPlatform of functional-complexes  specializes CommDeviceCarrier, OperationalElement 
 
 category Armored of functional-complexes  specializes Vehicle 
 
-kind MilitaryOrganizationPowerType{
-     -- MOTypeIsSubordinateTo --  MilitaryOrganizationPowerType 
-}
+kind MilitaryOrganizationPowerType
 
-kind Interface{
-     -- hasInterfPowerType --  InterfacePowerType 
-}
+kind Interface
 
 kind InterfacePowerType
 
-mode DataTransferMethod{
-    @characterization [1] -- [1] InterfacePowerType 
-}
+mode DataTransferMethod
 
 category OperationalElement of functional-complexes 
 
-role HierarchicallyEquivalentDuringCommunication of functional-complexes  specializes MilitaryOrganization {
-     -- HierarchicallyEquivalentDuringCommunicationWith --  HierarchicallyEquivalentDuringCommunication 
-}
+role HierarchicallyEquivalentDuringCommunication of functional-complexes  specializes MilitaryOrganization 
 
 category Vehicle of functional-complexes  specializes MilitaryPlatform 
 
-role MilitaryPersonAsPassenger of functional-complexes  specializes MilitaryPerson {
-     -- isLocatedIn --  Vehicle 
-}
+role MilitaryPersonAsPassenger of functional-complexes  specializes MilitaryPerson 
 
 kind Person
 
@@ -80,35 +48,46 @@ kind Guarani specializes Armored
 
 kind AccessPoint
 
-quality Range{
-    @characterization [1] --  CommDevice 
-}
+quality Range
 
-quality AntennaGain{
-    @characterization [1] -- [1] CommDevice 
-}
+quality AntennaGain
 
-quality AmphibiousSpeed{
-    @characterization [1] -- [1] Guarani 
-}
+quality AmphibiousSpeed
 
-quality Frequency{
-    @characterization [1] -- [1] InterfacePowerType 
-}
+quality Frequency
 
-quality Txpower{
-    @characterization [1] -- [1] InterfacePowerType 
-}
+quality Txpower
 
-quality MinSpeed{
-    @characterization [1] -- [1] CommDeviceCarrier 
-}
+quality MinSpeed
 
-quality VisibilityRange{
-    @characterization [1] --  CommDeviceCarrier 
-}
+quality VisibilityRange
 
-quality MaxSpeedLand{
-    @characterization [1] --  CommDeviceCarrier 
-}
+quality MaxSpeedLand
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

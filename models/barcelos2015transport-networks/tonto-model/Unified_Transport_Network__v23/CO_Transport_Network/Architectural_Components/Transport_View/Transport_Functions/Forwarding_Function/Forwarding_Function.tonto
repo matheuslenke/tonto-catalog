@@ -5,6 +5,8 @@ import Forwarding_Points
 import Adaptation_Function
 import Complementary_Categorizations
 import Transport_Functions
+import Forwarding_Function
+import Matrix_Connections
 
 package Forwarding_Function
 
@@ -46,52 +48,21 @@ role Forwarding_Function_SkSo_Connected of functional-complexes  specializes For
 
 role Forwarding_Function_So_M_Connected of functional-complexes  specializes Forwarding_Function_Matrix 
 
-relator Forwarding_Rule_LC specializes Forwarding_Rule {
-    @mediation [1..*] -- set_ingress -- [1..*] Ingress_LC 
-    @mediation [1..*] -- isDefinedBy -- [1] Forwarding_Function_LC_Connected 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_LC 
-}
+relator Forwarding_Rule_LC specializes Forwarding_Rule 
 
-relator Forwarding_Rule_MC_Sk specializes Forwarding_Rule {
-    @mediation [1..*] -- is_defined_by -- [1] Sk_MC_Forwarding 
-    @mediation [1..*] -- set_ingress -- [1..*] Ingress_MC_Sk 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_MC_Sk 
-}
+relator Forwarding_Rule_MC_Sk specializes Forwarding_Rule 
 
-relator Forwarding_Rule_MC_SkSo specializes Forwarding_Rule {
-    @mediation [1..*] -- set_ingress -- [1..*] Ingress_MC_SkSo 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_MC_SkSo 
-}
+relator Forwarding_Rule_MC_SkSo specializes Forwarding_Rule 
 
-relator Forwarding_Rule_MC_So specializes Forwarding_Rule {
-    @mediation [1..*] -- set_ingress -- [1..*] Ingress_MC_So 
-    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_So_M_Connected 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_MC_So 
-}
+relator Forwarding_Rule_MC_So specializes Forwarding_Rule 
 
-relator Forwarding_Rule_SkSo specializes Forwarding_Rule {
-    @mediation [1..*] -- set_ingress -- [1..*] Ingress_SN_SkSo 
-    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_CFTE_SkSo 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_SkSo_2 
-}
+relator Forwarding_Rule_SkSo specializes Forwarding_Rule 
 
-relator Forwarding_Rule_So_SN specializes Forwarding_Rule {
-    @mediation [1..*] -- set_ingress -- [1..] Ingress_SN_So 
-    @mediation [1] -- is_defined_by -- [1] Forwarding_Function_CFTE_So 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_So 
-}
+relator Forwarding_Rule_So_SN specializes Forwarding_Rule 
 
-relator Forwarding_Rule_SoSk specializes Forwarding_Rule {
-    @mediation [1..*] -- set_ingress -- [1..*] Ingress_SN_SoSk 
-    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_CFTE_SoSk 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_SkSo 
-}
+relator Forwarding_Rule_SoSk specializes Forwarding_Rule 
 
-relator Fowarding_Rule_Sk_SN specializes Forwarding_Rule {
-    @mediation [1..*] -- set_ingress -- [1..*] Ingress_SN_Sk 
-    @mediation [1..*] -- is_defined_by -- [1] Forwarding_Function_CFTE_Sk 
-    @mediation [1..*] -- set_egress -- [1..*] Egress_SN_Sk 
-}
+relator Fowarding_Rule_Sk_SN specializes Forwarding_Rule 
 
 roleMixin Ingress_LC of functional-complexes  specializes Possible_Ingress_LC 
 
@@ -160,4 +131,27 @@ genset iCkn6AUAgInB6d {
     general Forwarding_Rule
     specifics Forwarding_Rule_MC_So, Forwarding_Rule_So_SN, Forwarding_Rule_SoSk, Forwarding_Rule_LC, Forwarding_Rule_MC_SkSo, Fowarding_Rule_Sk_SN, Forwarding_Rule_MC_Sk, Forwarding_Rule_SkSo
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

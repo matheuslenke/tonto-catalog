@@ -1,30 +1,17 @@
+import Equipment
+import TP
 
 package Equipment
 
-role Rack_Composed_Of_Shelf of functional-complexes  specializes Rack {
-    @material [1] -- rackHoldsShelf -- [1..*] Shelf 
-    @mediation [1] -- suffers -- [1..*] Fitting_ShelfRack 
-}
+role Rack_Composed_Of_Shelf of functional-complexes  specializes Rack 
 
-role Shelf_Composed_Of_Slot of functional-complexes  specializes Shelf {
-    @material [1] -- shelfHoldsSlot -- [1..*] Slot 
-    @mediation [1] -- suffers -- [1..*] Fitting_SlotShelf 
-}
+role Shelf_Composed_Of_Slot of functional-complexes  specializes Shelf 
 
-role Slot_Composed_Of_SubSlot of functional-complexes  specializes Slot {
-    @material [1] -- slotHoldsSubSlot -- [1..*] SubSlot 
-    @mediation [1] -- suffers -- [1..*] Fitting_SubSlotSlot 
-}
+role Slot_Composed_Of_SubSlot of functional-complexes  specializes Slot 
 
-roleMixin Socket_Composed_Of_Equipment of functional-complexes  specializes Socket {
-    @mediation [1] -- suffers -- [1] Fitting_SocketEquipment 
-}
+roleMixin Socket_Composed_Of_Equipment of functional-complexes  specializes Socket 
 
-kind Equipment{
-    @material [1] -- socketHoldsEquipment -- [1] Socket_Composed_Of_Equipment 
-    @mediation [1] -- fit_in -- [1] Fitting_SocketEquipment 
-    @mediation [1] -- endsEquipment -- [1..*] Physical_Termination 
-}
+kind Equipment
 
 mixin EquipmentHolder of functional-complexes 
 
@@ -36,25 +23,31 @@ relator Fitting_SocketEquipment
 
 relator Fitting_SubSlotSlot
 
-kind Rack specializes EquipmentHolder {
-    @mediation [1..*] -- is_in -- [1] Abstraction_Of_CoLocalization 
-}
+kind Rack specializes EquipmentHolder 
 
-kind Shelf specializes EquipmentHolder {
-    @mediation [1] -- fit_in -- [1] Fitting_ShelfRack 
-}
+kind Shelf specializes EquipmentHolder 
 
-kind Slot specializes Socket {
-    @mediation [1] -- fit_in -- [1] Fitting_SlotShelf 
-}
+kind Slot specializes Socket 
 
 mixin Socket of functional-complexes  specializes EquipmentHolder 
 
-kind SubSlot specializes Socket {
-    @mediation [1] -- fit_in -- [1] Fitting_SubSlotSlot 
-}
+kind SubSlot specializes Socket 
 
 relator Abstraction_Of_CoLocalization
 
 relator SNC_Termination
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

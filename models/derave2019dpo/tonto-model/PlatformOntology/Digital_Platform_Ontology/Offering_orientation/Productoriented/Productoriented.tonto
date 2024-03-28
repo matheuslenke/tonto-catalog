@@ -1,10 +1,10 @@
 import Transaction
+import Productoriented
 
 package Productoriented
 
-event ProductOriented_Delivery specializes Delivery {
-    @participation [0..*] -- involves -- [1..*] Good 
-}
+event ProductOriented_Delivery specializes Delivery 
 
 kind Good
+
 

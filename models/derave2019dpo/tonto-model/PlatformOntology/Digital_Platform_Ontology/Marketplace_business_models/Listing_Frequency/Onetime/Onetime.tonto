@@ -8,10 +8,10 @@ import Quantitybased
 import Transaction
 import Price_set_by_Provider
 import Price_Calculation
+import Onetime
 
 package Onetime
 
-subkind Onetime_listing of relators  specializes Listing {
-    [0..*] -- [1] Time 
-}
+subkind Onetime_listing of relators  specializes Listing 
+
 

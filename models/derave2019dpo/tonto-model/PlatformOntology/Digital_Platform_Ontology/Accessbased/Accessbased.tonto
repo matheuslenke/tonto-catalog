@@ -17,28 +17,25 @@ import Review_by_Customer
 import In_House_Payment
 import Customer_Source
 import Price_Discovery
+import Accessbased
 
 package Accessbased
 
-subkind Immediate_Acces_Transaction of relators  specializes Transaction {
-    @mediation [1..*] -- bounds_hired_provider -- [1..*] immediate_Access_Provider 
-    @mediation [1..*] -- bounds_customer -- [1..*] Immediate_Access_Customer 
-    [1] -- is_part_of -- [0..*] Immediate_Access_Commitment 
-}
+subkind Immediate_Acces_Transaction of relators  specializes Transaction 
 
-subkind Immediate_Access_Claim of intrinsic-modes  specializes Service_Customer_Claim {
-    [1..*] -- is_part_of -- [1] Immediate_Acces_Transaction 
-    @externalDependence [1..*] -- depends_on -- [1..*] immediate_Access_Provider 
-}
+subkind Immediate_Access_Claim of intrinsic-modes  specializes Service_Customer_Claim 
 
-roleMixin immediate_Access_Provider of functional-complexes  specializes Platform_Provider {
-    @characterization [1..*] -- inheres_in -- [1..*] Immediate_Access_Commitment 
-}
+roleMixin immediate_Access_Provider of functional-complexes  specializes Platform_Provider 
 
-roleMixin Immediate_Access_Customer of functional-complexes  specializes Platform_Customer {
-    @characterization [1] -- inheres_in -- [1..*] Immediate_Access_Claim 
-    @externalDependence [1] -- depends_on -- [1..*] Immediate_Access_Commitment 
-}
+roleMixin Immediate_Access_Customer of functional-complexes  specializes Platform_Customer 
 
 subkind Immediate_Access_Commitment of intrinsic-modes  specializes Hired_Provider_Commitment 
+
+
+
+
+
+
+
+
 

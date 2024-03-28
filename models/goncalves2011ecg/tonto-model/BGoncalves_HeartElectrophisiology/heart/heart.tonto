@@ -1,25 +1,16 @@
+import heart
 
 package heart
 
-kind HumanHeart specializes Chamber, Muscle {
-    @componentOf [1] -- [1] HumanBody 
-}
+kind HumanHeart specializes Chamber, Muscle 
 
-kind LeftVentricle specializes Chamber, Muscle {
-    @componentOf [1] -- [1] HumanHeart 
-}
+kind LeftVentricle specializes Chamber, Muscle 
 
-kind RightVentricle specializes Chamber, Muscle {
-    @componentOf [1] -- [1] HumanHeart 
-}
+kind RightVentricle specializes Chamber, Muscle 
 
-kind RightAtrium specializes Chamber, Muscle {
-    @componentOf [1] -- [1] HumanHeart 
-}
+kind RightAtrium specializes Chamber, Muscle 
 
-kind LeftAtrium specializes Chamber, Muscle {
-    @componentOf [1] -- [1] HumanHeart 
-}
+kind LeftAtrium specializes Chamber, Muscle 
 
 kind HumanBody specializes Chamber 
 
@@ -27,9 +18,7 @@ category Muscle of functional-complexes
 
 category Chamber of functional-complexes 
 
-collective SANodeMyocytes{
-    @subCollectionOf  --  CSAMyocytes 
-}
+collective SANodeMyocytes
 
 collective CSAMyocytes
 
@@ -53,13 +42,9 @@ quantity ECMOfCSA
 
 quantity ECMOfCSV
 
-collective PacemakerSANodeMyocytes{
-    @subCollectionOf  --  SANodeMyocytes 
-}
+collective PacemakerSANodeMyocytes
 
-collective TransitionalSANodeMyocytes{
-    @subCollectionOf  --  SANodeMyocytes 
-}
+collective TransitionalSANodeMyocytes
 
 genset disjoint {
     general Muscle
@@ -85,4 +70,12 @@ genset disjoint {
     general CSVMyocytes
     specifics CSVMyocytesPolarized, CSVMyocytesDepolarized
 }
+
+
+
+
+
+
+
+
 

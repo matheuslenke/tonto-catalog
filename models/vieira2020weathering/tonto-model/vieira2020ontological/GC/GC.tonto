@@ -1,0 +1,14 @@
+import Model
+import GC
+
+package GC
+
+category Earth_Material of functional-complexes 
+
+category Earth_Fluid of functional-complexes  specializes Earth_Material 
+
+category Geological_Object of functional-complexes 
+
+class Rock specializes Earth_Solid 
+
+

@@ -1,21 +1,15 @@
 import GDPO_part_1
 import Typology
 import Review_System
+import OneSided
 
 package OneSided
 
-subkind OneSided_Platform of relators  specializes Digital_Platform_Offering {
-    @mediation [1..*] -- made_towards -- [1] Target_OneSided_User_Community 
-    @mediation [1] -- conforms_to -- [0..*] OneSided_Platform_User_Affiliation 
-}
+subkind OneSided_Platform of relators  specializes Digital_Platform_Offering 
 
-collective Target_OneSided_User_Community{
-    @subCollectionOf [1] -- is_part_of -- [1] Target_Platform_User_Community 
-}
+collective Target_OneSided_User_Community
 
-subkind OneSided_Platform_User_Affiliation of relators  specializes User_Affiliation_Agreement {
-    @mediation [1..*] -- bounds_user -- [1] OneSided_Platform_User 
-}
+subkind OneSided_Platform_User_Affiliation of relators  specializes User_Affiliation_Agreement 
 
 roleMixin OneSided_Platform_User of functional-complexes  specializes Platform_User 
 
@@ -23,4 +17,8 @@ genset Nq8h106FYEWEV08Z {
     general OneSided_Platform_User_Affiliation
     specifics Registration, Subscription
 }
+
+
+
+
 

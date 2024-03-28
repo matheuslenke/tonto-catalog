@@ -1,85 +1,68 @@
+import Experimento
 
 package Experimento
 
-kind Antecedente{
-    @Formal [1] -- [1] Referncia 
-}
+kind Antecedente
 
-kind Concluso{
-    @componentOf [1] -- [2..*] Problema 
-    @Formal [1] -- [1] Dedutivo 
-}
+kind Concluso
 
-kind Consequncia{
-    @Formal [1] -- [1] Antecedente 
-}
+kind Consequncia
 
-kind Contexto{
-    @componentOf [1] -- [2..*] Experimento 
-}
+kind Contexto
 
-kind Dedutivo{
-    @Formal [1] -- [1] Experimental 
-}
+kind Dedutivo
 
-kind Espao{
-    @componentOf [1] -- [2..*] Contexto 
-}
+kind Espao
 
-mode Experimental{
-    @Formal [1] -- [1] Raciocnio 
-}
+mode Experimental
 
-kind Experimento{
-    @componentOf [1] -- [2..*] Problema 
-    @componentOf [1] -- [2..*] Concluso 
-}
+kind Experimento
 
-collective Grupo{
-    @memberOf [1] -- [2..*] Contexto 
-}
+collective Grupo
 
-kind Hiptese{
-    @componentOf [1] -- [1..*] Relatrio 
-    @componentOf [1] -- [2..*] Problema 
-}
+kind Hiptese
 
-kind Indutivo{
-    @Formal [1] -- [1] Experimental 
-    @Formal [1] -- [1] Concluso 
-}
+kind Indutivo
 
-kind Medida{
-    @componentOf [1] -- [2..*] Experimento 
-}
+kind Medida
 
-kind Objetivo{
-    @componentOf [1] -- [1..*] Hiptese 
-    @componentOf [1] -- [2..*] Experimento 
-    @componentOf [1] -- [2..*] Consequncia 
-}
+kind Objetivo
 
 mode Pessoa
 
-kind Problema{
-    @Formal [1] -- [1] Indutivo 
-}
+kind Problema
 
-mode Raciocnio{
-    @characterization [1] -- [1] Pessoa 
-}
+mode Raciocnio
 
 kind Referncia
 
-kind Relatrio{
-    @Formal [1] -- [1] Antecedente 
-}
+kind Relatrio
 
-kind Resultado{
-    @componentOf [1] -- [2..*] Experimento 
-}
+kind Resultado
 
-mode Terico{
-    @Formal [1] -- [1] Raciocnio 
-}
+mode Terico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

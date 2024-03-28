@@ -1,36 +1,22 @@
+import franco2018ontology
 
 package franco2018ontology
 
 kind Game
 
-category Planning of functional-complexes {
-    @componentOf [2..*] -- essential -- [1] Game 
-    [1] -- [1..*] Event 
-}
+category Planning of functional-complexes 
 
-class Event{
-    [1] -- [1] State 
-}
+class Event
 
-class Action specializes Event {
-    @characterization [1] -- has -- [1] State 
-}
+class Action specializes Event 
 
 mode State
 
-category Entity of functional-complexes {
-    @componentOf [2..*] -- essential -- [1] Game 
-    [1] -- execute -- [1] Action 
-    @componentOf [1..*] -- estarEm_essential -- [1] Match 
-}
+category Entity of functional-complexes 
 
-category Object of functional-complexes  specializes Entity {
-    [1..*] -- carringBy -- [1] Player 
-}
+category Object of functional-complexes  specializes Entity 
 
-role Player of functional-complexes  specializes Character {
-    [1] -- use -- [1] Object 
-}
+role Player of functional-complexes  specializes Character 
 
 kind Etc specializes Object 
 
@@ -38,51 +24,29 @@ kind Consumable specializes Object
 
 kind Equipment specializes Object 
 
-kind Character{
-    [*] -- [*] Location 
-}
+kind Character
 
-relator Encounter{
-    @mediation [1] -- [1] Player 
-    @mediation [1] -- [1] NonPlayerCharacter 
-    @memberOf [1] -- [1] Mission 
-    [1] -- has -- [1] Goal 
-}
+relator Encounter
 
 kind NonPlayerCharacter specializes Entity 
 
-collective Mission{
-    [*] -- has -- [1] Goal 
-}
+collective Mission
 
 class Goal
 
 kind Location
 
-mode Adventure{
-    @characterization [1] -- has -- [1..*] Mission 
-    [1] -- has -- [1] Goal 
-    @characterization [1] -- [1] Match 
-}
+mode Adventure
 
-mode Campaign{
-    [1] -- [2..*] Adventure 
-    @characterization [1] -- [1] Match 
-    [1] -- has -- [1] Goal 
-}
+mode Campaign
 
-category Match of functional-complexes {
-    [1] -- essential -- [2..*] Game 
-}
+category Match of functional-complexes 
 
 subkind Scenario of functional-complexes  specializes Location 
 
 kind DigitalGame specializes Match 
 
-collective Session{
-    @componentOf [2..*] -- [1] Adventure 
-    @componentOf [2..*] -- [1] Campaign 
-}
+collective Session
 
 genset disjoint_complete {
     general Object
@@ -93,4 +57,28 @@ genset vTJjQGGGAqAAEQsd {
     general Entity
     specifics NonPlayerCharacter
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

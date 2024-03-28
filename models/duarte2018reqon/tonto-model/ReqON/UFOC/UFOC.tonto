@@ -1,3 +1,4 @@
+import UFOC
 
 package UFOC
 
@@ -7,23 +8,15 @@ class Object
 
 class Function_Universal
 
-class Function specializes Disposition {
-    [0..*] -- instance_of -- [1..*] Function_Universal 
-}
+class Function specializes Disposition 
 
 class Disposition
 
-class Goal specializes Proposition {
-    [1] -- propositional_content_of -- [1..*] Intention 
-}
+class Goal specializes Proposition 
 
-class Proposition{
-    [1] -- propositional_content_of -- [0..*] Intentional_Moment 
-}
+class Proposition
 
-class Intentional_Moment{
-    [1..*] -- inheres_in -- [1] Agent 
-}
+class Intentional_Moment
 
 class Agent
 
@@ -32,4 +25,8 @@ class Mental_Moment specializes Intentional_Moment
 class Intention specializes Mental_Moment 
 
 class Belief specializes Mental_Moment 
+
+
+
+
 

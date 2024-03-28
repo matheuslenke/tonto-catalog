@@ -2,6 +2,7 @@ import Productoriented
 import Transaction
 import GDPO_part_1
 import Listing_Type
+import Digital_Good_Transfer
 
 package Digital_Good_Transfer
 
@@ -9,7 +10,6 @@ subkind Digital_Good of functional-complexes  specializes Good
 
 event Digital_Delivery specializes Delivery 
 
-event Digital_Good_Transfer specializes Platform_Software_Action, Ownership_Transfer, Digital_Delivery {
-    [0..1] -- [1..*] Digital_Good 
-}
+event Digital_Good_Transfer specializes Platform_Software_Action, Ownership_Transfer, Digital_Delivery 
+
 

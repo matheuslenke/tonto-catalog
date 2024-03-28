@@ -1,69 +1,61 @@
+import carolla2014methodological
 
 package carolla2014methodological
 
 kind Regulation
 
-role DegreeRegulation of functional-complexes  specializes Regulation {
-    @material [1..*] -- regulates -- [1..*] Degree 
-}
+role DegreeRegulation of functional-complexes  specializes Regulation 
 
-role VariationReg of functional-complexes  specializes Regulation {
-    @material [1..*] -- regulates -- [1..*] Variant 
-}
+role VariationReg of functional-complexes  specializes Regulation 
 
-relator Deg_Reg{
-    [1..*] -- [1] DegreeRegulation 
-    [1..*] -- [1] Degree 
-}
+relator Deg_Reg
 
-kind Degree{
-    @componentOf [1..*] -- [1] Variant 
-}
+kind Degree
 
-kind Subject{
-    @componentOf [1..*] -- [1] Variant 
-}
+kind Subject
 
-kind Variant{
-    [1] -- [1..*] Var_Reg 
-}
+kind Variant
 
-relator Var_Reg{
-    [1..*] -- [1] VariationReg 
-}
+relator Var_Reg
 
-kind Phase{
-    @componentOf [2..*] -- Var_Struct -- [1] Variant 
-}
+kind Phase
 
-role UpperPhase of functional-complexes  specializes Phase {
-    @material [1..*] -- divides -- [1..*] SubPhase 
-    [1] -- [1..*] Sub_Phase 
-}
+role UpperPhase of functional-complexes  specializes Phase 
 
-relator Sub_Phase{
-    [1..*] -- [1] SubPhase 
-}
+relator Sub_Phase
 
 role SubPhase of functional-complexes  specializes Phase 
 
-role PhaseWithModule of functional-complexes  specializes Phase {
-    [1] -- [1..*] Module_Phase 
-    @material [1..*] -- attached_to -- [1..*] Module 
-}
+role PhaseWithModule of functional-complexes  specializes Phase 
 
-kind Module{
-    [1] -- [1..*] Element_Module 
-    @material [1..*] -- attached_to -- [1..*] Element 
-}
+kind Module
 
-relator Module_Phase{
-    [1..*] -- [1] Module 
-}
+relator Module_Phase
 
-kind Element{
-    [1] -- [1..*] Element_Module 
-}
+kind Element
 
 relator Element_Module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,16 +1,9 @@
 
 package Model
 
-role tourist of functional-complexes  specializes user {
-    @material [1..*] -- booking -- [1..*] offer 
-    @mediation [1..*] -- write_a_feedback -- [1] feedback 
-}
+role tourist of functional-complexes  specializes user 
 
-relator certification{
-    @mediation [0..*] -- [1] itinerary 
-    @mediation [1..*] -- [1] Tourist_Guide 
-    [1..*] -- need -- [1..*] plan 
-}
+relator certification
 
 kind cultural_visit specializes activity 
 
@@ -18,26 +11,19 @@ kind sport_activity specializes activity
 
 kind food_and_wine_tour specializes activity 
 
-role Tourist_Guide of functional-complexes  specializes user {
-    @mediation [1] -- [1..*] plan 
-    [1] -- define -- [1..*] offer 
-}
+role Tourist_Guide of functional-complexes  specializes user 
 
 category location of functional-complexes  specializes path {
     touristAttraction: undefined  
     adress: Adress  
     how_to_arrive: string_  
-    @material [*] -- [*] location 
 }
 
 kind user
 
 category activity of functional-complexes 
 
-relator booking{
-    @material [1..*] -- [1] offer 
-    @mediation [1..*] -- [1] tourist 
-}
+relator booking
 
 subkind museum_visit of functional-complexes  specializes cultural_visit 
 
@@ -63,9 +49,7 @@ role language_certificate of relators  specializes certification {
     language: string_  
 }
 
-role activity_certificate of relators  specializes certification {
-    [1] -- specific_for -- [1] activity 
-}
+role activity_certificate of relators  specializes certification 
 
 kind payment
 
@@ -73,24 +57,18 @@ phase completed of relators  specializes booking
 
 phase being_processed of relators  specializes booking 
 
-role paid of relators  specializes completed {
-    [1] -- paid_by -- [1..*] payment 
-}
+role paid of relators  specializes completed 
 
 subkind online_payment of functional-complexes  specializes payment 
 
 subkind creditdebit_card_payment of functional-complexes  specializes payment 
 
-kind receipt{
-    [1] -- for_ -- [1] payment 
-}
+kind receipt
 
 kind itinerary{
     duration: long  
     title: string_  
     price: float  
-    @material [1..*] -- certification -- [1] Tourist_Guide 
-    [1..*] -- is_defined -- [1] offer 
 }
 
 quality offer{
@@ -100,24 +78,18 @@ quality offer{
     starting_time: long  
 }
 
-relator feedback{
-    @mediation [1] -- [1] finish 
-}
+relator feedback
 
-relator plan{
-    @mediation [1..*] -- [1] itinerary 
-}
+relator plan
 
 category path of functional-complexes {
     points: point  
     starting_point: Adress  
     end_point: Adress  
-    [1] -- compose -- [1] itinerary 
 }
 
 quality geometry{
     coordinate: Point [1..*] 
-    @characterization [1..*] -- [1] path 
 }
 
 subkind Point of qualities  specializes geometry 
@@ -135,13 +107,16 @@ phase in_progres of qualities  specializes offer
 phase planed of qualities  specializes offer 
 
 datatype Adress{
-street,ciy,distric,zip code,}
+street,ciy,distric,zip_code
+}
 
 datatype time{
-year,month,day,hours,minute,}
+year,month,day,hours,minute
+}
 
 datatype point{
-latitude,longitude,}
+latitude,longitude
+}
 
 genset complete {
     general user
@@ -192,4 +167,25 @@ genset completeddisjuncted {
     general certification
     specifics language_certificate, activity_certificate
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,82 +1,48 @@
 import COVER
 import UFO
+import Security
 
 package Security
 
-roleMixin Security_Mechanism of functional-complexes {
-    [*] -- countermeasure_to -- [*] Risk_Event_Type 
-    [1..*] -- designed_by -- [1..*] Security_Designer 
-}
+roleMixin Security_Mechanism of functional-complexes 
 
-roleMixin Control_Capability of intrinsic-modes {
-    @characterization [1..*] -- [1] Security_Mechanism 
-    @manifestation [1..*] -- [*] Protection_Event 
-}
+roleMixin Control_Capability of intrinsic-modes 
 
 type Risk_Event_Type
 
-type Control_Event_Type{
-    [*] -- prevention -- [1..*] Risk_Event_Type 
-    [*] -- bringing_about_of -- [1] Controlled_Situation_Type 
-}
+type Control_Event_Type
 
-type Threat_Event_Type specializes Risk_Event_Type {
-    [1..*] -- causation -- [1..*] Loss_Event_Type 
-}
+type Threat_Event_Type specializes Risk_Event_Type 
 
 type Loss_Event_Type specializes Risk_Event_Type 
 
-type Threat_Capability_Type{
-    [1..*] -- mutual_activation_partnership -- [1..*] Vulnerability_Type 
-    [*] -- mutual_activation_partnership -- [*] Intention_Type 
-}
+type Threat_Capability_Type
 
 type Vulnerability_Type
 
-event Control_Event specializes Protection_Event {
-    @bringsAbout [*] -- [1] Controlled_Situation 
-    @instantiation [*] -- [1..*] Control_Event_Type 
-}
+event Control_Event specializes Protection_Event 
 
-situation Controlled_Situation{
-    @instantiation [*] -- [1..*] Controlled_Situation_Type 
-    [*] -- impacts -- [1..*] Intention 
-}
+situation Controlled_Situation
 
-roleMixin Attacker of functional-complexes  specializes Threat_Object, Agent {
-     -- creates --  Attack 
-}
+roleMixin Attacker of functional-complexes  specializes Threat_Object, Agent 
 
 type Intention_Type
 
 roleMixin Security_Designer of functional-complexes 
 
-type Controlled_Situation_Type{
-    [*] -- incompatible_with -- [*] Threatening_Situation_Type 
-    [*] -- incompatible_with -- [*] Loss_Triggering_Situation_Type 
-}
+type Controlled_Situation_Type
 
-type Threatening_Situation_Type{
-    [1] -- triggering -- [*] Threat_Event_Type 
-}
+type Threatening_Situation_Type
 
-type Loss_Triggering_Situation_Type{
-    [1] -- triggering -- [*] Loss_Event_Type 
-}
+type Loss_Triggering_Situation_Type
 
-event Control_Chain_Event specializes Protection_Event {
-    @historicalDependence [*] -- causes -- [*] Control_Event 
-}
+event Control_Chain_Event specializes Protection_Event 
 
 event Protection_Event
 
-situation Protection_Trigger{
-    @triggers [1] -- [*] Protection_Event 
-}
+situation Protection_Trigger
 
-event Attack specializes Threat_Event, Action {
-    [*] -- caused_by -- [1] Intention 
-}
+event Attack specializes Threat_Event, Action 
 
 roleMixin Protected_Subject of functional-complexes 
 
@@ -103,4 +69,25 @@ genset PgyqMgGAUB2yOA3n {
     general Intention
     specifics Specific_Intention, Generic_Intention
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

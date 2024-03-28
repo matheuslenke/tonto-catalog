@@ -1,17 +1,14 @@
 import Transport_Processing_Functions
 import Complementary_Categorizations
+import Layer_Processor_Function
 
 package Layer_Processor_Function
 
 kind Bidirectional_Layer_Processor_Function specializes Layer_Processor_Function 
 
-subkind LPF_Sk_Bidirectional_Component of functional-complexes  specializes Layer_Processor_Function_Sink {
-    @componentOf [1] -- [1] Bidirectional_Layer_Processor_Function 
-}
+subkind LPF_Sk_Bidirectional_Component of functional-complexes  specializes Layer_Processor_Function_Sink 
 
-subkind LPF_So_Bidirectional_Component of functional-complexes  specializes Layer_Processor_Function_Source {
-    @componentOf [1] -- [1] Bidirectional_Layer_Processor_Function 
-}
+subkind LPF_So_Bidirectional_Component of functional-complexes  specializes Layer_Processor_Function_Source 
 
 kind Layer_Processor_Function specializes Transport_Processing_Function 
 
@@ -19,32 +16,28 @@ subkind Layer_Processor_Function_Sink of functional-complexes  specializes Layer
 
 subkind Layer_Processor_Function_Source of functional-complexes  specializes Layer_Processor_Function 
 
-kind Layer_Processor_Process{
-    @componentOf [1] -- [1] Layer_Processor_Function_Sink 
-}
+kind Layer_Processor_Process
 
-kind Layer_Processor_Sink_Input specializes Input {
-    @componentOf [1] -- [1] Layer_Processor_Function_Sink 
-}
+kind Layer_Processor_Sink_Input specializes Input 
 
-kind Layer_Processor_Sink_Output specializes Output {
-    @componentOf [1] -- [1] Layer_Processor_Function_Sink 
-}
+kind Layer_Processor_Sink_Output specializes Output 
 
-kind Layer_Processor_Source_Input specializes Input {
-    @componentOf [1] -- [1] Layer_Processor_Function_Source 
-}
+kind Layer_Processor_Source_Input specializes Input 
 
-kind Layer_Processor_Source_Output specializes Output {
-    @componentOf [1] -- [1] Layer_Processor_Function_Source 
-}
+kind Layer_Processor_Source_Output specializes Output 
 
-kind Layer_Processor_Source_Process{
-    @componentOf [1] -- [1] Layer_Processor_Function_Source 
-}
+kind Layer_Processor_Source_Process
 
 genset tlHBnb6GAqBwATBZ {
     general Layer_Processor_Function
     specifics Layer_Processor_Function_Source, Bidirectional_Layer_Processor_Function, Layer_Processor_Function_Sink
 }
+
+
+
+
+
+
+
+
 

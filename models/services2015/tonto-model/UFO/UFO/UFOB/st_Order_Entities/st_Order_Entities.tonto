@@ -1,16 +1,16 @@
 import nd_Order_Entities
+import st_Order_Entities
+import UFOB
 
 package st_Order_Entities
 
 class Event_Universal specializes Universal 
 
-class Disposition specializes Moment {
-    [1] -- manifested_by -- [*] Atomic_Event 
-    [*] -- activates -- [*] Situation 
-}
+class Disposition specializes Moment 
 
-class Time_Interval_Relation specializes Formal_Relation {
-    [*] -- [1] Time_Interval 
-    [*] -- [1] Time_Interval 
-}
+class Time_Interval_Relation specializes Formal_Relation 
+
+
+
+
 

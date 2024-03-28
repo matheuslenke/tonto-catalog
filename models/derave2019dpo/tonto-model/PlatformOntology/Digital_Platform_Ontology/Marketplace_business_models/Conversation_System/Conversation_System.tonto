@@ -1,29 +1,22 @@
-import GDPO_part_1
-import Transaction
-import GDPO_User_Roles
-import Airbnb
 
 package Conversation_System
 
-event InterUser_Conversation specializes Digital_Communication {
-    [0..*] -- participates -- [1] Offering_Creator 
-}
+event InterUser_Conversation specializes Digital_Communication 
 
 event Transaction_Conversation specializes InterUser_Conversation 
 
-event Listing_Conversation specializes InterUser_Conversation {
-    [0..*] -- participates_in -- [1] Offering_Creator 
-}
+event Listing_Conversation specializes InterUser_Conversation 
 
-event Send_Message specializes User_Action {
-    [1] -- [1] Digital_Message 
-    @componentOf [1..*] -- [1] InterUser_Conversation 
-}
+event Send_Message specializes User_Action 
 
 event Booking_Conversation specializes Transaction_Conversation {
     message: undefined  
-    [0..*] -- concerns -- [1] Booking 
-    [0..*] -- participates -- [1] Platform_Customer 
-    [0..*] -- participates -- [1] Platform_Provider 
 }
+
+
+
+
+
+
+
 

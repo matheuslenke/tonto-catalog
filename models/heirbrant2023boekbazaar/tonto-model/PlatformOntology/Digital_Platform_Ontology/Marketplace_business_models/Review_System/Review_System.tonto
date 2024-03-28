@@ -1,0 +1,16 @@
+
+package Review_System
+
+relator Review{
+    score: undefined  
+    sellerId: undefined  
+    date: undefined  
+    buyerId: undefined  
+}
+
+event Make_review
+
+
+
+
+

@@ -1,28 +1,16 @@
+import jogabilidadeOntology
 
 package jogabilidadeOntology
 
-relator Jogar{
-    @mediation [1] -- envolve_agente_de_software -- [1] Jogo_qua_agente 
-    @mediation [1] -- envolve_pessoa -- [1] Jogador 
-}
+relator Jogar
 
-role Jogador of functional-complexes  specializes Pessoa {
-    [*] -- percebe -- [*] Usabilidade 
-    @material [1] -- joga_com -- [1] Jogo_qua_agente 
-    @participation [1..*] -- [1] Gameplay 
-}
+role Jogador of functional-complexes  specializes Pessoa 
 
-role Jogo_qua_agente of functional-complexes  specializes Jogo_de_Videogame_software {
-    @participation [1..*] -- [1] Gameplay 
-}
+role Jogo_qua_agente of functional-complexes  specializes Jogo_de_Videogame_software 
 
 kind Pessoa
 
-kind Jogo_de_Videogame_software{
-    [1] -- [2..*] Mecnica 
-    [1] -- [2..*] Regra 
-    [1] -- [2..*] Design 
-}
+kind Jogo_de_Videogame_software
 
 kind Mecnica
 
@@ -30,40 +18,45 @@ kind Regra
 
 kind Design
 
-quality QualidadeMecnica{
-    @characterization [1] -- [1] Mecnica 
-    @structuration [1] -- [1] MedidaQualidadeMecnica 
-}
+quality QualidadeMecnica
 
-quality QualidadeRegra{
-    @characterization [1] -- [1] Regra 
-    @structuration [1] -- [1] MedidaQualidadeRegra 
-}
+quality QualidadeRegra
 
-quality QualidadeDesign{
-    @characterization [1] -- [1] Design 
-    @structuration [1] -- [1] MedidaQualidadeDesign 
-}
+quality QualidadeDesign
 
-event Gameplay{
-    [1] -- Encerra -- [1] Final_da_partidade_de_videogame 
-}
+event Gameplay
 
-situation Inicio_da_partida_de_videogame{
-    @triggers [1] -- [1] Gameplay 
-}
+situation Inicio_da_partida_de_videogame
 
 situation Final_da_partidade_de_videogame
 
-quality Jogabilidade{
-    @characterization [1] -- [1] Jogo_de_Videogame_software 
-    @structuration [1] -- [1] Usabilidade 
-    [1..*] -- Influencia -- [1] Gameplay 
-}
+quality Jogabilidade
 
 datatype Usabilidade{
-mecanica,regra,design,}
+mecanica,regra,design
+}
 
 datatype MedidaQualidadeMecnica
 datatype MedidaQualidadeRegra
 datatype MedidaQualidadeDesign
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

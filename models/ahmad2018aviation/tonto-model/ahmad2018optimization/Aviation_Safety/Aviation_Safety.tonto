@@ -1,4 +1,5 @@
 import UFO
+import Aviation_Safety
 
 package Aviation_Safety
 
@@ -6,9 +7,7 @@ class Flight specializes Event
 
 class Accident specializes Event 
 
-class Handling specializes Action {
-    [*] -- is_performed_by -- [*] Agent 
-}
+class Handling specializes Action 
 
 class Landing specializes Action 
 
@@ -20,13 +19,9 @@ class Spatial_Object specializes Physical_Object
 
 class Technical_System specializes Physical_Object, Object 
 
-class Aerodrome specializes Ground_Object, Technical_System {
-    [*] -- has_part -- [*] Aerodrome_Part 
-}
+class Aerodrome specializes Ground_Object, Technical_System 
 
-class Aircraft specializes Technical_System {
-    [*] -- has_object_part -- [*] Object 
-}
+class Aircraft specializes Technical_System 
 
 class Vehicle specializes Technical_System 
 
@@ -38,7 +33,9 @@ class Crew specializes Cabin_Crew, Agent
 
 class Cabin_Crew
 
-class Aircraft_Parti{
-    [*] -- is_object_part_of -- [*] Aircraft 
-}
+class Aircraft_Parti
+
+
+
+
 

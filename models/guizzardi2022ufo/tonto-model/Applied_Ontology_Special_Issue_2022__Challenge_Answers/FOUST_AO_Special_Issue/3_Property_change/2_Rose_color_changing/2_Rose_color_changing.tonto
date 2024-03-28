@@ -1,3 +1,4 @@
+import 2_Rose_color_changing
 
 package 2_Rose_color_changing
 
@@ -7,8 +8,10 @@ subkind Rose of functional-complexes  specializes Flower
 
 quality Color
 
-subkind Flower_Color of qualities  specializes Color {
-    @characterization [1] -- inheres_in -- [1] Flower 
-    [0..*] -- has_value -- [1] Flower_Color_Values 
+subkind Flower_Color of qualities  specializes Color 
+
+enum Flower_Color_Values{
+    Red, Brown, Yellow, White
 }
+
 

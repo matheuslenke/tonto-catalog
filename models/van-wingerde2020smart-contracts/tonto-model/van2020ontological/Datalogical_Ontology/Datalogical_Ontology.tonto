@@ -1,66 +1,54 @@
+import Datalogical_Ontology
 
 package Datalogical_Ontology
 
-class Value{
-    [1] -- has -- [1] Key 
-}
+class Value
 
-class Key{
-    [1] -- has -- [1] State_Variable 
-}
+class Key
 
-kind State_Variable{
-    [0..*] -- modifies -- [0..*] Function 
-    [0..*] -- points_to -- [0..*] Data_Object 
-}
+kind State_Variable
 
-relator Contract_Storage{
-    [*] -- contains -- [*] State_Variable 
-    [1] -- has -- [1] Smart_Contract 
-}
+relator Contract_Storage
 
-relator Smart_Contract{
-    [*] -- [*] Function 
-    [1] -- emits -- [0..*] Event 
-    [1] -- addressed_to -- [0..*] Transaction 
-}
+relator Smart_Contract
 
-mode Function{
-    [1..*] -- has_imput -- [0..*] Payload 
-}
+mode Function
 
 kind Data_Object
 
-kind Offchain_Storage{
-    [*] -- [*] Data_Object 
-}
+kind Offchain_Storage
 
-event Event{
-    [1..*] -- logged_in -- [1] Transaction_Trie 
-}
+event Event
 
 kind Transaction_Trie
 
-kind Transaction{
-    [0..*] -- initiates -- [1..*] Account_Wallet 
-}
+kind Transaction
 
-kind Block{
-    [*] -- stored_in -- [*] Transaction 
-    [1] -- has -- [1] Transaction_Trie 
-}
+kind Block
 
-class Payload{
-    [0..1] -- has -- [1] Transaction 
-}
+class Payload
 
-collective Blockchain{
-    [*] -- stored_in -- [*] Block 
-}
+collective Blockchain
 
-kind Account_Wallet{
-    [0..*] -- controls -- [1..*] External_Actor 
-}
+kind Account_Wallet
 
 subkind External_Actor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

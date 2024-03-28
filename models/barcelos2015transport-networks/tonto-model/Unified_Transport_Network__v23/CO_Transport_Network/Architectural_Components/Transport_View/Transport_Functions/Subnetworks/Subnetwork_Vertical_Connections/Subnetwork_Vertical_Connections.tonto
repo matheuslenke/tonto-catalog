@@ -1,5 +1,6 @@
 import Adaptation_Function
 import Subnetworks
+import Subnetwork_Vertical_Connections
 
 package Subnetwork_Vertical_Connections
 
@@ -9,15 +10,12 @@ role A_So__Uni_Subnetwork_Connected of functional-complexes  specializes Adaptat
 
 role Bi_A__Bi_Subnetwork_Connected of functional-complexes  specializes Bidirectional_Adaptation 
 
-role Bi_Subnetwork__A_Bi_Connected of functional-complexes  specializes Bidirectional_Connected_Subnetwork {
-    @material [1..*] -- SNA_Bidirectional_Connection -- [1..*] Bi_A__Bi_Subnetwork_Connected 
-}
+role Bi_Subnetwork__A_Bi_Connected of functional-complexes  specializes Bidirectional_Connected_Subnetwork 
 
-role Uni_Subnetwork__A_Sk_Connected of functional-complexes  specializes Unidirectional_Subnetwork {
-    @material [1..*] -- SnA_Sink_Connection -- [1..*] A_Sk__Uni_Subnetwork_Connected 
-}
+role Uni_Subnetwork__A_Sk_Connected of functional-complexes  specializes Unidirectional_Subnetwork 
 
-role Uni_Subnetwork__A_So_Connected of functional-complexes  specializes Unidirectional_Subnetwork {
-    @material [1..*] -- SnA_Source_Connection -- [1..*] A_So__Uni_Subnetwork_Connected 
-}
+role Uni_Subnetwork__A_So_Connected of functional-complexes  specializes Unidirectional_Subnetwork 
+
+
+
 

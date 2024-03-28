@@ -1,38 +1,33 @@
 import Cognitive_Bias
+import Intuition_Deliberation_and_Decision
 
 package Intuition_Deliberation_and_Decision
 
-mode Intention specializes Mental_Moment {
-    @formal [*] -- is_satisfied_by -- [0..1] Situation 
-}
+mode Intention specializes Mental_Moment 
 
 mode Cognitive_Bias specializes Mental_Moment 
 
-event Action{
-    @manifestation [*] -- [1] Intention 
-}
+event Action
 
-event Decision_Resulting_Action specializes Action {
-    @manifestation [*] -- [1..*] Decision 
-    @creation [1] -- [1] Consequence 
-}
+event Decision_Resulting_Action specializes Action 
 
 role Decision of intrinsic-modes  specializes Intention 
 
-mode Intuition specializes Mental_Moment {
-    @participation [1] -- [1] Intuitive_Choice 
-    [*] -- [0..*] Cognitive_Bias 
-}
+mode Intuition specializes Mental_Moment 
 
 role Consequence of functional-complexes  specializes Situation 
 
-kind Situation{
-    @creation [1] -- [1] Action 
-}
+kind Situation
 
-event Choice specializes Action {
-    @creation [1] -- [1] Decision 
-}
+event Choice specializes Action 
 
 event Intuitive_Choice specializes Choice 
+
+
+
+
+
+
+
+
 

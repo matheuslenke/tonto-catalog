@@ -1,8 +1,8 @@
 import Revenue_Stream
+import Commission
 
 package Commission
 
-subkind Commission_Fee of intrinsic-modes  specializes Revenue_Stream {
-    [0..*] -- collects -- [1] Marketplace_Company 
-}
+subkind Commission_Fee of intrinsic-modes  specializes Revenue_Stream 
+
 

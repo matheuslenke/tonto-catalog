@@ -1,25 +1,20 @@
-import GDPO_part_1
-import GDPO_User_Roles
-import Airbnb
-import GDPO_Interaction
 
 package Review_System
 
 relator Review{
     score: undefined  
     comment: undefined  
-    [1] -- concerning -- [1] Transaction 
-    [0..*] -- linked_to -- [1] SafaRide_Customer 
-    [0..*] -- linked_to -- [1] SafaRide_Trip_Provider 
 }
 
 event Review_Creation specializes User_Action {
     setScore: undefined  
     setComment: undefined  
-    [1] -- creates -- [1] Review 
 }
 
-subkind Review_Content of functional-complexes  specializes Digital_Content {
-    [1] -- [1] Review 
-}
+subkind Review_Content of functional-complexes  specializes Digital_Content 
+
+
+
+
+
 

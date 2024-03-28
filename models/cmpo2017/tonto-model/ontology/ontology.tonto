@@ -1,176 +1,85 @@
 import UFOC
+import ontology
 
 package ontology
 
 event Performed_Process
 
-event Performed_General_Process specializes Performed_Process {
-    [1] -- [2..*] Perofrmed_Specific_Process 
-}
+event Performed_General_Process specializes Performed_Process 
 
-event Perofrmed_Specific_Process specializes Performed_Process {
-    [1..*] -- [2..*] Performed_Activity 
-}
+event Perofrmed_Specific_Process specializes Performed_Process 
 
-event Performed_Activity{
-    @material [1..*] -- creates -- [0..*] Artifact 
-    @material [0..*] -- changes -- [0..*] Artifact 
-    @material [0..*] -- uses -- [0..*] Artifact 
-    [0..*] -- depends_on -- [*] Performed_Activity 
-}
+event Performed_Activity
 
-roleMixin Stakeholder of functional-complexes {
-    @material [1..*] -- participates_in -- [0..*] Performed_Activity 
-    @material [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
-}
+roleMixin Stakeholder of functional-complexes 
 
-role Configuration_Manager specializes Stakeholder {
-    [*] -- is_in_charge_of -- [*] Baseline_Establishment 
-    [*] -- participates_in -- [*] Configuration_Auditing 
-    [*] -- is_in_charge_of -- [*] Release_Management_and_Delivery 
-    [*] -- participates_in -- [*] Change_Control 
-    [*] -- is_in_charge_of -- [*] Configuration_Management_Planning 
-}
+role Configuration_Manager specializes Stakeholder 
 
-role Change_Requester specializes Stakeholder {
-    [*] -- is_in_charge_of -- [*] Change_Requesting 
-}
+role Change_Requester specializes Stakeholder 
 
-role Change_Request_Evaluator specializes Stakeholder {
-    [*] -- is_in_charge_of -- [*] Request_Evaluation 
-}
+role Change_Request_Evaluator specializes Stakeholder 
 
-role Change_Implementer specializes Stakeholder {
-    [*] -- is_in_charge_of -- [*] Change_Accomplishment 
-}
+role Change_Implementer specializes Stakeholder 
 
-role Change_Reviewer specializes Stakeholder {
-    [*] -- is_in_charge_of -- [*] Change_Review 
-}
+role Change_Reviewer specializes Stakeholder 
 
-role Configuration_Auditor specializes Stakeholder {
-    [*] -- is_in_charge_on -- [*] Configuration_Auditing 
-}
+role Configuration_Auditor specializes Stakeholder 
 
 event Performed_Simple_Activity specializes Performed_Activity 
 
-event Perfomed_Composite_Activity specializes Performed_Activity {
-    [0..*] -- [2..*] Performed_Activity 
-}
+event Perfomed_Composite_Activity specializes Performed_Activity 
 
-event Configuration_Management_Process specializes Perofrmed_Specific_Process {
-    [*] -- [*] Baseline_Establishment 
-    [*] -- [*] Configuration_Auditing 
-    [*] -- [*] Release_Management_and_Delivery 
-}
+event Configuration_Management_Process specializes Perofrmed_Specific_Process 
 
-event Configuration_Management_Planning specializes Perfomed_Composite_Activity {
-    [*] -- [*] Configuration_Management_System_Establishment 
-    [*] -- [*] Configuration_Items_Identification 
-    [*] -- creates -- [*] Configuration_Management_Plan 
-}
+event Configuration_Management_Planning specializes Perfomed_Composite_Activity 
 
 event Configuration_Management_System_Establishment specializes Perfomed_Composite_Activity 
 
 event Configuration_Items_Identification specializes Perfomed_Composite_Activity 
 
-event Change_Control specializes Perfomed_Composite_Activity {
-    [*] -- [*] Change_Requesting 
-    [*] -- [*] Request_Evaluation 
-    [*] -- [*] Change_Accomplishment 
-    [*] -- [*] Change_Review 
-    [*] -- [*] Change_Request_Closing 
-    [*] -- depends_on -- [*] Configuration_Management_Planning 
-}
+event Change_Control specializes Perfomed_Composite_Activity 
 
-event Change_Requesting specializes Performed_Simple_Activity {
-    [*] -- creates -- [*] Communicate_CR 
-}
+event Change_Requesting specializes Performed_Simple_Activity 
 
-event Request_Evaluation specializes Performed_Simple_Activity {
-    [*] -- depends_on -- [*] Change_Requesting 
-    [*] -- changes -- [*] Evaluate_CR 
-}
+event Request_Evaluation specializes Performed_Simple_Activity 
 
-event Change_Accomplishment specializes Perfomed_Composite_Activity {
-    [*] -- [*] Checkout 
-    [*] -- [*] Change_Implementation 
-    [*] -- [*] Checkin 
-    [*] -- depends_on -- [*] Request_Evaluation 
-    [*] -- uses -- [*] Evaluate_CR 
-    [*] -- changes -- [*] Artifact_Copy 
-}
+event Change_Accomplishment specializes Perfomed_Composite_Activity 
 
 event Checkout specializes Performed_Simple_Activity 
 
-event Change_Implementation specializes Perfomed_Composite_Activity {
-    [*] -- depends_on -- [*] Checkout 
-}
+event Change_Implementation specializes Perfomed_Composite_Activity 
 
-event Checkin specializes Performed_Simple_Activity {
-    [*] -- depends_on -- [*] Change_Implementation 
-    [*] -- uses -- [*] Artifact_Copy 
-    [*] -- creates -- [*] Artifact_CI 
-    [*] -- changes -- [*] Artifact_CI 
-}
+event Checkin specializes Performed_Simple_Activity 
 
-event Change_Review specializes Performed_Simple_Activity {
-    [*] -- depends_on -- [*] Change_Accomplishment 
-    [*] -- uses -- [*] Artifact_CI 
-    [*] -- changes -- [*] Reviewed_CR 
-}
+event Change_Review specializes Performed_Simple_Activity 
 
-event Change_Request_Closing specializes Perfomed_Composite_Activity {
-    [*] -- depends_on -- [*] Change_Review 
-    [*] -- changes -- [*] Closed_CR 
-}
+event Change_Request_Closing specializes Perfomed_Composite_Activity 
 
-event Baseline_Establishment specializes Perfomed_Composite_Activity {
-    [*] -- creates -- [*] Baseline 
-}
+event Baseline_Establishment specializes Perfomed_Composite_Activity 
 
-event Configuration_Auditing specializes Perfomed_Composite_Activity {
-    [*] -- depends_on -- [*] Baseline_Establishment 
-    [*] -- uses -- [*] Baseline 
-    [*] -- creates -- [*] Configuration_Audit_Report 
-    [*] -- uses -- [*] Deliverable_Product 
-}
+event Configuration_Auditing specializes Perfomed_Composite_Activity 
 
-event Release_Management_and_Delivery specializes Perfomed_Composite_Activity {
-    [*] -- depends_on -- [*] Baseline_Establishment 
-    [*] -- uses -- [*] Baseline 
-    [*] -- creates -- [*] Deliverable_Product 
-}
+event Release_Management_and_Delivery specializes Perfomed_Composite_Activity 
 
 subkind Configuration_Management_Plan of functional-complexes  specializes Document 
 
 role Artifact_CI specializes Configuration_Item_CI, Artifact 
 
-category Artifact_Copy of functional-complexes  specializes Artifact {
-    [*] -- based_on -- [*] Version 
-}
+category Artifact_Copy of functional-complexes  specializes Artifact 
 
 mode Version
 
-subkind Baseline of functional-complexes  specializes Information_Item {
-    [0..*] -- packages -- [1..*] Version 
-}
+subkind Baseline of functional-complexes  specializes Information_Item 
 
-subkind Configuration_Audit_Report of functional-complexes  specializes Document {
-    [*] -- depicts -- [*] Noncompliance_Register 
-}
+subkind Configuration_Audit_Report of functional-complexes  specializes Document 
 
 subkind Deliverable_Product of functional-complexes  specializes Software_Product 
 
 class Noncompliance_Register specializes Information_Item 
 
-roleMixin Configuration_Item_CI of functional-complexes  specializes Item {
-    [1] -- has -- [1..*] Version 
-}
+roleMixin Configuration_Item_CI of functional-complexes  specializes Item 
 
-subkind Change_Request_CR of functional-complexes  specializes Information_Item {
-    [0..*] -- addresses -- [1..*] Artifact_CI 
-}
+subkind Change_Request_CR of functional-complexes  specializes Information_Item 
 
 phase Communicate_CR of functional-complexes  specializes Change_Request_CR 
 
@@ -184,16 +93,11 @@ phase Reviewed_CR of functional-complexes  specializes Change_Request_CR
 
 phase Closed_CR of functional-complexes  specializes Change_Request_CR 
 
-category Artifact of functional-complexes {
-    @material [0..*] -- depends_on -- [0..*] Artifact 
-    [0..*] -- describes -- [0..*] Document 
-}
+category Artifact of functional-complexes 
 
 category Simple_Artifact of functional-complexes  specializes Artifact 
 
-category Composite_Artifact of functional-complexes  specializes Artifact {
-    [*] -- [*] Artifact 
-}
+category Composite_Artifact of functional-complexes  specializes Artifact 
 
 kind Software_Product specializes Artifact 
 
@@ -216,4 +120,70 @@ genset nature {
     general Artifact
     specifics Software_Item, Information_Item, Model, Software_Product, Document
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

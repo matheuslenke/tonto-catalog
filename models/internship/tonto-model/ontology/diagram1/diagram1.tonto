@@ -7,18 +7,11 @@ role College_Student of functional-complexes  specializes Student
 
 role Post_Graduate_Student of functional-complexes  specializes Student 
 
-role Student of functional-complexes  specializes Natural_Person {
-    @material [1..*] -- studies_at -- [1..*] Educational_Institution 
-}
+role Student of functional-complexes  specializes Natural_Person 
 
-role Educational_Institution of functional-complexes  specializes Employer {
-    @mediation [1] -- [1..*] Internship 
-}
+role Educational_Institution of functional-complexes  specializes Employer 
 
-relator Enrolment{
-    @mediation [1..*] -- [1] Student 
-    @mediation [1..*] -- [1] Educational_Institution 
-}
+relator Enrolment
 
 role Intern of functional-complexes  specializes Student 
 
@@ -28,14 +21,9 @@ subkind Natural_Person of functional-complexes  specializes Legal_Person
 
 subkind Juridical_Person of functional-complexes  specializes Legal_Person 
 
-relator Employment{
-    @mediation [1..*] -- [1] Employee 
-    @mediation [1..*] -- [1] Employer 
-}
+relator Employment
 
-role Employee of functional-complexes  specializes Natural_Person {
-    @material [1..*] -- works_at -- [1..*] Employer 
-}
+role Employee of functional-complexes  specializes Natural_Person 
 
 role Employer of functional-complexes  specializes Juridical_Person 
 
@@ -48,11 +36,6 @@ role Internship_Provider_Organization of functional-complexes  specializes Emplo
 relator Internship{
     hours_per_day: undefined  
     income: undefined  
-    @mediation [1..*] -- [1] Supervisor 
-    @mediation [1..*] -- [1] Internship_Provider_Organization 
-    @mediation [1..*] -- [1] Educational_Supervisor 
-    @mediation [1] -- [1] Term_of_commitment 
-    @mediation [1] -- [1] Intern 
 }
 
 relator Obligatory_Internship specializes Internship 
@@ -65,17 +48,11 @@ relator Full_Time_Internship specializes Internship
 
 relator Part_Time_Internship specializes Internship 
 
-role Insurance_Carrier of functional-complexes  specializes Juridical_Person {
-    @material [1..*] -- provides_insurance_to -- [1..*] Organization_Insured 
-}
+role Insurance_Carrier of functional-complexes  specializes Juridical_Person 
 
 role Organization_Insured
 
-relator Personal_Injury_Insurance{
-    @mediation [1..*] -- [1] Insurance_Carrier 
-    @mediation [1..*] -- [1] Organization_Insured 
-    @mediation [1] -- [1] Insurance_Policy 
-}
+relator Personal_Injury_Insurance
 
 kind Insurance_Policy
 
@@ -98,4 +75,20 @@ genset bBse36DAAAAUGv {
     general Internship
     specifics Part_Time_Internship, Full_Time_Internship
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

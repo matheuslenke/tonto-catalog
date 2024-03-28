@@ -1,28 +1,17 @@
 
 package Caixa_Banco
 
-role Cliente of functional-complexes  specializes Pessoa {
-    @mediation [1] -- solicita -- [1..*] Operao 
-    @mediation [1] -- recebe -- [1..*] Recibo 
-}
+role Cliente of functional-complexes  specializes Pessoa 
 
-kind Conta{
-    @material [1..*] -- possui -- [1] Pessoa_com_Conta 
-}
+kind Conta
 
 subkind Conta_Corrente of functional-complexes  specializes Conta 
 
 subkind Conta_Poupana of functional-complexes  specializes Conta 
 
-role Conta_em_Depsito of functional-complexes  specializes Conta {
-    @mediation [1] -- depositaem -- [1] Depsito 
-    @mediation [1] -- transferepara -- [0..1] Transferncia 
-}
+role Conta_em_Depsito of functional-complexes  specializes Conta 
 
-role Conta_em_Saque of functional-complexes  specializes Conta {
-    @mediation [1] -- transferede -- [0..1] Transferncia 
-    @mediation [1] -- sacade -- [1] Saque 
-}
+role Conta_em_Saque of functional-complexes  specializes Conta 
 
 relator Depsito specializes Operao 
 
@@ -32,19 +21,14 @@ role Funcionrio_Caixa_em_Operao of functional-complexes  specializes Funcionrio_
 
 relator Operao{
     valor: undefined  
-    @mediation [1..*] -- realiza -- [1] Funcionrio_Caixa_em_Operao 
 }
 
 kind Pessoa
 
-role Pessoa_com_Conta of functional-complexes  specializes Pessoa {
-    @mediation [1] -- realiza -- [0..1] Saque_em_Dinheiro 
-}
+role Pessoa_com_Conta of functional-complexes  specializes Pessoa 
 
 relator Recibo{
     valor: undefined  
-    @mediation [1] -- emite -- [1] Operao 
-    @mediation [1..*] -- emite -- [1] Funcionrio_Caixa_em_Operao 
 }
 
 relator Saque specializes Operao 
@@ -55,7 +39,17 @@ relator Saque_em_Dinheiro specializes Saque
 
 relator Saque_em_Transferncia specializes Saque 
 
-relator Transferncia specializes Operao {
-    @mediation [1] -- realiza -- [1] Saque_em_Transferncia 
-}
+relator Transferncia specializes Operao 
+
+
+
+
+
+
+
+
+
+
+
+
 

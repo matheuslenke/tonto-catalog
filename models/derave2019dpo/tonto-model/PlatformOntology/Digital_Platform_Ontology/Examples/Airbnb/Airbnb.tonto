@@ -20,28 +20,21 @@ import Productoriented
 import Decentralized
 import Price_set_by_Provider
 import Customer_Type
+import Airbnb
 
 package Airbnb
 
 roleMixin Airbnb_Home_Seeker of functional-complexes  specializes Platform_User, Platform_Customer, Peer_User, Person 
 
-subkind Accommodation of functional-complexes  specializes Physical_Good {
-    @material [0..*] -- personally_uses -- [0..1] Private_Airbnb_Homeowner 
-}
+subkind Accommodation of functional-complexes  specializes Physical_Good 
 
-event Rent_Home specializes OuterPlatform_Delivery, Service_Delivery, UserOriented_Delivery {
-    @participation [0..*] -- made_possible_by -- [1] Airbnb_Homeowner 
-    @participation [0..*] -- by -- [1] Airbnb_Home_Renter 
-    @participation [0..*] -- rented -- [1] Accommodation 
-}
+event Rent_Home specializes OuterPlatform_Delivery, Service_Delivery, UserOriented_Delivery 
 
 role Private_Airbnb_Homeowner of functional-complexes  specializes Airbnb_Homeowner, Person 
 
 kind Product
 
-roleMixin Airbnb_Homeowner of functional-complexes  specializes Offering_Creator, Peer_User {
-    @participation [1] -- accepted_by -- [1..*] Transaction_Creation 
-}
+roleMixin Airbnb_Homeowner of functional-complexes  specializes Offering_Creator, Peer_User 
 
 subkind Airbnb_Software of functional-complexes  specializes Platform_Software 
 
@@ -56,4 +49,9 @@ genset fBykbB6DAAAASNz {
     general Price
     specifics Paid_Price, Market_Price
 }
+
+
+
+
+
 

@@ -1,0 +1,6 @@
+import PlatformOntology
+
+package Commission
+
+subkind Comission of functional-complexes  specializes Amount 
+

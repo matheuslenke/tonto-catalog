@@ -1,113 +1,48 @@
+import Model
 
 package Model
 
-class DeclaredValue{
-    [*] -- isDeclaredBy -- [1] Consumer 
-}
+class DeclaredValue
 
-kind Consumer specializes Actor {
-    @material [1..*] -- consumes -- [1] EndProduct 
-    @material [1..*] -- delivers -- [1..*] CounterObject 
-}
+kind Consumer specializes Actor 
 
-category Actor of functional-complexes {
-    [1] -- hasResponsibility -- [1..*] ValueActivity 
-    [1..*] -- [*] Policy 
-}
+category Actor of functional-complexes 
 
-relator ConsumerNeed{
-    @mediation [1..*] -- [1] BusinessNeed 
-    @mediation [1..*] -- [1] Consumer 
-}
+relator ConsumerNeed
 
-kind BusinessNeed{
-    @material [1..*] -- isDemandedBy -- [1..*] Consumer 
-}
+kind BusinessNeed
 
-class ProvenanceEvaluation{
-    @structuration [1] -- hasDeclaredValue -- [1] DeclaredValue 
-    [*] -- isDeclaredBy -- [1] Consumer 
-    @characterization [1..*] -- isSubjectiveValueOf -- [1] Provenance 
-}
+class ProvenanceEvaluation
 
-category ValueActivity of relators {
-    [1..*] -- transforms -- [1..*] ValueObject 
-    [1..*] -- [*] Policy 
-}
+category ValueActivity of relators 
 
-kind Provenance specializes ValueObject {
-    @componentOf [1] -- satisfies -- [1..*] BusinessNeed 
-}
+kind Provenance specializes ValueObject 
 
 subkind DeclaredProvenance of functional-complexes  specializes Provenance 
 
 subkind GeographicIndication of functional-complexes  specializes Provenance 
 
-kind EndProduct specializes ValueObject {
-    [1..*] -- hasObjectiveValue -- [0..1] GeographicIndication 
-    @componentOf [1] -- satisfies -- [1..*] BusinessNeed 
-    [1..*] -- hasObjectiveValue -- [1] Provenance 
-    [1..*] -- stockFlow -- [1..*] Sale 
-}
+kind EndProduct specializes ValueObject 
 
-kind RawProduct specializes ValueObject {
-    [1..*] -- hasObjectiveValue -- [0..1] DeclaredProvenance 
-    [1..*] -- hasObjectiveValue -- [0..1] GeographicIndication 
-    @componentOf [2..*] -- [1] EndProduct 
-    [1..*] -- hasObjectiveValue -- [1] Provenance 
-    [1] -- stockFlow -- [1..*] Purchase 
-}
+kind RawProduct specializes ValueObject 
 
-category ValueObject of functional-complexes {
-    [1..*] -- [*] Policy 
-}
+category ValueObject of functional-complexes 
 
-relator Production specializes ValueActivity {
-    [1..*] -- consumes -- [1] RawProduct 
-    [1..*] -- produces -- [1] EndProduct 
-    [1] -- [1] Agent 
-}
+relator Production specializes ValueActivity 
 
-kind Agent specializes Actor {
-    @material [1..*] -- manages -- [1..*] RawProduct 
-    @material [1..*] -- bundles -- [1..*] RawProduct 
-    @material [1] -- manages -- [1..*] EndProduct 
-    @material [1] -- provides -- [1..*] EndProduct 
-    @material [1] -- delivers -- [1..*] CounterObject 
-    @material [1] -- bundles -- [1..*] CounterObject 
-    [1] -- [1..*] Payment 
-}
+kind Agent specializes Actor 
 
-relator Purchase specializes ValueActivity {
-    [1..*] -- [1] Provider 
-    [1..*] -- [1] Agent 
-    [*] -- duality -- [*] Payment 
-}
+relator Purchase specializes ValueActivity 
 
-relator Payment specializes ValueActivity {
-    [1..*] -- [1] Provider 
-}
+relator Payment specializes ValueActivity 
 
-kind Provider specializes Actor {
-    @material [1..*] -- provides -- [1..*] RawProduct 
-    @material [1..*] -- consumes -- [1..*] CounterObject 
-}
+kind Provider specializes Actor 
 
-kind CounterObject specializes ValueObject {
-    [1] -- stockFlow -- [1] Payment 
-    [1] -- stockFlow -- [1..*] Receipt 
-}
+kind CounterObject specializes ValueObject 
 
-relator Receipt specializes ValueActivity {
-    [*] -- [1] Agent 
-    [1..*] -- [1] Consumer 
-}
+relator Receipt specializes ValueActivity 
 
-relator Sale specializes ValueActivity {
-    [*] -- duality -- [*] Receipt 
-    [1..*] -- [1] Agent 
-    [1..*] -- [1] Consumer 
-}
+relator Sale specializes ValueActivity 
 
 kind Policy
 
@@ -125,4 +60,54 @@ genset HDik7f6AUB0C9IYb {
     general ValueActivity
     specifics Purchase, Sale, Payment, Production, Receipt
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

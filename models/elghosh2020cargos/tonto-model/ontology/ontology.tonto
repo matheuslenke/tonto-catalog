@@ -1,3 +1,4 @@
+import ontology
 
 package ontology
 
@@ -7,38 +8,32 @@ roleMixin Duty_Holder of functional-complexes
 
 role Carrier specializes Duty_Holder 
 
-role Shipper specializes Right_Holder {
-    @material [1] -- has_a_right_to_indemnity_against -- [1] Carrier 
-}
+role Shipper specializes Right_Holder 
 
-relator Right_Duty_to_Indemnity{
-    @mediation [1..*] -- mediates -- [1] Shipper 
-    [1] -- [1] Right_to_Indemnity 
-    [1] -- [1] Duty_to_Indemnity 
-    @mediation [1..*] -- mediates -- [1] Carrier 
-}
+relator Right_Duty_to_Indemnity
 
-mode Right_to_Indemnity{
-    @characterization [1..*] -- inheres_in -- [1] Shipper 
-    @formal [1] -- correlates -- [1] Duty_to_Indemnity 
-    @characterization [1] -- externally_depends_on -- [1] Carrier 
-}
+mode Right_to_Indemnity
 
-mode Duty_to_Indemnity{
-    @characterization [1..*] -- inheres_in -- [1] Carrier 
-    @characterization [1..*] -- externally_depends_on -- [1] Shipper 
-}
+mode Duty_to_Indemnity
 
-kind Inaccuracies{
-    @triggers [1..*] -- [1] Loss_or_Damage_of_Goods 
-    [1..*] -- has_part -- [1] Carrier 
-}
+kind Inaccuracies
 
-subkind Legal_Rule{
-    [1..*] -- defines -- [1..*] Right_Duty_to_Indemnity 
-}
+subkind Legal_Rule
 
-event Loss_or_Damage_of_Goods{
-    [1] -- grounds -- [1..*] Right_Duty_to_Indemnity 
-}
+event Loss_or_Damage_of_Goods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

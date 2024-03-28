@@ -1,3 +1,4 @@
+import ontology
 
 package ontology
 
@@ -23,18 +24,16 @@ role Company_as_Tenant of functional-complexes  specializes Company, Tenant_Less
 
 roleMixin Tenant_Lessee of functional-complexes 
 
-relator Rental_Agreement_Lease{
-    @mediation [1..*] -- [1] Land_Lord_Lessor 
-    @mediation [1..*] -- [1] Tenant_Lessee 
-    @mediation [1..*] -- [1] Rented_Realty 
-}
+relator Rental_Agreement_Lease
 
 role Rented_Realty of functional-complexes  specializes Realty 
 
 kind Realty
 
-relator Deed{
-    @mediation [1] -- [1] Realty 
-    @mediation [1..*] -- [1] Owner 
-}
+relator Deed
+
+
+
+
+
 

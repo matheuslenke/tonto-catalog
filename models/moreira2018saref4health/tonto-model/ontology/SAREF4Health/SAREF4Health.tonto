@@ -1,5 +1,3 @@
-import SAREF
-import Human
 
 package SAREF4Health
 
@@ -7,17 +5,11 @@ quantity ElectricPotential specializes UnitOfMeasurement
 
 role PersonUnderECGMonitoring specializes LivingPerson 
 
-class ECGRecordingSession specializes Task {
-    [0..*] -- hasParticipant -- [1] ECGDevice 
-    @formal [0..*] -- hasParticipant -- [1] PersonUnderECGMonitoring 
-}
+class ECGRecordingSession specializes Task 
 
 subkind ECGDevice of functional-complexes  specializes Device 
 
-kind ECGLead specializes Sensor {
-    @formal [1] -- sarefmakesMeasurement -- [0..*] TimeSeriesMeasurements 
-    @componentOf [2..*] -- [1] ECGDevice 
-}
+kind ECGLead specializes Sensor 
 
 subkind ECGLeadUnipolar of functional-complexes  specializes ECGLead 
 
@@ -30,4 +22,8 @@ collective TimeSeriesMeasurements{
 subkind ECGSampleSequence of collectives  specializes TimeSeriesMeasurements 
 
 quality HeartElectricalActivity specializes Property 
+
+
+
+
 

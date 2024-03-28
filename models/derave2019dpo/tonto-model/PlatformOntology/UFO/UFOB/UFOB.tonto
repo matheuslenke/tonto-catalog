@@ -1,3 +1,4 @@
+import UFOB
 
 package UFOB
 
@@ -5,9 +6,8 @@ event Event
 
 event Subevent specializes Event 
 
-event Event_A{
-    @participational [1..*] -- [1] Event_B 
-}
+event Event_A
 
 event Event_B
+
 

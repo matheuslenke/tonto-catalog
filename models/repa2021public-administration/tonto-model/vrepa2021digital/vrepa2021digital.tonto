@@ -1,31 +1,22 @@
+import vrepa2021digital
 
 package vrepa2021digital
 
 kind PA_Client
 
-subkind Company of functional-complexes  specializes PA_Client {
-    [1..*] -- [1..*] Employee 
-}
+subkind Company of functional-complexes  specializes PA_Client 
 
-subkind Citizen of functional-complexes  specializes PA_Client {
-    [*] -- [*] Citizens_Role 
-}
+subkind Citizen of functional-complexes  specializes PA_Client 
 
-role Enterpreneur specializes Citizens_Role {
-    [0..1] -- [1..*] Company 
-}
+role Enterpreneur specializes Citizens_Role 
 
-role Company_Pensioner specializes Citizens_Role {
-    [*] -- [1..*] Company 
-}
+role Company_Pensioner specializes Citizens_Role 
 
 role Employee specializes Citizens_Role 
 
 class Citizens_Role
 
-role Old_Age_Pensioner specializes Citizens_Role {
-    [0..1] -- [1] Senior 
-}
+role Old_Age_Pensioner specializes Citizens_Role 
 
 role Student specializes Citizens_Role 
 
@@ -43,18 +34,11 @@ phase Doctoral_Degree_Student specializes Student
 
 role Offspring specializes Citizens_Role 
 
-role Parent specializes Citizens_Role {
-    [0..2] -- [*] Pupil 
-}
+role Parent specializes Citizens_Role 
 
-relator Parenthood{
-    @mediation [1] -- [1..*] Offspring 
-    @mediation [1..*] -- [1..2] Parent 
-}
+relator Parenthood
 
-phase Child of functional-complexes  specializes Citizen {
-    [*] -- [0..2] Parent 
-}
+phase Child of functional-complexes  specializes Citizen 
 
 phase Pupil of functional-complexes  specializes Citizen 
 
@@ -67,4 +51,13 @@ phase Senior of functional-complexes  specializes Citizen
 phase Seeking_for_employment of functional-complexes  specializes Unemployed 
 
 phase In_requalification of functional-complexes  specializes Unemployed 
+
+
+
+
+
+
+
+
+
 

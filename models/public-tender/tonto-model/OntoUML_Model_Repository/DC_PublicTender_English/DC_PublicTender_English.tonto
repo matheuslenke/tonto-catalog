@@ -1,29 +1,19 @@
 
 package DC_PublicTender_English
 
-relator Nomination_of_Representative{
-    @mediation [1] -- [1] Company_Participant_of_Public_Auction 
-    @mediation [1] -- [1] Legal_Representative 
-}
+relator Nomination_of_Representative
 
 role Qualification_in_General_Proposal of functional-complexes  specializes Qualification 
 
-relator Publication{
-    @mediation [1] -- publishes -- [1] Published_Object 
-    @mediation [1..*] -- [1] Publication_Context 
-}
+relator Publication
 
 relator Public_Auction specializes Auction 
 
 role Tender_in_Internal_Phase of functional-complexes  specializes Tender 
 
-role Grant_Committee_Nomination_Ordinance{
-    @mediation [1..*] -- formalized_by -- [1] Grant_Committee_Nomination 
-}
+role Grant_Committee_Nomination_Ordinance
 
-role Grant_Committee of collectives  specializes Committee {
-    @mediation [1] -- conducts -- [1] Auction_for_Public_Tender 
-}
+role Grant_Committee of collectives  specializes Committee 
 
 collective Committee
 
@@ -33,12 +23,7 @@ role Empty_Tender of functional-complexes  specializes Tender_Without_Winner
 
 role Tender_in_Qualification of functional-complexes  specializes Tender_in_External_Phase 
 
-relator Proposal{
-    @mediation [1] -- [1..*] Specific_Proposal 
-    @mediation [1] -- [1] General_Proposal 
-    @mediation [1] -- [1] Auction_for_Public_Tender 
-    @mediation [1] -- presents -- [1] Legal_Representative_in_Tender_Process 
-}
+relator Proposal
 
 subkind Concession_Tender of functional-complexes  specializes Tender 
 
@@ -46,7 +31,6 @@ kind Proof_of_Fleet
 
 subkind Permission_Tender of functional-complexes  specializes Tender {
     term: undefined  
-    @Formal [0..*] -- coordinates -- [1] Grant_Committee 
 }
 
 roleMixin Publication_Context of functional-complexes 
@@ -55,9 +39,7 @@ subkind Service_Tender of functional-complexes  specializes Tender
 
 kind Warranty
 
-relator Bidder_Registration{
-    @mediation [1..*] -- [1] Tender_in_Call_for_Tender 
-}
+relator Bidder_Registration
 
 subkind Construction_Tender of functional-complexes  specializes Tender 
 
@@ -82,26 +64,15 @@ kind Person{
 
 role Tender_in_Proposal_Reviewing of functional-complexes  specializes Tender_in_External_Phase 
 
-relator General_Proposal{
-    @mediation [1] -- [1..*] Service_Batch_in_Auction 
-    @mediation [1] -- [1] Proof_of_Fleet_in_General_Proposal 
-    @mediation [1] -- [1] Warranty_in_General_Proposal 
-    @mediation [1] -- [1] Qualification_in_General_Proposal 
-}
+relator General_Proposal
 
 kind Bussiness_Plan
 
-relator Call_for_Tender_Republication specializes Republication {
-    @mediation [1] -- modifies -- [1] Published_Call_for_Tender 
-}
+relator Call_for_Tender_Republication specializes Republication 
 
 kind Call_for_Tender
 
-relator Specific_Proposal{
-    @mediation [1] -- [1] Bussiness_Plan_in_Specific_Proposal 
-    @mediation [1] -- [1] Service_Batch_in_Auction 
-    @mediation [1] -- [1] Economic_Proposal_in_Specific_Proposal 
-}
+relator Specific_Proposal
 
 role Legal_Representative of functional-complexes  specializes Person 
 
@@ -109,53 +80,35 @@ subkind Permission_Grant_Contract
 
 subkind Lease_Tender of functional-complexes  specializes Tender 
 
-relator Auction{
-    @mediation [1] -- auctions -- [1] Batch_in_Auction 
-}
+relator Auction
 
-relator Permission_Grant{
-    @mediation [1] -- [1] Auction_for_Public_Tender 
-    @mediation [1] -- formaliza -- [1] Permission_Grant_Contract 
-}
+relator Permission_Grant
 
-role Tended_With_Winner of functional-complexes  specializes Completed_Tender {
-    @mediation [1] -- [1] Permission_Grant 
-}
+role Tended_With_Winner of functional-complexes  specializes Completed_Tender 
 
 role Permission_Tender_in_Auction of functional-complexes  specializes Permission_Tender 
 
 subkind Disposal_Tender of functional-complexes  specializes Tender 
 
-role Power_of_Attorney{
-    @mediation [0..1] -- [1] Nomination_of_Representative 
-}
+role Power_of_Attorney
 
 kind Economic_Proposal
 
 role Bussiness_Plan_in_Specific_Proposal of functional-complexes  specializes Bussiness_Plan 
 
-relator Public_Hearing{
-    @mediation [1] -- requests -- [1] Tender_in_Internal_Phase 
-}
+relator Public_Hearing
 
 role Tender_in_External_Phase of functional-complexes  specializes Tender 
 
-relator Republication specializes Publication {
-    @mediation [1] -- modifies -- [1] Published_Object 
-}
+relator Republication specializes Publication 
 
-relator Session_of_Public_Auction{
-    @mediation [0..*] -- participates_in -- [1..*] Legal_Representative 
-    @mediation [1] -- [1] Public_Auction 
-}
+relator Session_of_Public_Auction
 
 roleMixin Batch_in_Auction of functional-complexes 
 
 subkind Purchase_Tender of functional-complexes  specializes Tender 
 
-collective Batch_Group{
-    @componentOf [1] -- [1..*] Service_Batch 
-}
+collective Batch_Group
 
 roleMixin Winner_of_Public_Auction of functional-complexes  specializes Company_Participant_of_Public_Auction 
 
@@ -175,9 +128,7 @@ role Published_Call_for_Tender of functional-complexes  specializes Published_Ob
 
 kind Tender
 
-role Bidder specializes Company {
-    @mediation [1] -- [1..*] Bidder_Registration 
-}
+role Bidder specializes Company 
 
 kind Qualification
 
@@ -187,31 +138,19 @@ role Legal_Representative_in_Tender_Process of functional-complexes  specializes
 
 subkind Company
 
-relator Homologation_of_Public_Auction{
-    @mediation [1] -- declares -- [1..*] Winner_of_Public_Auction 
-    @mediation [1] -- [1] Public_Auction 
-}
+relator Homologation_of_Public_Auction
 
 roleMixin Published_Object of functional-complexes 
 
-relator Auction_for_Public_Tender specializes Public_Auction {
-    @mediation [1] -- auctions -- [1..*] Service_Batch_in_Auction 
-    @mediation [1] -- decides -- [1] Permission_Tender_in_Auction 
-}
+relator Auction_for_Public_Tender specializes Public_Auction 
 
 role Tender_in_Homologation_Process of functional-complexes  specializes Tender_in_External_Phase 
 
-relator Call_for_Tender_Publication specializes Publication {
-    @mediation [1] -- publishes -- [1] Published_Call_for_Tender 
-    @mediation [1..*] -- [1] Tender_in_Call_for_Tender 
-}
+relator Call_for_Tender_Publication specializes Publication 
 
 role Service_Batch_in_Auction of collectives  specializes Service_Batch, Batch_in_Auction 
 
-relator Grant_Committee_Nomination{
-    @mediation [1] -- [1] Permission_Tender_in_External_Phase 
-    @mediation [1] -- [1] Grant_Committee 
-}
+relator Grant_Committee_Nomination
 
 role Anulled_Tender of functional-complexes  specializes Completed_Tender 
 
@@ -238,4 +177,43 @@ genset Set4 {
     general Tender_in_External_Phase
     specifics Tender_in_Qualification, Suspended_Tender, Tender_in_Homologation_Process, Tender_in_Proposal_Reviewing, Tender_in_Call_for_Tender
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

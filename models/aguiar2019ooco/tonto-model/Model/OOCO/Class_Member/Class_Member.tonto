@@ -1,13 +1,12 @@
 import Core
 import Class
+import Class_Member
 
 package Class_Member
 
 subkind Method_Variable of functional-complexes  specializes Variable 
 
-subkind Overridable_Method of functional-complexes  specializes Method_Member_Function {
-    @componentOf [0..*] -- [1] Extendable_Class 
-}
+subkind Overridable_Method of functional-complexes  specializes Method_Member_Function 
 
 subkind NonOverridable_Method of functional-complexes  specializes Method_Member_Function 
 
@@ -15,9 +14,7 @@ subkind Class_Method of functional-complexes  specializes NonOverridable_Method,
 
 subkind Instance_Method of functional-complexes  specializes Concrete_Method 
 
-subkind Abstract_Method of functional-complexes  specializes Overridable_Method, Method_Member_Function {
-    @componentOf [0..*] -- [1] Abstract_Class 
-}
+subkind Abstract_Method of functional-complexes  specializes Overridable_Method, Method_Member_Function 
 
 subkind Concrete_Method of functional-complexes  specializes Method_Member_Function 
 
@@ -27,22 +24,13 @@ subkind Class_Variable of functional-complexes  specializes Attribute_Member_Var
 
 subkind Instance_Variable of functional-complexes  specializes Attribute_Member_Variable 
 
-subkind Parameter_Variabe of functional-complexes  specializes Method_Variable {
-    @componentOf [0..*] -- [1] Method_Member_Function 
-}
+subkind Parameter_Variabe of functional-complexes  specializes Method_Variable 
 
-subkind Local_Variable of functional-complexes  specializes Method_Variable {
-    @componentOf [0..*] -- [1] Block 
-}
+subkind Local_Variable of functional-complexes  specializes Method_Variable 
 
-kind Type_Parameter{
-    @componentOf [1..*] -- [1] Generic_Method 
-}
+kind Type_Parameter
 
-kind Block{
-    @componentOf [1] -- [1] Concrete_Method 
-    @componentOf [0..*] -- [0..1] Block 
-}
+kind Block
 
 subkind Constructor_Method of functional-complexes  specializes NonOverridable_Method, Instance_Method 
 
@@ -79,4 +67,11 @@ genset Parametrization {
     general Method_Member_Function
     specifics Generic_Method
 }
+
+
+
+
+
+
+
 

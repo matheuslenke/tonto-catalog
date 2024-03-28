@@ -1,0 +1,11 @@
+
+package Decentralized
+
+subkind Listing of relators {
+    numFreeSeats: undefined  
+    startDate: undefined  
+    endDate: undefined  
+}
+
+event Listing_Search
+

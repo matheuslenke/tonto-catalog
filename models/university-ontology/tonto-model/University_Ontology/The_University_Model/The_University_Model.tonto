@@ -1,3 +1,4 @@
+import The_University_Model
 
 package The_University_Model
 
@@ -7,50 +8,29 @@ phase ActiveCurriculum of functional-complexes  specializes Curriculum
 
 phase ActiveProfessor of functional-complexes  specializes Professor 
 
-subkind Center of functional-complexes  specializes Organization {
-    @componentOf [1..*] -- [1] Higher_Education_Institution 
-}
+subkind Center of functional-complexes  specializes Organization 
 
 role Class
 
-relator ClassEnrollment{
-    @mediation [1] -- [1] Class 
-    @mediation [1] -- [1] Student 
-}
+relator ClassEnrollment
 
 role Colegiado
 
-kind Course{
-    [1..*] -- boundTo -- [1] Center 
-}
+kind Course
 
-role CourseCoordinator of functional-complexes  specializes Professor {
-    [1] -- coordinatedBy -- [1] Colegiado 
-    [1] -- manages -- [1] Course 
-}
+role CourseCoordinator of functional-complexes  specializes Professor 
 
-kind Curriculum{
-    [1..*] -- organizes -- [1] Course 
-}
+kind Curriculum
 
-subkind Department of functional-complexes  specializes Organization {
-    @componentOf [1..*] -- [1] Center 
-}
+subkind Department of functional-complexes  specializes Organization 
 
 role DepartmentChief of functional-complexes  specializes Professor 
 
-kind Discipline{
-    [1] -- provided_trough -- [0..*] Class 
-    [*] -- [*] Curriculum 
-    [1..*] -- offers -- [1] Department 
-}
+kind Discipline
 
 phase EgressStudent of functional-complexes  specializes Student 
 
-relator Enrollment{
-    @mediation [0..*] -- [1] Course 
-    @mediation [1..*] -- [1] Student 
-}
+relator Enrollment
 
 subkind Higher_Education_Institution of functional-complexes  specializes Organization 
 
@@ -64,40 +44,55 @@ kind Organization
 
 kind Person
 
-role Professor of functional-complexes  specializes Person {
-    [1..*] -- teaches -- [0..*] Class 
-    @material [1..*] -- composedBy -- [0..*] Colegiado 
-}
+role Professor of functional-complexes  specializes Person 
 
-relator ProfessorMandate{
-    @mediation [1..*] -- [1] Colegiado 
-    @mediation [1..*] -- [1] Professor 
-}
+relator ProfessorMandate
 
 phase RegularStudent of functional-complexes  specializes Student 
 
-quality Semester{
-    @characterization [1] -- [0..*] Class 
-}
+quality Semester
 
-role Student of functional-complexes  specializes Person {
-    [0..*] -- fullfiledBy -- [1] Curriculum 
-    @material [0..*] -- hasStudent -- [1..*] Course 
-    @material [1] -- [1] Colegiado 
-    [0..*] -- groups -- [1..*] Class 
-}
+role Student of functional-complexes  specializes Person 
 
-relator StudentMandate{
-    @mediation [1..*] -- [1] Colegiado 
-    @mediation [1..*] -- [1] Student 
-}
+relator StudentMandate
 
 phase SuspendedStudent of functional-complexes  specializes Student 
 
-quality Field{
-    @characterization [1] -- [1] Discipline 
-}
+quality Field
 
 datatype Date
 datatype Parity
 datatype Year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

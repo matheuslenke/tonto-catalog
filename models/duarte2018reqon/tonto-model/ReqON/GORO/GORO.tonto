@@ -1,10 +1,10 @@
 import RSRO
 import UFOC
+import GORO
 
 package GORO
 
-class Requirement specializes Requirements {
-    [0..*] -- alternativeGoal -- [0..1] Requirement 
-    [0..*] -- subGoal -- [0..1] Requirement 
-}
+class Requirement specializes Requirements 
+
+
 

@@ -1,12 +1,11 @@
 import Equipment
+import Switch_OTN
 
 package Switch_OTN
 
 subkind Switch_OTN of functional-complexes  specializes Equipment 
 
-subkind Module_Switch_OTN of functional-complexes  specializes Module {
-    @componentOf [1..*] -- [1] Switch_OTN 
-}
+subkind Module_Switch_OTN of functional-complexes  specializes Module 
 
 subkind CIC of functional-complexes  specializes Module_Switch_OTN 
 
@@ -22,4 +21,5 @@ genset CGW8kn6AUAgInB0t {
     general Module_Switch_OTN
     specifics CIC, WSS, ODU_Switch, OIC, NIC
 }
+
 

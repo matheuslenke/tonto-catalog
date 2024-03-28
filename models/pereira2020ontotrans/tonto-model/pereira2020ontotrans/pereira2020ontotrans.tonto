@@ -1,173 +1,141 @@
+import pereira2020ontotrans
 
 package pereira2020ontotrans
 
 roleMixin Impact of functional-complexes 
 
-roleMixin Availability of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Acessibility 
-}
+roleMixin Availability of functional-complexes 
 
-roleMixin Portability of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- [*] Acessibility 
-}
+roleMixin Portability of functional-complexes 
 
-roleMixin Publicity of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Acessibility 
-}
+roleMixin Publicity of functional-complexes 
 
-roleMixin Acessibility of functional-complexes {
-    [*] -- help -- [*] Transparency 
-}
+roleMixin Acessibility of functional-complexes 
 
 roleMixin Transparency of functional-complexes 
 
-roleMixin Usability of functional-complexes {
-    [*] -- help -- [*] Transparency 
-}
+roleMixin Usability of functional-complexes 
 
-roleMixin Performability of functional-complexes {
-    [*] -- help -- [*] Usability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Performability of functional-complexes 
 
-roleMixin Operability of functional-complexes {
-    [*] -- help -- [*] Usability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Operability of functional-complexes 
 
-roleMixin Adaptability of functional-complexes {
-    [*] -- help -- [*] Usability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Adaptability of functional-complexes 
 
-roleMixin Intuitiveness of functional-complexes {
-    [*] -- help -- [*] Usability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Intuitiveness of functional-complexes 
 
-roleMixin Userfriendliness of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Usability 
-}
+roleMixin Userfriendliness of functional-complexes 
 
-roleMixin Simplicity of functional-complexes {
-    [*] -- [*] Usability 
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Conciseness 
-    [*] -- hurt -- [*] Completeness 
-}
+roleMixin Simplicity of functional-complexes 
 
-roleMixin Uniformity of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Usability 
-    [*] -- help -- [*] Clarity 
-}
+roleMixin Uniformity of functional-complexes 
 
-roleMixin Composability of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Understandability 
-}
+roleMixin Composability of functional-complexes 
 
-roleMixin Understandability of functional-complexes {
-    [*] -- help -- [*] Transparency 
-}
+roleMixin Understandability of functional-complexes 
 
-roleMixin Decomposability of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Understandability 
-}
+roleMixin Decomposability of functional-complexes 
 
-roleMixin Conciseness of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- hurt -- [*] Completeness 
-    [*] -- help -- [*] Understandability 
-}
+roleMixin Conciseness of functional-complexes 
 
-roleMixin Completeness of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- help -- [*] Informativeness 
-}
+roleMixin Completeness of functional-complexes 
 
-roleMixin Extensibility of functional-complexes {
-    [*] -- help -- [*] Understandability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Extensibility of functional-complexes 
 
-roleMixin Dependability of functional-complexes {
-    [*] -- generate -- [*] Impact 
-    [*] -- [*] Understandability 
-}
+roleMixin Dependability of functional-complexes 
 
-roleMixin Clarity of functional-complexes {
-    [*] -- help -- [*] Informativeness 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Clarity of functional-complexes 
 
-roleMixin Informativeness of functional-complexes {
-    [*] -- help -- [*] Transparency 
-}
+roleMixin Informativeness of functional-complexes 
 
-roleMixin Integrity of functional-complexes {
-    [*] -- help -- [*] Informativeness 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Integrity of functional-complexes 
 
-roleMixin Correctness of functional-complexes {
-    [*] -- help -- [*] Integrity 
-    [*] -- [*] Informativeness 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Correctness of functional-complexes 
 
-roleMixin Consistency of functional-complexes {
-    [*] -- [*] Informativeness 
-    [*] -- [*] Impact 
-}
+roleMixin Consistency of functional-complexes 
 
-roleMixin Accuracy of functional-complexes {
-    [*] -- help -- [*] Informativeness 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Accuracy of functional-complexes 
 
-roleMixin Comparable of functional-complexes {
-    [*] -- help -- [*] Informativeness 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Comparable of functional-complexes 
 
-roleMixin Current of functional-complexes {
-    [*] -- help -- [*] Informativeness 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Current of functional-complexes 
 
-roleMixin Traceability of functional-complexes {
-    [*] -- help -- [*] Auditability 
-    [*] -- [*] Impact 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Traceability of functional-complexes 
 
-roleMixin Auditability of functional-complexes {
-    [*] -- help -- [*] Acessibility 
-}
+roleMixin Auditability of functional-complexes 
 
-roleMixin Accountability of functional-complexes {
-    [*] -- help -- [*] Auditability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Accountability of functional-complexes 
 
-roleMixin Controlability of functional-complexes {
-    [*] -- help -- [*] Auditability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Controlability of functional-complexes 
 
-roleMixin Validity of functional-complexes {
-    [*] -- help -- [*] Auditability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Validity of functional-complexes 
 
-roleMixin Verifiability of functional-complexes {
-    [*] -- help -- [*] Auditability 
-    [*] -- generate -- [*] Impact 
-}
+roleMixin Verifiability of functional-complexes 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

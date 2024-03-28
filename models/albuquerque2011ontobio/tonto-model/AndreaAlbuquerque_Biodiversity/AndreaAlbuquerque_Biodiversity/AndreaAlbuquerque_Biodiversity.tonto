@@ -3,18 +3,11 @@ package AndreaAlbuquerque_Biodiversity
 
 kind Person specializes Animal 
 
-role ObjectClassifier of functional-complexes  specializes Person {
-    @mediation [1] -- [1..*] Classification 
-}
+role ObjectClassifier of functional-complexes  specializes Person 
 
-role ParticipantInCollection of functional-complexes  specializes Person {
-    @mediation [1..*] -- [1] Collection 
-}
+role ParticipantInCollection of functional-complexes  specializes Person 
 
-role Researcher of functional-complexes  specializes Person {
-    @mediation [1] -- [1..*] InstitutionalContract 
-    @material [1..*] -- worksin -- [1..*] ResearchInstitution 
-}
+role Researcher of functional-complexes  specializes Person 
 
 role AssistantInCollection of functional-complexes  specializes ParticipantInCollection 
 
@@ -22,22 +15,13 @@ role ResearcherParticipant of functional-complexes  specializes ParticipantInCol
 
 role ResponsibleForCollection of functional-complexes  specializes ResearcherParticipant 
 
-category SpatialLocation of functional-complexes {
-    [*] -- [1..*] GeographicCoordinate 
-}
+category SpatialLocation of functional-complexes 
 
-role CollectionLocation specializes SpatialLocation {
-    @mediation [1] -- [1..*] Collection 
-}
+role CollectionLocation specializes SpatialLocation 
 
-relator Classification{
-    @mediation [1..*] -- [1] Species 
-    @mediation [1] -- [1] ClassifiedEntity 
-}
+relator Classification
 
-type Species specializes Taxon {
-    @comparative [1..*] -- speciesIdentity -- [1..*] Species 
-}
+type Species specializes Taxon 
 
 role ClassifiedEntity specializes EntityInStudy 
 
@@ -48,30 +32,21 @@ role EntityInStudy specializes BioticEntity
 category BioticEntity of functional-complexes  specializes MaterialEntity {
     size: undefined  
     weight: undefined  
-    @componentOf [1..*] -- [1..*] Ecosystem 
-    [*] -- instanceOf -- [1..*] Taxon 
-    @comparative [1] -- [1] LifeStage 
 }
 
 relator Collection{
     EndDate: undefined  
     StartDate: undefined  
-    @mediation [1] -- [1] ResponsibleForCollection 
-    @mediation [1] -- [1..*] CollectedEntity 
 }
 
-relator InstitutionalContract{
-    @mediation [1..*] -- [1] ResearchInstitution 
-}
+relator InstitutionalContract
 
 kind ResearchInstitution{
     acronym: undefined  
     name: undefined  
 }
 
-role ResponsibleInstitution of functional-complexes  specializes ResearchInstitution {
-    @mediation [1] -- [1] Collection 
-}
+role ResponsibleInstitution of functional-complexes  specializes ResearchInstitution 
 
 relator CollectionThroughFraction specializes Collection 
 
@@ -81,9 +56,7 @@ relator ManualCollection specializes Collection
 
 relator InstrumentedCollection specializes Collection 
 
-role CollectionInstrument of functional-complexes  specializes Instrument {
-    @mediation [1..*] -- [1] InstrumentedCollection 
-}
+role CollectionInstrument of functional-complexes  specializes Instrument 
 
 kind Instrument
 
@@ -93,31 +66,19 @@ relator NetCollection specializes CollectionInstrument
 
 relator EtimologicalUmbrellaCollection specializes CollectionInstrument 
 
-kind Ecosystem specializes MaterialEntity {
-    @componentOf [*] -- [*] Ecosystem 
-    @comparative [*] -- classifiedAs -- [1] EcosystemType 
-    @comparative [1] -- locatedIn -- [1] SpatialLocation 
-}
+kind Ecosystem specializes MaterialEntity 
 
 type EcosystemType
 
-category AbioticEntity of functional-complexes  specializes MaterialEntity {
-    @componentOf [1..*] -- [1..*] Ecosystem 
-}
+category AbioticEntity of functional-complexes  specializes MaterialEntity 
 
-subkind MesoEcosystem of functional-complexes  specializes Ecosystem {
-    @componentOf [2..*] -- [1] MacroEcosystem 
-}
+subkind MesoEcosystem of functional-complexes  specializes Ecosystem 
 
 subkind MacroEcosystem of functional-complexes  specializes Ecosystem 
 
-subkind MicorEcosystem of functional-complexes  specializes Ecosystem {
-    @componentOf [2..*] -- [1] MesoEcosystem 
-}
+subkind MicorEcosystem of functional-complexes  specializes Ecosystem 
 
-subkind Biome of functional-complexes  specializes MacroEcosystem {
-    @comparative [0..*] -- classifiedAs -- [1] BiomeType 
-}
+subkind Biome of functional-complexes  specializes MacroEcosystem 
 
 type BiomeType
 
@@ -151,11 +112,7 @@ mode LastQuarterMoon specializes MoonPhase
 
 mode NewMoon specializes MoonPhase 
 
-mode Environment{
-    @characterization [1] -- [1] Luminosity 
-    @characterization [1] -- [1] WeatherCondition 
-    @characterization [1] -- [1] MoonPhase 
-}
+mode Environment
 
 mode WeatherCondition
 
@@ -178,38 +135,23 @@ type Taxon{
 
 type Family specializes Taxon 
 
-type Genus specializes Taxon {
-    @comparative [1..*] -- groups -- [1] Family 
-    @comparative [1] -- groups -- [1..*] Species 
-}
+type Genus specializes Taxon 
 
-category Plant of functional-complexes  specializes BioticEntity {
-    @memberOf [2..*] -- [1] Flora 
-}
+category Plant of functional-complexes  specializes BioticEntity 
 
-category Microorganism of functional-complexes  specializes BioticEntity {
-    @memberOf [2..*] -- [1] Microbiota 
-}
+category Microorganism of functional-complexes  specializes BioticEntity 
 
 collective Fauna
 
-category Animal of functional-complexes  specializes BioticEntity {
-    @memberOf [2..*] -- [1] Fauna 
-}
+category Animal of functional-complexes  specializes BioticEntity 
 
 collective Microbiota
 
-collective Flora{
-    @comparative [1] -- constitutedBy -- [1] Vegetation 
-}
+collective Flora
 
-kind Vegetation{
-    [*] -- locatedIn -- [1..*] GeographicSpace 
-}
+kind Vegetation
 
-category GeographicSpace of functional-complexes  specializes SpatialLocation {
-    [*] -- [2..*] GeographicCoordinate 
-}
+category GeographicSpace of functional-complexes  specializes SpatialLocation 
 
 subkind Igapo of functional-complexes  specializes Vegetation 
 
@@ -223,9 +165,7 @@ subkind Lowland of functional-complexes  specializes Vegetation
 
 subkind Capoeira of functional-complexes  specializes Vegetation 
 
-category Gender of functional-complexes {
-    @comparative [1] -- [1] BioticEntity 
-}
+category Gender of functional-complexes 
 
 category Male of functional-complexes  specializes Gender 
 
@@ -291,23 +231,15 @@ subkind Rocky of quantities  specializes Soil
 
 subkind Humous of quantities  specializes Soil 
 
-category GeographicPoint of functional-complexes  specializes SpatialLocation {
-    [*] -- [1] GeographicCoordinate 
-}
+category GeographicPoint of functional-complexes  specializes SpatialLocation 
 
 type ClimateRegionType
 
-category ClimateRegion of functional-complexes  specializes GeographicSpace {
-    @comparative [*] -- classifiedAs -- [1] ClimateRegionType 
-}
+category ClimateRegion of functional-complexes  specializes GeographicSpace 
 
-category SocialPoliticalRegion of functional-complexes  specializes GeographicSpace {
-    @comparative [*] -- classifiedAs -- [1] SocialPoliticalRegionType 
-}
+category SocialPoliticalRegion of functional-complexes  specializes GeographicSpace 
 
-category PhytophysiognomicRegion of functional-complexes  specializes GeographicSpace {
-    @comparative [*] -- classifiedAs -- [1] PhytophysiognomicRegionType 
-}
+category PhytophysiognomicRegion of functional-complexes  specializes GeographicSpace 
 
 type SocialPoliticalRegionType
 
@@ -327,17 +259,11 @@ category Tropical of functional-complexes  specializes ClimateRegion
 
 kind Country specializes SocialPoliticalRegion 
 
-kind State specializes SocialPoliticalRegion {
-    @comparative [1..*] -- spatiallyContainedIn -- [1] Country 
-}
+kind State specializes SocialPoliticalRegion 
 
-kind City specializes SocialPoliticalRegion {
-    @comparative [1..*] -- spatiallyContainedIn -- [1] State 
-}
+kind City specializes SocialPoliticalRegion 
 
-kind Location specializes SocialPoliticalRegion {
-    @comparative [1..*] -- spatiallyContainedIn -- [1] City 
-}
+kind Location specializes SocialPoliticalRegion 
 
 subkind PrivateLocation of functional-complexes  specializes Location 
 
@@ -383,8 +309,9 @@ category AraucariasRegion of functional-complexes  specializes Phytophysiognomic
 
 category FieldsRegion of functional-complexes  specializes PhytophysiognomicRegion 
 
-datatype GeographicCoordinate{
-altitude,latitude,longitude,}
+enum GeographicCoordinate{
+altitude,latitude,longitude
+}
 
 genset disjoint_complete {
     general Person
@@ -495,4 +422,47 @@ genset disjoint_complete {
     general PhytophysiognomicRegion
     specifics CocaisRegion, CerradoRegion, AtlanticRegion, PatanalRegion, CostalRegion, AmazonicRegion, FieldsRegion, CaatingaRegion, AraucariasRegion
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

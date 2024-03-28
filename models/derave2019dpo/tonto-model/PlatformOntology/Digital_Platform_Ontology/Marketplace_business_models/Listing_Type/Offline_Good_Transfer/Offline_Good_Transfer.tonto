@@ -1,15 +1,3 @@
-import GDPO_part_1
-import Transaction
-import MultiSided
-import Payment
-import Review_by_Customer
-import Marketplace_business_models
-import In_House_Payment
-import Conversation_System
-import Customer_Source
-import Review_System
-import Price_Discovery
-import Price_Calculation
 
 package Offline_Good_Transfer
 

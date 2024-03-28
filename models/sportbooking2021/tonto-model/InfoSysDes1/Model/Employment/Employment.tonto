@@ -1,29 +1,19 @@
 import Model
+import Employment
 
 package Employment
 
-relator Employment_contract{
-    @mediation [1..*] -- involves_employee -- [1] Employee 
-    @mediation [0..*] -- involves_employer -- [1] Mediated_by_employment_contract 
-}
+relator Employment_contract
 
-relator Company_ownership{
-    @mediation [0..*] -- involves_property -- [1] Mediated_by_Company_ownership 
-    @mediation [1..*] -- involves_owner -- [1] Owner 
-}
+relator Company_ownership
 
 role Mediated_by_Company_ownership of collectives  specializes Company 
 
 role Mediated_by_employment_contract of collectives  specializes Company 
 
-kind Facility{
-    @partOf [1] -- [1..*] Physical_building 
-}
+kind Facility
 
-relator Building_managnement{
-    @mediation [0..*] -- involves_company -- [1] Mediated_by_building_management 
-    @mediation [0..*] -- involves_building -- [1] Facility 
-}
+relator Building_managnement
 
 role Mediated_by_building_management of collectives  specializes Company 
 
@@ -38,4 +28,10 @@ genset YcnJE76AUB0wdhAV {
     general Company
     specifics Mediated_by_Confirmation, Mediated_by_building_management
 }
+
+
+
+
+
+
 

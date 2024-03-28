@@ -1,4 +1,3 @@
-import GI2MO_Ontology
 
 package Gi2MO_Refactored
 
@@ -6,85 +5,51 @@ phase Accepted of functional-complexes  specializes Idea
 
 role Access_Authorized_Group of collectives  specializes User_Group 
 
-relator Account_Ownership{
-    @mediation [1..*] -- [1] Online_Account 
-    @mediation [1..*] -- [1] User_with_Account 
-}
+relator Account_Ownership
 
-relator Authorization{
-    @mediation [1..*] -- [1] Access_Authorized_Group 
-    @mediation [1..*] -- [1] Contest_with_Access_Authorization 
-}
+relator Authorization
 
 type Category
 
 role Commented_Contest of functional-complexes  specializes Idea_Contest 
 
-role Contest_with_Access_Authorization of functional-complexes  specializes Idea_Contest {
-    @material [1..*] -- [1..*] Access_Authorized_Group 
-}
+role Contest_with_Access_Authorization of functional-complexes  specializes Idea_Contest 
 
 role Contest_with_Idea of functional-complexes  specializes Idea_Contest 
 
-relator Creation{
-    @mediation [1..*] -- [1] Idea 
-    @mediation [1..*] -- [1..*] User_with_Idea 
-}
+relator Creation
 
 phase Deployed of functional-complexes  specializes Idea 
 
 role Described of functional-complexes  specializes Idea 
 
-role Describee of functional-complexes  specializes Idea {
-    @material [1..*] -- [1..*] Described 
-}
+role Describee of functional-complexes  specializes Idea 
 
-relator Describes_Part{
-    @mediation [1..*] -- [1] Described 
-    @mediation [1..*] -- [1] Describee 
-}
+relator Describes_Part
 
 phase Draft of functional-complexes  specializes Idea 
 
 relator Edited{
     VersionDate: undefined [1] 
-    @mediation [1..*] -- [1] Updated_Contest 
-    @mediation [1..*] -- [1] User_Editor 
 }
 
 kind Idea{
     Description: undefined [1] 
-    @formal [0..*] -- Has_equal_content -- [0..*] Idea 
 }
 
-mode Idea_Attachment{
-    [0..*] -- [1] Idea 
-}
+mode Idea_Attachment
 
-type Idea_Category specializes Category {
-    [1..*] -- [0..*] Idea 
-}
+type Idea_Category specializes Category 
 
-relator Idea_Comment{
-    @mediation [1..*] -- [1] User_with_Comment 
-    @mediation [1..*] -- [1] Idea_with_a_Comment 
-}
+relator Idea_Comment
 
 kind Idea_Contest
 
-mode Idea_Contest_Attachment{
-    @characterization [0..*] -- [1] Idea_Contest 
-}
+mode Idea_Contest_Attachment
 
-relator Idea_Contest_Comment{
-    @mediation [1..*] -- [1] Commented_Contest 
-    @mediation [1..*] -- [1] User_with_Idea_Contest_Comment 
-}
+relator Idea_Contest_Comment
 
-relator Idea_Relationship{
-    @mediation [1..*] -- [1..*] Related_Idea 
-    @mediation [1..*] -- [1..*] Relatee 
-}
+relator Idea_Relationship
 
 role Idea_Updater_User of functional-complexes  specializes User 
 
@@ -94,14 +59,9 @@ phase Implemented of functional-complexes  specializes Idea
 
 role Merged of functional-complexes  specializes Idea 
 
-role Merged_1 of functional-complexes  specializes Idea {
-    [1..*] -- [1..*] Merged 
-}
+role Merged_1 of functional-complexes  specializes Idea 
 
-relator Merging{
-    @mediation [1..*] -- [1..*] Merged 
-    @mediation [1..*] -- [merged_1s] Merged_1 
-}
+relator Merging
 
 kind Online_Account
 
@@ -117,98 +77,57 @@ role Related_Idea of functional-complexes  specializes Idea
 
 role Relatee of functional-complexes  specializes Idea 
 
-relator Review{
-    @mediation [1..*] -- [1] Revised_Idea 
-    @mediation [1..*] -- [1] Reviewer 
-}
+relator Review
 
-type Review_Category specializes Category {
-    [1..*] -- [0..*] Review 
-}
+type Review_Category specializes Category 
 
-mode Review_Rating{
-    @characterization [0..1] -- [1] Rating_Review 
-}
+mode Review_Rating
 
 role Reviewer of functional-complexes  specializes User 
 
-role Revised_Idea of functional-complexes  specializes Idea {
-    @material [1..*] -- [1..*] Reviewer 
-}
+role Revised_Idea of functional-complexes  specializes Idea 
 
 role Similar_Idea of functional-complexes  specializes Idea 
 
-role Similaree of functional-complexes  specializes Idea {
-    @material [1..*] -- [1..*] Similar_Idea 
-}
+role Similaree of functional-complexes  specializes Idea 
 
-relator Similarity{
-    @mediation [1..*] -- [1..*] Similar_Idea 
-    @mediation [1..*] -- [1..*] Similaree 
-}
+relator Similarity
 
-type SubCategory specializes Category {
-    [0..*] -- subcategory_of -- [1..*] Category 
-}
+type SubCategory specializes Category 
 
-relator Submission{
-    @mediation [1..*] -- [1] Contest_with_Idea 
-    @mediation [1..*] -- [1] Submitting_User 
-    @mediation [1..*] -- [1] Submitted_Idea 
-}
+relator Submission
 
-mode Submited_by_Method{
-    @characterization [1] -- [1] Submission 
-}
+mode Submited_by_Method
 
 role Submitted_Idea of functional-complexes  specializes Idea 
 
-role Submitting_User of functional-complexes  specializes User {
-    @material [1..*] -- [1..*] Submitted_Idea 
-}
+role Submitting_User of functional-complexes  specializes User 
 
 relator Textual_Review specializes Review 
 
-relator Update_Idea{
-    @mediation [1..*] -- [1] Idea_Updater_User 
-    @mediation [1..*] -- [1] Updated_Idea 
-}
+relator Update_Idea
 
 role Updated_Contest of functional-complexes  specializes Idea_Contest 
 
-role Updated_Idea of functional-complexes  specializes Idea {
-    @material [1..*] -- [1..*] Idea_Updater_User 
-}
+role Updated_Idea of functional-complexes  specializes Idea 
 
 kind User
 
-role User_Editor of functional-complexes  specializes User {
-    @material [1..*] -- [1..*] Updated_Contest 
-}
+role User_Editor of functional-complexes  specializes User 
 
 collective User_Group
 
-collective User_Group_in_a_Group specializes User_Group {
-    @subCollectionOf [0..*] -- [1] User_Group 
-}
+collective User_Group_in_a_Group specializes User_Group 
 
-role User_in_a_Group of functional-complexes  specializes User {
-    @memberOf [2..*] -- [1] User_Group 
-}
+role User_in_a_Group of functional-complexes  specializes User 
 
-role User_with_Account of functional-complexes  specializes User {
-    @material [1..*] -- [1..*] Online_Account 
-}
+role User_with_Account of functional-complexes  specializes User 
 
-role User_with_Comment of functional-complexes  specializes User {
-    @material [1..*] -- [1..*] Idea_with_a_Comment 
-}
+role User_with_Comment of functional-complexes  specializes User 
 
 role User_with_Idea of functional-complexes  specializes User 
 
-role User_with_Idea_Contest_Comment of functional-complexes  specializes User {
-    @material [1..*] -- [1..*] Commented_Contest 
-}
+role User_with_Idea_Contest_Comment of functional-complexes  specializes User 
 
 relator Write_Authorization specializes Authorization 
 
@@ -251,4 +170,67 @@ genset fkCTCH6AUBgIKikG {
     general Review
     specifics Textual_Review, Rating_Review
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

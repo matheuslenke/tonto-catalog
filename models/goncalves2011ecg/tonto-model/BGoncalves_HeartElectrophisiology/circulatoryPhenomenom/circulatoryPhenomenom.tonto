@@ -1,103 +1,87 @@
 import heart
+import circulatoryPhenomenom
+import bioelectricPhenomena
 
 package circulatoryPhenomenom
 
 role HeartAsBloodContainer of functional-complexes  specializes HumanHeart 
 
-role RightVentricleAsBloodContainer of functional-complexes  specializes RightVentricle {
-    [1] -- [1] HeartAsBloodContainer 
-    @material [1] -- storing -- [1] BloodinRightVentricle 
-}
+role RightVentricleAsBloodContainer of functional-complexes  specializes RightVentricle 
 
-role LeftAtriumAsBloodContainer of functional-complexes  specializes LeftAtrium {
-    @memberOf [1] -- [1] HeartAsBloodContainer 
-    @material [1] -- storing -- [1] BloodInLeftAtrium 
-    @mediation [1] -- [1] LABloodStoring 
-}
+role LeftAtriumAsBloodContainer of functional-complexes  specializes LeftAtrium 
 
-role RightAtriumAsBloodContainer of functional-complexes  specializes RightAtrium {
-    [1] -- [1] HeartAsBloodContainer 
-    @mediation [1] -- [1] RABloodStoring 
-    @material [1] -- storing -- [1] BloodinRightAtrium 
-}
+role RightAtriumAsBloodContainer of functional-complexes  specializes RightAtrium 
 
-role LeftVentricleAsBloodContainer of functional-complexes  specializes LeftVentricle {
-    [1] -- [1] HeartAsBloodContainer 
-    @mediation [1] -- [1] LVBloodStoring 
-    @material [1] -- storing -- [1] BloodInLeftVentricle 
-}
+role LeftVentricleAsBloodContainer of functional-complexes  specializes LeftVentricle 
 
-relator RABloodStoring{
-    @mediation [1] -- [1] BloodinRightAtrium 
-}
+relator RABloodStoring
 
-kind BloodinRightAtrium{
-    [1] -- isMovedTo -- [1] RightVentricleAsBloodContainer 
-    [0..1] -- [1] BloodInHumanBody 
-    [1] -- isMovedTo -- [1] BloodInPeripherals 
-}
+kind BloodinRightAtrium
 
-relator RVBloodStoring{
-    @mediation [1] -- [1] RightVentricleAsBloodContainer 
-    @mediation [1] -- [1] BloodinRightVentricle 
-}
+relator RVBloodStoring
 
-kind BloodinRightVentricle{
-    [1] -- isMovedTo -- [1] LungAsBloodContainer 
-    [0..1] -- [1] BloodInHumanBody 
-}
+kind BloodinRightVentricle
 
-kind BloodInLeftAtrium{
-    [1] -- isMovedTo -- [1] LeftVentricleAsBloodContainer 
-    [0..1] -- [1] BloodInHumanBody 
-    [1] -- isMovedTo -- [1] BloodInLungs 
-}
+kind BloodInLeftAtrium
 
-relator LABloodStoring{
-    @mediation [1] -- [1] BloodInLeftAtrium 
-}
+relator LABloodStoring
 
-kind BloodInHumanBody{
-    [1] -- pumps -- [1] HeartAsPump 
-}
+kind BloodInHumanBody
 
 relator LVBloodStoring
 
-kind BloodInLeftVentricle{
-    @mediation [1] -- [1] LVBloodStoring 
-    [0..1] -- [1] BloodInHumanBody 
-    [1] -- isMovedTo -- [1] PeripheralsAsBloodContainer 
-}
+kind BloodInLeftVentricle
 
-kind Peripherals{
-    [1] -- [1] HumanBody 
-}
+kind Peripherals
 
-kind Lungs{
-    [1] -- [1] HumanBody 
-}
+kind Lungs
 
-role PeripheralsAsBloodContainer of functional-complexes  specializes Peripherals {
-    @material [1] -- storing -- [1] BloodInPeripherals 
-    @mediation [1] -- [1] PeripheralsBloodStoring 
-}
+role PeripheralsAsBloodContainer of functional-complexes  specializes Peripherals 
 
-kind BloodInPeripherals{
-    @mediation [1] -- [1] PeripheralsBloodStoring 
-    [0..1] -- [1] BloodInHumanBody 
-}
+kind BloodInPeripherals
 
 relator PeripheralsBloodStoring
 
-role LungAsBloodContainer of functional-complexes  specializes Lungs {
-    @material [1] -- storing -- [1] BloodInLungs 
-    @mediation [1] -- [1] LungBloodStoring 
-}
+role LungAsBloodContainer of functional-complexes  specializes Lungs 
 
 relator LungBloodStoring
 
-kind BloodInLungs{
-    @mediation [1] -- [1] LungBloodStoring 
-    [0..1] -- [1] BloodInHumanBody 
-}
+kind BloodInLungs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,34 +1,23 @@
 import General_Module
+import Data_Input_and_Preprocessing
+import ML_Model
+import MLOntology
 
 package Data_Input_and_Preprocessing
 
-kind Dataset{
-     --  Feature 
-     --  Data 
-    @characterization [1] -- [1] DatasetCharacteristic 
-    @participation [1..*] -- [0..*] Operation 
-}
+kind Dataset
 
-kind Feature{
-    @participation [1..*] -- [0..*] FeatureScaling 
-    @characterization [1] -- [1] FeatureCharacteristic 
-    @mediation [0..*] -- [1] Correlates 
-}
+kind Feature
 
 role DependentFeature of functional-complexes  specializes Feature 
 
 role IndependentFeature of functional-complexes  specializes Feature 
 
-subkind CategoricalFeature of functional-complexes  specializes Feature {
-    @participation [1..*] -- [0..*] FeatureEnconding 
-}
+subkind CategoricalFeature of functional-complexes  specializes Feature 
 
 subkind NumericalFeature of functional-complexes  specializes Feature 
 
-event FeatureEnconding{
-    @creation [1] -- [1] DummyFeature 
-    @characterization [1] -- [1] FeatureEncodingCharacteristic 
-}
+event FeatureEnconding
 
 event FeatureScaling
 
@@ -38,10 +27,7 @@ role NormalizationTechnique of functional-complexes  specializes FeatureScalingT
 
 subkind DummyFeature of functional-complexes  specializes Feature 
 
-event DatasetSplit{
-     --  Train 
-     --  Test 
-}
+event DatasetSplit
 
 role TrainSet of functional-complexes  specializes ProcessedData 
 
@@ -49,67 +35,70 @@ role TestSet of functional-complexes  specializes ProcessedData
 
 phase UncleanedData of functional-complexes  specializes Data 
 
-event DataCleaning{
-    @participation [1..*] -- [0..*] UncleanedData 
-    @participational [1..*] -- [1] ImputeMissingvalues 
-    @participational [1..*] -- [1] DropFeaturesrows 
-    @characterization [1] -- [1] DataCleaningCharacteristic 
-    @creation [1] -- [1] ProcessedData 
-}
+event DataCleaning
 
 quality DatasetCharacteristic
 
-event ImputeMissingvalues{
-    @characterization [1] -- [1] ImputationCharacteristics 
-}
+event ImputeMissingvalues
 
 event DropFeaturesrows
 
 quality ImputationCharacteristics
 
-kind FeatureEncondingTechnique{
-    @participation [1..*] -- [0..*] FeatureEnconding 
-}
+kind FeatureEncondingTechnique
 
 role DummyEnconding of functional-complexes  specializes FeatureEncondingTechnique 
 
 role TargetEnconding of functional-complexes  specializes FeatureEncondingTechnique 
 
-kind FeatureScalingTechnique{
-    @participation [1..*] -- [0..*] FeatureScaling 
-}
+kind FeatureScalingTechnique
 
-phase FeaturedScaledData of functional-complexes  specializes Data {
-    @creation [1] -- [1] FeatureScaling 
-}
+phase FeaturedScaledData of functional-complexes  specializes Data 
 
-subkind PreprocessingAlgorithm of functional-complexes  specializes Algorithm {
-     --  DataCleaning 
-}
+subkind PreprocessingAlgorithm of functional-complexes  specializes Algorithm 
 
-event Train{
-    @creation [1] -- [1] TrainSet 
-    @participational [1..*] -- [1] MLModelImplementation 
-}
+event Train
 
-event Test{
-    @creation [1] -- [1] TestSet 
-    @participational [1..*] -- [1] MLModelImplementation 
-}
+event Test
 
-phase ProcessedData of functional-complexes  specializes Data {
-    @participation [1..*] -- [0..*] DatasetSplit 
-}
+phase ProcessedData of functional-complexes  specializes Data 
 
 quality FeatureCharacteristic
 
 relator Correlates
 
-quality CorrelationCharacteristic{
-    @characterization [1] -- [1] Correlates 
-}
+quality CorrelationCharacteristic
 
 quality DataCleaningCharacteristic
 
 quality FeatureEncodingCharacteristic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

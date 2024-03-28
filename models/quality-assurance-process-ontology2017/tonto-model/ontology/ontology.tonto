@@ -1,36 +1,24 @@
+import ontology
 
 package ontology
 
 class Performed_Process
 
-class Performed_General_Process specializes Performed_Process {
-    [1] -- subProcess -- [2..*] Performed_Specific_Process 
-}
+class Performed_General_Process specializes Performed_Process 
 
 class Performed_Specific_Process specializes Performed_Process 
 
-class Stakeholder{
-    [1..*] -- participates_in -- [0..*] Performed_Activity 
-    [1..*] -- is_in_charge_of -- [0..*] Performed_Activity 
-}
+class Stakeholder
 
-class Performed_Activity{
-    [0..1] -- creates -- [0..*] Artifact 
-    [0..*] -- changes -- [0..*] Artifact 
-    [0..*] -- uses -- [0..*] Artifact 
-}
+class Performed_Activity
 
-class Artifact{
-    @componentOf [2..*] -- [0..*] Composite_Artifact 
-}
+class Artifact
 
 class Team_Stakeholder specializes Stakeholder 
 
 class Person_Stakeholder specializes Stakeholder 
 
-class Performed_Composite_Activity specializes Performed_Activity {
-    [0..*] -- [2..*] Performed_Activity 
-}
+class Performed_Composite_Activity specializes Performed_Activity 
 
 class Performed_Simple_Activity specializes Performed_Activity 
 
@@ -48,62 +36,31 @@ class Model specializes Artifact
 
 class Information_Item specializes Artifact 
 
-class Project_Manager specializes Person_Stakeholder {
-    [*] -- is_in_charge_of -- [*] Quality_Assurance_Planning 
-}
+class Project_Manager specializes Person_Stakeholder 
 
-role Quality_Auditor specializes Person_Stakeholder {
-    [*] -- is_in_charge_of -- [*] Adherence_Evaluation 
-    [*] -- is_in_charge_of -- [*] Noncompliance_Control 
-}
+role Quality_Auditor specializes Person_Stakeholder 
 
-event Quality_Assurance_Process specializes Performed_Specific_Process {
-    [*] -- [*] Noncompliance_Control 
-    [*] -- [*] Quality_Assurance_Planning 
-    [*] -- [*] Adherence_Evaluation 
-}
+event Quality_Assurance_Process specializes Performed_Specific_Process 
 
-event Quality_Assurance_Planning specializes Performed_Composite_Activity {
-    [*] -- uses -- [*] Project_Plan 
-    [*] -- creates -- [*] Quality_Assurance_Plan 
-}
+event Quality_Assurance_Planning specializes Performed_Composite_Activity 
 
-event Adherence_Evaluation specializes Performed_Composite_Activity {
-    [*] -- [*] Artifact_Evaluation 
-    [*] -- [*] Process_Evaluation 
-    [*] -- [*] Noncompliance_Identification 
-    [*] -- creates -- [*] Evaluation_Report 
-}
+event Adherence_Evaluation specializes Performed_Composite_Activity 
 
-class Project_Team specializes Team_Stakeholder {
-    [*] -- participates_in -- [*] Adherence_Evaluation 
-}
+class Project_Team specializes Team_Stakeholder 
 
-role Noncompliance_Responsible specializes Person_Stakeholder {
-    [*] -- participates_in -- [*] Noncompliance_Control 
-}
+role Noncompliance_Responsible specializes Person_Stakeholder 
 
-event Noncompliance_Control specializes Performed_Composite_Activity {
-    [*] -- changes -- [*] Noncompliance_Register 
-}
+event Noncompliance_Control specializes Performed_Composite_Activity 
 
-event Noncompliance_Resolution specializes Performed_Simple_Activity {
-    [*] -- creates -- [*] Corrective_Action_Register 
-}
+event Noncompliance_Resolution specializes Performed_Simple_Activity 
 
 event Noncompliance_Closing specializes Performed_Simple_Activity 
 
-event Noncompliance_Identification specializes Performed_Simple_Activity {
-    [*] -- creates -- [*] Noncompliance_Register 
-}
+event Noncompliance_Identification specializes Performed_Simple_Activity 
 
-event Process_Evaluation specializes Performed_Simple_Activity {
-    [*] -- uses -- [*] Evaluated_Process 
-}
+event Process_Evaluation specializes Performed_Simple_Activity 
 
-event Artifact_Evaluation specializes Performed_Simple_Activity {
-    [*] -- uses -- [*] Evaluated_Artifact 
-}
+event Artifact_Evaluation specializes Performed_Simple_Activity 
 
 class Project_Plan specializes Document 
 
@@ -115,9 +72,7 @@ role Evaluated_Artifact specializes Artifact
 
 role Evaluated_Process specializes Performed_Process 
 
-subkind Noncompliance_Register specializes Information_Item {
-    [0..*] -- [0..*] Corrective_Action_Register 
-}
+subkind Noncompliance_Register specializes Information_Item 
 
 class Corrective_Action_Register specializes Information_Item 
 
@@ -135,4 +90,32 @@ genset VsVALv6GAqAABQvp {
     general Performed_Process
     specifics Performed_General_Process, Performed_Specific_Process
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,19 +1,15 @@
 import UFOA
+import UFOPW
 
 package UFOPW
 
 mixin Atomic_Individual of functional-complexes  specializes Individual 
 
-mixin Collective_Whole of functional-complexes  specializes Whole_Complex_Individual {
-    @subCollectionOf [1..*] -- [*] SubCollection 
-    @memberOf [1..*] -- [2..*] Member 
-}
+mixin Collective_Whole of functional-complexes  specializes Whole_Complex_Individual 
 
 type ComponentOf specializes PartOf_Meronymic_Relation_Universal 
 
-mixin Functional_Complex_Whole of functional-complexes  specializes Whole_Complex_Individual {
-    @componentOf [1..*] -- [2..*] Functional_Part 
-}
+mixin Functional_Complex_Whole of functional-complexes  specializes Whole_Complex_Individual 
 
 mixin Functional_Part of functional-complexes  specializes Part 
 
@@ -31,9 +27,7 @@ type PartOfCollective_2 specializes PartOf_Meronymic_Relation_Universal
 
 mixin Quantity_Part of functional-complexes  specializes Part 
 
-mixin Quantity_Whole of functional-complexes  specializes Whole_Complex_Individual {
-    @subQuantityOf [1..*] -- [2..*] Quantity_Part 
-}
+mixin Quantity_Whole of functional-complexes  specializes Whole_Complex_Individual 
 
 mixin SubCollection of functional-complexes  specializes Part 
 
@@ -41,7 +35,10 @@ type SubCollectionOf specializes PartOfCollective_2
 
 type SubQuantityOf specializes Formal_Relation_Universal, PartOf_Meronymic_Relation_Universal 
 
-mixin Whole_Complex_Individual of functional-complexes  specializes Individual {
-    @PartOf [1..*] -- [1..*] Part 
-}
+mixin Whole_Complex_Individual of functional-complexes  specializes Individual 
+
+
+
+
+
 

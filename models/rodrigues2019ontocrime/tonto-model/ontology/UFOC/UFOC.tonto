@@ -1,5 +1,7 @@
 import UFOA
 import UFOB
+import UFOC
+import CrimeOntology
 
 package UFOC
 
@@ -23,9 +25,7 @@ category Collective_Social_Agent of functional-complexes  specializes Social_Age
 
 class Intention specializes Mental_Moment 
 
-class Social_Commitment specializes Commitment {
-    [1..*] -- present_in -- [1..*] Mandatory_Situation 
-}
+class Social_Commitment specializes Commitment 
 
 class Agent_Participation specializes Event 
 
@@ -42,4 +42,5 @@ class Action_Contribution specializes Agent_Participation
 class Intrinsic_Moment
 
 class Social_Relator
+
 

@@ -1,0 +1,95 @@
+
+package BookSwap
+
+kind Book{
+    author: undefined  
+    fotourl: undefined  
+    druk: undefined  
+    isbn13: undefined  
+    title: undefined  
+}
+
+roleMixin Seller of functional-complexes  specializes Platform_Provider 
+
+roleMixin Buyer of functional-complexes  specializes Platform_Customer 
+
+event Offer_book
+
+event Search_book specializes Listing_Search 
+
+event Send_by_post specializes Physical_delivery {
+    price: undefined  
+}
+
+event Pick_up specializes Physical_delivery {
+    adress: undefined  
+}
+
+event Meet_up specializes Physical_delivery {
+    city: undefined  
+}
+
+kind Post_office
+
+event Pay_out specializes External_payment 
+
+event Payment specializes External_payment 
+
+event Add_book_to_booklist
+
+relator BooklistSubscription specializes Listing {
+    isbn13: undefined  
+    uid: undefined  
+}
+
+subkind BookListing{
+    ISBN: undefined  
+    ISBN13: undefined  
+    active: undefined  
+    pickUp: undefined  
+    meetUp: undefined  
+    author: undefined  
+    dateOffered: undefined  
+    druk: undefined  
+    chosenDelivery: undefined  
+    id: undefined  
+    inTransaction: undefined  
+    info: undefined  
+    basket: undefined  
+    nr: undefined  
+    street: undefined  
+    place: undefined  
+    postcode: undefined  
+    pricePost: undefined  
+    state: undefined  
+    title: undefined  
+    userid: undefined  
+    price: undefined  
+    timeBasket: undefined  
+    placeMeet: undefined  
+    username: undefined  
+    urlImage: undefined  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+relation :Book [1] -- [1]  
+
+
+
+
+
+
+
+
+
+

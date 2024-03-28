@@ -1,28 +1,26 @@
 import capability_ontology
+import competence_ontology
 
 package competence_ontology
 
-category Capability of intrinsic-modes  specializes Disposition {
-    @characterization [1] -- [1] Object 
-    [0..*] -- results_from -- [0..*] Disposition 
-    [0..*] -- has_part -- [0..*] Capability 
-    [0..*] -- is_disabled_by -- [0..*] Capability 
-    [0..*] -- is_enabled_by -- [0..*] Capability 
-    [0..*] -- is_changed_by -- [0..*] Capability 
-    [0..*] -- is_reciprocal_to -- [0..*] Disposition 
-    [0..*] -- is_additional_to -- [0..*] Disposition 
-    @manifestation [1..*] -- [*] Capability_Manifestation 
-}
+category Capability of intrinsic-modes  specializes Disposition 
 
-category Object of functional-complexes {
-    @componentOf [0..*] -- [0..*] Object 
-}
+category Object of functional-complexes 
 
 category Social_Agent of functional-complexes  specializes Agent 
 
 category Physical_Agent of functional-complexes  specializes Agent 
 
-category Agent of functional-complexes  specializes Object {
-    @componentOf [1..*] -- [0..] Social_Agent 
-}
+category Agent of functional-complexes  specializes Object 
+
+
+
+
+
+
+
+
+
+
+
 

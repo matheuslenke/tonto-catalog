@@ -1,3 +1,4 @@
+import Example__Creative_Work
 
 package Example__Creative_Work
 
@@ -19,9 +20,7 @@ type Book specializes Creative_Work
 
 kind Sculpture specializes Creative_Work 
 
-kind Book_Copy{
-    @instantiation [*] -- [1] Book 
-}
+kind Book_Copy
 
 kind Person specializes Agent 
 
@@ -37,18 +36,16 @@ phaseMixin Copyrighted_Work of functional-complexes  specializes Creative_Work
 
 phaseMixin Public_Domain_Work of functional-complexes  specializes Creative_Work 
 
-relator Licensing{
-    @mediation [0..*] -- [1] Creative_Work 
-    @mediation [1..*] -- [1] License_Holder 
-}
+relator Licensing
 
-relator Edition_Publishing{
-    @mediation [1..*] -- [1] Publisher 
-    @mediation [0..*] -- [1] Book 
-}
+relator Edition_Publishing
 
-relator Book_Authorship{
-    @mediation [1..*] -- [1] Writer 
-    @mediation [0..*] -- [1] Book 
-}
+relator Book_Authorship
+
+
+
+
+
+
+
 

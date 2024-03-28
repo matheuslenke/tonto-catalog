@@ -1,7 +1,3 @@
-import Price_Discovery
-import Decentralized
-import Recurring
-import Price_Calculation
 
 package Price_set_by_Provider
 
@@ -9,6 +5,6 @@ subkind Price_set_by_Provider of intrinsic-modes  specializes Price, Offering_Pr
 
 event Price_Setting_action_by_Provider{
     setPricePerSeat: undefined  
-    [1] -- sets -- [1..*] Price_set_by_Provider 
 }
+
 

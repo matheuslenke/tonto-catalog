@@ -1,10 +1,11 @@
 import bpo
 import schema
+import ifc
+import BPO_ontology
 
 package ifc
 
-kind BuildingElement specializes Assembly {
-    @componentOf [1..*] -- [1] House 
-    @componentOf [1..*] -- [1] Module 
-}
+kind BuildingElement specializes Assembly 
+
+
 

@@ -13,31 +13,15 @@ collective Biblioteca_de_Ativos_Reutilizveis{
     critriosDeCertificao: undefined  
     critriosDeClassificao: undefined  
     critriosDeDescontinuidade: undefined  
-    @memberOf [1] -- MembroDe -- [2..*] Ativo_Reutilizvel 
 }
 
-kind Recurso_Humano{
-    @material [1..*] -- _alocado_em -- [1..*] Projeto 
-}
+kind Recurso_Humano
 
-role Produtor_de_Ativos_Reutilizveis of functional-complexes  specializes Recurso_Humano {
-    @material [1] -- solicita_incluso_de_ativo -- [1..*] Ativo 
-    @mediation [1] -- cria_solicitao -- [1..*] Solicitao_de_incluso_para_novo_Ativo 
-}
+role Produtor_de_Ativos_Reutilizveis of functional-complexes  specializes Recurso_Humano 
 
-role Consumidor_de_Ativos_Reutilizveis of functional-complexes  specializes Recurso_Humano {
-    @mediation [1] -- realiza_crticas -- [1..*] Avaliao_de_usurio 
-    @material [1] -- critica -- [1..*] Ativo_Reutilizvel 
-    @material [1] -- usa -- [1..*] Biblioteca_de_Ativos_Reutilizveis 
-    @mediation [1] -- solicita -- [1] Autorizao_de_uso 
-}
+role Consumidor_de_Ativos_Reutilizveis of functional-complexes  specializes Recurso_Humano 
 
-role Gerente_de_Ativos_Reutilizveis of functional-complexes  specializes Recurso_Humano {
-    @Formal [1] -- _responsvel_por_manter -- [1] Biblioteca_de_Ativos_Reutilizveis 
-    @mediation [1] -- executa_reprovao -- [1..*] Avaliao_de_Reprovao 
-    @material [1] -- avalia -- [1..*] Ativo_Reutilizvel 
-    @material [1] -- avalia -- [1..*] Ativo_Recusado 
-}
+role Gerente_de_Ativos_Reutilizveis of functional-complexes  specializes Recurso_Humano 
 
 category Ativo_de_Processo of functional-complexes  specializes Ativo 
 
@@ -55,42 +39,27 @@ relator Avaliao_de_Ativo{
     notasDeClassificao: undefined  
 }
 
-relator Avaliao_de_Aprovao specializes Avaliao_de_Ativo {
-    @mediation [1..*] -- executa_aprovao -- [1] Gerente_de_Ativos_Reutilizveis 
-    @mediation [1..*] -- aprova_ativo -- [1] Ativo_Reutilizvel 
-}
+relator Avaliao_de_Aprovao specializes Avaliao_de_Ativo 
 
 roleMixin Ativo_Recusado of functional-complexes  specializes Ativo {
     dataAvaliao: undefined  
 }
 
-relator Avaliao_de_Reprovao specializes Avaliao_de_Ativo {
-    @mediation [1..*] -- reprova_ativo -- [1] Ativo_Recusado 
-}
+relator Avaliao_de_Reprovao specializes Avaliao_de_Ativo 
 
-relator Avaliao_de_usurio{
-    @mediation [1..*] -- critica_ativo -- [1] Ativo_Reutilizvel 
-}
+relator Avaliao_de_usurio
 
 relator Autorizao_de_uso{
     informaoDeProjeto: undefined  
-    @mediation [1..*] -- permite_o_uso -- [1] Biblioteca_de_Ativos_Reutilizveis 
-    @mediation [1] -- autoriza_uso -- [1] Gerente_de_Ativos_Reutilizveis 
 }
 
 kind Projeto{
     informacaoProjeto: undefined  
 }
 
-relator Plano_de_Alocao{
-    @mediation [1..*] -- seleciona -- [1..*] Recurso_Humano 
-    @mediation [1] -- aloca_em -- [1] Projeto 
-}
+relator Plano_de_Alocao
 
-relator Solicitao_de_incluso_para_novo_Ativo{
-    @mediation [1..*] -- temAtivo -- [1] Ativo 
-    @mediation [1..*] -- encaminha_solicitao -- [1] Gerente_de_Ativos_Reutilizveis 
-}
+relator Solicitao_de_incluso_para_novo_Ativo
 
 genset aPXEldGEifg2kwtP {
     general Ativo
@@ -111,4 +80,26 @@ genset FQakldGEifg2kwuw {
     general Recurso_Humano
     specifics Consumidor_de_Ativos_Reutilizveis, Gerente_de_Ativos_Reutilizveis, Produtor_de_Ativos_Reutilizveis
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

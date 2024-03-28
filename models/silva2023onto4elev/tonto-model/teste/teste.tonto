@@ -1,9 +1,8 @@
+import teste
 
 package teste
 
-roleMixin Stakeholder of functional-complexes {
-     -- define --  Requirement 
-}
+roleMixin Stakeholder of functional-complexes 
 
 subkind ComfortServices of functional-complexes  specializes AALSystems 
 
@@ -21,18 +20,11 @@ kind Organization specializes Stakeholder
 
 kind People specializes Stakeholder 
 
-kind AALSystems{
-     -- usedIn --  Environment 
-     -- itHas --  Hardware 
-     -- hasRequirement --  Requirement 
-     --  Software 
-}
+kind AALSystems
 
 category ElectricDevice of functional-complexes  specializes Hardware 
 
-category Compliance of functional-complexes {
-     -- influence --  Requirement 
-}
+category Compliance of functional-complexes 
 
 kind Legislation specializes Compliance 
 
@@ -90,98 +82,45 @@ kind Sensor specializes ElectricDevice
 
 category Requirement of functional-complexes 
 
-kind NonFunctionalRequirement specializes Requirement {
-     -- causePositiveImpact --  FunctionalRequirement 
-     -- causeNegativeImpact --  FunctionalRequirement 
-}
+kind NonFunctionalRequirement specializes Requirement 
 
 kind FunctionalRequirement specializes Requirement 
 
 subkind RequirementQuality of functional-complexes  specializes NonFunctionalRequirement 
 
-subkind EthicalRequirement of functional-complexes  specializes NonFunctionalRequirement {
-     --  Benefit 
-     --  Loyalty 
-     --  Independence 
-     --  NonMaleficence 
-     --  SocialAcceptance 
-     --  PrivacyOnUse 
-     --  Autonomy 
-     --  Justice 
-}
+subkind EthicalRequirement of functional-complexes  specializes NonFunctionalRequirement 
 
-subkind ProductQuality of functional-complexes  specializes RequirementQuality {
-     --  Adaptivity 
-     --  EfficiencyPerformance 
-     --  Maintainability 
-     --  Portability 
-     --  Security 
-     --  Usability 
-     --  Reliability 
-    [1] --  Compatibility 
-     --  FunctionalAptitude 
-     --  Traceability 
-     --  PrivacyData 
-}
+subkind ProductQuality of functional-complexes  specializes RequirementQuality 
 
-class QualityUse of functional-complexes  specializes RequirementQuality {
-    [1] --  RiskFree 
-     --  Efficacy 
-     --  Efficiency 
-     --  CoverageContext 
-     --  Satisfaction 
-     --  PrivacyOnUse 
-}
+class QualityUse of functional-complexes  specializes RequirementQuality 
 
 quality Adaptivity
 
 quality FunctionalAptitude
 
-mode FunctionalAdequacy{
-     --  FunctionalAptitude 
-}
+mode FunctionalAdequacy
 
-mode FunctionalCompleteness{
-     --  FunctionalAptitude 
-}
+mode FunctionalCompleteness
 
-mode FunctionalCorrection{
-     --  FunctionalAptitude 
-}
+mode FunctionalCorrection
 
 quality Compatibility
 
-mode Coexistence{
-     --  Compatibility 
-}
+mode Coexistence
 
-mode Interoperability{
-     --  Compatibility 
-}
+mode Interoperability
 
 quality Reliability
 
-mode Availability{
-     --  Reliability 
-}
+mode Availability
 
-mode Maturity{
-     --  Reliability 
-}
+mode Maturity
 
-mode Recoverability{
-     --  Reliability 
-}
+mode Recoverability
 
-mode ToleranceError{
-     --  Reliability 
-}
+mode ToleranceError
 
-quality EfficiencyPerformance{
-     --  UseResources 
-     --  Capacity 
-     --  BehaviorTime 
-}
+quality EfficiencyPerformance
 
 mode Capacity
 
@@ -189,13 +128,7 @@ mode BehaviorTime
 
 mode UseResources
 
-quality Maintainability{
-     --  Analyzeability 
-     --  Reuse 
-     --  Testability 
-     --  Modibility 
-     --  Modularity 
-}
+quality Maintainability
 
 mode Analyzeability
 
@@ -207,11 +140,7 @@ mode Reuse
 
 mode Testability
 
-quality Portability{
-     --  Instability 
-     --  Adaptability 
-     --  Replaceability 
-}
+quality Portability
 
 mode Adaptability
 
@@ -219,38 +148,19 @@ mode Instability
 
 mode Replaceability
 
-quality Security{
-     --  ConfidenceSecurity 
-}
+quality Security
 
-mode Authenticity{
-     --  Security 
-}
+mode Authenticity
 
-mode Confidentiality{
-     --  Security 
-}
+mode Confidentiality
 
-mode Responsibility{
-     --  Security 
-}
+mode Responsibility
 
-mode Integrity{
-     --  Security 
-}
+mode Integrity
 
-mode NotRepudiation{
-     --  Security 
-}
+mode NotRepudiation
 
-quality Usability{
-     --  Learning 
-     --  Adequacy 
-     --  Accessibility 
-     --  UserOperability 
-     --  ProtectionAgainstUserErrors 
-     --  UserInterfaceAesthetics 
-}
+quality Usability
 
 mode Accessibility
 
@@ -264,10 +174,7 @@ mode UserOperability
 
 mode ProtectionAgainstUserErrors
 
-quality CoverageContext{
-     --  CompletenessContext 
-     --  Flexibility 
-}
+quality CoverageContext
 
 mode CompletenessContext
 
@@ -277,11 +184,7 @@ quality Efficacy
 
 quality Efficiency
 
-quality RiskFree{
-     --  MitigationEnvironmentalRisk 
-     --  EconomicRiskMitigation 
-     --  MitigationHealthSafetyRisks 
-}
+quality RiskFree
 
 mode MitigationEnvironmentalRisk
 
@@ -289,12 +192,7 @@ mode EconomicRiskMitigation
 
 mode MitigationHealthSafetyRisks
 
-quality Satisfaction{
-     --  Utility 
-     --  TrustUse 
-     --  Comfort 
-     --  Pleasure 
-}
+quality Satisfaction
 
 mode TrustUse
 
@@ -302,9 +200,7 @@ mode Comfort
 
 mode Pleasure
 
-mode Utility{
-     --  EthicalRequirement 
-}
+mode Utility
 
 quality Autonomy
 
@@ -344,15 +240,11 @@ quality Traceability
 
 quality PrivacyOnUse
 
-mode SocialRiskMitigation{
-     --  RiskFree 
-}
+mode SocialRiskMitigation
 
 quality SocialAcceptance
 
-quality MoralGoodness{
-     --  EthicalRequirement 
-}
+quality MoralGoodness
 
 quality PrivacyData
 
@@ -503,4 +395,81 @@ kind Intercom specializes ElectricDevice
 role CivilEngineer of functional-complexes  specializes MemberTimeDev 
 
 role Architect of functional-complexes  specializes MemberTimeDev 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

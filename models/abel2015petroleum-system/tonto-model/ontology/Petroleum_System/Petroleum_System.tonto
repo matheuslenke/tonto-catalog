@@ -3,52 +3,34 @@ package Petroleum_System
 
 kind Boundary{
     boundary: BoundaryType  
-    @characterization [1] -- [1] Lithological_unit 
 }
 
 quality Porosity{
     value_: Value  
-    @characterization [1] -- [1] Siliciclastic_Rock 
 }
 
 quality Quantity_Organic_matter{
     value_: Value  
-    @characterization [1] -- [1] Siliciclastic_Rock 
 }
 
 quantity Hidrocarbon
 
-quantity Oil specializes Hidrocarbon {
-    [*] -- [*] Oil__Porous_rock 
-    [*] -- [*] Oil__Trap 
-    [*] -- [*] Oil__Mudstone__Porous_Rock 
-}
+quantity Oil specializes Hidrocarbon 
 
 situation Pregeneration{
     pressure: undefined  
     temperature: undefined  
-    @prestate [*] -- [*] Generation 
 }
 
-event Generation{
-    @posstate [*] -- [*] Oil__Mudstone__Porous_Rock 
-}
+event Generation
 
-situation Oil__Mudstone__Porous_Rock{
-    @prestate [*] -- [*] Migration 
-}
+situation Oil__Mudstone__Porous_Rock
 
-event Migration{
-    @posstate [*] -- [*] Oil__Porous_rock 
-}
+event Migration
 
-situation Oil__Porous_rock{
-    @prestate [*] -- [*] Acumulation 
-}
+situation Oil__Porous_rock
 
-event Acumulation{
-    @posstate [*] -- [*] Oil__Trap 
-}
+event Acumulation
 
 situation Oil__Trap
 
@@ -59,17 +41,14 @@ role Source_Rock of functional-complexes  specializes LithologicUnit_qua_shale {
 
 role Seal of functional-complexes  specializes LithologicUnit_qua_shale {
     porosity: Value  { const }
-    [*] -- [*] Trap 
 }
 
 role Reservoir of functional-complexes  specializes LithologicUnit_qua_sandstone {
     porosity: Value  { const }
-    [*] -- [*] Trap 
 }
 
 mixin Trap of functional-complexes {
     structure: Structure  
-    [*] -- [*] Oil__Trap 
 }
 
 quantity Shale specializes Siliciclastic_Rock {
@@ -82,16 +61,9 @@ quantity Sandstone specializes Siliciclastic_Rock {
     qtyOrganicMatter: Value  { const }
 }
 
-kind LithologicUnit_qua_shale specializes Lithological_unit {
-    [*] -- [*] Oil__Mudstone__Porous_Rock 
-    @constitute [*] -- [*] Shale 
-}
+kind LithologicUnit_qua_shale specializes Lithological_unit 
 
-kind LithologicUnit_qua_sandstone specializes Lithological_unit {
-    [*] -- [*] Oil__Porous_rock 
-    [*] -- [*] Oil__Mudstone__Porous_Rock 
-    @constitute [*] -- [*] Sandstone 
-}
+kind LithologicUnit_qua_sandstone specializes Lithological_unit 
 
 quantity Siliciclastic_Rock specializes Rock 
 
@@ -101,7 +73,42 @@ kind Lithological_unit{
     Dimensions: Dimensions  
     Top_Contact: contact  
     Bottom_Contact: contact  
-    @constitute [*] -- [*] Rock 
 }
 
 datatype contact
+enum Dimensions{
+    thickness, length, depth
+}
+enum Structure{
+    anticlinal, dome, fault
+}
+enum Value{
+    high, medium, low, not_present
+}
+enum BoundaryType{
+    abrupt, gradational
+}
+enum Granulometry{
+    argile, sand
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

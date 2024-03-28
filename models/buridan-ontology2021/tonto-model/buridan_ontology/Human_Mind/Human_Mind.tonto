@@ -1,4 +1,6 @@
 import Conventional_spoken_written_language
+import Human_Mind
+import buridan_ontology
 
 package Human_Mind
 
@@ -6,21 +8,18 @@ subkind ImproperSense of relators  specializes Interpretation
 
 subkind ProperSense of relators  specializes Interpretation 
 
-relator Similarity{
-    @mediation [1] -- [1..*] Token 
-    @mediation [1] -- [1] TokenType 
-}
+relator Similarity
 
-relator Interpretation{
-    @mediation [1] -- [1] Concept 
-    @mediation [1..*] -- [1] TokenType 
-}
+relator Interpretation
 
-kind Concept{
-    @material [1..*] -- [1] TokenType 
-    [1] -- [0..*] Object 
-    @componentOf [1..*] -- [1] Mind 
-}
+kind Concept
 
 kind Mind
+
+
+
+
+
+
+
 

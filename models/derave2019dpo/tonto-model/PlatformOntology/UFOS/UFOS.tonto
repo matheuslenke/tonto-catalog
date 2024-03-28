@@ -1,37 +1,32 @@
 import Transaction
+import UFOS
 
 package UFOS
 
 roleMixin Service_Provider of functional-complexes 
 
-relator Service_Offering{
-    @mediation [1..*] -- involves -- [1] Service_Provider 
-    [*] -- [*] Service_Agreement 
-}
+relator Service_Offering
 
-relator Service_Agreement{
-    [*] -- [*] Hired_Service_Provider 
-}
+relator Service_Agreement
 
 event Service_Delivery specializes Delivery 
 
-mode Hired_Provider_Commitment{
-    [1] -- is_counter_part_of -- [1] Service_Customer_Claim 
-}
+mode Hired_Provider_Commitment
 
 mode Service_Customer_Claim
 
-collective Target_Customer_Communty{
-    @mediation [1] -- involves -- [1..*] Service_Offering 
-}
+collective Target_Customer_Communty
 
-roleMixin Target_Customer of functional-complexes {
-    @memberOf [1..*] -- is_part_of -- [1..*] Target_Customer_Communty 
-}
+roleMixin Target_Customer of functional-complexes 
 
-roleMixin Service_Customer of functional-complexes  specializes Target_Customer {
-    [*] -- [*] Service_Agreement 
-}
+roleMixin Service_Customer of functional-complexes  specializes Target_Customer 
 
 roleMixin Hired_Service_Provider of functional-complexes  specializes Service_Provider 
+
+
+
+
+
+
+
 

@@ -1,3 +1,4 @@
+import 3_Man_walking
 
 package 3_Man_walking
 
@@ -5,20 +6,11 @@ kind Track
 
 kind Person
 
-mode Jog{
-    @characterization [1..*] -- inheres_in -- [1] Jogger 
-    @externalDependence [1..*] -- [1] Jogging_Track 
-    @manifestation [1] -- [1..*] Jogging_Event 
-}
+mode Jog
 
-event Jogging_Process specializes Jogging_Perdurant {
-    [1] -- is_life_of -- [1] Jog 
-    @formal [1..*] -- constituted_by -- [1..*] Jogging_Event 
-}
+event Jogging_Process specializes Jogging_Perdurant 
 
-event Jogging_Perdurant{
-    @formal [0..*] -- meets -- [0..*] Jogging_Perdurant 
-}
+event Jogging_Perdurant
 
 event Jogging_Event specializes Jogging_Perdurant 
 
@@ -28,14 +20,13 @@ role Jogger of functional-complexes  specializes Person
 
 event Jog_State specializes Jogging_Event 
 
-event Jogging_Locomotion specializes Jogging_Event {
-    [0..*] -- has_value -- [1] Jogging_Speed_Values 
-}
+event Jogging_Locomotion specializes Jogging_Event 
 
 event Walking_While_Jogging specializes Jogging_Locomotion 
 
 event Running_While_Jogging specializes Jogging_Locomotion 
 
+enum Jogging_Speed_Values
 genset gcIXBV6GAqACDCca {
     general Jogging_Perdurant
     specifics Jogging_Process, Jogging_Event
@@ -45,4 +36,11 @@ genset rU2MhV6GAqACDA5x {
     general Jogging_Locomotion
     specifics Walking_While_Jogging, Running_While_Jogging
 }
+
+
+
+
+
+
+
 

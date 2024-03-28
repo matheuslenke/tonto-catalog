@@ -1,0 +1,26 @@
+
+package Registration
+
+roleMixin Registered_User of functional-complexes  specializes Platform_User {
+    firstName: undefined  
+    lastName: undefined  
+    email: undefined  
+    birthDate: undefined  
+    Address: undefined  
+}
+
+subkind Registration of relators 
+
+event Registration_Action{
+    setFirstName: undefined  
+    setLastName: undefined  
+    setEmail: undefined  
+    setPassword: undefined  
+    setBirthDate: undefined  
+}
+
+
+
+
+
+

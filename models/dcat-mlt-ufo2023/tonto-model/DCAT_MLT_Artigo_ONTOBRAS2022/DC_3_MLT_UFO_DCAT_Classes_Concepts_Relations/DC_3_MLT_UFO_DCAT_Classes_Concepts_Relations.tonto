@@ -1,22 +1,20 @@
 import DC_5_MLT_UFO_DCAT_Relationship_Instances
+import DC_3_MLT_UFO_DCAT_Classes_Concepts_Relations
 
 package DC_3_MLT_UFO_DCAT_Classes_Concepts_Relations
 
-mode dcatDistribution specializes Individual {
-    @characterization [1..*] -- [1] dcatDataset 
-    @characterization [1..*] -- dcatdistribution -- [1] dcatDataset 
-    [*] -- dcataccessService -- [0..*] dcatDataService 
-}
+mode dcatDistribution specializes Individual 
 
-relator dcatCatalogRecord specializes Individual {
-    [*] -- foafPrimaryTopic -- [1] dcatResource 
-    [1..*] -- dctrecord -- [1] dcatCatalog 
-    @mediation [0..*] -- foafprimaryTopic -- [1] dcatResource 
-    @mediation [0..*] -- dctrecord -- [1] dcatCatalog 
-}
+relator dcatCatalogRecord specializes Individual 
 
-subkind AttributionRole of qualities  specializes dcatRole {
-    [*] -- dcathadRole -- [*] Attribution_RoleValue 
-}
+subkind AttributionRole of qualities  specializes dcatRole 
 
 datatype Attribution_RoleValue
+
+
+
+
+
+
+
+

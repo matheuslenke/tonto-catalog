@@ -1,4 +1,3 @@
-import MultiLevel_Ontologies_Example
 
 package Example__Ship_Type
 
@@ -6,10 +5,7 @@ type Ship_Type{
     fleet: undefined  
 }
 
-kind Ship{
-    @instantiation [0..*] -- [1..*] Ship_Type 
-    @instantiation [0..*] -- [0..*] Ship_Class_by_Size 
-}
+kind Ship
 
 subkind Panamaclass_Ship specializes Ship {
     max_length: undefined  
@@ -33,10 +29,7 @@ kind Person
 
 role Captain specializes Person 
 
-mode Captain_License{
-    @characterization [1..*] -- [1] Captain 
-    @externalDependence [0..*] -- [1] Licensed_Ship_Type 
-}
+mode Captain_License
 
 phase Commissioned specializes Ship 
 
@@ -48,17 +41,11 @@ phase Current_Ship_Type specializes Ship_Type
 
 phase Discontinued_Ship_Type specializes Ship_Type 
 
-relator Assignment{
-    @mediation [0..*] -- [1] Captain 
-    @mediation [0..*] -- [1] Ship 
-}
+relator Assignment
 
 kind Canal
 
-relator Canal_Restrictions{
-    @mediation [1..*] -- [1] Ship_Class_by_Size 
-    @mediation [0..*] -- [1] Canal 
-}
+relator Canal_Restrictions
 
 role Licensed_Ship_Type specializes Ship_Type 
 
@@ -66,8 +53,6 @@ quality Size{
     length: undefined  
     weight: undefined  
     draft: undefined  
-    @characterization [1] -- [0..1] Ship 
-    @characterization [1] -- [0..1] Ship_Class_by_Size 
 }
 
 phase Temporary specializes Assignment 
@@ -93,4 +78,14 @@ genset disjoint_complete {
     general Assignment
     specifics Temporary, Permanent
 }
+
+
+
+
+
+
+
+
+
+
 

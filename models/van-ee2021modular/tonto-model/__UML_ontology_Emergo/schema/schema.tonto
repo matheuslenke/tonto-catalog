@@ -1,14 +1,9 @@
-import BPO_ontology
-import dice
-import bpo
 
 package schema
 
 category ProductModel of functional-complexes 
 
-quality PropertyValue{
-    @material [1] -- qudtunit -- [1] Unit 
-}
+quality PropertyValue
 
 quality StructuredValue
 
@@ -16,13 +11,6 @@ quality value_
 
 event Event{
     Description: string_  
-    @material [0..*] -- schemaEventSchedule -- [0..*] Schedule 
-    @material [0..*] -- schemaabout -- [0..*] Component 
-    @material [0..*] -- schemalocation -- [0..*] Place 
-    @material [0..*] -- schemasubEvent -- [0..*] Event 
-    @material [0..*] -- schemaactor -- [0..*] person 
-    @material [0..*] -- schemacontributor -- [0..*] organisation 
-    @bringsAbout [1] -- dicehasActivity -- [1] activity 
 }
 
 kind Schedule{
@@ -30,14 +18,10 @@ kind Schedule{
     id: string_  
     startDate: undefined  
     endDate: undefined  
-    @material [0..*] -- schemasubjectOf -- [0..*] Event 
-    @material [0..*] -- emgtransformSchedule -- [0..*] Schedule 
 }
 
 category Place of functional-complexes {
     description: string_  
-    @material [0..*] -- schemasubjectOf -- [0..*] Event 
-    @material [0..*] -- schemaaddress -- [0..*] postalAdress 
 }
 
 kind postalAdress{
@@ -54,7 +38,6 @@ kind person specializes Agent {
     email: string_  
     telephone: string_  
     jobTitle: string_  
-    @material [0..*] -- schemaperformerIn -- [0..*] Event 
 }
 
 kind organisation specializes Agent {
@@ -62,8 +45,6 @@ kind organisation specializes Agent {
     id: string_  
     email: string_  
     telephone: string_  
-    @material [0..*] -- schemaaddress -- [0..*] postalAdress 
-    @material [0..*] -- schemasubjectOf -- [0..*] Event 
 }
 
 quality priceSpecification{
@@ -72,7 +53,6 @@ quality priceSpecification{
     validFrom: undefined  
     validThrough: undefined  
     valueAddedTextIncluded: boolean_  
-    @characterization [1] -- schemaeligibleQuantity -- [1] QuantitativeValue 
 }
 
 quality QuantitativeValue{
@@ -83,18 +63,14 @@ quality QuantitativeValue{
 
 category WebAPI of functional-complexes {
     URL: string_  
-    @material [0..*] -- schemadocumentation -- [0..*] creativeWork 
 }
 
-kind DigitalDocument specializes creativeWork {
-    [*] -- schemahasDigitalDocumentPermission -- [*] DigitalDocumentPermission 
-}
+kind DigitalDocument specializes creativeWork 
 
 mode DigitalDocumentPermission
 
 category creativeWork of functional-complexes {
     fileFormat: string_  
-    @material [0..*] -- schemaabout -- [1] ClassifiedObject 
 }
 
 kind drawing specializes creativeWork 
@@ -102,4 +78,23 @@ kind drawing specializes creativeWork
 class Property
 
 class Agent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

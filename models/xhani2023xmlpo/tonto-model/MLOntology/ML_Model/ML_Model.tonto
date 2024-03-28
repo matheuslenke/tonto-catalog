@@ -1,32 +1,23 @@
 import Data_Input_and_Preprocessing
 import General_Module
 import Explanation
+import ML_Model
 
 package ML_Model
 
-subkind SupervisedLearningApproach of functional-complexes  specializes MLApproach {
-    @participation [1..*] -- [0..*] SupervisedLearningApproachImplemenation 
-}
+subkind SupervisedLearningApproach of functional-complexes  specializes MLApproach 
 
-subkind UnsupervisedLearningApproach of functional-complexes  specializes MLApproach {
-    @participation [1..*] -- [0..*] UnsupervisedLearningApproachImplemenation 
-}
+subkind UnsupervisedLearningApproach of functional-complexes  specializes MLApproach 
 
-kind MLApproach{
-    @characterization [1] -- [1] MLApproachCharacteristic 
-}
+kind MLApproach
 
 subkind RegressionAlgorithm of functional-complexes  specializes SupervisedLearningApproach 
 
 subkind ClassificationAlgorithm of functional-complexes  specializes SupervisedLearningApproach 
 
-subkind LabeledDataset of functional-complexes  specializes Dataset {
-    @participation [1..*] -- [0..*] SupervisedLearningApproachImplemenation 
-}
+subkind LabeledDataset of functional-complexes  specializes Dataset 
 
-subkind UnlabeledDataset of functional-complexes  specializes Dataset {
-    @participation [1..*] -- [0..*] UnsupervisedLearningApproachImplemenation 
-}
+subkind UnlabeledDataset of functional-complexes  specializes Dataset 
 
 event SupervisedLearningApproachImplemenation specializes Implementation 
 
@@ -34,9 +25,7 @@ event UnsupervisedLearningApproachImplemenation specializes Implementation
 
 subkind ClusteringAlgorithm of functional-complexes  specializes UnsupervisedLearningApproach 
 
-category Library of functional-complexes {
-    @participation [1..*] -- [0..*] ImportLibraries 
-}
+category Library of functional-complexes 
 
 kind PythonLibrary specializes Library 
 
@@ -44,35 +33,21 @@ subkind Pandas of functional-complexes  specializes PythonLibrary
 
 subkind ScikitLearn of functional-complexes  specializes PythonLibrary 
 
-event ImportLibraries{
-    @participational [1..*] -- [1] MLModelImplementation 
-    @characterization [1] -- [1] LibraryCharacteristic 
-}
+event ImportLibraries
 
-event MLModelImplementation specializes Implementation {
-    @creation [1] -- [1] BlackboxMLmodel 
-    @creation [1] -- [1] Result 
-}
+event MLModelImplementation specializes Implementation 
 
 event MLModelEvaluation
 
-subkind BlackboxMLmodel of functional-complexes  specializes MLModel {
-    @participation [1..*] -- [0..*] MLModelEvaluation 
-    @participation [1..*] -- [0..*] PosthocImplementation 
-    @mediation [0..*] -- [1] Vizualization 
-}
+subkind BlackboxMLmodel of functional-complexes  specializes MLModel 
 
-category ModelVisualization of functional-complexes {
-    @mediation [0..*] -- [1] Vizualization 
-}
+category ModelVisualization of functional-complexes 
 
 kind Graphs specializes ModelVisualization 
 
 kind Image specializes ModelVisualization 
 
-relator Vizualization{
-    @characterization [1] -- [1] VizualizationCharacteristic 
-}
+relator Vizualization
 
 quality MLApproachCharacteristic
 
@@ -81,4 +56,19 @@ quality LibraryCharacteristic
 quality VizualizationCharacteristic
 
 kind Result specializes Output 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

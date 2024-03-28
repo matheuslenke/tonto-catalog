@@ -1,3 +1,4 @@
+import UFOExtension
 
 package UFOExtension
 
@@ -11,146 +12,77 @@ class UFOCSociety specializes UFOCCollective_Social_Agent
 
 class UFOCCollective_Social_Agent
 
-class National_Society specializes Formal_Society {
-    [1..*] -- defines -- [0..*] Law 
-}
+class National_Society specializes Formal_Society 
 
-class Formal_Society specializes UFOCSociety {
-    [0..*] -- recognizedBy -- [1..*] UFOCSociety 
-}
+class Formal_Society specializes UFOCSociety 
 
-class Council specializes Functional_Organization {
-    [0..*] -- deliberates_to -- [1..*] Formal_Organization 
-}
+class Council specializes Functional_Organization 
 
-class Elective_Position specializes Mandate_Position {
-    [0..*] -- [*] Council 
-}
+class Elective_Position specializes Mandate_Position 
 
-class Effective_Position specializes Position {
-    [0..*] -- [*] Council 
-}
+class Effective_Position specializes Position 
 
-class Appointment specializes Admission_Contract {
-    [0..*] -- _assignes_to -- [1] Designative_Position 
-}
+class Appointment specializes Admission_Contract 
 
-class Designative_Position specializes Mandate_Position {
-    [1..*] -- [*] Commission 
-}
+class Designative_Position specializes Mandate_Position 
 
 class Direct_Appointment specializes Appointment 
 
-class Indirect_Appointment specializes Appointment {
-    [0..*] -- approved_by_ -- [1..*] Employee 
-}
+class Indirect_Appointment specializes Appointment 
 
 class Missionary_Organization specializes Formal_Organization 
 
 class Functional_Organization specializes Formal_Organization 
 
-class Law specializes UFOCNormative_Description {
-    [1..*] -- formalizes -- [0..*] Formal_Organization 
-    [1..*] -- recognized_by -- [1..*] Formal_Organization 
-    [1..*] -- recognized_by -- [1..*] Natural_Person 
-    [1..*] -- formalizes -- [1..*] Natural_Person 
-}
+class Law specializes UFOCNormative_Description 
 
-class Internal_Regiment specializes UFOCNormative_Description {
-    [1..*] -- recognized_by_ -- [1..*] Non_Formal_Organization 
-    [1] -- defines -- [1..*] Descriptive_Business_Social_Role 
-}
+class Internal_Regiment specializes UFOCNormative_Description 
 
-class Election specializes Admission_Contract {
-    [0..*] -- _assignes_to -- [1] Elective_Position 
-}
+class Election specializes Admission_Contract 
 
-class Alocation specializes Admission_Contract {
-    [0..*] -- _assignes_to -- [1] Effective_Position 
-}
+class Alocation specializes Admission_Contract 
 
 class Mandate_Position specializes Position 
 
-class Board specializes Structural_Unit {
-    [0..*] -- deliberates_to_ -- [1..*] Structural_Unit 
-}
+class Board specializes Structural_Unit 
 
-class Admission_Contract specializes UFOCSocial_Relator {
-    [0..*] -- _assignes_to -- [1] Position 
-}
+class Admission_Contract specializes UFOCSocial_Relator 
 
 class Admission_Contract_With_Term specializes Admission_Contract 
 
-class Business_Social_Role specializes UFOCSocial_Role {
-    [0..*] -- requires -- [0..*] Skill 
-    [1] -- provides -- [0..*] Permission 
-}
+class Business_Social_Role specializes UFOCSocial_Role 
 
-class Recognition_Contract specializes UFOCSocial_Relator {
-    [0..*] -- relates_to -- [1..*] UFOCNormative_Description 
-    [0..*] -- defines -- [1..*] UFOCNormative_Description 
-    [1] -- _accepts -- [0..*] Employee 
-}
+class Recognition_Contract specializes UFOCSocial_Relator 
 
 class Descriptive_Business_Social_Role specializes Business_Social_Role 
 
 class UFOCUsage
 
-class Allocation specializes UFOCSocial_Relator {
-    [0..*] -- _allocates -- [1] Employee 
-    [0..*] -- _assignes_to -- [1] Business_Role 
-    [0..*] -- _assignes_to -- [1] Non_Formal_Organization 
-}
+class Allocation specializes UFOCSocial_Relator 
 
 class UFOCOrganization
 
-class Formal_Organization specializes UFOCOrganization {
-    [0..*] -- located_at -- [1] Location 
-    [0..*] -- [*] National_Society 
-    [1] -- _generates -- [0..*] Admission_Contract 
-    [1] -- defines_ -- [1..*] Internal_Regiment 
-    [0..*] -- [*] Council 
-}
+class Formal_Organization specializes UFOCOrganization 
 
-class Non_Formal_Organization specializes UFOCOrganization {
-    [2..*] -- [*] Formal_Organization 
-    [1] -- _generates -- [1..*] Recognition_Contract 
-    [0..*] -- _accepts -- [1] Recognition_Contract 
-}
+class Non_Formal_Organization specializes UFOCOrganization 
 
-class Organization_Unit specializes Structural_Unit {
-    [0..*] -- _manages -- [0..1] Organization_Unit 
-}
+class Organization_Unit specializes Structural_Unit 
 
-class Staff specializes Structural_Unit {
-    [0..*] -- staff_of_ -- [1] Organization_Unit 
-}
+class Staff specializes Structural_Unit 
 
 class Working_Group specializes Missionary_Unit 
 
-class Artifact specializes UFOCResource {
-    [0..*] -- availableAt -- [1] Location 
-}
+class Artifact specializes UFOCResource 
 
-class Infrastructure_Component specializes UFOCResource {
-    [0..*] -- availableAt -- [1] Location 
-}
+class Infrastructure_Component specializes UFOCResource 
 
-class Position specializes Descriptive_Business_Social_Role {
-    [1] -- cover_ -- [1..*] Business_Role 
-    [1..*] -- [*] Formal_Organization 
-    [0..1] -- _manage -- [0..*] Position 
-}
+class Position specializes Descriptive_Business_Social_Role 
 
-class Business_Role specializes Descriptive_Business_Social_Role {
-    [0..*] -- [*] Non_Formal_Organization 
-}
+class Business_Role specializes Descriptive_Business_Social_Role 
 
 class Location
 
-class Skill{
-    [1] -- mensured_by -- [1] SkillMetric 
-}
+class Skill
 
 class UFOCResource
 
@@ -168,36 +100,13 @@ class UFOCHuman_Agent
 
 class UFOCSocial_Relator
 
-class UFOCNormative_Description{
-    [0..1] -- v_defines -- [0..*] UFOCSocial_Role 
-}
+class UFOCNormative_Description
 
-class Natural_Person specializes UFOCHuman_Agent {
-    [0..*] -- _has -- [0..*] Skill 
-    [1..*] -- [*] National_Society 
-    [2..*] -- participates_ -- [0..*] Election 
-}
+class Natural_Person specializes UFOCHuman_Agent 
 
-class Employee specializes Business_Social_Role {
-    [0..*] -- _play -- [1..*] Business_Role 
-    [0..*] -- _occupy -- [1] Position 
-    [0..*] -- work_at_ -- [1] Location 
-    [1] -- head_of_ -- [1] UFOCOrganization 
-    [1] -- _candidate_substitute -- [0..*] Employee 
-    [0..*] -- has -- [0..*] Resource_Dependence 
-    [1] -- has -- [0..*] Permission 
-    [1..*] -- has -- [1..*] Duty 
-    [*] -- instance_of -- [*] Natural_Person 
-    [1] -- performs -- [0..*] Authority_Designation 
-    [1] -- realizes_ -- [0..*] Appointment 
-    [1] -- _formalizes -- [1..*] Admission_Contract 
-}
+class Employee specializes Business_Social_Role 
 
-class Responsability specializes UFOCSocial_Relator {
-    [0..*] -- over -- [1..*] Employee 
-    [0..*] -- context -- [1] Descriptive_Business_Social_Role 
-    [0..*] -- has -- [0..*] Employee 
-}
+class Responsability specializes UFOCSocial_Relator 
 
 class Structural_Unit specializes Non_Formal_Organization 
 
@@ -205,47 +114,100 @@ class Missionary_Unit specializes Non_Formal_Organization
 
 class UFOCSocial_Role
 
-class Duty specializes UFOCSocial_Relator {
-    [0..*] -- realizes -- [1..*] Behavioral_Element 
-    [0..*] -- context -- [1] Descriptive_Business_Social_Role 
-    [1..*] -- toward -- [1] UFOCOrganization 
-}
+class Duty specializes UFOCSocial_Relator 
 
-class Permission specializes UFOCSocial_Relator {
-    [0..*] -- over -- [1] UFOCResource 
-}
+class Permission specializes UFOCSocial_Relator 
 
-class Holding specializes Functional_Organization {
-    [1] -- _composes -- [1] Societary_Participation 
-}
+class Holding specializes Functional_Organization 
 
-class Business_Unit specializes Functional_Organization {
-    [0..*] -- [*] Business 
-}
+class Business_Unit specializes Functional_Organization 
 
-class Authority_Designation specializes UFOCSocial_Relator {
-    [0..*] -- empowers -- [1] Employee 
-}
+class Authority_Designation specializes UFOCSocial_Relator 
 
-class Business specializes Functional_Organization {
-    [2..*] -- _composes -- [1] Holding 
-    [1] -- manages_ -- [0..*] Business_Unit 
-}
+class Business specializes Functional_Organization 
 
-class Societary_Participation specializes UFOCSocial_Relator {
-    [1] -- _has -- [1..*] Business 
-}
+class Societary_Participation specializes UFOCSocial_Relator 
 
 class Commission specializes Missionary_Organization 
 
 class UFOCAction
 
-class Committee specializes Missionary_Unit {
-    [0..*] -- sub_committee_of_ -- [0..1] Committee 
-}
+class Committee specializes Missionary_Unit 
 
-class Resource_Dependence specializes UFOCUsage {
-    [0..*] -- over -- [1] UFOCResource 
-    [0..*] -- context -- [1] Behavioral_Element 
-}
+class Resource_Dependence specializes UFOCUsage 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

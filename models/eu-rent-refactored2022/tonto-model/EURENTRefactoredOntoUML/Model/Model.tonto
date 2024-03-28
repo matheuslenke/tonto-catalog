@@ -12,13 +12,9 @@ subkind Man of functional-complexes  specializes Person
 
 subkind Woman of functional-complexes  specializes Person 
 
-role Spouse of functional-complexes  specializes Person {
-    @material [1] -- is_married_to -- [1] Spouse 
-}
+role Spouse of functional-complexes  specializes Person 
 
-relator Marriage{
-    @mediation [1] -- involves_spouse -- [2] Spouse 
-}
+relator Marriage
 
 phase Living_Person of functional-complexes  specializes Person 
 
@@ -34,37 +30,26 @@ roleMixin Customer of functional-complexes
 
 role Personal_Customer of functional-complexes  specializes Customer, Driver 
 
-subkind Licensing_Authority of functional-complexes  specializes Governmental_Agency {
-    @material [1..*] -- issues_driver_license_for -- [*] Driver 
-}
+subkind Licensing_Authority of functional-complexes  specializes Governmental_Agency 
 
-relator Drivers_License{
-    [*] -- issued_by -- [1] Licensing_Authority 
-    [1..*] -- granted_to -- [1] Driver 
-}
+relator Drivers_License
 
 role Driver of functional-complexes  specializes Adult, Insurable_Item 
 
 kind Organization specializes Insurable_Item {
     type_: undefined  
-    @material [1] -- owns -- [*] Website 
 }
 
 subkind Governmental_Agency of functional-complexes  specializes Organization 
 
-subkind Car_Agency of functional-complexes  specializes Organization {
-    @material [1] -- owns -- [1..*] Car 
-}
+subkind Car_Agency of functional-complexes  specializes Organization 
 
 kind Car specializes Insurable_Item {
     function_: undefined  
     status: undefined  
 }
 
-relator Car_Ownership{
-    @mediation [1..*] -- involves_owner -- [1] Car_Agency 
-    @mediation [1] -- involves_property -- [1] Car 
-}
+relator Car_Ownership
 
 role Corporate_Customer of functional-complexes  specializes Customer, Organization 
 
@@ -78,28 +63,15 @@ subkind Organization_Unit of functional-complexes  specializes Organization
 
 subkind Service_Depot of functional-complexes  specializes Organization_Unit 
 
-role Car_Scheduled_for_Maintenance of functional-complexes  specializes Car_Needing_Maintenance {
-    @material [*] -- is_scheduled_for_maintenance_at -- [1..*] Service_Depot 
-}
+role Car_Scheduled_for_Maintenance of functional-complexes  specializes Car_Needing_Maintenance 
 
-role Car_Scheduled_for_Repair of functional-complexes  specializes Car_Needing_Repair {
-    @material [*] -- is_scheduled_for_repair_at -- [1..*] Service_Depot 
-}
+role Car_Scheduled_for_Repair of functional-complexes  specializes Car_Needing_Repair 
 
-relator Maintenance_Appointment{
-    @mediation [*] -- involves_service_depot -- [1] Service_Depot 
-    @mediation [1..*] -- involves_car -- [1] Car_Scheduled_for_Maintenance 
-}
+relator Maintenance_Appointment
 
-relator Repair_Appointment{
-    @mediation [*] -- involves_service_depot -- [1] Service_Depot 
-    @mediation [1..*] -- involves_car -- [1] Car_Scheduled_for_Repair 
-}
+relator Repair_Appointment
 
-relator Car_Rental_Agreement specializes Insurable_Item {
-    @mediation [1..*] -- involves_customer -- [1] Customer 
-    @mediation [*] -- involves_car -- [1] Functional_Car 
-}
+relator Car_Rental_Agreement specializes Insurable_Item 
 
 phase Active_Car_Rental_Agreement of relators  specializes Car_Rental_Agreement 
 
@@ -107,24 +79,15 @@ phase Extented_Car_Rental_Agreement of relators  specializes Car_Rental_Agreemen
 
 phase Closed_Car_Rental_Agreement of relators  specializes Car_Rental_Agreement 
 
-role Car_Rental_Agreement_Closed_With_Damage of relators  specializes Closed_Car_Rental_Agreement {
-    @material [1..*] -- invovles_rental_car -- [1] Car_Returned_with_Damage 
-}
+role Car_Rental_Agreement_Closed_With_Damage of relators  specializes Closed_Car_Rental_Agreement 
 
-relator Damage_Report{
-    @mediation [1] -- involves_car_rental -- [1] Car_Rental_Agreement_Closed_With_Damage 
-    @mediation [1..*] -- involves_car -- [1] Car_Returned_with_Damage 
-}
+relator Damage_Report
 
 subkind Branch of functional-complexes  specializes Organization_Unit 
 
 role Transferred_Car of functional-complexes  specializes Car 
 
-relator Transfer_Agreement{
-    @mediation [1..*] -- involves_car -- [1] Transferred_Car 
-    @mediation [1..*] -- transfers_car_to -- [1] Receiver_Branch 
-    @mediation [1..*] -- transfers_car_from -- [1] Sender_Branch 
-}
+relator Transfer_Agreement
 
 role Car_Returned_with_Damage of functional-complexes  specializes Car 
 
@@ -138,14 +101,9 @@ subkind Passenger_Car of functional-complexes  specializes Car
 
 subkind Cargo_Car of functional-complexes  specializes Car 
 
-relator Rental_Insurance specializes Insurance {
-    @mediation [0..1] -- is_valid_for -- [1] Car_Rental_Agreement 
-    @mediation [1..*] -- protects -- [1] Insured_Driver 
-}
+relator Rental_Insurance specializes Insurance 
 
-role Insurance_Company of functional-complexes  specializes Organization {
-    @material [*] -- insures -- [1..*] Insurable_Item 
-}
+role Insurance_Company of functional-complexes  specializes Organization 
 
 role Insured_Driver of functional-complexes  specializes Driver 
 
@@ -157,32 +115,19 @@ phase Online_Website of functional-complexes  specializes Website
 
 phase Offline_Website of functional-complexes  specializes Website 
 
-relator Website_Ownership{
-    @mediation [*] -- involves_owner -- [1] Organization 
-    @mediation [1] -- involves_property -- [1] Website 
-}
+relator Website_Ownership
 
 role Sender_Branch of functional-complexes  specializes Branch 
 
 role Receiver_Branch of functional-complexes  specializes Branch 
 
-relator Insurance{
-    @mediation [*] -- protects -- [1] Insurable_Item 
-    @mediation [1..*] -- involves_insuror -- [1] Insurance_Company 
-}
+relator Insurance
 
-role Car_Manufacturer of functional-complexes  specializes Organization {
-    @material [1] -- produces -- [1..*] Car 
-}
+role Car_Manufacturer of functional-complexes  specializes Organization 
 
-relator Car_Production{
-    @mediation [1] -- involves_product -- [1] Car 
-    @mediation [1..*] -- involves_manufacturer -- [1] Car_Manufacturer 
-}
+relator Car_Production
 
-role Employee of functional-complexes  specializes Person {
-    @material [*] -- works_at -- [1] Organization 
-}
+role Employee of functional-complexes  specializes Person 
 
 role Trainee of functional-complexes  specializes Employee 
 
@@ -192,21 +137,13 @@ role Midlevel_Employee of functional-complexes  specializes Employee
 
 role Senior_Employee of functional-complexes  specializes Employee 
 
-relator Employment_Contract{
-    @mediation [*] -- involves_employer -- [1] Organization 
-    @mediation [1] -- involves_employee -- [1] Employee 
-}
+relator Employment_Contract
 
-role Parent of functional-complexes  specializes Person {
-    @material [1..2] -- is_parent_of -- [1..*] Child 
-}
+role Parent of functional-complexes  specializes Person 
 
 role Child of functional-complexes  specializes Person 
 
-relator Legal_Parenthood{
-    @mediation [1..*] -- involves_parent -- [1] Parent 
-    @mediation [1..2] -- involves_child -- [1] Child 
-}
+relator Legal_Parenthood
 
 genset validity {
     general Drivers_License
@@ -262,4 +199,50 @@ genset unit_type {
     general Organization_Unit
     specifics Branch, Service_Depot
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

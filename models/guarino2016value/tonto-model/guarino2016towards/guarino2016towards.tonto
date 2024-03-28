@@ -1,90 +1,77 @@
+import guarino2016towards
 
 package guarino2016towards
 
-quality Perceived_value{
-    @characterization [0..*] -- [1] Agent 
-    @formal [*] -- [1] Context_involvement_relationship 
-    @formal [0..*] -- [1] Value_Object 
-    @formal [1] -- [1] Theoretical_value 
-}
+quality Perceived_value
 
-quality Theoretical_value{
-    @characterization [1] -- [1] Theoretical_valuation_relationship 
-    @formal [1] -- [1..*] Cost_value 
-    @formal [1] -- [1..*] Benefit_value 
-}
+quality Theoretical_value
 
-relator Theoretical_valuation_relationship{
-    @mediation [0..*] -- [1] Agent 
-    @mediation [1..*] -- [1] Value_Object 
-    [1] -- [1..*] Costspecific_valuation 
-    [1] -- [1..*] Benefitspecific_valuation 
-}
+relator Theoretical_valuation_relationship
 
-quality Cost_value{
-    @characterization [1] -- [1] Costspecific_valuation 
-}
+quality Cost_value
 
-quality Benefit_value{
-    @characterization [1] -- [1] Benefitspecific_valuation 
-}
+quality Benefit_value
 
-relator Costspecific_valuation{
-    @mediation [0..*] -- [1] Agent 
-    @mediation [0..*] -- [1] Context 
-    [0..*] -- [1] Desire 
-    [0..*] -- [0..*] Preference 
-    [0..*] -- [1..*] VOs_quality 
-    @characterization [0..*] -- [1] Value_Object 
-}
+relator Costspecific_valuation
 
-relator Benefitspecific_valuation{
-    @mediation [0..*] -- [1] Agent 
-    [1..*] -- [0..*] Preference 
-    [0..*] -- [1..*] VOs_quality 
-    [0..*] -- [1] Desire 
-    @mediation [0..*] -- [1] Value_Object 
-}
+relator Benefitspecific_valuation
 
 roleMixin Value_Object of functional-complexes 
 
 category Agent of functional-complexes 
 
-relator Context_involvement_relationship{
-    @mediation [1..*] -- [1] Agent 
-    @mediation [1..*] -- [1] Context 
-}
+relator Context_involvement_relationship
 
 mixin Context of functional-complexes 
 
-quality Desire{
-    @characterization [1..*] -- [1] Agent 
-    @formal [*] -- [*] Context_involvement_relationship 
-    @formal [0..*] -- [1..*] Context_involvement_relationship 
-}
+quality Desire
 
-quality VOs_quality{
-    @characterization [1..*] -- [1] Value_Object 
-}
+quality VOs_quality
 
-role VOs_nonfunctional_quality of qualities  specializes VOs_quality {
-    [0..*] -- [1] Quality_domain 
-}
+role VOs_nonfunctional_quality of qualities  specializes VOs_quality 
 
 role VOs_functional_quality of qualities  specializes VOs_quality 
 
-category Quality_domain of functional-complexes {
-    [1] -- [0..*] Preference 
-}
+category Quality_domain of functional-complexes 
 
-category Object_kind of functional-complexes {
-    [1] -- [0..*] Preference 
-    [1] -- classifies -- [0..*] Value_Object 
-}
+category Object_kind of functional-complexes 
 
-quality Preference{
-    @characterization [0..*] -- [1] Agent 
-    @formal [1] -- [1..*] VOs_nonfunctional_quality 
-    @formal [0..*] -- [1..*] Context_involvement_relationship 
-}
+quality Preference
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

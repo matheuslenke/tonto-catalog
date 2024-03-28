@@ -1,51 +1,42 @@
+import IDENTITY
+import STAKEHOLDERS
 
 package IDENTITY
 
 category Identity of functional-complexes 
 
-kind Vision specializes Identity {
-    @material [1] -- [1] Official_stakeholders 
-}
+kind Vision specializes Identity 
 
-mode Essence{
-    @characterization [1..*] -- [1] Vision 
-}
+mode Essence
 
-mode Mission{
-    @characterization [1..*] -- [1] Vision 
-}
+mode Mission
 
-mode Aims_and_goals{
-    @characterization [1..*] -- [1] Vision 
-}
+mode Aims_and_goals
 
-kind Culture specializes Identity {
-    @material [1] -- [1..*] Internal_stakeholders 
-}
+kind Culture specializes Identity 
 
-mode Structure{
-    @characterization [1..*] -- [1] Culture 
-}
+mode Structure
 
-mode Values{
-    @characterization [1..*] -- [1] Culture 
-}
+mode Values
 
-mode Personality{
-    @characterization [1..*] -- [1] Culture 
-}
+mode Personality
 
-kind Desired_Image specializes Identity, Image {
-    @material [1] -- [1] External_stekaholders 
-}
+kind Desired_Image specializes Identity, Image 
 
 category Image of functional-complexes 
 
-mode Positioning{
-    @characterization [1..*] -- [1] Desired_Image 
-}
+mode Positioning
 
-mode Presentation{
-    @characterization [1..*] -- Characterization11 -- [1] Desired_Image 
-}
+mode Presentation
+
+
+
+
+
+
+
+
+
+
+
 

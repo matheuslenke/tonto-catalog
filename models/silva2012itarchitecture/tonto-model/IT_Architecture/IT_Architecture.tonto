@@ -1,3 +1,4 @@
+import IT_Architecture
 
 package IT_Architecture
 
@@ -17,23 +18,13 @@ kind Refrigeao specializes Plataforma
 
 kind Energia specializes Plataforma 
 
-kind Garantia_eSuporte specializes Plataforma {
-    [1] -- [1..*] Nvel_de_Garantia_Apropriado 
-    [1] -- Manuteno_resoluo_de_problenas -- [*] Sistema_Computacional 
-}
+kind Garantia_eSuporte specializes Plataforma 
 
-relator Nvel_de_Garantia_Apropriado{
-    [1..*] -- [1] Sistema_Computacional 
-}
+relator Nvel_de_Garantia_Apropriado
 
-kind Sistema_Computacional specializes Plataforma {
-    [1..*] -- [1..*] Alerta 
-    [1..*] -- fatha -- [1..*] Monitoramento 
-}
+kind Sistema_Computacional specializes Plataforma 
 
-relator Alerta{
-    [1..*] -- [1] Monitoramento 
-}
+relator Alerta
 
 kind Monitoramento specializes Plataforma 
 
@@ -61,4 +52,10 @@ genset K61a7wGGAqAAEQ31 {
     general Sistema_Computacional
     specifics Periferico, Alimentao_dupla, Fonte_Redundante, Dispositive_de_drede_dual, Cooler_Redundante
 }
+
+
+
+
+
+
 

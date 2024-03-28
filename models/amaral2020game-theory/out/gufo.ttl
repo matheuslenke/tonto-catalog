@@ -1,0 +1,160 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Player_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Player_Action"@en.
+:Game_Player rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Game_Player"@en.
+:Action_Profile rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Action_Profile"@en.
+:Outcome rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Outcome"@en.
+:Game rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Game"@en.
+:Unity_Value_Ascription rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Unity_Value_Ascription"@en.
+:Utility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Utility"@en.
+:Utility_Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Utility_Value"@en.
+:Successful_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Successful_Situation"@en.
+:Value_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Value_Event"@en.
+:Value_Experience rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Value_Experience"@en.
+:Resulting_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Resulting_Situation"@en.
+:Threatening_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Threatening_Situation"@en.
+:Threat_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Threat_Event"@en.
+:Trigger_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Trigger_Event"@en.
+:Risk_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Risk_Event"@en.
+:Impact_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Impact_Event"@en.
+:Gain_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Gain_Event"@en.
+:Loss_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Loss_Event"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intention"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Game_Player rdfs:subClassOf :Agent.
+:Action_Profile rdfs:subClassOf :Value_Event.
+:Outcome rdfs:subClassOf :Value_Experience.
+:Successful_Situation rdfs:subClassOf :Resulting_Situation.
+:Impact_Event rdfs:subClassOf :Value_Event.
+:Trigger_Event rdfs:subClassOf :Value_Event.
+:Loss_Event rdfs:subClassOf :Impact_Event.
+:Gain_Event rdfs:subClassOf :Impact_Event.
+:Threatening_Situation rdfs:subClassOf :Resulting_Situation.
+:Threat_Event rdfs:subClassOf :Trigger_Event, :Risk_Event.
+:Trigger_Event rdfs:subClassOf :Value_Event.
+:Risk_Event rdfs:subClassOf :Value_Event.
+:Impact_Event rdfs:subClassOf :Value_Event.
+:Gain_Event rdfs:subClassOf :Impact_Event.
+:Loss_Event rdfs:subClassOf :Impact_Event, :Risk_Event.
+:motivated_by rdf:type owl:ObjectProperty;
+    rdfs:domain :Player_Action;
+    rdfs:range :Intention;
+    rdfs:label "motivated_by"@en.
+:playerActionIsEventProperPartOfActionProfile rdf:type owl:ObjectProperty;
+    rdfs:domain :Player_Action;
+    rdfs:range :Action_Profile;
+    rdfs:subPropertyOf gufo:isEventProperPartOf.
+:performs_action rdf:type owl:ObjectProperty;
+    rdfs:domain :Game_Player;
+    rdfs:range :Player_Action;
+    rdfs:label "performs_action"@en;
+    rdfs:subPropertyOf gufo:participatedIn.
+:actionProfileHasOutcome rdf:type owl:ObjectProperty;
+    rdfs:domain :Action_Profile;
+    rdfs:range :Outcome.
+:participates rdf:type owl:ObjectProperty;
+    rdfs:domain :Game;
+    rdfs:range :Game_Player;
+    rdfs:label "participates"@en;
+    rdfs:subPropertyOf gufo:mediates.
+:involves rdf:type owl:ObjectProperty;
+    rdfs:domain :Game;
+    rdfs:range :Outcome;
+    rdfs:label "involves"@en.
+:unityValueAscriptionHasUtility rdf:type owl:ObjectProperty;
+    rdfs:domain :Unity_Value_Ascription;
+    rdfs:range :Utility.
+:inheres_in rdf:type owl:ObjectProperty;
+    rdfs:domain :Unity_Value_Ascription;
+    rdfs:range :Game_Player;
+    rdfs:label "inheres_in"@en;
+    rdfs:subPropertyOf gufo:inheresIn.
+:ext_dep_on rdf:type owl:ObjectProperty;
+    rdfs:domain :Unity_Value_Ascription;
+    rdfs:range :Outcome;
+    rdfs:label "ext_dep_on"@en;
+    rdfs:subPropertyOf gufo:externallyDependsOn.
+:inheres_in_1 rdf:type owl:ObjectProperty;
+    rdfs:domain :Utility;
+    rdfs:range :Game_Player;
+    rdfs:label "inheres_in"@en;
+    rdfs:subPropertyOf gufo:inheresIn.
+:inheres_in_2 rdf:type owl:ObjectProperty;
+    rdfs:domain :Utility_Value;
+    rdfs:range :Unity_Value_Ascription;
+    rdfs:label "inheres_in"@en;
+    rdfs:subPropertyOf gufo:inheresIn.
+:valueEventHasValueExperience rdf:type owl:ObjectProperty;
+    rdfs:domain :Value_Event;
+    rdfs:range :Value_Experience.
+:brings_about_resulting_situation rdf:type owl:ObjectProperty;
+    rdfs:domain :Value_Event;
+    rdfs:range :Resulting_Situation;
+    rdfs:label "brings_about_resulting_situation"@en;
+    rdfs:subPropertyOf gufo:broughtAbout.
+:contributes_to_trigger_threat_event rdf:type owl:ObjectProperty;
+    rdfs:domain :Threatening_Situation;
+    rdfs:range :Threat_Event;
+    rdfs:label "contributes_to_trigger_threat_event"@en;
+    rdfs:subPropertyOf gufo:contributedToTrigger.
+:causes_loss rdf:type owl:ObjectProperty;
+    rdfs:domain :Threat_Event;
+    rdfs:range :Loss_Event;
+    rdfs:label "causes_loss"@en;
+    rdfs:subPropertyOf gufo:historicallyDependsOn.
+:causes_impact rdf:type owl:ObjectProperty;
+    rdfs:domain :Trigger_Event;
+    rdfs:range :Impact_Event;
+    rdfs:label "causes_impact"@en;
+    rdfs:subPropertyOf gufo:historicallyDependsOn.
+:positively_impacts rdf:type owl:ObjectProperty;
+    rdfs:domain :Gain_Event;
+    rdfs:range :Intention;
+    rdfs:label "positively_impacts"@en.
+:negatively_impact__hurts rdf:type owl:ObjectProperty;
+    rdfs:domain :Loss_Event;
+    rdfs:range :Intention;
+    rdfs:label "negatively_impact__hurts"@en.
+:inheres_in_3 rdf:type owl:ObjectProperty;
+    rdfs:domain :Intention;
+    rdfs:range :Agent;
+    rdfs:label "inheres_in"@en;
+    rdfs:subPropertyOf gufo:inheresIn.

@@ -11,7 +11,6 @@ subkind Part of functional-complexes  specializes Written_Representation
 
 subkind Music_Work of functional-complexes  specializes Art_Work {
     identifier: undefined  
-    @material [1] -- soruce -- [1..*] Written_Representation 
 }
 
 subkind Ballet of functional-complexes  specializes Music_Work 
@@ -28,9 +27,7 @@ subkind Symphony of functional-complexes  specializes Orchestral_Work
 
 subkind Symphonic_Poem of functional-complexes  specializes Orchestral_Work 
 
-role Suite_Short_Moviment of functional-complexes  specializes Short_Moviment {
-    @componentOf [2..*] -- [1] Suite 
-}
+role Suite_Short_Moviment of functional-complexes  specializes Short_Moviment 
 
 phase Short_Moviment of functional-complexes  specializes Individual_Moviment 
 
@@ -39,7 +36,6 @@ phase Long_Moviment of functional-complexes  specializes Individual_Moviment
 kind Moviment{
     duration: undefined  
     time_plus_measure: undefined  
-    @componentOf [2..*] -- [1] Composite_Moviment 
 }
 
 subkind Individual_Moviment of functional-complexes  specializes Moviment 
@@ -52,33 +48,21 @@ phase Slow_Moviment of functional-complexes  specializes Individual_Moviment
 
 phase Fast_Moviment of functional-complexes  specializes Individual_Moviment 
 
-kind Art_Work{
-    @componentOf [2..*] -- [1] Oeuvre 
-}
+kind Art_Work
 
-relator Publishment{
-    @mediation [1] -- [1] Full_Score 
-    @mediation [1] -- [1] Music_Work 
-    @mediation [1..*] -- [1] Publisher 
-}
+relator Publishment
 
 relator Artistic_Composition{
     completion: undefined  
-    @mediation [1] -- [1] Art_Work 
-    @mediation [1..*] -- [1..*] Composer 
 }
 
-relator Musical_Composition specializes Artistic_Composition {
-    @mediation [1..*] -- [1..*] Music_Composer 
-}
+relator Musical_Composition specializes Artistic_Composition 
 
 role Music_Composer specializes Composer 
 
 role Composer specializes Artist 
 
-mixin Artist of functional-complexes {
-    @formal [1] -- body_of_work -- [1] Oeuvre 
-}
+mixin Artist of functional-complexes 
 
 role Individual_Artist of functional-complexes  specializes Artist, Person, Artistic_Member 
 
@@ -92,9 +76,7 @@ role Publisher of functional-complexes  specializes Person
 
 kind Oeuvre
 
-role Member of functional-complexes  specializes Person {
-    @memberOf [2..*] -- [1] Group 
-}
+role Member of functional-complexes  specializes Person 
 
 collective Group
 
@@ -102,13 +84,9 @@ subkind Artistic_Group of collectives  specializes Group, Artist
 
 subkind Musical_Group of collectives  specializes Artistic_Group 
 
-role Musical_Member of functional-complexes  specializes Artistic_Member {
-    @memberOf [2..*] -- [1] Musical_Group 
-}
+role Musical_Member of functional-complexes  specializes Artistic_Member 
 
-role Artistic_Member of functional-complexes  specializes Member {
-    @memberOf [2..*] -- [1] Artistic_Group 
-}
+role Artistic_Member of functional-complexes  specializes Member 
 
 role Musician of functional-complexes  specializes Individual_Artist, Musical_Member 
 
@@ -144,4 +122,19 @@ genset MSet {
     general Moviment
     specifics Individual_Moviment, Composite_Moviment
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

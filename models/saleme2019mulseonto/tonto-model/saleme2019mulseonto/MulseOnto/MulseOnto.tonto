@@ -1,51 +1,29 @@
 import SwO
 import UFO
 import SPO
+import MulseOnto
 
 package MulseOnto
 
-class Loaded_Mulsemedia_Software_System_Copy specializes Loaded_Software_System_Copy {
-    [0..*] -- materialization_of -- [1] Mulsemedia_Software_System 
-    [1] -- includes -- [1..*] Loaded_Mulsemedia_Program_Copy 
-}
+class Loaded_Mulsemedia_Software_System_Copy specializes Loaded_Software_System_Copy 
 
 class Input_Device specializes Hardware_Equipment 
 
-class User_Interface{
-    [1] -- related_to -- [1..*] Loaded_Mulsemedia_Program_Copy 
-    [0..*] -- [1..*] Input_Device 
-    [0..*] -- [3..*] Output_Device 
-}
+class User_Interface
 
-class Mulsemedia_Computer_System specializes Computer_System {
-    [1] -- has -- [1..*] Loaded_Mulsemedia_Software_System_Copy 
-    [1] -- [1] User_Interface 
-    [0..*] -- [0..*] Behavior_Presentation_Specification 
-    [0..*] -- [2..*] Medium 
-    [0..*] -- [0..*] Sensory_Effect_Description 
-}
+class Mulsemedia_Computer_System specializes Computer_System 
 
-class Mulsemedia_Software_System specializes Software_Sytem {
-    [0..*] -- constituted_of -- [1..*] Mulsemedia_Program 
-}
+class Mulsemedia_Software_System specializes Software_Sytem 
 
-class Loaded_Mulsemedia_Program_Copy specializes Loaded_Program_Copy {
-    [0..*] -- materialization_of -- [1] Mulsemedia_Program 
-}
+class Loaded_Mulsemedia_Program_Copy specializes Loaded_Program_Copy 
 
-class Mulsemedia_Program{
-    [0..*] -- handles -- [0..*] Behavior_Presentation_Specification 
-    [0..*] -- handles -- [0..*] Sensory_Effect_Description 
-    [0..*] -- handles -- [0..*] Computer_Medium 
-}
+class Mulsemedia_Program
 
 class Behavior_Presentation_Specification specializes Data_File 
 
 class Output_Device specializes Hardware_Equipment 
 
-class Medium specializes Object {
-    [0..*] -- realizes -- [1..*] Creation_Work 
-}
+class Medium specializes Object 
 
 class Computer_Medium specializes Medium, Data_File 
 
@@ -55,33 +33,19 @@ class Discrete_Medium specializes Medium
 
 class Continuous_Medium specializes Medium 
 
-class Directly_Transmitted_Medium specializes Medium {
-    [0..*] -- captured_by -- [1..*] Hardware_Equipment 
-}
+class Directly_Transmitted_Medium specializes Medium 
 
-class Text_Medium specializes Discrete_Medium {
-    [0..*] -- realizes -- [1..*] Text 
-}
+class Text_Medium specializes Discrete_Medium 
 
-class Graphic_Medium specializes Discrete_Medium {
-    [0..*] -- realizes -- [0..*] Text 
-    [0..*] -- realizes -- [0..*] Picture 
-}
+class Graphic_Medium specializes Discrete_Medium 
 
 class Text specializes Creation_Work 
 
 class Picture specializes Creation_Work 
 
-class Motion_Medium specializes Continuous_Medium {
-    [0..*] -- realizes -- [0..*] Picture 
-    [0..*] -- realizes -- [0..*] Motion_Picture 
-    [0..*] -- realizes -- [0..*] Sound 
-    [0..*] -- realizes -- [0..*] Text 
-}
+class Motion_Medium specializes Continuous_Medium 
 
-class Audio_Medium specializes Continuous_Medium {
-    [0..*] -- realizes -- [1..*] Sound 
-}
+class Audio_Medium specializes Continuous_Medium 
 
 class Motion_Picture specializes Creation_Work 
 
@@ -232,4 +196,29 @@ genset TCfSGf6GAqACCxsl {
     general Sensory_Effect_Description
     specifics Prompt_Sensory_Effect_Description, Lingering_Sensory_Effect_Description
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

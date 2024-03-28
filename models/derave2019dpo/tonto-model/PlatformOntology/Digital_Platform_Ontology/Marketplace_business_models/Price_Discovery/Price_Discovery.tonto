@@ -1,18 +1,21 @@
+import Price_Discovery
+import Transaction
+import Decentralized
+import Recurring
+import Price_Calculation
 
 package Price_Discovery
 
 mode Price
 
-subkind Suggested_Price of intrinsic-modes  specializes Price {
-    [1] -- [1] Transaction 
-    [0..*] -- towards -- [1] Offering_On_The_Platform 
-}
+subkind Suggested_Price of intrinsic-modes  specializes Price 
 
 subkind Market_Price of intrinsic-modes  specializes Price 
 
-subkind Offering_Price of intrinsic-modes  specializes Price {
-    [0..*] -- has -- [1] Listing 
-    [1] -- has -- [0..*] Time_Slot 
-    @subQuantityOf [1..*] -- used_in -- [0..*] Booking_Price 
-}
+subkind Offering_Price of intrinsic-modes  specializes Price 
+
+
+
+
+
 

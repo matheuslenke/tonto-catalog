@@ -1,92 +1,47 @@
 import capability_ontology
+import competence_ontology
 
 package competence_ontology
 
-kind Person specializes Physical_Agent {
-    @instantiation [*] -- [1..*] Capabilityrequiring_Role 
-}
+kind Person specializes Physical_Agent 
 
-subkind Personal_Competence of intrinsic-modes  specializes Human_Capability {
-    [0..*] -- [0..*] Personal_Competence 
-}
+subkind Personal_Competence of intrinsic-modes  specializes Human_Capability 
 
-situation Competence_Context{
-    @triggers [0..*] -- activates -- [0..*] Personal_Competence 
-}
+situation Competence_Context
 
-event Task{
-    @bringsAbout [1] -- [1] Competence_Outcome 
-    @instantiation [*] -- [1..*] Task_Type 
-}
+event Task
 
 type Competence_Type specializes Human_Capability_Type 
 
-subkind Skill of intrinsic-modes  specializes Human_Capability {
-    [1..*] -- [0..*] Personal_Competence 
-}
+subkind Skill of intrinsic-modes  specializes Human_Capability 
 
-mode Attitude specializes Human_Aspect {
-    [1..*] -- [0..*] Personal_Competence 
-}
+mode Attitude specializes Human_Aspect 
 
-mode Knowledge specializes Human_Aspect {
-    [1..*] -- [0..*] Personal_Competence 
-}
+mode Knowledge specializes Human_Aspect 
 
-category Artifact of functional-complexes {
-    @creation [1] -- [1] Task 
-    @participation [1..*] -- [0..*] Task 
-    @instantiation [*] -- [1..*] Artifact_Type 
-}
+category Artifact of functional-complexes 
 
 situation Competence_Outcome
 
-type Capabilityrequiring_Role{
-    [0..*] -- is_defined_by -- [1..*] Human_Capability_Type 
-    [0..*] -- depends_on -- [0..*] Capabilityrequiring_Role 
-    [0..*] -- specializes -- [0..*] Capabilityrequiring_Role 
-}
+type Capabilityrequiring_Role
 
-type Human_Capability_Type specializes Human_Aspect_Type {
-    [0..*] -- defined_in_terms_of -- [0..*] Task_Type 
-}
+type Human_Capability_Type specializes Human_Aspect_Type 
 
 type Skill_Type specializes Human_Capability_Type 
 
-type Human_Aspect_Type{
-    [0..*] -- constitutes -- [0..*] Human_Aspect_Type 
-    [0..*] -- depends_on -- [0..*] Human_Aspect_Type 
-    [0..*] -- specializes -- [0..*] Human_Aspect_Type 
-}
+type Human_Aspect_Type
 
 type Human_Aspect_Phase specializes Human_Aspect_Type 
 
-mode Human_Capability specializes Capability, Human_Aspect {
-    @manifestation [1] -- [0..*] Task 
-    @characterization [1] -- [1] Person 
-}
+mode Human_Capability specializes Capability, Human_Aspect 
 
-category Human_Aspect of intrinsic-modes {
-    @characterization [0..*] -- inheres_in -- [1] Person 
-    @instantiation [0..*] -- [1] Human_Aspect_Type 
-    @instantiation [*] -- [1..*] Human_Aspect_Phase 
-}
+category Human_Aspect of intrinsic-modes 
 
-mode Human_Characteristic specializes Human_Aspect {
-    [0..*] -- [0..*] Personal_Competence 
-    [0..*] -- contributes_to -- [0..*] Personal_Competence 
-}
+mode Human_Characteristic specializes Human_Aspect 
 
-type Task_Type{
-    [0..*] -- concerns -- [0..*] Artifact_Type 
-    [0..*] -- depends_on -- [0..*] Task_Type 
-    [0..*] -- specializes -- [0..*] Task_Type 
-}
+type Task_Type
 
-type Artifact_Type{
-    [0..*] -- depends_on -- [0..*] Artifact_Type 
-    [0..*] -- specializes -- [0..*] Artifact_Type 
-}
+type Artifact_Type
 
 genset disjoint {
     general Human_Capability_Type
@@ -107,4 +62,34 @@ genset disjoint_complete {
     general Human_Capability
     specifics Personal_Competence
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

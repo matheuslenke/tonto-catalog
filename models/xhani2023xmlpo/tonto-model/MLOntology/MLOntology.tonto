@@ -20,9 +20,7 @@ subkind InformationCriteria of functional-complexes  specializes NumericalPredic
 
 subkind ClassPredictionEvaluationMeasure of functional-complexes  specializes PredictiveModelEvaluationMeasure 
 
-subkind CorrelationCoefficient of functional-complexes  specializes NumericalPredictionEvaluationMeasure {
-    @characterization [1] -- [1] CorrelationCharacteristic 
-}
+subkind CorrelationCoefficient of functional-complexes  specializes NumericalPredictionEvaluationMeasure 
 
 genset disjoint_complete {
     general Feature

@@ -1,108 +1,52 @@
 import SPO
+import DPO
+import RSRO
 
 package DPO
 
-event Design_Process specializes Performed_Specific_Process {
-    [*] -- [*] Architectural_Design 
-    [*] -- [*] Detailed_Design 
-    [*] -- [*] Design_Documentation 
-    [*] -- [*] Design_Evaluation 
-}
+event Design_Process specializes Performed_Specific_Process 
 
-role Software_Architect specializes Stakeholder {
-    [*] -- is_in_charge_of -- [*] Architectural_Design 
-    [*] -- participates_in -- [*] Design_Documentation 
-    [*] -- participates_in -- [*] Design_Evaluation 
-}
+role Software_Architect specializes Stakeholder 
 
-event Architectural_Design specializes Performed_Composite_Activity {
-    [*] -- [*] Architecture_Development 
-    [*] -- [*] Interface_Highlevel_Design 
-    [*] -- [*] Data_Highlevel_Design 
-    [*] -- uses -- [*] Requirements_Document 
-}
+event Architectural_Design specializes Performed_Composite_Activity 
 
-event Architecture_Development specializes Performed_Simple_Activity {
-    [*] -- creates -- [*] Software_Architecture 
-}
+event Architecture_Development specializes Performed_Simple_Activity 
 
-event Interface_Highlevel_Design specializes Performed_Simple_Activity {
-    [*] -- creates -- [*] Interface_Specification 
-}
+event Interface_Highlevel_Design specializes Performed_Simple_Activity 
 
-event Data_Highlevel_Design specializes Performed_Simple_Activity {
-    [*] -- creates -- [*] Data_Definitions 
-}
+event Data_Highlevel_Design specializes Performed_Simple_Activity 
 
-event Detailed_Design specializes Performed_Composite_Activity {
-    [*] -- [*] Component_Design 
-    [*] -- [*] Component_Interface_Design 
-    [*] -- [*] User_Inteface_Design 
-    [*] -- [*] Data_Design 
-    [*] -- uses -- [*] Software_Architecture 
-    [*] -- uses -- [*] Requirements_Document 
-}
+event Detailed_Design specializes Performed_Composite_Activity 
 
-role Designer specializes Stakeholder {
-    [*] -- is_in_charge_of -- [*] Detailed_Design 
-    [*] -- participates_in -- [*] Design_Documentation 
-    [*] -- participates_in -- [*] Design_Evaluation 
-}
+role Designer specializes Stakeholder 
 
-event Component_Design specializes Performed_Simple_Activity {
-    [*] -- charges -- [*] Architectural_Component 
-}
+event Component_Design specializes Performed_Simple_Activity 
 
-event Component_Interface_Design specializes Performed_Simple_Activity {
-    [*] -- changes -- [*] Interface_Specification 
-}
+event Component_Interface_Design specializes Performed_Simple_Activity 
 
-event User_Inteface_Design specializes Performed_Simple_Activity {
-    [*] -- creates -- [*] User_Interface_Specification 
-}
+event User_Inteface_Design specializes Performed_Simple_Activity 
 
-event Data_Design specializes Performed_Simple_Activity {
-    [*] -- uses -- [*] Data_Definitions 
-    [*] -- creates -- [*] Data_Model 
-}
+event Data_Design specializes Performed_Simple_Activity 
 
-event Design_Documentation specializes Performed_Composite_Activity {
-    [*] -- creates -- [*] Design_Document 
-}
+event Design_Documentation specializes Performed_Composite_Activity 
 
-event Design_Evaluation specializes Performed_Composite_Activity {
-    [*] -- uses -- [*] Design_Document 
-    [*] -- creates -- [*] Design_Evaluation_Document 
-    [*] -- uses -- [*] Requirements_Document 
-}
+event Design_Evaluation specializes Performed_Composite_Activity 
 
 subkind Interface_Specification of functional-complexes  specializes Information_Item 
 
-subkind Architectural_Element{
-    [1] -- has -- [1..*] Interface_Specification 
-}
+subkind Architectural_Element
 
-subkind Software_Architecture of functional-complexes  specializes Model {
-    [1] -- [2..*] Architectural_Element 
-}
+subkind Software_Architecture of functional-complexes  specializes Model 
 
 subkind Data_Definitions of functional-complexes  specializes Information_Item 
 
-subkind Architectural_Component specializes Architectural_Element {
-    [0..1] -- [0..*] Architectural_Component 
-}
+subkind Architectural_Component specializes Architectural_Element 
 
-subkind Architectural_Connector specializes Architectural_Element {
-    [1..*] -- conects -- [2..*] Architectural_Component 
-}
+subkind Architectural_Connector specializes Architectural_Element 
 
 subkind Data_Model of functional-complexes  specializes Model 
 
-subkind Design_Document of functional-complexes  specializes Document {
-    [*] -- depicts -- [*] Data_Model 
-    [*] -- depicts -- [*] User_Interface_Specification 
-    [*] -- depics -- [*] Software_Architecture 
-}
+subkind Design_Document of functional-complexes  specializes Document 
 
 subkind Design_Evaluation_Document of functional-complexes  specializes Document 
 
@@ -122,4 +66,43 @@ genset nature {
     general Artifact
     specifics Document, Software_Item, Information_Item, Model, Software_Product
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

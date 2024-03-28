@@ -1,3 +1,4 @@
+import Model
 
 package Model
 
@@ -5,11 +6,7 @@ subkind Organization specializes Actor
 
 subkind Community specializes Actor 
 
-category Actor of functional-complexes {
-    [*] -- eof -- [*] Activity 
-    [1] -- cact -- [1] Performance_Evaluation 
-    [1..*] -- cact -- [1..*] Social_Need 
-}
+category Actor of functional-complexes 
 
 category Activity of functional-complexes 
 
@@ -17,11 +14,7 @@ kind Performance_Evaluation
 
 category Social_Need of functional-complexes 
 
-category Object of functional-complexes {
-    [1] -- Constituent -- [1] Performance_Evaluation 
-    [1] -- hasSatisfied -- [1] Social_Need 
-    [1..*] -- pact -- [1..*] Activity 
-}
+category Object of functional-complexes 
 
 kind CnA specializes Object 
 
@@ -38,4 +31,10 @@ subkind Organizational_Governance specializes Activity
 subkind Labor_Practices specializes Activity 
 
 subkind Social_Assistance_Service specializes Activity 
+
+
+
+
+
+
 

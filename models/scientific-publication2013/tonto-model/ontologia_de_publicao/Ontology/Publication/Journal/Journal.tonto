@@ -1,4 +1,3 @@
-import Publication
 
 package Journal
 
@@ -6,7 +5,6 @@ kind Journal{
     periodicity: undefined  
     title: undefined  
     subtitle: undefined  
-    @material [1] -- [0..*] Journal_Issue 
 }
 
 kind Journal_Issue specializes Periodical {
@@ -14,7 +12,6 @@ kind Journal_Issue specializes Periodical {
     number_: undefined  
     issueDate: undefined  
     issn: undefined  
-    @componentOf [1] -- [2..*] Article 
 }
 
 kind Article specializes Publication, Authored_Document {
@@ -22,4 +19,6 @@ kind Article specializes Publication, Authored_Document {
     endPage: undefined  
     abstract: undefined  
 }
+
+
 

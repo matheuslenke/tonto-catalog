@@ -2,26 +2,19 @@ import Layer_Processor_Function
 import Matrices
 import Subnetworks
 import Physical_Media
+import Layer_Network
 
 package Layer_Network
 
 role Client_Path_Layer of functional-complexes  specializes Related_Layer_Network, Path_Layer_Network_2 
 
-role Client_Section_Layer of functional-complexes  specializes Related_Layer_Network, Section_Layer_Network {
-    @material [1..*] -- SectionPM_clientserver_layer_relationship -- [1..*] Server_Physical_Media_Layer 
-}
+role Client_Section_Layer of functional-complexes  specializes Related_Layer_Network, Section_Layer_Network 
 
-role Component_LPF of functional-complexes  specializes Layer_Processor_Function {
-    @componentOf [1..*] -- [1] Path_Layer_Network 
-}
+role Component_LPF of functional-complexes  specializes Layer_Processor_Function 
 
-roleMixin Component_Matrix of functional-complexes  specializes Matrix {
-    @componentOf [1..*] -- [1] Matrix_Composed_Path_Layer 
-}
+roleMixin Component_Matrix of functional-complexes  specializes Matrix 
 
-role Component_Subnetwork of functional-complexes  specializes Subnetwork {
-    @componentOf [1..*] -- [1] Subnetwork_Composed_Path_Layer 
-}
+role Component_Subnetwork of functional-complexes  specializes Subnetwork 
 
 role Composed_PM_Layer of functional-complexes  specializes Physical_Media_Layer_Network 
 
@@ -35,23 +28,15 @@ role Path_Layer_Network of functional-complexes  specializes Path_Layer_Network_
 
 subkind Path_Layer_Network_2 of functional-complexes  specializes Layer_Network 
 
-role PathPath_Client_Layer of functional-complexes  specializes Client_Path_Layer {
-    @material [1..*] -- PathPath_clientserver_layer_relationship -- [1..*] Server_Path_Layer 
-}
+role PathPath_Client_Layer of functional-complexes  specializes Client_Path_Layer 
 
-role PathSection_Client_Layer of functional-complexes  specializes Client_Path_Layer {
-    @material [1..*] -- PathSection_clientserver_layer_relationship -- [1..*] Server_Section_Layer 
-}
+role PathSection_Client_Layer of functional-complexes  specializes Client_Path_Layer 
 
-roleMixin Physical_Media_Layer_Component of functional-complexes  specializes Physical_Media {
-    @componentOf [1..*] -- [1] Composed_PM_Layer 
-}
+roleMixin Physical_Media_Layer_Component of functional-complexes  specializes Physical_Media 
 
 subkind Physical_Media_Layer_Network of functional-complexes  specializes Transmission_Media_Layer_Network 
 
-role Related_Layer_Network of functional-complexes  specializes Layer_Network {
-    @material [1..*] -- clientserver_layer_relationship -- [1..*] Related_Layer_Network 
-}
+role Related_Layer_Network of functional-complexes  specializes Layer_Network 
 
 subkind Section_Layer_Network of functional-complexes  specializes Transmission_Media_Layer_Network 
 
@@ -84,4 +69,12 @@ genset nKCfnb6GAqBwAUkb {
     general Related_Layer_Network
     specifics Client_Path_Layer, Server_Physical_Media_Layer, Client_Section_Layer, Server_Path_Layer, Server_Section_Layer
 }
+
+
+
+
+
+
+
+
 

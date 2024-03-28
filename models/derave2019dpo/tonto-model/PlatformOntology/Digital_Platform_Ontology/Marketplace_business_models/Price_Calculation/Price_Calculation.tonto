@@ -5,29 +5,30 @@ import Recurring
 import GDPO_part_1
 import GDPO_User_Roles
 import Airbnb
+import Price_Calculation
+import Commission
+import Service
+import External_Payment
+import Quantitybased
 
 package Price_Calculation
 
 subkind Paid_Price of intrinsic-modes  specializes Price 
 
-subkind FeatureBased_Price of intrinsic-modes  specializes Price_set_by_Provider {
-    [0..*] -- [1] Feature 
-}
+subkind FeatureBased_Price of intrinsic-modes  specializes Price_set_by_Provider 
 
 quality Feature
 
-event Price_Offer_Creation specializes User_Action {
-    @creation [1] -- [1] Offering_Price 
-}
+event Price_Offer_Creation specializes User_Action 
 
-subkind Transaction_Price of intrinsic-modes  specializes Price {
-    [1] -- depends_on -- [0..1] Commission_Fee 
-    [*] -- used_for -- [*] Booked_Quantity 
-}
+subkind Transaction_Price of intrinsic-modes  specializes Price 
 
-subkind Booking_Price of intrinsic-modes  specializes Price {
-    [1] -- includes -- [1] Commission_Fee 
-    [1] -- linked_to -- [1] Booking 
-    [1] -- influences -- [0..1] External_Payment 
-}
+subkind Booking_Price of intrinsic-modes  specializes Price 
+
+
+
+
+
+
+
 

@@ -3,10 +3,6 @@ package SEBIM
 
 kind Zone{
     description: undefined  
-    [1] -- [1] Geometry 
-    [1] -- [0..*] Equipment 
-    [1] -- [1..*] Material 
-    [1] -- [1] Area 
 }
 
 subkind Space of functional-complexes  specializes Zone 
@@ -15,9 +11,7 @@ subkind Construction of functional-complexes  specializes Zone
 
 subkind Floor of functional-complexes  specializes Zone 
 
-category Geometry of functional-complexes {
-    [1] -- [1] CityData 
-}
+category Geometry of functional-complexes 
 
 kind CityData
 
@@ -30,7 +24,6 @@ subkind Park of functional-complexes  specializes CityData
 kind Material{
     description: undefined  
     value_: undefined  
-    [1] -- [1] MaterialClassification 
 }
 
 kind Equipment{
@@ -39,15 +32,9 @@ kind Equipment{
 
 mode MaterialClassification
 
-kind Certification{
-    [*] -- Certificate -- [*] Construction 
-    [*] -- [*] Score 
-}
+kind Certification
 
-relator Certificate{
-    @mediation [0..*] -- [1] Certification 
-    @mediation [0..*] -- [1] Construction 
-}
+relator Certificate
 
 quality Area
 
@@ -78,4 +65,15 @@ subkind MaterialResource of functional-complexes  specializes CertificationArea
 subkind SustainableSite of functional-complexes  specializes CertificationArea 
 
 subkind WaterEfficiency of functional-complexes  specializes CertificationArea 
+
+
+
+
+
+
+
+
+
+
+
 

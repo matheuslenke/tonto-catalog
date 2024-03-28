@@ -1,3 +1,4 @@
+import UFO
 
 package UFO
 
@@ -5,34 +6,27 @@ class Relator
 
 class Role
 
-class Kind{
-    [1] -- plays -- [1..*] Role 
-}
+class Kind
 
-class Action{
-    [1] -- caused_by -- [1..*] Intention 
-    [1..*] -- satisfy -- [1..*] Goal 
-}
+class Action
 
-class Intention{
-    [*] -- propositional_content_of -- [1..*] Goal 
-}
+class Intention
 
 class Goal specializes Proposition 
 
-class Desire{
-    [*] -- [1..*] Goal 
-}
+class Desire
 
-class Proposition{
-    [*] -- satisfies -- [1..*] Situation 
-}
+class Proposition
 
-class Situation{
-    [1..*] -- [1..*] Action 
-}
+class Situation
 
-class Agent{
-    [*] -- performs -- [*] Action 
-}
+class Agent
+
+
+
+
+
+
+
+
 

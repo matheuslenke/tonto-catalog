@@ -3,29 +3,15 @@ package SEBIM
 
 kind Zone{
     description: undefined  
-    [1] -- [1] Geometry 
-    [1] -- [0..*] Equipment 
-    [1] -- [1..*] Material 
-    [1] -- [1] Area 
 }
 
 subkind Space of functional-complexes  specializes Zone 
 
-subkind Construction of functional-complexes  specializes Zone {
-     --  LightAnalysis 
-     --  EnhancedCommissioning 
-     --  EnergyPerformance 
-     --  ImpactReduction 
-     --  ConfortSimulation 
-     --  ConstructionPlan 
-     --  LightAnalysis 
-}
+subkind Construction of functional-complexes  specializes Zone 
 
 subkind Floor of functional-complexes  specializes Zone 
 
-category Geometry of functional-complexes {
-    [1] -- [1] CityData 
-}
+category Geometry of functional-complexes 
 
 kind CityData
 
@@ -38,10 +24,6 @@ subkind Park of functional-complexes  specializes CityData
 kind Material{
     description: undefined  
     value_: undefined  
-    [1] -- [1] MaterialClassification 
-     --  MaterialAnalysis 
-     --  MaterialIngredients 
-     --  MaterialSustainable 
 }
 
 kind Equipment{
@@ -52,10 +34,7 @@ mode MaterialClassification{
     description: undefined  
 }
 
-relator Certificate{
-    @mediation [0..*] -- [1] Certification 
-    @mediation [0..*] -- [1] Construction 
-}
+relator Certificate
 
 quality Area
 
@@ -63,9 +42,7 @@ quality Score
 
 subkind BuildinCertified of functional-complexes  specializes CityData 
 
-mode StyleZone{
-     --  Zone 
-}
+mode StyleZone
 
 subkind SpecialArea of functional-complexes  specializes CityData 
 
@@ -121,10 +98,29 @@ subkind MaterialResource of functional-complexes  specializes CertificationArea
 
 role LEEDPlatinum of functional-complexes  specializes Certification 
 
-kind Certification{
-     -- Certificate --  Construction 
-     --  Score 
-}
+kind Certification
 
 subkind EnergyAtmosphere of functional-complexes  specializes CertificationArea 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

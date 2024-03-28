@@ -1,48 +1,40 @@
+import cservice2015ontology
 
 package cservice2015ontology
 
-relator Railway_Usage_Agreement{
-    @mediation [1] -- [1] Interested_Agent 
-}
+relator Railway_Usage_Agreement
 
-role Railway_Concessionaire{
-    @mediation [1] -- [1] Railway_Usage_Agreement 
-}
+role Railway_Concessionaire
 
-category PRCS_Description of functional-complexes {
-    @formal [1] -- describes -- [1] Eventual_Passenger_Rail_Chartered_Service 
-}
+category PRCS_Description of functional-complexes 
 
-role Regulatory_Agency{
-    @formal [1] -- produces -- [1] Regulatory_Legislation 
-    @mediation [1] -- regulates -- [1] Eventual_Passenger_Rail_Chartered_Service 
-}
+role Regulatory_Agency
 
 category Regulatory_Legislation of functional-complexes 
 
-relator Eventual_Passenger_Rail_Chartered_Service{
-    [1] -- [1..*] PRCS_Offering_Claim 
-    @mediation [1..*] -- offered_to -- [1] User_Community_of_PRCS 
-}
+relator Eventual_Passenger_Rail_Chartered_Service
 
-role Interested_Agent{
-    @mediation [1] -- provides -- [1..*] Eventual_Passenger_Rail_Chartered_Service 
-}
+role Interested_Agent
 
-mode PRCS_Offering_Commitment{
-    @characterization [1] -- inheres_in -- [1] Interested_Agent 
-    @partof [1..*] -- [1] Eventual_Passenger_Rail_Chartered_Service 
-    @formal [1] -- external_dependent_in -- [1] User_Community_of_PRCS 
-}
+mode PRCS_Offering_Commitment
 
-mode PRCS_Offering_Claim{
-    @formal [1] -- externaly_dependent_in -- [1] Interested_Agent 
-    @characterization [1..*] -- inheres_in -- [1] User_Community_of_PRCS 
-}
+mode PRCS_Offering_Claim
 
 collective User_Community_of_PRCS
 
-role User_of_PRCS{
-    @memberOf [2..*] -- [1] User_Community_of_PRCS 
-}
+role User_of_PRCS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

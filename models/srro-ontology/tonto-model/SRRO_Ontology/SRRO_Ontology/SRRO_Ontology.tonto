@@ -1,34 +1,22 @@
 
 package SRRO_Ontology
 
-kind Project{
-    [0..1] -- producedIn -- [0..*] Artifact 
-}
+kind Project
 
 category Artifact of functional-complexes 
 
 kind TestCase specializes Artifact 
 
-kind EntityType specializes Artifact {
-    [0..*] -- usedIn -- [0..*] UseCase 
-}
+kind EntityType specializes Artifact 
 
 kind UseCase specializes Artifact {
     description: undefined  
     identifier: undefined  
-    [0..*] -- alocatedFor -- [0..1] Module 
-    [0..*] -- fulfills -- [1..*] Requirement 
-    [1] -- [1..*] EventFlow 
-    [1] -- [1..*] BasicFlow 
-    [1] -- [0..*] AlternativeFlow 
 }
 
 kind Module specializes Artifact 
 
-kind Requirement specializes Artifact {
-    [0..*] -- dependsOn -- [0..*] Requirement 
-    [0..*] -- conflictsWith -- [0..*] Requirement 
-}
+kind Requirement specializes Artifact 
 
 subkind NonFunctionalRequirement of functional-complexes  specializes Requirement 
 
@@ -38,33 +26,36 @@ subkind BusinessRule of functional-complexes  specializes Requirement
 
 subkind Class of functional-complexes  specializes EntityType 
 
-role RequirementTestCase of functional-complexes  specializes TestCase {
-    [0..*] -- [1..*] Requirement 
-}
+role RequirementTestCase of functional-complexes  specializes TestCase 
 
-role UseTestCase of functional-complexes  specializes TestCase {
-    [0..*] -- [1..*] UseCase 
-}
+role UseTestCase of functional-complexes  specializes TestCase 
 
-role ClassTestCase of functional-complexes  specializes TestCase {
-    [0..*] -- [1..*] Class 
-}
+role ClassTestCase of functional-complexes  specializes TestCase 
 
-mode EventFlow{
-    [1..*] -- [0..*] Precondition 
-}
+mode EventFlow
 
-mode BasicFlow specializes EventFlow {
-    [0..*] -- regarding -- [1..*] AlternativeFlow 
-}
+mode BasicFlow specializes EventFlow 
 
 mode AlternativeFlow specializes EventFlow 
 
 kind Condition
 
-role Postcondition of functional-complexes  specializes Condition {
-    [0..*] -- [1..*] EventFlow 
-}
+role Postcondition of functional-complexes  specializes Condition 
 
 role Precondition of functional-complexes  specializes Condition 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

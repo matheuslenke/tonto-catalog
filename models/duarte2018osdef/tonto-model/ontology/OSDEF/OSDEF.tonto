@@ -1,66 +1,39 @@
 import SPO
 import UFO
+import OSDEF
+import SwO
 
 package OSDEF
 
-class User specializes Stakeholder {
-    [1] -- performs -- [0..*] User_Action 
-}
+class User specializes Stakeholder 
 
 class User_Action specializes Action 
 
-class Failure specializes Event_Perdurant {
-    [0..*] -- causes -- [0..*] Failure 
-    [0..*] -- brings_about -- [1] Failure_State 
-    [1..*] -- manifestation_of -- [1..*] Vulnerability 
-}
+class Failure specializes Event_Perdurant 
 
-class Erroneous_User_Action specializes User_Action {
-    [1..*] -- causes -- [1..*] Usergenerated_Failure 
-}
+class Erroneous_User_Action specializes User_Action 
 
-class User_Malicious_Intention specializes Intention {
-    [0..*] -- inheres_in -- [1] User 
-}
+class User_Malicious_Intention specializes Intention 
 
-class User_False_Belief specializes Belief {
-    [0..*] -- inheres_in -- [1] User 
-}
+class User_False_Belief specializes Belief 
 
-class Intentional_Usergenerated_Failure specializes Usergenerated_Failure {
-    [0..*] -- stems_from -- [1..*] User_Malicious_Intention 
-}
+class Intentional_Usergenerated_Failure specializes Usergenerated_Failure 
 
-class Nonintentional_Usergenerated_Failure specializes Usergenerated_Failure {
-    [0..*] -- stems_from -- [1..*] User_False_Belief 
-}
+class Nonintentional_Usergenerated_Failure specializes Usergenerated_Failure 
 
-class Usergenerated_Failure specializes Failure {
-    [0..*] -- manifestation_of -- [1..*] Usage_Limit_Vulnerability 
-}
+class Usergenerated_Failure specializes Failure 
 
 class Failure_State specializes Situation 
 
-class Vulnerable_State specializes Situation {
-    [1] -- triggers_ -- [1..*] Failure 
-    [1..*] -- activates -- [1..*] Vulnerability 
-}
+class Vulnerable_State specializes Situation 
 
-class Vulnerability specializes Disposition {
-    [*] -- inheres_in -- [1] Endurant 
-}
+class Vulnerability specializes Disposition 
 
-class Hardware_Vulnerability specializes Vulnerability {
-    [0..*] -- inheres_in -- [1] Hardware_Equipment 
-}
+class Hardware_Vulnerability specializes Vulnerability 
 
-class Loaded_Program_Vulnerability specializes Vulnerability {
-    [0..*] -- inheres_in -- [1] Loaded_Program_Copy 
-}
+class Loaded_Program_Vulnerability specializes Vulnerability 
 
-class Fault_Manifestation_Failure specializes Failure {
-    [1..*] -- manifestation_of -- [1..*] Fault_Runtime_Defect 
-}
+class Fault_Manifestation_Failure specializes Failure 
 
 class Defect specializes Vulnerability 
 
@@ -87,4 +60,20 @@ genset YDBVx36GAqACBRgs {
     general Vulnerability
     specifics Hardware_Vulnerability, Loaded_Program_Vulnerability
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -2,6 +2,8 @@ import Forwarding_Points
 import Complementary_Categorizations
 import Forwarding_End_Points
 import Transport_Entities
+import Matrix_Connections
+import Forwarding_Function
 
 package Matrix_Connections
 
@@ -11,76 +13,43 @@ role Active_Path_Bidirectional_MFEP of functional-complexes  specializes Bidirec
 
 role Active_Path_Bidirectional_MFP of functional-complexes  specializes Bidirectional_MFP, Connected_Reference_Point 
 
-role Active_Sk_MFEP__Sk_MC_connected of functional-complexes  specializes Sink_MFEP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Sink_MC -- [1..*] Active_Sk_MFP__Sk_MC_connected 
-}
+role Active_Sk_MFEP__Sk_MC_connected of functional-complexes  specializes Sink_MFEP, Connected_Reference_Point 
 
-role Active_Sk_MFP__Int_MC_connected of functional-complexes  specializes Sink_MFP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Intermediate_MC -- [1..*] Active_So_MFP__Int_MC_connected 
-}
+role Active_Sk_MFP__Int_MC_connected of functional-complexes  specializes Sink_MFP, Connected_Reference_Point 
 
 role Active_Sk_MFP__Sk_MC_connected of functional-complexes  specializes Sink_MFP, Connected_Reference_Point 
 
-role Active_So_MFEP__So_MC_connected of functional-complexes  specializes Source_MFEP, Connected_Reference_Point {
-    @material [1..*] -- Forwarding_Source_MC -- [1..*] Active_So_MFP__So_MC_connected 
-}
+role Active_So_MFEP__So_MC_connected of functional-complexes  specializes Source_MFEP, Connected_Reference_Point 
 
 role Active_So_MFP__Int_MC_connected of functional-complexes  specializes Source_MFP, Connected_Reference_Point 
 
 role Active_So_MFP__So_MC_connected of functional-complexes  specializes Source_MFP, Connected_Reference_Point 
 
-subkind Bi_Intermediate_MC of functional-complexes  specializes Bidirectional_MC {
-    @material [1..*] -- Forwarding_Bidirectional_Int_MC -- [2] Active_Intermediate_Bidirectional_MFP 
-}
+subkind Bi_Intermediate_MC of functional-complexes  specializes Bidirectional_MC 
 
-subkind Bi_Path_MC of functional-complexes  specializes Bidirectional_MC {
-    @material [1..*] -- Forwarding_Bidirectional_Path_MC_FP -- [1] Active_Path_Bidirectional_MFP 
-    @material [1..*] -- Forwarding_Bidirectional_Path_MC_FEP -- [1] Active_Path_Bidirectional_MFEP 
-}
+subkind Bi_Path_MC of functional-complexes  specializes Bidirectional_MC 
 
 subkind Bidirectional_MC of functional-complexes  specializes Matrix_Connection 
 
-relator Int_MC_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Intermediate_MC -- [1] Intermediate_MC 
-    @mediation [1..*] -- Forwarding_to_Intermediate_MC -- [1] Active_So_MFP__Int_MC_connected 
-    @mediation [1..*] -- Forwarding_from_Intermediate_MC -- [1] Active_Sk_MFP__Int_MC_connected 
-    @mediation [1] -- is_defined_by -- [1..*] Forwarding_Rule_MC_SkSo 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_SkSo_Connected 
-}
+relator Int_MC_Forwarding specializes Forwarding 
 
 subkind Intermediate_MC of functional-complexes  specializes Unidirectional_MC 
 
-role Intermediate_MC_Bi_Component of functional-complexes  specializes Intermediate_MC {
-    @componentOf [2] -- [1] Bi_Intermediate_MC 
-}
+role Intermediate_MC_Bi_Component of functional-complexes  specializes Intermediate_MC 
 
 kind Matrix_Connection specializes Transport_Entity 
 
 subkind Sink_MC of functional-complexes  specializes Unidirectional_MC 
 
-role Sink_MC_Bi_Component of functional-complexes  specializes Sink_MC {
-    @componentOf [1] -- [1] Bi_Path_MC 
-}
+role Sink_MC_Bi_Component of functional-complexes  specializes Sink_MC 
 
-relator Sk_MC_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Sink_MC -- [1] Sink_MC 
-    @mediation [1..*] -- Forwarding_to_Sink_MC -- [1..*] Active_Sk_MFP__Sk_MC_connected 
-    @mediation [1..*] -- Forwarding_from_Sink_MC -- [1..*] Active_Sk_MFEP__Sk_MC_connected 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_Sk_M_Connected 
-}
+relator Sk_MC_Forwarding specializes Forwarding 
 
-relator So_MC_Forwarding specializes Forwarding {
-    @mediation [1] -- is_represented_by_Source_MC -- [1] Source_MC 
-    @mediation [1..*] -- Forwarding_to_Source_MC -- [1..*] Active_So_MFP__So_MC_connected 
-    @mediation [1..*] -- Forwarding_from_Source_MC -- [1..*] Active_So_MFEP__So_MC_connected 
-    @mediation [1] -- is_configured_by -- [1] Forwarding_Function_So_M_Connected 
-}
+relator So_MC_Forwarding specializes Forwarding 
 
 subkind Source_MC of functional-complexes  specializes Unidirectional_MC 
 
-role Source_MC_Bi_Component of functional-complexes  specializes Source_MC {
-    @componentOf [1] -- [1] Bi_Path_MC 
-}
+role Source_MC_Bi_Component of functional-complexes  specializes Source_MC 
 
 subkind Unidirectional_MC of functional-complexes  specializes Matrix_Connection 
 
@@ -98,4 +67,26 @@ genset BwS9wn6AUBAIKEV2 {
     general Matrix_Connection
     specifics Bidirectional_MC, Unidirectional_MC
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

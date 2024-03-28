@@ -18,37 +18,35 @@ import Decentralized
 import Price_set_by_Provider
 import Resultoriented
 import Airbnb
+import Uber_eats
+import Centralized
 
 package Uber_eats
 
 role Uber_Eats_Customer of functional-complexes  specializes Platform_Customer, Peer_User, Person 
 
-event Meal_Preparation specializes Offline_Action, UserOriented_Delivery {
-    @participation [1..*] -- performed_by -- [1] Uber_Eats_Restaurant 
-    @creation [1] -- created -- [1..*] Meal 
-}
+event Meal_Preparation specializes Offline_Action, UserOriented_Delivery 
 
 role Uber_Eats_Restaurant of functional-complexes  specializes Offering_Creator, Organization 
 
 roleMixin Uber_Eats_Rider of functional-complexes  specializes Peer_User, Person 
 
-event Meal_Delivery specializes Offline_Action, ResultOriented_Delivery {
-    @participation [0..*] -- performed_by -- [1] Uber_Eats_Rider 
-    @participation [0..*] -- delivered_to -- [1] Uber_Eats_Customer 
-}
+event Meal_Delivery specializes Offline_Action, ResultOriented_Delivery 
 
-event Transaction_Acceptance{
-    [1..*] -- part_of -- [1] Centralized_Transaction_Creation 
-    @participation [0..*] -- performed_by -- [1] Uber_Eats_Rider 
-    @historicalDependence [0..*] -- follows -- [1] Match_Target_Customer_To_Offering 
-}
+event Transaction_Acceptance
 
-subkind Meal of functional-complexes  specializes Product {
-    [1..*] -- [1] Meal_Delivery 
-}
+subkind Meal of functional-complexes  specializes Product 
 
 genset qFPvG6FYEWCCyOM {
     general Transaction_Creation
     specifics Decentralized_Transaction_Creation, Centralized_Transaction_Creation
 }
+
+
+
+
+
+
+
+
 

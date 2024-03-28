@@ -1,15 +1,15 @@
 import Agents
+import Publisher
+import Journal
 
 package Publisher
 
 category Published_Document of functional-complexes 
 
-role Publisher of functional-complexes  specializes Organization {
-    @material [1] -- [0..*] Journal 
-}
+role Publisher of functional-complexes  specializes Organization 
 
-relator PublicationRELATOR{
-    @mediation [1] -- [1] Published_Document 
-    @mediation [1..*] -- [1..*] Publisher 
-}
+relator PublicationRELATOR
+
+
+
 

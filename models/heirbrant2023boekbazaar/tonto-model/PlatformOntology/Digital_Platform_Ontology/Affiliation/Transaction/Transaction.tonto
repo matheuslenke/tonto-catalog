@@ -1,0 +1,51 @@
+
+package Transaction
+
+subkind Transaction of relators {
+    amount: undefined  
+    confirmed: undefined  
+    dateConfirmed: undefined  
+    dateSale: undefined  
+    dateSend: undefined  
+    id: undefined  
+    inPosession: undefined  
+    isbn: undefined  
+    isbn13: undefined  
+    buyerId: undefined  
+    delivery: undefined  
+    nr: undefined  
+    street: undefined  
+    postcode: undefined  
+    place: undefined  
+    postOffice: undefined  
+    problem: undefined  
+    tracingnr: undefined  
+    sellerId: undefined  
+    send: undefined  
+    urlimage: undefined  
+    chatId: undefined  
+    title: undefined  
+    usernameS: undefined  
+    usernameB: undefined  
+}
+
+roleMixin Platform_Provider of functional-complexes  specializes Offering_Creator 
+
+roleMixin Offering_Creator of functional-complexes  specializes Registered_User 
+
+event Transaction_creation
+
+roleMixin Target_Platform_Customer of functional-complexes 
+
+roleMixin Platform_Customer of functional-complexes  specializes Registered_User, Target_Platform_Customer 
+
+event Delivery
+
+
+
+
+
+
+
+
+

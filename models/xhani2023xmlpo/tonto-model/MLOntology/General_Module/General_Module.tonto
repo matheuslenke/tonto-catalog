@@ -1,113 +1,96 @@
+import General_Module
+import Data_Input_and_Preprocessing
+import MLOntology
+import ML_Model
+import Explanation
 
 package General_Module
 
-kind Goal{
-    @participation [1] -- [1..*] Experiment 
-}
+kind Goal
 
 kind EvaluationMeasure
 
-category Output of functional-complexes {
-    @creation [1] -- [1] Operation 
-    @participation [0..*] -- [0..*] Operation 
-}
+category Output of functional-complexes 
 
-quality ExperimentCharacteristic{
-    @characterization [1..*] -- [1] Experiment 
-}
+quality ExperimentCharacteristic
 
-quality DataCharacteristic{
-    @characterization [1..*] -- [1] Data 
-}
+quality DataCharacteristic
 
-quality ImplementationCharacteristic{
-    @characterization [1..*] -- [1] Implementation 
-}
+quality ImplementationCharacteristic
 
-kind ParameterSetting{
-    @participation [0..*] -- [1] Operation 
-}
+kind ParameterSetting
 
 event Experiment
 
-kind Algorithm{
-    @participation [1..*] -- [0..*] FeatureScaling 
-    @participation [1..*] -- [0..*] DatasetSplit 
-    @participation [1..*] -- [0..*] FeatureEnconding 
-    @characterization [1] -- [1] AlgorithmCharacteristic 
-}
+kind Algorithm
 
-relator SpecifiesParameter{
-    @mediation [0..*] -- [1] ParameterSetting 
-    @mediation [0..*] -- specifieInvolvesParam -- [1] Parameter 
-}
+relator SpecifiesParameter
 
-kind Software{
-    @participation [1..*] -- [0..*] Implementation 
-}
+kind Software
 
 kind Data
 
-relator SpecifiesModelEvaluation{
-    @mediation [0..*] -- [1] EvaluationMeasure 
-    @mediation [0..*] -- [1] ModelEvaluationTechnique 
-}
+relator SpecifiesModelEvaluation
 
-quality ParameterCharacteristic{
-    @characterization [1] -- [1] ParameterSetting 
-}
+quality ParameterCharacteristic
 
-event Implementation{
-    @participation [1] -- ExecutedBy -- [0..*] Operation 
-}
+event Implementation
 
-relator Addresses{
-    @mediation [0..*] -- [1] Goal 
-    @mediation [0..*] -- [1] MLAlgorithm 
-}
+relator Addresses
 
-kind MLModel specializes Output {
-    @participation [1..*] -- [0..*] MLModelImplementation 
-    @participation [1..*] -- [0..*] AntehocImplementation 
-}
+kind MLModel specializes Output 
 
-quality ModelCharacteristic{
-    @characterization [1..*] -- [1] MLModel 
-}
+quality ModelCharacteristic
 
-relator SpecifiesMeasure{
-    @mediation [0..*] -- [1] Goal 
-    @mediation [0..*] -- [1] EvaluationMeasure 
-    @mediation [0..*] -- [1] MLApproach 
-}
+relator SpecifiesMeasure
 
-quality ModelEvaluationCharacteristic{
-    @characterization [1..*] -- [1] SpecifiesModelEvaluation 
-}
+quality ModelEvaluationCharacteristic
 
-event Workflow{
-    @participational [1..*] -- [1..*] Experiment 
-}
+event Workflow
 
-relator HasParameter{
-    @mediation [1..*] -- [1] Parameter 
-    @mediation [0..*] -- [1] Implementation 
-}
+relator HasParameter
 
-kind ModelEvaluationTechnique specializes Output {
-    @participation [1..*] -- [0..*] MLModelEvaluation 
-}
+kind ModelEvaluationTechnique specializes Output 
 
-relator Assesses{
-    @mediation [0..*] -- [1] MLModel 
-    @mediation [0..*] -- [1] ModelEvaluationTechnique 
-}
+relator Assesses
 
 quality AlgorithmCharacteristic
 
 kind Parameter
 
-event Operation{
-    @participational [1..*] -- [1..*] Workflow 
-}
+event Operation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

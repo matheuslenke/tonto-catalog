@@ -1,34 +1,29 @@
+import COVER
 
 package COVER
 
 class Value_Assessor
 
-class Value_Ascription{
-    [1..*] -- involves -- [1] Value_Assessor 
-}
+class Value_Ascription
 
-class Value{
-    [1] -- inheres_in -- [1] Value_Ascription 
-}
+class Value
 
 class Risk specializes Value 
 
-class Value_Subject{
-    [1..*] -- participates_in -- [1..*] Value_Experience 
-}
+class Value_Subject
 
 class Value_Experience
 
-class Experience_Value_Asc specializes Value_Ascription {
-    [1..*] -- involves -- [1] Value_Experience 
-}
+class Experience_Value_Asc specializes Value_Ascription 
 
-class Object_Value_Asc specializes Value_Ascription {
-    [1..*] -- involves -- [1] Value_Object 
-    [*] -- [*] Experience_Value_Asc 
-}
+class Object_Value_Asc specializes Value_Ascription 
 
-class Value_Object{
-    [0..1] -- participates_in -- [1..*] Value_Experience 
-}
+class Value_Object
+
+
+
+
+
+
+
 

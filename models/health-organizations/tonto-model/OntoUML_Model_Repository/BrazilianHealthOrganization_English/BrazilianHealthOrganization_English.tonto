@@ -1,3 +1,4 @@
+import BrazilianHealthOrganization_English
 
 package BrazilianHealthOrganization_English
 
@@ -5,9 +6,7 @@ collective DocumentType
 
 collective MedicalSpecialization
 
-kind Diagnosis{
-    @Formal [1] -- has -- [1] ICD 
-}
+kind Diagnosis
 
 category ICD of functional-complexes 
 
@@ -37,36 +36,19 @@ phase Elder of functional-complexes  specializes Person
 
 phase PregnantWoman of functional-complexes  specializes Woman 
 
-role Patient of functional-complexes  specializes Person {
-    @material [1] -- treats -- [1] HealthProfessional 
-    @material [1..*] -- lives_in -- [1] Neighborhood 
-}
+role Patient of functional-complexes  specializes Person 
 
-role HealthProfessional of functional-complexes  specializes Person {
-    @material [1..*] -- works_in -- [1..*] HealthUnit 
-    @Formal [*] -- has -- [*] MedicalSpecialization 
-    @material [1] -- performs -- [1..*] Diagnosis 
-}
+role HealthProfessional of functional-complexes  specializes Person 
 
-relator HealthAppointment{
-    @mediation [1..*] -- [1] Patient 
-    @mediation [1..*] -- [1] HealthProfessional 
-    @Formal [*] -- generates -- [*] Document 
-}
+relator HealthAppointment
 
-kind Neighborhood{
-    @material [1] -- located_in -- [1..*] Region 
-}
+kind Neighborhood
 
 kind Region
 
-kind HealthUnit{
-    @material [1..*] -- located_in -- [1] Region 
-}
+kind HealthUnit
 
-kind Document{
-    @Formal [*] -- hasType -- [1] DocumentType 
-}
+kind Document
 
 genset Set {
     general Person
@@ -82,4 +64,16 @@ genset Set3 {
     general ICD
     specifics NervousSystem, DigestiveSystem, MetabolicDisease, RespiratorySystem, CirculatorySystem
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

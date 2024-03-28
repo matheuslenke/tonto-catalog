@@ -1,3 +1,4 @@
+import Doao_de_rgos_e_Tecidos
 
 package Doao_de_rgos_e_Tecidos
 
@@ -21,17 +22,11 @@ category Tecido of functional-complexes  specializes Item_Captado
 
 phase Pessoa_com_ME of functional-complexes  specializes Pessoa_Morta 
 
-kind Pessoa{
-    [1] -- [2..*] Sistema_Orgnico 
-}
+kind Pessoa
 
-category Sistema_Orgnico of functional-complexes {
-    [1..*] -- [2..*] rgo 
-}
+category Sistema_Orgnico of functional-complexes 
 
-category rgo of functional-complexes  specializes Item_Captado {
-    [1] -- [2..*] Tecido 
-}
+category rgo of functional-complexes  specializes Item_Captado 
 
 kind Corao specializes rgo 
 
@@ -43,11 +38,7 @@ kind Sistema_Circulatrio specializes Sistema_Orgnico
 
 role Doador of functional-complexes  specializes Pessoa 
 
-relator Captao{
-    @mediation [1..*] -- [1] Doador 
-    @mediation [1..*] -- [1] Captador 
-    @mediation [1] -- [1..*] Item_Captado 
-}
+relator Captao
 
 role Captador of functional-complexes  specializes Pessoa 
 
@@ -57,11 +48,7 @@ roleMixin Item_Captado of functional-complexes
 
 roleMixin Item_Transplantado of functional-complexes  specializes Item_Captado 
 
-relator Transplante{
-    @mediation [1..*] -- [1..*] Transplantador 
-    @mediation [1] -- [1..*] Item_Transplantado 
-    @mediation [1..*] -- [1] Receptor 
-}
+relator Transplante
 
 role Receptor of functional-complexes  specializes Pessoa 
 
@@ -79,4 +66,13 @@ genset j4LH6AUAgInAxf {
     general Tecido
     specifics Crnea
 }
+
+
+
+
+
+
+
+
+
 

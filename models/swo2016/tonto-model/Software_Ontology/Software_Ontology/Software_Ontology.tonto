@@ -1,47 +1,32 @@
+import Software_Ontology
 
 package Software_Ontology
 
-class Software_Product specializes Composite_Artifact, Artifact {
-    [0..1] -- constituted_of -- [1..*] Software_System 
-}
+class Software_Product specializes Composite_Artifact, Artifact 
 
 class Software_Item specializes Artifact 
 
 class Document specializes Artifact 
 
-class Software_System specializes Software_Item {
-    [0..*] -- constituted_of -- [1..*] Program 
-    [0..1] -- intends_to_implement -- [1] System_Specification 
-}
+class Software_System specializes Software_Item 
 
-class Program specializes Software_Item {
-    [0..1] -- constituted_of -- [1..*] Code 
-    [0..1] -- intends_to_implement -- [1] Program_Specification 
-}
+class Program specializes Software_Item 
 
-class Code specializes Software_Item {
-    [0..*] -- implements_ -- [0..1] Program_Specification 
-}
+class Code specializes Software_Item 
 
 class System_Specification specializes Document 
 
 class Program_Specification specializes Document 
 
-class Source_Code specializes Code {
-    [0..*] -- written_in -- [1..*] Programming_Language 
-}
+class Source_Code specializes Code 
 
-class Machine_Code specializes Code {
-    [0..*] -- generated_from -- [1] Source_Code 
-}
+class Machine_Code specializes Code 
 
 class Programming_Language
 
 class Artifact
 
-class Composite_Artifact specializes Artifact {
-    [0..*] -- [2..*] Artifact 
-}
+class Composite_Artifact specializes Artifact 
 
 class Simple_Artifact specializes Artifact 
 
@@ -58,4 +43,13 @@ genset _nature_disjoint_complete {
     general Artifact
     specifics Information_Item, Model, Software_Product, Software_Item, Document
 }
+
+
+
+
+
+
+
+
+
 

@@ -1,12 +1,11 @@
 import Core
+import Class
 
 package Class
 
 subkind Generic_Class of functional-complexes  specializes Class 
 
-kind Type_Parameter{
-    @componentOf [1..*] -- [1] Generic_Class 
-}
+kind Type_Parameter
 
 subkind Concrete_Class of functional-complexes  specializes Class 
 
@@ -18,25 +17,17 @@ subkind Extendable_Class of functional-complexes  specializes Class
 
 subkind Root_Class of functional-complexes  specializes Extendable_Class 
 
-role Superclass of functional-complexes  specializes Extendable_Class {
-    [1..*] -- inherited_in -- [1..*] Inheritance 
-}
+role Superclass of functional-complexes  specializes Extendable_Class 
 
-role Subclass of functional-complexes  specializes Class {
-    [1] -- inherits_in -- [1] Inheritance 
-}
+role Subclass of functional-complexes  specializes Class 
 
 relator Nesting
 
 relator Inheritance
 
-role Nested_Class of functional-complexes  specializes Class {
-    [1] -- nested_in -- [1] Nesting 
-}
+role Nested_Class of functional-complexes  specializes Class 
 
-quality Inheritance_Visibility{
-    @characterization [0..1] -- characterized_by -- [1] Inheritance 
-}
+quality Inheritance_Visibility
 
 genset Parametrization {
     general Class
@@ -57,4 +48,9 @@ genset Inheritance {
     general Class
     specifics Subclass
 }
+
+
+
+
+
 
