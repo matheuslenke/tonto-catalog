@@ -1,0 +1,64 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Concern rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Concern"@en.
+:NonFunctionalConcern rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NonFunctionalConcern"@en.
+:FunctionalConcern rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FunctionalConcern"@en.
+:Keyword rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Keyword"@en.
+:Source rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Source"@en.
+:Relationship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Relationship"@en.
+:Dependency rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Dependency"@en.
+:Contribution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Contribution"@en.
+:Composition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Composition"@en.
+:ContributionType rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf ()
+];
+    rdfs:label "ContributionType"@en.
+:SourceType rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf ()
+];
+    rdfs:label "SourceType"@en.
+:Dependency rdfs:subClassOf :Relationship.
+:Composition rdfs:subClassOf :Relationship.
+:Contribution rdfs:subClassOf :Relationship.
+:FunctionalConcern rdfs:subClassOf :Concern.
+:NonFunctionalConcern rdfs:subClassOf :Concern, :Concern.
+:FunctionalConcern rdfs:subClassOf :Concern.
+:Dependency rdfs:subClassOf :Relationship.
+:Contribution rdfs:subClassOf :Relationship.
+:Composition rdfs:subClassOf :Relationship.
+:st rdfs:domain :Source;
+    rdfs:range :SourceType;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "st"@en.
+:ct rdfs:domain :Contribution;
+    rdfs:range :ContributionType;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "ct"@en.

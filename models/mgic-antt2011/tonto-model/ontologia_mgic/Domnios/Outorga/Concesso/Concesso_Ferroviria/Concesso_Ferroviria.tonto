@@ -1,0 +1,40 @@
+
+package Concesso_Ferroviria
+
+subkind Concessionria_Ferroviria specializes Concessionria_Ferroviria_que_Realiza_Aquisio, Concessionria_que_Pleiteia_Reajuste, Concessionria_Ferroviria_que_Realiza_Viagem_sem_Interseo 
+
+relator Outorga_de_Concesso_Ferroviria_Ativa specializes Outorga_de_Concesso_Ferroviria {
+    desempenho_operacional: undefined  
+}
+
+relator Outorga_de_Concesso_Ferroviria_com_Contrato_de_Concesso_e_Contrato_de_Arrendamento_de_Bens specializes Outorga_de_Concesso_Ferroviria_Ativa 
+
+kind Malha_Ferroviria
+
+role Agncia_Reguladora_Concedente of functional-complexes  specializes Agncia_Reguladora 
+
+role Malha_Ferroviria_Concedida of functional-complexes  specializes Malha_Ferroviria 
+
+relator Outorga_de_Concesso_Ferroviria_com_Contrato_de_Concesso specializes Outorga_de_Concesso_Ferroviria_Ativa 
+
+role Contrato_de_Concesso_Ferroviria_nico of functional-complexes  specializes Contrato_de_Concesso_Ferroviria 
+
+subkind Contrato_de_Concesso_Ferroviria of functional-complexes  specializes Contrato_de_Outorga 
+
+role Contrato_de_Concesso_Ferroviria_com_Contrato_de_Arrendamento_de_Bens of functional-complexes  specializes Contrato_de_Concesso_Ferroviria 
+
+subkind Contrato_de_Arrendamento_de_Bens of functional-complexes  specializes Contrato 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

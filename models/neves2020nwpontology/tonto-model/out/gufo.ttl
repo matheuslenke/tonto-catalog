@@ -1,0 +1,109 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Global_Observation_System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Global_Observation_System"@en.
+:Meteorological_Parameters rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Meteorological_Parameters"@en.
+:Local_Data_Manager rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Local_Data_Manager"@en.
+:Relative_Humidity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Relative_Humidity"@en.
+:Precipitation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Precipitation"@en.
+:Surface_Wind rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Surface_Wind"@en.
+:Temperature rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Temperature"@en.
+:Atmospheric_Pressure rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Atmospheric_Pressure"@en.
+:Software_Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Software_Agent"@en.
+:Cloudiness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cloudiness"@en.
+:Numerical_Weather_Prediction_Models rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Numerical_Weather_Prediction_Models"@en.
+:World_Numerical_Models rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "World_Numerical_Models"@en.
+:Regional_Numerical_Models rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Regional_Numerical_Models"@en.
+:Spatial_Thing rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Spatial_Thing"@en.
+:Geographic_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Geographic_Object"@en.
+:Geographic_Coverage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Geographic_Coverage"@en.
+:Point rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Point"@en.
+:Line rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Line"@en.
+:Polygon rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Polygon"@en.
+:National_Meteorological_Service rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "National_Meteorological_Service"@en.
+:Air_Temperature rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Air_Temperature"@en.
+:Sea_Surface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sea_Surface"@en.
+:Weather_Forecaster rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Weather_Forecaster"@en.
+:Weather_Forecast rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Weather_Forecast"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Time_Interval rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Time_Interval"@en.
+:Weather_Forecast_Time_Point rdf:type owl:NamedIndividual;
+    rdfs:label "Weather_Forecast_Time_Point"@en.
+:Severe_Weather_Event_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Severe_Weather_Event_Moment"@en.
+:Damage rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Damage"@en.
+:VIctim rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "VIctim"@en.
+:Material_Property rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Material_Property"@en.
+:Severe_Weather_Events rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Severe_Weather_Events"@en.
+:Severe_Weather_Indicators rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Severe_Weather_Indicators"@en.
+:Property rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Property"@en.
+:Local_Data_Manager rdfs:subClassOf :Software_Agent.
+:Relative_Humidity rdfs:subClassOf :Meteorological_Parameters.
+:Precipitation rdfs:subClassOf :Meteorological_Parameters.
+:Surface_Wind rdfs:subClassOf :Meteorological_Parameters.
+:Temperature rdfs:subClassOf :Meteorological_Parameters.
+:Atmospheric_Pressure rdfs:subClassOf :Meteorological_Parameters.
+:Cloudiness rdfs:subClassOf :Meteorological_Parameters.
+:World_Numerical_Models rdfs:subClassOf :Numerical_Weather_Prediction_Models.
+:Regional_Numerical_Models rdfs:subClassOf :Numerical_Weather_Prediction_Models.
+:Geographic_Object rdfs:subClassOf :Spatial_Thing.
+:Geographic_Coverage rdfs:subClassOf :Spatial_Thing.
+:Point rdfs:subClassOf :Geographic_Object.
+:Line rdfs:subClassOf :Geographic_Object.
+:Polygon rdfs:subClassOf :Geographic_Object.
+:Air_Temperature rdfs:subClassOf :Temperature.
+:Sea_Surface rdfs:subClassOf :Temperature.
+:Weather_Forecaster rdfs:subClassOf :Person.
+:VIctim rdfs:subClassOf :Person.
+:Material_Property rdfs:subClassOf :Property.

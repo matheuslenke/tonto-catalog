@@ -1,0 +1,61 @@
+import Imvel
+import Georreferenciamento
+import Pessoa_Jurdica
+import Servio
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Faixa_de_Domnio_Ferroviria
+import Via_de_Trnsito_Rodovirio
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Ativo_Ferrovirio
+import Elemento_de_Sinalizao_Ferroviria
+import Infraestrutura_Rodoviria
+import Trecho_de_Concesso
+import Compra
+import Produto
+import Veculo_Ferrovirio
+import Movimentao_de_Ativo_Ferrovirio
+import Acidente_Ferrovirio
+import Seguro_em_Concesso
+import Obra_em_Concesso
+import Estado_da_Obra_em_Concesso
+import Trecho_Ferrovirio
+import Acidente
+import Praa_de_Pedgio
+import Edificao_Rodoviria
+import Posto_de_Pesagem
+import Fiscalizaes_de_Servios_de_Transportes_Terrestres
+import rea
+
+package rea
+
+phase rea_Municipal of functional-complexes  specializes rea_Pblica 
+
+subkind rea_Livre of functional-complexes  specializes rea 
+
+subkind Unidade_de_Conservao of functional-complexes  specializes Elemento_com_Projeo_Pontual, rea_de_Preservao_Ambiental 
+
+phase rea_Estadual of functional-complexes  specializes rea_Pblica 
+
+subkind rea_de_Preservao_Ambiental of functional-complexes  specializes rea_Protegida 
+
+subkind rea_Indgena of functional-complexes  specializes Elemento_com_Projeo_Pontual, rea_Protegida 
+
+subkind rea_Quilombola of functional-complexes  specializes Elemento_com_Projeo_Pontual, rea_Protegida 
+
+phase rea_Pblica of functional-complexes  specializes rea 
+
+phase rea_Privada of functional-complexes  specializes rea 
+
+subkind rea_Protegida of functional-complexes  specializes rea 
+
+subkind rea_Destinada_a_Reforma_Agrria of functional-complexes  specializes rea 
+
+kind rea specializes Elemento_com_Projeo_Espacial, rea_de_Interesse_Pblico, rea_de_Possvel_Obra_de_Concesso 
+
+subkind rea_de_Preservao_Permanente of functional-complexes  specializes rea_de_Preservao_Ambiental 
+
+phase rea_da_Unio of functional-complexes  specializes rea_Pblica 
+
+

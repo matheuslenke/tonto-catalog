@@ -1,0 +1,48 @@
+
+package Componente_Trecho_Fsico
+
+subkind Cmera_CFTV of functional-complexes  specializes Aparelho_de_Fiscalizao 
+
+subkind Contador_de_Veculo of functional-complexes  specializes Aparelho_de_Fiscalizao 
+
+kind Componente_de_Iluminao specializes Componente_Rodovirio 
+
+kind Aparelho_de_Fiscalizao specializes Componente_Rodovirio 
+
+subkind Edificao_de_Rodovia specializes Componente_Rodovirio 
+
+kind Sinalizao_Rodoviria specializes Componente_Rodovirio {
+    cor: undefined  
+    retrorrefletncia: undefined  
+}
+
+category Obra_de_Arte_Corrente_Rodoviria of functional-complexes  specializes Componente_Rodovirio, Obra_de_Arte_Corrente 
+
+category Componente_Rodovirio of functional-complexes  specializes Componente_de_Trecho {
+    vida_til_restante: undefined  
+}
+
+kind Estao_Meteoreolgica specializes Componente_Rodovirio 
+
+kind Parada_de_nibus specializes Componente_Rodovirio 
+
+subkind Radar of functional-complexes  specializes Aparelho_de_Fiscalizao 
+
+kind Rampa specializes Componente_Rodovirio {
+    inclinao: undefined  
+}
+
+kind Passagem_de_Pedestre specializes Componente_Rodovirio 
+
+kind Call_Box specializes Componente_Rodovirio 
+
+category Obra_de_Arte_Especial_Rodovirio of functional-complexes  specializes Componente_Rodovirio {
+    condio_climtica: undefined  
+    extenso: undefined  
+}
+
+kind Curva specializes Componente_Rodovirio {
+    raio_mnimo: undefined  
+}
+
+

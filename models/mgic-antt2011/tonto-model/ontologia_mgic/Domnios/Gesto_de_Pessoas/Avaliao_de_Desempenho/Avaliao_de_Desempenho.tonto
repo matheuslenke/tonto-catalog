@@ -1,0 +1,140 @@
+
+package Avaliao_de_Desempenho
+
+role Servidor_Pblico_Avaliado specializes Servidor_Pblico_Ativo, Servidor_Avaliado_pela_Chefia_para_Gratificao, Servidor_Pblico_Avaliado_pela_Equipe, Servidor_Pblico_em_AutoAvaliao, Servidor_Avaliado_em_Estgio_Probatrio 
+
+role Membro_de_Equipe_de_Trabalho specializes Servidor_Pblico_Ativo 
+
+role Unidade_de_Avaliao_Singular specializes Unidade_de_Avaliao 
+
+relator Lotao_em_Grupo_de_Trabalho
+
+kind Plano_de_Trabalho
+
+role Coordenador_de_Equipe_de_Trabalho specializes Membro_de_Equipe_de_Trabalho 
+
+subkind Avaliao_pela_Chefia_para_fins_de_Gratificao of functional-complexes  specializes Avaliao_pela_Chefia_Imediata 
+
+subkind Avaliao_para_Fins_de_Estgio_Probatrio of functional-complexes  specializes Avaliao_de_Desempenho_Complexa, Avaliao_de_Desempenho 
+
+role Servidor_Pblico_Avaliado_pela_Equipe
+
+type Tipo_de_Avaliao
+
+type Tipo_de_Fator_de_Avaliao{
+    descrio: undefined  
+    nome: undefined  
+}
+
+kind Avaliao_de_Desempenho
+
+collective Unidade_de_Avaliao_Complexa specializes Unidade_de_Avaliao 
+
+role Unidade_em_Grupo_de_Avaliao
+
+subkind Avaliao_Individual of functional-complexes  specializes Avaliao_de_Desempenho 
+
+subkind Comisso_de_Avaliao_de_Desempenho of collectives  specializes Comisso 
+
+role Servidor_Avaliador_de_Estgio_Probatrio
+
+category Avaliao_Individual_de_Gratificao of functional-complexes  specializes AutoAvaliao, Avaliao_pela_Equipe_de_Trabalho, Avaliao_pela_Chefia_Imediata 
+
+subkind Avaliao_pela_Equipe_de_Trabalho of functional-complexes  specializes Avaliaode_Desempenho_Singular 
+
+role Servidor_Avaliador_Chefe_para_fins_de_Progresso_e_Promoo specializes Servidor_Pblico_Avaliador 
+
+role Servidor_Avaliado_pela_Chefia_para_fins_de_Progresso_e_Promoo specializes Servidor_Pblico_Avaliado 
+
+role Servidor_Avaliador_em_Equipe_de_Trabalho specializes Membro_de_Equipe_de_Trabalho 
+
+role Servidor_Avaliado_em_Estgio_Probatrio
+
+subkind Avaliao_de_Desempenho_Complexa of functional-complexes  specializes Avaliao_de_Desempenho 
+
+subkind Avaliao_Para_Fins_de_Gratificao of functional-complexes  specializes Avaliao_de_Desempenho_Complexa, Avaliao_de_Desempenho 
+
+role Servidor_Pblico_Avaliador specializes Servidor_Pblico_Ativo, Servidor_Pblico_em_AutoAvaliao, Servidor_Avaliador_Chefe_para_fins_de_Gratificao, Servidor_Avaliador_em_Equipe_de_Trabalho, Servidor_Avaliador_de_Estgio_Probatrio 
+
+subkind AutoAvaliao of functional-complexes  specializes Avaliaode_Desempenho_Singular 
+
+subkind Avaliao_pela_Chefia_Imediata of functional-complexes  specializes Avaliaode_Desempenho_Singular 
+
+subkind Avaliao_Peridica_para_Fins_de_Estgio_Probatrio of functional-complexes  specializes Avaliaode_Desempenho_Singular 
+
+role Servidor_Avaliado_pela_Chefia_para_Gratificao
+
+subkind Avaliaode_Desempenho_Singular of functional-complexes  specializes Avaliao_de_Desempenho 
+
+mode Meta_Institucional{
+    alcanado: undefined  
+    descrio: undefined  
+}
+
+role rgo_Pblico_como_Unidade_de_Avaliao specializes Unidade_de_Avaliao 
+
+subkind Equipe_de_Trabalho_Formal specializes Equipe_de_Trabalho 
+
+mode Fator_de_Avaliao specializes Critrio_de_Avaliao {
+    nota: undefined  
+    peso: undefined  
+}
+
+role Servidor_Pblico_em_AutoAvaliao
+
+subkind Avaliao_Componente of functional-complexes  specializes Avaliao_Institucional_Para_Fins_de_Gratificao, Avaliao_Peridica_para_Fins_de_Estgio_Probatrio, AutoAvaliao, Avaliao_de_Desempenho, Avaliao_pela_Chefia_para_fins_de_Gratificao 
+
+mode Meta specializes Critrio_de_Avaliao {
+    alcanado: undefined  
+    descrio: undefined  
+}
+
+subkind Avaliao_para_Fins_de_Progresso_e_Promoo of functional-complexes  specializes Avaliao_de_Desempenho_Complexa, Avaliao_Individual, Avaliao_de_Desempenho 
+
+role Membro_CAD specializes Membro_de_Comisso 
+
+role Servidor_Avaliador_Chefe_para_fins_de_Gratificao
+
+subkind Equipe_de_Trabalho
+
+subkind Avaliao_Institucional_Para_Fins_de_Gratificao of functional-complexes  specializes Avaliaode_Desempenho_Singular 
+
+kind Ciclo_de_Avaliao{
+    incio: undefined  
+    trmino: undefined  
+}
+
+mixin Unidade_de_Avaliao of functional-complexes 
+
+mode Critrio_de_Avaliao
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

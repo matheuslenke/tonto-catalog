@@ -1,0 +1,282 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:date rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "date"@en.
+:SportActivityPost rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SportActivityPost"@en.
+:rating rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "rating"@en.
+:housingAdPost rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "housingAdPost"@en.
+:pub rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "pub"@en.
+:locationCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "locationCollection"@en.
+:nearbyHouseFacilities rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "nearbyHouseFacilities"@en.
+:house rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "house"@en.
+:kitchenAmenity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "kitchenAmenity"@en.
+:bathroomAmenity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "bathroomAmenity"@en.
+:bedroomAmentity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "bedroomAmentity"@en.
+:school rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "school"@en.
+:hospital rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "hospital"@en.
+:amenitiesCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "amenitiesCollection"@en.
+:amenity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "amenity"@en.
+:entertainmentAmentity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "entertainmentAmentity"@en.
+:parkArea rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "parkArea"@en.
+:indoor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "indoor"@en.
+:winterSport rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "winterSport"@en.
+:sportLocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "sportLocation"@en.
+:summerSport rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "summerSport"@en.
+:outdoor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "outdoor"@en.
+:sportOrganization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "sportOrganization"@en.
+:sportEvent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "sportEvent"@en.
+:event_ rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "event_"@en.
+:sportActivity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "sportActivity"@en.
+:neutralSport rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "neutralSport"@en.
+:sportorganizationBoard rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "sportorganizationBoard"@en.
+:sportOrganizationMember rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "sportOrganizationMember"@en.
+:person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "person"@en.
+:label rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "label"@en.
+:teachingAssistant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "teachingAssistant"@en.
+:professor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "professor"@en.
+:user rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "user"@en.
+:universityBoard rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "universityBoard"@en.
+:university rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "university"@en.
+:organization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "organization"@en.
+:phdStudent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "phdStudent"@en.
+:appRegistration rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "appRegistration"@en.
+:Profile rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Profile"@en.
+:profilePicture rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "profilePicture"@en.
+:profileName rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "profileName"@en.
+:profileEmail rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "profileEmail"@en.
+:profileUserAge rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "profileUserAge"@en.
+:housePrice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "housePrice"@en.
+:houseNumOfOccupants rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "houseNumOfOccupants"@en.
+:numberOfRooms rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "numberOfRooms"@en.
+:houseLocation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "houseLocation"@en.
+:profileSpokenLanguage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "profileSpokenLanguage"@en.
+:profileInteractor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "profileInteractor"@en.
+:othersProfileInteraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "othersProfileInteraction"@en.
+:profileSearch rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "profileSearch"@en.
+:profileView rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "profileView"@en.
+:profileLearningLanguage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "profileLearningLanguage"@en.
+:profileMessage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "profileMessage"@en.
+:discountPost rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "discountPost"@en.
+:product rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "product"@en.
+:food rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "food"@en.
+:services rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "services"@en.
+:clothing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "clothing"@en.
+:productDiscount rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "productDiscount"@en.
+:productRegularPrice rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "productRegularPrice"@en.
+:store rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "store"@en.
+:storeLocation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "storeLocation"@en.
+:location rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "location"@en.
+:postalAddress rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "postalAddress"@en.
+:postAuthor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "postAuthor"@en.
+:post rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "post"@en.
+:postInteractor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "postInteractor"@en.
+:postCreation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "postCreation"@en.
+:postInteraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "postInteraction"@en.
+:postRating rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "postRating"@en.
+:postSearch rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "postSearch"@en.
+:postEditing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "postEditing"@en.
+:postDeletion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "postDeletion"@en.
+:postComment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "postComment"@en.
+:masterStudent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "masterStudent"@en.
+:bachelorStudent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "bachelorStudent"@en.
+:discountAmount rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "discountAmount"@en.
+:EducationalOrganization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "EducationalOrganization"@en.
+:text rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "text"@en.
+:audio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "audio"@en.
+:image rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "image"@en.
+:video rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "video"@en.
+:creativeWork rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "creativeWork"@en.
+:postLabeling rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "postLabeling"@en.
+:eventHostsBoard rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "eventHostsBoard"@en.
+:ownProfileInteraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ownProfileInteraction"@en.
+:ownProfileEditing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ownProfileEditing"@en.
+:ownProfileView rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ownProfileView"@en.
+:ownProfileDetetion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ownProfileDetetion"@en.
+:SportActivityPost rdfs:subClassOf :post.
+:housingAdPost rdfs:subClassOf :post.
+:pub rdfs:subClassOf :nearbyHouseFacilities.
+:kitchenAmenity rdfs:subClassOf :amenity.
+:bathroomAmenity rdfs:subClassOf :amenity.
+:bedroomAmentity rdfs:subClassOf :amenity.
+:school rdfs:subClassOf :nearbyHouseFacilities.
+:hospital rdfs:subClassOf :nearbyHouseFacilities.
+:entertainmentAmentity rdfs:subClassOf :amenity.
+:parkArea rdfs:subClassOf :nearbyHouseFacilities.
+:indoor rdfs:subClassOf :sportLocation.
+:winterSport rdfs:subClassOf :sportActivity.
+:summerSport rdfs:subClassOf :sportActivity.
+:outdoor rdfs:subClassOf :sportLocation.
+:sportOrganization rdfs:subClassOf :organization.
+:sportEvent rdfs:subClassOf :event_.
+:neutralSport rdfs:subClassOf :sportActivity.
+:sportOrganizationMember rdfs:subClassOf :person.
+:teachingAssistant rdfs:subClassOf :person.
+:professor rdfs:subClassOf :person.
+:user rdfs:subClassOf :person.
+:university rdfs:subClassOf :EducationalOrganization.
+:phdStudent rdfs:subClassOf :person.
+:Profile rdfs:subClassOf :creativeWork.
+:houseLocation rdfs:subClassOf :location.
+:profileInteractor rdfs:subClassOf :user.
+:profileSearch rdfs:subClassOf :othersProfileInteraction.
+:profileView rdfs:subClassOf :othersProfileInteraction.
+:profileMessage rdfs:subClassOf :othersProfileInteraction.
+:discountPost rdfs:subClassOf :post.
+:food rdfs:subClassOf :product.
+:services rdfs:subClassOf :product.
+:clothing rdfs:subClassOf :product.
+:productDiscount rdfs:subClassOf :product.
+:productRegularPrice rdfs:subClassOf :product.
+:store rdfs:subClassOf :organization.
+:storeLocation rdfs:subClassOf :location.
+:postAuthor rdfs:subClassOf :user.
+:postInteractor rdfs:subClassOf :user.
+:postRating rdfs:subClassOf :postInteraction.
+:postSearch rdfs:subClassOf :postInteraction.
+:postEditing rdfs:subClassOf :postCreation.
+:postDeletion rdfs:subClassOf :postCreation.
+:postComment rdfs:subClassOf :postInteraction.
+:masterStudent rdfs:subClassOf :person.
+:bachelorStudent rdfs:subClassOf :person.
+:EducationalOrganization rdfs:subClassOf :organization.
+:text rdfs:subClassOf :creativeWork.
+:audio rdfs:subClassOf :creativeWork.
+:image rdfs:subClassOf :creativeWork.
+:video rdfs:subClassOf :creativeWork.
+:postLabeling rdfs:subClassOf :postCreation.
+:ownProfileEditing rdfs:subClassOf :ownProfileInteraction.
+:ownProfileView rdfs:subClassOf :ownProfileInteraction.
+:ownProfileDetetion rdfs:subClassOf :ownProfileInteraction, :ownProfileInteraction.

@@ -1,0 +1,41 @@
+
+package Tarifa_Bsica_de_Pedgio
+
+role Reviso_da_TBP_com_Reviso_do_PER of functional-complexes  specializes Reviso_da_Tarifa_Bsica_de_Pedgio 
+
+role Tarifa_de_Pedgio_Reajustada of functional-complexes  specializes Tarifa_de_Pedgio 
+
+subkind Reviso_Extraordinria_da_TBP of functional-complexes  specializes Reviso_da_Tarifa_Bsica_de_Pedgio 
+
+role Reviso_Ordinria_Ensejada_por_Receita_Extraordinria of functional-complexes  specializes Reviso_Ordinria_da_TBP 
+
+relator Reajuste_de_Tarifa_de_Pedgio{
+    Nmero_do_Documento_de_Autorizao: undefined  
+}
+
+subkind Reviso_Ordinria_da_TBP of functional-complexes  specializes Reviso_da_Tarifa_Bsica_de_Pedgio 
+
+relator Inexecuo
+
+relator Reviso_do_PER
+
+kind Reviso_da_Tarifa_Bsica_de_Pedgio
+
+kind ndice_de_Inflao{
+    tempo: undefined  
+    variao: undefined  
+}
+
+subkind Reviso_Quinquenal_da_TBP of functional-complexes  specializes Reviso_da_Tarifa_Bsica_de_Pedgio 
+
+role Tarifa_Bsica_de_Pedgio_Revisada of functional-complexes  specializes Tarifa_Bsica_de_Pedgio 
+
+role Reviso_Ordinria_Ensejada_por_Inexecuo of functional-complexes  specializes Reviso_Ordinria_da_TBP 
+
+
+
+
+
+
+
+

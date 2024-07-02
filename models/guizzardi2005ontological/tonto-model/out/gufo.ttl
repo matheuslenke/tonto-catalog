@@ -1,0 +1,134 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:SpatialThing rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SpatialThing"@en.
+:GeographicalSpace rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "GeographicalSpace"@en.
+:SurgeryRoom rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SurgeryRoom"@en.
+:Gallery rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Gallery"@en.
+:Museum rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Museum"@en.
+:Physical_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Physical_Object"@en.
+:Material_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Material_Entity"@en.
+:Inanimate_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Inanimate_Entity"@en.
+:Biological_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Biological_Entity"@en.
+:Statue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Statue"@en.
+:Human_Organ rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Human_Organ"@en.
+:Human_Heart rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Human_Heart"@en.
+:Belief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Belief"@en.
+:Desire rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Desire"@en.
+:MentalState rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "MentalState"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:ActiveAgent rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "ActiveAgent"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Deceased_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Deceased_Person"@en.
+:Living_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Living_Person"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Offspring rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Offspring"@en.
+:ActiveOrganization rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ActiveOrganization"@en.
+:ExtinctOrganization rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ExtinctOrganization"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Group"@en.
+:Registration rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Registration"@en.
+:Parent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Parent"@en.
+:Male_Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Male_Person"@en.
+:Female_Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Female_Person"@en.
+:Father rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Father"@en.
+:Mother rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mother"@en.
+:Performer_Artist rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Performer_Artist"@en.
+:Individual_Artist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Individual_Artist"@en.
+:Band_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Band_Member"@en.
+:Band rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Band"@en.
+:Authorship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Authorship"@en.
+:Album rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Album"@en.
+:Track rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Track"@en.
+:AlbumTrack rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AlbumTrack"@en.
+:Recording rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Recording"@en.
+:Living_Person rdfs:subClassOf :Person.
+:Deceased_Person rdfs:subClassOf :Person.
+:GeographicalSpace rdfs:subClassOf :SpatialThing.
+:SurgeryRoom rdfs:subClassOf :GeographicalSpace.
+:Gallery rdfs:subClassOf :GeographicalSpace.
+:Museum rdfs:subClassOf :GeographicalSpace.
+:Inanimate_Entity rdfs:subClassOf :Material_Entity.
+:Biological_Entity rdfs:subClassOf :Material_Entity.
+:Statue rdfs:subClassOf :Inanimate_Entity.
+:Human_Organ rdfs:subClassOf :Biological_Entity.
+:Human_Heart rdfs:subClassOf :Human_Organ.
+:Belief rdfs:subClassOf :MentalState.
+:Desire rdfs:subClassOf :MentalState.
+:Intention rdfs:subClassOf :MentalState.
+:ActiveAgent rdfs:subClassOf :Agent.
+:Deceased_Person rdfs:subClassOf :Person.
+:Living_Person rdfs:subClassOf :Person, :ActiveAgent.
+:Person rdfs:subClassOf :Agent.
+:Offspring rdfs:subClassOf :Person.
+:ActiveOrganization rdfs:subClassOf :ActiveAgent, :Organization.
+:ExtinctOrganization rdfs:subClassOf :Organization.
+:Organization rdfs:subClassOf :Agent.
+:Parent rdfs:subClassOf :Person.
+:Male_Person rdfs:subClassOf :Person.
+:Female_Person rdfs:subClassOf :Person.
+:Father rdfs:subClassOf :Male_Person, :Parent.
+:Mother rdfs:subClassOf :Female_Person, :Parent.
+:Individual_Artist rdfs:subClassOf :Performer_Artist, :Person.
+:Band_Member rdfs:subClassOf :Individual_Artist.
+:Band rdfs:subClassOf :Organization, :Performer_Artist.
+:AlbumTrack rdfs:subClassOf :Track.

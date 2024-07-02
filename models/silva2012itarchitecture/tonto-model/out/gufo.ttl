@@ -1,0 +1,337 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Componente_de_IT rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Componente_de_IT"@en.
+:Site rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Site"@en.
+:Plataforma rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Plataforma"@en.
+:Sistema rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sistema"@en.
+:Armazenamento_de_Dados rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Armazenamento_de_Dados"@en.
+:Rede rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Rede"@en.
+:Refrigeao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Refrigeao"@en.
+:Energia rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Energia"@en.
+:Garantia_eSuporte rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Garantia_eSuporte"@en.
+:Nvel_de_Garantia_Apropriado rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Nvel_de_Garantia_Apropriado"@en.
+:Sistema_Computacional rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sistema_Computacional"@en.
+:Alerta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Alerta"@en.
+:Monitoramento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Monitoramento"@en.
+:Periferico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Periferico"@en.
+:Dispositive_de_drede_dual rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dispositive_de_drede_dual"@en.
+:Cooler_Redundante rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cooler_Redundante"@en.
+:Fonte_Redundante rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Fonte_Redundante"@en.
+:Alimentao_dupla rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Alimentao_dupla"@en.
+:IT_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "IT_Component"@en.
+:Site_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Site"@en.
+:Platform rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Platform"@en.
+:System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "System"@en.
+:Data_Storage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Data_Storage"@en.
+:Service_Continuity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Service_Continuity"@en.
+:Replication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Replication"@en.
+:IT_Architecture rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "IT_Architecture"@en.
+:ITSC_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ITSC_Component"@en.
+:Site_Model rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Site_Model"@en.
+:Data_Replication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Data_Replication"@en.
+:Resilient_Network rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Resilient_Network"@en.
+:Location rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Location"@en.
+:Installation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Installation"@en.
+:Local rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Local"@en.
+:Remote rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Remote"@en.
+:Online rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Online"@en.
+:Offline rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Offline"@en.
+:Incident rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Incident"@en.
+:Active rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active"@en.
+:Backup rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Backup"@en.
+:Contingency rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Contingency"@en.
+:Passive rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Passive"@en.
+:Replication_Technology rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Replication_Technology"@en.
+:Mirroring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Mirroring"@en.
+:Snapshot rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Snapshot"@en.
+:Cluster rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Cluster"@en.
+:Appliance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Appliance"@en.
+:RAID rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RAID"@en.
+:Synchronous rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Synchronous"@en.
+:Asynchronous rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Asynchronous"@en.
+:Local_Replication rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Local_Replication"@en.
+:Remote_Replication rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Remote_Replication"@en.
+:Media_BackupRestore rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Media_BackupRestore"@en.
+:DBMSbased rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DBMSbased"@en.
+:Applicationbased rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Applicationbased"@en.
+:Hostbased rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Hostbased"@en.
+:Storagebased rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Storagebased"@en.
+:Network_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Network_Component"@en.
+:Cooling rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Cooling"@en.
+:Power rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Power"@en.
+:Warranty_And_Support rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Warranty_And_Support"@en.
+:Computer_System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Computer_System"@en.
+:Monitoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Monitoring"@en.
+:Peripheral rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Peripheral"@en.
+:Dual_Network_Device rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dual_Network_Device"@en.
+:Cooling_Fan rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cooling_Fan"@en.
+:Redundant_Power_Supply rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Redundant_Power_Supply"@en.
+:Dual_Power_Inlet rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dual_Power_Inlet"@en.
+:Network_Provider rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Network_Provider"@en.
+:Physical_Media rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Physical_Media"@en.
+:Link rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Link"@en.
+:Telecom_Asset rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Telecom_Asset"@en.
+:Appropriate_Level_of_Warranty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Appropriate_Level_of_Warranty"@en.
+:Warning rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Warning"@en.
+:Monitoring_Software rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Monitoring_Software"@en.
+:Management_Suite rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Management_Suite"@en.
+:Power_Distributor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Power_Distributor"@en.
+:Bank_of_Battery rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bank_of_Battery"@en.
+:Generator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Generator"@en.
+:UPS_Standby rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "UPS_Standby"@en.
+:UPS_Online rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "UPS_Online"@en.
+:Automatic_Switching rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Automatic_Switching"@en.
+:UPS rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UPS"@en.
+:UPSBattery_Switching rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "UPSBattery_Switching"@en.
+:UPSGenerator_Switching rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "UPSGenerator_Switching"@en.
+:Plataforma rdfs:subClassOf :Componente_de_IT.
+:Armazenamento_de_Dados rdfs:subClassOf :Componente_de_IT.
+:Sistema rdfs:subClassOf :Componente_de_IT.
+:Site rdfs:subClassOf :Componente_de_IT.
+:Garantia_eSuporte rdfs:subClassOf :Plataforma.
+:Sistema_Computacional rdfs:subClassOf :Plataforma.
+:Monitoramento rdfs:subClassOf :Plataforma.
+:Rede rdfs:subClassOf :Plataforma.
+:Refrigeao rdfs:subClassOf :Plataforma.
+:Energia rdfs:subClassOf :Plataforma.
+:Periferico rdfs:subClassOf :Sistema_Computacional.
+:Alimentao_dupla rdfs:subClassOf :Sistema_Computacional.
+:Fonte_Redundante rdfs:subClassOf :Sistema_Computacional.
+:Dispositive_de_drede_dual rdfs:subClassOf :Sistema_Computacional.
+:Cooler_Redundante rdfs:subClassOf :Sistema_Computacional.
+:Site rdfs:subClassOf :Componente_de_IT.
+:Plataforma rdfs:subClassOf :Componente_de_IT.
+:Sistema rdfs:subClassOf :Componente_de_IT.
+:Armazenamento_de_Dados rdfs:subClassOf :Componente_de_IT.
+:Rede rdfs:subClassOf :Plataforma.
+:Refrigeao rdfs:subClassOf :Plataforma.
+:Energia rdfs:subClassOf :Plataforma.
+:Garantia_eSuporte rdfs:subClassOf :Plataforma.
+:Sistema_Computacional rdfs:subClassOf :Plataforma.
+:Monitoramento rdfs:subClassOf :Plataforma.
+:Periferico rdfs:subClassOf :Sistema_Computacional.
+:Dispositive_de_drede_dual rdfs:subClassOf :Sistema_Computacional.
+:Cooler_Redundante rdfs:subClassOf :Sistema_Computacional.
+:Fonte_Redundante rdfs:subClassOf :Sistema_Computacional.
+:Alimentao_dupla rdfs:subClassOf :Sistema_Computacional.
+:Platform rdfs:subClassOf :IT_Component.
+:System rdfs:subClassOf :IT_Component.
+:Data_Storage rdfs:subClassOf :IT_Component.
+:Site_1 rdfs:subClassOf :IT_Component.
+:Data_Replication rdfs:subClassOf :ITSC_Component.
+:Resilient_Network rdfs:subClassOf :ITSC_Component.
+:Site_Model rdfs:subClassOf :ITSC_Component.
+:Local rdfs:subClassOf :Location.
+:Remote rdfs:subClassOf :Location.
+:Online rdfs:subClassOf :Site_1.
+:Offline rdfs:subClassOf :Site_1.
+:Passive rdfs:subClassOf :Site_1.
+:Active rdfs:subClassOf :Site_1.
+:Backup rdfs:subClassOf :Site_1.
+:Contingency rdfs:subClassOf :Site_1.
+:Appliance rdfs:subClassOf :Replication_Technology.
+:Snapshot rdfs:subClassOf :Replication_Technology.
+:RAID rdfs:subClassOf :Replication_Technology.
+:Mirroring rdfs:subClassOf :Replication_Technology.
+:Cluster rdfs:subClassOf :Replication_Technology.
+:Synchronous rdfs:subClassOf :Mirroring.
+:Asynchronous rdfs:subClassOf :Mirroring.
+:Remote_Replication rdfs:subClassOf :Data_Replication.
+:Local_Replication rdfs:subClassOf :Data_Replication.
+:Hostbased rdfs:subClassOf :Data_Replication.
+:DBMSbased rdfs:subClassOf :Data_Replication.
+:Applicationbased rdfs:subClassOf :Data_Replication.
+:Storagebased rdfs:subClassOf :Data_Replication.
+:Media_BackupRestore rdfs:subClassOf :Data_Replication.
+:Warranty_And_Support rdfs:subClassOf :Platform.
+:Monitoring rdfs:subClassOf :Platform.
+:Cooling rdfs:subClassOf :Platform.
+:Network_Component rdfs:subClassOf :Platform.
+:Computer_System rdfs:subClassOf :Platform.
+:Power rdfs:subClassOf :Platform.
+:Telecom_Asset rdfs:subClassOf :Network_Component.
+:Physical_Media rdfs:subClassOf :Network_Component.
+:Network_Provider rdfs:subClassOf :Network_Component.
+:Link rdfs:subClassOf :Network_Component.
+:Dual_Network_Device rdfs:subClassOf :Computer_System.
+:Cooling_Fan rdfs:subClassOf :Computer_System.
+:Peripheral rdfs:subClassOf :Computer_System.
+:Dual_Power_Inlet rdfs:subClassOf :Computer_System.
+:Redundant_Power_Supply rdfs:subClassOf :Computer_System.
+:Monitoring_Software rdfs:subClassOf :Monitoring.
+:Management_Suite rdfs:subClassOf :Monitoring.
+:Generator rdfs:subClassOf :Power.
+:Power_Distributor rdfs:subClassOf :Power.
+:Bank_of_Battery rdfs:subClassOf :Power.
+:UPS_Online rdfs:subClassOf :UPS.
+:UPS_Standby rdfs:subClassOf :UPS.
+:Site_1 rdfs:subClassOf :IT_Component.
+:Platform rdfs:subClassOf :IT_Component.
+:System rdfs:subClassOf :IT_Component.
+:Data_Storage rdfs:subClassOf :IT_Component.
+:Site_Model rdfs:subClassOf :ITSC_Component.
+:Data_Replication rdfs:subClassOf :ITSC_Component.
+:Resilient_Network rdfs:subClassOf :ITSC_Component.
+:Local rdfs:subClassOf :Location.
+:Remote rdfs:subClassOf :Location.
+:Online rdfs:subClassOf :Site_1.
+:Offline rdfs:subClassOf :Site_1.
+:Active rdfs:subClassOf :Online, :Site_1.
+:Backup rdfs:subClassOf :Offline, :Site_1.
+:Contingency rdfs:subClassOf :Offline, :Site_1.
+:Passive rdfs:subClassOf :Offline, :Site_1.
+:Mirroring rdfs:subClassOf :Replication_Technology.
+:Snapshot rdfs:subClassOf :Replication_Technology.
+:Cluster rdfs:subClassOf :Replication_Technology.
+:Appliance rdfs:subClassOf :Replication_Technology.
+:RAID rdfs:subClassOf :Replication_Technology.
+:Synchronous rdfs:subClassOf :Mirroring.
+:Asynchronous rdfs:subClassOf :Mirroring.
+:Local_Replication rdfs:subClassOf :Data_Replication.
+:Remote_Replication rdfs:subClassOf :Data_Replication.
+:Media_BackupRestore rdfs:subClassOf :Data_Replication.
+:DBMSbased rdfs:subClassOf :Data_Replication.
+:Applicationbased rdfs:subClassOf :Data_Replication.
+:Hostbased rdfs:subClassOf :Data_Replication.
+:Storagebased rdfs:subClassOf :Data_Replication.
+:Network_Component rdfs:subClassOf :Platform.
+:Cooling rdfs:subClassOf :Platform.
+:Power rdfs:subClassOf :Platform.
+:Warranty_And_Support rdfs:subClassOf :Platform.
+:Computer_System rdfs:subClassOf :Platform.
+:Monitoring rdfs:subClassOf :Platform.
+:Peripheral rdfs:subClassOf :Computer_System.
+:Dual_Network_Device rdfs:subClassOf :Computer_System.
+:Cooling_Fan rdfs:subClassOf :Computer_System.
+:Redundant_Power_Supply rdfs:subClassOf :Computer_System.
+:Dual_Power_Inlet rdfs:subClassOf :Computer_System.
+:Network_Provider rdfs:subClassOf :Network_Component.
+:Physical_Media rdfs:subClassOf :Network_Component.
+:Link rdfs:subClassOf :Network_Component.
+:Telecom_Asset rdfs:subClassOf :Network_Component.
+:Monitoring_Software rdfs:subClassOf :Monitoring.
+:Management_Suite rdfs:subClassOf :Monitoring.
+:Power_Distributor rdfs:subClassOf :Power.
+:Bank_of_Battery rdfs:subClassOf :Power.
+:Generator rdfs:subClassOf :Power.
+:UPS_Standby rdfs:subClassOf :UPS.
+:UPS_Online rdfs:subClassOf :UPS.
+:distance rdfs:domain :Synchronous;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "distance"@en.
+:distance_1 rdfs:domain :Asynchronous;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "distance"@en.

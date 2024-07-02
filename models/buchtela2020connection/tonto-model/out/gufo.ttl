@@ -1,0 +1,79 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Teacher rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Teacher"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:Course_started rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Course_started"@en.
+:Credit_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Credit_passed"@en.
+:Credit_non_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Credit_non_passed"@en.
+:Course rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Course"@en.
+:Chapterki rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Chapterki"@en.
+:Projectp rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Projectp"@en.
+:Testt rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Testt"@en.
+:Exerciseci rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Exerciseci"@en.
+:ki_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ki_passed"@en.
+:ki_non_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ki_non_passed"@en.
+:p_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "p_passed"@en.
+:p_non_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "p_non_passed"@en.
+:t_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "t_passed"@en.
+:t_non_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "t_non_passed"@en.
+:ci_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ci_passed"@en.
+:ci_non_passed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ci_non_passed"@en.
+:Student rdfs:subClassOf :Person.
+:Teacher rdfs:subClassOf :Person.
+:Credit_non_passed rdfs:subClassOf :Course.
+:Course_started rdfs:subClassOf :Course.
+:Credit_passed rdfs:subClassOf :Course.
+:ki_passed rdfs:subClassOf :Chapterki.
+:ki_non_passed rdfs:subClassOf :Chapterki.
+:p_non_passed rdfs:subClassOf :Projectp.
+:p_passed rdfs:subClassOf :Projectp.
+:t_passed rdfs:subClassOf :Testt.
+:t_non_passed rdfs:subClassOf :Testt.
+:ci_non_passed rdfs:subClassOf :Exerciseci.
+:ci_passed rdfs:subClassOf :Exerciseci.
+:Teacher rdfs:subClassOf :Person.
+:Student rdfs:subClassOf :Person.
+:Course_started rdfs:subClassOf :Course.
+:Credit_passed rdfs:subClassOf :Course.
+:Credit_non_passed rdfs:subClassOf :Course.
+:ki_passed rdfs:subClassOf :Chapterki.
+:ki_non_passed rdfs:subClassOf :Chapterki.
+:p_passed rdfs:subClassOf :Projectp.
+:p_non_passed rdfs:subClassOf :Projectp.
+:t_passed rdfs:subClassOf :Testt.
+:t_non_passed rdfs:subClassOf :Testt.
+:ci_passed rdfs:subClassOf :Exerciseci.
+:ci_non_passed rdfs:subClassOf :Exerciseci.

@@ -1,0 +1,293 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Nomination_of_Representative rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Nomination_of_Representative"@en.
+:Qualification_in_General_Proposal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Qualification_in_General_Proposal"@en.
+:Publication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Publication"@en.
+:Public_Auction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Public_Auction"@en.
+:Tender_in_Internal_Phase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tender_in_Internal_Phase"@en.
+:Grant_Committee_Nomination_Ordinance rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Grant_Committee_Nomination_Ordinance"@en.
+:Grant_Committee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Grant_Committee"@en.
+:Committee rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Committee"@en.
+:Suspended_Tender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Suspended_Tender"@en.
+:Empty_Tender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Empty_Tender"@en.
+:Tender_in_Qualification rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tender_in_Qualification"@en.
+:Proposal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Proposal"@en.
+:Concession_Tender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concession_Tender"@en.
+:Proof_of_Fleet rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Proof_of_Fleet"@en.
+:Permission_Tender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Permission_Tender"@en.
+:Publication_Context rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Publication_Context"@en.
+:Service_Tender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Service_Tender"@en.
+:Warranty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Warranty"@en.
+:Bidder_Registration rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Bidder_Registration"@en.
+:Construction_Tender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Construction_Tender"@en.
+:Tender_Without_Winner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tender_Without_Winner"@en.
+:Bidder_in_Auction rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidder_in_Auction"@en.
+:Economic_Proposal_in_Specific_Proposal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Economic_Proposal_in_Specific_Proposal"@en.
+:Permission_Tender_in_External_Phase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Permission_Tender_in_External_Phase"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Tender_in_Proposal_Reviewing rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tender_in_Proposal_Reviewing"@en.
+:General_Proposal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "General_Proposal"@en.
+:Bussiness_Plan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bussiness_Plan"@en.
+:Call_for_Tender_Republication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Call_for_Tender_Republication"@en.
+:Call_for_Tender rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Call_for_Tender"@en.
+:Specific_Proposal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Specific_Proposal"@en.
+:Legal_Representative rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Legal_Representative"@en.
+:Permission_Grant_Contract rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Permission_Grant_Contract"@en.
+:Lease_Tender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Lease_Tender"@en.
+:Auction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Auction"@en.
+:Permission_Grant rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Permission_Grant"@en.
+:Tended_With_Winner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tended_With_Winner"@en.
+:Permission_Tender_in_Auction rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Permission_Tender_in_Auction"@en.
+:Disposal_Tender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Disposal_Tender"@en.
+:Power_of_Attorney rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Power_of_Attorney"@en.
+:Economic_Proposal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Proposal"@en.
+:Bussiness_Plan_in_Specific_Proposal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bussiness_Plan_in_Specific_Proposal"@en.
+:Public_Hearing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Public_Hearing"@en.
+:Tender_in_External_Phase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tender_in_External_Phase"@en.
+:Republication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Republication"@en.
+:Session_of_Public_Auction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Session_of_Public_Auction"@en.
+:Batch_in_Auction rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Batch_in_Auction"@en.
+:Purchase_Tender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Purchase_Tender"@en.
+:Batch_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Batch_Group"@en.
+:Winner_of_Public_Auction rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Winner_of_Public_Auction"@en.
+:Proof_of_Fleet_in_General_Proposal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Proof_of_Fleet_in_General_Proposal"@en.
+:Completed_Tender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Completed_Tender"@en.
+:Tender_in_Call_for_Tender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tender_in_Call_for_Tender"@en.
+:Service_Batch rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Service_Batch"@en.
+:Published_Call_for_Tender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Published_Call_for_Tender"@en.
+:Tender rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Tender"@en.
+:Bidder rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidder"@en.
+:Qualification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Qualification"@en.
+:Failed_Tender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Failed_Tender"@en.
+:Legal_Representative_in_Tender_Process rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Legal_Representative_in_Tender_Process"@en.
+:Company rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Company"@en.
+:Homologation_of_Public_Auction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Homologation_of_Public_Auction"@en.
+:Published_Object rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Published_Object"@en.
+:Auction_for_Public_Tender rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Auction_for_Public_Tender"@en.
+:Tender_in_Homologation_Process rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tender_in_Homologation_Process"@en.
+:Call_for_Tender_Publication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Call_for_Tender_Publication"@en.
+:Service_Batch_in_Auction rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Service_Batch_in_Auction"@en.
+:Grant_Committee_Nomination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Grant_Committee_Nomination"@en.
+:Anulled_Tender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Anulled_Tender"@en.
+:Company_Participant_of_Public_Auction rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Company_Participant_of_Public_Auction"@en.
+:Warranty_in_General_Proposal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Warranty_in_General_Proposal"@en.
+:Tender_in_External_Phase rdfs:subClassOf :Tender.
+:Service_Tender rdfs:subClassOf :Tender.
+:Disposal_Tender rdfs:subClassOf :Tender.
+:Completed_Tender rdfs:subClassOf :Tender.
+:Concession_Tender rdfs:subClassOf :Tender.
+:Purchase_Tender rdfs:subClassOf :Tender.
+:Lease_Tender rdfs:subClassOf :Tender.
+:Construction_Tender rdfs:subClassOf :Tender.
+:Permission_Tender rdfs:subClassOf :Tender.
+:Tender_in_Internal_Phase rdfs:subClassOf :Tender.
+:Empty_Tender rdfs:subClassOf :Tender_Without_Winner.
+:Failed_Tender rdfs:subClassOf :Tender_Without_Winner.
+:Anulled_Tender rdfs:subClassOf :Completed_Tender.
+:Tended_With_Winner rdfs:subClassOf :Completed_Tender.
+:Tender_Without_Winner rdfs:subClassOf :Completed_Tender.
+:Tender_in_Qualification rdfs:subClassOf :Tender_in_External_Phase.
+:Suspended_Tender rdfs:subClassOf :Tender_in_External_Phase.
+:Tender_in_Homologation_Process rdfs:subClassOf :Tender_in_External_Phase.
+:Tender_in_Proposal_Reviewing rdfs:subClassOf :Tender_in_External_Phase.
+:Tender_in_Call_for_Tender rdfs:subClassOf :Tender_in_External_Phase.
+:Qualification_in_General_Proposal rdfs:subClassOf :Qualification.
+:Public_Auction rdfs:subClassOf :Auction.
+:Tender_in_Internal_Phase rdfs:subClassOf :Tender.
+:Grant_Committee rdfs:subClassOf :Committee.
+:Suspended_Tender rdfs:subClassOf :Tender_in_External_Phase.
+:Empty_Tender rdfs:subClassOf :Tender_Without_Winner.
+:Tender_in_Qualification rdfs:subClassOf :Tender_in_External_Phase.
+:Concession_Tender rdfs:subClassOf :Tender.
+:Permission_Tender rdfs:subClassOf :Tender.
+:Service_Tender rdfs:subClassOf :Tender.
+:Construction_Tender rdfs:subClassOf :Tender.
+:Tender_Without_Winner rdfs:subClassOf :Completed_Tender.
+:Bidder_in_Auction rdfs:subClassOf :Company_Participant_of_Public_Auction, :Bidder.
+:Economic_Proposal_in_Specific_Proposal rdfs:subClassOf :Economic_Proposal.
+:Permission_Tender_in_External_Phase rdfs:subClassOf :Tender_in_External_Phase.
+:Tender_in_Proposal_Reviewing rdfs:subClassOf :Tender_in_External_Phase.
+:Call_for_Tender_Republication rdfs:subClassOf :Republication.
+:Legal_Representative rdfs:subClassOf :Person.
+:Lease_Tender rdfs:subClassOf :Tender.
+:Tended_With_Winner rdfs:subClassOf :Completed_Tender.
+:Permission_Tender_in_Auction rdfs:subClassOf :Permission_Tender.
+:Disposal_Tender rdfs:subClassOf :Tender.
+:Bussiness_Plan_in_Specific_Proposal rdfs:subClassOf :Bussiness_Plan.
+:Tender_in_External_Phase rdfs:subClassOf :Tender.
+:Republication rdfs:subClassOf :Publication.
+:Purchase_Tender rdfs:subClassOf :Tender.
+:Winner_of_Public_Auction rdfs:subClassOf :Company_Participant_of_Public_Auction.
+:Proof_of_Fleet_in_General_Proposal rdfs:subClassOf :Proof_of_Fleet.
+:Completed_Tender rdfs:subClassOf :Tender.
+:Tender_in_Call_for_Tender rdfs:subClassOf :Tender_in_External_Phase, :Publication_Context.
+:Published_Call_for_Tender rdfs:subClassOf :Published_Object, :Call_for_Tender.
+:Bidder rdfs:subClassOf :Company.
+:Failed_Tender rdfs:subClassOf :Tender_Without_Winner.
+:Legal_Representative_in_Tender_Process rdfs:subClassOf :Legal_Representative.
+:Auction_for_Public_Tender rdfs:subClassOf :Public_Auction.
+:Tender_in_Homologation_Process rdfs:subClassOf :Tender_in_External_Phase.
+:Call_for_Tender_Publication rdfs:subClassOf :Publication.
+:Service_Batch_in_Auction rdfs:subClassOf :Service_Batch, :Batch_in_Auction.
+:Anulled_Tender rdfs:subClassOf :Completed_Tender.
+:Warranty_in_General_Proposal rdfs:subClassOf :Warranty.
+:term rdfs:domain :Permission_Tender;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "term"@en.
+:CPF rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "CPF"@en.
+:RG rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "RG"@en.
+:address rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "address"@en.
+:marital rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "marital"@en.
+:age rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "age"@en.
+:nationality rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nationality"@en.
+:profession rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "profession"@en.
+:lines rdfs:domain :Service_Batch;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "lines"@en.
+:companies rdfs:domain :Service_Batch;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "companies"@en.
+:reserveFleet rdfs:domain :Service_Batch;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "reserveFleet"@en.

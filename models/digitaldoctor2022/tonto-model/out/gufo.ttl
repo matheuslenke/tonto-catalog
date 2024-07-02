@@ -1,0 +1,167 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:User rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "User"@en.
+:Patient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Patient"@en.
+:Doctor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Doctor"@en.
+:Symptom rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Symptom"@en.
+:MildSymptom rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "MildSymptom"@en.
+:SevereSymptom rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "SevereSymptom"@en.
+:MedicalHistory rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "MedicalHistory"@en.
+:MedicalProcedure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "MedicalProcedure"@en.
+:TherapeuticProcedure rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "TherapeuticProcedure"@en.
+:PalliativeProcedure rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "PalliativeProcedure"@en.
+:PhysicalExam rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "PhysicalExam"@en.
+:SurgicalProcedure rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "SurgicalProcedure"@en.
+:DiagnosticProcedure rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "DiagnosticProcedure"@en.
+:DoseSchedule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "DoseSchedule"@en.
+:Drug rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Drug"@en.
+:NamedEntity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "NamedEntity"@en.
+:Person rdfs:subClassOf :NamedEntity.
+:User rdfs:subClassOf :Person.
+:Patient rdfs:subClassOf :User.
+:Doctor rdfs:subClassOf :User.
+:MildSymptom rdfs:subClassOf :Symptom.
+:SevereSymptom rdfs:subClassOf :Symptom.
+:MedicalHistory rdfs:subClassOf :NamedEntity.
+:MedicalProcedure rdfs:subClassOf :NamedEntity.
+:DoseSchedule rdfs:subClassOf :NamedEntity.
+:Drug rdfs:subClassOf :NamedEntity.
+:firstName rdfs:domain :Person;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "firstName"@en.
+:lastName rdfs:domain :Person;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "lastName"@en.
+:birthdate rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "birthdate"@en.
+:gender rdfs:domain :Person;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "gender"@en.
+:SSN rdfs:domain :Person;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "SSN"@en.
+:username rdfs:domain :User;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "username"@en.
+:symptomWorsening rdfs:domain :Symptom;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "symptomWorsening"@en.
+:observation rdfs:domain :MedicalHistory;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "observation"@en.
+:patientPreparation rdfs:domain :MedicalProcedure;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "patientPreparation"@en.
+:bodyLocation rdfs:domain :PhysicalExam;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "bodyLocation"@en.
+:bodyLocation_1 rdfs:domain :SurgicalProcedure;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "bodyLocation"@en.
+:typeOfAnaesthesia rdfs:domain :SurgicalProcedure;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "typeOfAnaesthesia"@en.
+:diagnosisMethod rdfs:domain :DiagnosticProcedure;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "diagnosisMethod"@en.
+:doseUnit rdfs:domain :DoseSchedule;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "doseUnit"@en.
+:doseFrequency rdfs:domain :DoseSchedule;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "doseFrequency"@en.
+:prescriptionRequired rdfs:domain :Drug;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "prescriptionRequired"@en.
+:isAvailableGenerically rdfs:domain :Drug;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "isAvailableGenerically"@en.
+:alcoholWarning rdfs:domain :Drug;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "alcoholWarning"@en.
+:foodWarning rdfs:domain :Drug;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "foodWarning"@en.
+:pregnancyWarning rdfs:domain :Drug;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "pregnancyWarning"@en.
+:breastfeedingWarning rdfs:domain :Drug;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "breastfeedingWarning"@en.

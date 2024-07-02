@@ -1,0 +1,37 @@
+
+package Balano_Patrimonial
+
+subkind Passivo_Composto of functional-complexes  specializes Passivo {
+    valor_agregado: undefined  
+}
+
+subkind Passivo_Simples of functional-complexes  specializes Passivo {
+    valor_conta: undefined  
+}
+
+subkind Ativo_Simples of functional-complexes  specializes Ativo {
+    valor: undefined  
+}
+
+subkind Ativo_Composto of functional-complexes  specializes Ativo {
+    valor_agregado: undefined  
+}
+
+kind Passivo{
+    custo_corrente: undefined  
+    custo_histrico: undefined  
+    descrio: undefined  
+    valor_presente: undefined  
+    valor_realizvel: undefined  
+}
+
+kind Ativo{
+    custo_corrente: undefined  
+    custo_histrico: undefined  
+    descrio: undefined  
+    valor_presente: undefined  
+    valor_realizvel: undefined  
+}
+
+
+

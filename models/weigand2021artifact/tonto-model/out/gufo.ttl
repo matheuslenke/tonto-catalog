@@ -1,0 +1,180 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Maker rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Maker"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intention"@en.
+:Testing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Testing"@en.
+:Making rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Making"@en.
+:Source rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Source"@en.
+:Physical_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Physical_Object"@en.
+:Result rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Result"@en.
+:Technical_object rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Technical_object"@en.
+:Capacity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Capacity"@en.
+:User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "User"@en.
+:Usage rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Usage"@en.
+:Usage_condition rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Usage_condition"@en.
+:Using rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Using"@en.
+:Use_condition rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Use_condition"@en.
+:Field rdf:type owl:NamedIndividual;
+    rdfs:label "Field"@en.
+:Capacities rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Capacities"@en.
+:Instrument rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Instrument"@en.
+:Observation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Observation"@en.
+:Material_source rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Material_source"@en.
+:Proposition rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:AbstractIndividual;
+    rdfs:label "Proposition"@en.
+:Practice rdf:type owl:NamedIndividual;
+    rdfs:label "Practice"@en.
+:Usage_effect rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Usage_effect"@en.
+:Use_effect rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Use_effect"@en.
+:Designer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Designer"@en.
+:Planned rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "Planned"@en.
+:In_production rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "In_production"@en.
+:Employed rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "Employed"@en.
+:Disposed rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "Disposed"@en.
+:In_distribution rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "In_distribution"@en.
+:In_use rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "In_use"@en.
+:In_maintenance rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "In_maintenance"@en.
+:Design_conversation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Design_conversation"@en.
+:Object_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Object_Description"@en.
+:Normative_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Normative_Description"@en.
+:Plan_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Plan_Description"@en.
+:Artifact_variant rdf:type owl:NamedIndividual;
+    rdfs:label "Artifact_variant"@en.
+:Design_object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Design_object"@en.
+:Artifact_universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Artifact_universal"@en.
+:Artefact_design rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Artefact_design"@en.
+:Artifact rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Artifact"@en.
+:Capacity_universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Capacity_universal"@en.
+:Make_goal rdf:type owl:NamedIndividual;
+    rdfs:label "Make_goal"@en.
+:Make_plan rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Make_plan"@en.
+:Make_process rdf:type owl:NamedIndividual;
+    rdfs:label "Make_process"@en.
+:Use_plan rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Use_plan"@en.
+:Use_goal rdf:type owl:NamedIndividual;
+    rdfs:label "Use_goal"@en.
+:Complex_Action_Universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Complex_Action_Universal"@en.
+:Directive_actagenic rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Directive_actagenic"@en.
+:Use_process rdf:type owl:NamedIndividual;
+    rdfs:label "Use_process"@en.
+:Communicative_acts rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Communicative_acts"@en.
+:Assertive_factagenic rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Assertive_factagenic"@en.
+:Technical_object rdfs:subClassOf :Instrument.
+:Material_source rdfs:subClassOf :Instrument.
+:In_production rdfs:subClassOf :Technical_object.
+:Employed rdfs:subClassOf :Technical_object.
+:Planned rdfs:subClassOf :Technical_object.
+:Disposed rdfs:subClassOf :Technical_object.
+:In_use rdfs:subClassOf :Employed.
+:In_distribution rdfs:subClassOf :Employed.
+:In_maintenance rdfs:subClassOf :Employed.
+:Assertive_factagenic rdfs:subClassOf :Communicative_acts.
+:Directive_actagenic rdfs:subClassOf :Communicative_acts.
+:Designer rdfs:subClassOf :Agent.
+:Maker rdfs:subClassOf :Agent.
+:User rdfs:subClassOf :Agent.
+:Maker rdfs:subClassOf :Agent.
+:Source rdfs:subClassOf :Physical_Object.
+:Result rdfs:subClassOf :Physical_Object.
+:Technical_object rdfs:subClassOf :Result, :Instrument.
+:User rdfs:subClassOf :Agent.
+:Field rdfs:subClassOf :Proposition.
+:Material_source rdfs:subClassOf :Instrument.
+:Practice rdfs:subClassOf :Proposition.
+:Designer rdfs:subClassOf :Agent.
+:Planned rdfs:subClassOf :Technical_object.
+:In_production rdfs:subClassOf :Technical_object.
+:Employed rdfs:subClassOf :Technical_object.
+:Disposed rdfs:subClassOf :Technical_object.
+:In_distribution rdfs:subClassOf :Employed.
+:In_use rdfs:subClassOf :Employed.
+:In_maintenance rdfs:subClassOf :Employed.
+:Object_Description rdfs:subClassOf :Normative_Description.
+:Plan_Description rdfs:subClassOf :Normative_Description.
+:Artifact_variant rdfs:subClassOf :Artifact_universal.
+:Design_object rdfs:subClassOf :Object_Description.
+:Artefact_design rdfs:subClassOf :Plan_Description.
+:Artifact rdfs:subClassOf :Technical_object.
+:Make_goal rdfs:subClassOf :Capacity_universal.
+:Make_process rdfs:subClassOf :Complex_Action_Universal.
+:Use_goal rdfs:subClassOf :Proposition.
+:Directive_actagenic rdfs:subClassOf :Communicative_acts.
+:Use_process rdfs:subClassOf :Complex_Action_Universal.
+:Assertive_factagenic rdfs:subClassOf :Communicative_acts.

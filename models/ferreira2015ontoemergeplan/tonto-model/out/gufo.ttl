@@ -1,0 +1,473 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Environmental_Physical_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Environmental_Physical_Component"@en.
+:Environmental_Social_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Environmental_Social_Component"@en.
+:Hazardous_Event_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Hazardous_Event_Type"@en.
+:Material_Resource_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Material_Resource_Type"@en.
+:Atomic_E_Standard_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Atomic_E_Standard_Activity"@en.
+:Atomic_OE_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Atomic_OE_Activity"@en.
+:Complex_E_Standard_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Complex_E_Standard_Activity"@en.
+:Complex_OE_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Complex_OE_Activity"@en.
+:E_Standard_Activity rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "E_Standard_Activity"@en.
+:E_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "E_Standard_Process"@en.
+:E_Standard_Process_Definition_Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "E_Standard_Process_Definition_Document"@en.
+:E_Standard_Process_Definition_Document_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "E_Standard_Process_Definition_Document_Type"@en.
+:General_E_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "General_E_Standard_Process"@en.
+:General_OE_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "General_OE_Process"@en.
+:OE_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "OE_Activity"@en.
+:OE_Activity_Goal rdf:type owl:NamedIndividual;
+    rdfs:label "OE_Activity_Goal"@en.
+:OE_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "OE_Process"@en.
+:OE_Process_Definition_Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "OE_Process_Definition_Document"@en.
+:RoESPDD rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RoESPDD"@en.
+:Specific_E_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Specific_E_Standard_Process"@en.
+:Specific_OE_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Specific_OE_Process"@en.
+:Civil_Defense_Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Civil_Defense_Organization"@en.
+:Civil_Defense_Organization_Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Civil_Defense_Organization_Intention"@en.
+:Delegation rdf:type owl:NamedIndividual;
+    rdfs:label "Delegation"@en.
+:EP_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EP_Agent"@en.
+:EP_Agent_delegatee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EP_Agent_delegatee"@en.
+:EP_Agent_delegator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EP_Agent_delegator"@en.
+:EP_Goal_Delegation rdf:type owl:NamedIndividual;
+    rdfs:label "EP_Goal_Delegation"@en.
+:EP_Plan rdf:type owl:NamedIndividual;
+    rdfs:label "EP_Plan"@en.
+:EP_Plan_Delegation rdf:type owl:NamedIndividual;
+    rdfs:label "EP_Plan_Delegation"@en.
+:EP_Situation_Individual rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "EP_Situation_Individual"@en.
+:Organization_Holder rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Organization_Holder"@en.
+:Organization_Holder_Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Organization_Holder_Intention"@en.
+:Acess_Infrastructure rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Acess_Infrastructure"@en.
+:Business_Activitiy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Business_Activitiy"@en.
+:Business_Activity_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Business_Activity_Type"@en.
+:Businessman rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Businessman"@en.
+:Deployment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Deployment"@en.
+:Evacuation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Evacuation"@en.
+:Evacuation_Geographical_Region rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Evacuation_Geographical_Region"@en.
+:Evacuation_Installation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Evacuation_Installation"@en.
+:Evacuation_Local rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Evacuation_Local"@en.
+:Horizontal_Acess rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Horizontal_Acess"@en.
+:Installation_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Installation_Type"@en.
+:Owner rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Owner"@en.
+:Primary_Business_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Primary_Business_Activity"@en.
+:Secondary_Business_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Secondary_Business_Activity"@en.
+:Vertical_Acess rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Vertical_Acess"@en.
+:Atomic_Installation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Atomic_Installation"@en.
+:Complex_Installation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Complex_Installation"@en.
+:Holder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Holder"@en.
+:Installation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Installation"@en.
+:Main_Organization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Main_Organization"@en.
+:Organization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Person_Holder rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Person_Holder"@en.
+:Possesion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Possesion"@en.
+:Regulatory_Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Regulatory_Organization"@en.
+:Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Allocation"@en.
+:Business_Emergency_Human_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Business_Emergency_Human_Resource"@en.
+:Business_Emergency_Material_Resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Business_Emergency_Material_Resource"@en.
+:Business_Human_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Business_Human_Resource"@en.
+:Business_Non_Emergency_Human_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Business_Non_Emergency_Human_Resource"@en.
+:Emergency_Team rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Emergency_Team"@en.
+:Function_of_Role rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Function_of_Role"@en.
+:Human_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Human_Resource"@en.
+:Human_Resource_Role rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Human_Resource_Role"@en.
+:Internal_Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Internal_Allocation"@en.
+:Material_Resource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Material_Resource"@en.
+:Positions_Plan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Positions_Plan"@en.
+:Public_Emergency_Human_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Public_Emergency_Human_Resource"@en.
+:Public_Emergency_Material_Resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Public_Emergency_Material_Resource"@en.
+:User rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User"@en.
+:Visitor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Visitor"@en.
+:Visitor_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Visitor_Type"@en.
+:Abiotic_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Abiotic_Component"@en.
+:Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Agreement"@en.
+:Biotic_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Biotic_Component"@en.
+:Built_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Built_Component"@en.
+:Environmental_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Environmental_Component"@en.
+:EP_Goal rdf:type owl:NamedIndividual;
+    rdfs:label "EP_Goal"@en.
+:EP_Main_Goal rdf:type owl:NamedIndividual;
+    rdfs:label "EP_Main_Goal"@en.
+:Endangered_Component rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Endangered_Component"@en.
+:Environment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Environment"@en.
+:Natural_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Natural_Component"@en.
+:Plan_Action_Universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Plan_Action_Universal"@en.
+:Protect_Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Protect_Intention"@en.
+:Protection_Action rdf:type owl:NamedIndividual;
+    rdfs:label "Protection_Action"@en.
+:Protector rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Protector"@en.
+:Safe_Component rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Safe_Component"@en.
+:Under_Protection_Component rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Under_Protection_Component"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Identified_Risk rdf:type owl:NamedIndividual;
+    rdfs:label "Identified_Risk"@en.
+:Impact_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Impact_Type"@en.
+:Risk rdf:type owl:NamedIndividual;
+    rdfs:label "Risk"@en.
+:Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Component"@en.
+:Damage rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Damage"@en.
+:Damage_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Damage_Type"@en.
+:Damaged_Environment rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Damaged_Environment"@en.
+:Environmental_Vulnerability rdf:type owl:NamedIndividual;
+    rdfs:label "Environmental_Vulnerability"@en.
+:Event_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Event_Type"@en.
+:Hazard rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Hazard"@en.
+:Hazard_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Hazard_Type"@en.
+:Hazardous_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Hazardous_Event"@en.
+:Impact rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Impact"@en.
+:Impacted_Environment rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Impacted_Environment"@en.
+:Individual_Vulnerability rdf:type owl:NamedIndividual;
+    rdfs:label "Individual_Vulnerability"@en.
+:Mitigation_activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Mitigation_activity"@en.
+:Preventive_activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Preventive_activity"@en.
+:Risk_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Risk_Type"@en.
+:Transfer_activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Transfer_activity"@en.
+:Vulnerability rdf:type owl:NamedIndividual;
+    rdfs:label "Vulnerability"@en.
+:Authority rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Authority"@en.
+:Geographical_Point rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Geographical_Point"@en.
+:Jurisdiction rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Jurisdiction"@en.
+:Macro_Political_Region rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Macro_Political_Region"@en.
+:Micro_Political_Region rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Micro_Political_Region"@en.
+:Non_Political_Region rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Non_Political_Region"@en.
+:Political_Body rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Political_Body"@en.
+:Political_Region rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Political_Region"@en.
+:Spatial_Location rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Spatial_Location"@en.
+:Geographical_Region rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Geographical_Region"@en.
+:Identified_Type_of_Hazardous_Event rdf:type owl:NamedIndividual;
+    rdfs:label "Identified_Type_of_Hazardous_Event"@en.
+:Closed_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Closed_Commitment"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Agent_in_Social_Relation rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Agent_in_Social_Relation"@en.
+:Atomic_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Atomic_Commitment"@en.
+:Collective_Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Collective_Social_Agent"@en.
+:Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Commitment"@en.
+:Complex_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Complex_Commitment"@en.
+:Delegatee rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Delegatee"@en.
+:Delegator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Delegator"@en.
+:Goal rdf:type owl:NamedIndividual;
+    rdfs:label "Goal"@en.
+:Individual_Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Individual_Social_Agent"@en.
+:Normative_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Normative_Description"@en.
+:Normatized_Social_Object rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Normatized_Social_Object"@en.
+:Physical_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Agent"@en.
+:Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Social_Agent"@en.
+:Social_Role rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Social_Role"@en.
+:Open_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Open_Commitment"@en.
+:Physical_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Component"@en.
+:Social_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Social_Component"@en.
+:Complex_Event rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Complex_Event"@en.
+:Plan_Action_Universal_1 rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Plan_Action_Universal"@en.
+:Situation_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Situation_Individual"@en.
+:Environmental_Physical_Component rdfs:subClassOf :Environmental_Component.
+:Environmental_Social_Component rdfs:subClassOf :Environmental_Component.
+:Natural_Component rdfs:subClassOf :Environmental_Physical_Component.
+:Built_Component rdfs:subClassOf :Environmental_Physical_Component.
+:Biotic_Component rdfs:subClassOf :Natural_Component.
+:Abiotic_Component rdfs:subClassOf :Natural_Component.
+:Safe_Component rdfs:subClassOf :Under_Protection_Component.
+:Endangered_Component rdfs:subClassOf :Under_Protection_Component.
+:Geographical_Point rdfs:subClassOf :Spatial_Location.
+:Geographical_Region rdfs:subClassOf :Spatial_Location.
+:Non_Political_Region rdfs:subClassOf :Geographical_Region.
+:Political_Region rdfs:subClassOf :Geographical_Region.
+:Macro_Political_Region rdfs:subClassOf :Political_Region.
+:Micro_Political_Region rdfs:subClassOf :Political_Region.
+:Business_Non_Emergency_Human_Resource rdfs:subClassOf :User.
+:Visitor rdfs:subClassOf :User.
+:Business_Non_Emergency_Human_Resource rdfs:subClassOf :Business_Human_Resource.
+:Business_Emergency_Human_Resource rdfs:subClassOf :Business_Human_Resource.
+:Business_Human_Resource rdfs:subClassOf :Human_Resource.
+:Public_Emergency_Human_Resource rdfs:subClassOf :Human_Resource.
+:Public_Emergency_Material_Resource rdfs:subClassOf :Material_Resource.
+:Business_Emergency_Material_Resource rdfs:subClassOf :Material_Resource.
+:Organization_Holder rdfs:subClassOf :Holder.
+:Person_Holder rdfs:subClassOf :Holder.
+:Businessman rdfs:subClassOf :Holder.
+:Owner rdfs:subClassOf :Holder.
+:Primary_Business_Activity rdfs:subClassOf :Business_Activitiy.
+:Secondary_Business_Activity rdfs:subClassOf :Business_Activitiy.
+:Vertical_Acess rdfs:subClassOf :Acess_Infrastructure.
+:Horizontal_Acess rdfs:subClassOf :Acess_Infrastructure.
+:Atomic_E_Standard_Activity rdfs:subClassOf :E_Standard_Activity.
+:Complex_E_Standard_Activity rdfs:subClassOf :E_Standard_Activity.
+:Environmental_Vulnerability rdfs:subClassOf :Vulnerability.
+:Individual_Vulnerability rdfs:subClassOf :Vulnerability.
+:Environmental_Physical_Component rdfs:subClassOf :Environmental_Component.
+:Environmental_Social_Component rdfs:subClassOf :Environmental_Component.
+:Hazardous_Event_Type rdfs:subClassOf :Event_Type.
+:Atomic_E_Standard_Activity rdfs:subClassOf :E_Standard_Activity.
+:Atomic_OE_Activity rdfs:subClassOf :OE_Activity.
+:Complex_E_Standard_Activity rdfs:subClassOf :E_Standard_Activity.
+:Complex_OE_Activity rdfs:subClassOf :OE_Activity.
+:General_E_Standard_Process rdfs:subClassOf :E_Standard_Process, :E_Standard_Process.
+:General_OE_Process rdfs:subClassOf :OE_Process.
+:RoESPDD rdfs:subClassOf :Regulatory_Organization.
+:Specific_E_Standard_Process rdfs:subClassOf :E_Standard_Process.
+:Specific_OE_Process rdfs:subClassOf :OE_Process, :OE_Process.
+:Civil_Defense_Organization rdfs:subClassOf :EP_Agent.
+:EP_Agent_delegatee rdfs:subClassOf :EP_Agent.
+:EP_Agent_delegator rdfs:subClassOf :EP_Agent.
+:EP_Goal_Delegation rdfs:subClassOf :Delegation.
+:EP_Plan rdfs:subClassOf :Plan_Action_Universal.
+:EP_Plan_Delegation rdfs:subClassOf :Delegation.
+:Organization_Holder rdfs:subClassOf :EP_Agent, :Holder, :Organization.
+:Businessman rdfs:subClassOf :Holder.
+:Evacuation_Geographical_Region rdfs:subClassOf :Geographical_Region, :Evacuation_Local.
+:Evacuation_Installation rdfs:subClassOf :Evacuation_Local, :Installation.
+:Horizontal_Acess rdfs:subClassOf :Acess_Infrastructure.
+:Owner rdfs:subClassOf :Holder.
+:Primary_Business_Activity rdfs:subClassOf :Business_Activitiy.
+:Secondary_Business_Activity rdfs:subClassOf :Business_Activitiy.
+:Vertical_Acess rdfs:subClassOf :Acess_Infrastructure.
+:Atomic_Installation rdfs:subClassOf :Installation.
+:Complex_Installation rdfs:subClassOf :Installation.
+:Person_Holder rdfs:subClassOf :Holder, :Person.
+:Business_Emergency_Human_Resource rdfs:subClassOf :Business_Human_Resource.
+:Business_Emergency_Material_Resource rdfs:subClassOf :Material_Resource.
+:Business_Human_Resource rdfs:subClassOf :Human_Resource.
+:Business_Non_Emergency_Human_Resource rdfs:subClassOf :User, :Business_Human_Resource.
+:Human_Resource rdfs:subClassOf :Person.
+:Public_Emergency_Human_Resource rdfs:subClassOf :Human_Resource.
+:Public_Emergency_Material_Resource rdfs:subClassOf :Material_Resource.
+:User rdfs:subClassOf :Person.
+:Visitor rdfs:subClassOf :User.
+:Abiotic_Component rdfs:subClassOf :Natural_Component.
+:Biotic_Component rdfs:subClassOf :Natural_Component.
+:Built_Component rdfs:subClassOf :Environmental_Physical_Component.
+:EP_Main_Goal rdfs:subClassOf :EP_Goal, :EP_Goal.
+:Endangered_Component rdfs:subClassOf :Component, :Under_Protection_Component.
+:Natural_Component rdfs:subClassOf :Environmental_Physical_Component.
+:Protection_Action rdfs:subClassOf :Plan_Action_Universal.
+:Safe_Component rdfs:subClassOf :Under_Protection_Component.
+:Under_Protection_Component rdfs:subClassOf :Environmental_Component.
+:Person rdfs:subClassOf :Biotic_Component.
+:Identified_Risk rdfs:subClassOf :Risk.
+:Risk rdfs:subClassOf :Vulnerability.
+:Damage rdfs:subClassOf :Impact.
+:Damaged_Environment rdfs:subClassOf :Impacted_Environment.
+:Environmental_Vulnerability rdfs:subClassOf :Vulnerability.
+:Impacted_Environment rdfs:subClassOf :Environment.
+:Individual_Vulnerability rdfs:subClassOf :Vulnerability.
+:Mitigation_activity rdfs:subClassOf :OE_Activity.
+:Preventive_activity rdfs:subClassOf :OE_Activity.
+:Transfer_activity rdfs:subClassOf :OE_Activity.
+:Geographical_Point rdfs:subClassOf :Spatial_Location.
+:Jurisdiction rdfs:subClassOf :Geographical_Region.
+:Macro_Political_Region rdfs:subClassOf :Political_Region.
+:Micro_Political_Region rdfs:subClassOf :Political_Region.
+:Non_Political_Region rdfs:subClassOf :Geographical_Region.
+:Political_Body rdfs:subClassOf :Authority.
+:Political_Region rdfs:subClassOf :Jurisdiction, :Geographical_Region.
+:Geographical_Region rdfs:subClassOf :Spatial_Location.
+:Identified_Type_of_Hazardous_Event rdfs:subClassOf :Hazardous_Event_Type.
+:Closed_Commitment rdfs:subClassOf :Commitment.
+:Intention rdfs:subClassOf :Commitment.
+:Agent_in_Social_Relation rdfs:subClassOf :Agent.
+:Atomic_Commitment rdfs:subClassOf :Commitment.
+:Collective_Social_Agent rdfs:subClassOf :Social_Agent.
+:Complex_Commitment rdfs:subClassOf :Commitment.
+:Normatized_Social_Object rdfs:subClassOf :Social_Component.
+:Physical_Agent rdfs:subClassOf :Agent.
+:Social_Agent rdfs:subClassOf :Agent.
+:Physical_Component rdfs:subClassOf :Environmental_Component.

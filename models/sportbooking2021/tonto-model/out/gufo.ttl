@@ -1,0 +1,193 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Customer"@en.
+:Instructor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Instructor"@en.
+:Owner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Owner"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:ManagementUsers rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ManagementUsers"@en.
+:User rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User"@en.
+:Physical_building rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Physical_building"@en.
+:FacilityBooking rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FacilityBooking"@en.
+:Payment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Payment"@en.
+:Booking_history rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Booking_history"@en.
+:Shared_Booking rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Shared_Booking"@en.
+:Company rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Company"@en.
+:Single_Booking rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Single_Booking"@en.
+:Instructor_Booking rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Instructor_Booking"@en.
+:Account_creation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Account_creation"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Account"@en.
+:Inactive rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Inactive"@en.
+:Active rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Active"@en.
+:Employment_contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Employment_contract"@en.
+:Company_ownership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Company_ownership"@en.
+:Mediated_by_Company_ownership rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mediated_by_Company_ownership"@en.
+:Mediated_by_employment_contract rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mediated_by_employment_contract"@en.
+:Facility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Facility"@en.
+:Building_managnement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Building_managnement"@en.
+:Mediated_by_building_management rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mediated_by_building_management"@en.
+:Mediated_by_Confirmation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mediated_by_Confirmation"@en.
+:Purchase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Purchase"@en.
+:Store rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Store"@en.
+:Game rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Game"@en.
+:Confirmation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Confirmation"@en.
+:Instructor_confirmation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Instructor_confirmation"@en.
+:Accepted rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Accepted"@en.
+:Cancelled rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Cancelled"@en.
+:Employee rdfs:subClassOf :ManagementUsers.
+:Owner rdfs:subClassOf :ManagementUsers.
+:Single_Booking rdfs:subClassOf :FacilityBooking.
+:Shared_Booking rdfs:subClassOf :FacilityBooking.
+:Active rdfs:subClassOf :User.
+:Inactive rdfs:subClassOf :User.
+:Customer rdfs:subClassOf :Account.
+:Instructor rdfs:subClassOf :Employee.
+:Owner rdfs:subClassOf :ManagementUsers.
+:Employee rdfs:subClassOf :ManagementUsers.
+:ManagementUsers rdfs:subClassOf :Account.
+:User rdfs:subClassOf :Person.
+:Shared_Booking rdfs:subClassOf :FacilityBooking.
+:Single_Booking rdfs:subClassOf :FacilityBooking.
+:Instructor_Booking rdfs:subClassOf :FacilityBooking.
+:Inactive rdfs:subClassOf :User.
+:Active rdfs:subClassOf :User.
+:Customer rdfs:subClassOf :Account.
+:ManagementUsers rdfs:subClassOf :Account.
+:Mediated_by_employment_contract rdfs:subClassOf :Company.
+:Mediated_by_Company_ownership rdfs:subClassOf :Company.
+:Mediated_by_Confirmation rdfs:subClassOf :Company.
+:Mediated_by_building_management rdfs:subClassOf :Company.
+:Mediated_by_Company_ownership rdfs:subClassOf :Company.
+:Mediated_by_employment_contract rdfs:subClassOf :Company.
+:Mediated_by_building_management rdfs:subClassOf :Company.
+:Mediated_by_Confirmation rdfs:subClassOf :Company.
+:Accepted rdfs:subClassOf :Instructor_confirmation.
+:Cancelled rdfs:subClassOf :Instructor_confirmation.
+:location rdfs:domain :Customer;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "location"@en.
+:specialization rdfs:domain :Instructor;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "specialization"@en.
+:manRole rdfs:domain :ManagementUsers;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "manRole"@en.
+:password rdfs:domain :User;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "password"@en.
+:role_ rdfs:domain :User;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "role_"@en.
+:location_1 rdfs:domain :Physical_building;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "location"@en.
+:sportType rdfs:domain :Physical_building;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sportType"@en.
+:place rdfs:domain :FacilityBooking;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "place"@en.
+:timeStamp rdfs:domain :FacilityBooking;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "timeStamp"@en.
+:paymentId rdfs:domain :Payment;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "paymentId"@en.
+:timeStamp_1 rdfs:domain :Booking_history;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "timeStamp"@en.
+:isCanceled rdfs:domain :Booking_history;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "isCanceled"@en.
+:companyName rdfs:domain :Company;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "companyName"@en.
+:mainOfficeAddress rdfs:domain :Company;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "mainOfficeAddress"@en.

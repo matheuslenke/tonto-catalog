@@ -1,0 +1,82 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Dados_Abertos rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Dados_Abertos"@en.
+:Acesso_Aberto rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Acesso_Aberto"@en.
+:Pesquisa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pesquisa"@en.
+:Pesquisa_Reprodutvel rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Pesquisa_Reprodutvel"@en.
+:Pesquisa_Reprodutvel_Aberta rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pesquisa_Reprodutvel_Aberta"@en.
+:Licenciamento_Proprietrio rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Licenciamento_Proprietrio"@en.
+:Dados rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Dados"@en.
+:Acesso rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Acesso"@en.
+:Avaliao_Cincia_Aberta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Avaliao_Cincia_Aberta"@en.
+:Cincia_Aberta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Cincia_Aberta"@en.
+:Ferramenta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Ferramenta"@en.
+:Ferramenta_Aberta rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ferramenta_Aberta"@en.
+:Educao_Aberta rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Educao_Aberta"@en.
+:Educao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Educao"@en.
+:Polticas_Cincia_Aberta rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Polticas_Cincia_Aberta"@en.
+:Polticas rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Polticas"@en.
+:Licenciamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Licenciamento"@en.
+:Cincia_Cidad rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Cincia_Cidad"@en.
+:Cincia rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Cincia"@en.
+:Documento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Documento"@en.
+:Preservao_Digital rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Preservao_Digital"@en.
+:Licenciamento_Aberto rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Licenciamento_Aberto"@en.
+:Utilizao_Aberta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Utilizao_Aberta"@en.
+:Inovao_Aberta rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Inovao_Aberta"@en.
+:Dados_Abertos rdfs:subClassOf :Dados.
+:Acesso_Aberto rdfs:subClassOf :Acesso.
+:Pesquisa_Reprodutvel rdfs:subClassOf :Pesquisa.
+:Pesquisa_Reprodutvel_Aberta rdfs:subClassOf :Pesquisa_Reprodutvel.
+:Licenciamento_Proprietrio rdfs:subClassOf :Licenciamento.
+:Dados rdfs:subClassOf :Preservao_Digital.
+:Cincia_Aberta rdfs:subClassOf :Cincia.
+:Ferramenta rdfs:subClassOf :Preservao_Digital.
+:Ferramenta_Aberta rdfs:subClassOf :Ferramenta.
+:Educao_Aberta rdfs:subClassOf :Educao.
+:Polticas_Cincia_Aberta rdfs:subClassOf :Polticas.
+:Cincia_Cidad rdfs:subClassOf :Cincia.
+:Documento rdfs:subClassOf :Preservao_Digital.
+:Licenciamento_Aberto rdfs:subClassOf :Licenciamento.

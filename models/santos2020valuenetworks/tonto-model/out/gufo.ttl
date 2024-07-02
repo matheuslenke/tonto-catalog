@@ -1,0 +1,54 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Community rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Community"@en.
+:Actor rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Actor"@en.
+:Activity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Activity"@en.
+:Performance_Evaluation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Performance_Evaluation"@en.
+:Social_Need rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Social_Need"@en.
+:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object"@en.
+:CnA rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CnA"@en.
+:PoP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "PoP"@en.
+:Core rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Core"@en.
+:Counter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Counter"@en.
+:Community_Development rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Community_Development"@en.
+:Organizational_Governance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Organizational_Governance"@en.
+:Labor_Practices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Labor_Practices"@en.
+:Social_Assistance_Service rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Social_Assistance_Service"@en.
+:Organization rdfs:subClassOf :Actor.
+:Community rdfs:subClassOf :Actor.
+:CnA rdfs:subClassOf :Object.
+:PoP rdfs:subClassOf :Object.
+:Core rdfs:subClassOf :Object.
+:Counter rdfs:subClassOf :Object.
+:Community_Development rdfs:subClassOf :Activity.
+:Organizational_Governance rdfs:subClassOf :Activity.
+:Labor_Practices rdfs:subClassOf :Activity.
+:Social_Assistance_Service rdfs:subClassOf :Activity.

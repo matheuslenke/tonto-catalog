@@ -1,0 +1,29 @@
+
+package Sociedade_Empresria
+
+relator Exerccio_Social{
+    dataFim: undefined  
+    dataIncio: undefined  
+    despesaAdministrativa: undefined  
+    EBITDA: undefined  
+    patrimnioLquido: undefined  
+    resultadoBruto: undefined  
+    resultadoLquido: undefined  
+}
+
+role Sociedade_Empresria_Fiscalizada of functional-complexes  specializes Sociedade_Empresria, Empresa_com_Capital_de_Terceiros {
+    adiantamento: undefined  
+    capitalPrprio: undefined  
+    capitalSocial: undefined  
+    resultadoAcumulado: undefined  
+}
+
+
+
+
+
+
+
+
+
+

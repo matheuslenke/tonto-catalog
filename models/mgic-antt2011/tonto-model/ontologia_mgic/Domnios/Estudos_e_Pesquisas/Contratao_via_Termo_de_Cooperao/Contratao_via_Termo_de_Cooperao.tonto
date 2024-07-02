@@ -1,0 +1,376 @@
+
+package Contratao_via_Termo_de_Cooperao
+
+kind Verso_de_Produto
+
+role Responsvel_por_Liberao_de_Recurso_de_Projeto specializes Gestor_de_Projeto_de_Cooperao 
+
+role Verso_de_Produto_Aprovada of functional-complexes  specializes Verso_de_Produto_Avaliada 
+
+phase Projeto_em_Proposio of functional-complexes  specializes Projeto_em_Planejamento {
+    custo_estimado: undefined  
+    prazo_estimado: undefined  
+}
+
+role Projeto_Reprovado of functional-complexes  specializes Projeto_de_Cooperao_Analisado 
+
+relator Autoria_de_Nota_Tcnica
+
+role Integrante_de_CAP
+
+phase Projeto_Suspenso of functional-complexes  specializes Projeto_de_Cooperao 
+
+role Origem_de_Recurso_de_Projeto_de_Cooperao
+
+role Projeto_em_Processo_Seletivo of functional-complexes  specializes Projeto_em_Seleo_do_Convente 
+
+role Diretor_Geral_Responsvel_por_Remoo specializes Diretor_Geral 
+
+kind Nota_Tcnica
+
+roleMixin Produto_Substitudo of functional-complexes  specializes Produto_Removido 
+
+roleMixin Produto_Redundante of functional-complexes  specializes Produto_de_Projeto_de_Cooperao 
+
+role Fiscal_de_Projeto
+
+mode Demanda_por_Projeto{
+    problema: undefined  
+}
+
+role CAP_em_Designao of collectives  specializes Comisso_Avaliadora_de_Projeto 
+
+mode Ajuste_a_Projeto_de_Cooperao{
+    descrio: undefined  
+}
+
+relator Avaliao_de_Produto
+
+phase Projeto_Encerrado of functional-complexes  specializes Projeto_de_Cooperao 
+
+relator Modificao_em_Produto
+
+role Responsvel_por_Abertura_de_Processo_Administrativo
+
+role Projeto_Aprovado of functional-complexes  specializes Projeto_de_Cooperao_Analisado 
+
+relator Anlise_Tcnica_de_Projeto_de_Cooperao
+
+relator Aditivo_Contratual_com_Novo_Produto specializes Aditivo_Contratual 
+
+role Projeto_de_Cooperao_Analisado of functional-complexes  specializes Projeto_de_Cooperao 
+
+role Projeto_com_Aditivo of functional-complexes  specializes Projeto_em_Execuo 
+
+role Verso_de_Produto_Rejeitado of functional-complexes  specializes Verso_de_Produto_Avaliada 
+
+role Convenente_em_Cooperao
+
+kind Plano_de_Trabalho_de_Cooperao
+
+roleMixin Produto_Includo of functional-complexes  specializes Produto_de_Projeto_de_Cooperao 
+
+role rea_Interessada_em_Projeto
+
+relator Avaliao_Negativa_de_Produto specializes Avaliao_de_Produto 
+
+category Produto_de_Projeto_de_Cooperao of functional-complexes {
+    descrio: undefined  
+    prazo_de_entrega: undefined  
+}
+
+relator Anlise_Tcnica_Indicando_Redundncia specializes Anlise_Tcnica_de_Projeto_de_Cooperao 
+
+role Projeto_de_Cooperao_em_Avaliao_Geral of functional-complexes  specializes Projeto_de_Cooperao 
+
+relator Submisso_de_Proposta_para_Projeto_de_Cooperao
+
+type Tipo_de_Critrio_de_Seleo_de_Projeto_de_Cooperao{
+    descrio: undefined  
+    nome: undefined  
+}
+
+roleMixin Produto_Substituto of functional-complexes  specializes Produto_Includo 
+
+role Receptor_de_Recurso_de_Projeto specializes Convenente_em_Cooperao 
+
+mode Critrio_Oramentrio_de_Anlise_de_Projeto_de_Cooperao
+
+relator Anlise_de_CAP_do_Projeto_em_Processo_Seletivo
+
+role Avaliador_de_Produto specializes Fiscal_de_Projeto 
+
+phase Projeto_Cancelado of functional-complexes  specializes Projeto_Encerrado 
+
+relator Substituio_de_Produtos_em_Plano_de_Trabalho specializes Incluso_de_Produto_em_Plano_de_Trabalho, Remoo_de_Produto_em_Plano_de_Trabalho 
+
+role Proposta_Submetida of functional-complexes  specializes Proposta_para_Projeto_de_Cooperao 
+
+role Convenente_de_Projeto_de_Cooperao_em_Colaborao specializes Convenente_em_Cooperao 
+
+kind Termo_de_Cooperao
+
+roleMixin Produto_em_Plano_de_Trabalho_Original of functional-complexes  specializes Produto_de_Projeto_de_Cooperao 
+
+role Presidente_de_CAP specializes Integrante_de_CAP 
+
+roleMixin Produto_Removido of functional-complexes  specializes Produto_Sem_Entrega 
+
+role Responsvel_Tcnico_por_Projeto_de_Cooperao
+
+phase Projeto_em_Seleo_do_Convente of functional-complexes  specializes Projeto_em_Planejamento 
+
+role Projeto_com_Proposta of functional-complexes  specializes Projeto_em_Processo_Seletivo 
+
+kind Proposta_para_Projeto_de_Cooperao
+
+relator Remoo_de_Processo_Seletivo_em_Projeto
+
+role Gestor_de_Projeto_de_Cooperao
+
+role Responsvel_por_Aditivo_Contratual
+
+role Projeto_com_Liberao_de_Recurso of functional-complexes  specializes Projeto_em_Execuo, Projeto_de_Cooperao_Tcnica 
+
+relator Remoo_de_Produto_em_Plano_de_Trabalho specializes Modificao_em_Produto 
+
+relator Incluso_de_Produto_em_Plano_de_Trabalho specializes Modificao_em_Produto 
+
+relator Aditivo_Contratual
+
+relator Designao_para_CAP
+
+relator Colaborao_em_Projeto_de_Cooperao
+
+subkind Termo_de_Cooperao_Tcnica of functional-complexes  specializes Termo_de_Cooperao, Projeto_em_Solicitao_de_Lista_de_Consultores, Termo_de_Cooperao_Tcnica_em_Financiamento_com_Banco_Mundial 
+
+role Fiscal_Individual_de_Projeto specializes Fiscal_de_Projeto 
+
+roleMixin Proponente_em_Projeto_de_Cooperao of functional-complexes 
+
+kind Edital_de_Seleo_para_Projeto{
+    anlise_propostas: undefined  
+    prazo_propostas: undefined  
+    publicao: undefined  
+}
+
+role Reponsvel_por_Anlise_Tcnica_de_Projeto_de_Cooperao
+
+role Aprovador_de_Demanda
+
+kind Termo_de_Referncia
+
+relator Alterao_em_Plano_de_Trabalho
+
+role Projeto_com_Alterao_no_Plano_de_Trabalho of functional-complexes  specializes Projeto_em_Execuo 
+
+roleMixin Produto_em_Aditivo of functional-complexes  specializes Produto_Includo 
+
+mode Critrio_de_Seleo_de_Projeto_de_Cooperao{
+    resultado: undefined  
+}
+
+kind Parcela_de_Pagamento_de_Projeto{
+    previso: undefined  
+    valor: undefined  
+}
+
+role Projeto_com_Aditivo_de_Tempo of functional-complexes  specializes Projeto_com_Aditivo {
+    total: undefined  
+}
+
+role Membro_de_GTFP specializes Fiscal_de_Projeto 
+
+mode Objeto_da_Cooperao{
+    descrio: undefined  
+}
+
+role Produto_Sem_Entrega specializes Produto_de_Projeto_de_Cooperao 
+
+phase Projeto_em_Execuo of functional-complexes  specializes Projeto_de_Cooperao 
+
+relator Aditivo_Contratual_de_Tempo specializes Aditivo_Contratual {
+    tempo: undefined  
+}
+
+relator Avaliao_Geral_do_Projeto
+
+subkind Comisso_Avaliadora_de_Projeto of collectives  specializes Comisso 
+
+phase Projeto_Concludo of functional-complexes  specializes Projeto_Encerrado 
+
+kind Resultado_da_Avaliao_Geral_do_Projeto
+
+mode Meta_de_Cooperao
+
+role Projeto_com_Aditivo_de_Recursos of functional-complexes  specializes Projeto_com_Aditivo {
+    total: undefined  
+}
+
+phase Projeto_no_Prazo of functional-complexes  specializes Projeto_em_Execuo 
+
+role Projeto_Fiscalizado_Individualmente of functional-complexes  specializes Projeto_em_Execuo 
+
+relator Registro_de_Entrega_de_Produto{
+    data: undefined  
+}
+
+role Projeto_sem_Processo_Seletivo of functional-complexes  specializes Projeto_em_Seleo_do_Convente 
+
+subkind Grupo_de_Trabalho_para_Fiscalizao_de_Projeto of collectives  specializes Comisso 
+
+mode Justificativa_para_Remoo_de_Processo_Seletivo{
+    descrio: undefined  
+}
+
+phase Projeto_em_Planejamento of functional-complexes  specializes Projeto_de_Cooperao 
+
+role Autor_de_Nota_Tcnica
+
+mode Justificativa_de_Aditivo_Contratual{
+    descrio: undefined  
+}
+
+relator Avaliao_de_Proposta_para_Projeto_de_Cooperao
+
+relator Liberao_de_Recurso_para_Projeto{
+    data: undefined  
+    valor: undefined  
+}
+
+role Verso_de_Produto_Avaliada of functional-complexes  specializes Verso_de_Produto 
+
+role Produto_com_Entrega specializes Produto_de_Projeto_de_Cooperao 
+
+role Proposta_Vencedora of functional-complexes  specializes Proposta_Avaliada 
+
+role Parcela_Desembolsada of functional-complexes  specializes Parcela_de_Pagamento_de_Projeto 
+
+relator Aditivo_Contratual_de_Recurso specializes Aditivo_Contratual {
+    recurso: undefined  
+}
+
+kind Projeto_de_Cooperao{
+    incio: undefined  
+    prazo: undefined  
+    vigncia_original: undefined  
+}
+
+relator Anlise_Tcnica_com_Aprovao specializes Anlise_Tcnica_de_Projeto_de_Cooperao 
+
+role Projeto_Fiscalizado_por_Grupo_de_Trabalho of functional-complexes  specializes Projeto_em_Execuo 
+
+roleMixin Produto_Indicado of functional-complexes  specializes Produto_de_Projeto_de_Cooperao 
+
+role rea_Demandante_de_Projeto
+
+role Proposta_Avaliada of functional-complexes  specializes Proposta_para_Projeto_de_Cooperao 
+
+relator Processo_Administrativo_para_Contratao_de_Projeto_de_Cooperao specializes Processo_Administrativo 
+
+relator Anlise_Tcnica_com_Reprovao specializes Anlise_Tcnica_de_Projeto_de_Cooperao 
+
+role CAP_com_Avaliao of collectives  specializes Comisso_Avaliadora_de_Projeto 
+
+relator Avaliao_Positiva_de_Produto specializes Avaliao_de_Produto 
+
+subkind Projeto_de_Cooperao_Tcnica of functional-complexes  specializes Projeto_de_Cooperao 
+
+phase Projeto_Atrasado of functional-complexes  specializes Projeto_em_Execuo 
+
+role Colaborador_de_Convenente_em_Cooperao
+
+role Nota_Tcnica_Para_Anlise_de_Tcnica_de_Projeto_de_Cooperao of functional-complexes  specializes Nota_Tcnica 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

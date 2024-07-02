@@ -1,0 +1,8 @@
+
+package Habilitao
+
+relator Habilitao_em_Estgio_Probatrio specializes Ato_da_Administrao {
+    notaFinal: undefined  
+}
+
+

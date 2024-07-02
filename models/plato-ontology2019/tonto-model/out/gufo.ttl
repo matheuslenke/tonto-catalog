@@ -1,0 +1,327 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Temperance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Temperance"@en.
+:Justice rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Justice"@en.
+:Courage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Courage"@en.
+:Wisdom rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Wisdom"@en.
+:CardinalVirtue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "CardinalVirtue"@en.
+:Spirit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Spirit"@en.
+:Reason rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Reason"@en.
+:Appetite rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Appetite"@en.
+:HumanSoul rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HumanSoul"@en.
+:Philosopherking rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Philosopherking"@en.
+:NobleLie rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "NobleLie"@en.
+:Education rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Education"@en.
+:StateProperty rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "StateProperty"@en.
+:PrivateProperty rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PrivateProperty"@en.
+:Family rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Family"@en.
+:ProducerPerson rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ProducerPerson"@en.
+:AuxiliaryPerson rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AuxiliaryPerson"@en.
+:GuardianPerson rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "GuardianPerson"@en.
+:Citizen rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Citizen"@en.
+:IdealCity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "IdealCity"@en.
+:Constitution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Constitution"@en.
+:Producers rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Producers"@en.
+:Auxiliaries rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Auxiliaries"@en.
+:Guardians rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Guardians"@en.
+:PsychologicalConstitution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "PsychologicalConstitution"@en.
+:Tyrannical rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Tyrannical"@en.
+:Democratic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Democratic"@en.
+:Oligarchic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Oligarchic"@en.
+:Timocratic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Timocratic"@en.
+:Aristocratic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Aristocratic"@en.
+:Being rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Being"@en.
+:Particular rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Particular"@en.
+:Good rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Good"@en.
+:Essence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Essence"@en.
+:God rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "God"@en.
+:Demiurge rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Demiurge"@en.
+:Universe rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Universe"@en.
+:WorldsBody rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "WorldsBody"@en.
+:LivingThing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LivingThing"@en.
+:Earth rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Earth"@en.
+:Fire rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Fire"@en.
+:Water rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Water"@en.
+:Air rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Air"@en.
+:WorldsSoul rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "WorldsSoul"@en.
+:Sameness rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sameness"@en.
+:Receptacle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Receptacle"@en.
+:Intellect rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Intellect"@en.
+:LesserGod rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LesserGod"@en.
+:Element rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Element"@en.
+:Isosceles rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Isosceles"@en.
+:Scalene rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Scalene"@en.
+:Triangle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Triangle"@en.
+:HeavenlyBody rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HeavenlyBody"@en.
+:Name rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Name"@en.
+:NameBearerObject rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NameBearerObject"@en.
+:Convention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Convention"@en.
+:SpecificFormOfTheName rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SpecificFormOfTheName"@en.
+:PresentName rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "PresentName"@en.
+:OriginalName rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "OriginalName"@en.
+:Form rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Form"@en.
+:Difference rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Difference"@en.
+:Property rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Property"@en.
+:Citiznship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Citiznship"@en.
+:Class rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Class"@en.
+:SensePerception rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SensePerception"@en.
+:Imagination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Imagination"@en.
+:Belief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Belief"@en.
+:Thinking rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Thinking"@en.
+:Recollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Recollection"@en.
+:HumanBeing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "HumanBeing"@en.
+:HumanBody rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HumanBody"@en.
+:Timocratic rdfs:subClassOf :PsychologicalConstitution.
+:Oligarchic rdfs:subClassOf :PsychologicalConstitution.
+:Democratic rdfs:subClassOf :PsychologicalConstitution.
+:Aristocratic rdfs:subClassOf :PsychologicalConstitution.
+:Tyrannical rdfs:subClassOf :PsychologicalConstitution.
+:Temperance rdfs:subClassOf :CardinalVirtue.
+:Justice rdfs:subClassOf :CardinalVirtue.
+:Courage rdfs:subClassOf :CardinalVirtue.
+:Wisdom rdfs:subClassOf :CardinalVirtue.
+:Philosopherking rdfs:subClassOf :GuardianPerson.
+:StateProperty rdfs:subClassOf :Property.
+:PrivateProperty rdfs:subClassOf :Property.
+:ProducerPerson rdfs:subClassOf :Citizen.
+:AuxiliaryPerson rdfs:subClassOf :Citizen.
+:GuardianPerson rdfs:subClassOf :Citizen.
+:Producers rdfs:subClassOf :Class.
+:Auxiliaries rdfs:subClassOf :Class.
+:Guardians rdfs:subClassOf :Class.
+:Tyrannical rdfs:subClassOf :PsychologicalConstitution.
+:Democratic rdfs:subClassOf :PsychologicalConstitution.
+:Oligarchic rdfs:subClassOf :PsychologicalConstitution.
+:Timocratic rdfs:subClassOf :PsychologicalConstitution.
+:Aristocratic rdfs:subClassOf :PsychologicalConstitution.
+:Demiurge rdfs:subClassOf :God.
+:Universe rdfs:subClassOf :LivingThing.
+:LivingThing rdfs:subClassOf :Particular.
+:Earth rdfs:subClassOf :Element.
+:Fire rdfs:subClassOf :Element.
+:Water rdfs:subClassOf :Element.
+:Air rdfs:subClassOf :Element.
+:LesserGod rdfs:subClassOf :LivingThing, :God.
+:Isosceles rdfs:subClassOf :Triangle.
+:Scalene rdfs:subClassOf :Triangle.
+:Name rdfs:subClassOf :Particular.
+:NameBearerObject rdfs:subClassOf :Particular.
+:SpecificFormOfTheName rdfs:subClassOf :Form.
+:PresentName rdfs:subClassOf :Name.
+:OriginalName rdfs:subClassOf :Name.
+:HumanBeing rdfs:subClassOf :LivingThing.
+:sex rdfs:domain :ProducerPerson;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sex"@en.
+:sex_1 rdfs:domain :AuxiliaryPerson;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sex"@en.
+:sex_2 rdfs:domain :GuardianPerson;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sex"@en.
+:motivation rdfs:domain :Tyrannical;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "motivation"@en.
+:attribute rdfs:domain :Tyrannical;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "attribute"@en.
+:motivation_1 rdfs:domain :Democratic;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "motivation"@en.
+:attribute_1 rdfs:domain :Democratic;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "attribute"@en.
+:motivation_2 rdfs:domain :Oligarchic;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "motivation"@en.
+:attribute_2 rdfs:domain :Oligarchic;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "attribute"@en.
+:motivation_3 rdfs:domain :Timocratic;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "motivation"@en.
+:motivation_4 rdfs:domain :Aristocratic;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "motivation"@en.
+:composite rdfs:domain :Particular;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "composite"@en.
+:temporal rdfs:domain :Particular;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "temporal"@en.
+:spatial rdfs:domain :Particular;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "spatial"@en.
+:sensible rdfs:domain :Particular;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sensible"@en.
+:language rdfs:domain :Name;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "language"@en.
+:spatial_1 rdfs:domain :Form;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "spatial"@en.
+:composite_1 rdfs:domain :Form;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "composite"@en.
+:temporal_1 rdfs:domain :Form;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "temporal"@en.
+:sensible_1 rdfs:domain :Form;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sensible"@en.

@@ -1,0 +1,113 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Competitor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Competitor"@en.
+:Resource_Demand rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Resource_Demand"@en.
+:Collective_Demand rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Collective_Demand"@en.
+:Competition rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Competition"@en.
+:NonCompetition rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "NonCompetition"@en.
+:Resource rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource"@en.
+:Scarce_Resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Scarce_Resource"@en.
+:Single_Resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Single_Resource"@en.
+:Resource_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Resource_Type"@en.
+:Resource_Stock rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Resource_Stock"@en.
+:Value_Proposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Value_Proposition"@en.
+:Demand_for_Market rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Demand_for_Market"@en.
+:Market_Competition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Market_Competition"@en.
+:Supplier rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Supplier"@en.
+:Market_Competitor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Market_Competitor"@en.
+:Market rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Market"@en.
+:Simple_Market rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Market"@en.
+:Composed_Market rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed_Market"@en.
+:Direct_Competitor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Direct_Competitor"@en.
+:Indirect_Competitor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Indirect_Competitor"@en.
+:Economic_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Agent"@en.
+:Potential_Competition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Potential_Competition"@en.
+:Potential_Competitor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Potential_Competitor"@en.
+:Capability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Capability"@en.
+:Supplier_Capability rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Supplier_Capability"@en.
+:Equivalent_Capability rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Equivalent_Capability"@en.
+:NonCompetition rdfs:subClassOf :Collective_Demand.
+:Competition rdfs:subClassOf :Collective_Demand.
+:Composed_Market rdfs:subClassOf :Market.
+:Simple_Market rdfs:subClassOf :Market.
+:Indirect_Competitor rdfs:subClassOf :Market_Competitor.
+:Direct_Competitor rdfs:subClassOf :Market_Competitor.
+:Competitor rdfs:subClassOf :Agent.
+:Competition rdfs:subClassOf :Collective_Demand.
+:NonCompetition rdfs:subClassOf :Collective_Demand.
+:Scarce_Resource rdfs:subClassOf :Resource.
+:Single_Resource rdfs:subClassOf :Resource.
+:Resource_Type rdfs:subClassOf :Resource.
+:Resource_Stock rdfs:subClassOf :Resource.
+:Supplier rdfs:subClassOf :Economic_Agent.
+:Market_Competitor rdfs:subClassOf :Supplier.
+:Simple_Market rdfs:subClassOf :Market.
+:Composed_Market rdfs:subClassOf :Market.
+:Direct_Competitor rdfs:subClassOf :Market_Competitor.
+:Indirect_Competitor rdfs:subClassOf :Market_Competitor.
+:Potential_Competitor rdfs:subClassOf :Economic_Agent.
+:Supplier_Capability rdfs:subClassOf :Capability.
+:Equivalent_Capability rdfs:subClassOf :Capability.
+:quantity_ rdfs:domain :Resource_Demand;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "quantity_"@en.
+:collectiveQuantity rdfs:domain :Collective_Demand;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "collectiveQuantity"@en.
+:competitiveness rdfs:domain :Collective_Demand;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "competitiveness"@en.

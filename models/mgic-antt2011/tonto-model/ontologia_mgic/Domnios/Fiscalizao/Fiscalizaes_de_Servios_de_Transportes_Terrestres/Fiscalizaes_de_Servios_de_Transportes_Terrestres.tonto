@@ -1,0 +1,60 @@
+
+package Fiscalizaes_de_Servios_de_Transportes_Terrestres
+
+relator Fiscalizao_de_PEF specializes Fiscalizao_de_TRC 
+
+relator Fiscalizao_Ferroviria_de_Transporte_de_Passageiro specializes Fiscalizao_Ferroviria 
+
+relator Fiscalizao_de_EP_por_Equipamento specializes Fiscalizao_de_Excesso_de_Peso, Fiscalizao_em_PPV 
+
+relator Fiscalizao_Especial specializes Fiscalizao_Direta, Fiscalizao_Eventual 
+
+relator Fiscalizao_de_Produtos_Perigosos specializes Fiscalizao_de_TRC 
+
+relator Fiscalizao_de_VP specializes Fiscalizao_de_TRC 
+
+relator Fiscalizao_de_rgo_Conveniado specializes Fiscalizao 
+
+relator Fiscalizao_em_Posto_Fixo specializes Fiscalizao_Direta, Fiscalizao_de_Rotina 
+
+relator Comando_Operacional_Temtico_Peridico specializes Comando_Operacional_Temtico, Fiscalizao_Peridica 
+
+relator Fiscalizao_de_Excesso_de_Peso specializes Fiscalizao_Direta_em_Rodovia 
+
+relator Fiscalizao_Rodoviria specializes Fiscalizao 
+
+relator Comando_Operacional_Temtico_Eventual specializes Comando_Operacional_Temtico, Fiscalizao_Eventual 
+
+relator Fiscalizao_Direta_em_Rodovia specializes Fiscalizao_Rodoviria, Fiscalizao_Direta 
+
+relator Comando_Operacional specializes Fiscalizao_Direta_em_Rodovia, Fiscalizao_Direta 
+
+relator Comando_Operacional_Temtico specializes Comando_Operacional 
+
+relator Fiscalizao_Ferroviria_de_Transporte_de_Carga specializes Fiscalizao_Ferroviria, Fiscalizao_Apurativa 
+
+relator Fiscalizao_de_EP_por_Documentao specializes Fiscalizao_de_Excesso_de_Peso 
+
+relator Fiscalizao_de_TRP specializes Fiscalizao_Rodoviria 
+
+relator Fiscalizao_Ferroviria specializes Fiscalizao 
+
+role Rodovia_com_Fiscalizao of functional-complexes  specializes Rodovia 
+
+relator Fiscalizao_de_TRC specializes Fiscalizao_Rodoviria {
+    infrao_por_TRC: Infrao_de_TRC  
+}
+
+role rgo_Responsvel_por_Fiscalizao
+
+role rgo_Conveniado_Fiscalizador specializes rgo_Conveniado, rgo_Responsvel_por_Fiscalizao 
+
+kind Ordem_de_Servio
+
+relator Fiscalizao_de_RNTRC specializes Fiscalizao_de_TRC 
+
+role rgo_Conveniado specializes Convenente 
+
+
+
+

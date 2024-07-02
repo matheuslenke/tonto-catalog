@@ -1,0 +1,56 @@
+
+package GRU
+
+subkind GRU_SPB of functional-complexes  specializes Guia_de_Recolhimento_da_Unio 
+
+kind Unidade_Favorecida
+
+subkind GRU_DOCTED of functional-complexes  specializes Guia_de_Recolhimento_da_Unio 
+
+relator Emisso_de_GRU specializes Emisso_de_GRU_para_Obrigao_Financeira {
+    data: undefined  
+}
+
+subkind GRU_Eletrnica of functional-complexes  specializes Guia_de_Recolhimento_da_Unio 
+
+role GRU_Paga of functional-complexes  specializes Guia_de_Recolhimento_da_Unio 
+
+subkind GRU_Cobrana of functional-complexes  specializes Guia_de_Recolhimento_da_Unio 
+
+subkind GRU_Simples
+
+relator Pagamento_de_GRU
+
+roleMixin Recolhedor of functional-complexes 
+
+subkind GRU_Depsito of functional-complexes  specializes Guia_de_Recolhimento_da_Unio 
+
+kind Guia_de_Recolhimento_da_Unio specializes GRU_Simples {
+    acrscimo: undefined  
+    cdigo_do_recolhimento: undefined  
+    cdigo_gru: undefined  
+    competncia: undefined  
+    deduo: undefined  
+    desconto: undefined  
+    gesto: undefined  
+    juros: undefined  
+    mora: undefined  
+    nosso_nmero: undefined  
+    principal: undefined  
+    referncia: undefined  
+    total: undefined  
+    unidade_gestora: undefined  
+    vencimento: undefined  
+}
+
+role Local_de_Recolhimento_de_GRU
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+
+package Requisio
+
+role rgo_Requerinte
+
+relator Requisio{
+    data: undefined  
+}
+
+relator Requisio_Recusvel specializes Requisio 
+
+role rgo_Requerido
+
+role Cargo_em_Comisso_em_Requisio of functional-complexes  specializes Cargo_em_Comisso 
+
+relator Requisio_para_Cargo_em_Comisso specializes Requisio 
+
+relator Requisio_Irrecusvel specializes Requisio 
+
+
+
+
+

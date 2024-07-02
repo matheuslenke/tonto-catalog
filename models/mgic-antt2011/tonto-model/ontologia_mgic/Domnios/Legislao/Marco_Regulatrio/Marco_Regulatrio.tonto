@@ -1,0 +1,38 @@
+
+package Marco_Regulatrio
+
+collective Regramento_de_rea{
+    contexto: undefined  
+}
+
+collective Setor
+
+collective Regramento_de_Subrea
+
+subkind rea_Composta of functional-complexes  specializes rea_Regulada 
+
+subkind rea_Simples of functional-complexes  specializes rea_Regulada {
+    tema: undefined  
+}
+
+subkind Regramento_de_rea_Composta of collectives  specializes Regramento_de_rea 
+
+subkind Regramento_de_rea_Simples of collectives  specializes Regramento_de_rea 
+
+kind Subrea{
+    tema: undefined  
+}
+
+kind rea_Regulada
+
+collective Marco_Regulatrio
+
+
+
+
+
+
+
+
+
+

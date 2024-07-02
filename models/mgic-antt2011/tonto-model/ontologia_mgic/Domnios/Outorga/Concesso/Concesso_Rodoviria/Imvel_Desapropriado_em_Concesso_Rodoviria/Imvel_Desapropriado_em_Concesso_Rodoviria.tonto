@@ -1,0 +1,67 @@
+
+package Imvel_Desapropriado_em_Concesso_Rodoviria
+
+kind Planta_Topogrfica_do_Local
+
+roleMixin Imvel_Desapropriado_com_Laudo_de_Avaliao of functional-complexes  specializes Imvel_Desapropriado 
+
+role rea_de_Interesse_Pblico
+
+kind Parecer_Tcnico
+
+kind Decreto_Presidencial
+
+subkind Decreto_Presidencial_de_Desapropriao_de_Imvel of functional-complexes  specializes Decreto_Presidencial 
+
+relator Avaliao_de_Obra
+
+role Parecer_Tcnico_Sobre_Obra of functional-complexes  specializes Parecer_Tcnico 
+
+subkind Decreto_de_Utilidade_Pblica of functional-complexes  specializes Decreto_Presidencial 
+
+relator Avaliao_de_Imvel
+
+relator Declarao_de_Utilidade_Pblica
+
+kind Laudo_de_Avaliao_de_Imvel
+
+roleMixin Imvel_Desapropriado of functional-complexes  specializes Elemento_de_Utilidade_Pblica, Imvel_em_rea_de_Interesse_Pblico 
+
+relator Solicitao_de_Desapropriao
+
+role Obra_com_Desapropriao
+
+kind Memorial_Descritivo_do_Local
+
+roleMixin Imvel_em_rea_de_Interesse_Pblico of functional-complexes 
+
+mode Justificativa_para_Desapropriao
+
+category Elemento_de_Utilidade_Pblica of functional-complexes 
+
+relator Desapropriao{
+    gasto: undefined  
+}
+
+mode Proposta_de_Desapropriao
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

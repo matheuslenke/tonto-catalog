@@ -2,7 +2,7 @@ import Model
 
 package InfoSysDes1
 
-datatype string_
+datatype string
 datatype int
 datatype float
 genset FrIb6FYHQ6eQmA {

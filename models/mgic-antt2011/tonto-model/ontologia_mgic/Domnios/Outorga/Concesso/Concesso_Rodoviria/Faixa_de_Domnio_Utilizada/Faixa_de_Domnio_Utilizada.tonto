@@ -1,0 +1,50 @@
+
+package Faixa_de_Domnio_Utilizada
+
+relator Explorao_de_FD_com_Projeto_de_Engenharia specializes Explorao_de_Faixa_de_Domnio 
+
+relator Explorao_de_Acesso specializes Explorao_de_Faixa_de_Domnio_sem_Receita, Explorao_de_FD_com_Projeto_de_Engenharia 
+
+role Contrato_de_Receita_Extraordinria_com_Projeto_de_Engenharia of functional-complexes  specializes Contrato_de_Receita_Extraodrinria 
+
+role Faixa_de_Domnio_Utilizada of functional-complexes  specializes Faixa_de_Domnio_Rodoviria 
+
+relator Explorao_Utilidades specializes Explorao_de_Faixa_de_Domnio 
+
+kind Projeto_da_Ocupao_da_FD specializes Elemento_de_Projeto_de_Engenharia_de_Faixa_de_Domnio 
+
+mode Anotao_de_Responsabilidade_Tcnica{
+    CREA_do_Engenheiro_Responsvel: undefined  
+}
+
+relator Explorao_de_Faixa_de_Domnio specializes Explorao_da_Faixa_de_Domnio_com_Receita 
+
+role Interseco_Explorada of functional-complexes  specializes Interseo 
+
+relator Explorao_de_Faixa_de_Domnio_Especial specializes Explorao_de_Faixa_de_Domnio 
+
+relator Explorao_de_Faixa_de_Domnio_sem_Receita specializes Explorao_de_Faixa_de_Domnio 
+
+relator Autorizao_de_Uso{
+    Documento_de_Autorizao: undefined  
+}
+
+relator Explorao_de_Publicidade specializes Explorao_da_Faixa_de_Domnio_com_Receita 
+
+kind Memorial_Descritivo_de_Obra_na_FD specializes Elemento_de_Projeto_de_Engenharia_de_Faixa_de_Domnio 
+
+mode Elemento_na_Faixa_de_Domnio
+
+category Elemento_de_Projeto_de_Engenharia_de_Faixa_de_Domnio of functional-complexes 
+
+
+
+
+
+
+
+
+
+
+
+

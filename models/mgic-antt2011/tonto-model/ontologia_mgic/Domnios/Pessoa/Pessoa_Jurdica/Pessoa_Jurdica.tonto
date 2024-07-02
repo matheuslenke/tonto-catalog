@@ -1,0 +1,179 @@
+
+package Pessoa_Jurdica
+
+subkind Pessoa_Jurdica_de_Direito_Pblico_Interno of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico, rgo_Oferecedor_de_Concurso_Pblico, rgo_Pblico_com_Servidor_em_Estgio_Probatrio, Parte_Concedente_de_Estgio_Pblico, PJDPI_com_Menor_Aprendiz, rgo_Pblico_de_Posse_de_Servidor, PJDPI_com_Servidor, Contratante_de_Terceirizado, rgo_Pblico_como_Unidade_de_Avaliao, rgo_Requerido, rgo_Requerinte, Orgo_Cessionrio, Orgo_Cedente, Promotora_de_Evento_Interno_de_Capacitao, Promotora_de_Evento_Externo_de_Capacitao, Convenente_em_Cooperao, Origem_de_Recurso_de_Projeto_de_Cooperao, rgo_Licenciador_Ambiental, Destino_do_Pleito, PJDPI_Solicitado_, Entidade_Requerida 
+
+subkind Empresa_Binacional of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial 
+
+subkind Cartrio of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+subkind Consrcio_Privado of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial 
+
+subkind Pessoa_Jurdica_de_Direito_Pblico_Interno_Municipal of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno 
+
+subkind Empresa_Domiciliada_no_Exterior of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial 
+
+subkind Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Direto of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno 
+
+subkind Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado 
+
+role Autarquia_Estadual of functional-complexes  specializes Autarquia, Pessoa_Jurdica_de_Direito_Pblico_Interno_Estadual 
+
+role Sociedade_Limitada of functional-complexes  specializes Sociedade, Ponto_de_Parada, Ponto_de_Apoio 
+
+subkind Servio_Social_Autnomo of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+subkind Concessionria of functional-complexes  specializes Sociedade_de_Propsito_Especfico, Infrator_por_InPraTe_Concessionria, Concessionria_com_Documento_de_Advertncia, Concessionria_Rodoviria, Concessionria_Provedora_de_Servio, Concessionria_Segurada, Concessionria_com_Plano_de_Trabalho, Interventor_Concessionria, Concessionria_Ferroviria 
+
+role rgo_Pblico_Federal of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno_Federal, rgo_Pblico 
+
+role Sociedade_Simples_Pura of functional-complexes  specializes Sociedade, Sociedade_Simples 
+
+subkind Fundao_Privada of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Sociedade_Annima_Fechada of functional-complexes  specializes Sociedade_Annima 
+
+subkind Fundao_Domiciliada_no_Exterior of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role rgo_Pblico_do_Poder_Executivo of functional-complexes  specializes rgo_Pblico 
+
+subkind Associao_Domiciliada_no_Exterior of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Instituio_Extaterritorial of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Externo 
+
+subkind Fundo_de_Investimento of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial 
+
+role Autarquia_Federal of functional-complexes  specializes Autarquia, Entidade_Pblica_Federal 
+
+subkind Seguradora of functional-complexes  specializes Sociedade_Empresria, Seguradora_com_SCAP_ 
+
+subkind Entidade_de_Mediao_e_Arbitragem of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Sociedade_Annima_Aberta of functional-complexes  specializes Sociedade_Annima 
+
+role Sociedade_por_Aes of functional-complexes  specializes Sociedade_Empresria, Sociedade 
+
+role Organizao_Internacional of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Externo 
+
+subkind Comisso_de_Conciliao_Prvia of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Autarquia of functional-complexes  specializes Agncia_Executiva, Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto 
+
+subkind Sociedade_de_Propsito_Especfico of functional-complexes  specializes Sociedade_Empresria 
+
+role Sociedade_Annima of functional-complexes  specializes Sociedade_por_Aes, Emissora_de_Debnture {
+    capital_votante: undefined  
+}
+
+subkind Pessoa_Jurdica_de_Direito_Pblico_Externo of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico 
+
+role Fundao_Federal of functional-complexes  specializes Fundao_Pblica, Entidade_Pblica_Federal 
+
+subkind Entidade_Pblica_Federal of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno_Federal 
+
+role Fundao_Pblica of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto 
+
+role Comisso_Polinacional of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto 
+
+subkind Associao_Privada of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Sociedade_de_Economia_Mista of functional-complexes  specializes Sociedade_Annima, Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto 
+
+role rgo_Pblico_Estadual of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno_Estadual, rgo_Pblico 
+
+subkind Comunidade_Indgena of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+subkind Consrcio_de_Sociedade of functional-complexes  specializes Consrcio_Privado 
+
+role rgo_Pblico_do_Poder_Legislativo of functional-complexes  specializes rgo_Pblico 
+
+subkind Entidade_Sindical of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+subkind Pessoa_Jurdica_de_Direito_Pblico of functional-complexes  specializes Pessoa_Jurdica 
+
+subkind Partido_Poltico of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos, Partido_de_Apoio_ao_Governo, Partido_de_Oposio_ao_Governo {
+    nome: undefined  
+    sigla: undefined  
+}
+
+role Associao_Pblica of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto 
+
+subkind Consrcio_de_Empregador of functional-complexes  specializes Consrcio_Privado 
+
+subkind Pessoa_Jurdica_de_Direito_Pblico_Interno_Estadual of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno 
+
+role Sociedade_Em_Nome_Coletivo of functional-complexes  specializes Sociedade 
+
+role rgo_Pblico_do_Poder_Judicirio of functional-complexes  specializes rgo_Pblico 
+
+role rgo_Pblico_Municipal of functional-complexes  specializes rgo_Pblico, Pessoa_Jurdica_de_Direito_Pblico_Interno_Municipal 
+
+role Representao_Diplomtica_Estrangeira of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Externo 
+
+category Agncia_Executiva of functional-complexes 
+
+role Sociedade_Cooperativa of functional-complexes  specializes Sociedade, Sociedade_Simples, Cooperativa_de_Transportadores_de_Carga 
+
+subkind Grupo_de_Sociedade of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial 
+
+subkind Condomnio_Edifcio of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Fundao_Estadual of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno_Estadual, Fundao_Pblica 
+
+role Sociedade_em_Comandita_por_Aes of functional-complexes  specializes Sociedade_por_Aes 
+
+subkind Pessoa_Jurdica_de_Direito_Privado of functional-complexes  specializes Pessoa_Jurdica, Contratado_de_Terceirizado 
+
+role Sociedade_Holding of functional-complexes  specializes Sociedade_Annima, Sociedade_Limitada 
+
+role Fundao_Municipal of functional-complexes  specializes Fundao_Pblica, Pessoa_Jurdica_de_Direito_Pblico_Interno_Municipal 
+
+subkind Fundo_Privado of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Empresa_Individual of functional-complexes  specializes Sociedade 
+
+subkind Pessoa_Jurdica_de_Direito_Privado_Empresarial of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado, Licitante 
+
+role Empresa_Pblica of functional-complexes  specializes Sociedade_Annima, Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto 
+
+subkind Sociedade_Simples of functional-complexes  specializes Sociedade 
+
+role Agncia_Reguladora of functional-complexes  specializes Autarquia, Agncia_Reguladora_Convenente, Agncia_Reguladora_que_Autoriza_Receita_Extraordinria, Agncia_Reguladora_Autorizatria_de_Obra, Agncia_Reguladora_Avaliadora_de_Pleito_de_Reajuste, Agncia_Reguladora_Mediadora, Agncia_Reguladora_Arbitradora, Agncia_Reguladora_Emissora_de_Autorizao_para_Fretamento_Contnuo, Agncia_Reguladora_para_CRF 
+
+subkind Organizao_Religiosa of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Sem_Fins_Lucrativos 
+
+role Sociedade_em_Comandita_Simples of functional-complexes  specializes Sociedade 
+
+role Fundo_Pblico of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto 
+
+role rgo_Pblico of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Direto, rgo_Conveniado, rgo_Responsvel_por_Fiscalizao, Outorgante, Entidade_Responsvel_por_Extino, Entidade_Pblica_em_CA, Entidade_Pblica_em_CCT, Interventor_Poder_Pblico 
+
+role Autarquia_Municipal of functional-complexes  specializes Autarquia, Pessoa_Jurdica_de_Direito_Pblico_Interno_Municipal 
+
+subkind Pessoa_Jurdica_de_Direito_Pblico_Interno_Federal of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno 
+
+subkind Empresrio_Individual of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial {
+    capital_social: undefined  
+}
+
+subkind Sociedade_Empresria of functional-complexes  specializes Sociedade, Sociedade_Empresria_Requerente_de_Transporte_Ferrovirio_de_Carga, Empresa_de_Transporte_de_Carga 
+
+role rgo_Pblico_Autnomo of functional-complexes  specializes rgo_Pblico 
+
+subkind Consrcio_Simples of functional-complexes  specializes Consrcio_Privado 
+
+subkind Sociedade of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Privado_Empresarial {
+    capital_social: undefined  
+}
+
+subkind Pessoa_Jurdica_de_Direito_Pblico_Administrativo_Indireto of functional-complexes  specializes Pessoa_Jurdica_de_Direito_Pblico_Interno 
+
+
+
+
+
+
+
+
+
+

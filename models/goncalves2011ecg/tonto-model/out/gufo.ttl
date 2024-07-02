@@ -1,0 +1,384 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Patient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Patient"@en.
+:Physician rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Physician"@en.
+:Treatment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Treatment"@en.
+:EPR rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EPR"@en.
+:BodySurface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BodySurface"@en.
+:BodySurfaceRegion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BodySurfaceRegion"@en.
+:HumanHeart rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "HumanHeart"@en.
+:LeftVentricle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LeftVentricle"@en.
+:RightVentricle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RightVentricle"@en.
+:RightAtrium rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RightAtrium"@en.
+:LeftAtrium rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LeftAtrium"@en.
+:HumanBody rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "HumanBody"@en.
+:Muscle rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Muscle"@en.
+:Chamber rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Chamber"@en.
+:SANodeMyocytes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "SANodeMyocytes"@en.
+:CSAMyocytes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "CSAMyocytes"@en.
+:CSVMyocytes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "CSVMyocytes"@en.
+:SANodeMyocytesPolarized rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "SANodeMyocytesPolarized"@en.
+:SANodeMyocytesDepolarized rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "SANodeMyocytesDepolarized"@en.
+:CSAMyocytesPolarized rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "CSAMyocytesPolarized"@en.
+:CSAMyocytesDepolarized rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "CSAMyocytesDepolarized"@en.
+:CSVMyocytesPolarized rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "CSVMyocytesPolarized"@en.
+:CSVMyocytesDepolarized rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "CSVMyocytesDepolarized"@en.
+:ECMOfSANode rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "ECMOfSANode"@en.
+:ECMOfCSA rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "ECMOfCSA"@en.
+:ECMOfCSV rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "ECMOfCSV"@en.
+:PacemakerSANodeMyocytes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "PacemakerSANodeMyocytes"@en.
+:TransitionalSANodeMyocytes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "TransitionalSANodeMyocytes"@en.
+:ECGRecordingSession rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "ECGRecordingSession"@en.
+:ECGRecordingDevice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ECGRecordingDevice"@en.
+:ECGRecord rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ECGRecord"@en.
+:FilteringTecnique rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FilteringTecnique"@en.
+:BandpassFilter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BandpassFilter"@en.
+:LowpassFilter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LowpassFilter"@en.
+:Electrode rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Electrode"@en.
+:Placement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Placement"@en.
+:Observation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Observation"@en.
+:ObservationSeries rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "ObservationSeries"@en.
+:CorrelatedObservationSeries rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "CorrelatedObservationSeries"@en.
+:Sample rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sample"@en.
+:WaveForm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WaveForm"@en.
+:PWave rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PWave"@en.
+:QRSComplex rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "QRSComplex"@en.
+:TWave rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TWave"@en.
+:SampleSequence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "SampleSequence"@en.
+:ElectrodeAsAMeasurer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ElectrodeAsAMeasurer"@en.
+:Lead rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Lead"@en.
+:Geometric_Form rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Geometric_Form"@en.
+:ECGForm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ECGForm"@en.
+:NonElementaryForm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NonElementaryForm"@en.
+:ElementaryForm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ElementaryForm"@en.
+:Normal rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Normal"@en.
+:Abnormal rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Abnormal"@en.
+:Wave rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Wave"@en.
+:Segment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Segment"@en.
+:Cycle rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cycle"@en.
+:Baseline rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Baseline"@en.
+:QWave rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "QWave"@en.
+:RWave rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RWave"@en.
+:SWave rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SWave"@en.
+:PRSegment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PRSegment"@en.
+:STSegment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "STSegment"@en.
+:TPSegment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TPSegment"@en.
+:BodySurfaceRegionAsObjectOfMeasure rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "BodySurfaceRegionAsObjectOfMeasure"@en.
+:HeartAsBloodContainer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "HeartAsBloodContainer"@en.
+:RightVentricleAsBloodContainer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RightVentricleAsBloodContainer"@en.
+:LeftAtriumAsBloodContainer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LeftAtriumAsBloodContainer"@en.
+:RightAtriumAsBloodContainer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RightAtriumAsBloodContainer"@en.
+:LeftVentricleAsBloodContainer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LeftVentricleAsBloodContainer"@en.
+:RABloodStoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "RABloodStoring"@en.
+:BloodinRightAtrium rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BloodinRightAtrium"@en.
+:RVBloodStoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "RVBloodStoring"@en.
+:BloodinRightVentricle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BloodinRightVentricle"@en.
+:BloodInLeftAtrium rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BloodInLeftAtrium"@en.
+:LABloodStoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "LABloodStoring"@en.
+:BloodInHumanBody rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BloodInHumanBody"@en.
+:LVBloodStoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "LVBloodStoring"@en.
+:BloodInLeftVentricle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BloodInLeftVentricle"@en.
+:Peripherals rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Peripherals"@en.
+:Lungs rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Lungs"@en.
+:PeripheralsAsBloodContainer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PeripheralsAsBloodContainer"@en.
+:BloodInPeripherals rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BloodInPeripherals"@en.
+:PeripheralsBloodStoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "PeripheralsBloodStoring"@en.
+:LungAsBloodContainer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LungAsBloodContainer"@en.
+:LungBloodStoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "LungBloodStoring"@en.
+:BloodInLungs rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BloodInLungs"@en.
+:HeartAsPump rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "HeartAsPump"@en.
+:HeartCells rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "HeartCells"@en.
+:LeftVentricleAsPump rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LeftVentricleAsPump"@en.
+:RightVentricleAsPump rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RightVentricleAsPump"@en.
+:RightAtriumAsPump rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RightAtriumAsPump"@en.
+:LeftAtriumAsPump rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LeftAtriumAsPump"@en.
+:LVContraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "LVContraction"@en.
+:RVContraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "RVContraction"@en.
+:RAContraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "RAContraction"@en.
+:LAContraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "LAContraction"@en.
+:SAElecticalImpulse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SAElecticalImpulse"@en.
+:PurkinjeElectircalImpulse rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "PurkinjeElectircalImpulse"@en.
+:HisPurkinjeElectricalImpulse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HisPurkinjeElectricalImpulse"@en.
+:HisElectricalImpulse rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "HisElectricalImpulse"@en.
+:AVElectricalImpulse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "AVElectricalImpulse"@en.
+:PacemakerCells rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PacemakerCells"@en.
+:NonPacemakerCells rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NonPacemakerCells"@en.
+:SANodeCells rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SANodeCells"@en.
+:AVNodeCells rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AVNodeCells"@en.
+:SANode rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SANode"@en.
+:ToGenerateCEI rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ToGenerateCEI"@en.
+:SANodeAsCEIConductor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SANodeAsCEIConductor"@en.
+:SANodeAsCEIGenerator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SANodeAsCEIGenerator"@en.
+:CEIGenerator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "CEIGenerator"@en.
+:CEIConductor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "CEIConductor"@en.
+:CardiacElectricalImpulse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "CardiacElectricalImpulse"@en.
+:DepolarizationOfPacemakerSANodeMyocytes rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "DepolarizationOfPacemakerSANodeMyocytes"@en.
+:ToConductCEI rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ToConductCEI"@en.
+:DepolarizationOfCSAMyocytes rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "DepolarizationOfCSAMyocytes"@en.
+:DepolarizationOfCSVMyocytes rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "DepolarizationOfCSVMyocytes"@en.
+:ConductingSystemOfAtria rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ConductingSystemOfAtria"@en.
+:CSAAsCEIConductor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CSAAsCEIConductor"@en.
+:RepolarizationOfCSVMyocytes rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "RepolarizationOfCSVMyocytes"@en.
+:ToRestoreEPs rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ToRestoreEPs"@en.
+:ConductingSystemOfVentricles rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ConductingSystemOfVentricles"@en.
+:CSVAsCEIConductor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CSVAsCEIConductor"@en.
+:CSVAsEPsAccumulator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CSVAsEPsAccumulator"@en.
+:EPsAccumulator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EPsAccumulator"@en.
+:Patient rdfs:subClassOf :Person.
+:Physician rdfs:subClassOf :Person.
+:HumanHeart rdfs:subClassOf :Chamber, :Muscle.
+:LeftVentricle rdfs:subClassOf :Chamber, :Muscle.
+:RightVentricle rdfs:subClassOf :Chamber, :Muscle.
+:RightAtrium rdfs:subClassOf :Chamber, :Muscle.
+:LeftAtrium rdfs:subClassOf :Chamber, :Muscle.
+:HumanBody rdfs:subClassOf :Chamber.
+:SANodeMyocytesPolarized rdfs:subClassOf :SANodeMyocytes.
+:SANodeMyocytesDepolarized rdfs:subClassOf :SANodeMyocytes.
+:CSAMyocytesPolarized rdfs:subClassOf :CSAMyocytes.
+:CSAMyocytesDepolarized rdfs:subClassOf :CSAMyocytes.
+:CSVMyocytesPolarized rdfs:subClassOf :CSVMyocytes.
+:CSVMyocytesDepolarized rdfs:subClassOf :CSVMyocytes.
+:BandpassFilter rdfs:subClassOf :FilteringTecnique.
+:LowpassFilter rdfs:subClassOf :FilteringTecnique.
+:WaveForm rdfs:subClassOf :NonElementaryForm.
+:PWave rdfs:subClassOf :Wave.
+:QRSComplex rdfs:subClassOf :ElementaryForm.
+:TWave rdfs:subClassOf :Wave.
+:ElectrodeAsAMeasurer rdfs:subClassOf :Electrode.
+:ECGForm rdfs:subClassOf :Geometric_Form.
+:NonElementaryForm rdfs:subClassOf :ECGForm.
+:ElementaryForm rdfs:subClassOf :ECGForm.
+:Normal rdfs:subClassOf :ElementaryForm.
+:Abnormal rdfs:subClassOf :ElementaryForm.
+:Wave rdfs:subClassOf :ElementaryForm.
+:Segment rdfs:subClassOf :ElementaryForm.
+:Cycle rdfs:subClassOf :ElementaryForm.
+:Baseline rdfs:subClassOf :ElementaryForm.
+:QWave rdfs:subClassOf :Wave.
+:RWave rdfs:subClassOf :Wave.
+:SWave rdfs:subClassOf :Wave.
+:PRSegment rdfs:subClassOf :Segment.
+:STSegment rdfs:subClassOf :Segment.
+:TPSegment rdfs:subClassOf :Segment.
+:BodySurfaceRegionAsObjectOfMeasure rdfs:subClassOf :BodySurfaceRegion.
+:HeartAsBloodContainer rdfs:subClassOf :HumanHeart.
+:RightVentricleAsBloodContainer rdfs:subClassOf :RightVentricle.
+:LeftAtriumAsBloodContainer rdfs:subClassOf :LeftAtrium.
+:RightAtriumAsBloodContainer rdfs:subClassOf :RightAtrium.
+:LeftVentricleAsBloodContainer rdfs:subClassOf :LeftVentricle.
+:PeripheralsAsBloodContainer rdfs:subClassOf :Peripherals.
+:LungAsBloodContainer rdfs:subClassOf :Lungs.
+:HeartAsPump rdfs:subClassOf :HumanHeart.
+:LeftVentricleAsPump rdfs:subClassOf :LeftVentricle.
+:RightVentricleAsPump rdfs:subClassOf :RightVentricle.
+:RightAtriumAsPump rdfs:subClassOf :RightAtrium.
+:LeftAtriumAsPump rdfs:subClassOf :LeftAtrium.
+:PurkinjeElectircalImpulse rdfs:subClassOf :HisPurkinjeElectricalImpulse.
+:HisElectricalImpulse rdfs:subClassOf :HisPurkinjeElectricalImpulse.
+:PacemakerCells rdfs:subClassOf :HeartCells.
+:NonPacemakerCells rdfs:subClassOf :HeartCells.
+:SANodeCells rdfs:subClassOf :PacemakerCells.
+:AVNodeCells rdfs:subClassOf :PacemakerCells.
+:SANodeAsCEIConductor rdfs:subClassOf :SANode, :CEIConductor.
+:SANodeAsCEIGenerator rdfs:subClassOf :SANode, :CEIGenerator.
+:CSAAsCEIConductor rdfs:subClassOf :CEIConductor, :ConductingSystemOfAtria.
+:CSVAsCEIConductor rdfs:subClassOf :ConductingSystemOfVentricles, :CEIConductor.
+:CSVAsEPsAccumulator rdfs:subClassOf :ConductingSystemOfVentricles, :EPsAccumulator.

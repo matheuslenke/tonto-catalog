@@ -1,0 +1,33 @@
+
+package Unidade_Organizacional
+
+subkind Unidade_Simples of functional-complexes  specializes Unidade_Organizacional 
+
+role Superintendente_Substituto specializes Servidor_Pblico_Ativo 
+
+subkind Supertintendncia of functional-complexes  specializes Unidade_Composta, Responsvel_por_Anlise_de_Pleito, Superintendncia_Responsvel_por_Anlise 
+
+role Superintendente specializes Servidor_Pblico_Ativo, Aprovador_de_Demanda 
+
+subkind Unidade_Composta of functional-complexes  specializes Unidade_Organizacional 
+
+kind Unidade_Organizacional specializes UO_com_Estagirio, Unidade_em_Grupo_de_Avaliao, Unidade_de_Avaliao_Singular, Unidade_de_Lotao, Unidade_de_Origem, rea_Demandante_de_Projeto, rea_Interessada_em_Projeto {
+    nome: undefined  
+}
+
+role Gerente_Substituto specializes Servidor_Pblico_Ativo 
+
+subkind Gerncia of functional-complexes  specializes Unidade_Simples 
+
+role Pessoa_Jurdica_com_Unidade_Organizacional of functional-complexes  specializes Pessoa_Jurdica 
+
+role Gerente specializes Servidor_Pblico_Ativo 
+
+
+
+
+
+
+
+
+

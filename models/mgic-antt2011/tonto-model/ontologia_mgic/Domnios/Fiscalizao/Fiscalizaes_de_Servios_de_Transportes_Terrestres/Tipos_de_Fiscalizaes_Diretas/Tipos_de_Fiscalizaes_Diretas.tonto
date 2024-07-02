@@ -1,0 +1,41 @@
+import Fiscalizaes_de_Servios_de_Transportes_Terrestres
+import Gerais
+import Edificao_Rodoviria
+import Servio_de_Transporte_Regular_Rodovirio_de_Passageiros
+import Transporte_de_Passageiros
+import Tipos_de_Fiscalizaes_Diretas
+
+package Tipos_de_Fiscalizaes_Diretas
+
+relator Fiscalizao_de_Plataforma specializes Fiscalizao_de_Terminal_Com_PFA 
+
+role PFR_Fiscalizador specializes Posto_de_Fiscalizao_Rodoviria 
+
+relator Fiscalizao_em_PFR specializes Fiscalizao_em_Posto_Fixo 
+
+relator Fiscalizao_de_Terminal
+
+kind PFA
+
+relator Fiscalizao_de_Terminal_Com_PFA specializes Fiscalizao_em_Posto_Fixo, Fiscalizao_de_Terminal, Fiscalizao_Constante 
+
+role PPV_Fiscalizador specializes Posto_de_Pesagem_Veicular 
+
+subkind Terminal_Rodovirio_com_PFA of functional-complexes  specializes Terminal_Rodovirio 
+
+relator Fiscalizao_em_Terminal_Sem_PFA specializes Fiscalizao_de_Terminal, Fiscalizao_Eventual 
+
+subkind Terminal_Rodovirio_sem_PFA of functional-complexes  specializes Terminal_Rodovirio 
+
+relator Fiscalizao_em_PPV specializes Fiscalizao_em_Posto_Fixo 
+
+role Guich_com_Fiscalizao of functional-complexes  specializes Guich 
+
+relator Fiscalizao_de_Guich specializes Fiscalizao_de_Terminal_Com_PFA 
+
+
+
+
+
+
+

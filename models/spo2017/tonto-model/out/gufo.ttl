@@ -1,0 +1,378 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Action_Universal_Plan rdf:type owl:NamedIndividual;
+    rdfs:label "Action_Universal_Plan"@en.
+:Normative_Description rdf:type owl:NamedIndividual;
+    rdfs:label "Normative_Description"@en.
+:Plan_Description rdf:type owl:NamedIndividual;
+    rdfs:label "Plan_Description"@en.
+:Atomic_Action_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Atomic_Action_Universal"@en.
+:Complex_Action_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Complex_Action_Universal"@en.
+:Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Social_Agent"@en.
+:Social_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Role"@en.
+:Object_Kind rdf:type owl:NamedIndividual;
+    rdfs:label "Object_Kind"@en.
+:Social_Object rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Object"@en.
+:Intention rdf:type owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Commitment rdf:type owl:NamedIndividual;
+    rdfs:label "Commitment"@en.
+:Closed_Commitment rdf:type owl:NamedIndividual;
+    rdfs:label "Closed_Commitment"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Social_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Relator"@en.
+:Appointment rdf:type owl:NamedIndividual;
+    rdfs:label "Appointment"@en.
+:Action rdf:type owl:NamedIndividual;
+    rdfs:label "Action"@en.
+:Atomic_Action rdf:type owl:NamedIndividual;
+    rdfs:label "Atomic_Action"@en.
+:Complex_Action rdf:type owl:NamedIndividual;
+    rdfs:label "Complex_Action"@en.
+:Object_Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Object_Participation"@en.
+:Change rdf:type owl:NamedIndividual;
+    rdfs:label "Change"@en.
+:Creation rdf:type owl:NamedIndividual;
+    rdfs:label "Creation"@en.
+:Usage rdf:type owl:NamedIndividual;
+    rdfs:label "Usage"@en.
+:Object rdf:type owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Agent_Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Agent_Participation"@en.
+:Action_Contribution rdf:type owl:NamedIndividual;
+    rdfs:label "Action_Contribution"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Physical_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Agent"@en.
+:Event rdf:type owl:NamedIndividual;
+    rdfs:label "Event"@en.
+:Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Participation"@en.
+:Time_Interval rdf:type owl:NamedIndividual;
+    rdfs:label "Time_Interval"@en.
+:Process_Universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Process_Universal"@en.
+:Standard_Process_Definition_Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Standard_Process_Definition_Document"@en.
+:Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Standard_Process"@en.
+:General_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "General_Standard_Process"@en.
+:Activity_Universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Activity_Universal"@en.
+:Project_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Project_Standard_Process"@en.
+:Organizational_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Organizational_Standard_Process"@en.
+:Hybrid_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Hybrid_Standard_Process"@en.
+:Standard_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Standard_Activity"@en.
+:Composite_Standard_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Composite_Standard_Activity"@en.
+:Simple_Standard_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Simple_Standard_Activity"@en.
+:Specific_Standard_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Specific_Standard_Process"@en.
+:Procedure rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Procedure"@en.
+:Artifact_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Artifact_Type"@en.
+:Hardware_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Hardware_Type"@en.
+:Software_Product_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Software_Product_Type"@en.
+:Intended_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intended_Process"@en.
+:General_Intended_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "General_Intended_Process"@en.
+:Specific_Intended_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Specific_Intended_Process"@en.
+:Intended_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intended_Activity"@en.
+:Simple_Intended_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Simple_Intended_Activity"@en.
+:Composite_Intended_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Composite_Intended_Activity"@en.
+:Project_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Project_Process"@en.
+:Organizational_Intended_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organizational_Intended_Process"@en.
+:Software_Project rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Software_Project"@en.
+:General_Project_Process rdf:type owl:NamedIndividual;
+    rdfs:label "General_Project_Process"@en.
+:Specific_Project_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Specific_Project_Process"@en.
+:Project_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Project_Activity"@en.
+:Stakeholder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Stakeholder"@en.
+:Stakeholder_Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Stakeholder_Allocation"@en.
+:Scheduled_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Scheduled_Process"@en.
+:Scheduled_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Scheduled_Activity"@en.
+:Performed_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Performed_Process"@en.
+:Performed_Project_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Project_Process"@en.
+:Performed_Organizational_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Organizational_Process"@en.
+:Performed_General_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_General_Process"@en.
+:Performed_Specific_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Specific_Process"@en.
+:Performed_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Performed_Activity"@en.
+:Performed_Composite_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Composite_Activity"@en.
+:Performed_Simple_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Simple_Activity"@en.
+:Performed_Project_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Performed_Project_Activity"@en.
+:Artifact_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Artifact_Participation"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Artifact_Change rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Artifact_Change"@en.
+:Artifact_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Artifact_Creation"@en.
+:Artifact_Usage rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Artifact_Usage"@en.
+:Stakeholder_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Stakeholder_Participation"@en.
+:Stakeholder_Main_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Stakeholder_Main_Participation"@en.
+:Resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource"@en.
+:Hardware_Equipment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Hardware_Equipment"@en.
+:Software_Product rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_Product"@en.
+:Hardware_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Hardware_Resource"@en.
+:Software_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Software_Resource"@en.
+:Hardware_Resource_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Hardware_Resource_Participation"@en.
+:Software_Resource_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Software_Resource_Participation"@en.
+:Procedure_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Procedure_Participation"@en.
+:Composite_Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Composite_Artifact"@en.
+:Simple_Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Simple_Artifact"@en.
+:Model rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Model"@en.
+:Software_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_Item"@en.
+:Information_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Information_Item"@en.
+:Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Document"@en.
+:Document_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Document_Type"@en.
+:Project_Stakeholder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Project_Stakeholder"@en.
+:Organization_Stakeholder rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Organization_Stakeholder"@en.
+:Team_Stakeholder rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Team_Stakeholder"@en.
+:Person_Stakeholder rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Person_Stakeholder"@en.
+:CASE_Tool rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CASE_Tool"@en.
+:Method rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Method"@en.
+:Document_Template rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Document_Template"@en.
+:Technique rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Technique"@en.
+:Method_Workflow rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Method_Workflow"@en.
+:Method_Activity rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Method_Activity"@en.
+:Simple_Method_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Simple_Method_Activity"@en.
+:Composite_Method_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Composite_Method_Activity"@en.
+:Organization rdf:type owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Organizational_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Organizational_Role"@en.
+:Project rdf:type owl:NamedIndividual;
+    rdfs:label "Project"@en.
+:Team rdf:type owl:NamedIndividual;
+    rdfs:label "Team"@en.
+:Normative_Description rdfs:subClassOf :Social_Object.
+:Plan_Description rdfs:subClassOf :Normative_Description.
+:Atomic_Action_Universal rdfs:subClassOf :Action_Universal_Plan.
+:Complex_Action_Universal rdfs:subClassOf :Action_Universal_Plan.
+:Social_Agent rdfs:subClassOf :Agent.
+:Social_Object rdfs:subClassOf :Object.
+:Intention rdfs:subClassOf :Commitment.
+:Closed_Commitment rdfs:subClassOf :Commitment.
+:Appointment rdfs:subClassOf :Commitment.
+:Action rdfs:subClassOf :Event.
+:Atomic_Action rdfs:subClassOf :Action.
+:Complex_Action rdfs:subClassOf :Action.
+:Object_Participation rdfs:subClassOf :Participation.
+:Change rdfs:subClassOf :Object_Participation.
+:Creation rdfs:subClassOf :Object_Participation.
+:Usage rdfs:subClassOf :Object_Participation.
+:Agent_Participation rdfs:subClassOf :Participation.
+:Action_Contribution rdfs:subClassOf :Agent_Participation.
+:Person rdfs:subClassOf :Physical_Agent.
+:Physical_Agent rdfs:subClassOf :Agent.
+:Participation rdfs:subClassOf :Event.
+:Performed_Organizational_Process rdfs:subClassOf :Performed_Process.
+:Performed_Project_Process rdfs:subClassOf :Performed_Process.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Performed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Simple_Artifact rdfs:subClassOf :Artifact.
+:Composite_Artifact rdfs:subClassOf :Artifact.
+:Software_Item rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Software_Product rdfs:subClassOf :Artifact.
+:Information_Item rdfs:subClassOf :Artifact.
+:Standard_Process rdfs:subClassOf :Process_Universal.
+:General_Standard_Process rdfs:subClassOf :Standard_Process.
+:Project_Standard_Process rdfs:subClassOf :Standard_Process.
+:Organizational_Standard_Process rdfs:subClassOf :Standard_Process.
+:Hybrid_Standard_Process rdfs:subClassOf :Standard_Process.
+:Standard_Activity rdfs:subClassOf :Activity_Universal, :Activity_Universal.
+:Composite_Standard_Activity rdfs:subClassOf :Standard_Activity.
+:Simple_Standard_Activity rdfs:subClassOf :Standard_Activity.
+:Specific_Standard_Process rdfs:subClassOf :Standard_Process.
+:Software_Product_Type rdfs:subClassOf :Artifact_Type.
+:General_Intended_Process rdfs:subClassOf :Intended_Process.
+:Specific_Intended_Process rdfs:subClassOf :Intended_Process.
+:Simple_Intended_Activity rdfs:subClassOf :Intended_Activity.
+:Composite_Intended_Activity rdfs:subClassOf :Intended_Activity.
+:Project_Process rdfs:subClassOf :Intended_Process.
+:Organizational_Intended_Process rdfs:subClassOf :Intended_Process.
+:General_Project_Process rdfs:subClassOf :Project_Process.
+:Specific_Project_Process rdfs:subClassOf :Project_Process.
+:Project_Activity rdfs:subClassOf :Intended_Activity.
+:Scheduled_Process rdfs:subClassOf :Intended_Process.
+:Scheduled_Activity rdfs:subClassOf :Intended_Activity.
+:Performed_Project_Process rdfs:subClassOf :Performed_Process.
+:Performed_Organizational_Process rdfs:subClassOf :Performed_Process.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Performed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Performed_Composite_Activity rdfs:subClassOf :Performed_Activity.
+:Performed_Simple_Activity rdfs:subClassOf :Performed_Activity.
+:Performed_Project_Activity rdfs:subClassOf :Performed_Activity.
+:Artifact_Change rdfs:subClassOf :Artifact_Participation.
+:Artifact_Creation rdfs:subClassOf :Artifact_Participation.
+:Artifact_Usage rdfs:subClassOf :Artifact_Participation.
+:Stakeholder_Main_Participation rdfs:subClassOf :Stakeholder_Participation.
+:Software_Product rdfs:subClassOf :Artifact, :Composite_Artifact.
+:Hardware_Resource rdfs:subClassOf :Hardware_Equipment, :Resource.
+:Software_Resource rdfs:subClassOf :Software_Product, :Resource.
+:Composite_Artifact rdfs:subClassOf :Artifact.
+:Simple_Artifact rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Software_Item rdfs:subClassOf :Artifact.
+:Information_Item rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Document_Type rdfs:subClassOf :Artifact_Type.
+:Project_Stakeholder rdfs:subClassOf :Stakeholder.
+:Organization_Stakeholder rdfs:subClassOf :Stakeholder.
+:Team_Stakeholder rdfs:subClassOf :Stakeholder.
+:Person_Stakeholder rdfs:subClassOf :Stakeholder.
+:CASE_Tool rdfs:subClassOf :Software_Product.
+:Method rdfs:subClassOf :Procedure.
+:Document_Template rdfs:subClassOf :Procedure.
+:Technique rdfs:subClassOf :Procedure.
+:Simple_Method_Activity rdfs:subClassOf :Method_Activity.
+:Composite_Method_Activity rdfs:subClassOf :Method_Activity.
+:Organization rdfs:subClassOf :Social_Agent.
+:Organizational_Role rdfs:subClassOf :Social_Role.
+:Project rdfs:subClassOf :Social_Object.
+:Team rdfs:subClassOf :Social_Agent.
+:plannedStartDate rdfs:domain :Scheduled_Process;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "plannedStartDate"@en.
+:plannedEndDate rdfs:domain :Scheduled_Process;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "plannedEndDate"@en.
+:plannedStartDate_1 rdfs:domain :Scheduled_Activity;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "plannedStartDate"@en.
+:plannedEndDate_1 rdfs:domain :Scheduled_Activity;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "plannedEndDate"@en.
+:startDate rdfs:domain :Performed_Process;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startDate"@en.
+:endDate rdfs:domain :Performed_Process;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "endDate"@en.
+:startDate_1 rdfs:domain :Performed_Activity;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startDate"@en.
+:endDate_1 rdfs:domain :Performed_Activity;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "endDate"@en.

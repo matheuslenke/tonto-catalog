@@ -1,0 +1,15 @@
+
+package Domnio_de_Manifestao_de_Usurio
+
+relator Manifestao_de_Usurio_{
+    classificao_da_manifestao: undefined  
+    data: undefined  
+    Descrio: undefined  
+    Situao: undefined  
+}
+
+relator Manifestao_de_Usurio_de_Ferrovia specializes Manifestao_de_Usurio_ 
+
+relator Manifestao_de_Usurio_de_Rodovia specializes Manifestao_de_Usurio_ 
+
+

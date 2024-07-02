@@ -1,0 +1,62 @@
+import Infraestrutura_Ferroviria
+import Ativo_Ferrovirio
+import Georreferenciamento
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+import Infraestrutura_Rodoviria
+import Trecho_de_Concesso
+import Compra
+import Produto
+import Servio
+import Imvel
+import Pessoa_Jurdica
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Veculo_Ferrovirio
+import Movimentao_de_Ativo_Ferrovirio
+import Acidente_Ferrovirio
+
+package Obra_de_Arte_Corrente
+
+kind Bueiro specializes Obra_de_Arte_Corrente_Pontual 
+
+category Obra_de_Arte_Corrente_Pontual of functional-complexes  specializes Obra_de_Arte_Corrente 
+
+category Obra_de_Arte_Corrente of functional-complexes 
+
+kind Dreno specializes Obra_de_Arte_Corrente_Pontual 
+
+subkind Drenagem_de_Travessia_Urbana of functional-complexes  specializes Sistema_de_Drenagem 
+
+kind Sistema_de_Drenagem specializes Obra_de_Arte_Corrente_Linear 
+
+kind Dissipador_de_Energia specializes Obra_de_Arte_Corrente_Pontual 
+
+category Obra_de_Arte_Corrente_Linear of functional-complexes  specializes Obra_de_Arte_Corrente 
+
+kind Meio_Fio specializes Obra_de_Arte_Corrente_Linear 
+
+kind Muro specializes Obra_de_Arte_Corrente_Linear 
+
+subkind Drenagem_do_Pavimento of functional-complexes  specializes Sistema_de_Drenagem 
+
+subkind Drenagem_Subterrnea of functional-complexes  specializes Sistema_de_Drenagem 
+
+kind Pontilho specializes Obra_de_Arte_Corrente_Pontual 
+
+subkind Drenagem_Superficial of functional-complexes  specializes Sistema_de_Drenagem 
+
+subkind Drenagem_de_Transposio_de_Talvegues of functional-complexes  specializes Sistema_de_Drenagem 
+
+kind Espinhas_de_Peixe specializes Obra_de_Arte_Corrente_Pontual 
+
+category Obra_de_Arte_Corrente_Ferroviria of functional-complexes  specializes Infraestrutura_Ferroviria, Obra_de_Arte_Corrente, Obra_de_Arte_Ferroviria 
+
+kind Valeta specializes Obra_de_Arte_Corrente_Pontual 
+
+kind Sarjeta specializes Obra_de_Arte_Corrente_Pontual 
+
+kind Descida_Dgua specializes Obra_de_Arte_Corrente_Pontual 
+

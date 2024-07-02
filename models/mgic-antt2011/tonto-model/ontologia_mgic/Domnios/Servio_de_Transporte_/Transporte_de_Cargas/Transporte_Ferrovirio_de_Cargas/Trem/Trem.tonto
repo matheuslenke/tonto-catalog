@@ -1,0 +1,44 @@
+import Veculo_Ferrovirio
+import Movimentao_de_Ativo_Ferrovirio
+import Acidente_Ferrovirio
+import Trem
+
+package Trem
+
+role Vago_Compondo_Trem_Misto
+
+subkind Trem_de_Carga of functional-complexes  specializes Trem 
+
+subkind Trem_de_Horrio of functional-complexes  specializes Trem_de_Passageiro 
+
+subkind Trem_Facultativo of functional-complexes  specializes Trem_de_Horrio 
+
+role Carro_de_Passageiro_Compondo_Trem__Misto
+
+role Carro_de_Passageiro_Compondo_Trem_de_Passageiro_
+
+subkind Trem_de_Passageiro of functional-complexes  specializes Trem 
+
+kind Trem specializes Trem_em_Viagem, Trem_Acidentado 
+
+subkind Trem_Noturno of functional-complexes  specializes Trem_de_Passageiro 
+
+subkind Trem_Misto of functional-complexes  specializes Trem 
+
+subkind Trem_Expresso of functional-complexes  specializes Trem_de_Passageiro 
+
+role Vago_Compondo_Trem_de_Carga
+
+subkind Trem_de_Luxo of functional-complexes  specializes Trem_Rpido 
+
+subkind Trem_Rpido of functional-complexes  specializes Trem_de_Horrio 
+
+subkind Trem_Unitrio of functional-complexes  specializes Trem_de_Passageiro 
+
+subkind Trem_Extraordinrio of functional-complexes  specializes Trem_de_Passageiro 
+
+
+
+
+
+

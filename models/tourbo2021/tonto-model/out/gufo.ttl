@@ -1,0 +1,180 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:tourist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "tourist"@en.
+:certification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "certification"@en.
+:cultural_visit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "cultural_visit"@en.
+:sport_activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "sport_activity"@en.
+:food_and_wine_tour rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "food_and_wine_tour"@en.
+:Tourist_Guide rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tourist_Guide"@en.
+:location rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "location"@en.
+:user rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "user"@en.
+:activity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "activity"@en.
+:booking rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "booking"@en.
+:museum_visit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "museum_visit"@en.
+:city_center_visit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "city_center_visit"@en.
+:church_visit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "church_visit"@en.
+:castel_visit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "castel_visit"@en.
+:Winery_visit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Winery_visit"@en.
+:resturant_visit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "resturant_visit"@en.
+:Hiking rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Hiking"@en.
+:Cycling rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cycling"@en.
+:Climbing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Climbing"@en.
+:Skiing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Skiing"@en.
+:language_certificate rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "language_certificate"@en.
+:activity_certificate rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "activity_certificate"@en.
+:payment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "payment"@en.
+:completed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "completed"@en.
+:being_processed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "being_processed"@en.
+:paid rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "paid"@en.
+:online_payment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "online_payment"@en.
+:creditdebit_card_payment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "creditdebit_card_payment"@en.
+:receipt rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "receipt"@en.
+:itinerary rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "itinerary"@en.
+:offer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "offer"@en.
+:feedback rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "feedback"@en.
+:plan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "plan"@en.
+:path rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "path"@en.
+:geometry rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "geometry"@en.
+:Point rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Point"@en.
+:Multi_point rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Multi_point"@en.
+:Line_String rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Line_String"@en.
+:Multi_Line_String rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Multi_Line_String"@en.
+:finish rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "finish"@en.
+:in_progres rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "in_progres"@en.
+:planed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "planed"@en.
+:tourist rdfs:subClassOf :user.
+:cultural_visit rdfs:subClassOf :activity.
+:sport_activity rdfs:subClassOf :activity.
+:food_and_wine_tour rdfs:subClassOf :activity.
+:Tourist_Guide rdfs:subClassOf :user.
+:location rdfs:subClassOf :path.
+:museum_visit rdfs:subClassOf :cultural_visit.
+:city_center_visit rdfs:subClassOf :cultural_visit.
+:church_visit rdfs:subClassOf :cultural_visit.
+:castel_visit rdfs:subClassOf :cultural_visit.
+:Winery_visit rdfs:subClassOf :food_and_wine_tour.
+:resturant_visit rdfs:subClassOf :food_and_wine_tour.
+:Hiking rdfs:subClassOf :sport_activity.
+:Cycling rdfs:subClassOf :sport_activity.
+:Climbing rdfs:subClassOf :sport_activity.
+:Skiing rdfs:subClassOf :sport_activity.
+:language_certificate rdfs:subClassOf :certification.
+:activity_certificate rdfs:subClassOf :certification.
+:completed rdfs:subClassOf :booking.
+:being_processed rdfs:subClassOf :booking.
+:paid rdfs:subClassOf :completed.
+:online_payment rdfs:subClassOf :payment.
+:creditdebit_card_payment rdfs:subClassOf :payment.
+:Point rdfs:subClassOf :geometry.
+:Multi_point rdfs:subClassOf :geometry.
+:Line_String rdfs:subClassOf :geometry.
+:Multi_Line_String rdfs:subClassOf :geometry.
+:finish rdfs:subClassOf :offer.
+:in_progres rdfs:subClassOf :offer.
+:planed rdfs:subClassOf :offer.
+:touristAttraction rdfs:domain :location;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "touristAttraction"@en.
+:adress rdfs:domain :location;
+    rdfs:range :Adress;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "adress"@en.
+:how_to_arrive rdfs:domain :location;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "how_to_arrive"@en.
+:language rdfs:domain :language_certificate;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "language"@en.
+:title rdfs:domain :itinerary;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "title"@en.
+:language_1 rdfs:domain :offer;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "language"@en.
+:points rdfs:domain :path;
+    rdfs:range :point;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "points"@en.
+:starting_point rdfs:domain :path;
+    rdfs:range :Adress;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "starting_point"@en.
+:end_point rdfs:domain :path;
+    rdfs:range :Adress;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "end_point"@en.

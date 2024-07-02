@@ -1,0 +1,41 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Value_Ascription rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Value_Ascription"@en.
+:SoA_Value_Ascription rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "SoA_Value_Ascription"@en.
+:VO_Value_Ascription rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "VO_Value_Ascription"@en.
+:Value_Quale rdf:type owl:NamedIndividual;
+    rdfs:label "Value_Quale"@en.
+:Value_Protocol rdf:type owl:NamedIndividual;
+    rdfs:label "Value_Protocol"@en.
+:Comparison_Frame rdf:type owl:NamedIndividual;
+    rdfs:label "Comparison_Frame"@en.
+:Context_Frame rdf:type owl:NamedIndividual;
+    rdfs:label "Context_Frame"@en.
+:Value_Structure rdf:type owl:NamedIndividual;
+    rdfs:label "Value_Structure"@en.
+:Value_Object rdf:type owl:NamedIndividual;
+    rdfs:label "Value_Object"@en.
+:Context rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Context"@en.
+:Value_Dimension rdf:type owl:NamedIndividual;
+    rdfs:label "Value_Dimension"@en.
+:Focused_State_of_Affairs rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Focused_State_of_Affairs"@en.
+:SoA_Value_Ascription rdfs:subClassOf :Value_Ascription.
+:VO_Value_Ascription rdfs:subClassOf :Value_Ascription.

@@ -1,0 +1,44 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Detective rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Detective"@en.
+:Interrogation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Interrogation"@en.
+:Witness rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Witness"@en.
+:Suspect rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Suspect"@en.
+:Criminal_Investigation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Criminal_Investigation"@en.
+:Lead_Detective rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Lead_Detective"@en.
+:Senior_Detective rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Senior_Detective"@en.
+:Junior_Detective rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Junior_Detective"@en.
+:Superintendent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Superintendent"@en.
+:Junior_Detective rdfs:subClassOf :Detective.
+:Senior_Detective rdfs:subClassOf :Detective.
+:Witness rdfs:subClassOf :Person.
+:Detective rdfs:subClassOf :Person.
+:Suspect rdfs:subClassOf :Person.
+:Detective rdfs:subClassOf :Person.
+:Witness rdfs:subClassOf :Person.
+:Suspect rdfs:subClassOf :Person.
+:Lead_Detective rdfs:subClassOf :Detective.
+:Senior_Detective rdfs:subClassOf :Detective.
+:Junior_Detective rdfs:subClassOf :Detective.
+:Superintendent rdfs:subClassOf :Senior_Detective, :Lead_Detective.

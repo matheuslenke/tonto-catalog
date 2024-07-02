@@ -1,0 +1,41 @@
+import Servio_de_Transporte_Rodovirio_de_Passageiros
+import Transporte_de_Passageiros
+import Servio_de_Transporte_Regular_Rodovirio_de_Passageiros
+
+package Servio_de_Transporte_Regular_Rodovirio_de_Passageiros
+
+relator TRP_de_Servio_Rodovirio specializes TRP_Regular 
+
+relator TRP_de_Servio_Rodovirio_Internacional_Diferenciado specializes TRP_de_Servio_Rodovirio_Internacional 
+
+relator TRP_Semiurbano_Internacional_Diferenciado specializes TRP_Semiurbano_Internacional 
+
+relator TRP_Semiurbano_Internacional specializes TRP_Semiurbano 
+
+relator TRP_de_Servio_Rodovirio_Interestadual specializes TRP_de_Servio_Rodovirio 
+
+relator TRP_de_Servio_Rodovirio_Internacional_Convencional specializes TRP_de_Servio_Rodovirio_Internacional 
+
+role Terminal_Rodovirio_Destino of functional-complexes  specializes Terminal_Rodovirio 
+
+relator TRP_de_Servio_Rodovirio_Interestadual_Diferenciado specializes TRP_de_Servio_Rodovirio_Interestadual 
+
+relator TRP_de_Servio_Rodovirio_Internacional specializes TRP_de_Servio_Rodovirio 
+
+relator TRP_Semiurbano_Interestadual_Convencional specializes TRP_Semiurbano_Interestadual 
+
+relator TRP_Semiurbano_Interestadual_Diferencial specializes TRP_Semiurbano_Interestadual 
+
+role Terminal_Rodovirio_Origem of functional-complexes  specializes Terminal_Rodovirio 
+
+relator TRP_Semiurbano_Interestadual specializes TRP_Semiurbano 
+
+relator TRP_de_Servio_Rodovirio_Interestadual_Convencional specializes TRP_de_Servio_Rodovirio_Interestadual 
+
+relator TRP_Semiurbano specializes TRP_Regular 
+
+relator TRP_Semiurbano_Internacional_Convencional specializes TRP_Semiurbano_Internacional 
+
+kind Terminal_Rodovirio
+
+

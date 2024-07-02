@@ -1,0 +1,61 @@
+import Conhecimento_de_Transporte
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Gerao_de_CIOT
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+
+package Papis_Envolvidos_no_Conhecimento_de_Transporte
+
+roleMixin Recebedor of functional-complexes 
+
+role Pessoa_Jurdica_Remetente specializes Remetente 
+
+roleMixin Consignatrio of functional-complexes 
+
+relator Conhecimento_de_Transporte_com_Consignatrio specializes Conhecimento_de_Transporte 
+
+role Pessoa_Jurdica_Destinatria specializes Destinatrio 
+
+role Pessoa_Fsica_Remetente specializes Remetente 
+
+role Pessoa_Jurdica_Recebedor specializes Recebedor 
+
+role Pessoa_Fsica_Tomador_de_Servio specializes Tomador_do_Servio 
+
+role Pessoa_Fsica_Consignatrio specializes Consignatrio 
+
+roleMixin Expedidor of functional-complexes 
+
+relator Conhecimento_de_Transporte_com_Expedidor specializes Conhecimento_de_Transporte 
+
+role Pessoa_Jurdica_Tomador_de_Servio specializes Tomador_do_Servio 
+
+roleMixin Destinatrio of functional-complexes 
+
+role Pessoa_Fsica_Expedidor specializes Expedidor 
+
+role Pessoa_Fsica_Destinatria specializes Destinatrio 
+
+role Pessoa_Fsica_Recebedor specializes Recebedor 
+
+roleMixin Tomador_do_Servio of functional-complexes 
+
+relator Conhecimento_de_Transporte_com_Destinatrio specializes Conhecimento_de_Transporte 
+
+role Pessoa_Jurdica_Expedidor specializes Expedidor 
+
+relator Conhecimento_de_Transporte_com_Remetente specializes Conhecimento_de_Transporte 
+
+relator Conhecimento_de_Transporte_com_Recebedor specializes Conhecimento_de_Transporte 
+
+role Pessoa_Jurdica_Consignatrio specializes Consignatrio 
+
+roleMixin Remetente of functional-complexes 
+
+roleMixin Emitente_do_Conhecimento_de_Transporte of functional-complexes 
+
+
+
+
+
+
+

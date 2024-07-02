@@ -1,0 +1,66 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Social_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Social_Object"@en.
+:Physical_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Object"@en.
+:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object"@en.
+:Digital_Technology rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Digital_Technology"@en.
+:Technology rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Technology"@en.
+:Technological_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Technological_Object"@en.
+:Object_Structure rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object_Structure"@en.
+:Community rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Community"@en.
+:Object_Function rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object_Function"@en.
+:Technical_Identity_of_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Technical_Identity_of_Object"@en.
+:Digital_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Digital_Object"@en.
+:Component_Part rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Component_Part"@en.
+:Data_File rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Data_File"@en.
+:Program_File rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Program_File"@en.
+:Bitstring rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Bitstring"@en.
+:Syntactic_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Syntactic_Object"@en.
+:Hybrid rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Hybrid"@en.
+:Material rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Material"@en.
+:Nonmaterial rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Nonmaterial"@en.
+:Social_Object rdfs:subClassOf :Object.
+:Physical_Object rdfs:subClassOf :Object.
+:Digital_Technology rdfs:subClassOf :Technology.
+:Digital_Object rdfs:subClassOf :Technological_Object.
+:Component_Part rdfs:subClassOf :Object.
+:Data_File rdfs:subClassOf :Bitstring.
+:Program_File rdfs:subClassOf :Bitstring.
+:Bitstring rdfs:subClassOf :Syntactic_Object.
+:Syntactic_Object rdfs:subClassOf :Nonmaterial.
+:Hybrid rdfs:subClassOf :Object.
+:Material rdfs:subClassOf :Object.
+:Nonmaterial rdfs:subClassOf :Object, :Social_Object.

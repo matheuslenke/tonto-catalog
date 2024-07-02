@@ -1,0 +1,20 @@
+
+package Compra
+
+relator _Compra_Intangvel
+
+relator _Compra__Imobilizado
+
+relator Compra_de_Bem specializes _Compra_Especulativa, _Compra_Intangvel, _Compra__Imobilizado {
+    numero_nota_fiscal: undefined  
+}
+
+mixin Bem_Comprado of functional-complexes  specializes Bem_Imaterial, Participao_em_Empresa, Bem_Operacional_Comprado, Bem_Especulativo, Terreno_Comprado, Imvel_Edificado_Comprado 
+
+roleMixin Fornecedor_de_Compra of functional-complexes 
+
+relator _Compra_Especulativa
+
+
+
+

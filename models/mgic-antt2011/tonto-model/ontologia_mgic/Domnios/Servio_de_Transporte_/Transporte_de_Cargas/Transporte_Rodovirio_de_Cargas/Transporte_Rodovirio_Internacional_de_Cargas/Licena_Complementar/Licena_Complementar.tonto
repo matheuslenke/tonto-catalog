@@ -1,0 +1,29 @@
+
+package Licena_Complementar
+
+role Empresa_Estrangeira_Indicadora_de_Representante specializes Empresa_Indicadora_de_Representante 
+
+relator Indicao_de_Representante_para_Pedido_de_Licena_Complementar specializes Indicao_de_Representante 
+
+roleMixin Representante_de_Empresa_Estrangeira of functional-complexes  specializes Redespachante 
+
+relator Licena_Complementar{
+    validade: undefined  
+}
+
+role Pessoa_Jurdica_Representante_de_Empresa_Estrangeira specializes Representante_de_Empresa_Estrangeira 
+
+roleMixin Redespachante of functional-complexes 
+
+role Pessoa_Fsica_Representante_de_Empresa_Estrangeira specializes Representante_de_Empresa_Estrangeira 
+
+role Representante_Legal_de_Empresa_Estrangeira specializes Redespachante, Representante_Legal 
+
+role Procurao_para_Indicao_de_Representante_para_Pedido_de_Licena_Complementar of functional-complexes  specializes Procurao_para_Indicao_de_Representante 
+
+
+
+
+
+
+

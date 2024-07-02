@@ -1,0 +1,21 @@
+
+package Procurao
+
+subkind Procurao_Especial of functional-complexes  specializes Procurao 
+
+subkind Procurao_Ampla of functional-complexes  specializes Procurao 
+
+kind Procurao
+
+subkind Procurao_Privada of functional-complexes  specializes Procurao 
+
+subkind Procurao_Pblica of functional-complexes  specializes Procurao 
+
+subkind Procurao_Extrajudicial of functional-complexes  specializes Procurao 
+
+subkind Procurao_Restrita of functional-complexes  specializes Procurao 
+
+subkind Procurao_Geral of functional-complexes  specializes Procurao 
+
+subkind Procurao_Judicial of functional-complexes  specializes Procurao 
+

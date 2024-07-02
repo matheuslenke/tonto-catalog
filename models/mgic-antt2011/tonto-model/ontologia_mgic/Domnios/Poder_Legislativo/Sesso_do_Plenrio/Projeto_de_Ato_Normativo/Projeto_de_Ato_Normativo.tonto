@@ -1,0 +1,24 @@
+
+package Projeto_de_Ato_Normativo
+
+relator Anlise_Tcnica
+
+role Ato_Normativo_Aprovado of functional-complexes  specializes Ato_Normativo 
+
+role Projeto_de_Lei_com_Anlise_Tcnica
+
+role Projeto_de_Lei_com_Anlise_Jurdica
+
+role Projeto_de_Ato_Normativo of functional-complexes  specializes Ato_Normativo, Proposio, Projeto_de_Lei_com_Anlise_Tcnica, Projeto_de_Lei_com_Anlise_Jurdica {
+    ano: undefined  
+}
+
+mixin Agente_Legislativo of functional-complexes  specializes Pessoa_Fsica, Partido_Poltico 
+
+roleMixin Autor_de_Projeto_de_Ato_Normativo of functional-complexes  specializes Agente_Legislativo 
+
+role Superintendncia_Responsvel_por_Anlise
+
+
+
+

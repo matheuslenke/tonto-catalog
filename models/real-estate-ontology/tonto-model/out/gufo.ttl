@@ -1,0 +1,54 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person_as_Lessor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Person_as_Lessor"@en.
+:Company_as_Lessor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Company_as_Lessor"@en.
+:Land_Lord_Lessor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Land_Lord_Lessor"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Company rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Company"@en.
+:Company_as_Owner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Company_as_Owner"@en.
+:Person_as_Owner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Person_as_Owner"@en.
+:Owner rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Owner"@en.
+:Person_as_Tenant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Person_as_Tenant"@en.
+:Company_as_Tenant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Company_as_Tenant"@en.
+:Tenant_Lessee rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Tenant_Lessee"@en.
+:Rental_Agreement_Lease rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Rental_Agreement_Lease"@en.
+:Rented_Realty rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Rented_Realty"@en.
+:Realty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Realty"@en.
+:Deed rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Deed"@en.
+:Person_as_Lessor rdfs:subClassOf :Person_as_Owner, :Land_Lord_Lessor.
+:Company_as_Lessor rdfs:subClassOf :Company_as_Owner, :Land_Lord_Lessor.
+:Company_as_Owner rdfs:subClassOf :Company, :Owner.
+:Person_as_Owner rdfs:subClassOf :Person, :Owner.
+:Person_as_Tenant rdfs:subClassOf :Person, :Tenant_Lessee.
+:Company_as_Tenant rdfs:subClassOf :Company, :Tenant_Lessee.
+:Rented_Realty rdfs:subClassOf :Realty.

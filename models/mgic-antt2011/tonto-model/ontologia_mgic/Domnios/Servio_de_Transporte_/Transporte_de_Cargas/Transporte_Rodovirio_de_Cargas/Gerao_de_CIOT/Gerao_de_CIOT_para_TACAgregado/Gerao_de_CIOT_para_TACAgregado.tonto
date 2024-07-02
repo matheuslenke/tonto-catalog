@@ -1,0 +1,17 @@
+import Subcontratao_de_Transporte_de_Cargas
+import Gerao_de_CIOT
+import Pagamento_Eletrnico_de_Frete
+import Conhecimento_de_Transporte
+import Gerao_de_CIOT_para_TACAgregado
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+
+package Gerao_de_CIOT_para_TACAgregado
+
+role Veculo_Contratado
+
+role TACAgregado_Solicitante_de_CIOT specializes TACAgregado 
+
+relator Gerao_de_CIOT_para_TACAgregado specializes Gerao_de_CIOT 
+
+
+

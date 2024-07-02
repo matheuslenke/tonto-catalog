@@ -1,0 +1,259 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Turbidite_Channel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Turbidite_Channel"@en.
+:Outer_Bank rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Outer_Bank"@en.
+:Inner_Bank rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Inner_Bank"@en.
+:Bank rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bank"@en.
+:Water rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Water"@en.
+:Still_Water rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Still_Water"@en.
+:Moving_Water rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Moving_Water"@en.
+:Low_Energy_Water rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Low_Energy_Water"@en.
+:High_Energy_Water rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "High_Energy_Water"@en.
+:Confining_Channel rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Confining_Channel"@en.
+:Reshaped_Channel rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Reshaped_Channel"@en.
+:ShapeChanging_Channel rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ShapeChanging_Channel"@en.
+:Changing_Shape rdf:type owl:NamedIndividual;
+    rdfs:label "Changing_Shape"@en.
+:Dynamic_Fill rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Dynamic_Fill"@en.
+:Water_Stream rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Water_Stream"@en.
+:Channel_Sculptor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Channel_Sculptor"@en.
+:Sculpting rdf:type owl:NamedIndividual;
+    rdfs:label "Sculpting"@en.
+:Water_Flowing_through_Channel rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Water_Flowing_through_Channel"@en.
+:Turbidite_Channel_Migration rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Turbidite_Channel_Migration"@en.
+:Channel_with_Increased_Sinuosity rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Channel_with_Increased_Sinuosity"@en.
+:Strong_Flow_over_Outer_Bank rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Strong_Flow_over_Outer_Bank"@en.
+:Erosion_of_Outer_Bank rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Erosion_of_Outer_Bank"@en.
+:Erosion_Result rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Erosion_Result"@en.
+:Loaded_Flow rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Loaded_Flow"@en.
+:Outer_Bank_in_New_Shape rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Outer_Bank_in_New_Shape"@en.
+:Sediment_Transportion_to_Inner_Bank rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Sediment_Transportion_to_Inner_Bank"@en.
+:Loaded_Weak_Flow_on_Inner_Bank rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Loaded_Weak_Flow_on_Inner_Bank"@en.
+:Sediment_Desposition_onto_Inner_Bank rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Sediment_Desposition_onto_Inner_Bank"@en.
+:Inner_Bank_with_New_Sediment rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Inner_Bank_with_New_Sediment"@en.
+:Frictionality_Pressed_Outer_Bank rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Frictionality_Pressed_Outer_Bank"@en.
+:Unstable_Sediment rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Unstable_Sediment"@en.
+:Frictioning_Water rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Frictioning_Water"@en.
+:Frictional_Contact rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Frictional_Contact"@en.
+:Losing_Material rdf:type owl:NamedIndividual;
+    rdfs:label "Losing_Material"@en.
+:Erosion_Patient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Erosion_Patient"@en.
+:Eroded_Bank rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Eroded_Bank"@en.
+:Frictioned_Sediment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Frictioned_Sediment"@en.
+:Removed_Sediment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Removed_Sediment"@en.
+:Eroding rdf:type owl:NamedIndividual;
+    rdfs:label "Eroding"@en.
+:Being_Removed rdf:type owl:NamedIndividual;
+    rdfs:label "Being_Removed"@en.
+:Deposited_Sediment rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Deposited_Sediment"@en.
+:Erosive_Agent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Erosive_Agent"@en.
+:Sediment_Receiver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sediment_Receiver"@en.
+:Sediment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sediment"@en.
+:Tractive_Water rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tractive_Water"@en.
+:Drawn_Sediment rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Drawn_Sediment"@en.
+:carries rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "carries"@en.
+:Traction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Traction"@en.
+:Being_Transported rdf:type owl:NamedIndividual;
+    rdfs:label "Being_Transported"@en.
+:Transported_Load rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Transported_Load"@en.
+:Blocked_Load rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Blocked_Load"@en.
+:Vehicle rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Vehicle"@en.
+:Transporting rdf:type owl:NamedIndividual;
+    rdfs:label "Transporting"@en.
+:Receiving_Flow rdf:type owl:NamedIndividual;
+    rdfs:label "Receiving_Flow"@en.
+:Arriving_Point rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Arriving_Point"@en.
+:Obstacled_Sediment rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Obstacled_Sediment"@en.
+:Obstacled_Loaded_Water rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Obstacled_Loaded_Water"@en.
+:Obstacle_Inner_Bank rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Obstacle_Inner_Bank"@en.
+:Obstacle_Contact rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Obstacle_Contact"@en.
+:Unloading_Vehicle rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Unloading_Vehicle"@en.
+:Unloading rdf:type owl:NamedIndividual;
+    rdfs:label "Unloading"@en.
+:Deposition_Bank rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Deposition_Bank"@en.
+:Deposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Deposition"@en.
+:Inner_Bank_with_Deposited_Sediment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Inner_Bank_with_Deposited_Sediment"@en.
+:Depositing_Place rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Depositing_Place"@en.
+:Captured_Sediment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Captured_Sediment"@en.
+:Being_Deposited rdf:type owl:NamedIndividual;
+    rdfs:label "Being_Deposited"@en.
+:Receiving_Sediment rdf:type owl:NamedIndividual;
+    rdfs:label "Receiving_Sediment"@en.
+:Obstacle rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Obstacle"@en.
+:Outer_Bank rdfs:subClassOf :Bank.
+:Inner_Bank rdfs:subClassOf :Bank.
+:High_Energy_Water rdfs:subClassOf :Moving_Water.
+:Low_Energy_Water rdfs:subClassOf :Moving_Water.
+:Moving_Water rdfs:subClassOf :Water.
+:Still_Water rdfs:subClassOf :Water.
+:Outer_Bank rdfs:subClassOf :Bank.
+:Inner_Bank rdfs:subClassOf :Bank.
+:Still_Water rdfs:subClassOf :Water.
+:Moving_Water rdfs:subClassOf :Water.
+:Low_Energy_Water rdfs:subClassOf :Moving_Water.
+:High_Energy_Water rdfs:subClassOf :Moving_Water.
+:Confining_Channel rdfs:subClassOf :Turbidite_Channel.
+:Reshaped_Channel rdfs:subClassOf :Turbidite_Channel.
+:ShapeChanging_Channel rdfs:subClassOf :Confining_Channel.
+:Water_Stream rdfs:subClassOf :Moving_Water.
+:Channel_Sculptor rdfs:subClassOf :Water_Stream.
+:Frictionality_Pressed_Outer_Bank rdfs:subClassOf :Outer_Bank.
+:Unstable_Sediment rdfs:subClassOf :Deposited_Sediment.
+:Frictioning_Water rdfs:subClassOf :High_Energy_Water.
+:Erosion_Patient rdfs:subClassOf :Frictionality_Pressed_Outer_Bank.
+:Eroded_Bank rdfs:subClassOf :Outer_Bank.
+:Frictioned_Sediment rdfs:subClassOf :Unstable_Sediment.
+:Deposited_Sediment rdfs:subClassOf :Sediment.
+:Erosive_Agent rdfs:subClassOf :Frictioning_Water.
+:Sediment_Receiver rdfs:subClassOf :Tractive_Water.
+:Tractive_Water rdfs:subClassOf :Moving_Water.
+:Drawn_Sediment rdfs:subClassOf :Sediment.
+:Transported_Load rdfs:subClassOf :Drawn_Sediment.
+:Blocked_Load rdfs:subClassOf :Obstacled_Sediment.
+:Vehicle rdfs:subClassOf :Tractive_Water.
+:Arriving_Point rdfs:subClassOf :Obstacle_Inner_Bank.
+:Obstacled_Sediment rdfs:subClassOf :Drawn_Sediment.
+:Obstacled_Loaded_Water rdfs:subClassOf :Tractive_Water, :Low_Energy_Water.
+:Obstacle_Inner_Bank rdfs:subClassOf :Inner_Bank.
+:Unloading_Vehicle rdfs:subClassOf :Obstacled_Loaded_Water.
+:Inner_Bank_with_Deposited_Sediment rdfs:subClassOf :Deposition_Bank, :Inner_Bank.
+:Depositing_Place rdfs:subClassOf :Inner_Bank_with_Deposited_Sediment.
+:Captured_Sediment rdfs:subClassOf :Obstacled_Sediment.
+:Obstacle rdfs:subClassOf :Obstacle_Inner_Bank.
+:sinuosity rdfs:domain :Turbidite_Channel;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sinuosity"@en.
+:attribute rdfs:domain :Turbidite_Channel;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "attribute"@en.
+:sinuosity_1 rdfs:domain :Outer_Bank;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sinuosity"@en.
+:sinuosity_2 rdfs:domain :Inner_Bank;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sinuosity"@en.
+:kineticEnergy rdfs:domain :Water;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "kineticEnergy"@en.
+:kineticEnergy_1 rdfs:domain :Still_Water;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "kineticEnergy"@en.
+:kineticEnergy_2 rdfs:domain :Moving_Water;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "kineticEnergy"@en.
+:kineticEnergy_3 rdfs:domain :Low_Energy_Water;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "kineticEnergy"@en.
+:kineticEnergy_4 rdfs:domain :High_Energy_Water;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "kineticEnergy"@en.

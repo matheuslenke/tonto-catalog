@@ -1,0 +1,48 @@
+import Atendimento_Rodovirio
+import Carroceria
+import Partes
+import Acidente
+import Trfego
+import Componente_Trecho_Fsico
+import Praa_de_Pedgio
+import Posto_de_Pesagem
+import Tipo_de_Veculo
+
+package Veculo_de_Suporte
+
+subkind Veculo_de_Socorro_Mecnico of functional-complexes  specializes Veculo_de_Suporte, VSM_em_Atendimento 
+
+subkind Veculo_Administrativo of functional-complexes  specializes Veculo_de_Suporte 
+
+subkind Caminho_Munck of functional-complexes  specializes Veculo_de_Obra 
+
+subkind CaminhoIrrigadeira of functional-complexes  specializes Veculo_de_Combate_a_Incndio 
+
+subkind Ambulncia_de_Transporte of functional-complexes  specializes Veculo_de_Primeiros_Socorros 
+
+subkind Ambulncia_de_Resgate of functional-complexes  specializes Veculo_de_Primeiros_Socorros 
+
+subkind Veculo_de_Suporte of functional-complexes  specializes Veculo_Rodovirio, Veculo_em_Atendimento 
+
+subkind Veculo_de_Primeiros_Socorros of functional-complexes  specializes Veculo_de_Suporte, VPS_em_Atendimento 
+
+subkind Veculo_de_Obra of functional-complexes  specializes Veculo_de_Suporte 
+
+subkind Veculo_de_Combate_a_Incndio of functional-complexes  specializes Veculo_de_Suporte, VCI_em_Atendimento 
+
+subkind Guincho_Pesado of functional-complexes  specializes Veculo_de_Socorro_Mecnico, GP_em_Atendimento 
+
+subkind Guincho_Leve of functional-complexes  specializes Veculo_de_Socorro_Mecnico, GL_em_Atendimento 
+
+subkind Viatura_de_Inspeo_de_Trfego of functional-complexes  specializes Veculo_de_Inspeo 
+
+subkind Ambulncia_de_Suporte_Bsico of functional-complexes  specializes Veculo_de_Primeiros_Socorros 
+
+subkind Veculo_de_Inspeo of functional-complexes  specializes Veculo_de_Suporte, VI_em_Atendimento 
+
+subkind Ambulncia_de_Suporte_Avanado of functional-complexes  specializes Veculo_de_Primeiros_Socorros 
+
+subkind Veculo_de_Sinalizao of functional-complexes  specializes Veculo_de_Suporte 
+
+subkind Veculo_de_Apreenso_de_Animais of functional-complexes  specializes Veculo_de_Suporte, VAA_em_Atendimento 
+

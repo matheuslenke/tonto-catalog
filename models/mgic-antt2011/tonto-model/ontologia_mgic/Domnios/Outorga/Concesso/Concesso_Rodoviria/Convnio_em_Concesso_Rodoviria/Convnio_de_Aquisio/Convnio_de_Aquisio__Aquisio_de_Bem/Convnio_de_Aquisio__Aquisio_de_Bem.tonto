@@ -1,0 +1,14 @@
+
+package Convnio_de_Aquisio__Aquisio_de_Bem
+
+role Concessionria_Rodoviria_Compradora specializes Comprador, Concessionria_Rodoviria_Convenente 
+
+roleMixin Item_Adquirido_em_Convnio of functional-complexes  specializes Produto, Servio_em_Convnio 
+
+relator Aquisio_para_Convnio specializes Compra_por_Cotao, Compra_Solicitada {
+    Nmero_do_Termo_de_Doao: undefined  
+    Nmero_do_Termo_de_Entrega: undefined  
+}
+
+
+

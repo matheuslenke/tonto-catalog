@@ -1,0 +1,46 @@
+
+package Imposto
+
+subkind IR of functional-complexes  specializes Imposto_Federal, Imposto_sobre_Resultado 
+
+subkind COFINS of functional-complexes  specializes Imposto_sobre_Servio, Imposto_Federal 
+
+kind Imposto{
+    valor: undefined  
+}
+
+subkind Imposto_Municipal of functional-complexes  specializes Imposto 
+
+relator Pagamento_de_Imposto_sobre_Resultado specializes Pagamento_de_Imposto 
+
+subkind PIS of functional-complexes  specializes Imposto_sobre_Servio, Imposto_Federal 
+
+relator Pagamento_de_Imposto{
+    data_pagamento: undefined  
+    valor: undefined  
+}
+
+relator Pagamento_de_Imposto_sobre_Servio specializes Pagamento_de_Imposto 
+
+subkind ISSQN of functional-complexes  specializes Imposto_sobre_Servio, Imposto_Municipal 
+
+subkind Imposto_sobre_Servio
+
+subkind Imposto_Federal of functional-complexes  specializes Imposto 
+
+subkind Imposto_sobre_Resultado
+
+role Entidade_Recolhedora_de_Impostos of functional-complexes  specializes rgo_Pblico 
+
+subkind CSLL of functional-complexes  specializes Imposto_sobre_Resultado, Imposto_Federal 
+
+subkind ICMS of functional-complexes  specializes Imposto_Estadual, Imposto_sobre_Servio 
+
+subkind Imposto_Estadual of functional-complexes  specializes Imposto 
+
+
+
+
+
+
+

@@ -1,0 +1,244 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Estacionamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Estacionamento"@en.
+:Vaga rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Vaga"@en.
+:Cliente rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Cliente"@en.
+:Pessoa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa"@en.
+:Empresa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Empresa"@en.
+:ClientePF rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ClientePF"@en.
+:ClientePJ rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ClientePJ"@en.
+:UsodeVaga rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "UsodeVaga"@en.
+:Veculo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Veculo"@en.
+:ReservaVaga rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ReservaVaga"@en.
+:ReservaTipoVaga rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ReservaTipoVaga"@en.
+:ReservaVagaEspecifica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ReservaVagaEspecifica"@en.
+:ReservaUsoUnico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ReservaUsoUnico"@en.
+:ReservaDiaria rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ReservaDiaria"@en.
+:VeiculoEstacionado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "VeiculoEstacionado"@en.
+:ProvedorVaga rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ProvedorVaga"@en.
+:PasseioSUV rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PasseioSUV"@en.
+:OnibusCaminhao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OnibusCaminhao"@en.
+:UsoDeVagaFinalizado rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "UsoDeVagaFinalizado"@en.
+:UsoDeVagaAtivo rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "UsoDeVagaAtivo"@en.
+:ReservaTipoVaga_2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ReservaTipoVaga_2"@en.
+:UsoComReservaUsoUnico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UsoComReservaUsoUnico"@en.
+:ReservaUsoUnicoUtilizada rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ReservaUsoUnicoUtilizada"@en.
+:ReservaVariosUsosUtilizada rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ReservaVariosUsosUtilizada"@en.
+:UsoComReserva rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UsoComReserva"@en.
+:UsoComReservaPeriodo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UsoComReservaPeriodo"@en.
+:UtilizacaoReserva rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "UtilizacaoReserva"@en.
+:TabelaPreco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "TabelaPreco"@en.
+:Tipo_de_Veiculo rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Tipo_de_Veiculo"@en.
+:Tipo_de_Vaga rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Tipo_de_Vaga"@en.
+:VagaReservada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "VagaReservada"@en.
+:TabelaDePrecoUtilizadaReserva rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "TabelaDePrecoUtilizadaReserva"@en.
+:TipoDeVagaReservada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "TipoDeVagaReservada"@en.
+:ValorPeriodoCurto rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ValorPeriodoCurto"@en.
+:ReservaMensal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ReservaMensal"@en.
+:TabelaPrecoExpirada rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "TabelaPrecoExpirada"@en.
+:Pagamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pagamento"@en.
+:PagamentoEspecie rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PagamentoEspecie"@en.
+:PagamentoCredito rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PagamentoCredito"@en.
+:PagamentoDebito rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PagamentoDebito"@en.
+:TabelaPrecoValida rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "TabelaPrecoValida"@en.
+:TabelaPrecoUtilizada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "TabelaPrecoUtilizada"@en.
+:UsodeVagaEspecfica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UsodeVagaEspecfica"@en.
+:VagaUtilizada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "VagaUtilizada"@en.
+:UsoSemReserva rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UsoSemReserva"@en.
+:UsoGeradorDeDebito rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UsoGeradorDeDebito"@en.
+:ReservaVariosUsos rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ReservaVariosUsos"@en.
+:EmpresaEstacionamento rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EmpresaEstacionamento"@en.
+:ReservaHorasMinutos rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ReservaHorasMinutos"@en.
+:Motocicleta rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Motocicleta"@en.
+:ClientePF rdfs:subClassOf :Pessoa, :Cliente.
+:ClientePJ rdfs:subClassOf :Empresa, :Cliente.
+:ReservaVagaEspecifica rdfs:subClassOf :ReservaVaga.
+:ReservaUsoUnico rdfs:subClassOf :ReservaVaga.
+:ReservaDiaria rdfs:subClassOf :ReservaVaga.
+:VeiculoEstacionado rdfs:subClassOf :Veculo.
+:ProvedorVaga rdfs:subClassOf :Estacionamento.
+:PasseioSUV rdfs:subClassOf :Veculo.
+:OnibusCaminhao rdfs:subClassOf :Veculo.
+:UsoDeVagaFinalizado rdfs:subClassOf :UsodeVaga.
+:UsoDeVagaAtivo rdfs:subClassOf :UsodeVaga.
+:ReservaTipoVaga_2 rdfs:subClassOf :ReservaVaga.
+:UsoComReservaUsoUnico rdfs:subClassOf :UsoComReserva.
+:ReservaUsoUnicoUtilizada rdfs:subClassOf :ReservaUsoUnico.
+:ReservaVariosUsosUtilizada rdfs:subClassOf :ReservaVariosUsos.
+:UsoComReserva rdfs:subClassOf :UsodeVaga.
+:UsoComReservaPeriodo rdfs:subClassOf :UsoComReserva.
+:VagaReservada rdfs:subClassOf :Vaga.
+:TabelaDePrecoUtilizadaReserva rdfs:subClassOf :TabelaPreco.
+:TipoDeVagaReservada rdfs:subClassOf :Tipo_de_Vaga.
+:ReservaMensal rdfs:subClassOf :ReservaVaga.
+:TabelaPrecoExpirada rdfs:subClassOf :TabelaPreco.
+:PagamentoEspecie rdfs:subClassOf :Pagamento.
+:PagamentoCredito rdfs:subClassOf :Pagamento.
+:PagamentoDebito rdfs:subClassOf :Pagamento.
+:TabelaPrecoValida rdfs:subClassOf :TabelaPreco.
+:TabelaPrecoUtilizada rdfs:subClassOf :TabelaPreco.
+:UsodeVagaEspecfica rdfs:subClassOf :UsodeVaga.
+:VagaUtilizada rdfs:subClassOf :Vaga.
+:UsoSemReserva rdfs:subClassOf :UsodeVaga.
+:UsoGeradorDeDebito rdfs:subClassOf :UsodeVaga.
+:ReservaVariosUsos rdfs:subClassOf :ReservaVaga.
+:EmpresaEstacionamento rdfs:subClassOf :Empresa.
+:ReservaHorasMinutos rdfs:subClassOf :ReservaVaga.
+:Motocicleta rdfs:subClassOf :Veculo.
+:HorarioEntrada rdfs:domain :UsodeVaga;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "HorarioEntrada"@en.
+:dataHoraReserva rdfs:domain :ReservaVaga;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataHoraReserva"@en.
+:valor rdfs:domain :ReservaVaga;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "valor"@en.
+:DataHoraInicio rdfs:domain :ReservaVaga;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "DataHoraInicio"@en.
+:DataHoraFim rdfs:domain :ReservaVaga;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "DataHoraFim"@en.
+:placa rdfs:domain :VeiculoEstacionado;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "placa"@en.
+:HorarioSaida rdfs:domain :UsoDeVagaFinalizado;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "HorarioSaida"@en.
+:valorDiaria rdfs:domain :TabelaPreco;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "valorDiaria"@en.
+:valorMensalidade rdfs:domain :TabelaPreco;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "valorMensalidade"@en.
+:dataInicioVigencia rdfs:domain :TabelaPreco;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataInicioVigencia"@en.
+:ordem rdfs:domain :ValorPeriodoCurto;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "ordem"@en.
+:periodo rdfs:domain :ValorPeriodoCurto;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "periodo"@en.
+:preco rdfs:domain :ValorPeriodoCurto;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "preco"@en.
+:qtdRepeticoes rdfs:domain :ValorPeriodoCurto;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "qtdRepeticoes"@en.
+:dataFimVigencia rdfs:domain :TabelaPrecoExpirada;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataFimVigencia"@en.
+:idTransacao rdfs:domain :PagamentoCredito;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "idTransacao"@en.
+:idTransacao_1 rdfs:domain :PagamentoDebito;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "idTransacao"@en.

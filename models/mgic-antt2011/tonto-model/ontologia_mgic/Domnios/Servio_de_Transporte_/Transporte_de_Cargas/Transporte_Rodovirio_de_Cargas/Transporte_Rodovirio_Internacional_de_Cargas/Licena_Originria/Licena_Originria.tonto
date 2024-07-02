@@ -1,0 +1,29 @@
+
+package Licena_Originria
+
+role Pas_Origem_de_Licena_Originria
+
+role Frota_de_Veculos_de_Carga_Habilitada_Internacionalmente of collectives  specializes Frota_com_Capacidade_Mnima_para_Operao_Internacional 
+
+role Pas_Destino_de_Licena_Originria
+
+relator Licena_Originria{
+    validade: undefined  
+}
+
+role Empresa_Nacional_Indicadora_de_Representante
+
+relator Indicao_de_Representante_para_Pedido_de_Licena_Originria
+
+role Representante_Legal_de_Empresa_de_Transporte_
+
+role Procurao_para_Indicao_de_Representante_para_Pedido_de_Licena_Originria
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:MilitaryOrganization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "MilitaryOrganization"@en.
+:CommDeviceOperator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CommDeviceOperator"@en.
+:CommDevice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CommDevice"@en.
+:MilitaryPerson rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MilitaryPerson"@en.
+:MilitaryEmployment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "MilitaryEmployment"@en.
+:WirelessNetwork rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "WirelessNetwork"@en.
+:Subordinate rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Subordinate"@en.
+:Commander rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Commander"@en.
+:CommDeviceCarrier rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "CommDeviceCarrier"@en.
+:MilitaryPlatform rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "MilitaryPlatform"@en.
+:Armored rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Armored"@en.
+:MilitaryOrganizationPowerType rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "MilitaryOrganizationPowerType"@en.
+:Interface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Interface"@en.
+:InterfacePowerType rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "InterfacePowerType"@en.
+:DataTransferMethod rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "DataTransferMethod"@en.
+:OperationalElement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "OperationalElement"@en.
+:HierarchicallyEquivalentDuringCommunication rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "HierarchicallyEquivalentDuringCommunication"@en.
+:Vehicle rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Vehicle"@en.
+:MilitaryPersonAsPassenger rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MilitaryPersonAsPassenger"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:MilitaryPersonAsCarrier rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MilitaryPersonAsCarrier"@en.
+:Guarani rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Guarani"@en.
+:AccessPoint rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "AccessPoint"@en.
+:Range rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Range"@en.
+:AntennaGain rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "AntennaGain"@en.
+:AmphibiousSpeed rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "AmphibiousSpeed"@en.
+:Frequency rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Frequency"@en.
+:Txpower rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Txpower"@en.
+:MinSpeed rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "MinSpeed"@en.
+:VisibilityRange rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "VisibilityRange"@en.
+:MaxSpeedLand rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "MaxSpeedLand"@en.
+:CommDeviceOperator rdfs:subClassOf :MilitaryPerson.
+:CommDevice rdfs:subClassOf :OperationalElement.
+:MilitaryPerson rdfs:subClassOf :OperationalElement, :Person.
+:Subordinate rdfs:subClassOf :MilitaryOrganization.
+:Commander rdfs:subClassOf :MilitaryOrganization.
+:MilitaryPlatform rdfs:subClassOf :CommDeviceCarrier, :OperationalElement.
+:Armored rdfs:subClassOf :Vehicle.
+:HierarchicallyEquivalentDuringCommunication rdfs:subClassOf :MilitaryOrganization.
+:Vehicle rdfs:subClassOf :MilitaryPlatform.
+:MilitaryPersonAsPassenger rdfs:subClassOf :MilitaryPerson.
+:MilitaryPersonAsCarrier rdfs:subClassOf :CommDeviceCarrier, :MilitaryPerson.
+:Guarani rdfs:subClassOf :Armored.

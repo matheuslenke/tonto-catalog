@@ -1,0 +1,156 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Governo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Governo"@en.
+:rgo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "rgo"@en.
+:Governo_Federal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Governo_Federal"@en.
+:Governo_Estadual rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Governo_Estadual"@en.
+:Governo_Municipal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Governo_Municipal"@en.
+:Unidade_Gestora rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Unidade_Gestora"@en.
+:Processo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Processo"@en.
+:Processo_Licitatrio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Processo_Licitatrio"@en.
+:Processo_Execuco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Processo_Execuco"@en.
+:Aco_Licitatria rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Aco_Licitatria"@en.
+:Licitaco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Licitaco"@en.
+:Dispensa_Licitaco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Dispensa_Licitaco"@en.
+:Contrato_com_Licitaco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Contrato_com_Licitaco"@en.
+:Contrato_com_Dispensa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Contrato_com_Dispensa"@en.
+:Contrato_Inicial rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Contrato_Inicial"@en.
+:Contrato rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Contrato"@en.
+:Contrato_Aditivo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Contrato_Aditivo"@en.
+:Credor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Credor"@en.
+:Pessoa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa"@en.
+:Empresa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Empresa"@en.
+:Pessoa_Credor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_Credor"@en.
+:Empresa_Credor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Empresa_Credor"@en.
+:Execuco_Despesa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Execuco_Despesa"@en.
+:Exeuco_com_Contrato rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Exeuco_com_Contrato"@en.
+:Execuco_sem_Contrato rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Execuco_sem_Contrato"@en.
+:Empenho rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Empenho"@en.
+:Liquidaco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Liquidaco"@en.
+:Pagamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Pagamento"@en.
+:Despesa_Empenhada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Despesa_Empenhada"@en.
+:Despesa_Liquidada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Despesa_Liquidada"@en.
+:Despesa_Paga rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Despesa_Paga"@en.
+:Despesa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Despesa"@en.
+:Subttulo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Subttulo"@en.
+:Local rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Local"@en.
+:Natureza_Despesa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Natureza_Despesa"@en.
+:Aco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Aco"@en.
+:Programa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Programa"@en.
+:SubFunco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SubFunco"@en.
+:Funco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Funco"@en.
+:Grupo_Natureza rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Grupo_Natureza"@en.
+:Categoria_Econmica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Categoria_Econmica"@en.
+:Modalidade_Aplicaco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Modalidade_Aplicaco"@en.
+:Governo_Federal rdfs:subClassOf :Governo.
+:Governo_Estadual rdfs:subClassOf :Governo.
+:Governo_Municipal rdfs:subClassOf :Governo.
+:Processo_Licitatrio rdfs:subClassOf :Processo.
+:Processo_Execuco rdfs:subClassOf :Processo.
+:Licitaco rdfs:subClassOf :Aco_Licitatria.
+:Dispensa_Licitaco rdfs:subClassOf :Aco_Licitatria.
+:Contrato_com_Dispensa rdfs:subClassOf :Contrato_Inicial.
+:Contrato_com_Licitaco rdfs:subClassOf :Contrato_Inicial.
+:Contrato_Aditivo rdfs:subClassOf :Contrato.
+:Contrato_Inicial rdfs:subClassOf :Contrato.
+:Pessoa_Credor rdfs:subClassOf :Credor.
+:Empresa_Credor rdfs:subClassOf :Credor.
+:Empenho rdfs:subClassOf :Execuco_Despesa.
+:Pagamento rdfs:subClassOf :Execuco_Despesa.
+:Liquidaco rdfs:subClassOf :Execuco_Despesa.
+:Execuco_sem_Contrato rdfs:subClassOf :Execuco_Despesa.
+:Exeuco_com_Contrato rdfs:subClassOf :Execuco_Despesa.
+:Despesa_Empenhada rdfs:subClassOf :Despesa.
+:Despesa_Paga rdfs:subClassOf :Despesa.
+:Despesa_Liquidada rdfs:subClassOf :Despesa.
+:Governo_Federal rdfs:subClassOf :Governo.
+:Governo_Estadual rdfs:subClassOf :Governo.
+:Governo_Municipal rdfs:subClassOf :Governo.
+:Unidade_Gestora rdfs:subClassOf :rgo.
+:Processo_Licitatrio rdfs:subClassOf :Processo.
+:Processo_Execuco rdfs:subClassOf :Processo.
+:Licitaco rdfs:subClassOf :Aco_Licitatria.
+:Dispensa_Licitaco rdfs:subClassOf :Aco_Licitatria.
+:Contrato_com_Licitaco rdfs:subClassOf :Contrato_Inicial.
+:Contrato_com_Dispensa rdfs:subClassOf :Contrato_Inicial.
+:Contrato_Inicial rdfs:subClassOf :Contrato.
+:Contrato_Aditivo rdfs:subClassOf :Contrato.
+:Pessoa_Credor rdfs:subClassOf :Credor, :Pessoa.
+:Empresa_Credor rdfs:subClassOf :Credor, :Empresa.
+:Exeuco_com_Contrato rdfs:subClassOf :Execuco_Despesa.
+:Execuco_sem_Contrato rdfs:subClassOf :Execuco_Despesa.
+:Empenho rdfs:subClassOf :Execuco_Despesa.
+:Liquidaco rdfs:subClassOf :Execuco_Despesa.
+:Pagamento rdfs:subClassOf :Execuco_Despesa.
+:Despesa_Empenhada rdfs:subClassOf :Despesa.
+:Despesa_Liquidada rdfs:subClassOf :Despesa.
+:Despesa_Paga rdfs:subClassOf :Despesa.
+:Subttulo rdfs:subClassOf :Local.

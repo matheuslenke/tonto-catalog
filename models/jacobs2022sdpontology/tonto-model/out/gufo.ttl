@@ -1,0 +1,317 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Resource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource"@en.
+:Story rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Story"@en.
+:Program_increment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Program_increment"@en.
+:Platform rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Platform"@en.
+:Epic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Epic"@en.
+:Program rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Program"@en.
+:Sprint rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sprint"@en.
+:Compiler rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Compiler"@en.
+:Programming_framework rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Programming_framework"@en.
+:Quality_attribute rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Quality_attribute"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Programming_langauge rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Programming_langauge"@en.
+:Software_development_project rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Software_development_project"@en.
+:Programming_environment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Programming_environment"@en.
+:Membership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Membership"@en.
+:Team rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Team"@en.
+:Business_Role rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Business_Role"@en.
+:Proficiency_level rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Proficiency_level"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Role rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Role"@en.
+:Nonfunctional_Requirement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Nonfunctional_Requirement"@en.
+:Attributes rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Security :Complexity :Ease_of_Use :Maintainability :Testability :Reliability)
+].
+:Security rdf:type :Attributes;
+    rdf:label "[object Object]".
+:Complexity rdf:type :Attributes;
+    rdf:label "[object Object]".
+:Ease_of_Use rdf:type :Attributes;
+    rdf:label "[object Object]".
+:Maintainability rdf:type :Attributes;
+    rdf:label "[object Object]".
+:Testability rdf:type :Attributes;
+    rdf:label "[object Object]".
+:Reliability rdf:type :Attributes;
+    rdf:label "[object Object]".
+:Attributes rdfs:label "Attributes"@en.
+:Quality_Levels rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Low :Medium :High)
+].
+:Low rdf:type :Quality_Levels;
+    rdf:label "[object Object]".
+:Medium rdf:type :Quality_Levels;
+    rdf:label "[object Object]".
+:High rdf:type :Quality_Levels;
+    rdf:label "[object Object]".
+:Quality_Levels rdfs:label "Quality_Levels"@en.
+:Platforms rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Mobile :Web :Desktop :Noninterface)
+].
+:Mobile rdf:type :Platforms;
+    rdf:label "[object Object]".
+:Web rdf:type :Platforms;
+    rdf:label "[object Object]".
+:Desktop rdf:type :Platforms;
+    rdf:label "[object Object]".
+:Noninterface rdf:type :Platforms;
+    rdf:label "[object Object]".
+:Platforms rdfs:label "Platforms"@en.
+:Types rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Fullstack :Backend :Frontend)
+].
+:Fullstack rdf:type :Types;
+    rdf:label "[object Object]".
+:Backend rdf:type :Types;
+    rdf:label "[object Object]".
+:Frontend rdf:type :Types;
+    rdf:label "[object Object]".
+:Types rdfs:label "Types"@en.
+:Methods rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Waterfall :Agile)
+].
+:Waterfall rdf:type :Methods;
+    rdf:label "[object Object]".
+:Agile rdf:type :Methods;
+    rdf:label "[object Object]".
+:Methods rdfs:label "Methods"@en.
+:Requirements rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Security_level :Time_to_finish :Usability)
+].
+:Security_level rdf:type :Requirements;
+    rdf:label "[object Object]".
+:Time_to_finish rdf:type :Requirements;
+    rdf:label "[object Object]".
+:Usability rdf:type :Requirements;
+    rdf:label "[object Object]".
+:Requirements rdfs:label "Requirements"@en.
+:Resources rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Software :Hardware :Human)
+].
+:Software rdf:type :Resources;
+    rdf:label "[object Object]".
+:Hardware rdf:type :Resources;
+    rdf:label "[object Object]".
+:Human rdf:type :Resources;
+    rdf:label "[object Object]".
+:Resources rdfs:label "Resources"@en.
+:Architectural_styles rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:SOA :Monolith)
+].
+:SOA rdf:type :Architectural_styles;
+    rdf:label "[object Object]".
+:Monolith rdf:type :Architectural_styles;
+    rdf:label "[object Object]".
+:Architectural_styles rdfs:label "Architectural_styles"@en.
+:Experience_Levels rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Junior :Intermediate :Senior)
+].
+:Junior rdf:type :Experience_Levels;
+    rdf:label "[object Object]".
+:Intermediate rdf:type :Experience_Levels;
+    rdf:label "[object Object]".
+:Senior rdf:type :Experience_Levels;
+    rdf:label "[object Object]".
+:Experience_Levels rdfs:label "Experience_Levels"@en.
+:Roles rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Scrum_Master :Software_engineer :Tester :Product_owner :Technical_administrator :Functional_administrator)
+].
+:Scrum_Master rdf:type :Roles;
+    rdf:label "[object Object]".
+:Software_engineer rdf:type :Roles;
+    rdf:label "[object Object]".
+:Tester rdf:type :Roles;
+    rdf:label "[object Object]".
+:Product_owner rdf:type :Roles;
+    rdf:label "[object Object]".
+:Technical_administrator rdf:type :Roles;
+    rdf:label "[object Object]".
+:Functional_administrator rdf:type :Roles;
+    rdf:label "[object Object]".
+:Roles rdfs:label "Roles"@en.
+:Proficiency_Levels rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Aware :Beginner :Professional :Expert :Leading_Expert)
+].
+:Aware rdf:type :Proficiency_Levels;
+    rdf:label "[object Object]".
+:Beginner rdf:type :Proficiency_Levels;
+    rdf:label "[object Object]".
+:Professional rdf:type :Proficiency_Levels;
+    rdf:label "[object Object]".
+:Expert rdf:type :Proficiency_Levels;
+    rdf:label "[object Object]".
+:Leading_Expert rdf:type :Proficiency_Levels;
+    rdf:label "[object Object]".
+:Proficiency_Levels rdfs:label "Proficiency_Levels"@en.
+:Importance_levels rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Low_Importance :Medium_Importance :High_Importance)
+].
+:Low_Importance rdf:type :Importance_levels;
+    rdf:label "[object Object]".
+:Medium_Importance rdf:type :Importance_levels;
+    rdf:label "[object Object]".
+:High_Importance rdf:type :Importance_levels;
+    rdf:label "[object Object]".
+:Importance_levels rdfs:label "Importance_levels"@en.
+:Program_increment rdfs:subClassOf :Software_development_project.
+:Employee rdfs:subClassOf :Person.
+:Programming_environment rdfs:subClassOf :Resource.
+:Team rdfs:subClassOf :Resource.
+:Business_Role rdfs:subClassOf :Role.
+:resource rdfs:domain :Resource;
+    rdfs:range :Resources;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "resource"@en.
+:platform rdfs:domain :Platform;
+    rdfs:range :Platforms;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "platform"@en.
+:type_ rdfs:domain :Quality_attribute;
+    rdfs:range :Attributes;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "type_"@en.
+:Qlevel rdfs:domain :Quality_attribute;
+    rdfs:range :Quality_Levels;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "Qlevel"@en.
+:availability rdfs:domain :Employee;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "availability"@en.
+:General_experience_level rdfs:domain :Employee;
+    rdfs:range :Experience_Levels;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "General_experience_level"@en.
+:effort rdfs:domain :Software_development_project;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "effort"@en.
+:type_of_project rdfs:domain :Software_development_project;
+    rdfs:range :Types;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "type_of_project"@en.
+:Architectural_style rdfs:domain :Software_development_project;
+    rdfs:range :Architectural_styles;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "Architectural_style"@en.
+:development_method rdfs:domain :Software_development_project;
+    rdfs:range :Methods;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "development_method"@en.
+:type_of_project_1 rdfs:domain :Programming_environment;
+    rdfs:range :Types;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "type_of_project"@en.
+:role_ rdfs:domain :Business_Role;
+    rdfs:range :Roles;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "role_"@en.
+:Plevel rdfs:domain :Proficiency_level;
+    rdfs:range :Proficiency_Levels;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "Plevel"@en.
+:requirement rdfs:domain :Nonfunctional_Requirement;
+    rdfs:range :Requirements;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "requirement"@en.
+:importance rdfs:domain :Nonfunctional_Requirement;
+    rdfs:range :Importance_levels;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "importance"@en.

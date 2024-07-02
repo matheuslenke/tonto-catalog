@@ -1,0 +1,30 @@
+
+package Esquema_Operacional_de_Linha_de_nibus
+
+relator Esquema_Operacional
+
+role Itinerrio_para_Transporte_Regular of collectives  specializes Itinerrio 
+
+kind Seo_de_Linha_de_nibus{
+    tempoViagemPrevisto: undefined  
+}
+
+role Ponto_de_Apoio
+
+role Itinerrio_para_Fretamento_Contnuo of collectives  specializes Itinerrio 
+
+collective Itinerrio
+
+role Ponto_de_Parada
+
+role Trecho_de_Itinerrio of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+
+
+
+
+
+
+
+
+

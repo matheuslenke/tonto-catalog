@@ -1,0 +1,80 @@
+
+package PER
+
+subkind Item_de_Elemento_de_Proteo_e_Segurana of functional-complexes  specializes Item_do_PER 
+
+phase Recuperao specializes Trabalhos_ao_Longo_da_Concesso 
+
+subkind Item_Obrigatrio of functional-complexes  specializes Item_do_PER 
+
+subkind Item_de_Edificao_e_Instalao_Operacional of functional-complexes  specializes Item_do_PER 
+
+subkind Melhoria_Fsica_e_Operacional of functional-complexes  specializes Melhoramento_da_Rodovia 
+
+kind Procedimento_Executivo
+
+subkind Item_de_Canteiro_Central_e_Faixa_de_Domnio of functional-complexes  specializes Item_do_PER 
+
+phase Trabalhos_Iniciais{
+    Durao: undefined  
+}
+
+kind Parmetro_de_Desempenho specializes Parmetro_Operacional 
+
+subkind Item_de_Operao of functional-complexes  specializes Item_do_PER 
+
+subkind Complementao_de_Obras_do_DNIT of functional-complexes  specializes Melhoramento_da_Rodovia 
+
+subkind Recuperao_da_Rodovia of functional-complexes  specializes Item_No_Obrigatrio 
+
+subkind Item_de_Sistema_Eltrico_e_de_Iluminao of functional-complexes  specializes Item_do_PER 
+
+kind Cronograma_de_Execuo
+
+subkind Item_de_Sistema_de_Drenagem_e_Obra_de_Arte_Corrente of functional-complexes  specializes Item_do_PER 
+
+subkind Monitorao_da_Rodovia of functional-complexes  specializes Item_No_Obrigatrio 
+
+subkind Item_No_Obrigatrio of functional-complexes  specializes Item_do_PER 
+
+subkind Melhoramento_da_Rodovia of functional-complexes  specializes Item_Obrigatrio 
+
+subkind Ampliao_de_Capacidade of functional-complexes  specializes Melhoramento_da_Rodovia 
+
+subkind Item_de_Pavimento of functional-complexes  specializes Item_do_PER 
+
+subkind Item_de_Terraplenos_e_Estruturas_de_Conteno of functional-complexes  specializes Item_do_PER 
+
+subkind Conservao_Corretiva_Rotineira of functional-complexes  specializes Conservao_da_Rodovia 
+
+phase Trabalhos_ao_Longo_da_Concesso
+
+kind Escopo_do_Servio
+
+subkind Operao_da_Rodovia of functional-complexes  specializes Item_Obrigatrio 
+
+kind Item_do_PER specializes Item_de_Investimento 
+
+subkind Condicional_por_VDM of functional-complexes  specializes Item_Condicional 
+
+subkind Condicional_por_VDM_ou_Prazo of functional-complexes  specializes Item_Condicional 
+
+subkind Item_de_Obras_de_Arte_Especiais of functional-complexes  specializes Item_do_PER 
+
+subkind Conservao_Preventiva_Perodica of functional-complexes  specializes Conservao_da_Rodovia 
+
+phase Manuteno specializes Trabalhos_ao_Longo_da_Concesso 
+
+subkind Manuteno_da_Rodovia of functional-complexes  specializes Item_No_Obrigatrio 
+
+subkind Correo_Emergencial of functional-complexes  specializes Conservao_da_Rodovia 
+
+subkind Conservao_da_Rodovia of functional-complexes  specializes Item_No_Obrigatrio 
+
+subkind Item_Condicional of functional-complexes  specializes Item_do_PER 
+
+
+
+
+
+

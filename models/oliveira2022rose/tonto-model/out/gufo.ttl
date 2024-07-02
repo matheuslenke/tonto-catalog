@@ -1,0 +1,216 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Disposition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Disposition"@en.
+:Intention rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intention"@en.
+:Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event"@en.
+:Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Situation"@en.
+:Event_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Event_Type"@en.
+:Situation_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Situation_Type"@en.
+:Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Action"@en.
+:Security_Mechanism rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Security_Mechanism"@en.
+:Control_Capability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Control_Capability"@en.
+:Risk_Event_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Risk_Event_Type"@en.
+:Control_Event_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Control_Event_Type"@en.
+:Threat_Event_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Threat_Event_Type"@en.
+:Loss_Event_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Loss_Event_Type"@en.
+:Threat_Capability_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Threat_Capability_Type"@en.
+:Vulnerability_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Vulnerability_Type"@en.
+:Control_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Control_Event"@en.
+:Controlled_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Controlled_Situation"@en.
+:Attacker rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Attacker"@en.
+:Intention_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Intention_Type"@en.
+:Security_Designer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Security_Designer"@en.
+:Controlled_Situation_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Controlled_Situation_Type"@en.
+:Threatening_Situation_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Threatening_Situation_Type"@en.
+:Loss_Triggering_Situation_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Loss_Triggering_Situation_Type"@en.
+:Control_Chain_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Control_Chain_Event"@en.
+:Protection_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Protection_Event"@en.
+:Protection_Trigger rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Protection_Trigger"@en.
+:Attack rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Attack"@en.
+:Protected_Subject rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Protected_Subject"@en.
+:Generic_Intention rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Generic_Intention"@en.
+:Specific_Intention rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Specific_Intention"@en.
+:Value_Subject rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Value_Subject"@en.
+:Value_Experience rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Value_Experience"@en.
+:Value_Object rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value_Object"@en.
+:Value_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Value_Event"@en.
+:Value_Enabler rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value_Enabler"@en.
+:Trigger_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Trigger_Event"@en.
+:Impact_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Impact_Event"@en.
+:Impactful_Outcome rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Impactful_Outcome"@en.
+:Risk_Subject rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Risk_Subject"@en.
+:Risk_Experience rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Risk_Experience"@en.
+:Risk_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Risk_Event"@en.
+:Risk_Enabler rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Risk_Enabler"@en.
+:Threatening_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Threatening_Situation"@en.
+:Threat_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Threat_Event"@en.
+:Loss_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Loss_Event"@en.
+:Threat_Object rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Threat_Object"@en.
+:Threat_Capability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Threat_Capability"@en.
+:Loss_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Loss_Situation"@en.
+:Object_at_Risk rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object_at_Risk"@en.
+:Vulnerability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Vulnerability"@en.
+:Value_Ascription rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Value_Ascription"@en.
+:Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Value"@en.
+:Experience_Value_Asc rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Experience_Value_Asc"@en.
+:Object_Value_Asc rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Object_Value_Asc"@en.
+:Value_Assessor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value_Assessor"@en.
+:Risk_Assessor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Risk_Assessor"@en.
+:Object_Risk_Assesment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Object_Risk_Assesment"@en.
+:Experience_Risk_Assesment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Experience_Risk_Assesment"@en.
+:Risk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Risk"@en.
+:Risk_Assessment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Risk_Assessment"@en.
+:Causal_Likelihood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Causal_Likelihood"@en.
+:Triggering_Likelihood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Triggering_Likelihood"@en.
+:Control_Event rdfs:subClassOf :Protection_Event.
+:Control_Chain_Event rdfs:subClassOf :Protection_Event.
+:Threat_Event_Type rdfs:subClassOf :Risk_Event_Type.
+:Loss_Event_Type rdfs:subClassOf :Risk_Event_Type.
+:Attacker rdfs:subClassOf :Agent.
+:Specific_Intention rdfs:subClassOf :Intention.
+:Generic_Intention rdfs:subClassOf :Intention.
+:Threat_Event_Type rdfs:subClassOf :Risk_Event_Type.
+:Loss_Event_Type rdfs:subClassOf :Risk_Event_Type.
+:Control_Event rdfs:subClassOf :Protection_Event.
+:Attacker rdfs:subClassOf :Threat_Object, :Agent.
+:Control_Chain_Event rdfs:subClassOf :Protection_Event.
+:Attack rdfs:subClassOf :Threat_Event, :Action.
+:Generic_Intention rdfs:subClassOf :Intention.
+:Specific_Intention rdfs:subClassOf :Intention.
+:Risk_Subject rdfs:subClassOf :Agent.
+:Risk_Assessor rdfs:subClassOf :Agent.
+:Value_Subject rdfs:subClassOf :Agent.
+:Trigger_Event rdfs:subClassOf :Value_Event.
+:Impact_Event rdfs:subClassOf :Value_Event.
+:Experience_Value_Asc rdfs:subClassOf :Value_Ascription.
+:Object_Value_Asc rdfs:subClassOf :Value_Ascription.
+:Object_Risk_Assesment rdfs:subClassOf :Risk_Assessment.
+:Experience_Risk_Assesment rdfs:subClassOf :Risk_Assessment.
+:Loss_Event rdfs:subClassOf :Risk_Event.
+:Threat_Event rdfs:subClassOf :Risk_Event.
+:Value_Subject rdfs:subClassOf :Agent.
+:Trigger_Event rdfs:subClassOf :Value_Event.
+:Impact_Event rdfs:subClassOf :Value_Event.
+:Risk_Subject rdfs:subClassOf :Agent.
+:Threat_Event rdfs:subClassOf :Risk_Event.
+:Loss_Event rdfs:subClassOf :Risk_Event.
+:Experience_Value_Asc rdfs:subClassOf :Value_Ascription.
+:Object_Value_Asc rdfs:subClassOf :Value_Ascription.
+:Risk_Assessor rdfs:subClassOf :Agent.
+:Object_Risk_Assesment rdfs:subClassOf :Risk_Assessment.
+:Experience_Risk_Assesment rdfs:subClassOf :Risk_Assessment.

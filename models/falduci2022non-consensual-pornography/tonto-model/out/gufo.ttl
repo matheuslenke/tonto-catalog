@@ -1,0 +1,95 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:NaturalPerson rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "NaturalPerson"@en.
+:Depicted_Person_in_Intimacy rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Depicted_Person_in_Intimacy"@en.
+:Depicter_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Depicter_Person"@en.
+:Perpetrator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Perpetrator"@en.
+:Content_Consumer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Content_Consumer"@en.
+:Depicted_Person_with_Privacy_Violated rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Depicted_Person_with_Privacy_Violated"@en.
+:RightDuty_to_Keep_the_Intimate_Media_Object_Privately rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "RightDuty_to_Keep_the_Intimate_Media_Object_Privately"@en.
+:Right_to_Privacy_of_Intimate_Media_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Right_to_Privacy_of_Intimate_Media_Object"@en.
+:Duty_to_Keep_the_Intimate_Media_Object_Privately rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Duty_to_Keep_the_Intimate_Media_Object_Privately"@en.
+:Publication_of_the_Criminal_Law rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Publication_of_the_Criminal_Law"@en.
+:Intimate_Private_Media_Object_with_Uploading_Consent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Intimate_Private_Media_Object_with_Uploading_Consent"@en.
+:Private_Intimate_Media_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Private_Intimate_Media_Object"@en.
+:Digital_Platform rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Digital_Platform"@en.
+:Acessible_Digital_Platform rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Acessible_Digital_Platform"@en.
+:Upload_Private_Media_Object_to_the_Digital_Platform rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Upload_Private_Media_Object_to_the_Digital_Platform"@en.
+:Private_Media_Objects_Uploading rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Private_Media_Objects_Uploading"@en.
+:Publisher rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Publisher"@en.
+:Media_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Media_Object"@en.
+:Public_Media_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Public_Media_Object"@en.
+:Private_Intimate_Media_Object_without_Consent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Private_Intimate_Media_Object_without_Consent"@en.
+:Access_the_Published_Private_Intimate_Media rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Access_the_Published_Private_Intimate_Media"@en.
+:Private_Intimate_Media_Accessing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Private_Intimate_Media_Accessing"@en.
+:Uploaded_Private_Intimate_Media_Object_without_Consent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uploaded_Private_Intimate_Media_Object_without_Consent"@en.
+:Accessed_Private_Intimate_Media_Object_without_Consent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Accessed_Private_Intimate_Media_Object_without_Consent"@en.
+:Violation_of_Depicted_Persons_Right_to_Privacy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Violation_of_Depicted_Persons_Right_to_Privacy"@en.
+:Violated_Duty_to_Keep_the_Intimate_Media_Object_Privately rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Violated_Duty_to_Keep_the_Intimate_Media_Object_Privately"@en.
+:Violated_Right_to_Privacy_of_Intimate_Media_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Violated_Right_to_Privacy_of_Intimate_Media_Object"@en.
+:Content_Consumer rdfs:subClassOf :NaturalPerson.
+:Depicted_Person_in_Intimacy rdfs:subClassOf :NaturalPerson.
+:Depicter_Person rdfs:subClassOf :NaturalPerson.
+:Private_Intimate_Media_Object_without_Consent rdfs:subClassOf :Private_Intimate_Media_Object.
+:Intimate_Private_Media_Object_with_Uploading_Consent rdfs:subClassOf :Private_Intimate_Media_Object.
+:Depicted_Person_in_Intimacy rdfs:subClassOf :NaturalPerson.
+:Depicter_Person rdfs:subClassOf :NaturalPerson.
+:Perpetrator rdfs:subClassOf :Publisher.
+:Content_Consumer rdfs:subClassOf :NaturalPerson.
+:Depicted_Person_with_Privacy_Violated rdfs:subClassOf :Depicted_Person_in_Intimacy.
+:Intimate_Private_Media_Object_with_Uploading_Consent rdfs:subClassOf :Private_Intimate_Media_Object.
+:Private_Intimate_Media_Object rdfs:subClassOf :Media_Object.
+:Acessible_Digital_Platform rdfs:subClassOf :Digital_Platform.
+:Publisher rdfs:subClassOf :Depicter_Person.
+:Public_Media_Object rdfs:subClassOf :Media_Object.
+:Private_Intimate_Media_Object_without_Consent rdfs:subClassOf :Private_Intimate_Media_Object.
+:Uploaded_Private_Intimate_Media_Object_without_Consent rdfs:subClassOf :Private_Intimate_Media_Object_without_Consent.
+:Accessed_Private_Intimate_Media_Object_without_Consent rdfs:subClassOf :Uploaded_Private_Intimate_Media_Object_without_Consent.

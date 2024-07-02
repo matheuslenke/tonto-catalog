@@ -1,0 +1,78 @@
+
+package Principais
+
+subkind Infrao_Graduada_por_Natureza of functional-complexes  specializes Infrao_Praticada 
+
+role Infrator_por_InPraTe_Concessionria specializes Infrator_por_InPraTe 
+
+phase PAAIAP_Finalizado of relators  specializes PAAIAP 
+
+subkind Infrao_Grave of functional-complexes  specializes Infrao_Graduada_por_Natureza 
+
+roleMixin Infrator of functional-complexes 
+
+relator PAAI_de_Transporte specializes PAAIAP 
+
+roleMixin _Infrator_Reincidente of functional-complexes  specializes Infrator 
+
+subkind Infrao_Legal_Praticada of functional-complexes  specializes Infrao_Praticada 
+
+subkind Infrao_Regulamentar_Praticada of functional-complexes  specializes Infrao_Praticada 
+
+subkind Infrao_Praticada_de_Trnsito of functional-complexes  specializes Infrao_Praticada, Infrao_Legal_Praticada, Infrao_Graduada_por_Natureza 
+
+kind Infrao_Praticada{
+    data: undefined  
+}
+
+roleMixin _Infrator_com_RG of functional-complexes  specializes _Infrator_Reincidente 
+
+subkind Infrao_Graduada_por_Grupo of functional-complexes  specializes Infrao_Praticada {
+    grupo: undefined  
+}
+
+mode Deciso_Final
+
+relator PA_Simplificado specializes PAAI_de_Transporte 
+
+mode Agravante
+
+subkind Infrao_Leve of functional-complexes  specializes Infrao_Graduada_por_Natureza 
+
+subkind Infrao_Mdia of functional-complexes  specializes Infrao_Graduada_por_Natureza 
+
+subkind Infrao_Contratual_Praticada of functional-complexes  specializes Infrao_Praticada 
+
+phase PAAIAP_em_Aberto of relators  specializes PAAIAP 
+
+mode Deciso_Final_com_Penalidade specializes Deciso_Final 
+
+relator PA_Ordinrio specializes PAAI_de_Transporte 
+
+subkind Infrao_Gravssima of functional-complexes  specializes Infrao_Graduada_por_Natureza 
+
+relator Autuao_com_Aplicao_de_MA specializes Autuao_por_Lavratura 
+
+roleMixin Infrator_por_InPraTe of functional-complexes  specializes Infrator, Infrator_por_InPraTe_com_TAC, Infrator_por_InPraTe_com_TRO 
+
+subkind Infrao_Praticada_com_Agravante of functional-complexes  specializes Infrao_Praticada 
+
+subkind Infrao_Praticada_de_Transporte of functional-complexes  specializes Infrao_Praticada 
+
+roleMixin _Infrator_com_RE of functional-complexes  specializes _Infrator_Reincidente 
+
+relator PAAI_de_Trnsito specializes PAAIAP 
+
+relator PAAIAP specializes PAAIAP_com_TAC 
+
+roleMixin Infrator_por_InPraTo of functional-complexes  specializes Infrator 
+
+
+
+
+
+
+
+
+
+

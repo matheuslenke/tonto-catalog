@@ -1,0 +1,213 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Cookie_consent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Cookie_consent"@en.
+:IP_Visitor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "IP_Visitor"@en.
+:Public_Interaction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Public_Interaction"@en.
+:Logged_Visitor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Logged_Visitor"@en.
+:Anonymous_Visitor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Anonymous_Visitor"@en.
+:User rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "User"@en.
+:Private_Interaction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Private_Interaction"@en.
+:Feed rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Feed"@en.
+:Followable rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Followable"@en.
+:Settings rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Settings"@en.
+:Terms rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Terms"@en.
+:Resource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Resource"@en.
+:Collection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Collection"@en.
+:Learning_Path rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Learning_Path"@en.
+:Video rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Video"@en.
+:Podcast rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Podcast"@en.
+:Book rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Book"@en.
+:Link rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Link"@en.
+:Course rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Course"@en.
+:Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Component"@en.
+:Offer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Offer"@en.
+:Skill rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Skill"@en.
+:Tag rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Tag"@en.
+:Subject rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Subject"@en.
+:Creatable rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Creatable"@en.
+:Commentable rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Commentable"@en.
+:Viewable rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Viewable"@en.
+:Deletable rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Deletable"@en.
+:Editable rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Editable"@en.
+:Upvotable rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Upvotable"@en.
+:Creation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Creation"@en.
+:Comment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Comment"@en.
+:View rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "View"@en.
+:Delete rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Delete"@en.
+:Upvote rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Upvote"@en.
+:Search rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Search"@en.
+:Edit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Edit"@en.
+:Follow rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Follow"@en.
+:Interaction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Interaction"@en.
+:Comment0 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Comment0"@en.
+:Selection rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Selection"@en.
+:Popular_Selection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Popular_Selection"@en.
+:Occupation_Popularity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Occupation_Popularity"@en.
+:Skill_Popularity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Skill_Popularity"@en.
+:Popular_Occupation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Popular_Occupation"@en.
+:Popular_Skill rdf:type owl:NamedIndividual;
+    rdfs:label "Popular_Skill"@en.
+:Occupation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Occupation"@en.
+:Selected_Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Selected_Activity"@en.
+:Country rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Country"@en.
+:Economic_Activity_Classification_NACE rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Activity_Classification_NACE"@en.
+:Job_Description rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Job_Description"@en.
+:Company rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Company"@en.
+:Organization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Record rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Record"@en.
+:Labor_Record rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Labor_Record"@en.
+:Education_Record rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Education_Record"@en.
+:Public_Resource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Public_Resource"@en.
+:Corporate_Resource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Corporate_Resource"@en.
+:Corporate_User rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Corporate_User"@en.
+:Learning_Manager rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Learning_Manager"@en.
+:NACE_Section rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "NACE_Section"@en.
+:NACE_Division rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "NACE_Division"@en.
+:NACE_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "NACE_Group"@en.
+:NACE_Class rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "NACE_Class"@en.
+:School rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "School"@en.
+:Anonymous_Visitor rdfs:subClassOf :IP_Visitor.
+:Logged_Visitor rdfs:subClassOf :IP_Visitor.
+:Private_Interaction rdfs:subClassOf :Interaction.
+:Public_Interaction rdfs:subClassOf :Interaction.
+:Occupation_Popularity rdfs:subClassOf :Popular_Selection.
+:Skill_Popularity rdfs:subClassOf :Popular_Selection.
+:Labor_Record rdfs:subClassOf :Record.
+:Education_Record rdfs:subClassOf :Record.
+:Public_Interaction rdfs:subClassOf :Interaction.
+:Logged_Visitor rdfs:subClassOf :IP_Visitor.
+:Anonymous_Visitor rdfs:subClassOf :IP_Visitor.
+:User rdfs:subClassOf :Followable.
+:Private_Interaction rdfs:subClassOf :Interaction.
+:Resource rdfs:subClassOf :Commentable, :Upvotable, :Viewable.
+:Collection rdfs:subClassOf :Resource, :Creatable, :Deletable, :Editable.
+:Learning_Path rdfs:subClassOf :Resource, :Creatable, :Deletable, :Editable.
+:Video rdfs:subClassOf :Resource.
+:Podcast rdfs:subClassOf :Resource.
+:Book rdfs:subClassOf :Resource.
+:Link rdfs:subClassOf :Resource.
+:Course rdfs:subClassOf :Resource.
+:Tag rdfs:subClassOf :Followable.
+:Subject rdfs:subClassOf :Followable.
+:Creation rdfs:subClassOf :Interaction.
+:Comment rdfs:subClassOf :Interaction, :Creatable, :Deletable, :Editable, :Commentable, :Upvotable.
+:View rdfs:subClassOf :Interaction.
+:Delete rdfs:subClassOf :Interaction.
+:Upvote rdfs:subClassOf :Interaction.
+:Search rdfs:subClassOf :Interaction.
+:Edit rdfs:subClassOf :Interaction.
+:Follow rdfs:subClassOf :Interaction.
+:Popular_Selection rdfs:subClassOf :Selection.
+:Occupation_Popularity rdfs:subClassOf :Popular_Selection.
+:Skill_Popularity rdfs:subClassOf :Popular_Selection.
+:Company rdfs:subClassOf :Organization.
+:Labor_Record rdfs:subClassOf :Record.
+:Education_Record rdfs:subClassOf :Record.
+:Public_Resource rdfs:subClassOf :Resource.
+:Corporate_Resource rdfs:subClassOf :Resource.
+:Corporate_User rdfs:subClassOf :User.
+:Learning_Manager rdfs:subClassOf :Corporate_User.
+:School rdfs:subClassOf :Organization.

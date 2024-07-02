@@ -1,0 +1,283 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Doena rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Doena"@en.
+:Doena_Infecciosa rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Doena_Infecciosa"@en.
+:Principal_agente_causador rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Principal_agente_causador"@en.
+:Microorganismo_Patognicos rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Microorganismo_Patognicos"@en.
+:Vrus rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Vrus"@en.
+:SARSCoV2 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SARSCoV2"@en.
+:Pessoa_Morta rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_Morta"@en.
+:Pessoa_Viva rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_Viva"@en.
+:Diagnstico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Diagnstico"@en.
+:Diagnstico_COVID19 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Diagnstico_COVID19"@en.
+:Profissional_da_Sade rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Profissional_da_Sade"@en.
+:Exame rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Exame"@en.
+:Mdico rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mdico"@en.
+:Transmisso_de_SARSCoV2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Transmisso_de_SARSCoV2"@en.
+:NAAT rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NAAT"@en.
+:Amostra_Clnica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Amostra_Clnica"@en.
+:Carga_Viral_de_SARSCoV2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Carga_Viral_de_SARSCoV2"@en.
+:Pessoa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa"@en.
+:Disfuno rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Disfuno"@en.
+:Manifestao_do_Sintoma rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Manifestao_do_Sintoma"@en.
+:Desaparecimento_do_Sintoma rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Desaparecimento_do_Sintoma"@en.
+:Detectvel_para_SARSCoV2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Detectvel_para_SARSCoV2"@en.
+:Pessoa_com_COVID19_Assintomtica rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_COVID19_Assintomtica"@en.
+:Pessoa_com_COVID19_Sintomtica rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_COVID19_Sintomtica"@en.
+:Sintoma_COVID19 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sintoma_COVID19"@en.
+:COVID19 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "COVID19"@en.
+:Pessoa_com_COVID19 rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_COVID19"@en.
+:Sintoma rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Sintoma"@en.
+:Caso_COVID19_segundo_ECDC rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Caso_COVID19_segundo_ECDC"@en.
+:Caso_COVID19_segundo_OMS rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Caso_COVID19_segundo_OMS"@en.
+:Caso_Possvel_de_COVID19_segundo_ECDC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Caso_Possvel_de_COVID19_segundo_ECDC"@en.
+:Caso_Provavl_de_COVID19_segundo_ECDC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Caso_Provavl_de_COVID19_segundo_ECDC"@en.
+:Caso_Confirmado_de_COVID19_segundo_ECDC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Caso_Confirmado_de_COVID19_segundo_ECDC"@en.
+:Caso_Provvel_de_COVID19_segundo_OMS rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Caso_Provvel_de_COVID19_segundo_OMS"@en.
+:Caso_Suspeito_de_COVID19_segundo_OMS rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Caso_Suspeito_de_COVID19_segundo_OMS"@en.
+:Caso_Confirmado_de_COVID19_segundo_OMS rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Caso_Confirmado_de_COVID19_segundo_OMS"@en.
+:Critrio_Clnico_segundo_ECDC rdf:type owl:NamedIndividual;
+    rdfs:label "Critrio_Clnico_segundo_ECDC"@en.
+:Lugar_Geogrfico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Lugar_Geogrfico"@en.
+:Taxa_de_Transmisso_de_COVID19 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Taxa_de_Transmisso_de_COVID19"@en.
+:Estabelecimento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Estabelecimento"@en.
+:Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS"@en.
+:Coriza rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Coriza"@en.
+:Anorexia_Nusea_Vmito rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Anorexia_Nusea_Vmito"@en.
+:FraquezaFadiga_Geral rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FraquezaFadiga_Geral"@en.
+:Diarreia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Diarreia"@en.
+:Estado_Mental_Alterado rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Estado_Mental_Alterado"@en.
+:Mialgia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Mialgia"@en.
+:Dor_de_Garganta rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dor_de_Garganta"@en.
+:Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC"@en.
+:Tosse rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Tosse"@en.
+:Dispneia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dispneia"@en.
+:Febre rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Febre"@en.
+:Dor_de_Cabea rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dor_de_Cabea"@en.
+:AnosmiaHiposmiaAgeusia_Repentina rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AnosmiaHiposmiaAgeusia_Repentina"@en.
+:bito rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "bito"@en.
+:Exame_Radiolgico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Exame_Radiolgico"@en.
+:Leses_Compatveis_com_a_COVID19 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Leses_Compatveis_com_a_COVID19"@en.
+:Infeco_de_SARSCoV2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Infeco_de_SARSCoV2"@en.
+:Critrio_Epidemiolgico_segundo_ECDC rdf:type owl:NamedIndividual;
+    rdfs:label "Critrio_Epidemiolgico_segundo_ECDC"@en.
+:Critrio_Laboratorial_segundo_ECDC rdf:type owl:NamedIndividual;
+    rdfs:label "Critrio_Laboratorial_segundo_ECDC"@en.
+:Critrio_Clnico_segundo_OMS rdf:type owl:NamedIndividual;
+    rdfs:label "Critrio_Clnico_segundo_OMS"@en.
+:Critrio_Epidemiolgico_segundo_OMS rdf:type owl:NamedIndividual;
+    rdfs:label "Critrio_Epidemiolgico_segundo_OMS"@en.
+:Pessoa_Possivelmente_com_COVID19_segundo_ECDC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_Possivelmente_com_COVID19_segundo_ECDC"@en.
+:Pessoa_Provavelmente_com_COVID19_segundo_ECDC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_Provavelmente_com_COVID19_segundo_ECDC"@en.
+:Pessoa_com_COVID19_Confirmada_segundo_ECDC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_COVID19_Confirmada_segundo_ECDC"@en.
+:Critrio_de_Diagnstigo_de_Imagem_segundo_ECDC rdf:type owl:NamedIndividual;
+    rdfs:label "Critrio_de_Diagnstigo_de_Imagem_segundo_ECDC"@en.
+:Teste_AntgenoRDT_para_SARSCoV2 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Teste_AntgenoRDT_para_SARSCoV2"@en.
+:Teste_Positivo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Teste_Positivo"@en.
+:Pessoa_com_COVID19_Confirmada_segundo_OMS rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_COVID19_Confirmada_segundo_OMS"@en.
+:Pessoa_com_Provvel_COVID19_segundo_OMS rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_Provvel_COVID19_segundo_OMS"@en.
+:Pessoa_com_Suspeita_de_COVID_segundo_OMS rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_Suspeita_de_COVID_segundo_OMS"@en.
+:Instituio_de_Tratamento_de_Pessoas_Vulnerveis rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Instituio_de_Tratamento_de_Pessoas_Vulnerveis"@en.
+:SRAG rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SRAG"@en.
+:Estabelecimento_de_Sade rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Estabelecimento_de_Sade"@en.
+:Pessoa_Viva rdfs:subClassOf :Pessoa.
+:Pessoa_Morta rdfs:subClassOf :Pessoa.
+:Pessoa_com_COVID19_Sintomtica rdfs:subClassOf :Pessoa_com_COVID19.
+:Pessoa_com_COVID19_Assintomtica rdfs:subClassOf :Pessoa_com_COVID19.
+:Caso_Possvel_de_COVID19_segundo_ECDC rdfs:subClassOf :Caso_COVID19_segundo_ECDC.
+:Caso_Provavl_de_COVID19_segundo_ECDC rdfs:subClassOf :Caso_COVID19_segundo_ECDC.
+:Caso_Confirmado_de_COVID19_segundo_ECDC rdfs:subClassOf :Caso_COVID19_segundo_ECDC.
+:Caso_Provvel_de_COVID19_segundo_OMS rdfs:subClassOf :Caso_COVID19_segundo_OMS.
+:Caso_Suspeito_de_COVID19_segundo_OMS rdfs:subClassOf :Caso_COVID19_segundo_OMS.
+:Caso_Confirmado_de_COVID19_segundo_OMS rdfs:subClassOf :Caso_COVID19_segundo_OMS.
+:Dor_de_Garganta rdfs:subClassOf :Sintoma_COVID19.
+:Estado_Mental_Alterado rdfs:subClassOf :Sintoma_COVID19.
+:Coriza rdfs:subClassOf :Sintoma_COVID19.
+:AnosmiaHiposmiaAgeusia_Repentina rdfs:subClassOf :Sintoma_COVID19.
+:Dispneia rdfs:subClassOf :Sintoma_COVID19.
+:FraquezaFadiga_Geral rdfs:subClassOf :Sintoma_COVID19.
+:Anorexia_Nusea_Vmito rdfs:subClassOf :Sintoma_COVID19.
+:Mialgia rdfs:subClassOf :Sintoma_COVID19.
+:Dor_de_Cabea rdfs:subClassOf :Sintoma_COVID19.
+:Tosse rdfs:subClassOf :Sintoma_COVID19.
+:Febre rdfs:subClassOf :Sintoma_COVID19.
+:Diarreia rdfs:subClassOf :Sintoma_COVID19.
+:Estado_Mental_Alterado rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Febre rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Diarreia rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Anorexia_Nusea_Vmito rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Tosse rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Mialgia rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Dor_de_Garganta rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Coriza rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:FraquezaFadiga_Geral rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Dispneia rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Dor_de_Cabea rdfs:subClassOf :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Febre rdfs:subClassOf :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:Dispneia rdfs:subClassOf :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:Tosse rdfs:subClassOf :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:AnosmiaHiposmiaAgeusia_Repentina rdfs:subClassOf :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:Pessoa_Provavelmente_com_COVID19_segundo_ECDC rdfs:subClassOf :Pessoa.
+:Pessoa_Possivelmente_com_COVID19_segundo_ECDC rdfs:subClassOf :Pessoa.
+:Pessoa_com_COVID19_Confirmada_segundo_ECDC rdfs:subClassOf :Pessoa.
+:Pessoa_com_Suspeita_de_COVID_segundo_OMS rdfs:subClassOf :Pessoa.
+:Pessoa_com_Provvel_COVID19_segundo_OMS rdfs:subClassOf :Pessoa.
+:Pessoa_com_COVID19_Confirmada_segundo_OMS rdfs:subClassOf :Pessoa.
+:Doena_Infecciosa rdfs:subClassOf :Doena.
+:Microorganismo_Patognicos rdfs:subClassOf :Principal_agente_causador.
+:Vrus rdfs:subClassOf :Microorganismo_Patognicos.
+:SARSCoV2 rdfs:subClassOf :Vrus.
+:Pessoa_Morta rdfs:subClassOf :Pessoa.
+:Pessoa_Viva rdfs:subClassOf :Pessoa.
+:Diagnstico_COVID19 rdfs:subClassOf :Diagnstico.
+:Profissional_da_Sade rdfs:subClassOf :Pessoa.
+:Mdico rdfs:subClassOf :Profissional_da_Sade.
+:NAAT rdfs:subClassOf :Exame.
+:Pessoa_com_COVID19_Assintomtica rdfs:subClassOf :Pessoa_com_COVID19.
+:Pessoa_com_COVID19_Sintomtica rdfs:subClassOf :Pessoa_com_COVID19.
+:Sintoma_COVID19 rdfs:subClassOf :Sintoma.
+:COVID19 rdfs:subClassOf :Doena_Infecciosa.
+:Pessoa_com_COVID19 rdfs:subClassOf :Pessoa_Viva.
+:Caso_Possvel_de_COVID19_segundo_ECDC rdfs:subClassOf :Caso_COVID19_segundo_ECDC.
+:Caso_Provavl_de_COVID19_segundo_ECDC rdfs:subClassOf :Caso_COVID19_segundo_ECDC.
+:Caso_Confirmado_de_COVID19_segundo_ECDC rdfs:subClassOf :Caso_COVID19_segundo_ECDC.
+:Caso_Provvel_de_COVID19_segundo_OMS rdfs:subClassOf :Caso_COVID19_segundo_OMS.
+:Caso_Suspeito_de_COVID19_segundo_OMS rdfs:subClassOf :Caso_COVID19_segundo_OMS.
+:Caso_Confirmado_de_COVID19_segundo_OMS rdfs:subClassOf :Caso_COVID19_segundo_OMS.
+:Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS rdfs:subClassOf :Sintoma_COVID19.
+:Coriza rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Anorexia_Nusea_Vmito rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:FraquezaFadiga_Geral rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Diarreia rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Estado_Mental_Alterado rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Mialgia rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Dor_de_Garganta rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC rdfs:subClassOf :Sintoma_COVID19.
+:Tosse rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:Dispneia rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:Febre rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS, :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:Dor_de_Cabea rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_critrio_clnico_COVID19_reconhecido_pela_OMS.
+:AnosmiaHiposmiaAgeusia_Repentina rdfs:subClassOf :Sintoma_COVID19, :Sintoma_de_Critrio_Clnico_COVID19_reconhecido_pela_ECDC.
+:Exame_Radiolgico rdfs:subClassOf :Exame.
+:Pessoa_Possivelmente_com_COVID19_segundo_ECDC rdfs:subClassOf :Pessoa.
+:Pessoa_Provavelmente_com_COVID19_segundo_ECDC rdfs:subClassOf :Pessoa.
+:Pessoa_com_COVID19_Confirmada_segundo_ECDC rdfs:subClassOf :Pessoa.
+:Teste_AntgenoRDT_para_SARSCoV2 rdfs:subClassOf :Exame.
+:Pessoa_com_COVID19_Confirmada_segundo_OMS rdfs:subClassOf :Pessoa.
+:Pessoa_com_Provvel_COVID19_segundo_OMS rdfs:subClassOf :Pessoa.
+:Pessoa_com_Suspeita_de_COVID_segundo_OMS rdfs:subClassOf :Pessoa.
+:Instituio_de_Tratamento_de_Pessoas_Vulnerveis rdfs:subClassOf :Estabelecimento.
+:SRAG rdfs:subClassOf :Disfuno.
+:Estabelecimento_de_Sade rdfs:subClassOf :Estabelecimento.
+:Data rdfs:domain :Manifestao_do_Sintoma;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Data"@en.
+:Data_1 rdfs:domain :Desaparecimento_do_Sintoma;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Data"@en.
+:Data_2 rdfs:domain :bito;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Data"@en.

@@ -1,0 +1,184 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Context rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Context"@en.
+:LawOfReasoning rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "LawOfReasoning"@en.
+:LogicalRule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "LogicalRule"@en.
+:Logicinuse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Logicinuse"@en.
+:LogicalDoctrine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LogicalDoctrine"@en.
+:PracticalScience rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PracticalScience"@en.
+:ScienceInStrictSense rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ScienceInStrictSense"@en.
+:Logic rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Logic"@en.
+:Science rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Science"@en.
+:Suppositum rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Suppositum"@en.
+:Supposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Supposition"@en.
+:Proposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Proposition"@en.
+:Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object"@en.
+:Term rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Term"@en.
+:Signification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Signification"@en.
+:MentalPersonalSupposition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MentalPersonalSupposition"@en.
+:MentalSuppositum rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MentalSuppositum"@en.
+:CategorematicConcept rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CategorematicConcept"@en.
+:SemanticallyComplex rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "SemanticallyComplex"@en.
+:SemanticallySimple rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "SemanticallySimple"@en.
+:SyncategorematicConcept rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SyncategorematicConcept"@en.
+:Concept rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concept"@en.
+:ComplexConcept rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ComplexConcept"@en.
+:MentalProposition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MentalProposition"@en.
+:ImproperSense rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ImproperSense"@en.
+:ProperSense rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ProperSense"@en.
+:Similarity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Similarity"@en.
+:Interpretation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Interpretation"@en.
+:Concept_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Concept"@en.
+:Mind rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Mind"@en.
+:Inscription rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Inscription"@en.
+:Utterance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Utterance"@en.
+:Convention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Convention"@en.
+:Token rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Token"@en.
+:TokenType rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "TokenType"@en.
+:ProperSuppositon rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ProperSuppositon"@en.
+:MaterialSupposition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MaterialSupposition"@en.
+:SimpleSupposition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SimpleSupposition"@en.
+:ImproperSupposition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ImproperSupposition"@en.
+:SuppositionInConventionalLanguage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "SuppositionInConventionalLanguage"@en.
+:SpokenWrittenSuppositum rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SpokenWrittenSuppositum"@en.
+:MaterialSuppositionForSyncatogramaticTerm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "MaterialSuppositionForSyncatogramaticTerm"@en.
+:SpokenWrittenTerm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SpokenWrittenTerm"@en.
+:SyncategorematicTerm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SyncategorematicTerm"@en.
+:PersonalSupposition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PersonalSupposition"@en.
+:CategorematicTerm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CategorematicTerm"@en.
+:MixedTerm rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "MixedTerm"@en.
+:SpokenWrittenProposition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SpokenWrittenProposition"@en.
+:SemanticallyComplexSpokenWrittenTerm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SemanticallyComplexSpokenWrittenTerm"@en.
+:Expression rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Expression"@en.
+:SemanticallyComplexExpression rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SemanticallyComplexExpression"@en.
+:SemanticallySimple_Expression rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SemanticallySimple_Expression"@en.
+:SyntacticallyComplex rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "SyntacticallyComplex"@en.
+:SyntacticallySimple rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "SyntacticallySimple"@en.
+:Logicinuse rdfs:subClassOf :Logic.
+:LogicalDoctrine rdfs:subClassOf :PracticalScience, :Logic.
+:PracticalScience rdfs:subClassOf :Science.
+:ScienceInStrictSense rdfs:subClassOf :Science.
+:Suppositum rdfs:subClassOf :Term.
+:MentalProposition rdfs:subClassOf :Proposition.
+:SyncategorematicConcept rdfs:subClassOf :Concept.
+:CategorematicConcept rdfs:subClassOf :Concept.
+:MentalPersonalSupposition rdfs:subClassOf :Supposition.
+:MentalSuppositum rdfs:subClassOf :Concept.
+:CategorematicConcept rdfs:subClassOf :Concept, :Concept, :Concept.
+:SyncategorematicConcept rdfs:subClassOf :Concept, :Concept.
+:Concept rdfs:subClassOf :Term, :Term, :Term, :Term.
+:ComplexConcept rdfs:subClassOf :Concept.
+:MentalProposition rdfs:subClassOf :Proposition.
+:ImproperSense rdfs:subClassOf :Interpretation.
+:ProperSense rdfs:subClassOf :Interpretation.
+:Inscription rdfs:subClassOf :Token.
+:Utterance rdfs:subClassOf :Token.
+:ProperSuppositon rdfs:subClassOf :SuppositionInConventionalLanguage.
+:MaterialSupposition rdfs:subClassOf :ProperSuppositon.
+:SimpleSupposition rdfs:subClassOf :ProperSuppositon.
+:ImproperSupposition rdfs:subClassOf :SuppositionInConventionalLanguage.
+:SpokenWrittenSuppositum rdfs:subClassOf :SpokenWrittenTerm.
+:SyncategorematicTerm rdfs:subClassOf :SpokenWrittenTerm, :MixedTerm, :SpokenWrittenTerm.
+:PersonalSupposition rdfs:subClassOf :ProperSuppositon.
+:CategorematicTerm rdfs:subClassOf :SpokenWrittenTerm, :MixedTerm, :SpokenWrittenTerm.
+:SemanticallyComplexSpokenWrittenTerm rdfs:subClassOf :SpokenWrittenTerm.
+:Expression rdfs:subClassOf :SpokenWrittenTerm.
+:SemanticallyComplexExpression rdfs:subClassOf :Expression.
+:SemanticallySimple_Expression rdfs:subClassOf :Expression.
+:language rdfs:domain :Inscription;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "language"@en.
+:language_1 rdfs:domain :Utterance;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "language"@en.

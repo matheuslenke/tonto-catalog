@@ -1,0 +1,28 @@
+
+package Concesso_Rodoviria
+
+roleMixin Bem_da_Concesso_Rodoviria of functional-complexes  specializes Direito_Emergente 
+
+mode Meta_da_Concesso
+
+subkind Contrato_de_Concesso_Rodoviria of functional-complexes  specializes Contrato_de_Outorga 
+
+relator Outorga_de_Concesso_Rodoviria specializes Concesso_Rodoviria__Extinta {
+    prazo: undefined  
+    RDT: undefined  
+}
+
+mixin Garantia_de_Execuo of functional-complexes {
+    valor: undefined  
+}
+
+subkind Concessionria_Rodoviria specializes Concessionria_Rodoviria_Fiscalizada_por_VP, Concessionria_Rodoviria_com_TRO 
+
+
+
+
+
+
+
+
+

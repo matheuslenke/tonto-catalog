@@ -1,0 +1,38 @@
+
+package Penso
+
+mode Cota_Temporria specializes Cota_de_Penso 
+
+mode Condio_de_Extino_de_Cota_Temporria
+
+role Titular_de_Penso_do_Servio_Pblico specializes Pensionista_do_Servio_Pblico 
+
+mode Cota_de_Penso{
+    valor: undefined  
+}
+
+relator Penso{
+    inicio: undefined  
+    valor: undefined  
+}
+
+relator Penso_Temporria specializes Penso {
+    prazo: undefined  
+}
+
+relator Penso_Vitalcia specializes Penso 
+
+mode Cota_Provisria specializes Cota_de_Penso 
+
+mode Cota_Permanente specializes Cota_de_Penso 
+
+relator Penso_Provisria specializes Penso 
+
+
+
+
+
+
+
+
+

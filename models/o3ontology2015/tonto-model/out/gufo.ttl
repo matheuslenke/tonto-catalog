@@ -1,0 +1,908 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Composite_Line_Unit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composite_Line_Unit"@en.
+:Missionary_Assignment_by_Appointment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Missionary_Assignment_by_Appointment"@en.
+:Missionary_Assignment_by_Election rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Missionary_Assignment_by_Election"@en.
+:Missionary_Assignment_by_Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Missionary_Assignment_by_Allocation"@en.
+:Appointed_Team_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Appointed_Team_Member"@en.
+:Ellected_Team_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ellected_Team_Member"@en.
+:Allocated_Team_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Allocated_Team_Member"@en.
+:Cognitive_Skill rdf:type owl:NamedIndividual;
+    rdfs:label "Cognitive_Skill"@en.
+:Physic_Skill rdf:type owl:NamedIndividual;
+    rdfs:label "Physic_Skill"@en.
+:UFOCBelief rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCBelief"@en.
+:UFOCSociety rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCSociety"@en.
+:UFOCCollective_Social_Agent rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCCollective_Social_Agent"@en.
+:National_Society rdf:type owl:NamedIndividual;
+    rdfs:label "National_Society"@en.
+:Formal_Society rdf:type owl:NamedIndividual;
+    rdfs:label "Formal_Society"@en.
+:Council rdf:type owl:NamedIndividual;
+    rdfs:label "Council"@en.
+:Elective_Position rdf:type owl:NamedIndividual;
+    rdfs:label "Elective_Position"@en.
+:Effective_Position rdf:type owl:NamedIndividual;
+    rdfs:label "Effective_Position"@en.
+:Appointment rdf:type owl:NamedIndividual;
+    rdfs:label "Appointment"@en.
+:Designative_Position rdf:type owl:NamedIndividual;
+    rdfs:label "Designative_Position"@en.
+:Direct_Appointment rdf:type owl:NamedIndividual;
+    rdfs:label "Direct_Appointment"@en.
+:Indirect_Appointment rdf:type owl:NamedIndividual;
+    rdfs:label "Indirect_Appointment"@en.
+:Missionary_Organization rdf:type owl:NamedIndividual;
+    rdfs:label "Missionary_Organization"@en.
+:Functional_Organization rdf:type owl:NamedIndividual;
+    rdfs:label "Functional_Organization"@en.
+:Law rdf:type owl:NamedIndividual;
+    rdfs:label "Law"@en.
+:Internal_Regiment rdf:type owl:NamedIndividual;
+    rdfs:label "Internal_Regiment"@en.
+:Election rdf:type owl:NamedIndividual;
+    rdfs:label "Election"@en.
+:Alocation rdf:type owl:NamedIndividual;
+    rdfs:label "Alocation"@en.
+:Mandate_Position rdf:type owl:NamedIndividual;
+    rdfs:label "Mandate_Position"@en.
+:Board rdf:type owl:NamedIndividual;
+    rdfs:label "Board"@en.
+:Admission_Contract rdf:type owl:NamedIndividual;
+    rdfs:label "Admission_Contract"@en.
+:Admission_Contract_With_Term rdf:type owl:NamedIndividual;
+    rdfs:label "Admission_Contract_With_Term"@en.
+:Business_Social_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Business_Social_Role"@en.
+:Recognition_Contract rdf:type owl:NamedIndividual;
+    rdfs:label "Recognition_Contract"@en.
+:Descriptive_Business_Social_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Descriptive_Business_Social_Role"@en.
+:UFOCUsage rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCUsage"@en.
+:Allocation rdf:type owl:NamedIndividual;
+    rdfs:label "Allocation"@en.
+:UFOCOrganization rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCOrganization"@en.
+:Formal_Organization rdf:type owl:NamedIndividual;
+    rdfs:label "Formal_Organization"@en.
+:Non_Formal_Organization rdf:type owl:NamedIndividual;
+    rdfs:label "Non_Formal_Organization"@en.
+:Organization_Unit rdf:type owl:NamedIndividual;
+    rdfs:label "Organization_Unit"@en.
+:Staff rdf:type owl:NamedIndividual;
+    rdfs:label "Staff"@en.
+:Working_Group rdf:type owl:NamedIndividual;
+    rdfs:label "Working_Group"@en.
+:Artifact rdf:type owl:NamedIndividual;
+    rdfs:label "Artifact"@en.
+:Infrastructure_Component rdf:type owl:NamedIndividual;
+    rdfs:label "Infrastructure_Component"@en.
+:Position rdf:type owl:NamedIndividual;
+    rdfs:label "Position"@en.
+:Business_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Business_Role"@en.
+:Location rdf:type owl:NamedIndividual;
+    rdfs:label "Location"@en.
+:Skill rdf:type owl:NamedIndividual;
+    rdfs:label "Skill"@en.
+:UFOCResource rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCResource"@en.
+:SkillMetric rdf:type owl:NamedIndividual;
+    rdfs:label "SkillMetric"@en.
+:Constraint rdf:type owl:NamedIndividual;
+    rdfs:label "Constraint"@en.
+:Interface rdf:type owl:NamedIndividual;
+    rdfs:label "Interface"@en.
+:BusinessCollaboration rdf:type owl:NamedIndividual;
+    rdfs:label "BusinessCollaboration"@en.
+:Behavioral_Element rdf:type owl:NamedIndividual;
+    rdfs:label "Behavioral_Element"@en.
+:UFOCHuman_Agent rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCHuman_Agent"@en.
+:UFOCSocial_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCSocial_Relator"@en.
+:UFOCNormative_Description rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCNormative_Description"@en.
+:Natural_Person rdf:type owl:NamedIndividual;
+    rdfs:label "Natural_Person"@en.
+:Employee rdf:type owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Responsability rdf:type owl:NamedIndividual;
+    rdfs:label "Responsability"@en.
+:Structural_Unit rdf:type owl:NamedIndividual;
+    rdfs:label "Structural_Unit"@en.
+:Missionary_Unit rdf:type owl:NamedIndividual;
+    rdfs:label "Missionary_Unit"@en.
+:UFOCSocial_Role rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCSocial_Role"@en.
+:Duty rdf:type owl:NamedIndividual;
+    rdfs:label "Duty"@en.
+:Permission rdf:type owl:NamedIndividual;
+    rdfs:label "Permission"@en.
+:Holding rdf:type owl:NamedIndividual;
+    rdfs:label "Holding"@en.
+:Business_Unit rdf:type owl:NamedIndividual;
+    rdfs:label "Business_Unit"@en.
+:Authority_Designation rdf:type owl:NamedIndividual;
+    rdfs:label "Authority_Designation"@en.
+:Business rdf:type owl:NamedIndividual;
+    rdfs:label "Business"@en.
+:Societary_Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Societary_Participation"@en.
+:Commission rdf:type owl:NamedIndividual;
+    rdfs:label "Commission"@en.
+:UFOCAction rdf:type owl:NamedIndividual;
+    rdfs:label "UFOCAction"@en.
+:Committee rdf:type owl:NamedIndividual;
+    rdfs:label "Committee"@en.
+:Resource_Dependence rdf:type owl:NamedIndividual;
+    rdfs:label "Resource_Dependence"@en.
+:Internal_Regiment_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Internal_Regiment"@en.
+:Business_Social_Role_1 rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Business_Social_Role"@en.
+:Formal_Business_Social_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Formal_Business_Social_Role"@en.
+:Employee_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Employee_Type"@en.
+:Formal_Organization_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Formal_Organization_Member"@en.
+:Organization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Formal_Organization_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Formal_Organization"@en.
+:Admission_ rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Admission_"@en.
+:Admission_With_Term rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Admission_With_Term"@en.
+:Admission_by_Appointment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Admission_by_Appointment"@en.
+:Admission_by_Election rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Admission_by_Election"@en.
+:Natural_Person_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Natural_Person"@en.
+:Organizational_Unit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organizational_Unit"@en.
+:Location_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Location"@en.
+:Functional_Organization_1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Functional_Organization"@en.
+:Missionary_Organization_1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Missionary_Organization"@en.
+:Structural_Unit_1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Structural_Unit"@en.
+:Missionary_Unit_1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Missionary_Unit"@en.
+:Staff_Unit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Staff_Unit"@en.
+:Law_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Law"@en.
+:Society rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Society"@en.
+:Formal_Society_1 rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Formal_Society"@en.
+:National_Society_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "National_Society"@en.
+:Recognition_Contract_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Recognition_Contract"@en.
+:Skill_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Skill"@en.
+:Cognitive_Skill_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Cognitive_Skill"@en.
+:Physical_Skill rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Physical_Skill"@en.
+:Skill_Metric rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Skill_Metric"@en.
+:Business_Role_1 rdf:type owl:NamedIndividual;
+    rdfs:label "Business_Role"@en.
+:Documental_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Documental_Resource"@en.
+:Automated_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Automated_Resource"@en.
+:Business_Function rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Business_Function"@en.
+:Functional_Responsibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Functional_Responsibility"@en.
+:Authority_Delegation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Authority_Delegation"@en.
+:Permission_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Permission"@en.
+:Assignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Assignment"@en.
+:Appointed_Organization_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Appointed_Organization_Member"@en.
+:Ellected_Organization_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ellected_Organization_Member"@en.
+:Structural_Assignment_by_Appointment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Structural_Assignment_by_Appointment"@en.
+:Structural_Assignment_by_Election rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Structural_Assignment_by_Election"@en.
+:Social_Entity rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Social_Entity"@en.
+:Effective_Organization_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Effective_Organization_Member"@en.
+:Effective_Admission rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Effective_Admission"@en.
+:Employer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employer"@en.
+:Structural_Unit_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Structural_Unit_Member"@en.
+:Appointed_Unit_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Appointed_Unit_Member"@en.
+:Ellected_Unit_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ellected_Unit_Member"@en.
+:Allocated_Unit_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Allocated_Unit_Member"@en.
+:Structural_Assignment_by_Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Structural_Assignment_by_Allocation"@en.
+:Missionary_Allocation_Unit rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Missionary_Allocation_Unit"@en.
+:Line_Unit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Line_Unit"@en.
+:Structural_Business_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Structural_Business_Role"@en.
+:Missionary_Business_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Missionary_Business_Role"@en.
+:Missionary_Unit_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Missionary_Unit_Member"@en.
+:Collaboration_Business_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Collaboration_Business_Role"@en.
+:Internal_Collaboration_Business_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Internal_Collaboration_Business_Role"@en.
+:External_Collaboration_Business_Role rdf:type owl:NamedIndividual;
+    rdfs:label "External_Collaboration_Business_Role"@en.
+:Business_Collaboration rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Business_Collaboration"@en.
+:Internal_Collaborator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Internal_Collaborator"@en.
+:External_Collaborator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "External_Collaborator"@en.
+:Social_Agent_External_Collaborator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Social_Agent_External_Collaborator"@en.
+:Physical_Agent_External_Collaborator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Physical_Agent_External_Collaborator"@en.
+:Physical_Agent_Internal_Collaborator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Physical_Agent_Internal_Collaborator"@en.
+:Social_Agent_Internal_Collaborator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Social_Agent_Internal_Collaborator"@en.
+:Structural_Assignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Structural_Assignment"@en.
+:Missionary_Assignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Missionary_Assignment"@en.
+:Structural_Allocation_Unit rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Structural_Allocation_Unit"@en.
+:Infrastructure_Component_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Infrastructure_Component"@en.
+:Artifact_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Permission_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Permission_Provider"@en.
+:MultiFunctional_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MultiFunctional_Organization"@en.
+:Standalone_Functional_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Standalone_Functional_Organization"@en.
+:Simple_Standalone_Functional_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Standalone_Functional_Organization"@en.
+:Complex_Standalone_Functional_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Complex_Standalone_Functional_Organization"@en.
+:Simple_Missionary_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Missionary_Organization"@en.
+:Complex_Missionary_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Complex_Missionary_Organization"@en.
+:Recognition_Contract_Attachment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Recognition_Contract_Attachment"@en.
+:Ownership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Ownership"@en.
+:Good rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Good"@en.
+:Owner rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Owner"@en.
+:Physical_Owner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Physical_Owner"@en.
+:Social_Owner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Social_Owner"@en.
+:Permission_Holder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Permission_Holder"@en.
+:Group_Member rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Group_Member"@en.
+:Atomic_Individual rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Atomic_Individual"@en.
+:Collective_Whole rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Collective_Whole"@en.
+:ComponentOf rdf:type owl:NamedIndividual;
+    rdfs:label "ComponentOf"@en.
+:Functional_Complex_Whole rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Functional_Complex_Whole"@en.
+:Functional_Part rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Functional_Part"@en.
+:Member rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Member"@en.
+:MemberOf rdf:type owl:NamedIndividual;
+    rdfs:label "MemberOf"@en.
+:Meriological_Sum rdf:type owl:NamedIndividual;
+    rdfs:label "Meriological_Sum"@en.
+:Part rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Part"@en.
+:PartOf_Meronymic_Relation_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "PartOf_Meronymic_Relation_Universal"@en.
+:PartOfCollective_2 rdf:type owl:NamedIndividual;
+    rdfs:label "PartOfCollective_2"@en.
+:Quantity_Part rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Quantity_Part"@en.
+:Quantity_Whole rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Quantity_Whole"@en.
+:SubCollection rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "SubCollection"@en.
+:SubCollectionOf rdf:type owl:NamedIndividual;
+    rdfs:label "SubCollectionOf"@en.
+:SubQuantityOf rdf:type owl:NamedIndividual;
+    rdfs:label "SubQuantityOf"@en.
+:Whole_Complex_Individual rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Whole_Complex_Individual"@en.
+:Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Action"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:Agent_in_Social_Relation rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Agent_in_Social_Relation"@en.
+:Appointment_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Appointment"@en.
+:Appoitment_Goal rdf:type owl:NamedIndividual;
+    rdfs:label "Appoitment_Goal"@en.
+:Atomic_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Atomic_Action"@en.
+:Atomic_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Atomic_Commitment"@en.
+:Atomic_Plan rdf:type owl:NamedIndividual;
+    rdfs:label "Atomic_Plan"@en.
+:Belief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Belief"@en.
+:Change rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Change"@en.
+:Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Claim"@en.
+:Closed_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Closed_Commitment"@en.
+:Collective_Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Collective_Social_Agent"@en.
+:Commitment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Commitment"@en.
+:Commitment_Part rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Commitment_Part"@en.
+:Complex_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Complex_Action"@en.
+:Complex_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Complex_Commitment"@en.
+:Complex_Plan rdf:type owl:NamedIndividual;
+    rdfs:label "Complex_Plan"@en.
+:Contribution_Performance rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Contribution_Performance"@en.
+:Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Creation"@en.
+:Delegatee rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Delegatee"@en.
+:Delegator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Delegator"@en.
+:Delegatum rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Delegatum"@en.
+:Desire rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Desire"@en.
+:Goal rdf:type owl:NamedIndividual;
+    rdfs:label "Goal"@en.
+:Individual_Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Individual_Social_Agent"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Intentional_Moment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intentional_Moment"@en.
+:Interaction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Interaction"@en.
+:Member_of_Collective_Social_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Member_of_Collective_Social_Agent"@en.
+:Mental_Moment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Mental_Moment"@en.
+:Normative_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Normative_Description"@en.
+:Normative_Description_Universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Normative_Description_Universal"@en.
+:Normatized_Social_Object rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Normatized_Social_Object"@en.
+:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Open_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Open_Commitment"@en.
+:Performer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Performer"@en.
+:Physical_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Agent"@en.
+:Physical_Agent_in_Social_Relation rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Physical_Agent_in_Social_Relation"@en.
+:Physical_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Object"@en.
+:Plan_Action_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Plan_Action_Universal"@en.
+:Plan_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Plan_Description"@en.
+:Plan_Description_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Plan_Description_Universal"@en.
+:Proposition_Individual rdf:type owl:NamedIndividual;
+    rdfs:label "Proposition_Individual"@en.
+:QuaIndividual rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "QuaIndividual"@en.
+:Recognition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Recognition"@en.
+:Recognizer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Recognizer"@en.
+:Relator_Individual rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Relator_Individual"@en.
+:Resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Resource"@en.
+:Resource_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Resource_Participation"@en.
+:Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Social_Agent"@en.
+:Social_Agent_in_Agreement rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Social_Agent_in_Agreement"@en.
+:Social_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Social_Commitment"@en.
+:Social_Moment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Social_Moment"@en.
+:Social_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Social_Object"@en.
+:Social_Relator rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Social_Relator"@en.
+:Social_Role rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Social_Role"@en.
+:Speech_Act rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Speech_Act"@en.
+:Termination rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Termination"@en.
+:Usage rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Usage"@en.
+:Paricipation_Individual rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Paricipation_Individual"@en.
+:Apt rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Apt"@en.
+:Atomic_Event rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Atomic_Event"@en.
+:Complex_Event rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Complex_Event"@en.
+:Disposition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Disposition"@en.
+:Event rdf:type owl:NamedIndividual;
+    rdfs:label "Event"@en.
+:Event_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Event_Individual"@en.
+:Inapt rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Inapt"@en.
+:Part_of_Event rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Part_of_Event"@en.
+:Participant rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Participant"@en.
+:Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Participation"@en.
+:Situation rdf:type owl:NamedIndividual;
+    rdfs:label "Situation"@en.
+:Situation_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Situation_Individual"@en.
+:AntiRigid_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "AntiRigid_Mixin"@en.
+:AntiRigid_Subkind rdf:type owl:NamedIndividual;
+    rdfs:label "AntiRigid_Subkind"@en.
+:AntiRigid_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "AntiRigid_Universal"@en.
+:Category_Rigid_Mixin_or_SuperKind rdf:type owl:NamedIndividual;
+    rdfs:label "Category_Rigid_Mixin_or_SuperKind"@en.
+:Characterization rdf:type owl:NamedIndividual;
+    rdfs:label "Characterization"@en.
+:Collective rdf:type owl:NamedIndividual;
+    rdfs:label "Collective"@en.
+:Collective_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Collective_Individual"@en.
+:Constitution rdf:type owl:NamedIndividual;
+    rdfs:label "Constitution"@en.
+:Derivation rdf:type owl:NamedIndividual;
+    rdfs:label "Derivation"@en.
+:Endurant rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Endurant"@en.
+:Endurant_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Endurant_Universal"@en.
+:Formal_Domain_Formal_Relation_Comparative_Formal_Relation rdf:type owl:NamedIndividual;
+    rdfs:label "Formal_Domain_Formal_Relation_Comparative_Formal_Relation"@en.
+:Formal_Relation_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Formal_Relation_Universal"@en.
+:Functional_Complex rdf:type owl:NamedIndividual;
+    rdfs:label "Functional_Complex"@en.
+:Functional_Complex_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Functional_Complex_Individual"@en.
+:Identity_Provider_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Identity_Provider_Universal"@en.
+:Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Individual"@en.
+:Instantiation rdf:type owl:NamedIndividual;
+    rdfs:label "Instantiation"@en.
+:Internal_Relation rdf:type owl:NamedIndividual;
+    rdfs:label "Internal_Relation"@en.
+:Intrinsic_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Intrinsic_Moment"@en.
+:Intrinsic_Moment_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Intrinsic_Moment_Individual"@en.
+:Material rdf:type owl:NamedIndividual;
+    rdfs:label "Material"@en.
+:Mediation rdf:type owl:NamedIndividual;
+    rdfs:label "Mediation"@en.
+:Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "Mixin"@en.
+:Mode rdf:type owl:NamedIndividual;
+    rdfs:label "Mode"@en.
+:Mode_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Mode_Individual"@en.
+:Moment_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Moment_Individual"@en.
+:Moment_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Moment_Universal"@en.
+:Phase rdf:type owl:NamedIndividual;
+    rdfs:label "Phase"@en.
+:Phase_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "Phase_Mixin"@en.
+:Qua_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Qua_Individual"@en.
+:Qua_type rdf:type owl:NamedIndividual;
+    rdfs:label "Qua_type"@en.
+:Quality rdf:type owl:NamedIndividual;
+    rdfs:label "Quality"@en.
+:Quality_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Quality_Individual"@en.
+:Quantity rdf:type owl:NamedIndividual;
+    rdfs:label "Quantity"@en.
+:Quantity_Individual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Quantity_Individual"@en.
+:Relation_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Relation_Universal"@en.
+:Relator_Relational_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Relator_Relational_Moment"@en.
+:Relator_Individual_1 rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Relator_Individual"@en.
+:Rigid_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Rigid_Universal"@en.
+:Role rdf:type owl:NamedIndividual;
+    rdfs:label "Role"@en.
+:Role_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "Role_Mixin"@en.
+:SemiRigid_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "SemiRigid_Mixin"@en.
+:Subkind_Rigid_Subkind rdf:type owl:NamedIndividual;
+    rdfs:label "Subkind_Rigid_Subkind"@en.
+:Substance rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Substance"@en.
+:Substance_Sortal_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Substance_Sortal_Universal"@en.
+:Universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Universal"@en.
+:Analista_de_Pesquisa_Energtica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Analista_de_Pesquisa_Energtica"@en.
+:Analista_de_Gesto_Corporativa rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Analista_de_Gesto_Corporativa"@en.
+:Analista_de_Sistemas rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Analista_de_Sistemas"@en.
+:Analista_Ambiental rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Analista_Ambiental"@en.
+:Analista_de_Desenvolvimento_Regional rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Analista_de_Desenvolvimento_Regional"@en.
+:Gerente_de_Riscos rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Gerente_de_Riscos"@en.
+:Gerente_de_Escopo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Gerente_de_Escopo"@en.
+:Gerente_de_Projeto rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Gerente_de_Projeto"@en.
+:Composite_Line_Unit rdfs:subClassOf :Line_Unit.
+:Missionary_Assignment_by_Appointment rdfs:subClassOf :Missionary_Assignment.
+:Missionary_Assignment_by_Election rdfs:subClassOf :Missionary_Assignment.
+:Missionary_Assignment_by_Allocation rdfs:subClassOf :Missionary_Assignment.
+:Appointed_Team_Member rdfs:subClassOf :Missionary_Unit_Member.
+:Ellected_Team_Member rdfs:subClassOf :Missionary_Unit_Member.
+:Allocated_Team_Member rdfs:subClassOf :Missionary_Unit_Member.
+:Cognitive_Skill rdfs:subClassOf :Skill, :UFOCBelief.
+:Physic_Skill rdfs:subClassOf :Skill.
+:UFOCSociety rdfs:subClassOf :UFOCCollective_Social_Agent.
+:National_Society rdfs:subClassOf :Formal_Society.
+:Formal_Society rdfs:subClassOf :UFOCSociety.
+:Council rdfs:subClassOf :Functional_Organization.
+:Elective_Position rdfs:subClassOf :Mandate_Position.
+:Effective_Position rdfs:subClassOf :Position.
+:Appointment rdfs:subClassOf :Admission_Contract.
+:Designative_Position rdfs:subClassOf :Mandate_Position.
+:Direct_Appointment rdfs:subClassOf :Appointment.
+:Indirect_Appointment rdfs:subClassOf :Appointment.
+:Missionary_Organization rdfs:subClassOf :Formal_Organization.
+:Functional_Organization rdfs:subClassOf :Formal_Organization.
+:Law rdfs:subClassOf :UFOCNormative_Description.
+:Internal_Regiment rdfs:subClassOf :UFOCNormative_Description.
+:Election rdfs:subClassOf :Admission_Contract.
+:Alocation rdfs:subClassOf :Admission_Contract.
+:Mandate_Position rdfs:subClassOf :Position.
+:Board rdfs:subClassOf :Structural_Unit.
+:Admission_Contract rdfs:subClassOf :UFOCSocial_Relator.
+:Admission_Contract_With_Term rdfs:subClassOf :Admission_Contract.
+:Business_Social_Role rdfs:subClassOf :UFOCSocial_Role.
+:Recognition_Contract rdfs:subClassOf :UFOCSocial_Relator.
+:Descriptive_Business_Social_Role rdfs:subClassOf :Business_Social_Role.
+:Allocation rdfs:subClassOf :UFOCSocial_Relator.
+:Formal_Organization rdfs:subClassOf :UFOCOrganization.
+:Non_Formal_Organization rdfs:subClassOf :UFOCOrganization.
+:Organization_Unit rdfs:subClassOf :Structural_Unit.
+:Staff rdfs:subClassOf :Structural_Unit.
+:Working_Group rdfs:subClassOf :Missionary_Unit.
+:Artifact rdfs:subClassOf :UFOCResource.
+:Infrastructure_Component rdfs:subClassOf :UFOCResource.
+:Position rdfs:subClassOf :Descriptive_Business_Social_Role.
+:Business_Role rdfs:subClassOf :Descriptive_Business_Social_Role.
+:Behavioral_Element rdfs:subClassOf :UFOCAction.
+:Natural_Person rdfs:subClassOf :UFOCHuman_Agent.
+:Employee rdfs:subClassOf :Business_Social_Role.
+:Responsability rdfs:subClassOf :UFOCSocial_Relator.
+:Structural_Unit rdfs:subClassOf :Non_Formal_Organization.
+:Missionary_Unit rdfs:subClassOf :Non_Formal_Organization.
+:Duty rdfs:subClassOf :UFOCSocial_Relator.
+:Permission rdfs:subClassOf :UFOCSocial_Relator.
+:Holding rdfs:subClassOf :Functional_Organization.
+:Business_Unit rdfs:subClassOf :Functional_Organization.
+:Authority_Designation rdfs:subClassOf :UFOCSocial_Relator.
+:Business rdfs:subClassOf :Functional_Organization.
+:Societary_Participation rdfs:subClassOf :UFOCSocial_Relator.
+:Commission rdfs:subClassOf :Missionary_Organization.
+:Committee rdfs:subClassOf :Missionary_Unit.
+:Resource_Dependence rdfs:subClassOf :UFOCUsage.
+:Internal_Regiment_1 rdfs:subClassOf :Normative_Description.
+:Formal_Business_Social_Role rdfs:subClassOf :Business_Social_Role_1.
+:Employee_Type rdfs:subClassOf :Formal_Business_Social_Role.
+:Formal_Organization_Member rdfs:subClassOf :Natural_Person_1.
+:Formal_Organization_1 rdfs:subClassOf :Organization.
+:Admission_With_Term rdfs:subClassOf :Admission_.
+:Admission_by_Appointment rdfs:subClassOf :Admission_.
+:Admission_by_Election rdfs:subClassOf :Admission_.
+:Organizational_Unit rdfs:subClassOf :Organization.
+:Functional_Organization_1 rdfs:subClassOf :Formal_Organization_1.
+:Missionary_Organization_1 rdfs:subClassOf :Formal_Organization_1.
+:Structural_Unit_1 rdfs:subClassOf :Organizational_Unit.
+:Missionary_Unit_1 rdfs:subClassOf :Organizational_Unit.
+:Staff_Unit rdfs:subClassOf :Structural_Unit_1.
+:Law_1 rdfs:subClassOf :Normative_Description.
+:Formal_Society_1 rdfs:subClassOf :Society.
+:National_Society_1 rdfs:subClassOf :Formal_Society_1.
+:Cognitive_Skill_1 rdfs:subClassOf :Skill_1, :Belief.
+:Physical_Skill rdfs:subClassOf :Skill_1.
+:Business_Role_1 rdfs:subClassOf :Formal_Business_Social_Role.
+:Documental_Resource rdfs:subClassOf :Artifact_1, :Resource.
+:Automated_Resource rdfs:subClassOf :Infrastructure_Component_1, :Resource.
+:Appointed_Organization_Member rdfs:subClassOf :Formal_Organization_Member.
+:Ellected_Organization_Member rdfs:subClassOf :Formal_Organization_Member.
+:Structural_Assignment_by_Appointment rdfs:subClassOf :Structural_Assignment.
+:Structural_Assignment_by_Election rdfs:subClassOf :Structural_Assignment.
+:Effective_Organization_Member rdfs:subClassOf :Formal_Organization_Member.
+:Effective_Admission rdfs:subClassOf :Admission_.
+:Employer rdfs:subClassOf :Formal_Organization_1.
+:Structural_Unit_Member rdfs:subClassOf :Formal_Organization_Member.
+:Appointed_Unit_Member rdfs:subClassOf :Structural_Unit_Member.
+:Ellected_Unit_Member rdfs:subClassOf :Structural_Unit_Member.
+:Allocated_Unit_Member rdfs:subClassOf :Structural_Unit_Member.
+:Structural_Assignment_by_Allocation rdfs:subClassOf :Structural_Assignment.
+:Missionary_Allocation_Unit rdfs:subClassOf :Missionary_Unit_1.
+:Line_Unit rdfs:subClassOf :Structural_Unit_1.
+:Structural_Business_Role rdfs:subClassOf :Business_Role_1.
+:Missionary_Business_Role rdfs:subClassOf :Business_Role_1.
+:Missionary_Unit_Member rdfs:subClassOf :Structural_Unit_Member.
+:Collaboration_Business_Role rdfs:subClassOf :Formal_Business_Social_Role.
+:Internal_Collaboration_Business_Role rdfs:subClassOf :Collaboration_Business_Role.
+:External_Collaboration_Business_Role rdfs:subClassOf :Collaboration_Business_Role.
+:Social_Agent_External_Collaborator rdfs:subClassOf :Formal_Organization_1, :External_Collaborator.
+:Physical_Agent_External_Collaborator rdfs:subClassOf :External_Collaborator, :Natural_Person_1.
+:Physical_Agent_Internal_Collaborator rdfs:subClassOf :Formal_Organization_Member, :Internal_Collaborator.
+:Social_Agent_Internal_Collaborator rdfs:subClassOf :Organizational_Unit, :Internal_Collaborator.
+:Structural_Assignment rdfs:subClassOf :Assignment.
+:Missionary_Assignment rdfs:subClassOf :Assignment.
+:Structural_Allocation_Unit rdfs:subClassOf :Structural_Unit_1.
+:Permission_Provider rdfs:subClassOf :Group_Member.
+:MultiFunctional_Organization rdfs:subClassOf :Functional_Organization_1.
+:Standalone_Functional_Organization rdfs:subClassOf :Functional_Organization_1.
+:Simple_Standalone_Functional_Organization rdfs:subClassOf :Standalone_Functional_Organization.
+:Complex_Standalone_Functional_Organization rdfs:subClassOf :Standalone_Functional_Organization.
+:Simple_Missionary_Organization rdfs:subClassOf :Missionary_Organization_1.
+:Complex_Missionary_Organization rdfs:subClassOf :Missionary_Organization_1.
+:Physical_Owner rdfs:subClassOf :Owner, :Natural_Person_1.
+:Social_Owner rdfs:subClassOf :Owner, :Formal_Organization_1.
+:Permission_Holder rdfs:subClassOf :Group_Member.
+:Group_Member rdfs:subClassOf :Missionary_Unit_Member, :Structural_Unit_Member.
+:Atomic_Individual rdfs:subClassOf :Individual.
+:Collective_Whole rdfs:subClassOf :Whole_Complex_Individual.
+:ComponentOf rdfs:subClassOf :PartOf_Meronymic_Relation_Universal.
+:Functional_Complex_Whole rdfs:subClassOf :Whole_Complex_Individual.
+:Functional_Part rdfs:subClassOf :Part.
+:Member rdfs:subClassOf :Part.
+:MemberOf rdfs:subClassOf :PartOfCollective_2.
+:Meriological_Sum rdfs:subClassOf :PartOf_Meronymic_Relation_Universal.
+:Part rdfs:subClassOf :Individual.
+:PartOf_Meronymic_Relation_Universal rdfs:subClassOf :Relation_Universal.
+:PartOfCollective_2 rdfs:subClassOf :PartOf_Meronymic_Relation_Universal.
+:Quantity_Part rdfs:subClassOf :Part.
+:Quantity_Whole rdfs:subClassOf :Whole_Complex_Individual.
+:SubCollection rdfs:subClassOf :Part.
+:SubCollectionOf rdfs:subClassOf :PartOfCollective_2.
+:SubQuantityOf rdfs:subClassOf :Formal_Relation_Universal, :PartOf_Meronymic_Relation_Universal.
+:Whole_Complex_Individual rdfs:subClassOf :Individual.
+:Action rdfs:subClassOf :Event_Individual.
+:Agent rdfs:subClassOf :Substance.
+:Agent_in_Social_Relation rdfs:subClassOf :Agent.
+:Appointment_1 rdfs:subClassOf :Commitment.
+:Appoitment_Goal rdfs:subClassOf :Goal.
+:Atomic_Action rdfs:subClassOf :Atomic_Event, :Action.
+:Atomic_Commitment rdfs:subClassOf :Commitment, :Atomic_Individual.
+:Atomic_Plan rdfs:subClassOf :Plan_Action_Universal.
+:Belief rdfs:subClassOf :Mental_Moment.
+:Change rdfs:subClassOf :Resource_Participation.
+:Claim rdfs:subClassOf :Social_Moment.
+:Closed_Commitment rdfs:subClassOf :Commitment.
+:Collective_Social_Agent rdfs:subClassOf :Collective_Individual, :Social_Agent.
+:Commitment_Part rdfs:subClassOf :Commitment, :Part.
+:Complex_Action rdfs:subClassOf :Complex_Event, :Action.
+:Complex_Commitment rdfs:subClassOf :Commitment, :Whole_Complex_Individual.
+:Complex_Plan rdfs:subClassOf :Plan_Action_Universal.
+:Contribution_Performance rdfs:subClassOf :Paricipation_Individual, :Action.
+:Creation rdfs:subClassOf :Resource_Participation.
+:Delegatee rdfs:subClassOf :Physical_Agent_in_Social_Relation.
+:Delegator rdfs:subClassOf :Physical_Agent_in_Social_Relation.
+:Delegatum rdfs:subClassOf :Social_Relator.
+:Desire rdfs:subClassOf :Mental_Moment.
+:Goal rdfs:subClassOf :Proposition_Individual.
+:Individual_Social_Agent rdfs:subClassOf :Functional_Complex_Individual, :Social_Agent, :Atomic_Individual.
+:Intention rdfs:subClassOf :Commitment, :Mental_Moment.
+:Interaction rdfs:subClassOf :Complex_Action.
+:Member_of_Collective_Social_Agent rdfs:subClassOf :Agent, :Part.
+:Mental_Moment rdfs:subClassOf :Intentional_Moment.
+:Normative_Description rdfs:subClassOf :Social_Object.
+:Normatized_Social_Object rdfs:subClassOf :Social_Object.
+:Object rdfs:subClassOf :Substance.
+:Open_Commitment rdfs:subClassOf :Commitment.
+:Performer rdfs:subClassOf :Participant, :Agent.
+:Physical_Agent rdfs:subClassOf :Social_Entity, :Agent.
+:Physical_Agent_in_Social_Relation rdfs:subClassOf :Agent_in_Social_Relation, :Physical_Agent.
+:Physical_Object rdfs:subClassOf :Object.
+:Plan_Action_Universal rdfs:subClassOf :Event.
+:Plan_Description rdfs:subClassOf :Normative_Description.
+:Plan_Description_Universal rdfs:subClassOf :Normative_Description_Universal.
+:Recognizer rdfs:subClassOf :Agent.
+:Resource rdfs:subClassOf :Good, :Participant, :Object.
+:Resource_Participation rdfs:subClassOf :Paricipation_Individual.
+:Social_Agent rdfs:subClassOf :Social_Entity, :Agent.
+:Social_Agent_in_Agreement rdfs:subClassOf :Agent_in_Social_Relation, :Social_Agent.
+:Social_Commitment rdfs:subClassOf :Commitment, :Social_Moment.
+:Social_Moment rdfs:subClassOf :Intentional_Moment, :QuaIndividual.
+:Social_Object rdfs:subClassOf :Object.
+:Social_Relator rdfs:subClassOf :Relator_Individual.
+:Speech_Act rdfs:subClassOf :Atomic_Action.
+:Termination rdfs:subClassOf :Resource_Participation.
+:Usage rdfs:subClassOf :Resource_Participation.
+:Paricipation_Individual rdfs:subClassOf :Event_Individual.
+:Apt rdfs:subClassOf :Substance.
+:Atomic_Event rdfs:subClassOf :Event_Individual, :Atomic_Individual.
+:Complex_Event rdfs:subClassOf :Event_Individual, :Whole_Complex_Individual.
+:Disposition rdfs:subClassOf :Intrinsic_Moment_Individual.
+:Event rdfs:subClassOf :Identity_Provider_Universal.
+:Event_Individual rdfs:subClassOf :Individual.
+:Inapt rdfs:subClassOf :Substance.
+:Part_of_Event rdfs:subClassOf :Event_Individual, :Part.
+:Participant rdfs:subClassOf :Substance.
+:Participation rdfs:subClassOf :Event.
+:Situation rdfs:subClassOf :Endurant_Universal.
+:Situation_Individual rdfs:subClassOf :Endurant.
+:AntiRigid_Mixin rdfs:subClassOf :Mixin, :AntiRigid_Universal.
+:AntiRigid_Subkind rdfs:subClassOf :AntiRigid_Universal.
+:AntiRigid_Universal rdfs:subClassOf :Universal.
+:Category_Rigid_Mixin_or_SuperKind rdfs:subClassOf :Mixin, :Rigid_Universal.
+:Characterization rdfs:subClassOf :Internal_Relation.
+:Collective rdfs:subClassOf :Substance_Sortal_Universal.
+:Collective_Individual rdfs:subClassOf :Substance, :Whole_Complex_Individual.
+:Constitution rdfs:subClassOf :Internal_Relation, :PartOf_Meronymic_Relation_Universal.
+:Derivation rdfs:subClassOf :Internal_Relation.
+:Endurant rdfs:subClassOf :Individual.
+:Endurant_Universal rdfs:subClassOf :Identity_Provider_Universal.
+:Formal_Domain_Formal_Relation_Comparative_Formal_Relation rdfs:subClassOf :Formal_Relation_Universal.
+:Formal_Relation_Universal rdfs:subClassOf :Identity_Provider_Universal, :Relation_Universal.
+:Functional_Complex rdfs:subClassOf :Substance_Sortal_Universal.
+:Functional_Complex_Individual rdfs:subClassOf :Substance.
+:Identity_Provider_Universal rdfs:subClassOf :Rigid_Universal.
+:Instantiation rdfs:subClassOf :Internal_Relation.
+:Internal_Relation rdfs:subClassOf :Formal_Relation_Universal.
+:Intrinsic_Moment rdfs:subClassOf :Moment_Universal.
+:Intrinsic_Moment_Individual rdfs:subClassOf :Moment_Individual.
+:Material rdfs:subClassOf :Relation_Universal, :Identity_Provider_Universal.
+:Mediation rdfs:subClassOf :Internal_Relation.
+:Mixin rdfs:subClassOf :Universal.
+:Mode rdfs:subClassOf :Intrinsic_Moment.
+:Mode_Individual rdfs:subClassOf :Intrinsic_Moment_Individual.
+:Moment_Individual rdfs:subClassOf :Endurant.
+:Moment_Universal rdfs:subClassOf :Endurant_Universal.
+:Phase rdfs:subClassOf :AntiRigid_Subkind.
+:Phase_Mixin rdfs:subClassOf :AntiRigid_Mixin.
+:Qua_Individual rdfs:subClassOf :Intrinsic_Moment_Individual.
+:Qua_type rdfs:subClassOf :Intrinsic_Moment.
+:Quality rdfs:subClassOf :Intrinsic_Moment.
+:Quality_Individual rdfs:subClassOf :Intrinsic_Moment_Individual.
+:Quantity rdfs:subClassOf :Substance_Sortal_Universal.
+:Quantity_Individual rdfs:subClassOf :Substance.
+:Relation_Universal rdfs:subClassOf :Universal.
+:Relator_Relational_Moment rdfs:subClassOf :Moment_Universal.
+:Relator_Individual_1 rdfs:subClassOf :Moment_Individual.
+:Rigid_Universal rdfs:subClassOf :Universal.
+:Role rdfs:subClassOf :AntiRigid_Subkind.
+:Role_Mixin rdfs:subClassOf :AntiRigid_Mixin.
+:SemiRigid_Mixin rdfs:subClassOf :Mixin, :Universal.
+:Subkind_Rigid_Subkind rdfs:subClassOf :Rigid_Universal.
+:Substance rdfs:subClassOf :Endurant.
+:Substance_Sortal_Universal rdfs:subClassOf :Endurant_Universal.
+:Analista_de_Pesquisa_Energtica rdfs:subClassOf :Effective_Organization_Member.
+:Analista_de_Gesto_Corporativa rdfs:subClassOf :Effective_Organization_Member.
+:Analista_de_Sistemas rdfs:subClassOf :Allocated_Unit_Member.
+:Analista_Ambiental rdfs:subClassOf :Allocated_Unit_Member.
+:Analista_de_Desenvolvimento_Regional rdfs:subClassOf :Allocated_Unit_Member.
+:Gerente_de_Riscos rdfs:subClassOf :Missionary_Unit_Member.
+:Gerente_de_Escopo rdfs:subClassOf :Missionary_Unit_Member.
+:Gerente_de_Projeto rdfs:subClassOf :Missionary_Unit_Member.

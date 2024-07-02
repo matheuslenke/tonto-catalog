@@ -1,0 +1,370 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Economic_Resource rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Resource"@en.
+:Economic_Event rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Event"@en.
+:Economic_Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Agent"@en.
+:Increment_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Increment_Event"@en.
+:Decrement_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Decrement_Event"@en.
+:REA_Duality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "REA_Duality"@en.
+:Debit_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Debit_Event"@en.
+:Credit_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Credit_Event"@en.
+:Balanced_Duality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Balanced_Duality"@en.
+:Asset rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Asset"@en.
+:Liability rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Liability"@en.
+:Equity rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Equity"@en.
+:Claim rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Claim"@en.
+:Material_Resource rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Material_Resource"@en.
+:Capacity_Resource rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Capacity_Resource"@en.
+:ab9lz11j7mly4o2mys rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex.
+:Bill_of_Material rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Bill_of_Material"@en.
+:Raw_Material rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Raw_Material"@en.
+:Finished_Good rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Finished_Good"@en.
+:Personnel rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Personnel"@en.
+:Equipment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Equipment"@en.
+:Routing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Routing"@en.
+:General_Ledger_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "General_Ledger_Account"@en.
+:Asset_Account rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Asset_Account"@en.
+:Liability_Account rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Liability_Account"@en.
+:Equity_Account rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Equity_Account"@en.
+:Revenue_Account rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Revenue_Account"@en.
+:Expense_Account rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Expense_Account"@en.
+:ab9lz11j7mly4o2mz5 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex.
+:Activity_Cost_Driver rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Activity_Cost_Driver"@en.
+:Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Activity"@en.
+:Resource_Cost_Driver rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Resource_Cost_Driver"@en.
+:Production_Volume rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Production_Volume"@en.
+:Activity_Level rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Activity_Level"@en.
+:Planning_Period rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Planning_Period"@en.
+:Operating_Expense rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Operating_Expense"@en.
+:Data_Pool rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Pool"@en.
+:Activity_Pool rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Activity_Pool"@en.
+:Cost_Pool rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cost_Pool"@en.
+:Increment_Event rdfs:subClassOf :Economic_Event.
+:Decrement_Event rdfs:subClassOf :Economic_Event.
+:Debit_Event rdfs:subClassOf :Economic_Event.
+:Credit_Event rdfs:subClassOf :Economic_Event.
+:Equity rdfs:subClassOf :Economic_Resource.
+:Claim rdfs:subClassOf :Economic_Resource.
+:Asset rdfs:subClassOf :Economic_Resource.
+:Liability rdfs:subClassOf :Economic_Resource.
+:Capacity_Resource rdfs:subClassOf :Economic_Resource.
+:Material_Resource rdfs:subClassOf :Economic_Resource.
+:Finished_Good rdfs:subClassOf :Material_Resource.
+:Raw_Material rdfs:subClassOf :Material_Resource.
+:Equipment rdfs:subClassOf :Capacity_Resource.
+:Personnel rdfs:subClassOf :Capacity_Resource.
+:Asset_Account rdfs:subClassOf :General_Ledger_Account.
+:Liability_Account rdfs:subClassOf :General_Ledger_Account.
+:Equity_Account rdfs:subClassOf :General_Ledger_Account.
+:Revenue_Account rdfs:subClassOf :General_Ledger_Account.
+:Expense_Account rdfs:subClassOf :General_Ledger_Account.
+:Activity_Pool rdfs:subClassOf :Data_Pool.
+:Cost_Pool rdfs:subClassOf :Data_Pool.
+:Increment_Event rdfs:subClassOf :Economic_Event.
+:Decrement_Event rdfs:subClassOf :Economic_Event.
+:Debit_Event rdfs:subClassOf :Economic_Event.
+:Credit_Event rdfs:subClassOf :Economic_Event.
+:Asset rdfs:subClassOf :Economic_Resource.
+:Liability rdfs:subClassOf :Economic_Resource.
+:Equity rdfs:subClassOf :Economic_Resource.
+:Claim rdfs:subClassOf :Economic_Resource.
+:Material_Resource rdfs:subClassOf :Economic_Resource.
+:Capacity_Resource rdfs:subClassOf :Economic_Resource.
+:Raw_Material rdfs:subClassOf :Material_Resource.
+:Finished_Good rdfs:subClassOf :Material_Resource.
+:Personnel rdfs:subClassOf :Capacity_Resource.
+:Equipment rdfs:subClassOf :Capacity_Resource.
+:Asset_Account rdfs:subClassOf :General_Ledger_Account.
+:Liability_Account rdfs:subClassOf :General_Ledger_Account.
+:Equity_Account rdfs:subClassOf :General_Ledger_Account.
+:Revenue_Account rdfs:subClassOf :General_Ledger_Account.
+:Expense_Account rdfs:subClassOf :General_Ledger_Account.
+:Activity_Pool rdfs:subClassOf :Data_Pool.
+:Cost_Pool rdfs:subClassOf :Data_Pool.
+:Finished_good_ID rdfs:domain :Bill_of_Material;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Finished_good_ID"@en.
+:Raw_material_ID rdfs:domain :Bill_of_Material;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Raw_material_ID"@en.
+:Quantity rdfs:domain :Bill_of_Material;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Quantity"@en.
+:Raw_material_ID_1 rdfs:domain :Raw_Material;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Raw_material_ID"@en.
+:Unit_cost rdfs:domain :Raw_Material;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Unit_cost"@en.
+:Finished_good_ID_1 rdfs:domain :Finished_Good;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Finished_good_ID"@en.
+:Finished_good_ID_2 rdfs:domain :Routing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Finished_good_ID"@en.
+:Activity_ID rdfs:domain :Routing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Activity_ID"@en.
+:Standard_production_coefficient_personnel rdfs:domain :Routing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Standard_production_coefficient_personnel"@en.
+:Standard_production_coefficient_equipment rdfs:domain :Routing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Standard_production_coefficient_equipment"@en.
+:Account_ID rdfs:domain :General_Ledger_Account;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Account_ID"@en.
+:Resource_type rdfs:domain :Expense_Account;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Resource_type"@en.
+:Cost_type rdfs:domain :Expense_Account;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Cost_type"@en.
+:Finished_good_ID_3 rdfs:domain :Activity_Cost_Driver;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Finished_good_ID"@en.
+:Activity_ID_1 rdfs:domain :Activity_Cost_Driver;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Activity_ID"@en.
+:Cost_driver_quantity rdfs:domain :Activity_Cost_Driver;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Cost_driver_quantity"@en.
+:Activity_ID_2 rdfs:domain :Activity;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Activity_ID"@en.
+:Resource_type_1 rdfs:domain :Resource_Cost_Driver;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Resource_type"@en.
+:Activity_ID_3 rdfs:domain :Resource_Cost_Driver;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Activity_ID"@en.
+:Cost_driver_rate rdfs:domain :Resource_Cost_Driver;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Cost_driver_rate"@en.
+:Planning_period rdfs:domain :Production_Volume;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Planning_period"@en.
+:Finished_good_ID_4 rdfs:domain :Production_Volume;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Finished_good_ID"@en.
+:Quantity_1 rdfs:domain :Production_Volume;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Quantity"@en.
+:Planning_period_ID rdfs:domain :Activity_Level;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Planning_period_ID"@en.
+:Activity_ID_4 rdfs:domain :Activity_Level;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Activity_ID"@en.
+:Finished_good_ID_5 rdfs:domain :Activity_Level;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Finished_good_ID"@en.
+:Extent_of_activity_level rdfs:domain :Activity_Level;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Extent_of_activity_level"@en.
+:Planning_period_ID_1 rdfs:domain :Planning_Period;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Planning_period_ID"@en.
+:Planning_period_ID_2 rdfs:domain :Operating_Expense;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Planning_period_ID"@en.
+:Account_ID_1 rdfs:domain :Operating_Expense;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Account_ID"@en.
+:Amount_of_expense rdfs:domain :Operating_Expense;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Amount_of_expense"@en.
+:Variator rdfs:domain :Operating_Expense;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Variator"@en.
+:Planning_period_ID_3 rdfs:domain :Data_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Planning_period_ID"@en.
+:Activity_ID_5 rdfs:domain :Data_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Activity_ID"@en.
+:Capacity_driver_rate rdfs:domain :Activity_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Capacity_driver_rate"@en.
+:Budgeted_driver_rate rdfs:domain :Activity_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Budgeted_driver_rate"@en.
+:Budgeted_unused_capacity rdfs:domain :Activity_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Budgeted_unused_capacity"@en.
+:Capacity_utilization_variance rdfs:domain :Activity_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Capacity_utilization_variance"@en.
+:Expense_charged_to_products rdfs:domain :Activity_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Expense_charged_to_products"@en.
+:Flexible_budget rdfs:domain :Activity_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Flexible_budget"@en.
+:Spending_variance rdfs:domain :Activity_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Spending_variance"@en.
+:Resource_type_2 rdfs:domain :Cost_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Resource_type"@en.
+:Budgeted_expense rdfs:domain :Cost_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Budgeted_expense"@en.
+:Actual_expense rdfs:domain :Cost_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Actual_expense"@en.
+:Variator_1 rdfs:domain :Cost_Pool;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Variator"@en.

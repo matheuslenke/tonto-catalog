@@ -1,0 +1,79 @@
+
+package Leilo_de_Licitao
+
+relator Indicao_de_Representante specializes Indicao_de_Representante_para_Pedido_de_Licena_Originria 
+
+relator Proposta_de_Atendimento
+
+relator Leilo_Pblico specializes Leilo 
+
+kind Garantia_de_Proposta
+
+kind Comprovao_de_Frota
+
+role Licitante_em_Leilo specializes Licitante, Empresa_Participante_do_Leilo 
+
+relator Proposta_de_Atendimento_Geral
+
+kind Plano_de_Negcio
+
+role Representante_Legal specializes Representante_Legal_de_Empresa_de_Transporte_ 
+
+relator Proposta_de_Atendimento_Especfica
+
+relator Leilo
+
+role Procurao_para_Indicao_de_Representante of functional-complexes  specializes Procurao_para_Indicao_de_Representante_para_Pedido_de_Licena_Originria, Procurao 
+
+relator Sesso_Pblica_de_Leilo
+
+kind Proposta_Econmica
+
+collective Grupo_de_Lotes
+
+roleMixin Lote_em_Leilo of functional-complexes 
+
+roleMixin Empresa_Indicadora_de_Representante of functional-complexes  specializes Empresa_Nacional_Indicadora_de_Representante 
+
+roleMixin Proponente_Vencedora of functional-complexes  specializes Empresa_Participante_do_Leilo 
+
+kind Qualificao
+
+collective Lote_de_Servio{
+    frotaReserva: undefined  
+    numeroEmpresas: undefined  
+    numeroLinhas: undefined  
+}
+
+relator Homologao_de_Leilo_de_Pblico
+
+role Representante_Legal_em_Leilo_de_Licitao specializes Representante_Legal 
+
+role Lote_de_Servio_em_Leilo of collectives  specializes Lote_de_Servio, Lote_em_Leilo 
+
+relator Leilo_de_Licitao specializes Leilo_Pblico 
+
+roleMixin Empresa_Participante_do_Leilo of functional-complexes  specializes Empresa_Indicadora_de_Representante 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,59 +10,59 @@ quality StructuredValue
 quality value_
 
 event Event{
-    Description: string_  
+    Description: string  
 }
 
 kind Schedule{
-    description: string_  
-    id: string_  
+    description: string  
+    id: string  
     startDate: undefined  
     endDate: undefined  
 }
 
 category Place of functional-complexes {
-    description: string_  
+    description: string  
 }
 
 kind postalAdress{
-    addressCountry: string_  
-    addressLocality: string_  
-    addressRegion: string_  
-    postOfficeBoxNumber: string_  
-    postalCode: string_  
-    streetAddress: string_  
+    addressCountry: string  
+    addressLocality: string  
+    addressRegion: string  
+    postOfficeBoxNumber: string  
+    postalCode: string  
+    streetAddress: string  
 }
 
 kind person specializes Agent {
-    name: string_  
-    email: string_  
-    telephone: string_  
-    jobTitle: string_  
+    name: string  
+    email: string  
+    telephone: string  
+    jobTitle: string  
 }
 
 kind organisation specializes Agent {
-    name: string_  
-    id: string_  
-    email: string_  
-    telephone: string_  
+    name: string  
+    id: string  
+    email: string  
+    telephone: string  
 }
 
 quality priceSpecification{
-    price: string_  
-    priceCurrency: string_  
+    price: string  
+    priceCurrency: string  
     validFrom: undefined  
     validThrough: undefined  
-    valueAddedTextIncluded: boolean_  
+    valueAddedTextIncluded: boolean  
 }
 
 quality QuantitativeValue{
     value_: undefined  
-    unitText: string_  
-    unitCode: string_  
+    unitText: string  
+    unitCode: string  
 }
 
 category WebAPI of functional-complexes {
-    URL: string_  
+    URL: string  
 }
 
 kind DigitalDocument specializes creativeWork 
@@ -70,7 +70,7 @@ kind DigitalDocument specializes creativeWork
 mode DigitalDocumentPermission
 
 category creativeWork of functional-complexes {
-    fileFormat: string_  
+    fileFormat: string  
 }
 
 kind drawing specializes creativeWork 

@@ -1,0 +1,192 @@
+
+package Sesso_do_Plenrio
+
+category Sesso_Legislativa of functional-complexes {
+    fim: undefined  
+    incio: undefined  
+    nmero: undefined  
+}
+
+subkind Sesso_Ordinria_No_Deliberativa of functional-complexes  specializes Sesso_Ordinria, Sesso_No_Deliberativa 
+
+kind Ordem_do_Dia
+
+type Tipo_de_Proposio{
+    qurum_para_votao: undefined  
+}
+
+roleMixin Proposio_Aprovada of functional-complexes  specializes Proposio_Votada 
+
+subkind Sesso_Pblica of functional-complexes  specializes Sesso_do_Plenrio 
+
+mode Resultado_de_Sesso_do_Plenrio
+
+relator Encaminhamento_de_Proposio{
+    parecer_de_preposio: undefined  
+}
+
+subkind Sesso_do_Congresso_Nacional of functional-complexes  specializes Sesso_do_Plenrio 
+
+category Sesso_Deliberativa of functional-complexes 
+
+kind Pequeno_Expediente
+
+subkind Sesso_Ordinria_Deliberativa of functional-complexes  specializes Sesso_Ordinria, Sesso_Deliberativa 
+
+role Comisso_em_Anlise_de_Proposio of collectives  specializes Comisso_do_Congresso_Nacional 
+
+category Sesso_No_Deliberativa of functional-complexes 
+
+kind Requerimento_de_Informao specializes Proposio 
+
+kind Legislatura{
+    fim: undefined  
+    incio: undefined  
+    nmero: undefined  
+}
+
+relator Discurso_Parlamentar specializes Pronunciamento_Parlamentar {
+    contedo: undefined  
+}
+
+collective Sesso_Legislativa_Extraordinria specializes Sesso_Legislativa 
+
+subkind Sesso_Secreta of functional-complexes  specializes Sesso_do_Plenrio 
+
+category Proposio_Encaminhada__Comisso of functional-complexes  specializes Proposio 
+
+role Comisso_com_Proposio of collectives  specializes Comisso_do_Congresso_Nacional 
+
+roleMixin Proposio_com_Votao_sem_Qurum of functional-complexes  specializes Proposio_Votada 
+
+role Autor_de_Pronunciamento
+
+subkind Sesso_Ordinria of functional-complexes  specializes Sesso_do_Plenrio 
+
+subkind Sesso_Extraordinria_No_Deliberativa of functional-complexes  specializes Sesso_Extraordinria, Sesso_No_Deliberativa 
+
+mode Voto_em_Proposio{
+    escolha: Opo_de_Voto  
+}
+
+subkind Sesso_Solene of functional-complexes  specializes Sesso_do_Plenrio, Sesso_No_Deliberativa 
+
+role Orador_em_Sesso_do_Plenrio specializes Participante_de_Sesso_do_Plenrio 
+
+mixin Proposio of functional-complexes {
+    regime: Regime_de_Tramitao  
+}
+
+phase Sesso_em_Andamento of functional-complexes  specializes Sesso_do_Plenrio 
+
+kind Requerimento_de_Audincia_Pblca specializes Requerimento_de_Audincia_Pblica_Atendido, Proposio {
+    nmero: undefined  
+}
+
+subkind Sesso_Preparatria of functional-complexes  specializes Sesso_do_Plenrio, Sesso_No_Deliberativa 
+
+role Autor_de_Proposio specializes Participante_de_Sesso_do_Plenrio 
+
+roleMixin Proposio_Reprovada of functional-complexes  specializes Proposio_Votada 
+
+relator Pronunciamento_Parlamentar{
+    contedo: undefined  
+    durao: undefined  
+}
+
+subkind Sesso_da_Cmara_dos_Deputados of functional-complexes  specializes Sesso_do_Plenrio 
+
+kind Comunicao_Parlamentar
+
+phase Sesso_Convocada of functional-complexes  specializes Sesso_do_Plenrio 
+
+role Sesso_com_Discurso of functional-complexes  specializes Sesso_do_Plenrio 
+
+role Convidado_em_Requerimento
+
+roleMixin Proposio_Votada of functional-complexes  specializes Proposio 
+
+mode Pauta_da_Sesso_do_Plenrio
+
+kind Sesso_do_Plenrio{
+    data: undefined  
+    durao: undefined  
+    nmero: undefined  
+    qurum: undefined  
+}
+
+role Participante_de_Sesso_do_Plenrio specializes Parlamentar 
+
+relator Votao_em_Proposio{
+    totalAbstenao: undefined  
+    totalBranco: undefined  
+    totalNo: undefined  
+    totalNulo: undefined  
+    totalQurum: undefined  
+    totalSim: undefined  
+}
+
+relator Evento_de_Tramitao_de_Proposio{
+    data: undefined  
+    descrio: undefined  
+}
+
+phase Sesso_Encerrada of functional-complexes  specializes Sesso_do_Plenrio 
+
+mode Pronunciamento{
+    resumo: undefined  
+}
+
+relator Apresentao_de_Proposio specializes Evento_de_Tramitao_de_Proposio 
+
+subkind Sesso_Extraordinria of functional-complexes  specializes Sesso_do_Plenrio 
+
+role Responsvel_por_Sesso_Extraordinria
+
+collective Sesso_Legislativa_Ordinria specializes Sesso_Legislativa 
+
+role Participante_em_Votao specializes Participante_de_Sesso_do_Plenrio 
+
+subkind Sesso_Extraordinria_Deliberativa of functional-complexes  specializes Sesso_Extraordinria, Sesso_Deliberativa 
+
+subkind Grande_Expediente
+
+role Entidade_Requerida
+
+category Proposio_Oriunda_de_Comisso of functional-complexes  specializes Proposio 
+
+subkind Sesso_do_Senado_Federal of functional-complexes  specializes Sesso_do_Plenrio 
+
+enum Regime_de_Tramitao{
+    urgente, urgentssima, prioridade, ordinrio, especial
+}
+enum Opo_de_Voto{
+    sim, no, absteno, branco, nulo
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

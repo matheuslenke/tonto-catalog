@@ -1,0 +1,45 @@
+import Imvel
+import Pessoa_Jurdica
+import Servio
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+
+package Imvel_Contbil
+
+role Terreno_Arrendado of functional-complexes  specializes Terreno 
+
+role Imvel_Edificado_Construdo_Explorado of functional-complexes  specializes Imvel_Edificado_Construdo 
+
+role Terreno_Comprado_Imobilizado of functional-complexes  specializes Terreno_Comprado 
+
+role Imvel_Edificado_Alugado of functional-complexes  specializes Imvel_Edificado 
+
+role Terreno_Arrendado_Imobilizado of functional-complexes  specializes Terreno_Arrendado 
+
+role Imvel_Edificado_Arrendado_Imobilizado of functional-complexes  specializes Imvel_Edificado_Arrendado 
+
+role Terreno_Alugado of functional-complexes  specializes Terreno 
+
+role Imvel_Edificado_Comprado_Explorado_ of functional-complexes  specializes Imvel_Edificado_Comprado 
+
+role Imvel_Edificado_Construdo_Imobilizado of functional-complexes  specializes Imvel_Edificado_Construdo 
+
+subkind Imvel_Edificado_Cedido of functional-complexes  specializes Imvel_Edificado 
+
+subkind Imvel_Edificado_Comprado of functional-complexes  specializes Imvel_Edificado 
+
+role Terreno_Comprado_Explorado of functional-complexes  specializes Terreno_Comprado 
+
+subkind Imvel_Edificado_Construdo of functional-complexes  specializes Imvel_Edificado 
+
+role Imvel_Edificado_Arrendado_Explorado of functional-complexes  specializes Imvel_Edificado_Arrendado 
+
+role Terreno_Arrendado_Explorado of functional-complexes  specializes Terreno_Arrendado 
+
+subkind Terreno_Cedido of functional-complexes  specializes Terreno 
+
+subkind Terreno_Comprado of functional-complexes  specializes Terreno 
+
+role Imvel_Edificado_Comprado_Imobilizado of functional-complexes  specializes Imvel_Edificado_Comprado 
+
+role Imvel_Edificado_Arrendado of functional-complexes  specializes Imvel_Edificado 
+

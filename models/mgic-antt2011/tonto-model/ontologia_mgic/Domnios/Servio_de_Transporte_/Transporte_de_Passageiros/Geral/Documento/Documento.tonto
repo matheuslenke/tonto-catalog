@@ -1,0 +1,13 @@
+import Documento
+
+package Documento
+
+category Documento of functional-complexes 
+
+category Parte_de_Documento of functional-complexes 
+
+category Documento_Simples of functional-complexes  specializes Documento 
+
+category Documento_Composto of functional-complexes  specializes Documento 
+
+

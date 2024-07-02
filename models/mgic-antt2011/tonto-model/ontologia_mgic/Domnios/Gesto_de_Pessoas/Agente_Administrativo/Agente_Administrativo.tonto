@@ -1,0 +1,180 @@
+
+package Agente_Administrativo
+
+role Servidor_Efetivo_Cedido specializes Servidor_Ativo_Provisrio, Servidor_Pblico_Efetivo 
+
+role PJDPI_com_Servidor
+
+relator Vnculo_Estatutrio specializes Vnculo_de_Servio_Pblico 
+
+roleMixin Servidor_Pblico_Cedido of functional-complexes  specializes Servidor_Pblico_Efetivo_Cedido 
+
+role Vaga_para_Emprego_Pblico_Ocupada
+
+role Empregado_Pblico specializes Servidor_Pblico_Efetivo 
+
+mode Competncia
+
+kind Certificado_de_Estgio_Pblico
+
+role Aposentado_Pblico specializes Servidor_Pblico_Efetivo, Servidor_Pblico_Inativo, Objeto_do_Ato_da_Administrao 
+
+role rgo_Pblico_de_Posse_de_Servidor
+
+role Servidor_Efetivo_Em_Quadro_Especfico specializes Servidor_Pblico_Efetivo, Servidor_Ativo_Permanente, Servidor_Aproveitado, Servidor_Readaptado, Servidor_Revertido, Servidor_Reconduzido, Servidor_Reintegrado 
+
+role Cargo_Efetivo_Empossado of functional-complexes  specializes Cargo_Efetivo 
+
+relator Posse_em_Cargo_Efetivo specializes Posse {
+    classe: Classe  
+    padro: Padro  
+}
+
+relator Vnculo_de_Servio_Pblico specializes Penso, Anistia 
+
+role PJDPI_com_Servidor_Estatutrio specializes PJDPI_com_Servidor 
+
+role Vinculado_ao_Servio_Pblico specializes Agente_Social {
+    matriculaSIAPE: undefined  
+}
+
+role Agente_Administrativo specializes Agente_Pblico, Responsvel_por_Inscrio_no_SERASA, Responsvel_por_Prescrio_de_Obrigao, Responsvel_por_Cancelamento_de_Obrigao, Responsvel_por_Parcelamento_Administrativo, Respomsvel_por_Inscrio_no_CADIN 
+
+role Terceirizado_do_Servio_Pblico specializes Agente_Administrativo 
+
+role Servidor_Pblico_Estatutrio specializes Servidor_Pblico_Efetivo, Servidor_Pblico_Efetivo_Cedido, Exonerado_do_Servio_Pblico, Procurador, Juiz 
+
+role Servidor_Pblico_Inativo specializes Servidor_Pblico 
+
+role Servidor_Pblico_Efetivo_Cedido
+
+relator Posse{
+    data: undefined  
+}
+
+role Servidor_Efetivo_Requisitado specializes Servidor_Pblico_Efetivo 
+
+role Vaga_para_Cargo_Efetivo_Ocupada
+
+role Contratante_de_Empregado_Pblico specializes PJDPI_com_Servidor 
+
+role Servidor_em_Exerccio_Descentralizado specializes Servidor_Pblico_Efetivo, Servidor_Ativo_Provisrio 
+
+role Servidor_Efetivo_Em_Quadro_Efetivo specializes Servidor_Pblico_Efetivo, Servidor_Ativo_Permanente 
+
+role Servidor_Ativo_Provisrio specializes Servidor_Pblico_Ativo 
+
+type Tipo_de_Vnculo
+
+role Estagirio_do_Servio_Pblico specializes Agente_Administrativo, Vinculado_ao_Servio_Pblico 
+
+role Contratado_de_Terceirizado
+
+role Servidor_Pblico specializes Agente_Administrativo, Vinculado_ao_Servio_Pblico, Responsvel_por_Autorizao_de_Licena, Responsvel_por_Abertura_de_Processo_Administrativo 
+
+roleMixin Servio_Contratado_de_Terceirizada of functional-complexes  specializes Servio 
+
+role Servidor_Pblico_Estvel specializes Servidor_Pblico_Estatutrio, Objeto_do_Ato_da_Administrao, Avaliador 
+
+role Servidor_Pblico_Ativo specializes Servidor_Pblico, Substituto, Titular, Servidor_Promovido, Membro_de_Conselho_Deliberativo_de_Revista, Membro_de_Ncleo_Editorial, Autor_de_Nota_Tcnica, Reponsvel_por_Anlise_Tcnica_de_Projeto_de_Cooperao, Gestor_de_Projeto_de_Cooperao, Responsvel_por_Aditivo_Contratual, Responsvel_Tcnico_por_Projeto_de_Cooperao, Fiscal_de_Projeto, Membro_de_Comisso_Especial_de_Licitao, Membro_do_CNMA 
+
+role Servidor_Efetivo_em_Exerccio_Provisrio specializes Servidor_Pblico_Efetivo, Servidor_Ativo_Provisrio 
+
+relator Contrato_de_Aprendizagem{
+    auxilio_transporte: undefined  
+    durao: undefined  
+    inicio: undefined  
+    jornada_de_trabalho: undefined  
+    salario: undefined  
+}
+
+role Servidor_de_Livre_Nomeao_e_Exonerao specializes Servidor_Pblico_Comissionado, Servidor_Pblico, Servidor_Ativo_Provisrio 
+
+role Menor_Aprendiz specializes Agente_Administrativo 
+
+role Servidor_Pblico_em_Estgio_Probatrio specializes Servidor_Pblico_Estatutrio, Servidor_Avaliado_em_Estgio_Probatrio 
+
+role PJDPI_com_Menor_Aprendiz
+
+relator Vnculo_Celetista specializes Vnculo_de_Servio_Pblico 
+
+role Agente_Pblico specializes Agente_Poltico 
+
+role Servidor_Efetivo_Anistiado specializes Servidor_Pblico_Efetivo 
+
+role Pensionista_do_Servio_Pblico specializes Vinculado_ao_Servio_Pblico 
+
+relator Alocao_de_Terceirizado
+
+relator Posse_em_Cargo_em_Comisso specializes Posse 
+
+role Parte_Concedente_de_Estgio_Pblico
+
+role Vaga_para_Cargo_em_Comisso_Ocupada
+
+role Supervisor_de_Estagirio_Pblico specializes Servidor_Pblico_Ativo 
+
+role Servidor_Efetivo_Comissionado specializes Servidor_Pblico_Efetivo, Servidor_Pblico_Comissionado 
+
+relator Vnculo_Comissionado specializes Vnculo_de_Servio_Pblico 
+
+role Servidor_Ativo_Permanente specializes Servidor_Pblico_Ativo 
+
+role Cargo_em_Comisso_Empossado of functional-complexes  specializes Cargo_em_Comisso 
+
+role Servidor_Pblico_Comissionado
+
+relator Estgio_Pblico specializes Vnculo_de_Servio_Pblico 
+
+role PJDPI_com_Servidor_Comissionado specializes PJDPI_com_Servidor 
+
+relator Contratao_de_Empresa_Terceirizada
+
+role Servidor_Pblico_Efetivo specializes Servidor_Pblico 
+
+role rgo_Pblico_com_Servidor_em_Estgio_Probatrio
+
+role PJDPI_com_Terceirizado specializes Contratante_de_Terceirizado 
+
+relator Estgio_Probatrio{
+    vigncia: undefined  
+}
+
+role Contratante_de_Terceirizado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

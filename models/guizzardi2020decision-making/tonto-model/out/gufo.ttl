@@ -1,0 +1,147 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Action"@en.
+:Mental_Moment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Mental_Moment"@en.
+:Belief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Belief"@en.
+:Desire rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Desire"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Goal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Goal"@en.
+:Situation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Situation"@en.
+:Proposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Proposition"@en.
+:Deliberative_Act rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Deliberative_Act"@en.
+:Decision rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Decision"@en.
+:Preference rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Preference"@en.
+:Value_Ascription rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Value_Ascription"@en.
+:VA_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "VA_Component"@en.
+:Intrinsic_Moment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intrinsic_Moment"@en.
+:Value_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value_Bearer"@en.
+:Preferred_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Preferred_Bearer"@en.
+:Deprecated_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Deprecated_Bearer"@en.
+:Value_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Value_Component"@en.
+:Benefit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Benefit"@en.
+:Sacrifice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sacrifice"@en.
+:Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Value"@en.
+:Criterion rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Criterion"@en.
+:Capability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Capability"@en.
+:Individual_Capability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Individual_Capability"@en.
+:Social_Capability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Social_Capability"@en.
+:Delegation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Delegation"@en.
+:Decision_Resulting_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Decision_Resulting_Action"@en.
+:Consequence rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Consequence"@en.
+:Netflix_VA_Value_Ascription rdf:type owl:NamedIndividual;
+    rdfs:label "Netflix_VA_Value_Ascription"@en.
+:YouTube_VA_Value_Ascription rdf:type owl:NamedIndividual;
+    rdfs:label "YouTube_VA_Value_Ascription"@en.
+:Payment_Netflix_VAC_VA_Component rdf:type owl:NamedIndividual;
+    rdfs:label "Payment_Netflix_VAC_VA_Component"@en.
+:Entertainment_Netflix_VAC_VA_Component rdf:type owl:NamedIndividual;
+    rdfs:label "Entertainment_Netflix_VAC_VA_Component"@en.
+:Entertainment_YouTube_VAC_VA_Component rdf:type owl:NamedIndividual;
+    rdfs:label "Entertainment_YouTube_VAC_VA_Component"@en.
+:Payment_YouTube_VAC_VA_Component rdf:type owl:NamedIndividual;
+    rdfs:label "Payment_YouTube_VAC_VA_Component"@en.
+:Netflix_Monthly_Fee_Quality rdf:type owl:NamedIndividual;
+    rdfs:label "Netflix_Monthly_Fee_Quality"@en.
+:Minimize_Cost_Intention rdf:type owl:NamedIndividual;
+    rdfs:label "Minimize_Cost_Intention"@en.
+:YouTube_Cost_Quality rdf:type owl:NamedIndividual;
+    rdfs:label "YouTube_Cost_Quality"@en.
+:Seeks_to_Relax_Intention rdf:type owl:NamedIndividual;
+    rdfs:label "Seeks_to_Relax_Intention"@en.
+:Netflix_Entertainability_Quality rdf:type owl:NamedIndividual;
+    rdfs:label "Netflix_Entertainability_Quality"@en.
+:YouTube_Entertainability_Quality rdf:type owl:NamedIndividual;
+    rdfs:label "YouTube_Entertainability_Quality"@en.
+:Netflix_Entertainment_Benefit rdf:type owl:NamedIndividual;
+    rdfs:label "Netflix_Entertainment_Benefit"@en.
+:Cost_Sacrifice rdf:type owl:NamedIndividual;
+    rdfs:label "Cost_Sacrifice"@en.
+:NoCost_Benefit rdf:type owl:NamedIndividual;
+    rdfs:label "NoCost_Benefit"@en.
+:PreferenceMovieProvider_Preference rdf:type owl:NamedIndividual;
+    rdfs:label "PreferenceMovieProvider_Preference"@en.
+:Watching_film_on_Netflix_Value_Experience rdf:type owl:NamedIndividual;
+    rdfs:label "Watching_film_on_Netflix_Value_Experience"@en.
+:Watching_film_on_YouTube_Value_Experience rdf:type owl:NamedIndividual;
+    rdfs:label "Watching_film_on_YouTube_Value_Experience"@en.
+:Netflix_Value_Value rdf:type owl:NamedIndividual;
+    rdfs:label "Netflix_Value_Value"@en.
+:YouTube_Value_Value rdf:type owl:NamedIndividual;
+    rdfs:label "YouTube_Value_Value"@en.
+:Fred_Agent rdf:type owl:NamedIndividual;
+    rdfs:label "Fred_Agent"@en.
+:YouTube_Entertainment_Benefit rdf:type owl:NamedIndividual;
+    rdfs:label "YouTube_Entertainment_Benefit"@en.
+:Watch_Movies_on_YouTube_Decision rdf:type owl:NamedIndividual;
+    rdfs:label "Watch_Movies_on_YouTube_Decision"@en.
+:To_Watch_Movies_on_YouTube_Action rdf:type owl:NamedIndividual;
+    rdfs:label "To_Watch_Movies_on_YouTube_Action"@en.
+:intrinsic_Moment_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "intrinsic_Moment_Type"@en.
+:Belief rdfs:subClassOf :Mental_Moment.
+:Desire rdfs:subClassOf :Mental_Moment.
+:Intention rdfs:subClassOf :Mental_Moment.
+:Goal rdfs:subClassOf :Proposition.
+:Deliberative_Act rdfs:subClassOf :Action.
+:Decision rdfs:subClassOf :Intention.
+:Preferred_Bearer rdfs:subClassOf :Value_Bearer.
+:Deprecated_Bearer rdfs:subClassOf :Value_Bearer.
+:Benefit rdfs:subClassOf :Value_Component.
+:Sacrifice rdfs:subClassOf :Value_Component.
+:Criterion rdfs:subClassOf :intrinsic_Moment_Type.
+:Individual_Capability rdfs:subClassOf :Capability.
+:Social_Capability rdfs:subClassOf :Capability.
+:Decision_Resulting_Action rdfs:subClassOf :Action.
+:Consequence rdfs:subClassOf :Situation.

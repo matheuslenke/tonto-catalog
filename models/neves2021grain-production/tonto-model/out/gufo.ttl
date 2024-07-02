@@ -1,0 +1,48 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Digital_Images rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Digital_Images"@en.
+:Satellite_Images rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Satellite_Images"@en.
+:NDVI_Index rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "NDVI_Index"@en.
+:Oher_Variables rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Oher_Variables"@en.
+:Production_Evolution_States rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Production_Evolution_States"@en.
+:Geolocation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Geolocation"@en.
+:Crop rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Crop"@en.
+:Climate_Station rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Climate_Station"@en.
+:Leaf_Wetting_Duration rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Leaf_Wetting_Duration"@en.
+:Air_Relative_Humidity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Air_Relative_Humidity"@en.
+:Accumulated_Precipitation rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Accumulated_Precipitation"@en.
+:Maximum_Temperature rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Maximum_Temperature"@en.
+:Minimum_Temperature rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Minimum_Temperature"@en.
+:Satellite_Images rdfs:subClassOf :Digital_Images.
+:Geolocation rdfs:subClassOf :Crop.

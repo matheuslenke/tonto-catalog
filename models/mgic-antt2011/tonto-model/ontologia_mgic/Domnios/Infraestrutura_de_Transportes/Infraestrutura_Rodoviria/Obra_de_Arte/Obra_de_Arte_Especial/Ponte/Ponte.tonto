@@ -1,0 +1,55 @@
+import Obra_de_Arte_Especial
+import Infraestrutura_Ferroviria
+import Georreferenciamento
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Ativo_Ferrovirio
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+import Infraestrutura_Rodoviria
+import Trecho_de_Concesso
+import Compra
+import Produto
+import Servio
+import Imvel
+import Pessoa_Jurdica
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Veculo_Ferrovirio
+import Movimentao_de_Ativo_Ferrovirio
+import Acidente_Ferrovirio
+
+package Ponte
+
+subkind Ponte_Suspensa of functional-complexes  specializes Ponte 
+
+subkind Ponte_em_Trelia of functional-complexes  specializes Ponte_em_Viga 
+
+kind Infraestrutura_de_Ponte
+
+subkind Ponte_em_Laje of functional-complexes  specializes Ponte_em_Viga 
+
+kind Superestrutura_de_Ponte
+
+subkind Ponte_em_Arco of functional-complexes  specializes Ponte 
+
+kind Estrado
+
+subkind Ponte_Estaiada of functional-complexes  specializes Ponte_Suspensa 
+
+subkind Ponte_em_Viga of functional-complexes  specializes Ponte 
+
+subkind Ponte_Mvel of functional-complexes  specializes Ponte 
+
+subkind Passarela of functional-complexes  specializes Ponte 
+
+subkind Ponte_em_Caixo of functional-complexes  specializes Ponte_em_Viga 
+
+subkind Ponte_Ferroviria of functional-complexes  specializes Obra_de_Arte_Especial_Ferroviria, Ponte 
+
+subkind Ponte_Esttica of functional-complexes  specializes Ponte 
+
+subkind Ponte_Rodoviria of functional-complexes  specializes Ponte 
+
+subkind Ponte_Utilitria of functional-complexes  specializes Ponte 
+

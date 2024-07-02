@@ -1,0 +1,35 @@
+
+package Via_de_Trnsito_Rodovirio
+
+subkind Via_Lateral of functional-complexes  specializes Via_de_Trfego_Rodovirio 
+
+subkind Via_Marginal of functional-complexes  specializes Via_de_Trfego_Rodovirio 
+
+subkind Contorno_Rodovirio of functional-complexes  specializes Via_de_Trfego_Rodovirio 
+
+subkind Rodovia of functional-complexes  specializes Via_de_Trfego_Rodovirio, Elemento_com_Projeo_Linear {
+    classe_da_rodovia: Classe_da_Rodovia  
+    orientao: undefined  
+}
+
+subkind Anel_Rodovirio of functional-complexes  specializes Via_de_Trfego_Rodovirio 
+
+kind Trecho_Rodovirio_Fsico specializes Trecho {
+    classe: Classe_da_Rodovia  
+    extenso: undefined  
+    local_fim: undefined  
+    local_inicio: undefined  
+    neblina: undefined  
+    raio_mnimo_horizontal: undefined  
+    rampa_mxima: undefined  
+    velocidade_mxima: undefined  
+}
+
+subkind Variante of functional-complexes  specializes Via_de_Trfego_Rodovirio 
+
+
+
+
+
+
+

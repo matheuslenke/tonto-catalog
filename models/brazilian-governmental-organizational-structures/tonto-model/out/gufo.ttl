@@ -1,0 +1,65 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:OrganizationalUnit rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "OrganizationalUnit"@en.
+:rgo_Colegiado rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "rgo_Colegiado"@en.
+:PublicOrganization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "PublicOrganization"@en.
+:PublicAdmnistrativeUnit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PublicAdmnistrativeUnit"@en.
+:Organization rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:UnityOfOrganization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UnityOfOrganization"@en.
+:Company rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Company"@en.
+:PublicEntity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "PublicEntity"@en.
+:rgo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "rgo"@en.
+:NonEmpresarialPublicEntity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "NonEmpresarialPublicEntity"@en.
+:StateCompany rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "StateCompany"@en.
+:Autarchy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Autarchy"@en.
+:Foundation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Foundation"@en.
+:PublicCompany rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "PublicCompany"@en.
+:MixedEconomyCompany rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "MixedEconomyCompany"@en;
+    rdfs:subClassOf :StateCompany.
+:PublicCompany rdfs:subClassOf :StateCompany.
+:StateCompany rdfs:subClassOf :PublicEntity.
+:NonEmpresarialPublicEntity rdfs:subClassOf :PublicEntity.
+:rgo_Colegiado rdfs:subClassOf :OrganizationalUnit.
+:PublicOrganization rdfs:subClassOf :OrganizationalUnit.
+:PublicAdmnistrativeUnit rdfs:subClassOf :OrganizationalUnit.
+:Company rdfs:subClassOf :Organization.
+:PublicOrganization rdfs:subClassOf :Organization.
+:PublicEntity rdfs:subClassOf :PublicOrganization.
+:rgo rdfs:subClassOf :PublicOrganization.
+:rgo_Colegiado rdfs:subClassOf :OrganizationalUnit.
+:PublicOrganization rdfs:subClassOf :OrganizationalUnit, :Organization.
+:PublicAdmnistrativeUnit rdfs:subClassOf :OrganizationalUnit, :UnityOfOrganization.
+:Company rdfs:subClassOf :Organization.
+:PublicEntity rdfs:subClassOf :PublicOrganization.
+:rgo rdfs:subClassOf :PublicOrganization.
+:NonEmpresarialPublicEntity rdfs:subClassOf :PublicEntity.
+:StateCompany rdfs:subClassOf :PublicEntity, :Company.
+:Autarchy rdfs:subClassOf :NonEmpresarialPublicEntity.
+:Foundation rdfs:subClassOf :NonEmpresarialPublicEntity.
+:PublicCompany rdfs:subClassOf :StateCompany.
+:MixedEconomyCompany rdfs:subClassOf :StateCompany.

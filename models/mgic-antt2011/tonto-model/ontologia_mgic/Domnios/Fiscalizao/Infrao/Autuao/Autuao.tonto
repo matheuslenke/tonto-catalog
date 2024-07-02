@@ -1,0 +1,80 @@
+
+package Autuao
+
+relator Fiscalizao_Indireta_Autuadora specializes Fiscalizao_Indireta 
+
+relator Autuao
+
+relator ATe_por_Notificao_de_Infrao_Criada_por_Fiscalizao_Indireta specializes ATe_por_Notificao_de_Infrao 
+
+relator Autuao_por_Lavratura_com_Recibo_de_AI specializes Autuao_por_Lavratura 
+
+relator Autuao_por_Lavratura specializes Autuao_Proveniente_de_Documento_de_Advertncia {
+    autuao: undefined  
+    limite: undefined  
+    local: undefined  
+}
+
+kind Documento_de_Representao
+
+relator Representao_No_Annima specializes Representao 
+
+kind Notificao_de_Infrao
+
+role Municpio_com_Autuao_por_Lavratura
+
+kind Auto_de_Infrao{
+    cdigo: undefined  
+}
+
+roleMixin Autor_de_Representao of functional-complexes 
+
+role Fiscal_Autuador specializes Fiscal 
+
+kind Notificao_do_Infrator
+
+relator Autuao_com_Prazo specializes Autuao_de_Transporte {
+    prazo: undefined  
+}
+
+mode Recibo_de_AI{
+    recebimento: undefined  
+}
+
+role Autor_de_ATe_por_N_de_Infrao specializes Fiscal 
+
+relator Representao
+
+relator Autuao_de_Trnsito specializes Autuao_por_Lavratura, Autuao 
+
+relator ATe_por_Notificao_do_Infrator specializes Autuao_de_Transporte 
+
+relator ATe_por_Lavratura_de_AI specializes Autuao_de_Transporte, Autuao_por_Lavratura, Autuao_Proveniente_de_Documento_de_Advertncia 
+
+relator Fiscalizao_Autuadora specializes Fiscalizao_Apurativa_e_Punitiva 
+
+mode Constatao_de_Infrao
+
+role Autor_de_ATe_por_N_do_Infrator specializes Fiscal 
+
+relator ATe_por_Notificao_de_Infrao specializes Autuao_de_Transporte 
+
+relator Autuao_de_Transporte specializes Autuao 
+
+relator ATe_por_Notificao_de_Infrao_Criada_por_Constatao specializes ATe_por_Notificao_de_Infrao 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

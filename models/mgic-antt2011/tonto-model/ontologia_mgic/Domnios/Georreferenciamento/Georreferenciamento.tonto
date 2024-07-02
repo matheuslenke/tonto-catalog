@@ -1,0 +1,76 @@
+
+package Georreferenciamento
+
+subkind Distrito_Sede of functional-complexes  specializes Distrito 
+
+phase Municpio_Misto of functional-complexes  specializes Municpio 
+
+subkind CidadeCapital_do_Estado specializes Cidade 
+
+mixin Elemento_Georreferenciado of functional-complexes  specializes Resultado_da_Cadeia_Produtiva, Resultado_de_rea_de_Influncia, Resultado_da_Alocao_por_Caminho_Mnimo, Objeto_Geogrfico_Vinculado_a_Obra, Resultado_de_Linha_de_Desejo {
+    nome: undefined  
+}
+
+category Unidade_Federativa of functional-complexes  specializes Regio_Poltica {
+    numDeputadosEstaduais: undefined  
+    numDeputadosFederais: undefined  
+    numSenadores: undefined  
+}
+
+kind Estado specializes Unidade_Federativa 
+
+kind Pas specializes Regio_Poltica, Pas_de_Destino_no_Manifesto_Internacional_de_Carga_Rodoviria, Pas_de_Origem_no_Manifesto_Internacional_de_Carga_Rodoviria, Pas_de_Origem_de_Viagem_de_TRC_de_Carter_Ocasional, Pas_Transitado_em_Viagem_de_TRC_de_Carter_Ocasional, Pas_de_Destino_de_Viagem_de_TRC_de_Carter_Ocasional, Pas_Destino_de_Licena_Originria, Pas_Origem_de_Licena_Originria 
+
+phase Municpio_Urbano of functional-complexes  specializes Municpio 
+
+mixin Elemento_com_Projeo_Linear of functional-complexes  specializes Via_com_Projeo_Linear, Trecho_Rodovirio_Fsico, Faixa_de_Domnio_Rodoviria, Curva, Rampa, Obra_de_Arte_Especial_Rodovirio, Obra_de_Arte_Corrente_Linear, Interseo, Sinalizao_Horizontal, Elemento_Georreferenciado, Segmento_Homogneo, Trecho_de_Monitorao 
+
+mixin Elemento_com_Projeo_Espacial of functional-complexes  specializes Imvel, Via_Frrea, Elemento_Georreferenciado, Obra_de_Concesso_, Malha_Ferroviria, Trem, Ativo_Ferrovirio_Mvel, Obra_de_Arte_Ferroviria 
+
+kind Distrito specializes Regio_Poltica 
+
+mixin Elemento_com_Projeo_Pontual of functional-complexes  specializes Imvel, Call_Box, Parada_de_nibus, Passagem_de_Pedestre, Estao_Meteoreolgica, Aparelho_de_Fiscalizao, Edificao_de_Rodovia, Componente_de_Iluminao, Obra_de_Arte_Corrente_Pontual, Acidente_de_Trnsito, Sinalizao_por_Placa, Sinalizao_Semafrica, Praa_de_Pedgio, Detector_de_Altura, Balana, Elemento_Georreferenciado, N_de_Origem_da_Linha_de_Desejo, N_de_Destino_da_Alocao_por_Caminho_Mnimo, N_de_Origem_da_Alocao_por_Caminho_Mnimo, _N_Destino_da_Cadeia_Produtiva, N_Destino_da_Linha_de_Desejo, N_de_Origem_da_Cadeia_Produtiva, N_de_Origem_da_rea_de_Influncia, N_Destino_da_rea_de_Infuncia 
+
+kind Municpio specializes Elemento_com_Projeo_Pontual, Regio_Poltica, Municpio_com_Autuao_por_Lavratura, Municpio_Inicial_da_Prestao, Municpio_Final_da_Prestao, Municpio_Pesquisado, Minicpio_Ligado {
+    numVereadores: undefined  
+}
+
+subkind CidadeCapital_do_Pas specializes Cidade 
+
+kind Ponto_Georreferenciado{
+    coordenada: undefined  
+}
+
+kind Territrio_Autnomo specializes Unidade_Federativa 
+
+subkind Cidade specializes Elemento_com_Projeo_Pontual 
+
+kind Regio_Administrativa specializes Regio_Poltica, Regio_Administrativa_Pesquisada, Regio_Administrativa_Ligada 
+
+phase Municpio_Rural of functional-complexes  specializes Municpio 
+
+category Regio_Poltica of functional-complexes  specializes Elemento_com_Projeo_Espacial 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

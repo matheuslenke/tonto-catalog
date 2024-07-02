@@ -1,0 +1,65 @@
+import Participao_da_Sociedade
+import Poder_Legislativo
+import Tipo_de_Veculo
+import Espcie_e_Categoria
+import Cesso_de_Bem
+import Compra
+import Agente_Administrativo
+import Obrigao_Financeira
+import Designao
+import Provimento
+import Contratao_via_Termo_de_Cooperao
+import Estgio
+import Fretamento_Contnuo
+import Tipo_de_Autorizao_de_Viagem
+import Certificado_de_Registro_para_Fretamento
+import Autorizao
+import Scios
+import Contratos_e_Convnios
+import Transporte_Dutovirio_de_Cargas
+import Operador_de_Transporte_Multimodal
+import Operador_Ferrovirio_Independente
+import Pagamento_Eletrnico_de_Frete
+import Gerao_de_CIOT
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+import Permisso_por_Licitao
+import Conhecimento_de_Transporte
+import Outorga
+import Autuao
+import Complementares
+import Servio_em_Concesso
+import Fiscalizaes_Especficas
+import Pessoa_Jurdica
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Arrendamento
+import Convnio_de_Aquisio__Cotao
+import Convnio_de_Aquisio__Solicitao
+import Revista_da_ANTT
+import Pagamento
+import GRU
+import Comisso_de_Outorga
+import Servio_de_Transporte_Rodovirio_de_Passageiros
+import Partido_Poltico
+import Bloco_Parlamentar_do_Senado
+import Bloco_Parlamentar_da_Cmara_dos_Deputados
+import Comisso_do_Congresso_Nacional
+import Audincia_Pblico_no_Congresso
+
+package Audincia_Pblico_no_Congresso
+
+relator Audincia_Pblica_no_Congresso_Nacional specializes Audincia_Pblica 
+
+role Autor_de_Audincia_Pblica specializes Participante_Representante_Pblico, Parlamentar 
+
+role Comisso_Responsvel_por_Audincia_Pblica of collectives  specializes Comisso_do_Congresso_Nacional 
+
+role Requerimento_de_Audincia_Pblica_Atendido
+
+
+
+

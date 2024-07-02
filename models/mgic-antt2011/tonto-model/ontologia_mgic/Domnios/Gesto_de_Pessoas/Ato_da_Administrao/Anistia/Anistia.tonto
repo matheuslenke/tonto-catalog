@@ -1,0 +1,14 @@
+import Ato_da_Administrao
+import Marco_Regulatrio
+import Gerais
+import Anistia
+import Agente_Administrativo
+
+package Anistia
+
+role Ato_Normativo_Concedente_de_Anistia of functional-complexes  specializes Ato_Oficializador_da_Administrao 
+
+relator Anistia
+
+
+

@@ -1,0 +1,51 @@
+import Atos_e_Artigos
+import Marco_Regulatrio
+import Gerais
+import Permisso_por_Licitao
+import Programa_de_Capacitao
+import Instrumentos_de_Outorga
+import Projeto_Bsico
+import Permisso
+import Comisso_de_Outorga
+import Leilo_de_Licitao
+
+package Comisso_de_Outorga
+
+role Portaria_para_Constituio_de_Comisso_de_Outorga of functional-complexes  specializes Portaria 
+
+role Licitante_Interessado_em_Impugnao_de_Edital specializes Licitante, Interessado_em_Impugnao 
+
+collective Comisso specializes Comit_Gestor_de_Capacitao 
+
+subkind Comisso_de_Outorga of collectives  specializes Comisso 
+
+relator Pedido_de_Esclarecimento_sobre_o_Edital
+
+role Edital_com_Pedido_de_Impugnao of functional-complexes  specializes Edital_de_Licitao 
+
+role Licitante_Interessado_em_Esclarecimentos specializes Licitante, Interessado_em_Esclarecimentos 
+
+role Cidado_Interessado_em_Esclarecimentos specializes Interessado_em_Esclarecimentos 
+
+roleMixin Interessado_em_Impugnao of functional-complexes 
+
+role Cidado_Interessado_em_Impugnao_de_Edital specializes Interessado_em_Impugnao 
+
+relator Pedido_de_Impugnao_ao_Edital
+
+roleMixin Interessado_em_Esclarecimentos of functional-complexes 
+
+role Eidtal_com_Pedido_de_Esclarecimento of functional-complexes  specializes Edital_de_Licitao 
+
+relator Instituio_de_Comisso_de_Outorga
+
+
+
+
+
+
+
+
+
+
+

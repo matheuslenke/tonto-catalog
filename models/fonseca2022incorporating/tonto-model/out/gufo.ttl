@@ -1,0 +1,268 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Ship_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Ship_Type"@en.
+:Ship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Ship"@en.
+:Panamaclass_Ship rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Panamaclass_Ship"@en.
+:Ship_Class_by_Size rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ship_Class_by_Size"@en.
+:Suezclass_Ship rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Suezclass_Ship"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Captain rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Captain"@en.
+:Captain_License rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Captain_License"@en.
+:Commissioned rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Commissioned"@en.
+:On_Route rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "On_Route"@en.
+:Decommissioned rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Decommissioned"@en.
+:Current_Ship_Type rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Current_Ship_Type"@en.
+:Discontinued_Ship_Type rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Discontinued_Ship_Type"@en.
+:Assignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Assignment"@en.
+:Canal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Canal"@en.
+:Canal_Restrictions rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Canal_Restrictions"@en.
+:Licensed_Ship_Type rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licensed_Ship_Type"@en.
+:Size rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Size"@en.
+:Temporary rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Temporary"@en.
+:Permanent rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Permanent"@en.
+:Creative_Work rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Creative_Work"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:License_Holder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "License_Holder"@en.
+:Author rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Author"@en.
+:Writer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Writer"@en.
+:Sculptor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sculptor"@en.
+:Publisher rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Publisher"@en.
+:Book rdf:type owl:NamedIndividual;
+    rdfs:label "Book"@en.
+:Sculpture rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sculpture"@en.
+:Book_Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Book_Copy"@en.
+:Person_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Painting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Painting"@en.
+:Painter rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Painter"@en.
+:Awarded_Work rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Awarded_Work"@en.
+:Copyrighted_Work rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Copyrighted_Work"@en.
+:Public_Domain_Work rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Public_Domain_Work"@en.
+:Licensing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Licensing"@en.
+:Edition_Publishing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Edition_Publishing"@en.
+:Book_Authorship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Book_Authorship"@en.
+:Bird_Species rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Bird_Species"@en.
+:Least_Concern_Species rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Least_Concern_Species"@en.
+:Threatened_Species rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Threatened_Species"@en.
+:Extinct_Species rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Extinct_Species"@en.
+:Recognized_Species rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Recognized_Species"@en.
+:Bird rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bird"@en.
+:Emperor_Penguin rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Emperor_Penguin"@en.
+:Golden_Eagle rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Golden_Eagle"@en.
+:Person_2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Discoverer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Discoverer"@en.
+:Discovery_Entitlement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Discovery_Entitlement"@en.
+:Suezclass_Ship rdfs:subClassOf :Ship.
+:Commissioned rdfs:subClassOf :Ship.
+:Decommissioned rdfs:subClassOf :Ship.
+:Current_Ship_Type rdfs:subClassOf :Ship_Type.
+:Discontinued_Ship_Type rdfs:subClassOf :Ship_Type.
+:Temporary rdfs:subClassOf :Assignment.
+:Permanent rdfs:subClassOf :Assignment.
+:Panamaclass_Ship rdfs:subClassOf :Ship.
+:Ship_Class_by_Size rdfs:subClassOf :Ship_Type.
+:Suezclass_Ship rdfs:subClassOf :Ship.
+:Captain rdfs:subClassOf :Person.
+:Commissioned rdfs:subClassOf :Ship.
+:On_Route rdfs:subClassOf :Ship.
+:Decommissioned rdfs:subClassOf :Ship.
+:Current_Ship_Type rdfs:subClassOf :Ship_Type.
+:Discontinued_Ship_Type rdfs:subClassOf :Ship_Type.
+:Licensed_Ship_Type rdfs:subClassOf :Ship_Type.
+:Temporary rdfs:subClassOf :Assignment.
+:Permanent rdfs:subClassOf :Assignment.
+:License_Holder rdfs:subClassOf :Agent.
+:Author rdfs:subClassOf :Agent.
+:Writer rdfs:subClassOf :Person_1, :Author.
+:Sculptor rdfs:subClassOf :Person_1, :Author.
+:Publisher rdfs:subClassOf :Agent.
+:Book rdfs:subClassOf :Creative_Work.
+:Sculpture rdfs:subClassOf :Creative_Work.
+:Person_1 rdfs:subClassOf :Agent.
+:Organization rdfs:subClassOf :Agent.
+:Painting rdfs:subClassOf :Creative_Work.
+:Painter rdfs:subClassOf :Person_1, :Author.
+:Awarded_Work rdfs:subClassOf :Creative_Work.
+:Copyrighted_Work rdfs:subClassOf :Creative_Work.
+:Public_Domain_Work rdfs:subClassOf :Creative_Work.
+:Least_Concern_Species rdfs:subClassOf :Bird_Species.
+:Threatened_Species rdfs:subClassOf :Bird_Species.
+:Extinct_Species rdfs:subClassOf :Bird_Species.
+:Golden_Eagle rdfs:subClassOf :Bird.
+:Least_Concern_Species rdfs:subClassOf :Bird_Species.
+:Threatened_Species rdfs:subClassOf :Bird_Species.
+:Extinct_Species rdfs:subClassOf :Bird_Species.
+:Recognized_Species rdfs:subClassOf :Bird_Species.
+:Emperor_Penguin rdfs:subClassOf :Bird.
+:Golden_Eagle rdfs:subClassOf :Bird.
+:Discoverer rdfs:subClassOf :Person_2.
+:fleet rdfs:domain :Ship_Type;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "fleet"@en.
+:max_length rdfs:domain :Panamaclass_Ship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_length"@en.
+:max_weight rdfs:domain :Panamaclass_Ship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_weight"@en.
+:max_draft rdfs:domain :Panamaclass_Ship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_draft"@en.
+:max_length_1 rdfs:domain :Ship_Class_by_Size;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_length"@en.
+:max_weight_1 rdfs:domain :Ship_Class_by_Size;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_weight"@en.
+:max_draft_1 rdfs:domain :Ship_Class_by_Size;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_draft"@en.
+:max_length_2 rdfs:domain :Suezclass_Ship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_length"@en.
+:max_weight_2 rdfs:domain :Suezclass_Ship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_weight"@en.
+:max_draft_2 rdfs:domain :Suezclass_Ship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "max_draft"@en.
+:length rdfs:domain :Size;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "length"@en.
+:weight rdfs:domain :Size;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "weight"@en.
+:draft rdfs:domain :Size;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "draft"@en.
+:population rdfs:domain :Bird_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "population"@en.
+:average_height rdfs:domain :Bird_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "average_height"@en.
+:life_expectancy rdfs:domain :Bird_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "life_expectancy"@en.
+:migration_period rdfs:domain :Bird_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "migration_period"@en.
+:age rdfs:domain :Bird;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "age"@en.

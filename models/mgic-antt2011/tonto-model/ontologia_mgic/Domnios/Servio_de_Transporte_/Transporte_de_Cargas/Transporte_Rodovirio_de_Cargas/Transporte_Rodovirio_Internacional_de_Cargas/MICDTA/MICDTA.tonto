@@ -1,0 +1,30 @@
+import Transportador_Rodovirio_de_Cargas
+import Conhecimento_de_Transporte
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Gerao_de_CIOT
+import MICDTA
+import Transporte_Rodovirio_Internacional_de_Cargas
+
+package MICDTA
+
+role Pas_de_Origem_no_Manifesto_Internacional_de_Carga_Rodoviria
+
+role Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente_Contratado specializes Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente 
+
+relator Manifesto_Internacional_de_Carga_Rodoviria specializes Conhecimento_de_Transporte 
+
+role Pas_de_Destino_no_Manifesto_Internacional_de_Carga_Rodoviria
+
+kind Posto_de_Alfndega
+
+role Veculo_Original
+
+role Veculo_Substituto
+
+
+
+
+
+
+

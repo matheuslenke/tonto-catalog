@@ -1,0 +1,17 @@
+
+package Pagamento_Eletrnico_de_Frete
+
+relator Pagamento_de_Frete
+
+relator Pagamento_Eletrnico_de_Frete specializes Pagamento_de_Frete {
+    INSS: undefined  
+    IRRF: undefined  
+    PagamentoCombustvel: undefined  
+    PagamentoDespesas: undefined  
+    PagamentoFrete: undefined  
+    SESTSENAT: undefined  
+}
+
+relator Pagamento_Direto_de_Frete specializes Pagamento_de_Frete 
+
+

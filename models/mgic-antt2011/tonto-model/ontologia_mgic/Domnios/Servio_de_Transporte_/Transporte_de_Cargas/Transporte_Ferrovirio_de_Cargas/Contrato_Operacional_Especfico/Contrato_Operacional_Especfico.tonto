@@ -1,0 +1,53 @@
+
+package Contrato_Operacional_Especfico
+
+mode Produo_Anual_Mnima_do_Servio_de_Transporte_Ferrovirio{
+    volume: undefined  
+}
+
+mode Capacidade_de_Trecho specializes Definio_de_Caracterstica_da_Via_Permanente 
+
+mode Penalidade_em_Caso_de_Descumprimento_de_Produo_Anual_Estimada
+
+mode Produo_Anual_Estimada_do_Servio_de_Transporte_Ferrovirio{
+    margem_de_tolerncia: undefined  
+    quantidade_de_faixas_dirias: Unidade_de_Tempo  
+    volume: undefined  
+}
+
+mode Penalidade_em_Caso_de_Descumprimento_de_Requisito_de_Desempenho_Operacional
+
+mode Condio_de_Manuteno_de_Ativos
+
+mode Sistema_de_Sinalizao_e_Comunicao specializes Definio_de_Caracterstica_da_Via_Permanente 
+
+mode Capacidade_de_Material_Rodante_ specializes Definio_de_Caracterstica_da_Via_Permanente 
+
+mode Tipo_de_Bitola specializes Definio_de_Caracterstica_da_Via_Permanente 
+
+mode Requisitos_de_Desempenho_Operacional{
+    margem_de_tolerncia: undefined  
+    tempo_de_descarga: Unidade_de_Tempo  
+    tempo_de_licenciamento: Unidade_de_Tempo  
+    tempo_de_manobra: Unidade_de_Tempo  
+}
+
+subkind Contrato_de_Operao_Especfica specializes COE_Usado_em_Viagem {
+    prazo_de_vigncia: undefined  
+}
+
+mode Penalidade_em_Caso_de_Descumprimento_de_Condio_de_Manuteno_de_Ativos
+
+mode Demanda_Firme
+
+mode Definio_de_Caracterstica_da_Via_Permanente
+
+
+
+
+
+
+
+
+
+

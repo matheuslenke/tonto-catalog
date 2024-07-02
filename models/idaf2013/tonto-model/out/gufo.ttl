@@ -1,0 +1,147 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Administrative_Department rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Administrative_Department"@en.
+:Administrative_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Administrative_Organization"@en.
+:Administrative_Structure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Administrative_Structure"@en.
+:Administrative_Support rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Administrative_Support"@en.
+:Advisory rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Advisory"@en.
+:Allocated_Department rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Allocated_Department"@en.
+:Allocated_Office rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Allocated_Office"@en.
+:Allocation_Unit rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Allocation_Unit"@en.
+:Ancillary_Server rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ancillary_Server"@en.
+:Ancillary_Service rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Ancillary_Service"@en.
+:Animal_Health_Inspector rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Animal_Health_Inspector"@en.
+:Assignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Assignment"@en.
+:Board rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Board"@en.
+:Border_Station rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Border_Station"@en.
+:Cartography_Technician rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cartography_Technician"@en.
+:Central_Office rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Central_Office"@en.
+:Department rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Department"@en.
+:Department_Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Department_Allocation"@en.
+:Diagnostic_Laboratory rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Diagnostic_Laboratory"@en.
+:Finalistico rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Finalistico"@en.
+:Laboratory_Technician rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Laboratory_Technician"@en.
+:Land_Development_Technician rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Land_Development_Technician"@en.
+:Local_Office rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Local_Office"@en.
+:Mobile_Unit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Mobile_Unit"@en.
+:Natural_Resources_Technician rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Natural_Resources_Technician"@en.
+:Occupational_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Occupational_Group"@en.
+:Occupational_Structure rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Occupational_Structure"@en.
+:Occupied_Position rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Occupied_Position"@en.
+:Office rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Office"@en.
+:Operational_Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Operational_Organization"@en.
+:Operational_Structure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Operational_Structure"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Organizational_Structure rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Organizational_Structure"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Plant_Health_Inspector rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Plant_Health_Inspector"@en.
+:Position rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Position"@en.
+:Regional_Office rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Regional_Office"@en.
+:Section rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Section"@en.
+:Server rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Server"@en.
+:Server_Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Server_Allocation"@en.
+:Service_Station rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Service_Station"@en.
+:Station rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Station"@en.
+:Structure rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Structure"@en.
+:Technical_Admnistrative_Support rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Technical_Admnistrative_Support"@en.
+:Technical_Department rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Technical_Department"@en.
+:Technical_Support rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Technical_Support"@en.
+:Administrative_Department rdfs:subClassOf :Department.
+:Administrative_Organization rdfs:subClassOf :Organization.
+:Administrative_Structure rdfs:subClassOf :Organizational_Structure.
+:Administrative_Support rdfs:subClassOf :Position.
+:Advisory rdfs:subClassOf :Administrative_Organization.
+:Allocated_Department rdfs:subClassOf :Department.
+:Allocated_Office rdfs:subClassOf :Central_Office.
+:Ancillary_Server rdfs:subClassOf :Position.
+:Ancillary_Service rdfs:subClassOf :Occupational_Group.
+:Animal_Health_Inspector rdfs:subClassOf :Position.
+:Board rdfs:subClassOf :Administrative_Organization.
+:Border_Station rdfs:subClassOf :Station.
+:Cartography_Technician rdfs:subClassOf :Position.
+:Central_Office rdfs:subClassOf :Office.
+:Department rdfs:subClassOf :Administrative_Organization.
+:Diagnostic_Laboratory rdfs:subClassOf :Operational_Organization.
+:Finalistico rdfs:subClassOf :Occupational_Group.
+:Laboratory_Technician rdfs:subClassOf :Position.
+:Land_Development_Technician rdfs:subClassOf :Position.
+:Local_Office rdfs:subClassOf :Office.
+:Mobile_Unit rdfs:subClassOf :Operational_Organization.
+:Natural_Resources_Technician rdfs:subClassOf :Position.
+:Occupational_Structure rdfs:subClassOf :Structure.
+:Occupied_Position rdfs:subClassOf :Position.
+:Office rdfs:subClassOf :Operational_Organization.
+:Operational_Organization rdfs:subClassOf :Organization.
+:Operational_Structure rdfs:subClassOf :Organizational_Structure.
+:Organizational_Structure rdfs:subClassOf :Structure.
+:Plant_Health_Inspector rdfs:subClassOf :Position.
+:Regional_Office rdfs:subClassOf :Office.
+:Section rdfs:subClassOf :Administrative_Organization.
+:Server rdfs:subClassOf :Person.
+:Service_Station rdfs:subClassOf :Station.
+:Station rdfs:subClassOf :Operational_Organization.
+:Technical_Admnistrative_Support rdfs:subClassOf :Occupational_Group.
+:Technical_Department rdfs:subClassOf :Department.
+:Technical_Support rdfs:subClassOf :Position.

@@ -1,0 +1,101 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:F1_Season rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "F1_Season"@en.
+:Race rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Race"@en.
+:Grand_Prix rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Grand_Prix"@en.
+:Driver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Driver"@en.
+:Racing_Team rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Racing_Team"@en.
+:Circuit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Circuit"@en.
+:Engine rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Engine"@en.
+:Tire rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Tire"@en.
+:Chassis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Chassis"@en.
+:F1_Car rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "F1_Car"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:F1_Car_Piece rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "F1_Car_Piece"@en.
+:Engineer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Engineer"@en.
+:Mechanic rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mechanic"@en.
+:Racing_Team_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Racing_Team_Member"@en.
+:Team_Manager rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Team_Manager"@en.
+:Regular_Race rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Regular_Race"@en.
+:Sprint_Race rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sprint_Race"@en.
+:Championship_Winner_Driver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Championship_Winner_Driver"@en.
+:Championship_Winner_Constructor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Championship_Winner_Constructor"@en.
+:Champion rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Champion"@en.
+:Current_Champion rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "Current_Champion"@en.
+:Past_Champion rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:label "Past_Champion"@en.
+:Driving_Strategy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Driving_Strategy"@en.
+:Aggressive_Strategy rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Aggressive_Strategy"@en.
+:Conservative_Strategy rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Conservative_Strategy"@en.
+:Engineer rdfs:subClassOf :Racing_Team_Member.
+:Team_Manager rdfs:subClassOf :Racing_Team_Member.
+:Mechanic rdfs:subClassOf :Racing_Team_Member.
+:Driver rdfs:subClassOf :Racing_Team_Member.
+:Engine rdfs:subClassOf :F1_Car_Piece.
+:Tire rdfs:subClassOf :F1_Car_Piece.
+:Chassis rdfs:subClassOf :F1_Car_Piece.
+:Sprint_Race rdfs:subClassOf :Race.
+:Regular_Race rdfs:subClassOf :Race.
+:Championship_Winner_Constructor rdfs:subClassOf :Champion.
+:Championship_Winner_Driver rdfs:subClassOf :Champion.
+:Current_Champion rdfs:subClassOf :Champion.
+:Past_Champion rdfs:subClassOf :Champion.
+:Aggressive_Strategy rdfs:subClassOf :Driving_Strategy.
+:Driver rdfs:subClassOf :Racing_Team_Member.
+:Engine rdfs:subClassOf :F1_Car_Piece.
+:Tire rdfs:subClassOf :F1_Car_Piece.
+:Chassis rdfs:subClassOf :F1_Car_Piece.
+:Engineer rdfs:subClassOf :Racing_Team_Member.
+:Mechanic rdfs:subClassOf :Racing_Team_Member.
+:Racing_Team_Member rdfs:subClassOf :Person.
+:Team_Manager rdfs:subClassOf :Racing_Team_Member.
+:Regular_Race rdfs:subClassOf :Race.
+:Sprint_Race rdfs:subClassOf :Race.
+:Championship_Winner_Driver rdfs:subClassOf :Driver, :Champion.
+:Championship_Winner_Constructor rdfs:subClassOf :Racing_Team, :Champion.
+:Current_Champion rdfs:subClassOf :Champion.
+:Past_Champion rdfs:subClassOf :Champion.
+:Aggressive_Strategy rdfs:subClassOf :Driving_Strategy.
+:Conservative_Strategy rdfs:subClassOf :Driving_Strategy.

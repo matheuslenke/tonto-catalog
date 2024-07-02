@@ -1,0 +1,28 @@
+
+package Trecho_de_Concesso
+
+collective Trecho_de_Monitorao{
+    tipo_de_monitorao: undefined  
+}
+
+role Lote_Rodovirio_Concedido of collectives  specializes Lote_Rodovirio 
+
+role Trecho_Rodovirio_em_Lote of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+collective Lote_Rodovirio
+
+role Trecho_Rodovirio_Concedido of functional-complexes  specializes Trecho_Rodovirio_em_Lote, Trecho_com_Cooperao_Tcnica, Trecho_com_Manuteno_Conveniada, Parte_de_Trfego_Concedida 
+
+collective Trecho_de_Concesso
+
+collective Subtrecho_de_Concesso
+
+collective Segmento_Homogneo
+
+
+
+
+
+
+
+

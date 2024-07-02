@@ -1,0 +1,226 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Boundary rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Boundary"@en.
+:Porosity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Porosity"@en.
+:Quantity_Organic_matter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Quantity_Organic_matter"@en.
+:Hidrocarbon rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Hidrocarbon"@en.
+:Oil rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Oil"@en.
+:Pregeneration rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Pregeneration"@en.
+:Generation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Generation"@en.
+:Oil__Mudstone__Porous_Rock rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Oil__Mudstone__Porous_Rock"@en.
+:Migration rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Migration"@en.
+:Oil__Porous_rock rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Oil__Porous_rock"@en.
+:Acumulation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Acumulation"@en.
+:Oil__Trap rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Oil__Trap"@en.
+:Source_Rock rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_Rock"@en.
+:Seal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Seal"@en.
+:Reservoir rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Reservoir"@en.
+:Trap rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Trap"@en.
+:Shale rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Shale"@en.
+:Sandstone rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sandstone"@en.
+:LithologicUnit_qua_shale rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LithologicUnit_qua_shale"@en.
+:LithologicUnit_qua_sandstone rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LithologicUnit_qua_sandstone"@en.
+:Siliciclastic_Rock rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Siliciclastic_Rock"@en.
+:Rock rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Rock"@en.
+:Lithological_unit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Lithological_unit"@en.
+:Dimensions rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:thickness :length :depth)
+].
+:thickness rdf:type :Dimensions;
+    rdf:label "[object Object]".
+:length rdf:type :Dimensions;
+    rdf:label "[object Object]".
+:depth rdf:type :Dimensions;
+    rdf:label "[object Object]".
+:Dimensions rdfs:label "Dimensions"@en.
+:Structure rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:anticlinal :dome :fault)
+].
+:anticlinal rdf:type :Structure;
+    rdf:label "[object Object]".
+:dome rdf:type :Structure;
+    rdf:label "[object Object]".
+:fault rdf:type :Structure;
+    rdf:label "[object Object]".
+:Structure rdfs:label "Structure"@en.
+:Value rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:high :medium :low :not_present)
+].
+:high rdf:type :Value;
+    rdf:label "[object Object]".
+:medium rdf:type :Value;
+    rdf:label "[object Object]".
+:low rdf:type :Value;
+    rdf:label "[object Object]".
+:not_present rdf:type :Value;
+    rdf:label "[object Object]".
+:Value rdfs:label "Value"@en.
+:BoundaryType rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:abrupt :gradational)
+].
+:abrupt rdf:type :BoundaryType;
+    rdf:label "[object Object]".
+:gradational rdf:type :BoundaryType;
+    rdf:label "[object Object]".
+:BoundaryType rdfs:label "BoundaryType"@en.
+:Granulometry rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:argile :sand)
+].
+:argile rdf:type :Granulometry;
+    rdf:label "[object Object]".
+:sand rdf:type :Granulometry;
+    rdf:label "[object Object]".
+:Granulometry rdfs:label "Granulometry"@en.
+:Oil rdfs:subClassOf :Hidrocarbon.
+:Source_Rock rdfs:subClassOf :LithologicUnit_qua_shale.
+:Seal rdfs:subClassOf :LithologicUnit_qua_shale.
+:Reservoir rdfs:subClassOf :LithologicUnit_qua_sandstone.
+:Shale rdfs:subClassOf :Siliciclastic_Rock.
+:Sandstone rdfs:subClassOf :Siliciclastic_Rock.
+:LithologicUnit_qua_shale rdfs:subClassOf :Lithological_unit.
+:LithologicUnit_qua_sandstone rdfs:subClassOf :Lithological_unit.
+:Siliciclastic_Rock rdfs:subClassOf :Rock.
+:boundary rdfs:domain :Boundary;
+    rdfs:range :BoundaryType;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "boundary"@en.
+:value_ rdfs:domain :Porosity;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "value_"@en.
+:value__1 rdfs:domain :Quantity_Organic_matter;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "value_"@en.
+:pressure rdfs:domain :Pregeneration;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "pressure"@en.
+:temperature rdfs:domain :Pregeneration;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "temperature"@en.
+:porosity rdfs:domain :Source_Rock;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "porosity"@en.
+:organic_matter rdfs:domain :Source_Rock;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "organic_matter"@en.
+:porosity_1 rdfs:domain :Seal;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "porosity"@en.
+:porosity_2 rdfs:domain :Reservoir;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "porosity"@en.
+:structure rdfs:domain :Trap;
+    rdfs:range :Structure;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "structure"@en.
+:granulometry rdfs:domain :Shale;
+    rdfs:range :Granulometry;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "granulometry"@en.
+:qtyOrganicMatter rdfs:domain :Shale;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "qtyOrganicMatter"@en.
+:granulometry_1 rdfs:domain :Sandstone;
+    rdfs:range :Granulometry;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "granulometry"@en.
+:qtyOrganicMatter_1 rdfs:domain :Sandstone;
+    rdfs:range :Value;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "qtyOrganicMatter"@en.
+:Dimensions_1 rdfs:domain :Lithological_unit;
+    rdfs:range :Dimensions;
+    rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue;
+    rdfs:label "Dimensions"@en.
+:Top_Contact rdfs:domain :Lithological_unit;
+    rdfs:range :contact;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Top_Contact"@en.
+:Bottom_Contact rdfs:domain :Lithological_unit;
+    rdfs:range :contact;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Bottom_Contact"@en.

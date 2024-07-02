@@ -1,0 +1,63 @@
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Ativo_Ferrovirio
+import Georreferenciamento
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+import Infraestrutura_Rodoviria
+import Trecho_de_Concesso
+import Compra
+import Produto
+import Servio
+import Imvel
+import Pessoa_Jurdica
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Veculo_Ferrovirio
+import Movimentao_de_Ativo_Ferrovirio
+import Acidente_Ferrovirio
+import Mutao_de_Bem
+
+package Mutao_de_Bem
+
+relator Transformao_Patrimonial_de_Ativo_Ferrovirio specializes Mutao_Patrimonial 
+
+role Concessionria_Ferroviria_que_Transfere_Patrimnio specializes Concessionria_com_Mutao_Patrimonial 
+
+relator Substituio_Patrimonial_de_Ativo_Ferrovirio specializes Mutao_Patrimonial 
+
+role Concessionria_com_Mutao_Patrimonial specializes Concessionria_Ferroviria 
+
+relator Mutao_Patrimonial
+
+role Concessionria_Ferroviria_com_Patrimnio__Transferido_ specializes Concessionria_com_Mutao_Patrimonial 
+
+roleMixin _Ativo_Ferrovirio_Transferido of functional-complexes  specializes Ativo_Ferrovirio 
+
+relator Transferncia_Patrimonial_de_Ativo_Ferrovirio specializes Mutao_Patrimonial 
+
+relator Incorporao_de_Ativo_Ferrovirio specializes Mutao_Patrimonial 
+
+roleMixin _Ativo_Ferrovirio_Transformado of functional-complexes  specializes Ativo_Ferrovirio 
+
+relator Desincorporao_de_Ativo_Ferrovirio specializes Mutao_Patrimonial 
+
+roleMixin _Ativo_Ferrovirio_Incorporado of functional-complexes  specializes Ativo_Ferrovirio 
+
+roleMixin _Ativo_Ferrovirio_Desincorporado of functional-complexes  specializes Ativo_Ferrovirio 
+
+roleMixin _Ativo_Ferrovirio_Substitudo of functional-complexes  specializes Ativo_Ferrovirio 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,186 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event"@en.
+:Flight rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Flight"@en.
+:Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Process"@en.
+:Reportable_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Reportable_Event"@en.
+:Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Action"@en.
+:Handling rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Handling"@en.
+:Coordination rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Coordination"@en.
+:Use rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Use"@en.
+:Decision rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Decision"@en.
+:Provision rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Provision"@en.
+:Flight_Stage rdf:type owl:NamedIndividual;
+    rdfs:label "Flight_Stage"@en.
+:Landing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Landing"@en.
+:Takeoff rdf:type owl:NamedIndividual;
+    rdfs:label "Takeoff"@en.
+:Approach rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Approach"@en.
+:Procedure rdf:type owl:NamedIndividual;
+    rdfs:label "Procedure"@en.
+:Safety_Event rdf:type owl:NamedIndividual;
+    rdfs:label "Safety_Event"@en.
+:Deviation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Deviation"@en.
+:Collision rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Collision"@en.
+:Near_collision rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Near_collision"@en.
+:Warning_System_Alarm rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Warning_System_Alarm"@en.
+:Loss_of_function rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Loss_of_function"@en.
+:Regulation_Violation_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Regulation_Violation_Event"@en.
+:Regulation rdf:type owl:NamedIndividual;
+    rdfs:label "Regulation"@en.
+:Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Object rdf:type owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Impact rdf:type owl:NamedIndividual;
+    rdfs:label "Impact"@en.
+:Trope rdf:type owl:NamedIndividual;
+    rdfs:label "Trope"@en.
+:Damage rdf:type owl:NamedIndividual;
+    rdfs:label "Damage"@en.
+:Injury rdf:type owl:NamedIndividual;
+    rdfs:label "Injury"@en.
+:Service rdf:type owl:NamedIndividual;
+    rdfs:label "Service"@en.
+:Function rdf:type owl:NamedIndividual;
+    rdfs:label "Function"@en.
+:Technical_System rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Technical_System"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Aircraft_Part rdf:type owl:NamedIndividual;
+    rdfs:label "Aircraft_Part"@en.
+:Aircraft rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Aircraft"@en.
+:Aerodrome_part rdf:type owl:NamedIndividual;
+    rdfs:label "Aerodrome_part"@en.
+:Aerodrome rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Aerodrome"@en.
+:Vehicle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Vehicle"@en.
+:Equipment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Equipment"@en.
+:Operation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Operation"@en.
+:Aerodromes_Operation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Aerodromes_Operation"@en.
+:Air_traffic_management rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Air_traffic_management"@en.
+:Physical_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Physical_Object"@en.
+:Spatial_Object rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Spatial_Object"@en.
+:TransportObject rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "TransportObject"@en.
+:Flight_Participant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Flight_Participant"@en.
+:Crew rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Crew"@en.
+:Incident rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Incident"@en.
+:Audit rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Audit"@en.
+:Audit_Finding rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Audit_Finding"@en.
+:Aviation_Safety_Event_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Aviation_Safety_Event_Type"@en.
+:Taxonomy rdf:type owl:NamedIndividual;
+    rdfs:label "Taxonomy"@en.
+:Term_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Term_Type"@en.
+:Object_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Object_Type"@en.
+:Factor_Type rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Factor_Type"@en.
+:Risk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Risk"@en.
+:Incident_Type rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Incident_Type"@en.
+:Flight rdfs:subClassOf :Event.
+:Process rdfs:subClassOf :Event.
+:Reportable_Event rdfs:subClassOf :Event.
+:Action rdfs:subClassOf :Event.
+:Handling rdfs:subClassOf :Action.
+:Coordination rdfs:subClassOf :Action.
+:Use rdfs:subClassOf :Action.
+:Decision rdfs:subClassOf :Action.
+:Provision rdfs:subClassOf :Action.
+:Procedure rdfs:subClassOf :Regulation.
+:Safety_Event rdfs:subClassOf :Reportable_Event.
+:Deviation rdfs:subClassOf :Safety_Event.
+:Collision rdfs:subClassOf :Safety_Event.
+:Near_collision rdfs:subClassOf :Safety_Event.
+:Warning_System_Alarm rdfs:subClassOf :Safety_Event.
+:Loss_of_function rdfs:subClassOf :Safety_Event.
+:Regulation_Violation_Event rdfs:subClassOf :Safety_Event.
+:Regulation rdfs:subClassOf :Object.
+:Agent rdfs:subClassOf :Object.
+:Impact rdfs:subClassOf :Trope.
+:Damage rdfs:subClassOf :Impact.
+:Injury rdfs:subClassOf :Impact.
+:Service rdfs:subClassOf :Function.
+:Function rdfs:subClassOf :Object.
+:Technical_System rdfs:subClassOf :Object.
+:Organization rdfs:subClassOf :Agent.
+:Person rdfs:subClassOf :Agent.
+:Aircraft_Part rdfs:subClassOf :Technical_System.
+:Aircraft rdfs:subClassOf :Technical_System.
+:Aerodrome_part rdfs:subClassOf :Technical_System.
+:Aerodrome rdfs:subClassOf :Technical_System.
+:Vehicle rdfs:subClassOf :Technical_System.
+:Equipment rdfs:subClassOf :Technical_System.
+:Operation rdfs:subClassOf :Use.
+:Aerodromes_Operation rdfs:subClassOf :Operation.
+:Air_traffic_management rdfs:subClassOf :Agent.
+:Spatial_Object rdfs:subClassOf :Physical_Object.
+:TransportObject rdfs:subClassOf :Spatial_Object.
+:Flight_Participant rdfs:subClassOf :TransportObject.
+:Crew rdfs:subClassOf :Flight_Participant.
+:Aviation_Safety_Event_Type rdfs:subClassOf :Term_Type.
+:Object_Type rdfs:subClassOf :Term_Type.
+:Factor_Type rdfs:subClassOf :Aviation_Safety_Event_Type.
+:Risk rdfs:subClassOf :Aviation_Safety_Event_Type.
+:Incident_Type rdfs:subClassOf :Aviation_Safety_Event_Type.

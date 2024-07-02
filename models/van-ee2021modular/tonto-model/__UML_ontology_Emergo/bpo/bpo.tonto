@@ -2,11 +2,11 @@
 package bpo
 
 category Component of collectives  specializes ClassifiedObject {
-    type_: string_  
-    id: string_  
-    NLSFB: string_  
+    type_: string  
+    id: string  
+    NLSFB: string  
     level: undefined  
-    description: string_  
+    description: string  
     length: undefined  
     width: undefined  
     height: undefined  
@@ -19,14 +19,14 @@ kind element specializes Component
 
 category Product of functional-complexes  specializes Component, ProductOrServiceModel, ProductModel {
     releaseVersion: double  
-    premoduOption: boolean_  
-    stockProduct: boolean_  
+    premoduOption: boolean  
+    stockProduct: boolean  
 }
 
 category Entity of functional-complexes {
-    Supplier: string_  
-    SupplierInvoiceDescription: string_  
-    SupplierArticleCode: string_  
+    Supplier: string  
+    SupplierInvoiceDescription: string  
+    SupplierArticleCode: string  
 }
 
 kind DynamicEntity specializes Entity {
@@ -49,7 +49,7 @@ subkind Attribute of qualities  specializes Property, ClassifiedObject, Property
 }
 
 category ClassifiedObject of collectives {
-    has_bsDD_globally_unique_identifier: string_  
+    has_bsDD_globally_unique_identifier: string  
 }
 
 subkind Entry2D of qualities  specializes StructuredValue {

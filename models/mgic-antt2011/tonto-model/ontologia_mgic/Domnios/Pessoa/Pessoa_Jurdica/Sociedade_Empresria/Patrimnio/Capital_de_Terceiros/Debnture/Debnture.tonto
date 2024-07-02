@@ -1,0 +1,50 @@
+
+package Debnture
+
+subkind Debnture_Sem_Preferncia of functional-complexes  specializes Debnture 
+
+subkind Debnture_Conversvel of functional-complexes  specializes Debnture 
+
+subkind Debnture_Perptuo of functional-complexes  specializes Debnture 
+
+kind Debnture{
+    valor_nominal: undefined  
+    vencimento: undefined  
+}
+
+subkind Debnture_Garantia_Real of functional-complexes  specializes Debnture 
+
+subkind Debnture_Escritural of functional-complexes  specializes Debnture 
+
+subkind Debnture_Subordinada of functional-complexes  specializes Debnture 
+
+kind Escritura_de_Emisso
+
+relator Emisso_de_Debnture_com_Anuncia specializes Emisso_de_Debnture 
+
+role Emissora_de_Debnture
+
+relator Emisso_de_Debnture
+
+subkind Debnture_Garantia_Flutuante of functional-complexes  specializes Debnture 
+
+collective Srie_de_Debnture{
+    nmero_de_srie: undefined  
+}
+
+role Ativo_Garantia_Debnture
+
+subkind Debnture_No_Conversvel of functional-complexes  specializes Debnture 
+
+subkind Debnture_Com_Prazo of functional-complexes  specializes Debnture {
+    prazo_resgate: undefined  
+}
+
+subkind Debnture_Nominativa of functional-complexes  specializes Debnture 
+
+
+
+
+
+
+

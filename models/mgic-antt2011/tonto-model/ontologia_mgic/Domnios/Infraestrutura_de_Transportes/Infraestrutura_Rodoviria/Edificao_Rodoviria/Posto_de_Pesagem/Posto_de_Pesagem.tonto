@@ -1,0 +1,52 @@
+
+package Posto_de_Pesagem
+
+role Veculo_Pesado
+
+subkind PPV_Mvel specializes Posto_de_Pesagem_Veicular 
+
+kind Balana{
+    modelo: undefined  
+    nmero_de_srie: undefined  
+}
+
+relator Medio_de_Altura{
+    altura_registrada: undefined  
+    data: undefined  
+}
+
+subkind PPV_Fixo specializes Posto_de_Pesagem_Veicular 
+
+subkind Balana_Mvel of functional-complexes  specializes Balana 
+
+subkind Balana_Fixa_Esttica of functional-complexes  specializes Balana_Fixa 
+
+relator Pesagem{
+    data: undefined  
+    peso_registrado: undefined  
+}
+
+subkind Balana_Fixa of functional-complexes  specializes Balana 
+
+kind PIF_da_PRF
+
+kind Detector_de_Altura
+
+role Veculo_com_Altura_Averiguada
+
+subkind Balana_Fixa_Dinmica of functional-complexes  specializes Balana_Fixa 
+
+kind rea_de_Transbordo
+
+
+
+
+
+
+
+
+
+
+
+
+

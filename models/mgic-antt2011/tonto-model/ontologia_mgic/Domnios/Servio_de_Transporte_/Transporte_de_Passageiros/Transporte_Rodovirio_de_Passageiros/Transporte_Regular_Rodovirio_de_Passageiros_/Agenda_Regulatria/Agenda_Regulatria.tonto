@@ -1,0 +1,75 @@
+
+package Agenda_Regulatria
+
+role Agenda_Regulatria_Vigente of functional-complexes  specializes Agenda_Regulatria 
+
+role Chefe_de_Portflio
+
+role Tema_em_Contratao_Externa of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+role Tema_em_Apreciao_da_Diretoria of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+role Presidente_do_Comit
+
+role Presidente_Suplente_do_Comit
+
+role Portaria_com_Nomeao of functional-complexes  specializes Portaria 
+
+role Agenda_Regulatria_em_Definio of functional-complexes  specializes Agenda_Regulatria 
+
+role Tema_em_Participao_Social of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+role Tema_em_Tomada_de_Deciso of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+role Agenda_Regulatria_Concluda of functional-complexes  specializes Agenda_Regulatria 
+
+role Diretor_Geral specializes Diretor 
+
+role Membro_Suplente_do_Comit
+
+role Tema_em_Estudo of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+collective Diretoria_Colegiada
+
+role Tema_em_Minuta_de_Resoluo of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+role Chefe_de_Projeto
+
+kind Item_de_Agenda_Regulatria{
+    tema: undefined  
+}
+
+role Tema_em_Consulta__PRG of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+role Membro_Titular_do_Comit
+
+relator Nomeao_por_meio_de_Portaria
+
+roleMixin Nomeado of functional-complexes  specializes Suplente_de_Chefe_de_Portflio, Membro_Titular_do_Comit, Chefe_de_Projeto, Membro_Suplente_do_Comit, Presidente_do_Comit, Presidente_Suplente_do_Comit, Chefe_de_Portflio 
+
+role Diretor
+
+role Suplente_de_Chefe_de_Portflio
+
+role Nomeador specializes Diretor_Geral 
+
+subkind Comit_Gestor_da_Agenda_Regulatria of collectives  specializes Comisso 
+
+role Tema_em_Anlise_de_Impacto_Regulatrio of functional-complexes  specializes Item_de_Agenda_Regulatria 
+
+kind Agenda_Regulatria{
+    periodo: undefined  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

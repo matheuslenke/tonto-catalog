@@ -1,0 +1,35 @@
+
+package Objeto_de_Permisso_por_Licitao
+
+relator Descrio_de_Quota_de_Explorao
+
+role Minicpio_Ligado specializes Regio_Ligada 
+
+role Regio_Administrativa_Ligada specializes Regio_Ligada 
+
+collective Ligao
+
+role Quota_de_Explorao of collectives  specializes Ligao {
+    destino: undefined  
+    origem: undefined  
+    passageiros: undefined  
+}
+
+relator Efetivao_de_Ligao
+
+roleMixin Regio_Ligada of functional-complexes 
+
+role Ligao_Efetivada of collectives  specializes Ligao 
+
+role Linha_de_nibus_em_Implantao{
+    frequenciaMinimaViagens: undefined  
+    frotaOperacionalMinima: undefined  
+}
+
+
+
+
+
+
+
+

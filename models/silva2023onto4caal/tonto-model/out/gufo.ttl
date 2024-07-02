@@ -1,0 +1,575 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:UFOARigid_Sortal_Universal rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOARigid_Sortal_Universal"@en.
+:UFOA_Rigid_Mixin_Universal rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOA_Rigid_Mixin_Universal"@en.
+:UFOCSocial_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOCSocial_Agent"@en.
+:UFOCPhysical_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOCPhysical_Agent"@en.
+:UFOCAgent rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOCAgent"@en.
+:EmergencyTreatmentServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EmergencyTreatmentServices"@en.
+:ComfortServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ComfortServices"@en.
+:AutonomyEnhancementServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AutonomyEnhancementServices"@en.
+:ExternalEmergencyAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ExternalEmergencyAssistance"@en.
+:InternalEmergencyAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "InternalEmergencyAssistance"@en.
+:ExternalEmergencyDetection rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ExternalEmergencyDetection"@en.
+:ExternalEmergencyPrevention rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ExternalEmergencyPrevention"@en.
+:ExternalEmergencyForecast rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ExternalEmergencyForecast"@en.
+:InternalEmergencyDetection rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "InternalEmergencyDetection"@en.
+:InternalEmergencyPrevention rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "InternalEmergencyPrevention"@en.
+:InternalEmergencyForecast rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "InternalEmergencyForecast"@en.
+:ExternalAssistanceComfort rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ExternalAssistanceComfort"@en.
+:InternalAssistanceComfort rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "InternalAssistanceComfort"@en.
+:OrientationServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OrientationServices"@en.
+:TransportationServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TransportationServices"@en.
+:ServicesFindingThings rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ServicesFindingThings"@en.
+:InfotainmentServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "InfotainmentServices"@en.
+:LogisticServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LogisticServices"@en.
+:ExternalAssistanceAutonomy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ExternalAssistanceAutonomy"@en.
+:InternalAssistanceAutonomy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "InternalAssistanceAutonomy"@en.
+:BankAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BankAssistance"@en.
+:PurchasingAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PurchasingAssistance"@en.
+:TravelAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TravelAssistance"@en.
+:Caregiver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Caregiver"@en.
+:ProfessionalHealth rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ProfessionalHealth"@en.
+:MemberTimeDev rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MemberTimeDev"@en.
+:CorporateClient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CorporateClient"@en.
+:FinalUser rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FinalUser"@en.
+:Stakeholder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Stakeholder"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:People rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "People"@en.
+:PersonalCustomer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PersonalCustomer"@en.
+:AALSystems rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AALSystems"@en.
+:FoodAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FoodAssistance"@en.
+:DrinkingAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DrinkingAssistance"@en.
+:CulinaryAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CulinaryAssistance"@en.
+:DressingAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DressingAssistance"@en.
+:CleaningAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CleaningAssistance"@en.
+:DrugAssistance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DrugAssistance"@en.
+:Device rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Device"@en.
+:Compliance rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Compliance"@en.
+:Legislation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Legislation"@en.
+:ExternalStandards rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ExternalStandards"@en.
+:InternalStandardsPolicies rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "InternalStandardsPolicies"@en.
+:Decrees rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Decrees"@en.
+:NormativeInstructions rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NormativeInstructions"@en.
+:Laws rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Laws"@en.
+:Ordinances rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ordinances"@en.
+:Opinions rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Opinions"@en.
+:Resolutions rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Resolutions"@en.
+:National rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "National"@en.
+:International rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "International"@en.
+:ISO rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ISO"@en.
+:NBR rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NBR"@en.
+:SpecificationRequirements rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SpecificationRequirements"@en.
+:Policy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Policy"@en.
+:Term rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Term"@en.
+:SocialEnvironmentalResponsibility rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SocialEnvironmentalResponsibility"@en.
+:CorporativeSecurity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CorporativeSecurity"@en.
+:AcceptanceUse rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AcceptanceUse"@en.
+:ofConfidentiality rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ofConfidentiality"@en.
+:ofResponsability rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ofResponsability"@en.
+:Environment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Environment"@en.
+:OutdoorEnvironment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "OutdoorEnvironment"@en.
+:House rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "House"@en.
+:Hospital rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Hospital"@en.
+:DiningRoom rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DiningRoom"@en.
+:LivingRoom rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LivingRoom"@en.
+:MainEntrance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MainEntrance"@en.
+:Room rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Room"@en.
+:WC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WC"@en.
+:Button rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Button"@en.
+:Display rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Display"@en.
+:Sensor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sensor"@en.
+:Valve rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Valve"@en.
+:WaterSensor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WaterSensor"@en.
+:SmokeSensor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SmokeSensor"@en.
+:GasSensor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "GasSensor"@en.
+:DoorSensor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DoorSensor"@en.
+:TemperatureSensor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TemperatureSensor"@en.
+:Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Requirement"@en.
+:NonFunctionalRequirement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "NonFunctionalRequirement"@en.
+:FunctionalRequirement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "FunctionalRequirement"@en.
+:RequirementQuality rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RequirementQuality"@en.
+:EthicalRequirement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EthicalRequirement"@en.
+:ProductQuality rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ProductQuality"@en.
+:QualityUse rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "QualityUse"@en.
+:Adaptivity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Adaptivity"@en.
+:FunctionalAptitude rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "FunctionalAptitude"@en.
+:FunctionalAdequacy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "FunctionalAdequacy"@en.
+:FunctionalCompleteness rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "FunctionalCompleteness"@en.
+:FunctionalCorrection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "FunctionalCorrection"@en.
+:Compatibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Compatibility"@en.
+:Coexistence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Coexistence"@en.
+:Interoperability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Interoperability"@en.
+:Reliability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Reliability"@en.
+:Availability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Availability"@en.
+:Maturity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Maturity"@en.
+:Recoverability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Recoverability"@en.
+:ToleranceError rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ToleranceError"@en.
+:EfficiencyPerformance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "EfficiencyPerformance"@en.
+:Capacity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Capacity"@en.
+:BehaviorTime rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "BehaviorTime"@en.
+:UseResources rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "UseResources"@en.
+:Maintainability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Maintainability"@en.
+:Analyzeability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Analyzeability"@en.
+:Modibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Modibility"@en.
+:Modularity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Modularity"@en.
+:Reuse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Reuse"@en.
+:Testability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Testability"@en.
+:Portability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Portability"@en.
+:Adaptability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Adaptability"@en.
+:Instability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Instability"@en.
+:Replaceability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Replaceability"@en.
+:Security rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Security"@en.
+:Authenticity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Authenticity"@en.
+:Confidentiality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Confidentiality"@en.
+:Responsibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Responsibility"@en.
+:Integrity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Integrity"@en.
+:NotRepudiation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "NotRepudiation"@en.
+:Usability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Usability"@en.
+:Accessibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Accessibility"@en.
+:Adequacy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Adequacy"@en.
+:Learning rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Learning"@en.
+:UserInterfaceAesthetics rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "UserInterfaceAesthetics"@en.
+:UserOperability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "UserOperability"@en.
+:ProtectionAgainstUserErrors rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ProtectionAgainstUserErrors"@en.
+:CoverageContext rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "CoverageContext"@en.
+:CompletenessContext rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "CompletenessContext"@en.
+:Flexibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Flexibility"@en.
+:Efficacy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Efficacy"@en.
+:Efficiency rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Efficiency"@en.
+:RiskFree rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "RiskFree"@en.
+:MitigationEnvironmentalRisk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "MitigationEnvironmentalRisk"@en.
+:EconomicRiskMitigation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "EconomicRiskMitigation"@en.
+:MitigationHealthSafetyRisks rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "MitigationHealthSafetyRisks"@en.
+:Satisfaction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Satisfaction"@en.
+:TrustUse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "TrustUse"@en.
+:Comfort rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Comfort"@en.
+:Pleasure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Pleasure"@en.
+:Utility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Utility"@en.
+:Autonomy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Autonomy"@en.
+:Benefit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Benefit"@en.
+:Loyalty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Loyalty"@en.
+:Independence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Independence"@en.
+:Justice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Justice"@en.
+:NonMaleficence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "NonMaleficence"@en.
+:PersonalMonitoringServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PersonalMonitoringServices"@en.
+:ServicesSupportProfessionalActivities rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ServicesSupportProfessionalActivities"@en.
+:EducationalSupportServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EducationalSupportServices"@en.
+:GovernmentServices rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "GovernmentServices"@en.
+:DomesticCompanion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DomesticCompanion"@en.
+:Familiar rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Familiar"@en.
+:Educator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Educator"@en.
+:Employer rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Employer"@en.
+:EntertainmentAgent rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EntertainmentAgent"@en.
+:GeriatricHouse rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "GeriatricHouse"@en.
+:Asylum rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Asylum"@en.
+:MedicalHousing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MedicalHousing"@en.
+:WearableDevice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "WearableDevice"@en.
+:Actuator rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Actuator"@en.
+:Switches rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Switches"@en.
+:Camera rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Camera"@en.
+:CommandByVoice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CommandByVoice"@en.
+:Container rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Container"@en.
+:Smartphone rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Smartphone"@en.
+:SignalDevices rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SignalDevices"@en.
+:SoundBox rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SoundBox"@en.
+:StandardizationResearchEthicsCommittee rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "StandardizationResearchEthicsCommittee"@en.
+:ConfidenceSecurity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ConfidenceSecurity"@en.
+:Traceability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Traceability"@en.
+:PrivacyOnUse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "PrivacyOnUse"@en.
+:SocialRiskMitigation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "SocialRiskMitigation"@en.
+:SocialAcceptance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "SocialAcceptance"@en.
+:MoralGoodness rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "MoralGoodness"@en.
+:PrivacyData rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "PrivacyData"@en.
+:LongStayElderlyInstitution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LongStayElderlyInstitution"@en.
+:Mobility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Mobility"@en.
+:WorkEnvironment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "WorkEnvironment"@en.
+:SpecialtyProductsStore rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SpecialtyProductsStore"@en.
+:EducationalInstitution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EducationalInstitution"@en.
+:Hardware rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Hardware"@en.
+:Software rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Software"@en.
+:Element_added_to_Onto4CAAL_after_Survey_with_experts_from_academia_and_industry rdf:type owl:NamedIndividual;
+    rdfs:label "Element_added_to_Onto4CAAL_after_Survey_with_experts_from_academia_and_industry"@en.
+:UFOCSocial_Agent rdfs:subClassOf :UFOCAgent.
+:UFOCPhysical_Agent rdfs:subClassOf :UFOCAgent.
+:EmergencyTreatmentServices rdfs:subClassOf :AALSystems.
+:ComfortServices rdfs:subClassOf :AALSystems.
+:AutonomyEnhancementServices rdfs:subClassOf :AALSystems.
+:ExternalEmergencyAssistance rdfs:subClassOf :EmergencyTreatmentServices.
+:InternalEmergencyAssistance rdfs:subClassOf :EmergencyTreatmentServices.
+:ExternalEmergencyDetection rdfs:subClassOf :ExternalEmergencyAssistance.
+:ExternalEmergencyPrevention rdfs:subClassOf :ExternalEmergencyAssistance.
+:ExternalEmergencyForecast rdfs:subClassOf :ExternalEmergencyAssistance.
+:InternalEmergencyDetection rdfs:subClassOf :InternalEmergencyAssistance.
+:InternalEmergencyPrevention rdfs:subClassOf :InternalEmergencyAssistance.
+:InternalEmergencyForecast rdfs:subClassOf :InternalEmergencyAssistance.
+:ExternalAssistanceComfort rdfs:subClassOf :ComfortServices.
+:InternalAssistanceComfort rdfs:subClassOf :ComfortServices.
+:OrientationServices rdfs:subClassOf :ExternalAssistanceComfort.
+:TransportationServices rdfs:subClassOf :ExternalAssistanceComfort.
+:ServicesFindingThings rdfs:subClassOf :InternalAssistanceComfort.
+:InfotainmentServices rdfs:subClassOf :InternalAssistanceComfort.
+:LogisticServices rdfs:subClassOf :InternalAssistanceComfort.
+:ExternalAssistanceAutonomy rdfs:subClassOf :AutonomyEnhancementServices.
+:InternalAssistanceAutonomy rdfs:subClassOf :AutonomyEnhancementServices.
+:BankAssistance rdfs:subClassOf :ExternalAssistanceAutonomy.
+:PurchasingAssistance rdfs:subClassOf :ExternalAssistanceAutonomy.
+:TravelAssistance rdfs:subClassOf :ExternalAssistanceAutonomy.
+:Caregiver rdfs:subClassOf :People, :Stakeholder.
+:ProfessionalHealth rdfs:subClassOf :People, :Stakeholder.
+:MemberTimeDev rdfs:subClassOf :People, :Stakeholder.
+:CorporateClient rdfs:subClassOf :Organization, :Stakeholder.
+:FinalUser rdfs:subClassOf :People, :Stakeholder.
+:Stakeholder rdfs:subClassOf :UFOCAgent.
+:Organization rdfs:subClassOf :UFOCSocial_Agent.
+:People rdfs:subClassOf :UFOCPhysical_Agent.
+:PersonalCustomer rdfs:subClassOf :Stakeholder, :People.
+:AALSystems rdfs:subClassOf :UFOARigid_Sortal_Universal.
+:FoodAssistance rdfs:subClassOf :InternalAssistanceAutonomy.
+:DrinkingAssistance rdfs:subClassOf :InternalAssistanceAutonomy.
+:CulinaryAssistance rdfs:subClassOf :InternalAssistanceAutonomy.
+:DressingAssistance rdfs:subClassOf :InternalAssistanceAutonomy.
+:CleaningAssistance rdfs:subClassOf :InternalAssistanceAutonomy.
+:DrugAssistance rdfs:subClassOf :InternalAssistanceAutonomy.
+:Device rdfs:subClassOf :Hardware.
+:Legislation rdfs:subClassOf :Compliance.
+:ExternalStandards rdfs:subClassOf :Compliance.
+:InternalStandardsPolicies rdfs:subClassOf :Compliance.
+:Decrees rdfs:subClassOf :Legislation.
+:NormativeInstructions rdfs:subClassOf :Legislation.
+:Laws rdfs:subClassOf :Legislation.
+:Ordinances rdfs:subClassOf :Legislation.
+:Opinions rdfs:subClassOf :Legislation.
+:Resolutions rdfs:subClassOf :Legislation.
+:ISO rdfs:subClassOf :ExternalStandards.
+:NBR rdfs:subClassOf :ExternalStandards.
+:SpecificationRequirements rdfs:subClassOf :InternalStandardsPolicies.
+:Policy rdfs:subClassOf :InternalStandardsPolicies.
+:Term rdfs:subClassOf :InternalStandardsPolicies.
+:SocialEnvironmentalResponsibility rdfs:subClassOf :Policy.
+:CorporativeSecurity rdfs:subClassOf :Policy.
+:AcceptanceUse rdfs:subClassOf :Term.
+:ofConfidentiality rdfs:subClassOf :Term.
+:ofResponsability rdfs:subClassOf :Term.
+:OutdoorEnvironment rdfs:subClassOf :Environment.
+:House rdfs:subClassOf :Environment.
+:Hospital rdfs:subClassOf :Environment.
+:DiningRoom rdfs:subClassOf :House.
+:LivingRoom rdfs:subClassOf :House.
+:MainEntrance rdfs:subClassOf :House.
+:Room rdfs:subClassOf :House.
+:WC rdfs:subClassOf :House.
+:Button rdfs:subClassOf :Device.
+:Display rdfs:subClassOf :Device.
+:Sensor rdfs:subClassOf :Device.
+:Valve rdfs:subClassOf :Device.
+:WaterSensor rdfs:subClassOf :Sensor.
+:SmokeSensor rdfs:subClassOf :Sensor.
+:GasSensor rdfs:subClassOf :Sensor.
+:DoorSensor rdfs:subClassOf :Sensor.
+:TemperatureSensor rdfs:subClassOf :Sensor.
+:NonFunctionalRequirement rdfs:subClassOf :Requirement.
+:FunctionalRequirement rdfs:subClassOf :Requirement.
+:RequirementQuality rdfs:subClassOf :NonFunctionalRequirement.
+:EthicalRequirement rdfs:subClassOf :NonFunctionalRequirement.
+:ProductQuality rdfs:subClassOf :RequirementQuality.
+:QualityUse rdfs:subClassOf :RequirementQuality.
+:PersonalMonitoringServices rdfs:subClassOf :ExternalAssistanceComfort, :InternalAssistanceComfort.
+:ServicesSupportProfessionalActivities rdfs:subClassOf :InternalAssistanceAutonomy, :ExternalAssistanceAutonomy.
+:EducationalSupportServices rdfs:subClassOf :InternalAssistanceAutonomy, :ExternalAssistanceAutonomy.
+:GovernmentServices rdfs:subClassOf :ExternalAssistanceComfort.
+:DomesticCompanion rdfs:subClassOf :Stakeholder, :People.
+:Familiar rdfs:subClassOf :Stakeholder, :People.
+:Educator rdfs:subClassOf :People, :Stakeholder.
+:Employer rdfs:subClassOf :Organization, :Stakeholder.
+:EntertainmentAgent rdfs:subClassOf :Stakeholder, :People.
+:GeriatricHouse rdfs:subClassOf :LongStayElderlyInstitution.
+:Asylum rdfs:subClassOf :LongStayElderlyInstitution.
+:MedicalHousing rdfs:subClassOf :LongStayElderlyInstitution.
+:WearableDevice rdfs:subClassOf :Device.
+:Actuator rdfs:subClassOf :Device.
+:Switches rdfs:subClassOf :Device.
+:Camera rdfs:subClassOf :Device.
+:CommandByVoice rdfs:subClassOf :Device.
+:Container rdfs:subClassOf :Device.
+:Smartphone rdfs:subClassOf :Device.
+:SignalDevices rdfs:subClassOf :Device.
+:SoundBox rdfs:subClassOf :Device.
+:StandardizationResearchEthicsCommittee rdfs:subClassOf :InternalStandardsPolicies.
+:LongStayElderlyInstitution rdfs:subClassOf :Environment.
+:Mobility rdfs:subClassOf :Environment.
+:WorkEnvironment rdfs:subClassOf :Environment.
+:SpecialtyProductsStore rdfs:subClassOf :Environment.
+:EducationalInstitution rdfs:subClassOf :Environment.
+:Hardware rdfs:subClassOf :UFOA_Rigid_Mixin_Universal.
+:Software rdfs:subClassOf :UFOA_Rigid_Mixin_Universal.

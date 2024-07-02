@@ -1,0 +1,74 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Project rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Project"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:TestCase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "TestCase"@en.
+:EntityType rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EntityType"@en.
+:UseCase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UseCase"@en.
+:Module rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Module"@en.
+:Requirement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Requirement"@en.
+:NonFunctionalRequirement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NonFunctionalRequirement"@en.
+:FunctionalRequirement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FunctionalRequirement"@en.
+:BusinessRule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BusinessRule"@en.
+:Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Class"@en.
+:RequirementTestCase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RequirementTestCase"@en.
+:UseTestCase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "UseTestCase"@en.
+:ClassTestCase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ClassTestCase"@en.
+:EventFlow rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "EventFlow"@en.
+:BasicFlow rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "BasicFlow"@en.
+:AlternativeFlow rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AlternativeFlow"@en.
+:Condition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Condition"@en.
+:Postcondition rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Postcondition"@en.
+:Precondition rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Precondition"@en.
+:TestCase rdfs:subClassOf :Artifact.
+:EntityType rdfs:subClassOf :Artifact.
+:UseCase rdfs:subClassOf :Artifact.
+:Module rdfs:subClassOf :Artifact.
+:Requirement rdfs:subClassOf :Artifact.
+:NonFunctionalRequirement rdfs:subClassOf :Requirement.
+:FunctionalRequirement rdfs:subClassOf :Requirement.
+:BusinessRule rdfs:subClassOf :Requirement.
+:Class rdfs:subClassOf :EntityType.
+:RequirementTestCase rdfs:subClassOf :TestCase.
+:UseTestCase rdfs:subClassOf :TestCase.
+:ClassTestCase rdfs:subClassOf :TestCase.
+:BasicFlow rdfs:subClassOf :EventFlow.
+:AlternativeFlow rdfs:subClassOf :EventFlow.
+:Postcondition rdfs:subClassOf :Condition.
+:Precondition rdfs:subClassOf :Condition.
+:identifier rdfs:domain :UseCase;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "identifier"@en.

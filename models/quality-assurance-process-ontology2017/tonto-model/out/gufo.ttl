@@ -1,0 +1,134 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Performed_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Performed_Process"@en.
+:Performed_General_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Performed_General_Process"@en.
+:Performed_Specific_Process rdf:type owl:NamedIndividual;
+    rdfs:label "Performed_Specific_Process"@en.
+:Stakeholder rdf:type owl:NamedIndividual;
+    rdfs:label "Stakeholder"@en.
+:Performed_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Performed_Activity"@en.
+:Artifact rdf:type owl:NamedIndividual;
+    rdfs:label "Artifact"@en.
+:Team_Stakeholder rdf:type owl:NamedIndividual;
+    rdfs:label "Team_Stakeholder"@en.
+:Person_Stakeholder rdf:type owl:NamedIndividual;
+    rdfs:label "Person_Stakeholder"@en.
+:Performed_Composite_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Performed_Composite_Activity"@en.
+:Performed_Simple_Activity rdf:type owl:NamedIndividual;
+    rdfs:label "Performed_Simple_Activity"@en.
+:Simple_Artifact rdf:type owl:NamedIndividual;
+    rdfs:label "Simple_Artifact"@en.
+:Composite_Artifact rdf:type owl:NamedIndividual;
+    rdfs:label "Composite_Artifact"@en.
+:Software_Product rdf:type owl:NamedIndividual;
+    rdfs:label "Software_Product"@en.
+:Software_Item rdf:type owl:NamedIndividual;
+    rdfs:label "Software_Item"@en.
+:Document rdf:type owl:NamedIndividual;
+    rdfs:label "Document"@en.
+:Model rdf:type owl:NamedIndividual;
+    rdfs:label "Model"@en.
+:Information_Item rdf:type owl:NamedIndividual;
+    rdfs:label "Information_Item"@en.
+:Project_Manager rdf:type owl:NamedIndividual;
+    rdfs:label "Project_Manager"@en.
+:Quality_Auditor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Quality_Auditor"@en.
+:Quality_Assurance_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Quality_Assurance_Process"@en.
+:Quality_Assurance_Planning rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Quality_Assurance_Planning"@en.
+:Adherence_Evaluation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Adherence_Evaluation"@en.
+:Project_Team rdf:type owl:NamedIndividual;
+    rdfs:label "Project_Team"@en.
+:Noncompliance_Responsible rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Noncompliance_Responsible"@en.
+:Noncompliance_Control rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Noncompliance_Control"@en.
+:Noncompliance_Resolution rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Noncompliance_Resolution"@en.
+:Noncompliance_Closing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Noncompliance_Closing"@en.
+:Noncompliance_Identification rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Noncompliance_Identification"@en.
+:Process_Evaluation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Process_Evaluation"@en.
+:Artifact_Evaluation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Artifact_Evaluation"@en.
+:Project_Plan rdf:type owl:NamedIndividual;
+    rdfs:label "Project_Plan"@en.
+:Quality_Assurance_Plan rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Quality_Assurance_Plan"@en.
+:Evaluation_Report rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Evaluation_Report"@en.
+:Evaluated_Artifact rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Evaluated_Artifact"@en.
+:Evaluated_Process rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Evaluated_Process"@en.
+:Noncompliance_Register rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Noncompliance_Register"@en.
+:Corrective_Action_Register rdf:type owl:NamedIndividual;
+    rdfs:label "Corrective_Action_Register"@en.
+:Information_Item rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Software_Item rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Software_Product rdfs:subClassOf :Artifact.
+:Simple_Artifact rdfs:subClassOf :Artifact.
+:Composite_Artifact rdfs:subClassOf :Artifact.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Performed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Performed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Team_Stakeholder rdfs:subClassOf :Stakeholder.
+:Person_Stakeholder rdfs:subClassOf :Stakeholder.
+:Performed_Composite_Activity rdfs:subClassOf :Performed_Activity.
+:Performed_Simple_Activity rdfs:subClassOf :Performed_Activity.
+:Simple_Artifact rdfs:subClassOf :Artifact.
+:Composite_Artifact rdfs:subClassOf :Artifact.
+:Software_Product rdfs:subClassOf :Artifact.
+:Software_Item rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Information_Item rdfs:subClassOf :Artifact.
+:Project_Manager rdfs:subClassOf :Person_Stakeholder.
+:Quality_Auditor rdfs:subClassOf :Person_Stakeholder.
+:Quality_Assurance_Process rdfs:subClassOf :Performed_Specific_Process.
+:Quality_Assurance_Planning rdfs:subClassOf :Performed_Composite_Activity.
+:Adherence_Evaluation rdfs:subClassOf :Performed_Composite_Activity.
+:Project_Team rdfs:subClassOf :Team_Stakeholder.
+:Noncompliance_Responsible rdfs:subClassOf :Person_Stakeholder.
+:Noncompliance_Control rdfs:subClassOf :Performed_Composite_Activity.
+:Noncompliance_Resolution rdfs:subClassOf :Performed_Simple_Activity.
+:Noncompliance_Closing rdfs:subClassOf :Performed_Simple_Activity.
+:Noncompliance_Identification rdfs:subClassOf :Performed_Simple_Activity.
+:Process_Evaluation rdfs:subClassOf :Performed_Simple_Activity.
+:Artifact_Evaluation rdfs:subClassOf :Performed_Simple_Activity.
+:Project_Plan rdfs:subClassOf :Document.
+:Quality_Assurance_Plan rdfs:subClassOf :Document.
+:Evaluation_Report rdfs:subClassOf :Document.
+:Evaluated_Artifact rdfs:subClassOf :Artifact.
+:Evaluated_Process rdfs:subClassOf :Performed_Process.
+:Noncompliance_Register rdfs:subClassOf :Information_Item.
+:Corrective_Action_Register rdfs:subClassOf :Information_Item.

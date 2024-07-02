@@ -1,0 +1,96 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:DocumentType rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "DocumentType"@en.
+:MedicalSpecialization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "MedicalSpecialization"@en.
+:Diagnosis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Diagnosis"@en.
+:ICD rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ICD"@en.
+:CirculatorySystem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "CirculatorySystem"@en.
+:NervousSystem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "NervousSystem"@en.
+:MetabolicDisease rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "MetabolicDisease"@en.
+:RespiratorySystem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "RespiratorySystem"@en.
+:DigestiveSystem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "DigestiveSystem"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Man rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Man"@en.
+:Woman rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Woman"@en.
+:Child rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Child"@en.
+:Teenager rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Teenager"@en.
+:Adult rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Elder rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Elder"@en.
+:PregnantWoman rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "PregnantWoman"@en.
+:Patient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Patient"@en.
+:HealthProfessional rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "HealthProfessional"@en.
+:HealthAppointment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "HealthAppointment"@en.
+:Neighborhood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Neighborhood"@en.
+:Region rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Region"@en.
+:HealthUnit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HealthUnit"@en.
+:Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Document"@en.
+:Elder rdfs:subClassOf :Person.
+:Teenager rdfs:subClassOf :Person.
+:Adult rdfs:subClassOf :Person.
+:Child rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Man rdfs:subClassOf :Person.
+:NervousSystem rdfs:subClassOf :ICD.
+:DigestiveSystem rdfs:subClassOf :ICD.
+:MetabolicDisease rdfs:subClassOf :ICD.
+:RespiratorySystem rdfs:subClassOf :ICD.
+:CirculatorySystem rdfs:subClassOf :ICD, :ICD.
+:NervousSystem rdfs:subClassOf :ICD.
+:MetabolicDisease rdfs:subClassOf :ICD.
+:RespiratorySystem rdfs:subClassOf :ICD.
+:DigestiveSystem rdfs:subClassOf :ICD.
+:Man rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Child rdfs:subClassOf :Person.
+:Teenager rdfs:subClassOf :Person.
+:Adult rdfs:subClassOf :Person.
+:Elder rdfs:subClassOf :Person.
+:PregnantWoman rdfs:subClassOf :Woman.
+:Patient rdfs:subClassOf :Person.
+:HealthProfessional rdfs:subClassOf :Person.

@@ -1,0 +1,15 @@
+import Arbitragem_e_Mediao
+import Viagem_Ferroviria_com_Conflito
+
+package Viagem_Ferroviria_com_Conflito
+
+relator Viagem_com_Interseo_com_Conflito_Arbitrado specializes Viagem_com_Interseo_com_Conflito_Mediado 
+
+role Agncia_Reguladora_Arbitradora
+
+relator Viagem_com_Interseo_com_Conflito_Mediado specializes Viagem_Ferroviria_com_Interseo 
+
+role Agncia_Reguladora_Mediadora
+
+
+

@@ -1,0 +1,54 @@
+
+package Rodovia
+
+subkind Rodovia_Local of functional-complexes  specializes Rodovia 
+
+subkind Rodovia_Diagonal of functional-complexes  specializes Rodovia_Federal 
+
+subkind Trecho_Fsico_Estadual of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+subkind Rodovia_Estadual of functional-complexes  specializes Rodovia 
+
+subkind Trecho_Lgico_Federal of functional-complexes  specializes Trecho_Rodovirio_Lgico 
+
+subkind Rodovia_Municipal of functional-complexes  specializes Rodovia 
+
+kind PNV{
+    ano: undefined  
+}
+
+subkind Rodovia_Transversal of functional-complexes  specializes Rodovia_Federal 
+
+subkind Trecho_Fsico_Federal of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+subkind Rodovia_Coletora of functional-complexes  specializes Rodovia 
+
+subkind Trecho_Lgico_Estadual of functional-complexes  specializes Trecho_Rodovirio_Lgico 
+
+subkind Rodovia_Vicinal of functional-complexes  specializes Rodovia 
+
+subkind Rodovia_Longitudinal of functional-complexes  specializes Rodovia_Federal 
+
+subkind Rodovia_de_Ligao of functional-complexes  specializes Rodovia_Federal 
+
+subkind Rodovia_Federal of functional-complexes  specializes Rodovia 
+
+role Trecho_Coincidente of functional-complexes  specializes Trecho_Rodovirio_Lgico 
+
+subkind Rodovia_Radial of functional-complexes  specializes Rodovia_Federal 
+
+kind Trecho_Rodovirio_Lgico{
+    cdigo: undefined  
+    km_final: undefined  
+    km_inicial: undefined  
+}
+
+subkind Rodovia_Arterial of functional-complexes  specializes Rodovia 
+
+
+
+
+
+
+
+

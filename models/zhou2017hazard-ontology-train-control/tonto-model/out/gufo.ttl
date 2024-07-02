@@ -1,0 +1,74 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Dispatcher rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Dispatcher"@en.
+:Provider rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Provider"@en.
+:Communication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Communication"@en.
+:Channel rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Channel"@en.
+:Wireless_Network rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Wireless_Network"@en.
+:Receiver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Receiver"@en.
+:Message rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Message"@en.
+:RBC rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "RBC"@en.
+:Onboard_System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Onboard_System"@en.
+:MA_with_TSR rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "MA_with_TSR"@en.
+:Train rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Train"@en.
+:TSR_Area rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "TSR_Area"@en.
+:SpeedControl rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "SpeedControl"@en.
+:Transportation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Transportation"@en.
+:Controller rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Controller"@en.
+:BeingControlled rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "BeingControlled"@en.
+:Mover rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mover"@en.
+:Place rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Place"@en.
+:Sensor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sensor"@en.
+:Monitor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Monitor"@en.
+:BeingSensed rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "BeingSensed"@en.
+:Train_Wheel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Train_Wheel"@en.
+:SDU rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SDU"@en.
+:Control_Parameter_Communication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Control_Parameter_Communication"@en.
+:SpeedDistance_Message rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SpeedDistance_Message"@en.

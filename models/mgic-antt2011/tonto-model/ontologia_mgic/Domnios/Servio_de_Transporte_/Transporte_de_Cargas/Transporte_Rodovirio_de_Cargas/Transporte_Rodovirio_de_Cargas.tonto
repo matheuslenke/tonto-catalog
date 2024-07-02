@@ -1,0 +1,46 @@
+import Transporte_Rodovirio_Internacional_de_Carga_Prpria
+import Transporte_Rodovirio_Internacional_de_Cargas_Mediante_Remunerao
+import Transporte_Multimodal_de_Cargas
+import Via_de_Trnsito_Rodovirio
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Ativo_Ferrovirio
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+import Transporte_Rodovirio_de_Cargas
+import Transporte_Rodovirio_de_Produtos_Perigosos
+
+package Transporte_Rodovirio_de_Cargas
+
+role Carga_Geral_em_Transporte of functional-complexes  specializes Produto_Comum, Carga_em_Transporte_Rodovirio 
+
+kind Produto_Comum
+
+role Veculo_em_Transporte_de_Cargas specializes Veculo_Habilitado_Internacionalmente_em_Transporte 
+
+kind Produto_Perigoso
+
+relator Operao_de_Transporte_Rodovirio_de_Produto_Perigoso specializes Operao_de_Transporte_Rodovirio_de_Cargas 
+
+relator Operao_de_Transporte_Rodovirio_de_Cargas specializes Modal_de_Transporte 
+
+role Trecho_Percorrido_por_Transporte_Rodovirio_de_Cargas of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+role Produto_Perigoso_em_Transporte of functional-complexes  specializes Produto_Perigoso, Carga_em_Transporte_Rodovirio 
+
+role Motorista_em_Transporte_de_Cargas
+
+relator Operao_de_Transporte_Rodovirio_de_Carga_Geral specializes Operao_de_Transporte_Rodovirio_de_Cargas 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@ role Tourist_Guide of functional-complexes  specializes user
 category location of functional-complexes  specializes path {
     touristAttraction: undefined  
     adress: Adress  
-    how_to_arrive: string_  
+    how_to_arrive: string  
 }
 
 kind user
@@ -46,7 +46,7 @@ subkind Climbing of functional-complexes  specializes sport_activity
 subkind Skiing of functional-complexes  specializes sport_activity 
 
 role language_certificate of relators  specializes certification {
-    language: string_  
+    language: string  
 }
 
 role activity_certificate of relators  specializes certification 
@@ -67,13 +67,13 @@ kind receipt
 
 kind itinerary{
     duration: long  
-    title: string_  
+    title: string  
     price: float  
 }
 
 quality offer{
     identifier: long  
-    language: string_  
+    language: string  
     date: long  
     starting_time: long  
 }

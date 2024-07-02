@@ -1,0 +1,60 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Regulation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Regulation"@en.
+:DegreeRegulation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "DegreeRegulation"@en.
+:VariationReg rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "VariationReg"@en.
+:Deg_Reg rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Deg_Reg"@en.
+:Degree rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Degree"@en.
+:Subject rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Subject"@en.
+:Variant rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Variant"@en.
+:Var_Reg rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Var_Reg"@en.
+:Phase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Phase"@en.
+:UpperPhase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "UpperPhase"@en.
+:Sub_Phase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Sub_Phase"@en.
+:SubPhase rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SubPhase"@en.
+:PhaseWithModule rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PhaseWithModule"@en.
+:Module rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Module"@en.
+:Module_Phase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Module_Phase"@en.
+:Element rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Element"@en.
+:Element_Module rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Element_Module"@en.
+:DegreeRegulation rdfs:subClassOf :Regulation.
+:VariationReg rdfs:subClassOf :Regulation.
+:UpperPhase rdfs:subClassOf :Phase.
+:SubPhase rdfs:subClassOf :Phase.
+:PhaseWithModule rdfs:subClassOf :Phase.

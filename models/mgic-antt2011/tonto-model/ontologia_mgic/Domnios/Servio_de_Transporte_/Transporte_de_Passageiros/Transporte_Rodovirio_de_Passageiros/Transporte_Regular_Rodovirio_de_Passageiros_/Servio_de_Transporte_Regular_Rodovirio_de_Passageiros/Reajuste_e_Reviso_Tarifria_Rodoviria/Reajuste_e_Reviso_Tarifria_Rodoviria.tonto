@@ -1,0 +1,43 @@
+
+package Reajuste_e_Reviso_Tarifria_Rodoviria
+
+kind Tarifa_de_nibus{
+    valor: undefined  
+}
+
+subkind Tabela_de_Reajuste_de_Coeficiente_Tarifrio_do_Transporte_Rodovirio_de_Passageiros of functional-complexes  specializes Tabela_Genrica_de_Reajuste_de_Coeficiente_Tarifrio 
+
+kind Item_de_Reajuste_Tarifrio_Rodovirio{
+    coeficiente: undefined  
+    servio: Linha_de_nibus_Permissionada  
+    tipoPavimento: Tipo_de_Pavimento  
+}
+
+kind ndice_de_Variao_de_Preo
+
+role Valor_Base_de_Seo_Reajustado of functional-complexes  specializes Valor_Base_de_Seo 
+
+kind Tabela_Genrica_de_Reajuste_de_Coeficiente_Tarifrio
+
+relator Reajuste_de_Coeficiente_Tarifrio
+
+relator Reajuste_Tarifrio_do_Transporte_Rodovirio_de_Passageiros
+
+relator Reajuste_de_Coeficiente_Tarifrio_do_Transporte_Rodovirio_de_Passageiros specializes Reajuste_de_Coeficiente_Tarifrio 
+
+subkind Resoluo_da_ANTT_com_Reajuste_de_Coeficiente_Tarifrio of functional-complexes  specializes Resoluo_da_ANTT 
+
+kind Valor_Base_de_Seo{
+    valor: undefined  
+}
+
+role Tarifa_de_nibus_Reajustada of functional-complexes  specializes Tarifa_de_nibus 
+
+
+
+
+
+
+
+
+

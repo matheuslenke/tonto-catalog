@@ -1,0 +1,14 @@
+import Infraestrutura_Rodoviria
+import Via_de_Trnsito_Rodovirio
+import Trecho_Ferrovirio
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Ativo_Ferrovirio
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+
+package Parte_de_Trfego_Concedida
+
+mixin Parte_de_Trfego_Concedida of functional-complexes  specializes Via_de_Trfego_Rodovirio, Trecho_Rodovirio_Fsico, Trecho_Ferrovirio 
+

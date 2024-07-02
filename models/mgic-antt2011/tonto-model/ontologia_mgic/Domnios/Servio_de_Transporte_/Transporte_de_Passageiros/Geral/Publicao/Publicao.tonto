@@ -1,0 +1,18 @@
+import Publicao
+
+package Publicao
+
+roleMixin Contexto_de_Publicao of functional-complexes 
+
+relator Publicao
+
+relator Republicao specializes Publicao 
+
+roleMixin Publicador of functional-complexes 
+
+roleMixin Objeto_Publicado of functional-complexes 
+
+
+
+
+

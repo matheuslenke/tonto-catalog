@@ -1,0 +1,45 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Nacionalidade_Brasileira rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Nacionalidade_Brasileira"@en.
+:Nacionalidade_brasileira_nata rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Nacionalidade_brasileira_nata"@en.
+:Jus_solis_art_12Ia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Jus_solis_art_12Ia"@en.
+:Jus_sanguinis rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Jus_sanguinis"@en.
+:A_requerimento_art_12Ic_segunda_parte rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "A_requerimento_art_12Ic_segunda_parte"@en.
+:Registro_no_exterior_art_12Ic_primeira_parte rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Registro_no_exterior_art_12Ic_primeira_parte"@en.
+:Suspensvel rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Suspensvel"@en.
+:Definitiva_art_12Ib rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Definitiva_art_12Ib"@en.
+:Nacionalidade_brasileira_naturalizada rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Nacionalidade_brasileira_naturalizada"@en.
+:Estrangeiros_de_qualquer_nacionalidade rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Estrangeiros_de_qualquer_nacionalidade"@en.
+:Origem_pas_de_lngua_portuguesa rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Origem_pas_de_lngua_portuguesa"@en.
+:Na_forma_de_lei rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Na_forma_de_lei"@en.
+:Nacionalidade_brasileira_nata rdfs:subClassOf :Nacionalidade_Brasileira.
+:Jus_solis_art_12Ia rdfs:subClassOf :Nacionalidade_brasileira_nata.
+:Jus_sanguinis rdfs:subClassOf :Nacionalidade_brasileira_nata.
+:A_requerimento_art_12Ic_segunda_parte rdfs:subClassOf :Jus_sanguinis.
+:Registro_no_exterior_art_12Ic_primeira_parte rdfs:subClassOf :Jus_sanguinis.
+:Suspensvel rdfs:subClassOf :Jus_sanguinis.
+:Definitiva_art_12Ib rdfs:subClassOf :Jus_sanguinis.
+:Nacionalidade_brasileira_naturalizada rdfs:subClassOf :Nacionalidade_Brasileira.
+:Estrangeiros_de_qualquer_nacionalidade rdfs:subClassOf :Nacionalidade_brasileira_naturalizada.
+:Origem_pas_de_lngua_portuguesa rdfs:subClassOf :Nacionalidade_brasileira_naturalizada.
+:Na_forma_de_lei rdfs:subClassOf :Nacionalidade_brasileira_naturalizada.

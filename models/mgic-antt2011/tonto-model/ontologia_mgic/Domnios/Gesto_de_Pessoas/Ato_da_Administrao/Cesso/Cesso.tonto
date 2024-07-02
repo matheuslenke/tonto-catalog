@@ -1,0 +1,24 @@
+
+package Cesso
+
+relator Cesso_com_nus specializes Cesso 
+
+relator Cesso_Sem_nus specializes Cesso 
+
+relator Cesso_para_Cargo_em_Comisso specializes Cesso 
+
+role Cargo_em_Comisso_em_Cesso of functional-complexes  specializes Cargo_em_Comisso 
+
+role Orgo_Cedente
+
+role Orgo_Cessionrio
+
+relator Cesso{
+    dataInicial: undefined  
+    prazo: undefined  
+}
+
+
+
+
+

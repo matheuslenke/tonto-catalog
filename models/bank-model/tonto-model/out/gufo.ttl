@@ -1,0 +1,93 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:ATM rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ATM"@en.
+:Access rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Access"@en.
+:Accessed_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Accessed_Account"@en.
+:Accessing_Device rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Accessing_Device"@en.
+:Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Account"@en.
+:Active_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Active_Account"@en.
+:Bank rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bank"@en.
+:Client rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Client"@en.
+:Client_Organization rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Client_Organization"@en.
+:Client_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Client_Person"@en.
+:Device rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Device"@en.
+:Group_of_Organizations rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Group_of_Organizations"@en.
+:Inactive_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Inactive_Account"@en.
+:Location rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Location"@en.
+:Mobile rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Mobile"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Organization_Member rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Organization_Member"@en.
+:PC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PC"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Spatial_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Spatial_Entity"@en.
+:Withdraw rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Withdraw"@en.
+:Withdrawed_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Withdrawed_Account"@en.
+:Withdrawing_ATM rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Withdrawing_ATM"@en.
+:ATM rdfs:subClassOf :Device.
+:Accessed_Account rdfs:subClassOf :Account.
+:Accessing_Device rdfs:subClassOf :Device.
+:Active_Account rdfs:subClassOf :Account.
+:Bank rdfs:subClassOf :Organization.
+:Client_Organization rdfs:subClassOf :Client, :Organization.
+:Client_Person rdfs:subClassOf :Client, :Person.
+:Device rdfs:subClassOf :Spatial_Entity.
+:Inactive_Account rdfs:subClassOf :Account.
+:Mobile rdfs:subClassOf :Device.
+:Organization_Member rdfs:subClassOf :Organization.
+:PC rdfs:subClassOf :Device.
+:Withdrawed_Account rdfs:subClassOf :Account.
+:Withdrawing_ATM rdfs:subClassOf :ATM.
+:latitude rdfs:domain :Location;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "latitude"@en.
+:longitude rdfs:domain :Location;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "longitude"@en.
+:value_ rdfs:domain :Withdraw;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "value_"@en.

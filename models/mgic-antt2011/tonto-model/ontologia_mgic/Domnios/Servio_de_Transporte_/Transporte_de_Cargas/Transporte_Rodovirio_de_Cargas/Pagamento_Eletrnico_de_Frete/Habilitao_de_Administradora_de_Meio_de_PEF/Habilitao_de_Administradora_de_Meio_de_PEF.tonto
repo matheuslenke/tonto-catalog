@@ -1,0 +1,17 @@
+import Documento
+import Habilitao_de_Administradora_de_Meio_de_PEF
+
+package Habilitao_de_Administradora_de_Meio_de_PEF
+
+role Administradora_de_PEF specializes Administradora_de_Meios_Eletrnicos_de_Pagamento 
+
+relator Habilitao_de_Administradora_de_Meio_de_PEF
+
+kind Formulrio_de_Habilitao_de_Administradora_de_Meio_de_PEF specializes Documento 
+
+role Documento_de_Habilitao_de_Administradora_de_Meio_de_PEF of functional-complexes  specializes Formulrio_de_Habilitao_de_Administradora_de_Meio_de_PEF 
+
+role Administradora_de_Meios_Eletrnicos_de_Pagamento
+
+
+

@@ -1,0 +1,275 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Man rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Man"@en.
+:Woman rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Woman"@en.
+:Spouse rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Spouse"@en.
+:Marriage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Marriage"@en.
+:Living_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Living_Person"@en.
+:Deceased_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Deceased_Person"@en.
+:Infant rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Infant"@en.
+:Teenage rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Teenage"@en.
+:Adult rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Customer"@en.
+:Personal_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Personal_Customer"@en.
+:Licensing_Authority rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licensing_Authority"@en.
+:Drivers_License rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Drivers_License"@en.
+:Driver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Driver"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Governmental_Agency rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Governmental_Agency"@en.
+:Car_Agency rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Car_Agency"@en.
+:Car rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Car"@en.
+:Car_Ownership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Car_Ownership"@en.
+:Corporate_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Corporate_Customer"@en.
+:Car_Needing_Maintenance rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Car_Needing_Maintenance"@en.
+:Car_Needing_Repair rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Car_Needing_Repair"@en.
+:Functional_Car rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Functional_Car"@en.
+:Organization_Unit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Organization_Unit"@en.
+:Service_Depot rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Service_Depot"@en.
+:Car_Scheduled_for_Maintenance rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Car_Scheduled_for_Maintenance"@en.
+:Car_Scheduled_for_Repair rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Car_Scheduled_for_Repair"@en.
+:Maintenance_Appointment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Maintenance_Appointment"@en.
+:Repair_Appointment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Repair_Appointment"@en.
+:Car_Rental_Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Car_Rental_Agreement"@en.
+:Active_Car_Rental_Agreement rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Active_Car_Rental_Agreement"@en.
+:Extented_Car_Rental_Agreement rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Extented_Car_Rental_Agreement"@en.
+:Closed_Car_Rental_Agreement rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Closed_Car_Rental_Agreement"@en.
+:Car_Rental_Agreement_Closed_With_Damage rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Car_Rental_Agreement_Closed_With_Damage"@en.
+:Damage_Report rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Damage_Report"@en.
+:Branch rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Branch"@en.
+:Transferred_Car rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Transferred_Car"@en.
+:Transfer_Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Transfer_Agreement"@en.
+:Car_Returned_with_Damage rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Car_Returned_with_Damage"@en.
+:Valid_Drivers_LIcense rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Valid_Drivers_LIcense"@en.
+:Expired_Drivers_License rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Expired_Drivers_License"@en.
+:Insurable_Item rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Insurable_Item"@en.
+:Passenger_Car rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Passenger_Car"@en.
+:Cargo_Car rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cargo_Car"@en.
+:Rental_Insurance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rental_Insurance"@en.
+:Insurance_Company rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Insurance_Company"@en.
+:Insured_Driver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Insured_Driver"@en.
+:Website rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Website"@en.
+:Online_Website rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Online_Website"@en.
+:Offline_Website rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Offline_Website"@en.
+:Website_Ownership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Website_Ownership"@en.
+:Sender_Branch rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sender_Branch"@en.
+:Receiver_Branch rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Receiver_Branch"@en.
+:Insurance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Insurance"@en.
+:Car_Manufacturer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Car_Manufacturer"@en.
+:Car_Production rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Car_Production"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Trainee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Trainee"@en.
+:Junior_Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Junior_Employee"@en.
+:Midlevel_Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Midlevel_Employee"@en.
+:Senior_Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Senior_Employee"@en.
+:Employment_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Employment_Contract"@en.
+:Parent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Parent"@en.
+:Child rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Child"@en.
+:Legal_Parenthood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Legal_Parenthood"@en.
+:Valid_Drivers_LIcense rdfs:subClassOf :Drivers_License.
+:Expired_Drivers_License rdfs:subClassOf :Drivers_License.
+:Senior_Employee rdfs:subClassOf :Employee.
+:Trainee rdfs:subClassOf :Employee.
+:Midlevel_Employee rdfs:subClassOf :Employee.
+:Junior_Employee rdfs:subClassOf :Employee.
+:Deceased_Person rdfs:subClassOf :Person.
+:Living_Person rdfs:subClassOf :Person.
+:Adult rdfs:subClassOf :Living_Person.
+:Infant rdfs:subClassOf :Living_Person.
+:Teenage rdfs:subClassOf :Living_Person.
+:Woman rdfs:subClassOf :Person.
+:Man rdfs:subClassOf :Person.
+:Offline_Website rdfs:subClassOf :Website.
+:Online_Website rdfs:subClassOf :Website.
+:Closed_Car_Rental_Agreement rdfs:subClassOf :Car_Rental_Agreement.
+:Active_Car_Rental_Agreement rdfs:subClassOf :Car_Rental_Agreement.
+:Extented_Car_Rental_Agreement rdfs:subClassOf :Car_Rental_Agreement.
+:Passenger_Car rdfs:subClassOf :Car.
+:Cargo_Car rdfs:subClassOf :Car.
+:Corporate_Customer rdfs:subClassOf :Customer.
+:Personal_Customer rdfs:subClassOf :Customer.
+:Functional_Car rdfs:subClassOf :Car.
+:Car_Needing_Maintenance rdfs:subClassOf :Car.
+:Car_Needing_Repair rdfs:subClassOf :Car.
+:Branch rdfs:subClassOf :Organization_Unit.
+:Service_Depot rdfs:subClassOf :Organization_Unit.
+:Man rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Spouse rdfs:subClassOf :Person.
+:Living_Person rdfs:subClassOf :Person.
+:Deceased_Person rdfs:subClassOf :Person.
+:Infant rdfs:subClassOf :Living_Person.
+:Teenage rdfs:subClassOf :Living_Person.
+:Adult rdfs:subClassOf :Living_Person.
+:Personal_Customer rdfs:subClassOf :Customer, :Driver.
+:Licensing_Authority rdfs:subClassOf :Governmental_Agency.
+:Driver rdfs:subClassOf :Adult, :Insurable_Item.
+:Organization rdfs:subClassOf :Insurable_Item.
+:Governmental_Agency rdfs:subClassOf :Organization.
+:Car_Agency rdfs:subClassOf :Organization.
+:Car rdfs:subClassOf :Insurable_Item.
+:Corporate_Customer rdfs:subClassOf :Customer, :Organization.
+:Car_Needing_Maintenance rdfs:subClassOf :Car.
+:Car_Needing_Repair rdfs:subClassOf :Car.
+:Functional_Car rdfs:subClassOf :Car.
+:Organization_Unit rdfs:subClassOf :Organization.
+:Service_Depot rdfs:subClassOf :Organization_Unit.
+:Car_Scheduled_for_Maintenance rdfs:subClassOf :Car_Needing_Maintenance.
+:Car_Scheduled_for_Repair rdfs:subClassOf :Car_Needing_Repair.
+:Car_Rental_Agreement rdfs:subClassOf :Insurable_Item.
+:Active_Car_Rental_Agreement rdfs:subClassOf :Car_Rental_Agreement.
+:Extented_Car_Rental_Agreement rdfs:subClassOf :Car_Rental_Agreement.
+:Closed_Car_Rental_Agreement rdfs:subClassOf :Car_Rental_Agreement.
+:Car_Rental_Agreement_Closed_With_Damage rdfs:subClassOf :Closed_Car_Rental_Agreement.
+:Branch rdfs:subClassOf :Organization_Unit.
+:Transferred_Car rdfs:subClassOf :Car.
+:Car_Returned_with_Damage rdfs:subClassOf :Car.
+:Valid_Drivers_LIcense rdfs:subClassOf :Drivers_License.
+:Expired_Drivers_License rdfs:subClassOf :Drivers_License.
+:Passenger_Car rdfs:subClassOf :Car.
+:Cargo_Car rdfs:subClassOf :Car.
+:Rental_Insurance rdfs:subClassOf :Insurance.
+:Insurance_Company rdfs:subClassOf :Organization.
+:Insured_Driver rdfs:subClassOf :Driver.
+:Online_Website rdfs:subClassOf :Website.
+:Offline_Website rdfs:subClassOf :Website.
+:Sender_Branch rdfs:subClassOf :Branch.
+:Receiver_Branch rdfs:subClassOf :Branch.
+:Car_Manufacturer rdfs:subClassOf :Organization.
+:Employee rdfs:subClassOf :Person.
+:Trainee rdfs:subClassOf :Employee.
+:Junior_Employee rdfs:subClassOf :Employee.
+:Midlevel_Employee rdfs:subClassOf :Employee.
+:Senior_Employee rdfs:subClassOf :Employee.
+:Parent rdfs:subClassOf :Person.
+:Child rdfs:subClassOf :Person.
+:gender rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "gender"@en.
+:parentalRole rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "parentalRole"@en.
+:seniority rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "seniority"@en.
+:statusAgePhase rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "statusAgePhase"@en.
+:type_ rdfs:domain :Organization;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "type_"@en.
+:function_ rdfs:domain :Car;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "function_"@en.
+:status rdfs:domain :Car;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "status"@en.
+:status_1 rdfs:domain :Website;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "status"@en.

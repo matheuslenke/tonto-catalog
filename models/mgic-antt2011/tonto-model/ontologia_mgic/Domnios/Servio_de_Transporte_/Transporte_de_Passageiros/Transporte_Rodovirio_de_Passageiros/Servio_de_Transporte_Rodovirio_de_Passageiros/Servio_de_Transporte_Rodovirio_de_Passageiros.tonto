@@ -1,0 +1,51 @@
+import Via_de_Trnsito_Rodovirio
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Ativo_Ferrovirio
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+import Servio_de_Transporte_Rodovirio_de_Passageiros
+import Servio_de_Transporte_Regular_Rodovirio_de_Passageiros
+
+package Servio_de_Transporte_Rodovirio_de_Passageiros
+
+role Trecho_Percorrido_por_Transporte_Rodovirio_de_Passageiros of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+subkind nibus_Executivo
+
+role Micronibus_em_Transporte_Rodovirio_de_Passageiros specializes Veculo_em_Transporte_Rodovirio_de_Passageiros 
+
+relator TRP_Regular specializes Transporte_Rodovirio_de_Passageiros 
+
+subkind nibus_Leito
+
+role nibus_em_Transporte_Rodovirio_de_Passageiros specializes Veculo_em_Transporte_Rodovirio_de_Passageiros 
+
+role Motorista
+
+subkind nibus_Semiurbano
+
+subkind nibus_Urbano
+
+subkind nibus_Convencional
+
+relator Transporte_Rodovirio_de_Passageiros
+
+roleMixin Veculo_em_Transporte_Rodovirio_de_Passageiros of functional-complexes 
+
+role Passageiro
+
+subkind nibus_Misto
+
+role Motorista_em_Transporte_de_Passageiros specializes Motorista 
+
+subkind nibus_Semileito
+
+
+
+
+
+
+
+

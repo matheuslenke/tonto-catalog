@@ -1,0 +1,79 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Indirectly_Recommendation_Referencing_Recomendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Indirectly_Recommendation_Referencing_Recomendation"@en.
+:Indirectly_Recommendation_Referenced_Recomendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Indirectly_Recommendation_Referenced_Recomendation"@en.
+:Recommendation_Referencing_Recomendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Recommendation_Referencing_Recomendation"@en.
+:Recommendation_Referenced_Recomendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Recommendation_Referenced_Recomendation"@en.
+:Possibly_Problematic_Recommendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Possibly_Problematic_Recommendation"@en.
+:Problematic_Recommendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Problematic_Recommendation"@en.
+:Recommendation_Version rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Recommendation_Version"@en.
+:Publication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Publication"@en.
+:Recommendation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Recommendation"@en.
+:Concept_Defining_Recommendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concept_Defining_Recommendation"@en.
+:Concept_Referencing_Recommendation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concept_Referencing_Recommendation"@en.
+:Concept_Definition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Concept_Definition"@en.
+:Concept rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Concept"@en.
+:Referenced_Concept rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Referenced_Concept"@en.
+:Problematic_Concetp rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Problematic_Concetp"@en.
+:Correct_Concept rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Correct_Concept"@en.
+:Problematic_Concetp rdfs:subClassOf :Concept.
+:Correct_Concept rdfs:subClassOf :Concept.
+:Indirectly_Recommendation_Referencing_Recomendation rdfs:subClassOf :Recommendation_Referencing_Recomendation.
+:Indirectly_Recommendation_Referenced_Recomendation rdfs:subClassOf :Recommendation_Referenced_Recomendation.
+:Recommendation_Referencing_Recomendation rdfs:subClassOf :Recommendation_Version.
+:Recommendation_Referenced_Recomendation rdfs:subClassOf :Recommendation_Version.
+:Possibly_Problematic_Recommendation rdfs:subClassOf :Recommendation_Referencing_Recomendation.
+:Problematic_Recommendation rdfs:subClassOf :Recommendation_Version.
+:Concept_Defining_Recommendation rdfs:subClassOf :Recommendation_Version.
+:Concept_Referencing_Recommendation rdfs:subClassOf :Recommendation_Version.
+:Referenced_Concept rdfs:subClassOf :Concept.
+:Problematic_Concetp rdfs:subClassOf :Concept.
+:Correct_Concept rdfs:subClassOf :Concept.
+:PublicationDate rdfs:domain :Publication;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "PublicationDate"@en.
+:Title rdfs:domain :Recommendation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Title"@en.
+:definition rdfs:domain :Concept_Definition;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "definition"@en.
+:Abbreviation rdfs:domain :Concept;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Abbreviation"@en.

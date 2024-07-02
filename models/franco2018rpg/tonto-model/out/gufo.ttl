@@ -1,0 +1,80 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Game rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Game"@en.
+:Planning rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Planning"@en.
+:Event rdf:type owl:NamedIndividual;
+    rdfs:label "Event"@en.
+:Action rdf:type owl:NamedIndividual;
+    rdfs:label "Action"@en.
+:State rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "State"@en.
+:Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Entity"@en.
+:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Player rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Player"@en.
+:Etc rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Etc"@en.
+:Consumable rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Consumable"@en.
+:Equipment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Equipment"@en.
+:Character rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Character"@en.
+:Encounter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Encounter"@en.
+:NonPlayerCharacter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "NonPlayerCharacter"@en.
+:Mission rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Mission"@en.
+:Goal rdf:type owl:NamedIndividual;
+    rdfs:label "Goal"@en.
+:Location rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Location"@en.
+:Adventure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Adventure"@en.
+:Campaign rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Campaign"@en.
+:Match rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Match"@en.
+:Scenario rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Scenario"@en.
+:DigitalGame rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "DigitalGame"@en.
+:Session rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Session"@en.
+:Equipment rdfs:subClassOf :Object.
+:Etc rdfs:subClassOf :Object.
+:Consumable rdfs:subClassOf :Object.
+:NonPlayerCharacter rdfs:subClassOf :Entity.
+:Action rdfs:subClassOf :Event.
+:Object rdfs:subClassOf :Entity.
+:Player rdfs:subClassOf :Character.
+:Etc rdfs:subClassOf :Object.
+:Consumable rdfs:subClassOf :Object.
+:Equipment rdfs:subClassOf :Object.
+:NonPlayerCharacter rdfs:subClassOf :Entity.
+:Scenario rdfs:subClassOf :Location.
+:DigitalGame rdfs:subClassOf :Match.

@@ -1,0 +1,17 @@
+
+package Combinao_de_Veculos
+
+kind Combinao_de_Veculo{
+    pbtm: undefined  
+}
+
+subkind Combinao_de_Veculo_de_Passageiro of functional-complexes  specializes Combinao_de_Veculo 
+
+role Unidade_Tratora of functional-complexes  specializes Veculo_Rodovirio_Automotor 
+
+subkind Combinao_de_Veculo_de_Carga of functional-complexes  specializes Combinao_de_Veculo 
+
+role Unidade_Rebocada of functional-complexes  specializes Veculo_Rodovirio_Rebocado 
+
+
+

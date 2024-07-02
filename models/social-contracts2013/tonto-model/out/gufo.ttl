@@ -1,0 +1,108 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:individuo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "individuo"@en.
+:sociedade rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "sociedade"@en.
+:sociedade_familiar rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "sociedade_familiar"@en.
+:sociedade_religiosa rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "sociedade_religiosa"@en.
+:sociedade_educacional rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "sociedade_educacional"@en.
+:sociedade_politica rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "sociedade_politica"@en.
+:Estado rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Estado"@en.
+:contrato_social rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "contrato_social"@en.
+:governante rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "governante"@en.
+:governado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "governado"@en.
+:populao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "populao"@en.
+:governo_independente rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "governo_independente"@en.
+:territorio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "territorio"@en.
+:fronteira rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "fronteira"@en.
+:fronteira_esboada rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "fronteira_esboada"@en.
+:fronteira_viva rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "fronteira_viva"@en.
+:fronteira_morta rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "fronteira_morta"@en.
+:principio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "principio"@en.
+:regra rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "regra"@en.
+:norma rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "norma"@en.
+:ordenamento_jurdico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ordenamento_jurdico"@en.
+:objeto_do_contrato_social rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "objeto_do_contrato_social"@en.
+:direito rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "direito"@en.
+:dever rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "dever"@en.
+:supremacia_do_poder rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "supremacia_do_poder"@en.
+:bem_publico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "bem_publico"@en.
+:direito_do_Estado rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "direito_do_Estado"@en.
+:direito_da_Sociedade rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "direito_da_Sociedade"@en.
+:dever_do_Estado rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "dever_do_Estado"@en.
+:dever_da_Sociedade rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "dever_da_Sociedade"@en.
+:poro_terrestre rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "poro_terrestre"@en.
+:poro_area rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "poro_area"@en.
+:poro_de_guas_territoriais rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "poro_de_guas_territoriais"@en.
+:sociedade_familiar rdfs:subClassOf :sociedade.
+:sociedade_religiosa rdfs:subClassOf :sociedade.
+:sociedade_educacional rdfs:subClassOf :sociedade.
+:sociedade_politica rdfs:subClassOf :sociedade.
+:governante rdfs:subClassOf :individuo.
+:governado rdfs:subClassOf :individuo.
+:fronteira_esboada rdfs:subClassOf :fronteira.
+:fronteira_viva rdfs:subClassOf :fronteira.
+:fronteira_morta rdfs:subClassOf :fronteira.

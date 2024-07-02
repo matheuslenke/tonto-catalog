@@ -1,0 +1,18 @@
+import Documento
+import Projeto_Bsico
+import Permisso_por_Licitao
+import Objeto_de_Permisso_por_Licitao
+import Leilo_de_Licitao
+
+package Projeto_Bsico
+
+subkind Projeto_Bsico_de_Concesso of functional-complexes  specializes Projeto_Bsico 
+
+subkind Projeto_Bsico_de_Permisso of functional-complexes  specializes Projeto_Bsico 
+
+kind Projeto_Bsico specializes Documento 
+
+
+
+
+

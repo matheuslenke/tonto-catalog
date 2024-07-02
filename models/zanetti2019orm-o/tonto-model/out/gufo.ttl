@@ -1,0 +1,115 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Instance_Variable rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Instance_Variable"@en.
+:Class rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Class"@en.
+:Relationship_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Relationship_Mapping"@en.
+:Entity_Class rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Entity_Class"@en.
+:Class_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Class_Mapping"@en.
+:Entity_Table rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Entity_Table"@en.
+:Table rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Table"@en.
+:One_To_One_Relationship_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "One_To_One_Relationship_Mapping"@en.
+:One_To_Many_Relationship_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "One_To_Many_Relationship_Mapping"@en.
+:Many_To_One_Relationship_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Many_To_One_Relationship_Mapping"@en.
+:Many_to_Many_Relationship_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Many_to_Many_Relationship_Mapping"@en.
+:Relationship_Association_Table rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Relationship_Association_Table"@en.
+:Extendable_Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Extendable_Class"@en.
+:Spuerclass rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Spuerclass"@en.
+:Inheritance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Inheritance"@en.
+:Subclass rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Subclass"@en.
+:Entity_Subclass rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Entity_Subclass"@en.
+:Inheritance_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Inheritance_Mapping"@en.
+:Entity_Superclass rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Entity_Superclass"@en.
+:Single_Table_Inheritance_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Single_Table_Inheritance_Mapping"@en.
+:Table_per_Class_Inheritance_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Table_per_Class_Inheritance_Mapping"@en.
+:Table_per_Concrete_Class_Inheritance_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Table_per_Concrete_Class_Inheritance_Mapping"@en.
+:Single_Entity_Table rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Single_Entity_Table"@en.
+:Multiple_Entities_Table rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Multiple_Entities_Table"@en.
+:Mapped_Variable rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mapped_Variable"@en.
+:Nullability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Nullability"@en.
+:Variable_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Variable_Mapping"@en.
+:Column rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Column"@en.
+:Primary_Key_Column rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Primary_Key_Column"@en.
+:Foreign_Key_Column rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Foreign_Key_Column"@en.
+:Foreign_Key_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Foreign_Key_Mapping"@en.
+:Primary_Key_Mapping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Primary_Key_Mapping"@en.
+:Mapped_Primary_Key rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mapped_Primary_Key"@en.
+:Mapped_Foreign_Key rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mapped_Foreign_Key"@en.
+:Table_per_Concrete_Class_Inheritance_Mapping rdfs:subClassOf :Inheritance_Mapping.
+:Table_per_Class_Inheritance_Mapping rdfs:subClassOf :Inheritance_Mapping.
+:Single_Table_Inheritance_Mapping rdfs:subClassOf :Inheritance_Mapping.
+:Relationship_Association_Table rdfs:subClassOf :Table.
+:Entity_Table rdfs:subClassOf :Table.
+:Entity_Class rdfs:subClassOf :Class.
+:Entity_Table rdfs:subClassOf :Table.
+:One_To_One_Relationship_Mapping rdfs:subClassOf :Relationship_Mapping.
+:One_To_Many_Relationship_Mapping rdfs:subClassOf :Relationship_Mapping.
+:Many_To_One_Relationship_Mapping rdfs:subClassOf :Relationship_Mapping.
+:Many_to_Many_Relationship_Mapping rdfs:subClassOf :Relationship_Mapping.
+:Relationship_Association_Table rdfs:subClassOf :Table.
+:Extendable_Class rdfs:subClassOf :Class.
+:Spuerclass rdfs:subClassOf :Extendable_Class.
+:Subclass rdfs:subClassOf :Class.
+:Entity_Subclass rdfs:subClassOf :Subclass.
+:Entity_Superclass rdfs:subClassOf :Spuerclass.
+:Single_Table_Inheritance_Mapping rdfs:subClassOf :Inheritance_Mapping.
+:Table_per_Class_Inheritance_Mapping rdfs:subClassOf :Inheritance_Mapping.
+:Table_per_Concrete_Class_Inheritance_Mapping rdfs:subClassOf :Inheritance_Mapping.
+:Single_Entity_Table rdfs:subClassOf :Entity_Table.
+:Multiple_Entities_Table rdfs:subClassOf :Entity_Table.
+:Mapped_Variable rdfs:subClassOf :Instance_Variable.
+:Primary_Key_Column rdfs:subClassOf :Column.
+:Foreign_Key_Column rdfs:subClassOf :Column.
+:Foreign_Key_Mapping rdfs:subClassOf :Variable_Mapping.
+:Primary_Key_Mapping rdfs:subClassOf :Variable_Mapping.
+:Mapped_Primary_Key rdfs:subClassOf :Mapped_Variable.
+:Mapped_Foreign_Key rdfs:subClassOf :Mapped_Variable.

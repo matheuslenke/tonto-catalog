@@ -1,0 +1,33 @@
+
+package Participao_da_Sociedade
+
+role Cidado_Participante specializes Cidado_Interessado_em_Impugnao_de_Edital, Cidado_Interessado_em_Esclarecimentos 
+
+relator Chamamento_Pblico specializes Participao_da_Sociedade 
+
+role Convidado_para_Audincia
+
+role Participante_Representante_do_Setor_Privado
+
+relator Reunio_Participativa specializes Participao_da_Sociedade 
+
+relator Consulta_Pblica specializes Participao_da_Sociedade 
+
+relator Participao_da_Sociedade{
+    data: undefined  
+}
+
+relator Audincia_Pblica specializes Participao_da_Sociedade, Audincia_Pblica_para_Licitao {
+    assunto: undefined  
+}
+
+role Participante_Representante_Pblico
+
+relator Tomada_de_Subsdios specializes Participao_da_Sociedade 
+
+relator Audincia_com_Convidado specializes Audincia_Pblica 
+
+
+
+
+

@@ -1,0 +1,321 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Property rdf:type owl:NamedIndividual;
+    rdfs:label "Property"@en.
+:ProductModel rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ProductModel"@en.
+:PropertyValue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "PropertyValue"@en.
+:StructuredValue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "StructuredValue"@en.
+:value_ rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "value_"@en.
+:Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event"@en.
+:Schedule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Schedule"@en.
+:Unit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Unit"@en.
+:CurrentPropertyState rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "CurrentPropertyState"@en.
+:PropertyState rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "PropertyState"@en.
+:deleted rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "deleted"@en.
+:OutdatedPropertyState rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "OutdatedPropertyState"@en.
+:Property_1 rdf:type owl:NamedIndividual;
+    rdfs:label "Property"@en.
+:Geometry rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Geometry"@en.
+:GeometryState rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "GeometryState"@en.
+:Current_Geometry_State rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Current_Geometry_State"@en.
+:GeometryContext rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "GeometryContext"@en.
+:BuildingElement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BuildingElement"@en.
+:ProductOrServiceModel rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ProductOrServiceModel"@en.
+:activity rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "activity"@en.
+:Agent rdf:type owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Component"@en.
+:Building rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Building"@en.
+:Property_2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Property"@en.
+:ProjectDevelopment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "ProjectDevelopment"@en.
+:Housing_Block rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Housing_Block"@en.
+:House rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "House"@en.
+:Module rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Module"@en.
+:describesAttribute rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "describesAttribute"@en.
+:describedAttributeInFirstColumn rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "describedAttributeInFirstColumn"@en.
+:describedAttributeInSecondColumn rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "describedAttributeInSecondColumn"@en.
+:WIP_project rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "WIP_project"@en.
+:Finished_project rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Finished_project"@en.
+:E_Wanden rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "E_Wanden"@en.
+:F_Vloeren rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "F_Vloeren"@en.
+:G_Daken rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "G_Daken"@en.
+:L_LosLeveren rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "L_LosLeveren"@en.
+:W_WInstallaties rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "W_WInstallaties"@en.
+:E_EInstallaties rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "E_EInstallaties"@en.
+:Y_Kozijnen rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Y_Kozijnen"@en.
+:Z_Fundering rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Z_Fundering"@en.
+:S_Sanitair rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "S_Sanitair"@en.
+:Q_Afwerking rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Q_Afwerking"@en.
+:ConceptDevelopment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "ConceptDevelopment"@en.
+:UpcommingProject rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "UpcommingProject"@en.
+:InitiationPhase rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "InitiationPhase"@en.
+:DevelopmentPhase rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "DevelopmentPhase"@en.
+:RealisationPhase rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "RealisationPhase"@en.
+:PremoduDevelopment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "PremoduDevelopment"@en.
+:ProductDevelopment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "ProductDevelopment"@en.
+:NeedsAndDemands rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "NeedsAndDemands"@en.
+:AnalysisAndDefinition rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "AnalysisAndDefinition"@en.
+:DevelopmentPlanning rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "DevelopmentPlanning"@en.
+:Integration rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Integration"@en.
+:VersionRelease rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "VersionRelease"@en.
+:ExploreOptions rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "ExploreOptions"@en.
+:PreliminaryDesign rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "PreliminaryDesign"@en.
+:FinalDesign rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "FinalDesign"@en.
+:TechnicalDesign rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "TechnicalDesign"@en.
+:Testing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Testing"@en.
+:Complementing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Complementing"@en.
+:internalProducts rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "internalProducts"@en.
+:externalProducts rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "externalProducts"@en.
+:ManufacturingSchedule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ManufacturingSchedule"@en.
+:ProcurementSchedule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ProcurementSchedule"@en.
+:WorkPreparationSchedule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "WorkPreparationSchedule"@en.
+:AssemblySchedule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AssemblySchedule"@en.
+:ConstructionSchedule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ConstructionSchedule"@en.
+:EngineeringSchedule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EngineeringSchedule"@en.
+:Agent_1 rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:CurrentPropertyState rdfs:subClassOf :PropertyState.
+:deleted rdfs:subClassOf :PropertyState.
+:OutdatedPropertyState rdfs:subClassOf :PropertyState.
+:Current_Geometry_State rdfs:subClassOf :GeometryState.
+:Property_2 rdfs:subClassOf :Property_2, :Property_2, :Property_2.
+:describedAttributeInFirstColumn rdfs:subClassOf :describesAttribute.
+:describedAttributeInSecondColumn rdfs:subClassOf :describesAttribute.
+:WIP_project rdfs:subClassOf :ProjectDevelopment.
+:Finished_project rdfs:subClassOf :ProjectDevelopment.
+:UpcommingProject rdfs:subClassOf :ProjectDevelopment.
+:InitiationPhase rdfs:subClassOf :WIP_project.
+:DevelopmentPhase rdfs:subClassOf :WIP_project.
+:RealisationPhase rdfs:subClassOf :WIP_project.
+:PremoduDevelopment rdfs:subClassOf :ConceptDevelopment.
+:ProductDevelopment rdfs:subClassOf :ConceptDevelopment.
+:NeedsAndDemands rdfs:subClassOf :PremoduDevelopment.
+:AnalysisAndDefinition rdfs:subClassOf :PremoduDevelopment.
+:DevelopmentPlanning rdfs:subClassOf :PremoduDevelopment.
+:Integration rdfs:subClassOf :PremoduDevelopment.
+:VersionRelease rdfs:subClassOf :PremoduDevelopment.
+:ExploreOptions rdfs:subClassOf :ProductDevelopment.
+:PreliminaryDesign rdfs:subClassOf :ProductDevelopment.
+:FinalDesign rdfs:subClassOf :ProductDevelopment.
+:TechnicalDesign rdfs:subClassOf :ProductDevelopment.
+:Testing rdfs:subClassOf :ProductDevelopment.
+:Complementing rdfs:subClassOf :ProductDevelopment.
+:AssemblySchedule rdfs:subClassOf :ConstructionSchedule.
+:Agent_1 rdfs:subClassOf :Agent_1, :Agent_1.
+:Description rdfs:domain :Event;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Description"@en.
+:generatedAtTime rdfs:domain :PropertyState;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "generatedAtTime"@en.
+:hasReferencedGeometryIdentifier rdfs:domain :Geometry;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "hasReferencedGeometryIdentifier"@en.
+:hasSimpleGeometryDiscription rdfs:domain :Geometry;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "hasSimpleGeometryDiscription"@en.
+:innobrixRow rdfs:domain :Geometry;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "innobrixRow"@en.
+:innobrixColumn rdfs:domain :Geometry;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "innobrixColumn"@en.
+:innobrixColumnCel rdfs:domain :Geometry;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "innobrixColumnCel"@en.
+:hasComplexGeometryDescription rdfs:domain :GeometryState;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "hasComplexGeometryDescription"@en.
+:GeneratedAtTime rdfs:domain :GeometryState;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "GeneratedAtTime"@en.
+:wasAttributedTo rdfs:domain :GeometryState;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "wasAttributedTo"@en.
+:type_ rdfs:domain :Component;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "type_"@en.
+:NLSFB rdfs:domain :Component;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "NLSFB"@en.
+:level rdfs:domain :Component;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "level"@en.
+:length rdfs:domain :Component;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "length"@en.
+:specialCareFacilityHome rdfs:domain :House;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "specialCareFacilityHome"@en.
+:cornerhouse rdfs:domain :House;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "cornerhouse"@en.
+:Mirrored rdfs:domain :House;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Mirrored"@en.
+:adresHouseNumber rdfs:domain :House;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "adresHouseNumber"@en.
+:streetName rdfs:domain :House;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "streetName"@en.
+:city rdfs:domain :House;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "city"@en.
+:country rdfs:domain :House;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "country"@en.

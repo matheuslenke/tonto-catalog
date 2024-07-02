@@ -1,0 +1,61 @@
+
+package Escolaridade
+
+role Graduado_Mdio of functional-complexes  specializes Graduado_Fundamental 
+
+relator Ensino_Fundamental specializes Formao_Acadmica 
+
+role Instituio_de_Ensino of functional-complexes  specializes Pessoa_Jurdica 
+
+kind Tese_de_Doutorado
+
+relator Formao_Acadmica{
+    graduao: undefined  
+    inicio: undefined  
+}
+
+role Graduado_Superior of functional-complexes  specializes Graduado_Mdio 
+
+mode Diploma
+
+kind Dissertao_de_Mestrado
+
+role Ps_Graduado of functional-complexes  specializes Graduado_Superior 
+
+relator Doutorado specializes Formao_Acadmica {
+    rea: undefined  
+}
+
+relator Ps_Graduao specializes Formao_Acadmica {
+    rea: undefined  
+}
+
+relator Ensino_Mdio specializes Formao_Acadmica 
+
+role Mestre of functional-complexes  specializes Graduado_Superior 
+
+relator Ensino_Superior specializes Formao_Acadmica {
+    curso: undefined  
+}
+
+role Graduado_Fundamental of functional-complexes  specializes Pessoa_Fsica 
+
+kind Projeto_de_Graduao
+
+role Doutor of functional-complexes  specializes Graduado_Superior 
+
+relator Mestrado specializes Formao_Acadmica {
+    rea: undefined  
+}
+
+
+
+
+
+
+
+
+
+
+
+

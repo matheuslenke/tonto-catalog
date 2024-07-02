@@ -1,0 +1,11 @@
+import PER
+import PER_Revisado
+
+package Programa_de_Explorao
+
+subkind Programa_de_Explorao_da_Rodovia of functional-complexes  specializes Trabalhos_ao_Longo_da_Concesso, Trabalhos_Iniciais, PER_Revisado, Programa_de_Explorao 
+
+subkind Programa_de_Explorao_da_Ferrovia of functional-complexes  specializes Programa_de_Explorao 
+
+kind Programa_de_Explorao
+

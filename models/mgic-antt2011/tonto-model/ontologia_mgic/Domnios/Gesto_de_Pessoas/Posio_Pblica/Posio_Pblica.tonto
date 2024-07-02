@@ -1,0 +1,56 @@
+
+package Posio_Pblica
+
+subkind Cargo_Comissionado_de_Assessoria_CA of functional-complexes  specializes Cargo_em_Comisso 
+
+kind Emprego_Pblico specializes Posio_Pblica_Concursada, Posio_Pblica 
+
+subkind Cargo_Isolado of functional-complexes  specializes Cargo_Efetivo 
+
+kind Classe{
+    nome: undefined  
+}
+
+subkind Cargo_de_Carreira of functional-complexes  specializes Cargo_Efetivo {
+    nome: undefined  
+}
+
+kind Posio_Pblica_de_Nvel_Superior specializes Posio_Pblica 
+
+subkind Cargo_Comissionado_de_Direo_CD of functional-complexes  specializes Cargo_em_Comisso 
+
+category Posio_Pblica of functional-complexes {
+    carga_horria: undefined  
+    cdigo: undefined  
+    nome: undefined  
+}
+
+subkind Cargo_Efetivo of functional-complexes  specializes Posio_Pblica_Concursada, Cargo_Pblico 
+
+subkind Cargo_Comissionado_de_Assistncia_CAS of functional-complexes  specializes Cargo_em_Comisso 
+
+kind Cargo_Pblico specializes Posio_Pblica 
+
+subkind Cargo_em_Comisso of functional-complexes  specializes Cargo_Pblico 
+
+role Ato_Normativo_Definidor_de_Posio_Pblica of functional-complexes  specializes Ato_Normativo 
+
+kind Posio_Pblica_de_Nvel_Mdio specializes Posio_Pblica 
+
+subkind Cargo_Comissionado_de_Gerncia_Executiva_CGE of functional-complexes  specializes Cargo_em_Comisso 
+
+subkind Cargo_Comissionado_Tcnico_CCT of functional-complexes  specializes Cargo_em_Comisso 
+
+relator Alocao_de_Vaga{
+    vagas: undefined  
+}
+
+kind Padro{
+    nome: undefined  
+}
+
+
+
+
+
+

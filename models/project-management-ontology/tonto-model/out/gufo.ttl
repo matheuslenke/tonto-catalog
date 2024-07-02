@@ -1,0 +1,57 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Project rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Project"@en.
+:Performed_Schedule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Performed_Schedule"@en.
+:Planned_Schedule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Planned_Schedule"@en.
+:Planned_Activity rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Planned_Activity"@en.
+:Performed_Activity rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Performed_Activity"@en.
+:Activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Activity"@en.
+:Composed rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed"@en.
+:Atomic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Atomic"@en.
+:Resource_Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Resource_Allocation"@en.
+:Resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Human_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Human_Resource"@en.
+:Financial_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Financial_Resource"@en.
+:Money rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Money"@en.
+:Planned_Activity rdfs:subClassOf :Activity.
+:Performed_Activity rdfs:subClassOf :Activity.
+:Atomic rdfs:subClassOf :Activity.
+:Composed rdfs:subClassOf :Activity.
+:Financial_Resource rdfs:subClassOf :Resource.
+:Human_Resource rdfs:subClassOf :Resource.
+:Planned_Activity rdfs:subClassOf :Activity.
+:Performed_Activity rdfs:subClassOf :Activity.
+:Composed rdfs:subClassOf :Activity.
+:Atomic rdfs:subClassOf :Activity.
+:Human_Resource rdfs:subClassOf :Resource, :Person.
+:Financial_Resource rdfs:subClassOf :Resource, :Money.

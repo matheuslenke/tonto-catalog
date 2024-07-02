@@ -1,0 +1,15 @@
+
+package Produto
+
+category Produto of functional-complexes  specializes Item, Veculo, Produto_Dutovirio, Carga_em_Transporte, Produto_Perigoso, Produto_Comum {
+    classificao: undefined  
+}
+
+roleMixin Produtor of functional-complexes 
+
+relator Produo
+
+
+
+
+

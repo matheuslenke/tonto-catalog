@@ -1,0 +1,93 @@
+import Georreferenciamento
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Ativo_Ferrovirio
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+import Infraestrutura_Rodoviria
+import Trecho_de_Concesso
+import Compra
+import Produto
+import Servio
+import Imvel
+import Pessoa_Jurdica
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Veculo_Ferrovirio
+import Movimentao_de_Ativo_Ferrovirio
+import Acidente_Ferrovirio
+import Infraestrutura_Ferroviria
+
+package Infraestrutura_Ferroviria
+
+kind Passagem_em_Nvel specializes Obra_de_Arte_Especial_Ferroviria 
+
+kind Deslocador_de_Trilho specializes Equipamento_de_Via_Permanente 
+
+kind Viadutos specializes Obra_de_Arte_Especial_Ferroviria 
+
+role Faixa_de_Domnio_Ferroviria_em_Manuteno specializes Faixa_de_Domnio_Ferroviria 
+
+kind Caminho_de_Linha specializes Equipamento_de_Via_Permanente 
+
+category Conteno_de_Talude of functional-complexes  specializes Obra_de_Arte_Especial_Ferroviria 
+
+kind Aterro specializes Obra_de_Terraplanagem 
+
+roleMixin Equipamento_de_Via_Permanente_Usado_em_Manuteno of functional-complexes  specializes Equipamento_de_Via_Permanente 
+
+kind Tnel specializes Obra_de_Arte_Especial_Ferroviria 
+
+kind Reguladora specializes Equipamento_de_Via_Permanente 
+
+roleMixin Equipamento_de_Via_Permanente_Usado_em_Construo of functional-complexes  specializes Equipamento_de_Via_Permanente 
+
+kind Desguarnecedora_de_Lastro specializes Equipamento_de_Via_Permanente 
+
+kind Perfurador_de_Dormente specializes Equipamento_de_Via_Permanente 
+
+role Faixa_de_Domnio_Ferroviria_em_Construo specializes Faixa_de_Domnio_Ferroviria 
+
+category Obra_de_Arte_Especial_Ferroviria of functional-complexes  specializes Infraestrutura_Ferroviria, Obra_de_Arte_Ferroviria 
+
+kind Carreta_de_Solda specializes Equipamento_de_Via_Permanente 
+
+kind Mquina_de_Clipagem specializes Equipamento_de_Via_Permanente 
+
+kind Socadora specializes Equipamento_de_Via_Permanente 
+
+kind Guindaste_de_Prtico specializes Equipamento_de_Via_Permanente 
+
+category Obra_de_Terraplanagem of functional-complexes  specializes Infraestrutura_Ferroviria 
+
+relator Manuteno_de_Faixa_de_Domnio
+
+kind Esmerilhador specializes Equipamento_de_Via_Permanente 
+
+kind Seo_Mista specializes Obra_de_Terraplanagem 
+
+kind Perfurador_de_Trilho specializes Equipamento_de_Via_Permanente 
+
+kind Parafusador specializes Equipamento_de_Via_Permanente 
+
+kind Renovadora_de_Linha specializes Equipamento_de_Via_Permanente 
+
+kind Caminho_Auto_Torre specializes Equipamento_de_Via_Permanente 
+
+category Infraestrutura_Ferroviria of functional-complexes 
+
+category Equipamento_de_Via_Permanente of functional-complexes  specializes Material_Rodante 
+
+kind Travessia specializes Obra_de_Arte_Especial_Ferroviria 
+
+kind Corte specializes Obra_de_Terraplanagem 
+
+kind Fresadora_de_Trilhos specializes Equipamento_de_Via_Permanente 
+
+relator Construo_de_Faixa_de_Domnio_Ferroviria
+
+
+
+
+
+

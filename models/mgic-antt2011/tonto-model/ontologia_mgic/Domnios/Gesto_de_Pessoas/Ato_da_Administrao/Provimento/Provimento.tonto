@@ -1,0 +1,76 @@
+
+package Provimento
+
+role Avaliador
+
+role Nomeado_para_Cargo_Efetivo
+
+role Servidor_Reintegrado
+
+relator Nomeao specializes Provimento_Originrio {
+    data: undefined  
+    prazo: undefined  
+}
+
+relator Promoo specializes Provimento_Derivado 
+
+relator Reconduo specializes Provimento_Derivado 
+
+role Cargo_em_Comisso_em_Provimento of functional-complexes  specializes Cargo_Efetivo, Cargo_em_Provimento 
+
+role Cargo_em_Provimento of functional-complexes  specializes Cargo_Pblico 
+
+role Nomeado_para_Cargo_em_Comisso
+
+relator Provimento_Derivado specializes Provimento 
+
+relator Provimento
+
+role Servidor_Reconduzido
+
+role Servidor_Revertido
+
+mode Ficha_de_Avaliao_de_Desempenho_Individual
+
+relator Avaliao_de_Desempenho{
+    data: undefined  
+}
+
+role Cargo_Efetivo_em_Provimento of functional-complexes  specializes Cargo_em_Comisso, Cargo_em_Provimento 
+
+role Servidor_Promovido
+
+relator Aproveitamento specializes Provimento_Derivado 
+
+relator Nomeao_para_Cargo_Comissionado specializes Nomeao 
+
+role Servidor_Avaliado
+
+relator Provimento_Originrio specializes Provimento 
+
+relator Reverso specializes Provimento_Derivado 
+
+role Servidor_Readaptado
+
+relator Reintegrao specializes Provimento_Derivado 
+
+role Servidor_Aproveitado
+
+relator Nomeao_para_Cargo_Efetivo specializes Nomeao 
+
+relator Readaptao specializes Provimento_Derivado 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

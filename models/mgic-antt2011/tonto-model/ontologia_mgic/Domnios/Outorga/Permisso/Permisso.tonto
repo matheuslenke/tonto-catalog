@@ -1,0 +1,74 @@
+import Outorga
+import Contratos_e_Convnios
+import Contrato_Operacional_Especfico
+import Pessoa_Jurdica
+import Scios
+import Tipo_de_Veculo
+import Espcie_e_Categoria
+import Cesso_de_Bem
+import Compra
+import Agente_Administrativo
+import Obrigao_Financeira
+import Designao
+import Provimento
+import Contratao_via_Termo_de_Cooperao
+import Estgio
+import Fretamento_Contnuo
+import Tipo_de_Autorizao_de_Viagem
+import Certificado_de_Registro_para_Fretamento
+import Autorizao
+import Autuao
+import Complementares
+import Servio_em_Concesso
+import Fiscalizaes_Especficas
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Arrendamento
+import Convnio_de_Aquisio__Cotao
+import Convnio_de_Aquisio__Solicitao
+import Revista_da_ANTT
+import Pagamento
+import GRU
+import Transporte_Dutovirio_de_Cargas
+import Operador_de_Transporte_Multimodal
+import Operador_Ferrovirio_Independente
+import Pagamento_Eletrnico_de_Frete
+import Gerao_de_CIOT
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+import Permisso_por_Licitao
+import Conhecimento_de_Transporte
+import Penso
+import Anistia
+import Contratao_via_Banco_Mundial
+import Receita_Rodoviria_Extraordinria
+import Tarifa_Bsica_de_Pedgio
+import Imposto
+import Sociedade_Empresria
+import Receita
+import Concesso_Rodoviria
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Tipos_de_Fretamento
+import Permisso
+import Reajuste_e_Reviso_Tarifria_Rodoviria
+import Leilo_de_Licitao
+
+package Permisso
+
+subkind Contrato_de_Permisso of functional-complexes  specializes Contrato_de_Outorga 
+
+role Permissionria of functional-complexes  specializes Sociedade_de_Propsito_Especfico, Outorgado_Contigencialmente 
+
+relator Outorga_de_Permisso specializes Outorga_com_Licitao 
+
+role Linha_de_nibus_Permissionada of functional-complexes  specializes Linha_de_nibus_Outorgada 
+
+
+
+
+
+
+

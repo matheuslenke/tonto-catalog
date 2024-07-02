@@ -1,0 +1,16 @@
+
+package Estabelecimento
+
+relator Registro_de_Estabelecimento
+
+role Matriz of functional-complexes  specializes Pessoa_Jurdica {
+    denominao: undefined  
+}
+
+roleMixin Estabelecimento of functional-complexes  specializes Imvel 
+
+role Filial of functional-complexes  specializes Pessoa_Jurdica 
+
+
+
+

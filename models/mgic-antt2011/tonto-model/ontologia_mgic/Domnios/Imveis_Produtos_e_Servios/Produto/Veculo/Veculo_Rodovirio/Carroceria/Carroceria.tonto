@@ -1,0 +1,87 @@
+
+package Carroceria
+
+subkind Carroceria_Rollon_Rolloff of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Kit_Motocicleta of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Dolly of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Basculante of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Conversivel of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_para_Transporte_de_Trabalhadores of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Motor_Casa of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Trailer of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Side_Car of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Furgo of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Ambulncia of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Bombeiro of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Jipe of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Chassi_Porta_Conteiner of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Cabine_Estendida of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Prancha of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_para_Transporte_de_Toras of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Silo of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Prancha_Porta_Conteiner of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Tanque of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Blindada of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_de_Cabine_Dupla of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Aberta
+
+subkind Carroceria_Conteiner_Cabine
+
+subkind Carroceria_Trio_Eltrico of functional-complexes  specializes Carroceria 
+
+role Carroceria_Convertida_para_Carroceria_Aberta of functional-complexes  specializes Carroceria_Aberta, Carroceria_Prancha_Porta_Conteiner 
+
+subkind Carroceria_Mecanismo_Operacional of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Funeral of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Limusine of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Comrcio of functional-complexes  specializes Carroceria 
+
+kind Carroceria specializes Carroceria_SideCar, Carroceria_Chassi_Conteiner, Carroceria_Conteiner_Cabine {
+    peso: undefined  
+}
+
+subkind Carroceria_para_Transporte_de_Presos of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Fechada of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_para_Transporte_Militar of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Intercambivel of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_para_Transporte_Recreativo of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_Aberta_Original of functional-complexes  specializes Carroceria, Carroceria_Aberta 
+
+subkind Carroceria_Chassi_Conteiner
+
+subkind Carroceria_para_Transporte_de_Granito of functional-complexes  specializes Carroceria 
+
+subkind Carroceria_SideCar
+
+subkind Carroceria_Buggy of functional-complexes  specializes Carroceria 
+

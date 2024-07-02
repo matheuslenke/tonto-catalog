@@ -1,0 +1,99 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Capability rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Capability"@en.
+:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object"@en.
+:Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Social_Agent"@en.
+:Physical_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Physical_Agent"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Personal_Competence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Personal_Competence"@en.
+:Competence_Context rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Competence_Context"@en.
+:Task rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Task"@en.
+:Competence_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Competence_Type"@en.
+:Skill rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Skill"@en.
+:Attitude rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Attitude"@en.
+:Knowledge rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Knowledge"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Competence_Outcome rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Competence_Outcome"@en.
+:Capabilityrequiring_Role rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Capabilityrequiring_Role"@en.
+:Human_Capability_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Human_Capability_Type"@en.
+:Skill_Type rdf:type owl:NamedIndividual;
+    rdfs:label "Skill_Type"@en.
+:Human_Aspect_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Human_Aspect_Type"@en.
+:Human_Aspect_Phase rdf:type owl:NamedIndividual;
+    rdfs:label "Human_Aspect_Phase"@en.
+:Human_Capability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Human_Capability"@en.
+:Human_Aspect rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Human_Aspect"@en.
+:Human_Characteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Human_Characteristic"@en.
+:Task_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Task_Type"@en.
+:Artifact_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Artifact_Type"@en.
+:Social_Capability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Social_Capability"@en.
+:Disposition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Disposition"@en.
+:Capability_Context rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Capability_Context"@en.
+:Capability_Manifestation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Capability_Manifestation"@en.
+:Capability_Outcome rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Capability_Outcome"@en.
+:Personal_Competence rdfs:subClassOf :Human_Capability.
+:Competence_Type rdfs:subClassOf :Human_Capability_Type.
+:Skill rdfs:subClassOf :Human_Capability.
+:Attitude rdfs:subClassOf :Human_Aspect.
+:Knowledge rdfs:subClassOf :Human_Aspect.
+:Human_Capability_Type rdfs:subClassOf :Human_Aspect_Type.
+:Skill_Type rdfs:subClassOf :Human_Capability_Type.
+:Human_Aspect_Phase rdfs:subClassOf :Human_Aspect_Type.
+:Human_Capability rdfs:subClassOf :Human_Aspect.
+:Human_Characteristic rdfs:subClassOf :Human_Aspect.

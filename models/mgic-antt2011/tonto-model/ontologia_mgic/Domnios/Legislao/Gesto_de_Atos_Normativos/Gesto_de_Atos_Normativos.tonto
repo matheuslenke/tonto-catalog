@@ -1,0 +1,32 @@
+import Geral
+import Atos_e_Artigos
+import Agrupamento_e_Composio
+import Gesto_de_Atos_Normativos
+
+package Gesto_de_Atos_Normativos
+
+roleMixin Elemento_Includo of functional-complexes  specializes Elemento_Modificado, Elemento_Componente_de_Ato_Normativo 
+
+relator Entrada_em_Vigncia_de_Alterao
+
+subkind Artigo_de_Alterao of functional-complexes  specializes Artigo 
+
+roleMixin Elemento_Alterado of functional-complexes  specializes Elemento_Componente_de_Ato_Normativo, Elemento_Modificado 
+
+subkind Artigo_de_Incluso of functional-complexes  specializes Artigo 
+
+roleMixin Elemento_Revogado of functional-complexes  specializes Elemento_Modificado 
+
+relator Entrada_em_Vigncia_de_Revogao
+
+relator Entrada_em_Vigncia_de_Incluso
+
+
+
+
+
+
+
+
+
+

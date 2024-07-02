@@ -1,0 +1,41 @@
+
+package Elemento_de_Sinalizao_Ferroviria
+
+kind Intertravamento specializes Elemento_de_Sinalizao_Ferroviria 
+
+subkind Circuito_de_Via_de_Corrente_Alternada of functional-complexes  specializes Circuito_de_Via 
+
+subkind Semforo_de_Cabine of functional-complexes  specializes Semforo_Ferrovirio 
+
+kind Campainha specializes Sinalizao_Ativa 
+
+kind Cancela specializes Sinalizao_Ativa 
+
+subkind Semforo_Externo of functional-complexes  specializes Semforo_Ferrovirio 
+
+kind Circuito_de_Via specializes Elemento_de_Sinalizao_Ferroviria 
+
+category Sinalizao_Ativa of functional-complexes  specializes Elemento_de_Sinalizao_Ferroviria 
+
+subkind Circuito_de_Via_Codificado of functional-complexes  specializes Circuito_de_Via 
+
+category Sinalizao_Passiva of functional-complexes  specializes Elemento_de_Sinalizao_Ferroviria 
+
+kind Semforo_Ferrovirio specializes Sinalizao_Ativa 
+
+subkind Circuito_de_Via_de_AudioFrequncia of functional-complexes  specializes Circuito_de_Via 
+
+subkind Circuito_de_Via_de_Corrente_Contnua of functional-complexes  specializes Circuito_de_Via 
+
+subkind Placa_de_Indicao of functional-complexes  specializes Placa_de_Sinalizao_Ferroviria_ 
+
+category Elemento_de_Sinalizao_Ferroviria of functional-complexes 
+
+kind Placa_de_Sinalizao_Ferroviria_ specializes Sinalizao_Ativa 
+
+subkind Placa_de_Regulamentao of functional-complexes  specializes Placa_de_Sinalizao_Ferroviria_ 
+
+subkind Placa_de_Advertncia of functional-complexes  specializes Placa_de_Sinalizao_Ferroviria_ 
+
+kind Tranponder specializes Elemento_de_Sinalizao_Ferroviria 
+

@@ -1,0 +1,335 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Social_Relator rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Social_Relator"@en.
+:Committer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Committer"@en.
+:Claimer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Claimer"@en.
+:A rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "A"@en.
+:B rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "B"@en.
+:Social_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Social_Commitment"@en.
+:Social_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Social_Claim"@en.
+:Time_Point rdf:type owl:NamedIndividual;
+    rdfs:label "Time_Point"@en.
+:Time_Interval rdf:type owl:NamedIndividual;
+    rdfs:label "Time_Interval"@en.
+:Temporal_Structure rdf:type owl:NamedIndividual;
+    rdfs:label "Temporal_Structure"@en.
+:Thing rdf:type owl:NamedIndividual;
+    rdfs:label "Thing"@en.
+:Urelement rdf:type owl:NamedIndividual;
+    rdfs:label "Urelement"@en.
+:Set rdf:type owl:NamedIndividual;
+    rdfs:label "Set"@en.
+:ServiceOffer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ServiceOffer"@en.
+:ServiceOffering rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ServiceOffering"@en.
+:ServiceOfferingClaim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ServiceOfferingClaim"@en.
+:ServiceOfferingCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ServiceOfferingCommitment"@en.
+:ServiceOfferingDescription rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ServiceOfferingDescription"@en.
+:ServiceProvider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ServiceProvider"@en.
+:TargetCustomer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "TargetCustomer"@en.
+:TargetCustomerCommunity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "TargetCustomerCommunity"@en.
+:ClaimedHiredProvider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "ClaimedHiredProvider"@en.
+:CommittedServiceCustomer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "CommittedServiceCustomer"@en.
+:HiredProviderClaim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "HiredProviderClaim"@en.
+:HiredProviderCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "HiredProviderCommitment"@en.
+:HiredServiceProvider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "HiredServiceProvider"@en.
+:ServiceAgreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ServiceAgreement"@en.
+:ServiceAgreementDescription rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ServiceAgreementDescription"@en.
+:ServiceCustomer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "ServiceCustomer"@en.
+:ServiceCustomerClaim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ServiceCustomerClaim"@en.
+:ServiceCustomerCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ServiceCustomerCommitment"@en.
+:ServiceNegotiation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ServiceNegotiation"@en.
+:ServiceProviderOnNegotiation rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "ServiceProviderOnNegotiation"@en.
+:SpecializedServiceAgreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SpecializedServiceAgreement"@en.
+:TargetCustomerOnNegotiation rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "TargetCustomerOnNegotiation"@en.
+:HiredProviderAction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HiredProviderAction"@en.
+:HiredProvider_ServiceCustomer_Interaction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HiredProvider_ServiceCustomer_Interaction"@en.
+:ServiceCustomerAction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ServiceCustomerAction"@en.
+:ServiceDelivery rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ServiceDelivery"@en.
+:Interaction rdf:type owl:NamedIndividual;
+    rdfs:label "Interaction"@en.
+:Atomic_Action rdf:type owl:NamedIndividual;
+    rdfs:label "Atomic_Action"@en.
+:Communicative_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Communicative_Act"@en.
+:Action_Contribution rdf:type owl:NamedIndividual;
+    rdfs:label "Action_Contribution"@en.
+:Social_Relator_1 rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Relator"@en.
+:Intentional_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Intentional_Moment"@en.
+:Externally_Dependent_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Externally_Dependent_Moment"@en.
+:Mental_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Mental_Moment"@en.
+:Social_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Moment"@en.
+:Commitment rdf:type owl:NamedIndividual;
+    rdfs:label "Commitment"@en.
+:Claim rdf:type owl:NamedIndividual;
+    rdfs:label "Claim"@en.
+:Belief rdf:type owl:NamedIndividual;
+    rdfs:label "Belief"@en.
+:Desire rdf:type owl:NamedIndividual;
+    rdfs:label "Desire"@en.
+:Intention rdf:type owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Prpositon rdf:type owl:NamedIndividual;
+    rdfs:label "Prpositon"@en.
+:Goal rdf:type owl:NamedIndividual;
+    rdfs:label "Goal"@en.
+:Open_Commitment rdf:type owl:NamedIndividual;
+    rdfs:label "Open_Commitment"@en.
+:Closed_Commitment rdf:type owl:NamedIndividual;
+    rdfs:label "Closed_Commitment"@en.
+:Pending rdf:type owl:NamedIndividual;
+    rdfs:label "Pending"@en.
+:Dimissed rdf:type owl:NamedIndividual;
+    rdfs:label "Dimissed"@en.
+:Broken rdf:type owl:NamedIndividual;
+    rdfs:label "Broken"@en.
+:Agent rdf:type owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:Social_Agent rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Agent"@en.
+:Social_Object rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Object"@en.
+:Normative_Description rdf:type owl:NamedIndividual;
+    rdfs:label "Normative_Description"@en.
+:Action rdf:type owl:NamedIndividual;
+    rdfs:label "Action"@en.
+:Complex_Action rdf:type owl:NamedIndividual;
+    rdfs:label "Complex_Action"@en.
+:Action_Universal_Plan rdf:type owl:NamedIndividual;
+    rdfs:label "Action_Universal_Plan"@en.
+:Event_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Event_Universal"@en.
+:Disposition rdf:type owl:NamedIndividual;
+    rdfs:label "Disposition"@en.
+:Time_Interval_Relation rdf:type owl:NamedIndividual;
+    rdfs:label "Time_Interval_Relation"@en.
+:Event rdf:type owl:NamedIndividual;
+    rdfs:label "Event"@en.
+:Atomic_Event rdf:type owl:NamedIndividual;
+    rdfs:label "Atomic_Event"@en.
+:Complex_Event rdf:type owl:NamedIndividual;
+    rdfs:label "Complex_Event"@en.
+:Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Participation"@en.
+:Situation rdf:type owl:NamedIndividual;
+    rdfs:label "Situation"@en.
+:Fact rdf:type owl:NamedIndividual;
+    rdfs:label "Fact"@en.
+:Before rdf:type owl:NamedIndividual;
+    rdfs:label "Before"@en.
+:Meets rdf:type owl:NamedIndividual;
+    rdfs:label "Meets"@en.
+:Overlaps rdf:type owl:NamedIndividual;
+    rdfs:label "Overlaps"@en.
+:Starts rdf:type owl:NamedIndividual;
+    rdfs:label "Starts"@en.
+:During rdf:type owl:NamedIndividual;
+    rdfs:label "During"@en.
+:Equals rdf:type owl:NamedIndividual;
+    rdfs:label "Equals"@en.
+:Quality rdf:type owl:NamedIndividual;
+    rdfs:label "Quality"@en.
+:Mode rdf:type owl:NamedIndividual;
+    rdfs:label "Mode"@en.
+:Qua_Individual rdf:type owl:NamedIndividual;
+    rdfs:label "Qua_Individual"@en.
+:Individual rdf:type owl:NamedIndividual;
+    rdfs:label "Individual"@en.
+:Endurant rdf:type owl:NamedIndividual;
+    rdfs:label "Endurant"@en.
+:Substantial rdf:type owl:NamedIndividual;
+    rdfs:label "Substantial"@en.
+:Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Moment"@en.
+:Intrinsic_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Intrinsic_Moment"@en.
+:Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Relator"@en.
+:Substantial_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Substantial_Moment"@en.
+:Object rdf:type owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Amount_of_Matter rdf:type owl:NamedIndividual;
+    rdfs:label "Amount_of_Matter"@en.
+:Quantity rdf:type owl:NamedIndividual;
+    rdfs:label "Quantity"@en.
+:Relation rdf:type owl:NamedIndividual;
+    rdfs:label "Relation"@en.
+:Formal_Relation rdf:type owl:NamedIndividual;
+    rdfs:label "Formal_Relation"@en.
+:Material_Relation rdf:type owl:NamedIndividual;
+    rdfs:label "Material_Relation"@en.
+:Sortal_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Sortal_Universal"@en.
+:Mixin_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Mixin_Universal"@en.
+:Rigid_Sortal rdf:type owl:NamedIndividual;
+    rdfs:label "Rigid_Sortal"@en.
+:AntiRigid_Sortal rdf:type owl:NamedIndividual;
+    rdfs:label "AntiRigid_Sortal"@en.
+:Substance_Sortal rdf:type owl:NamedIndividual;
+    rdfs:label "Substance_Sortal"@en.
+:Subkind rdf:type owl:NamedIndividual;
+    rdfs:label "Subkind"@en.
+:Kind rdf:type owl:NamedIndividual;
+    rdfs:label "Kind"@en.
+:Quantity_1 rdf:type owl:NamedIndividual;
+    rdfs:label "Quantity"@en.
+:Collective rdf:type owl:NamedIndividual;
+    rdfs:label "Collective"@en.
+:Phase rdf:type owl:NamedIndividual;
+    rdfs:label "Phase"@en.
+:Role rdf:type owl:NamedIndividual;
+    rdfs:label "Role"@en.
+:Rigid_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "Rigid_Mixin"@en.
+:Category rdf:type owl:NamedIndividual;
+    rdfs:label "Category"@en.
+:NonRigid_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "NonRigid_Mixin"@en.
+:AntiRigid_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "AntiRigid_Mixin"@en.
+:SemiRigid_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "SemiRigid_Mixin"@en.
+:Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "Mixin"@en.
+:Role_Mixin rdf:type owl:NamedIndividual;
+    rdfs:label "Role_Mixin"@en.
+:Intrinsic_Moment_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Intrinsic_Moment_Universal"@en.
+:Relator_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Relator_Universal"@en.
+:Quality_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Quality_Universal"@en.
+:Mode_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Mode_Universal"@en.
+:Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Universal"@en.
+:Endurant_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Endurant_Universal"@en.
+:Substantial_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Substantial_Universal"@en.
+:Moment_Universal rdf:type owl:NamedIndividual;
+    rdfs:label "Moment_Universal"@en.
+:Committer rdfs:subClassOf :A.
+:Claimer rdfs:subClassOf :B.
+:Time_Interval rdfs:subClassOf :Temporal_Structure.
+:Urelement rdfs:subClassOf :Thing.
+:Set rdfs:subClassOf :Thing.
+:ClaimedHiredProvider rdfs:subClassOf :HiredServiceProvider.
+:CommittedServiceCustomer rdfs:subClassOf :ServiceCustomer.
+:HiredServiceProvider rdfs:subClassOf :ServiceProviderOnNegotiation.
+:ServiceCustomer rdfs:subClassOf :TargetCustomerOnNegotiation.
+:ServiceProviderOnNegotiation rdfs:subClassOf :ServiceProvider.
+:SpecializedServiceAgreement rdfs:subClassOf :ServiceAgreement.
+:TargetCustomerOnNegotiation rdfs:subClassOf :TargetCustomer.
+:Quality rdfs:subClassOf :Relator.
+:Mode rdfs:subClassOf :Relator.
+:Qua_Individual rdfs:subClassOf :Mode.
+:Individual rdfs:subClassOf :Urelement.
+:Endurant rdfs:subClassOf :Individual.
+:Substantial rdfs:subClassOf :Endurant.
+:Moment rdfs:subClassOf :Endurant.
+:Intrinsic_Moment rdfs:subClassOf :Moment.
+:Relator rdfs:subClassOf :Moment.
+:Substantial_Moment rdfs:subClassOf :Moment.
+:Object rdfs:subClassOf :Substantial.
+:Amount_of_Matter rdfs:subClassOf :Substantial.
+:Quantity rdfs:subClassOf :Object.
+:Relation rdfs:subClassOf :Universal.
+:Formal_Relation rdfs:subClassOf :Relation.
+:Material_Relation rdfs:subClassOf :Relation.
+:Sortal_Universal rdfs:subClassOf :Substantial_Universal.
+:Mixin_Universal rdfs:subClassOf :Substantial_Universal.
+:Rigid_Sortal rdfs:subClassOf :Sortal_Universal.
+:AntiRigid_Sortal rdfs:subClassOf :Sortal_Universal.
+:Substance_Sortal rdfs:subClassOf :Rigid_Sortal.
+:Subkind rdfs:subClassOf :Rigid_Sortal.
+:Kind rdfs:subClassOf :Substance_Sortal.
+:Quantity_1 rdfs:subClassOf :Substance_Sortal.
+:Collective rdfs:subClassOf :Substance_Sortal.
+:Phase rdfs:subClassOf :AntiRigid_Sortal.
+:Role rdfs:subClassOf :AntiRigid_Sortal.
+:Rigid_Mixin rdfs:subClassOf :Mixin_Universal.
+:Category rdfs:subClassOf :Rigid_Mixin.
+:NonRigid_Mixin rdfs:subClassOf :Mixin_Universal.
+:AntiRigid_Mixin rdfs:subClassOf :NonRigid_Mixin.
+:SemiRigid_Mixin rdfs:subClassOf :NonRigid_Mixin.
+:Mixin rdfs:subClassOf :SemiRigid_Mixin.
+:Role_Mixin rdfs:subClassOf :AntiRigid_Mixin.
+:Intrinsic_Moment_Universal rdfs:subClassOf :Moment_Universal.
+:Relator_Universal rdfs:subClassOf :Moment_Universal.
+:Quality_Universal rdfs:subClassOf :Intrinsic_Moment_Universal.
+:Mode_Universal rdfs:subClassOf :Intrinsic_Moment_Universal.
+:Universal rdfs:subClassOf :Urelement.
+:Endurant_Universal rdfs:subClassOf :Universal.
+:Substantial_Universal rdfs:subClassOf :Endurant_Universal.
+:Moment_Universal rdfs:subClassOf :Endurant_Universal.

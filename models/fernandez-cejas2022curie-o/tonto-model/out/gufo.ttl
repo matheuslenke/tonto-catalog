@@ -1,0 +1,110 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:BuyerPersona rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BuyerPersona"@en.
+:CustomerRelationshipActivity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "CustomerRelationshipActivity"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:CustomerJourneyActivity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "CustomerJourneyActivity"@en.
+:Analytic rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Analytic"@en.
+:Strategy rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Strategy"@en.
+:InformationElement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "InformationElement"@en.
+:CustomerJourneyExperience rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "CustomerJourneyExperience"@en.
+:Channel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Channel"@en.
+:ValueProposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ValueProposition"@en.
+:Market rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Market"@en.
+:Awareness rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Awareness"@en.
+:Consideration rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Consideration"@en.
+:Decision rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Decision"@en.
+:Consumption rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Consumption"@en.
+:Faithful rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Faithful"@en.
+:Advocacy rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Advocacy"@en.
+:CustomerRelationshipStatus rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "CustomerRelationshipStatus"@en.
+:Lead rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Lead"@en.
+:Prospect rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Prospect"@en.
+:Customer rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Customer"@en.
+:Loyal rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Loyal"@en.
+:Stranger rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Stranger"@en.
+:Promoter rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Promoter"@en.
+:Attract rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Attract"@en.
+:Engage rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Engage"@en.
+:Delight rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Delight"@en.
+:DigitalChannel rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DigitalChannel"@en.
+:PhysicalChannel rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PhysicalChannel"@en.
+:Lead rdfs:subClassOf :CustomerRelationshipStatus.
+:Promoter rdfs:subClassOf :CustomerRelationshipStatus.
+:Customer rdfs:subClassOf :CustomerRelationshipStatus.
+:Loyal rdfs:subClassOf :CustomerRelationshipStatus.
+:Stranger rdfs:subClassOf :CustomerRelationshipStatus.
+:Prospect rdfs:subClassOf :CustomerRelationshipStatus.
+:Consideration rdfs:subClassOf :BuyerPersona.
+:Advocacy rdfs:subClassOf :BuyerPersona.
+:Decision rdfs:subClassOf :BuyerPersona.
+:Consumption rdfs:subClassOf :BuyerPersona.
+:Faithful rdfs:subClassOf :BuyerPersona.
+:Awareness rdfs:subClassOf :BuyerPersona.
+:DigitalChannel rdfs:subClassOf :Channel.
+:PhysicalChannel rdfs:subClassOf :Channel.
+:Awareness rdfs:subClassOf :BuyerPersona.
+:Consideration rdfs:subClassOf :BuyerPersona.
+:Decision rdfs:subClassOf :BuyerPersona.
+:Consumption rdfs:subClassOf :BuyerPersona.
+:Faithful rdfs:subClassOf :BuyerPersona.
+:Advocacy rdfs:subClassOf :BuyerPersona.
+:Lead rdfs:subClassOf :CustomerRelationshipStatus.
+:Prospect rdfs:subClassOf :CustomerRelationshipStatus.
+:Customer rdfs:subClassOf :CustomerRelationshipStatus.
+:Loyal rdfs:subClassOf :CustomerRelationshipStatus.
+:Stranger rdfs:subClassOf :CustomerRelationshipStatus.
+:Promoter rdfs:subClassOf :CustomerRelationshipStatus.
+:DigitalChannel rdfs:subClassOf :Channel.
+:PhysicalChannel rdfs:subClassOf :Channel.

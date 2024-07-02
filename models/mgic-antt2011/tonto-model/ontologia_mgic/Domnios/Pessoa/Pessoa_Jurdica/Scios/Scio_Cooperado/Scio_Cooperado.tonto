@@ -1,0 +1,13 @@
+
+package Scio_Cooperado
+
+kind Livro_de_Matrcula
+
+relator Matrcula_na_Sociedade_Cooperativa{
+    admisso: undefined  
+    demisso: undefined  
+}
+
+
+
+

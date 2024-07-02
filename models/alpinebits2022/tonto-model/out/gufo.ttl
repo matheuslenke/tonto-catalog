@@ -1,0 +1,63 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Event_Plan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Event_Plan"@en.
+:Cancelled rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Cancelled"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Organizer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Organizer"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Sponsor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Sponsor"@en.
+:Composite_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composite_Event"@en.
+:Simple_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Event"@en.
+:Contributor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Contributor"@en.
+:Publisher rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Publisher"@en.
+:Geospatial_Feature rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Geospatial_Feature"@en.
+:Image_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Image_Object"@en.
+:Cancelled rdfs:subClassOf :Event_Plan.
+:Organizer rdfs:subClassOf :Agent.
+:Person rdfs:subClassOf :Agent.
+:Organization rdfs:subClassOf :Agent.
+:Sponsor rdfs:subClassOf :Agent.
+:Composite_Event rdfs:subClassOf :Event_Plan.
+:Simple_Event rdfs:subClassOf :Event_Plan.
+:Contributor rdfs:subClassOf :Agent.
+:Publisher rdfs:subClassOf :Agent.
+:participation_url rdfs:domain :Event_Plan;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "participation_url"@en.
+:registration_url rdfs:domain :Event_Plan;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "registration_url"@en.
+:recorded rdfs:domain :Event_Plan;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "recorded"@en.

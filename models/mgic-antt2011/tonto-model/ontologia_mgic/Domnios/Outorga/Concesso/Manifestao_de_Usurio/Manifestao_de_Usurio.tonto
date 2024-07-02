@@ -1,0 +1,41 @@
+
+package Manifestao_de_Usurio
+
+mode Assunto_da_Manifestao{
+    assunto: undefined  
+}
+
+roleMixin Forma_de_Contato_de_Resposta of functional-complexes 
+
+relator Ressarcimento specializes Solicitao 
+
+mode Resposta{
+    data: undefined  
+    Descrio: undefined  
+}
+
+relator Manifestao_Com_Localizao specializes Manifestao_de_Usurio_ {
+    localizao: undefined  
+}
+
+relator Reclamao specializes Manifestao_de_Usurio_ 
+
+roleMixin Forma_de_Contato_de_Origem of functional-complexes 
+
+mode Providncia_Adotada{
+    Texto: undefined  
+}
+
+relator Sugesto specializes Manifestao_de_Usurio_ 
+
+mode Resposta_Final specializes Resposta 
+
+roleMixin Manifestante of functional-complexes 
+
+relator Solicitao specializes Manifestao_de_Usurio_ 
+
+
+
+
+
+

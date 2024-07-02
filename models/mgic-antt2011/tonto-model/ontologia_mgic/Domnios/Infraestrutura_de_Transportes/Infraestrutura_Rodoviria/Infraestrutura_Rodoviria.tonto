@@ -1,0 +1,26 @@
+
+package Infraestrutura_Rodoviria
+
+category Via of functional-complexes {
+    extenso: undefined  
+}
+
+subkind Via_Fluvial of functional-complexes  specializes Via_Aqutica 
+
+category Via_Terrestre of functional-complexes  specializes Via 
+
+kind Via_de_Trfego_Rodovirio specializes Via_Terrestre 
+
+subkind Via_Martima of functional-complexes  specializes Via_Aqutica 
+
+kind Via_Aqutica specializes Via 
+
+subkind Via_Lacustre of functional-complexes  specializes Via_Aqutica 
+
+kind Via_Area specializes Via 
+
+role Via_com_Projeo_Linear specializes Via 
+
+kind Via_de_Trfego_Ferrovirio specializes Via_Terrestre 
+
+

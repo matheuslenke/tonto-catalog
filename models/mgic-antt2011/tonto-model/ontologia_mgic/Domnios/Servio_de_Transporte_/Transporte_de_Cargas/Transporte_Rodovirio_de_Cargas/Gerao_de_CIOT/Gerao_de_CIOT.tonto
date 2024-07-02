@@ -1,0 +1,16 @@
+
+package Gerao_de_CIOT
+
+relator Gerao_de_CIOT_Referente_a_Viagem specializes Gerao_de_CIOT 
+
+relator Gerao_de_CIOT{
+    CIOT: undefined  
+}
+
+roleMixin Contratante_de_Prestao_de_Servio_de_Transporte_Rodovirio_de_Cargas of functional-complexes 
+
+
+
+
+
+

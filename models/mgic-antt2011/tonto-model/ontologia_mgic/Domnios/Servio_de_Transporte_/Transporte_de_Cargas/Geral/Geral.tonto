@@ -1,0 +1,14 @@
+
+package Geral
+
+kind Termo_de_Registro_de_Ocorrncia specializes Documento_de_Advertncia 
+
+category Documento_de_Advertncia of functional-complexes  specializes Documento {
+    data_de_emisso: undefined  
+    prazo_final: undefined  
+}
+
+kind Advertncia specializes Documento_de_Advertncia 
+
+
+

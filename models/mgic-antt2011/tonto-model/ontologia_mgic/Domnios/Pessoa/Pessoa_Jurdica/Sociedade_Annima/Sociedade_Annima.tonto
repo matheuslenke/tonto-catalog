@@ -1,0 +1,19 @@
+
+package Sociedade_Annima
+
+roleMixin Acionista_Votante of functional-complexes 
+
+relator Posse_de_Ao
+
+kind Ao specializes Ao_como_Ativo, Ao_como_Garantia {
+    valor: undefined  
+}
+
+relator Estatuto_Social
+
+subkind Ao_Ordinria of functional-complexes  specializes Ao 
+
+
+
+
+

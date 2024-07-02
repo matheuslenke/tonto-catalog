@@ -1,0 +1,23 @@
+
+package Certificado_de_Registro_para_Fretamento
+
+role Agncia_Reguladora_para_CRF
+
+role Representante_Legal_da_Autorizatria
+
+role Autorizatria_Detentora_de_CRF of functional-complexes  specializes Autorizatria 
+
+role Resoluo_da_ANTT_para_CRF of functional-complexes  specializes Resoluo_da_ANTT 
+
+relator Certificado_de_Registro_para_Fretamento{
+    emisso: undefined  
+    validade: undefined  
+}
+
+
+
+
+
+
+
+

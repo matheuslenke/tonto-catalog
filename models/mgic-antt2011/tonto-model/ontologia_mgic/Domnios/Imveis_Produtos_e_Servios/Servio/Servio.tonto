@@ -1,0 +1,33 @@
+
+package Servio
+
+relator Provimento_de_Servio
+
+category Servio of functional-complexes  specializes Linha_de_nibus, Servio_em_Concesso_ 
+
+roleMixin Servio_Delegado of functional-complexes  specializes Servio, Linha_de_nibus_Outorgada, Servio_de_Manuteno_Delegado 
+
+relator Execuo_de_Servio specializes Execuo_de_Servio2, Operao_de_Transporte_Rodovirio_de_Cargas, Transporte_Rodovirio_de_Passageiros {
+    inicio: undefined  
+    trmino: undefined  
+}
+
+relator Delegao specializes Delegao_em_Convnio_de_Manuteno, Outorga_de_Permisso 
+
+roleMixin Servio_Executado of functional-complexes  specializes Servio, Servio_Executado_em_Concesso 
+
+mixin Produtor_de_Servio of functional-complexes 
+
+mixin Responsvel_por_Servio_Delegado of functional-complexes  specializes Convenente_Responsvel_por_Servio_Delegado, Permissionria 
+
+mixin Provedor_de_Servio of functional-complexes  specializes Concessionria_Provedora_de_Servio 
+
+
+
+
+
+
+
+
+
+

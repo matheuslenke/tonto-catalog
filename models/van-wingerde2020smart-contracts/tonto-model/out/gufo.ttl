@@ -1,0 +1,119 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Business_Artifact_Type rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Business_Artifact_Type"@en.
+:Business_Artifact rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Business_Artifact"@en.
+:Lifecycle_Stage rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Lifecycle_Stage"@en.
+:Data_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Object"@en.
+:State rdf:type owl:NamedIndividual;
+    rdfs:label "State"@en.
+:Process_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Process_Contract"@en.
+:Business_Rule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Business_Rule"@en.
+:Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Service rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Service"@en.
+:Human_Agent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Human_Agent"@en.
+:Artificial_Agent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Artificial_Agent"@en.
+:Goal rdf:type owl:NamedIndividual;
+    rdfs:label "Goal"@en.
+:Transaction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Transaction"@en.
+:Interorganizational_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Interorganizational_Process"@en.
+:Process_Participant rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Process_Participant"@en.
+:Initiator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Initiator"@en.
+:Executor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Executor"@en.
+:Act rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Act"@en.
+:Transaction_Phase rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Transaction_Phase"@en.
+:Fact rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Fact"@en.
+:Business_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Business_Object"@en.
+:Physical_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Physical_Object"@en.
+:Artificial_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Artificial_Object"@en.
+:Value rdf:type owl:NamedIndividual;
+    rdfs:label "Value"@en.
+:Key rdf:type owl:NamedIndividual;
+    rdfs:label "Key"@en.
+:State_Variable rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "State_Variable"@en.
+:Contract_Storage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Contract_Storage"@en.
+:Smart_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Smart_Contract"@en.
+:Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Function"@en.
+:Data_Object_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Object"@en.
+:Offchain_Storage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Offchain_Storage"@en.
+:Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event"@en.
+:Transaction_Trie rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Transaction_Trie"@en.
+:Transaction_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Transaction"@en.
+:Block rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Block"@en.
+:Payload rdf:type owl:NamedIndividual;
+    rdfs:label "Payload"@en.
+:Blockchain rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Blockchain"@en.
+:Account_Wallet rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Account_Wallet"@en.
+:External_Actor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "External_Actor"@en.
+:Business_Artifact rdfs:subClassOf :Business_Artifact_Type.
+:Human_Agent rdfs:subClassOf :Agent.
+:Artificial_Agent rdfs:subClassOf :Agent.
+:Initiator rdfs:subClassOf :Process_Participant.
+:Executor rdfs:subClassOf :Process_Participant.
+:Physical_Object rdfs:subClassOf :Business_Object.
+:Artificial_Object rdfs:subClassOf :Business_Object.

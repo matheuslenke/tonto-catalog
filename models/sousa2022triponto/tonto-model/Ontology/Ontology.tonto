@@ -81,17 +81,17 @@ subkind Airbnb_Reservation of relators  specializes Reservation
 subkind Hotel_Reservation of relators  specializes Reservation 
 
 kind Person{
-    name: string_  
+    name: string  
     age: int  
-    gender: string_  
+    gender: string  
     trip_code: int  
 }
 
 category Transportation_Mean of functional-complexes {
     id: int  
-    name: string_  
-    destination: string_  
-    origin: string_  
+    name: string  
+    destination: string  
+    origin: string  
     ticket_code: int  
 }
 
@@ -100,7 +100,7 @@ datatype Travel_Investment
 datatype Arrival_Date
 datatype Departure_Date
 datatype int
-datatype string_
+datatype string
 genset pQpNn6DAAAAQtw {
     general Person
     specifics Adult, Child

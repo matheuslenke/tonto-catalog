@@ -1,0 +1,42 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Patient rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Patient"@en.
+:Being_Supported rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Being_Supported"@en.
+:BalanceSupport rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "BalanceSupport"@en.
+:Balance_Supporter rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Balance_Supporter"@en.
+:Being_Lifted rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Being_Lifted"@en.
+:LiftUp rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "LiftUp"@en.
+:Object_Lifter rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Object_Lifter"@en.
+:Robot_Handle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Robot_Handle"@en.
+:Robot rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Robot"@en.
+:Electricity_Consumer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Electricity_Consumer"@en.
+:Electricity_Source rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Electricity_Source"@en.
+:Battery rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Battery"@en.
+:Electricity_Consumption rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Electricity_Consumption"@en.

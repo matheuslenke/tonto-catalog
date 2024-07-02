@@ -1,0 +1,125 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Educational_Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Educational_Organization"@en.
+:University rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "University"@en.
+:Institute rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Institute"@en.
+:Vocational_school rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Vocational_school"@en.
+:College rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "College"@en.
+:Study_Program rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Study_Program"@en.
+:Applicant rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Applicant"@en.
+:Employment_History rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Employment_History"@en.
+:Educational_History rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Educational_History"@en.
+:Hobbies rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Hobbies"@en.
+:Course rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Course"@en.
+:Academic_Instructor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Academic_Instructor"@en.
+:High_School_Graduate rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "High_School_Graduate"@en.
+:Masters_Graduate rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Masters_Graduate"@en.
+:Bachelor_Graduate rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Bachelor_Graduate"@en.
+:CoOp_Program rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CoOp_Program"@en.
+:Part_Time rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Part_Time"@en.
+:Online rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Online"@en.
+:Full_Time rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Full_Time"@en.
+:Machine_Learning rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:AbstractIndividual;
+    rdfs:label "Machine_Learning"@en.
+:Country rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Country"@en.
+:City rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "City"@en.
+:Faculty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Faculty"@en.
+:Local_Languages rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Local_Languages"@en.
+:Admission_Period rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Admission_Period"@en.
+:Degree_Requirement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Degree_Requirement"@en.
+:Language rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Language"@en.
+:Language_Requirement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Language_Requirement"@en.
+:Student_Club rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Student_Club"@en.
+:Application rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Application"@en.
+:Employed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Employed"@en.
+:Unemployed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Unemployed"@en.
+:In_Presence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "In_Presence"@en.
+:Hybrid rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Hybrid"@en.
+:Bachelor_Graduate rdfs:subClassOf :Applicant.
+:High_School_Graduate rdfs:subClassOf :Applicant.
+:Masters_Graduate rdfs:subClassOf :Applicant.
+:Unemployed rdfs:subClassOf :Applicant.
+:Employed rdfs:subClassOf :Applicant.
+:University rdfs:subClassOf :Educational_Organization.
+:Vocational_school rdfs:subClassOf :Educational_Organization.
+:Institute rdfs:subClassOf :Educational_Organization.
+:College rdfs:subClassOf :Educational_Organization.
+:Full_Time rdfs:subClassOf :Study_Program.
+:Part_Time rdfs:subClassOf :Study_Program.
+:Hybrid rdfs:subClassOf :Study_Program.
+:In_Presence rdfs:subClassOf :Study_Program.
+:Online rdfs:subClassOf :Study_Program.
+:University rdfs:subClassOf :Educational_Organization.
+:Institute rdfs:subClassOf :Educational_Organization.
+:Vocational_school rdfs:subClassOf :Educational_Organization.
+:College rdfs:subClassOf :Educational_Organization.
+:High_School_Graduate rdfs:subClassOf :Applicant.
+:Masters_Graduate rdfs:subClassOf :Applicant.
+:Bachelor_Graduate rdfs:subClassOf :Applicant.
+:CoOp_Program rdfs:subClassOf :Study_Program.
+:Part_Time rdfs:subClassOf :Study_Program.
+:Online rdfs:subClassOf :Study_Program.
+:Full_Time rdfs:subClassOf :Study_Program.
+:Employed rdfs:subClassOf :Applicant.
+:Unemployed rdfs:subClassOf :Applicant.
+:In_Presence rdfs:subClassOf :Study_Program.
+:Hybrid rdfs:subClassOf :Study_Program.

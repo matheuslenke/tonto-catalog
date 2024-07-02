@@ -1,0 +1,31 @@
+import Imvel
+import Pessoa_Jurdica
+import Servio
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Compra
+import Produto
+
+package Bem_Durvel
+
+roleMixin Bem_Imvel of functional-complexes  specializes Imvel 
+
+roleMixin Bem_Operacional_Comprado of functional-complexes  specializes Bem_Operacional 
+
+roleMixin Bem_Especulativo of functional-complexes  specializes Produto 
+
+roleMixin Bem_Operacional of functional-complexes  specializes Produto 
+
+roleMixin Bem_Operacional_Cedido of functional-complexes  specializes Bem_Operacional 
+
+roleMixin Bem_Operacional_Arrendado_Imobilizado of functional-complexes  specializes Bem_Operacional_Arrendado 
+
+roleMixin Bem_Operacional_Comprado_Explorado of functional-complexes  specializes Bem_Operacional_Comprado 
+
+roleMixin Bem_Operacional_Alugado of functional-complexes  specializes Bem_Operacional 
+
+roleMixin Bem_Operacional_Arrendado of functional-complexes  specializes Bem_Operacional 
+
+roleMixin Bem_Operacional_Arrendado_Explorado of functional-complexes  specializes Bem_Operacional_Arrendado 
+
+roleMixin Bem_Operacional_Comprado_Imobilizado_ of functional-complexes  specializes Bem_Operacional_Comprado 
+

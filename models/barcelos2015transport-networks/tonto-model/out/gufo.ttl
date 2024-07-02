@@ -1,0 +1,1670 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Switch_OTN rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Switch_OTN"@en.
+:Module_Switch_OTN rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Module_Switch_OTN"@en.
+:CIC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CIC"@en.
+:NIC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NIC"@en.
+:ODU_Switch rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ODU_Switch"@en.
+:WSS rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WSS"@en.
+:OIC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OIC"@en.
+:Bound_Input_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bound_Input_Interface"@en.
+:Bound_Output_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bound_Output_Interface"@en.
+:Connected_Input_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Connected_Input_Interface"@en.
+:Connected_Output_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Connected_Output_Interface"@en.
+:Equipment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Equipment"@en.
+:Equipment_Site_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Equipment_Site_Component"@en.
+:Input_Interface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Input_Interface"@en.
+:Mapped_Input_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mapped_Input_Interface"@en.
+:Mapped_Output_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mapped_Output_Interface"@en.
+:Mapped_TF_Input rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Mapped_TF_Input"@en.
+:Mapped_TF_Output rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Mapped_TF_Output"@en.
+:Multiple_Equipment_Composed_Site rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Multiple_Equipment_Composed_Site"@en.
+:Output_Interface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Output_Interface"@en.
+:Single_Equipment_Site rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Single_Equipment_Site"@en.
+:Single_Equipment_Site_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Single_Equipment_Site_Component"@en.
+:Sink_Site rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_Site"@en.
+:Site rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Site"@en.
+:Source_Site rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_Site"@en.
+:Transport_Function_Equipment_Component rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Transport_Function_Equipment_Component"@en.
+:Bound_Input_Interface_Equipment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bound_Input_Interface_Equipment"@en.
+:Bound_Output_Interface_Equipment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bound_Output_Interface_Equipment"@en.
+:Bound_Input_Interface_PM rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bound_Input_Interface_PM"@en.
+:PM_Interface_Bound_Input rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PM_Interface_Bound_Input"@en.
+:Bound_Output_Interface_PM rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bound_Output_Interface_PM"@en.
+:PM_Interface_Bound_Output rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PM_Interface_Bound_Output"@en.
+:Equipment_Composed_Site rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Equipment_Composed_Site"@en.
+:Site_Component_Equipment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Site_Component_Equipment"@en.
+:Module rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Module"@en.
+:Transport_Function_Module_Component rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Transport_Function_Module_Component"@en.
+:Module_Input_Interface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Module_Input_Interface"@en.
+:Module_Output_Interface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Module_Output_Interface"@en.
+:Module_Mapped_TF_Input rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Module_Mapped_TF_Input"@en.
+:Module_Mapped_TF_Output rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Module_Mapped_TF_Output"@en.
+:Mapped_Module_Input_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mapped_Module_Input_Interface"@en.
+:Mapped_Module_Output_Interface rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mapped_Module_Output_Interface"@en.
+:Equipment_Composed_of_Modules rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Equipment_Composed_of_Modules"@en.
+:Defined_Geographical_Element rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Defined_Geographical_Element"@en.
+:Geographical_Element rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Geographical_Element"@en.
+:Geographical_Element_With_Alias rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Geographical_Element_With_Alias"@en.
+:Architectural_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Architectural_Component"@en.
+:Access_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Access_Group"@en.
+:Colocated_Termination rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Colocated_Termination"@en.
+:Composed_AG rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed_AG"@en.
+:Composed_Topological_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Composed_Topological_Layer"@en.
+:Connected_Relatable_TC rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Connected_Relatable_TC"@en.
+:Relatable_Topological_Components rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Relatable_Topological_Components"@en.
+:Single_AG rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Single_AG"@en.
+:Single_Termination rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Single_Termination"@en.
+:Topological_Component rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Topological_Component"@en.
+:Topological_Layer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Topological_Layer"@en.
+:Topological_Link rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Topological_Link"@en.
+:Topological_M_Representation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Topological_M_Representation"@en.
+:Topological_SN_Representation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Topological_SN_Representation"@en.
+:Topological_Subnetwork rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Topological_Subnetwork"@en.
+:Forwarding_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function"@en.
+:Transport_Function rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Transport_Function"@en.
+:Directly_Connected_Transport_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Directly_Connected_Transport_Entity"@en.
+:NC_Supported_by_CFTE rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NC_Supported_by_CFTE"@en.
+:NC_Supported_by_LC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NC_Supported_by_LC"@en.
+:NC_Supported_by_MC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NC_Supported_by_MC"@en.
+:Supporting_Access_Transport_Entity rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Supporting_Access_Transport_Entity"@en.
+:Supporting_CFTE rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Supporting_CFTE"@en.
+:Supporting_LC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Supporting_LC"@en.
+:Supporting_MC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Supporting_MC"@en.
+:Supporting_NC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Supporting_NC"@en.
+:Transport_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Transport_Entity"@en.
+:Directly_Bound_Reference_Point rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Directly_Bound_Reference_Point"@en.
+:Path_Connected_Reference_Point rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Path_Connected_Reference_Point"@en.
+:Reference_Point rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Reference_Point"@en.
+:TE_Connected_Reference_Point rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "TE_Connected_Reference_Point"@en.
+:Client_Path_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Client_Path_Layer"@en.
+:Client_Section_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Client_Section_Layer"@en.
+:Component_LPF rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Component_LPF"@en.
+:Component_Matrix rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Component_Matrix"@en.
+:Component_Subnetwork rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Component_Subnetwork"@en.
+:Composed_PM_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Composed_PM_Layer"@en.
+:LC_Composed_Layer_Network rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LC_Composed_Layer_Network"@en.
+:Layer_Network rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Layer_Network"@en.
+:Matrix_Composed_Path_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Matrix_Composed_Path_Layer"@en.
+:Path_Layer_Network rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Path_Layer_Network"@en.
+:Path_Layer_Network_2 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Path_Layer_Network_2"@en.
+:PathPath_Client_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PathPath_Client_Layer"@en.
+:PathSection_Client_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PathSection_Client_Layer"@en.
+:Physical_Media_Layer_Component rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Physical_Media_Layer_Component"@en.
+:Physical_Media_Layer_Network rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Physical_Media_Layer_Network"@en.
+:Related_Layer_Network rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Related_Layer_Network"@en.
+:Section_Layer_Network rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Section_Layer_Network"@en.
+:Server_Path_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Server_Path_Layer"@en.
+:Server_Physical_Media_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Server_Physical_Media_Layer"@en.
+:Server_Section_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Server_Section_Layer"@en.
+:Subnetwork_Composed_Path_Layer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Subnetwork_Composed_Path_Layer"@en.
+:Transmission_Media_Layer_Network rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Transmission_Media_Layer_Network"@en.
+:Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Binding"@en.
+:Bound_InputOutput rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bound_InputOutput"@en.
+:Bound_Transport_Function rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bound_Transport_Function"@en.
+:Connected_Reference_Point rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Connected_Reference_Point"@en.
+:Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Forwarding"@en.
+:Input rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Input"@en.
+:Output rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Output"@en.
+:Unidirectional_Port rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Unidirectional_Port"@en.
+:Transport_Processing_Function rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Transport_Processing_Function"@en.
+:Bidirectional_Connected_Subnetwork rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Connected_Subnetwork"@en.
+:Subnetwork rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Subnetwork"@en.
+:Unidirectional_Subnetwork rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Unidirectional_Subnetwork"@en.
+:Subnetwork_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Subnetwork_Input"@en.
+:Subnetwork_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Subnetwork_Output"@en.
+:Aggregated_Physical_Media rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Aggregated_Physical_Media"@en.
+:Physical_Media rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Media"@en.
+:Physical_Media_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Physical_Media_Component"@en.
+:Physical_Media_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Physical_Media_Input"@en.
+:Physical_Media_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Physical_Media_Output"@en.
+:Single_Physical_Media rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Single_Physical_Media"@en.
+:Bidirectional_Matrix rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Matrix"@en.
+:Bidirectional_SinkSource_Matrix rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_SinkSource_Matrix"@en.
+:Connected_Unidirectional_Matrix rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Connected_Unidirectional_Matrix"@en.
+:Matrix rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Matrix"@en.
+:Matrix_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Matrix_Input"@en.
+:Matrix_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Matrix_Output"@en.
+:Path_Bidirectional_Matrix rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Path_Bidirectional_Matrix"@en.
+:Sink_Matrix rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_Matrix"@en.
+:Sk_Matrix_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sk_Matrix_Bi_Component"@en.
+:So_Matrix_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "So_Matrix_Bi_Component"@en.
+:Source_Matrix rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_Matrix"@en.
+:Uni_SkSo_Matrix_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uni_SkSo_Matrix_Bi_Component"@en.
+:Unidirectional_Matrix rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_Matrix"@en.
+:Unidirectional_SinkSource_Matrix rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Unidirectional_SinkSource_Matrix"@en.
+:Egress_LC rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Egress_LC"@en.
+:Egress_MC_Sk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Egress_MC_Sk"@en.
+:Egress_MC_SkSo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Egress_MC_SkSo"@en.
+:Egress_MC_So rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Egress_MC_So"@en.
+:Egress_SN_Sk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Egress_SN_Sk"@en.
+:Egress_SN_SkSo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Egress_SN_SkSo"@en.
+:Egress_SN_SkSo_2 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Egress_SN_SkSo_2"@en.
+:Egress_SN_So rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Egress_SN_So"@en.
+:Forwarding_Function_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_CFTE"@en.
+:Forwarding_Function_CFTE_Sk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_CFTE_Sk"@en.
+:Forwarding_Function_CFTE_SkSo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_CFTE_SkSo"@en.
+:Forwarding_Function_CFTE_So rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_CFTE_So"@en.
+:Forwarding_Function_CFTE_SoSk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_CFTE_SoSk"@en.
+:Forwarding_Function_LC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_LC"@en.
+:Forwarding_Function_LC_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_LC_Connected"@en.
+:Forwarding_Function_Matrix rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_Matrix"@en.
+:Forwarding_Function_Sk_M_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_Sk_M_Connected"@en.
+:Forwarding_Function_SkSo_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_SkSo_Connected"@en.
+:Forwarding_Function_So_M_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Forwarding_Function_So_M_Connected"@en.
+:Forwarding_Rule_LC rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Rule_LC"@en.
+:Forwarding_Rule_MC_Sk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Rule_MC_Sk"@en.
+:Forwarding_Rule_MC_SkSo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Rule_MC_SkSo"@en.
+:Forwarding_Rule_MC_So rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Rule_MC_So"@en.
+:Forwarding_Rule_SkSo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Rule_SkSo"@en.
+:Forwarding_Rule_So_SN rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Rule_So_SN"@en.
+:Forwarding_Rule_SoSk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Forwarding_Rule_SoSk"@en.
+:Fowarding_Rule_Sk_SN rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Fowarding_Rule_Sk_SN"@en.
+:Ingress_LC rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Ingress_LC"@en.
+:Ingress_MC_Sk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ingress_MC_Sk"@en.
+:Ingress_MC_SkSo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ingress_MC_SkSo"@en.
+:Ingress_MC_So rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ingress_MC_So"@en.
+:Ingress_SN_Sk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ingress_SN_Sk"@en.
+:Ingress_SN_SkSo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ingress_SN_SkSo"@en.
+:Ingress_SN_So rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ingress_SN_So"@en.
+:Ingress_SN_SoSk rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ingress_SN_SoSk"@en.
+:Forwarding_Rule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Forwarding_Rule"@en.
+:Active_Bidirectional_PMFEP__PM_NC_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Bidirectional_PMFEP__PM_NC_Connected"@en.
+:Active_Bidirectional_Path_FEP__Path_NC_Connected rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Active_Bidirectional_Path_FEP__Path_NC_Connected"@en.
+:Active_Sk_PMFEP__PM_NC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_PMFEP__PM_NC_connected"@en.
+:Active_Sk_PathFEP__Path_NC_connected rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Active_Sk_PathFEP__Path_NC_connected"@en.
+:Active_So_PMFEP__PM_NC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_PMFEP__PM_NC_connected"@en.
+:Active_So_PathFEP__Path_NC_connected rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Active_So_PathFEP__Path_NC_connected"@en.
+:Bidirectional_NC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_NC"@en.
+:Bidirectional_PM_NC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_PM_NC"@en.
+:Bidirectional_Path_NC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Path_NC"@en.
+:Network_Connection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Network_Connection"@en.
+:Path_NC_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Path_NC_Forwarding"@en.
+:PM_NC_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "PM_NC_Forwarding"@en.
+:Unidirectional_NC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_NC"@en.
+:Unidirectional_PM_NC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_PM_NC"@en.
+:Unidirectional_PM_NC_Bidirectional_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Unidirectional_PM_NC_Bidirectional_Component"@en.
+:Unidirectional_Path_NC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_Path_NC"@en.
+:Unidirectional_Path_NC_Bidirectional_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Unidirectional_Path_NC_Bidirectional_Component"@en.
+:Active_Intermediate_Bidirectional_MFP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Intermediate_Bidirectional_MFP"@en.
+:Active_Path_Bidirectional_MFEP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Path_Bidirectional_MFEP"@en.
+:Active_Path_Bidirectional_MFP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Path_Bidirectional_MFP"@en.
+:Active_Sk_MFEP__Sk_MC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_MFEP__Sk_MC_connected"@en.
+:Active_Sk_MFP__Int_MC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_MFP__Int_MC_connected"@en.
+:Active_Sk_MFP__Sk_MC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_MFP__Sk_MC_connected"@en.
+:Active_So_MFEP__So_MC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_MFEP__So_MC_connected"@en.
+:Active_So_MFP__Int_MC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_MFP__Int_MC_connected"@en.
+:Active_So_MFP__So_MC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_MFP__So_MC_connected"@en.
+:Bi_Intermediate_MC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bi_Intermediate_MC"@en.
+:Bi_Path_MC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bi_Path_MC"@en.
+:Bidirectional_MC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_MC"@en.
+:Int_MC_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Int_MC_Forwarding"@en.
+:Intermediate_MC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Intermediate_MC"@en.
+:Intermediate_MC_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Intermediate_MC_Bi_Component"@en.
+:Matrix_Connection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Matrix_Connection"@en.
+:Sink_MC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sink_MC"@en.
+:Sink_MC_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_MC_Bi_Component"@en.
+:Sk_MC_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sk_MC_Forwarding"@en.
+:So_MC_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "So_MC_Forwarding"@en.
+:Source_MC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Source_MC"@en.
+:Source_MC_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_MC_Bi_Component"@en.
+:Unidirectional_MC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_MC"@en.
+:Active_Bidirectional_PMFEP__PM_LC_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Bidirectional_PMFEP__PM_LC_Connected"@en.
+:Active_Possible_Bi_LC_Connected_RP rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Active_Possible_Bi_LC_Connected_RP"@en.
+:Active_Sk_PMFEP__PM_LC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_PMFEP__PM_LC_connected"@en.
+:Active_So_PMFEP__PM_LC_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_PMFEP__PM_LC_connected"@en.
+:Bi_PM_LC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bi_PM_LC"@en.
+:Bi_Path_LC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bi_Path_LC"@en.
+:Bidirectional_LC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_LC"@en.
+:LC_Connected_RP rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "LC_Connected_RP"@en.
+:Link_Connection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Link_Connection"@en.
+:PM_LC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PM_LC"@en.
+:PM_LC_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PM_LC_Bi_Component"@en.
+:PM_LC_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "PM_LC_Forwarding"@en.
+:Path_LC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Path_LC"@en.
+:Path_LC_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Path_LC_Bi_Component"@en.
+:Path_LC_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Path_LC_Forwarding"@en.
+:Possible_Bi_LC_Connected_RP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Possible_Bi_LC_Connected_RP"@en.
+:Possible_Egress_LC rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Possible_Egress_LC"@en.
+:Possible_Ingress_LC rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Possible_Ingress_LC"@en.
+:Possible_LC_Connected_RP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Possible_LC_Connected_RP"@en.
+:Sink_Active_RP__Path_LC_connected rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Sink_Active_RP__Path_LC_connected"@en.
+:Source_Active_RP__Path_LC_connected rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Source_Active_RP__Path_LC_connected"@en.
+:Unidirectional_LC rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_LC"@en.
+:Active_End_Bidirectional_SNFEP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_End_Bidirectional_SNFEP"@en.
+:Active_Intermediate_Bidirectional_SNFP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Intermediate_Bidirectional_SNFP"@en.
+:Active_Path_Bidirectional_SNFEP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Path_Bidirectional_SNFEP"@en.
+:Active_Path_Bidirectional_SNFP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Path_Bidirectional_SNFP"@en.
+:Active_Sk_SNFEP__End_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_SNFEP__End_CFTE_connected"@en.
+:Active_Sk_SNFEP__Sk_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_SNFEP__Sk_CFTE_connected"@en.
+:Active_Sk_SNFP__Int_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_SNFP__Int_CFTE_connected"@en.
+:Active_Sk_SNFP__Sk_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sk_SNFP__Sk_CFTE_connected"@en.
+:Active_So_SNFEP__End_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_SNFEP__End_CFTE_connected"@en.
+:Active_So_SNFEP__So_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_SNFEP__So_CFTE_connected"@en.
+:Active_So_SNFP__Int_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_SNFP__Int_CFTE_connected"@en.
+:Active_So_SNFP__So_CFTE_connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_So_SNFP__So_CFTE_connected"@en.
+:Bi_End_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bi_End_CFTE"@en.
+:Bi_Intermediate_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bi_Intermediate_CFTE"@en.
+:Bi_Path_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bi_Path_CFTE"@en.
+:Bidirectional_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_CFTE"@en.
+:Channel_Forwarding_Transport_Entity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Channel_Forwarding_Transport_Entity"@en.
+:End_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "End_CFTE"@en.
+:End_CFTE_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "End_CFTE_Bi_Component"@en.
+:End_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "End_Forwarding"@en.
+:Int_CFTE_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Int_CFTE_Forwarding"@en.
+:Intermediate_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Intermediate_CFTE"@en.
+:Intermediate_CFTE_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Intermediate_CFTE_Bi_Component"@en.
+:Sink_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sink_CFTE"@en.
+:Sink_CFTE_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_CFTE_Bi_Component"@en.
+:Sk_CFTE_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sk_CFTE_Forwarding"@en.
+:So_CFTE_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "So_CFTE_Forwarding"@en.
+:Source_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Source_CFTE"@en.
+:Source_CFTE_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_CFTE_Bi_Component"@en.
+:Unidirectional_CFTE rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_CFTE"@en.
+:AP_Forwarding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AP_Forwarding"@en.
+:Access_Transport_Entity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Access_Transport_Entity"@en.
+:Active_Bidirectional_AP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Bidirectional_AP"@en.
+:Active_Sink_AP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Sink_AP"@en.
+:Active_Source_AP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Source_AP"@en.
+:Bidirectional_Access_Transport_Entity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Access_Transport_Entity"@en.
+:Unidirectional_Access_Transport_Entity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_Access_Transport_Entity"@en.
+:Unidirectional_Access_Transport_Entity_Bidirectional_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Unidirectional_Access_Transport_Entity_Bidirectional_Component"@en.
+:A_Sk_Output__AFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk_Output__AFP_Bound"@en.
+:A_Sk_Output__Sk_LPFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk_Output__Sk_LPFP_Bound"@en.
+:A_Sk_Output__Sk_MFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk_Output__Sk_MFP_Bound"@en.
+:A_Sk_Output__Sk_SNFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk_Output__Sk_SNFP_Bound"@en.
+:A_So_Input__AFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So_Input__AFP_Bound"@en.
+:A_So_Input__So_LFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So_Input__So_LFP_Bound"@en.
+:A_So_Input__So_MFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So_Input__So_MFP_Bound"@en.
+:A_So_Input__So_SNFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So_Input__So_SNFP_Bound"@en.
+:AFP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AFP"@en.
+:AFP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AFP_Binding"@en.
+:Bidirectional_AFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_AFP"@en.
+:Bidirectional_LPFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bidirectional_LPFP"@en.
+:Bidirectional_MFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_MFP"@en.
+:Bidirectional_SNFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_SNFP"@en.
+:Forwarding_Point rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Forwarding_Point"@en.
+:LP_Input__Sk_LPFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LP_Input__Sk_LPFP_Bound"@en.
+:LPFP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "LPFP"@en.
+:LPF_Output__So_LFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LPF_Output__So_LFP_Bound"@en.
+:M_Input__Sk_MFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "M_Input__Sk_MFP_Bound"@en.
+:M_Output__So_MFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "M_Output__So_MFP_Bound"@en.
+:MFP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "MFP"@en.
+:SN_Intput__Sk_SNFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SN_Intput__Sk_SNFP_Bound"@en.
+:SN_Outtput__So_SNFP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SN_Outtput__So_SNFP_Bound"@en.
+:SNFP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "SNFP"@en.
+:Sink_LPFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_LPFP"@en.
+:Sink_LPFP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_LPFP_Bi_Component"@en.
+:Sink_LPFP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Sink_LPFP_Binding"@en.
+:Sink_MFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_MFP"@en.
+:Sink_MFP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_MFP_Bi_Component"@en.
+:Sink_MFP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_MFP_Binding"@en.
+:Sink_SNFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_SNFP"@en.
+:Sink_SNFP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_SNFP_Bi_Component"@en.
+:Sink_SNFP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_SNFP_Binding"@en.
+:Source_LFP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_LFP_Binding"@en.
+:Source_LPFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_LPFP"@en.
+:Source_LPFP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_LPFP_Bi_Component"@en.
+:Source_MFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_MFP"@en.
+:Source_MFP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_MFP_Bi_Component"@en.
+:Source_MFP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_MFP_Binding"@en.
+:Source_SNFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_SNFP"@en.
+:Source_SNFP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_SNFP_Bi_Component"@en.
+:Source_SNFP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_SNFP_Binding"@en.
+:Uni_AFP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uni_AFP_Bi_Component"@en.
+:Unidirectional_AFP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Unidirectional_AFP"@en.
+:A_Sk_Output__Sk_AFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk_Output__Sk_AFEP_Bound"@en.
+:A_So_Input__So_AFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So_Input__So_AFEP_Bound"@en.
+:Bidirectional_AFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_AFEP"@en.
+:Bidirectional_FEP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Bidirectional_FEP"@en.
+:Bidirectional_LPFFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bidirectional_LPFFEP"@en.
+:Bidirectional_MFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_MFEP"@en.
+:Bidirectional_PMFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_PMFEP"@en.
+:Bidirectional_Path_FEP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Path_FEP"@en.
+:Bidirectional_SNFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_SNFEP"@en.
+:Forwarding_End_Point rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Forwarding_End_Point"@en.
+:LPF__Sk_LFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LPF__Sk_LFEP_Bound"@en.
+:LPF_Input__So_LFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LPF_Input__So_LFEP_Bound"@en.
+:M_Input__So_MFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "M_Input__So_MFEP_Bound"@en.
+:M_Output__Sk_MFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "M_Output__Sk_MFEP_Bound"@en.
+:PM_Input__So_PMFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PM_Input__So_PMFEP_Bound"@en.
+:PM_Output__Sk_PMFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PM_Output__Sk_PMFEP_Bound"@en.
+:SN_Input__So_SFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SN_Input__So_SFEP_Bound"@en.
+:SN_Output__Sk_SFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SN_Output__Sk_SFEP_Bound"@en.
+:Sink_AFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_AFEP"@en.
+:Sink_AFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_AFEP_Bi_Component"@en.
+:Sink_AFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_AFEP_Binding"@en.
+:Sink_FEP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Sink_FEP"@en.
+:Sink_LPFFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_LPFFEP"@en.
+:Sink_LPFFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_LPFFEP_Bi_Component"@en.
+:Sink_LPFFEP_Bound rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_LPFFEP_Bound"@en.
+:Sink_MFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_MFEP"@en.
+:Sink_MFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_MFEP_Bi_Component"@en.
+:Sink_MFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_MFEP_Binding"@en.
+:Sink_PMFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_PMFEP"@en.
+:Sink_PMFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_PMFEP_Bi_Component"@en.
+:Sink_PMFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_PMFEP_Binding"@en.
+:Sink_Path_FEP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Sink_Path_FEP"@en.
+:Sink_SNFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_SNFEP"@en.
+:Sink_SNFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_SNFEP_Bi_Component"@en.
+:Sink_SNFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_SNFEP_Binding"@en.
+:Source_AFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_AFEP"@en.
+:Source_AFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_AFEP_Bi_Component"@en.
+:Source_AFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_AFEP_Binding"@en.
+:Source_FEP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Source_FEP"@en.
+:Source_LPFFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_LPFFEP"@en.
+:Source_LPFFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_LPFFEP_Bi_Component"@en.
+:Source_LPFFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_LPFFEP_Binding"@en.
+:Source_MFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_MFEP"@en.
+:Source_MFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_MFEP_Bi_Component"@en.
+:Source_MFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_MFEP_Binding"@en.
+:Source_PMFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_PMFEP"@en.
+:Source_PMFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_PMFEP_Bi_Component"@en.
+:Source_PMFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_PMFEP_Binding"@en.
+:Source_Path_FEP rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Source_Path_FEP"@en.
+:Source_SNFEP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_SNFEP"@en.
+:Source_SNFEP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_SNFEP_Bi_Component"@en.
+:Source_SNFEP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_SNFEP_Binding"@en.
+:T_Sk_Input__Sk_AFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_Sk_Input__Sk_AFEP_Bound"@en.
+:T_Sk_Input__Sk_LPFFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_Sk_Input__Sk_LPFFEP_Bound"@en.
+:T_Sk_Input__Sk_MFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_Sk_Input__Sk_MFEP_Bound"@en.
+:T_Sk_Input__Sk_PMFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_Sk_Input__Sk_PMFEP_Bound"@en.
+:T_Sk_Input__Sk_SNFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_Sk_Input__Sk_SNFEP_Bound"@en.
+:T_So_Output__So_AFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_So_Output__So_AFEP_Bound"@en.
+:T_So_Output__So_LPFFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_So_Output__So_LPFFEP_Bound"@en.
+:T_So_Output__So_MFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_So_Output__So_MFEP_Bound"@en.
+:T_So_Output__So_PMFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_So_Output__So_PMFEP_Bound"@en.
+:T_So_Output__So_SNFEP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_So_Output__So_SNFEP_Bound"@en.
+:A_Sk_Input__Sk_AP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk_Input__Sk_AP_Bound"@en.
+:A_So_Output__So_AP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So_Output__So_AP_Bound"@en.
+:Access_Point rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Access_Point"@en.
+:Bidirectional_AP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_AP"@en.
+:Sink_AP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_AP"@en.
+:Sink_AP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_AP_Bi_Component"@en.
+:Sink_AP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sink_AP_Binding"@en.
+:Source_AP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_AP"@en.
+:Source_AP_Bi_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_AP_Bi_Component"@en.
+:Source_AP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Source_AP_Binding"@en.
+:T_Sk_Output__Sk_AP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_Sk_Output__Sk_AP_Bound"@en.
+:T_So_Input__So_AP_Bound rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_So_Input__So_AP_Bound"@en.
+:Bidirectional_Termination rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Termination"@en.
+:Path_Layer_Termination rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Path_Layer_Termination"@en.
+:Physical_Media_Layer_Termination rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Physical_Media_Layer_Termination"@en.
+:Section_Layer_Termination rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Section_Layer_Termination"@en.
+:Termination_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Function"@en.
+:Termination_Sink rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Termination_Sink"@en.
+:Termination_Sink_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Sink_Input"@en.
+:Termination_Sink_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Sink_Output"@en.
+:Termination_Sink_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Sink_Process"@en.
+:Termination_Sk_Bidirectional_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Termination_Sk_Bidirectional_Component"@en.
+:Termination_So_Bidirectional_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Termination_So_Bidirectional_Component"@en.
+:Termination_Source rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Termination_Source"@en.
+:Termination_Source_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Source_Input"@en.
+:Termination_Source_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Source_Output"@en.
+:Termination_Source_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Source_Process"@en.
+:Transmission_Media_Layer_Termination rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Transmission_Media_Layer_Termination"@en.
+:Bidirectional_Layer_Processor_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Layer_Processor_Function"@en.
+:LPF_Sk_Bidirectional_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LPF_Sk_Bidirectional_Component"@en.
+:LPF_So_Bidirectional_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LPF_So_Bidirectional_Component"@en.
+:Layer_Processor_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Function"@en.
+:Layer_Processor_Function_Sink rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Function_Sink"@en.
+:Layer_Processor_Function_Source rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Function_Source"@en.
+:Layer_Processor_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Layer_Processor_Process"@en.
+:Layer_Processor_Sink_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Sink_Input"@en.
+:Layer_Processor_Sink_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Sink_Output"@en.
+:Layer_Processor_Source_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Source_Input"@en.
+:Layer_Processor_Source_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Source_Output"@en.
+:Layer_Processor_Source_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Layer_Processor_Source_Process"@en.
+:Adaptation_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Function"@en.
+:Adaptation_Sink rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Sink"@en.
+:Adaptation_Sink_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Sink_Input"@en.
+:Adaptation_Sink_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Sink_Output"@en.
+:Adaptation_Sink_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Adaptation_Sink_Process"@en.
+:Adaptation_Sk_Bidirectional_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Sk_Bidirectional_Component"@en.
+:Adaptation_So_Bidirectional_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Adaptation_So_Bidirectional_Component"@en.
+:Adaptation_Source rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Source"@en.
+:Adaptation_Source_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Source_Input"@en.
+:Adaptation_Source_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Source_Output"@en.
+:Adaptation_Source_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Adaptation_Source_Process"@en.
+:Bidirectional_Adaptation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Adaptation"@en.
+:PathPath_Layers_AF rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PathPath_Layers_AF"@en.
+:PathSection_Layers_AF rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PathSection_Layers_AF"@en.
+:SectionPhysical_Media_Layers_AF rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SectionPhysical_Media_Layers_AF"@en.
+:A_Sk__Uni_Subnetwork_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk__Uni_Subnetwork_Connected"@en.
+:A_So__Uni_Subnetwork_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So__Uni_Subnetwork_Connected"@en.
+:Bi_A__Bi_Subnetwork_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_A__Bi_Subnetwork_Connected"@en.
+:Bi_Subnetwork__A_Bi_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_Subnetwork__A_Bi_Connected"@en.
+:Uni_Subnetwork__A_Sk_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uni_Subnetwork__A_Sk_Connected"@en.
+:Uni_Subnetwork__A_So_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uni_Subnetwork__A_So_Connected"@en.
+:A_Sk__Uni_Matrix_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk__Uni_Matrix_Connected"@en.
+:A_So__Uni_Matrix_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So__Uni_Matrix_Connected"@en.
+:Bi_A__Bi_Matrix_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_A__Bi_Matrix_Connected"@en.
+:Bi_Matrix__A_Bi_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_Matrix__A_Bi_Connected"@en.
+:Uni_Matrix__A_Sk_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uni_Matrix__A_Sk_Connected"@en.
+:Uni_Matrix__A_So_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uni_Matrix__A_So_Connected"@en.
+:A_Sk__Termination_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk__Termination_Sink_Connected"@en.
+:A_So__Termination_Source_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So__Termination_Source_Connected"@en.
+:Ag_PM__Bidirectional_Termination_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ag_PM__Bidirectional_Termination_Connected"@en.
+:Bi_A__Bidirectional_Termination_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_A__Bidirectional_Termination_Connected"@en.
+:Bi_M__Bidirectional_Termination_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_M__Bidirectional_Termination_Connected"@en.
+:Bi_SN__Bidirectional_Termination_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_SN__Bidirectional_Termination_Connected"@en.
+:Bidirectional_LPF__Bi_Termination_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_LPF__Bi_Termination_Connected"@en.
+:Bidirectional_Termination__Ag_PM_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Termination__Ag_PM_Connected"@en.
+:Bidirectional_Termination__Bi_A_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Termination__Bi_A_Connected"@en.
+:Bidirectional_Termination__Bi_LPF_Connection rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Termination__Bi_LPF_Connection"@en.
+:Bidirectional_Termination__Bi_M_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Termination__Bi_M_Connected"@en.
+:Bidirectional_Termination__Bi_SN_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Termination__Bi_SN_Connected"@en.
+:LPF__Termination_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LPF__Termination_Sink_Connected"@en.
+:LPF__Termination_Source_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LPF__Termination_Source_Connected"@en.
+:M__Termination_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "M__Termination_Sink_Connected"@en.
+:M__Termination_Source_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "M__Termination_Source_Connected"@en.
+:PM__Termination_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PM__Termination_Sink_Connected"@en.
+:PM__Termination_Source_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PM__Termination_Source_Connected"@en.
+:SN__Termination_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SN__Termination_Sink_Connected"@en.
+:SN__Termination_Source_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SN__Termination_Source_Connected"@en.
+:Termination_Sink__A_Sk_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Sink__A_Sk_Connected"@en.
+:Termination_Sink__LPF_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Sink__LPF_Connected"@en.
+:Termination_Sink__M_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Sink__M_Connected"@en.
+:Termination_Sink__PM_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Sink__PM_Connected"@en.
+:Termination_Sink__SN_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Sink__SN_Connected"@en.
+:Termination_Source__A_So_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Source__A_So_Connected"@en.
+:Termination_Source__LPF_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Source__LPF_Connected"@en.
+:Termination_Source__M_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Source__M_Connected"@en.
+:Termination_Source__PM_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Source__PM_Connected"@en.
+:Termination_Source__SN_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Termination_Source__SN_Connected"@en.
+:A__LPF_Source_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A__LPF_Source_Connected"@en.
+:A__Layer_Processor_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A__Layer_Processor_Sink_Connected"@en.
+:Bidirectional_Adaptation__LPF_Bi_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Adaptation__LPF_Bi_Connected"@en.
+:Bidirectional_Layer_Processor__A_Bi_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Layer_Processor__A_Bi_Connected"@en.
+:Layer_Processor_Sink__A_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Sink__A_Connected"@en.
+:Layer_Processor_Source__A_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Layer_Processor_Source__A_Connected"@en.
+:A_So__Adaptation_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So__Adaptation_Sink_Connected"@en.
+:Adaptation_Sink__A_So_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Adaptation_Sink__A_So_Connected"@en.
+:Adaptation_Sink__T_Sk_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Adaptation_Sink__T_Sk_Connected"@en.
+:Adaptation_Source__T_So_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Adaptation_Source__T_So_Connected"@en.
+:Bi_Termination__Bidirectional_A_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bi_Termination__Bidirectional_A_Connected"@en.
+:Bidirectional_Adaptation__Bi_A_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Adaptation__Bi_A_Connected"@en.
+:Bidirectional_Adaptation__Bi_T_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bidirectional_Adaptation__Bi_T_Connected"@en.
+:T_Sk__Adaptation_Sink_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_Sk__Adaptation_Sink_Connected"@en.
+:T_So__Adaptation_Source_Connected rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T_So__Adaptation_Source_Connected"@en.
+:CIC rdfs:subClassOf :Module_Switch_OTN.
+:WSS rdfs:subClassOf :Module_Switch_OTN.
+:ODU_Switch rdfs:subClassOf :Module_Switch_OTN.
+:OIC rdfs:subClassOf :Module_Switch_OTN.
+:NIC rdfs:subClassOf :Module_Switch_OTN.
+:Switch_OTN rdfs:subClassOf :Equipment.
+:Module_Switch_OTN rdfs:subClassOf :Module.
+:CIC rdfs:subClassOf :Module_Switch_OTN.
+:NIC rdfs:subClassOf :Module_Switch_OTN.
+:ODU_Switch rdfs:subClassOf :Module_Switch_OTN.
+:WSS rdfs:subClassOf :Module_Switch_OTN.
+:OIC rdfs:subClassOf :Module_Switch_OTN.
+:Equipment_Site_Component rdfs:subClassOf :Site_Component_Equipment.
+:Single_Equipment_Site_Component rdfs:subClassOf :Site_Component_Equipment.
+:Single_Equipment_Site rdfs:subClassOf :Equipment_Composed_Site.
+:Multiple_Equipment_Composed_Site rdfs:subClassOf :Equipment_Composed_Site.
+:Bound_Output_Interface_PM rdfs:subClassOf :Bound_Output_Interface.
+:Bound_Output_Interface_Equipment rdfs:subClassOf :Bound_Output_Interface.
+:Bound_Input_Interface_PM rdfs:subClassOf :Bound_Input_Interface.
+:Bound_Input_Interface_Equipment rdfs:subClassOf :Bound_Input_Interface.
+:Bound_Input_Interface rdfs:subClassOf :Input_Interface.
+:Bound_Output_Interface rdfs:subClassOf :Output_Interface.
+:Connected_Input_Interface rdfs:subClassOf :Input_Interface.
+:Connected_Output_Interface rdfs:subClassOf :Output_Interface.
+:Equipment_Site_Component rdfs:subClassOf :Site_Component_Equipment.
+:Mapped_Input_Interface rdfs:subClassOf :Input_Interface.
+:Mapped_Output_Interface rdfs:subClassOf :Output_Interface.
+:Mapped_TF_Input rdfs:subClassOf :Input.
+:Mapped_TF_Output rdfs:subClassOf :Output.
+:Multiple_Equipment_Composed_Site rdfs:subClassOf :Equipment_Composed_Site.
+:Single_Equipment_Site rdfs:subClassOf :Equipment_Composed_Site.
+:Single_Equipment_Site_Component rdfs:subClassOf :Site_Component_Equipment.
+:Sink_Site rdfs:subClassOf :Site.
+:Source_Site rdfs:subClassOf :Site.
+:Transport_Function_Equipment_Component rdfs:subClassOf :Transport_Function.
+:Bound_Input_Interface_Equipment rdfs:subClassOf :Bound_Input_Interface.
+:Bound_Output_Interface_Equipment rdfs:subClassOf :Bound_Output_Interface.
+:Bound_Input_Interface_PM rdfs:subClassOf :Bound_Input_Interface.
+:PM_Interface_Bound_Input rdfs:subClassOf :PM_Input__So_PMFEP_Bound.
+:Bound_Output_Interface_PM rdfs:subClassOf :Bound_Output_Interface.
+:PM_Interface_Bound_Output rdfs:subClassOf :PM_Output__Sk_PMFEP_Bound.
+:Equipment_Composed_Site rdfs:subClassOf :Site.
+:Site_Component_Equipment rdfs:subClassOf :Equipment.
+:Transport_Function_Module_Component rdfs:subClassOf :Transport_Function.
+:Module_Mapped_TF_Input rdfs:subClassOf :Input.
+:Module_Mapped_TF_Output rdfs:subClassOf :Output.
+:Mapped_Module_Input_Interface rdfs:subClassOf :Module_Input_Interface.
+:Mapped_Module_Output_Interface rdfs:subClassOf :Module_Output_Interface.
+:Equipment_Composed_of_Modules rdfs:subClassOf :Equipment.
+:Geographical_Element_With_Alias rdfs:subClassOf :Geographical_Element.
+:Defined_Geographical_Element rdfs:subClassOf :Geographical_Element, :Geographical_Element.
+:Geographical_Element_With_Alias rdfs:subClassOf :Geographical_Element.
+:Topological_SN_Representation rdfs:subClassOf :Topological_Subnetwork.
+:Topological_M_Representation rdfs:subClassOf :Topological_Subnetwork.
+:Access_Group rdfs:subClassOf :Topological_Component.
+:Topological_Layer rdfs:subClassOf :Topological_Component.
+:Topological_Link rdfs:subClassOf :Topological_Component.
+:Topological_Subnetwork rdfs:subClassOf :Topological_Component.
+:Composed_AG rdfs:subClassOf :Access_Group.
+:Single_AG rdfs:subClassOf :Access_Group.
+:Single_Termination rdfs:subClassOf :Termination_Function.
+:Colocated_Termination rdfs:subClassOf :Termination_Function.
+:Topological_Link rdfs:subClassOf :Relatable_Topological_Components.
+:Topological_Subnetwork rdfs:subClassOf :Relatable_Topological_Components.
+:Access_Group rdfs:subClassOf :Relatable_Topological_Components, :Topological_Component, :Relatable_Topological_Components.
+:Colocated_Termination rdfs:subClassOf :Termination_Function.
+:Composed_AG rdfs:subClassOf :Access_Group.
+:Composed_Topological_Layer rdfs:subClassOf :Topological_Layer.
+:Connected_Relatable_TC rdfs:subClassOf :Relatable_Topological_Components.
+:Single_AG rdfs:subClassOf :Access_Group.
+:Single_Termination rdfs:subClassOf :Termination_Function.
+:Topological_Component rdfs:subClassOf :Architectural_Component.
+:Topological_Layer rdfs:subClassOf :Topological_Component.
+:Topological_Link rdfs:subClassOf :Topological_Component, :Relatable_Topological_Components.
+:Topological_M_Representation rdfs:subClassOf :Topological_Subnetwork.
+:Topological_SN_Representation rdfs:subClassOf :Topological_Subnetwork.
+:Topological_Subnetwork rdfs:subClassOf :Relatable_Topological_Components, :Topological_Component.
+:Forwarding_Function rdfs:subClassOf :Transport_Function, :Transport_Function.
+:Transport_Function rdfs:subClassOf :Architectural_Component.
+:NC_Supported_by_CFTE rdfs:subClassOf :Network_Connection.
+:NC_Supported_by_LC rdfs:subClassOf :Network_Connection.
+:NC_Supported_by_MC rdfs:subClassOf :Network_Connection.
+:Directly_Connected_Transport_Entity rdfs:subClassOf :Transport_Entity.
+:NC_Supported_by_CFTE rdfs:subClassOf :Network_Connection.
+:NC_Supported_by_LC rdfs:subClassOf :Network_Connection.
+:NC_Supported_by_MC rdfs:subClassOf :Network_Connection.
+:Supporting_Access_Transport_Entity rdfs:subClassOf :Access_Transport_Entity.
+:Supporting_CFTE rdfs:subClassOf :Channel_Forwarding_Transport_Entity.
+:Supporting_LC rdfs:subClassOf :Link_Connection.
+:Supporting_MC rdfs:subClassOf :Matrix_Connection.
+:Supporting_NC rdfs:subClassOf :Network_Connection.
+:Transport_Entity rdfs:subClassOf :Architectural_Component.
+:Directly_Bound_Reference_Point rdfs:subClassOf :Reference_Point.
+:Path_Connected_Reference_Point rdfs:subClassOf :Directly_Bound_Reference_Point.
+:Reference_Point rdfs:subClassOf :Architectural_Component.
+:TE_Connected_Reference_Point rdfs:subClassOf :Directly_Bound_Reference_Point.
+:Path_Layer_Network_2 rdfs:subClassOf :Layer_Network.
+:Transmission_Media_Layer_Network rdfs:subClassOf :Layer_Network.
+:Section_Layer_Network rdfs:subClassOf :Transmission_Media_Layer_Network.
+:Physical_Media_Layer_Network rdfs:subClassOf :Transmission_Media_Layer_Network.
+:PathPath_Client_Layer rdfs:subClassOf :Client_Path_Layer.
+:PathSection_Client_Layer rdfs:subClassOf :Client_Path_Layer.
+:Client_Path_Layer rdfs:subClassOf :Related_Layer_Network.
+:Server_Physical_Media_Layer rdfs:subClassOf :Related_Layer_Network.
+:Client_Section_Layer rdfs:subClassOf :Related_Layer_Network.
+:Server_Path_Layer rdfs:subClassOf :Related_Layer_Network.
+:Server_Section_Layer rdfs:subClassOf :Related_Layer_Network.
+:Client_Path_Layer rdfs:subClassOf :Related_Layer_Network, :Path_Layer_Network_2.
+:Client_Section_Layer rdfs:subClassOf :Related_Layer_Network, :Section_Layer_Network.
+:Component_LPF rdfs:subClassOf :Layer_Processor_Function.
+:Component_Matrix rdfs:subClassOf :Matrix.
+:Component_Subnetwork rdfs:subClassOf :Subnetwork.
+:Composed_PM_Layer rdfs:subClassOf :Physical_Media_Layer_Network.
+:LC_Composed_Layer_Network rdfs:subClassOf :Layer_Network.
+:Matrix_Composed_Path_Layer rdfs:subClassOf :Path_Layer_Network_2.
+:Path_Layer_Network rdfs:subClassOf :Path_Layer_Network_2.
+:Path_Layer_Network_2 rdfs:subClassOf :Layer_Network.
+:PathPath_Client_Layer rdfs:subClassOf :Client_Path_Layer.
+:PathSection_Client_Layer rdfs:subClassOf :Client_Path_Layer.
+:Physical_Media_Layer_Component rdfs:subClassOf :Physical_Media.
+:Physical_Media_Layer_Network rdfs:subClassOf :Transmission_Media_Layer_Network.
+:Related_Layer_Network rdfs:subClassOf :Layer_Network.
+:Section_Layer_Network rdfs:subClassOf :Transmission_Media_Layer_Network.
+:Server_Path_Layer rdfs:subClassOf :Related_Layer_Network, :Path_Layer_Network_2.
+:Server_Physical_Media_Layer rdfs:subClassOf :Physical_Media_Layer_Network, :Related_Layer_Network.
+:Server_Section_Layer rdfs:subClassOf :Related_Layer_Network, :Section_Layer_Network.
+:Subnetwork_Composed_Path_Layer rdfs:subClassOf :Path_Layer_Network_2.
+:Transmission_Media_Layer_Network rdfs:subClassOf :Layer_Network.
+:Input rdfs:subClassOf :Geographical_Element.
+:Output rdfs:subClassOf :Geographical_Element.
+:Transport_Processing_Function rdfs:subClassOf :Transport_Function, :Geographical_Element.
+:Bidirectional_Connected_Subnetwork rdfs:subClassOf :Subnetwork.
+:Unidirectional_Subnetwork rdfs:subClassOf :Subnetwork.
+:Bidirectional_Connected_Subnetwork rdfs:subClassOf :Subnetwork.
+:Subnetwork rdfs:subClassOf :Transport_Function.
+:Unidirectional_Subnetwork rdfs:subClassOf :Subnetwork.
+:Subnetwork_Input rdfs:subClassOf :Input.
+:Subnetwork_Output rdfs:subClassOf :Output.
+:Aggregated_Physical_Media rdfs:subClassOf :Physical_Media.
+:Single_Physical_Media rdfs:subClassOf :Physical_Media.
+:Aggregated_Physical_Media rdfs:subClassOf :Physical_Media.
+:Physical_Media rdfs:subClassOf :Transport_Function.
+:Physical_Media_Component rdfs:subClassOf :Single_Physical_Media.
+:Physical_Media_Input rdfs:subClassOf :Input.
+:Physical_Media_Output rdfs:subClassOf :Output.
+:Single_Physical_Media rdfs:subClassOf :Physical_Media.
+:Bidirectional_Matrix rdfs:subClassOf :Matrix.
+:Unidirectional_Matrix rdfs:subClassOf :Matrix.
+:Bidirectional_SinkSource_Matrix rdfs:subClassOf :Bidirectional_Matrix.
+:Path_Bidirectional_Matrix rdfs:subClassOf :Bidirectional_Matrix.
+:Bidirectional_Matrix rdfs:subClassOf :Matrix.
+:Bidirectional_SinkSource_Matrix rdfs:subClassOf :Bidirectional_Matrix.
+:Connected_Unidirectional_Matrix rdfs:subClassOf :Unidirectional_Matrix.
+:Matrix rdfs:subClassOf :Transport_Function, :Geographical_Element.
+:Matrix_Input rdfs:subClassOf :Input.
+:Matrix_Output rdfs:subClassOf :Output.
+:Path_Bidirectional_Matrix rdfs:subClassOf :Bidirectional_Matrix.
+:Sink_Matrix rdfs:subClassOf :M__Termination_Sink_Connected, :Connected_Unidirectional_Matrix, :Uni_Matrix__A_Sk_Connected.
+:Sk_Matrix_Bi_Component rdfs:subClassOf :Sink_Matrix.
+:So_Matrix_Bi_Component rdfs:subClassOf :Source_Matrix.
+:Source_Matrix rdfs:subClassOf :M__Termination_Source_Connected, :Connected_Unidirectional_Matrix, :Uni_Matrix__A_So_Connected.
+:Uni_SkSo_Matrix_Bi_Component rdfs:subClassOf :Unidirectional_SinkSource_Matrix.
+:Unidirectional_Matrix rdfs:subClassOf :Matrix.
+:Unidirectional_SinkSource_Matrix rdfs:subClassOf :Connected_Unidirectional_Matrix, :Uni_Matrix__A_Sk_Connected, :Uni_Matrix__A_So_Connected.
+:Forwarding_Function_CFTE rdfs:subClassOf :Forwarding_Function.
+:Forwarding_Function_LC rdfs:subClassOf :Forwarding_Function.
+:Forwarding_Function_Matrix rdfs:subClassOf :Forwarding_Function.
+:Forwarding_Function_CFTE_Sk rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_CFTE_SoSk rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_CFTE_SkSo rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_CFTE_So rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_Sk_M_Connected rdfs:subClassOf :Forwarding_Function_Matrix.
+:Forwarding_Function_SkSo_Connected rdfs:subClassOf :Forwarding_Function_Matrix.
+:Forwarding_Function_So_M_Connected rdfs:subClassOf :Forwarding_Function_Matrix.
+:Ingress_SN_SoSk rdfs:subClassOf :T_So_Output__So_SNFEP_Bound.
+:Ingress_SN_So rdfs:subClassOf :T_So_Output__So_SNFEP_Bound.
+:Ingress_SN_SkSo rdfs:subClassOf :A_Sk_Output__Sk_SNFP_Bound.
+:Ingress_SN_Sk rdfs:subClassOf :A_Sk_Output__Sk_SNFP_Bound.
+:Egress_SN_SkSo rdfs:subClassOf :T_Sk_Input__Sk_SNFEP_Bound.
+:Egress_SN_Sk rdfs:subClassOf :T_Sk_Input__Sk_SNFEP_Bound.
+:Egress_SN_So rdfs:subClassOf :A_So_Input__So_SNFP_Bound.
+:Egress_SN_SkSo_2 rdfs:subClassOf :A_So_Input__So_SNFP_Bound.
+:Egress_MC_So rdfs:subClassOf :A_So_Input__So_MFP_Bound.
+:Egress_MC_SkSo rdfs:subClassOf :A_So_Input__So_MFP_Bound.
+:Ingress_MC_SkSo rdfs:subClassOf :A_Sk_Output__Sk_MFP_Bound.
+:Ingress_MC_Sk rdfs:subClassOf :A_Sk_Output__Sk_MFP_Bound.
+:Forwarding_Rule_MC_So rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_So_SN rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_SoSk rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_LC rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_MC_SkSo rdfs:subClassOf :Forwarding_Rule.
+:Fowarding_Rule_Sk_SN rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_MC_Sk rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_SkSo rdfs:subClassOf :Forwarding_Rule.
+:Egress_LC rdfs:subClassOf :Possible_Egress_LC.
+:Egress_MC_Sk rdfs:subClassOf :T_Sk_Input__Sk_MFEP_Bound.
+:Egress_MC_SkSo rdfs:subClassOf :A_So_Input__So_MFP_Bound.
+:Egress_MC_So rdfs:subClassOf :A_So_Input__So_MFP_Bound.
+:Egress_SN_Sk rdfs:subClassOf :T_Sk_Input__Sk_SNFEP_Bound.
+:Egress_SN_SkSo rdfs:subClassOf :T_Sk_Input__Sk_SNFEP_Bound.
+:Egress_SN_SkSo_2 rdfs:subClassOf :A_So_Input__So_SNFP_Bound.
+:Egress_SN_So rdfs:subClassOf :A_So_Input__So_SNFP_Bound.
+:Forwarding_Function_CFTE rdfs:subClassOf :Forwarding_Function.
+:Forwarding_Function_CFTE_Sk rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_CFTE_SkSo rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_CFTE_So rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_CFTE_SoSk rdfs:subClassOf :Forwarding_Function_CFTE.
+:Forwarding_Function_LC rdfs:subClassOf :Forwarding_Function.
+:Forwarding_Function_LC_Connected rdfs:subClassOf :Forwarding_Function_LC.
+:Forwarding_Function_Matrix rdfs:subClassOf :Forwarding_Function.
+:Forwarding_Function_Sk_M_Connected rdfs:subClassOf :Forwarding_Function_Matrix.
+:Forwarding_Function_SkSo_Connected rdfs:subClassOf :Forwarding_Function_Matrix.
+:Forwarding_Function_So_M_Connected rdfs:subClassOf :Forwarding_Function_Matrix.
+:Forwarding_Rule_LC rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_MC_Sk rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_MC_SkSo rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_MC_So rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_SkSo rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_So_SN rdfs:subClassOf :Forwarding_Rule.
+:Forwarding_Rule_SoSk rdfs:subClassOf :Forwarding_Rule.
+:Fowarding_Rule_Sk_SN rdfs:subClassOf :Forwarding_Rule.
+:Ingress_LC rdfs:subClassOf :Possible_Ingress_LC.
+:Ingress_MC_Sk rdfs:subClassOf :A_Sk_Output__Sk_MFP_Bound.
+:Ingress_MC_SkSo rdfs:subClassOf :A_Sk_Output__Sk_MFP_Bound.
+:Ingress_MC_So rdfs:subClassOf :T_So_Output__So_MFEP_Bound.
+:Ingress_SN_Sk rdfs:subClassOf :A_Sk_Output__Sk_SNFP_Bound.
+:Ingress_SN_SkSo rdfs:subClassOf :A_Sk_Output__Sk_SNFP_Bound.
+:Ingress_SN_So rdfs:subClassOf :T_So_Output__So_SNFEP_Bound.
+:Ingress_SN_SoSk rdfs:subClassOf :T_So_Output__So_SNFEP_Bound.
+:Network_Connection rdfs:subClassOf :Transport_Entity.
+:Unidirectional_NC rdfs:subClassOf :Network_Connection.
+:Bidirectional_NC rdfs:subClassOf :Network_Connection.
+:Unidirectional_Path_NC rdfs:subClassOf :Unidirectional_NC.
+:Unidirectional_PM_NC rdfs:subClassOf :Unidirectional_NC.
+:Bidirectional_PM_NC rdfs:subClassOf :Bidirectional_NC.
+:Bidirectional_Path_NC rdfs:subClassOf :Bidirectional_NC.
+:Active_Bidirectional_PMFEP__PM_NC_Connected rdfs:subClassOf :Bidirectional_PMFEP, :Connected_Reference_Point.
+:Active_Bidirectional_Path_FEP__Path_NC_Connected rdfs:subClassOf :Bidirectional_Path_FEP, :Connected_Reference_Point.
+:Active_Sk_PMFEP__PM_NC_connected rdfs:subClassOf :Sink_PMFEP, :Connected_Reference_Point.
+:Active_Sk_PathFEP__Path_NC_connected rdfs:subClassOf :Sink_Path_FEP, :Connected_Reference_Point.
+:Active_So_PMFEP__PM_NC_connected rdfs:subClassOf :Source_PMFEP, :Connected_Reference_Point.
+:Active_So_PathFEP__Path_NC_connected rdfs:subClassOf :Source_Path_FEP, :Connected_Reference_Point.
+:Bidirectional_NC rdfs:subClassOf :Network_Connection.
+:Bidirectional_PM_NC rdfs:subClassOf :Bidirectional_NC.
+:Bidirectional_Path_NC rdfs:subClassOf :Bidirectional_NC.
+:Network_Connection rdfs:subClassOf :Transport_Entity.
+:Path_NC_Forwarding rdfs:subClassOf :Forwarding.
+:PM_NC_Forwarding rdfs:subClassOf :Forwarding.
+:Unidirectional_NC rdfs:subClassOf :Network_Connection.
+:Unidirectional_PM_NC rdfs:subClassOf :Unidirectional_NC.
+:Unidirectional_PM_NC_Bidirectional_Component rdfs:subClassOf :Unidirectional_PM_NC.
+:Unidirectional_Path_NC rdfs:subClassOf :Unidirectional_NC.
+:Unidirectional_Path_NC_Bidirectional_Component rdfs:subClassOf :Unidirectional_Path_NC.
+:Matrix_Connection rdfs:subClassOf :Transport_Entity.
+:Bi_Intermediate_MC rdfs:subClassOf :Bidirectional_MC.
+:Bi_Path_MC rdfs:subClassOf :Bidirectional_MC.
+:Intermediate_MC rdfs:subClassOf :Unidirectional_MC.
+:Sink_MC rdfs:subClassOf :Unidirectional_MC.
+:Source_MC rdfs:subClassOf :Unidirectional_MC.
+:Bidirectional_MC rdfs:subClassOf :Matrix_Connection.
+:Unidirectional_MC rdfs:subClassOf :Matrix_Connection.
+:Active_Intermediate_Bidirectional_MFP rdfs:subClassOf :Bidirectional_MFP, :Connected_Reference_Point.
+:Active_Path_Bidirectional_MFEP rdfs:subClassOf :Bidirectional_MFEP, :Connected_Reference_Point.
+:Active_Path_Bidirectional_MFP rdfs:subClassOf :Bidirectional_MFP, :Connected_Reference_Point.
+:Active_Sk_MFEP__Sk_MC_connected rdfs:subClassOf :Sink_MFEP, :Connected_Reference_Point.
+:Active_Sk_MFP__Int_MC_connected rdfs:subClassOf :Sink_MFP, :Connected_Reference_Point.
+:Active_Sk_MFP__Sk_MC_connected rdfs:subClassOf :Sink_MFP, :Connected_Reference_Point.
+:Active_So_MFEP__So_MC_connected rdfs:subClassOf :Source_MFEP, :Connected_Reference_Point.
+:Active_So_MFP__Int_MC_connected rdfs:subClassOf :Source_MFP, :Connected_Reference_Point.
+:Active_So_MFP__So_MC_connected rdfs:subClassOf :Source_MFP, :Connected_Reference_Point.
+:Bi_Intermediate_MC rdfs:subClassOf :Bidirectional_MC.
+:Bi_Path_MC rdfs:subClassOf :Bidirectional_MC.
+:Bidirectional_MC rdfs:subClassOf :Matrix_Connection.
+:Int_MC_Forwarding rdfs:subClassOf :Forwarding.
+:Intermediate_MC rdfs:subClassOf :Unidirectional_MC.
+:Intermediate_MC_Bi_Component rdfs:subClassOf :Intermediate_MC.
+:Matrix_Connection rdfs:subClassOf :Transport_Entity.
+:Sink_MC rdfs:subClassOf :Unidirectional_MC.
+:Sink_MC_Bi_Component rdfs:subClassOf :Sink_MC.
+:Sk_MC_Forwarding rdfs:subClassOf :Forwarding.
+:So_MC_Forwarding rdfs:subClassOf :Forwarding.
+:Source_MC rdfs:subClassOf :Unidirectional_MC.
+:Source_MC_Bi_Component rdfs:subClassOf :Source_MC.
+:Unidirectional_MC rdfs:subClassOf :Matrix_Connection.
+:Link_Connection rdfs:subClassOf :Transport_Entity.
+:Bidirectional_LC rdfs:subClassOf :Link_Connection.
+:Unidirectional_LC rdfs:subClassOf :Link_Connection.
+:Path_LC rdfs:subClassOf :Unidirectional_LC.
+:PM_LC rdfs:subClassOf :Unidirectional_LC.
+:Bi_PM_LC rdfs:subClassOf :Bidirectional_LC.
+:Bi_Path_LC rdfs:subClassOf :Bidirectional_LC.
+:Active_Bidirectional_PMFEP__PM_LC_Connected rdfs:subClassOf :Bidirectional_PMFEP, :Connected_Reference_Point.
+:Active_Possible_Bi_LC_Connected_RP rdfs:subClassOf :Possible_Bi_LC_Connected_RP, :Connected_Reference_Point.
+:Active_Sk_PMFEP__PM_LC_connected rdfs:subClassOf :Sink_PMFEP, :Connected_Reference_Point.
+:Active_So_PMFEP__PM_LC_connected rdfs:subClassOf :Source_PMFEP, :Connected_Reference_Point.
+:Bi_PM_LC rdfs:subClassOf :Bidirectional_LC.
+:Bi_Path_LC rdfs:subClassOf :Bidirectional_LC.
+:Bidirectional_LC rdfs:subClassOf :Link_Connection.
+:LC_Connected_RP rdfs:subClassOf :Possible_LC_Connected_RP.
+:Link_Connection rdfs:subClassOf :Transport_Entity.
+:PM_LC rdfs:subClassOf :Unidirectional_LC.
+:PM_LC_Bi_Component rdfs:subClassOf :PM_LC.
+:PM_LC_Forwarding rdfs:subClassOf :Forwarding.
+:Path_LC rdfs:subClassOf :Unidirectional_LC.
+:Path_LC_Bi_Component rdfs:subClassOf :Path_LC.
+:Path_LC_Forwarding rdfs:subClassOf :Forwarding.
+:Sink_Active_RP__Path_LC_connected rdfs:subClassOf :LC_Connected_RP, :Connected_Reference_Point.
+:Source_Active_RP__Path_LC_connected rdfs:subClassOf :LC_Connected_RP, :Connected_Reference_Point.
+:Unidirectional_LC rdfs:subClassOf :Link_Connection.
+:Channel_Forwarding_Transport_Entity rdfs:subClassOf :Transport_Entity.
+:Source_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:Intermediate_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:End_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:Sink_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:Unidirectional_CFTE rdfs:subClassOf :Channel_Forwarding_Transport_Entity.
+:Bidirectional_CFTE rdfs:subClassOf :Channel_Forwarding_Transport_Entity.
+:Bi_Path_CFTE rdfs:subClassOf :Bidirectional_CFTE.
+:Bi_Intermediate_CFTE rdfs:subClassOf :Bidirectional_CFTE.
+:Bi_End_CFTE rdfs:subClassOf :Bidirectional_CFTE.
+:Active_End_Bidirectional_SNFEP rdfs:subClassOf :Bidirectional_SNFEP, :Connected_Reference_Point.
+:Active_Intermediate_Bidirectional_SNFP rdfs:subClassOf :Bidirectional_SNFP, :Connected_Reference_Point.
+:Active_Path_Bidirectional_SNFEP rdfs:subClassOf :Bidirectional_SNFEP, :Connected_Reference_Point.
+:Active_Path_Bidirectional_SNFP rdfs:subClassOf :Bidirectional_SNFP, :Connected_Reference_Point.
+:Active_Sk_SNFEP__End_CFTE_connected rdfs:subClassOf :Sink_SNFEP, :Connected_Reference_Point.
+:Active_Sk_SNFEP__Sk_CFTE_connected rdfs:subClassOf :Sink_SNFEP, :Connected_Reference_Point.
+:Active_Sk_SNFP__Int_CFTE_connected rdfs:subClassOf :Sink_SNFP, :Connected_Reference_Point.
+:Active_Sk_SNFP__Sk_CFTE_connected rdfs:subClassOf :Sink_SNFP, :Connected_Reference_Point.
+:Active_So_SNFEP__End_CFTE_connected rdfs:subClassOf :Source_SNFEP, :Connected_Reference_Point.
+:Active_So_SNFEP__So_CFTE_connected rdfs:subClassOf :Source_SNFEP, :Connected_Reference_Point.
+:Active_So_SNFP__Int_CFTE_connected rdfs:subClassOf :Source_SNFP, :Connected_Reference_Point.
+:Active_So_SNFP__So_CFTE_connected rdfs:subClassOf :Source_SNFP, :Connected_Reference_Point.
+:Bi_End_CFTE rdfs:subClassOf :Bidirectional_CFTE.
+:Bi_Intermediate_CFTE rdfs:subClassOf :Bidirectional_CFTE.
+:Bi_Path_CFTE rdfs:subClassOf :Bidirectional_CFTE.
+:Bidirectional_CFTE rdfs:subClassOf :Channel_Forwarding_Transport_Entity.
+:Channel_Forwarding_Transport_Entity rdfs:subClassOf :Transport_Entity.
+:End_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:End_CFTE_Bi_Component rdfs:subClassOf :End_CFTE.
+:End_Forwarding rdfs:subClassOf :Forwarding.
+:Int_CFTE_Forwarding rdfs:subClassOf :Forwarding.
+:Intermediate_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:Intermediate_CFTE_Bi_Component rdfs:subClassOf :Intermediate_CFTE.
+:Sink_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:Sink_CFTE_Bi_Component rdfs:subClassOf :Sink_CFTE.
+:Sk_CFTE_Forwarding rdfs:subClassOf :Forwarding.
+:So_CFTE_Forwarding rdfs:subClassOf :Forwarding.
+:Source_CFTE rdfs:subClassOf :Unidirectional_CFTE.
+:Source_CFTE_Bi_Component rdfs:subClassOf :Source_CFTE.
+:Unidirectional_CFTE rdfs:subClassOf :Channel_Forwarding_Transport_Entity.
+:Access_Transport_Entity rdfs:subClassOf :Transport_Entity.
+:Bidirectional_Access_Transport_Entity rdfs:subClassOf :Access_Transport_Entity.
+:Unidirectional_Access_Transport_Entity rdfs:subClassOf :Access_Transport_Entity.
+:AP_Forwarding rdfs:subClassOf :Forwarding.
+:Access_Transport_Entity rdfs:subClassOf :Transport_Entity.
+:Active_Bidirectional_AP rdfs:subClassOf :Bidirectional_AP, :Connected_Reference_Point.
+:Active_Sink_AP rdfs:subClassOf :Sink_AP, :Connected_Reference_Point.
+:Active_Source_AP rdfs:subClassOf :Source_AP, :Connected_Reference_Point.
+:Bidirectional_Access_Transport_Entity rdfs:subClassOf :Access_Transport_Entity.
+:Unidirectional_Access_Transport_Entity rdfs:subClassOf :Access_Transport_Entity.
+:Unidirectional_Access_Transport_Entity_Bidirectional_Component rdfs:subClassOf :Unidirectional_Access_Transport_Entity.
+:MFP rdfs:subClassOf :Forwarding_Point.
+:SNFP rdfs:subClassOf :Forwarding_Point.
+:AFP rdfs:subClassOf :Forwarding_Point.
+:LPFP rdfs:subClassOf :Forwarding_Point.
+:Bidirectional_AFP rdfs:subClassOf :AFP.
+:Unidirectional_AFP rdfs:subClassOf :AFP.
+:Bidirectional_SNFP rdfs:subClassOf :SNFP.
+:Sink_SNFP rdfs:subClassOf :SNFP.
+:Source_SNFP rdfs:subClassOf :SNFP.
+:Bidirectional_MFP rdfs:subClassOf :MFP.
+:Source_MFP rdfs:subClassOf :MFP.
+:Sink_MFP rdfs:subClassOf :MFP.
+:Sink_LPFP rdfs:subClassOf :LPFP.
+:Source_LPFP rdfs:subClassOf :LPFP.
+:A_Sk_Output__AFP_Bound rdfs:subClassOf :Adaptation_Sink_Output, :Possible_Ingress_LC, :Bound_InputOutput.
+:A_Sk_Output__Sk_LPFP_Bound rdfs:subClassOf :Adaptation_Sink_Output.
+:A_Sk_Output__Sk_MFP_Bound rdfs:subClassOf :Adaptation_Sink_Output, :Possible_Egress_LC, :Bound_InputOutput.
+:A_Sk_Output__Sk_SNFP_Bound rdfs:subClassOf :Adaptation_Sink_Output, :Bound_InputOutput.
+:A_So_Input__AFP_Bound rdfs:subClassOf :Adaptation_Source_Input, :Possible_Egress_LC, :Bound_InputOutput.
+:A_So_Input__So_LFP_Bound rdfs:subClassOf :Adaptation_Source_Input.
+:A_So_Input__So_MFP_Bound rdfs:subClassOf :Adaptation_Source_Input, :Bound_InputOutput.
+:A_So_Input__So_SNFP_Bound rdfs:subClassOf :Adaptation_Source_Input, :Bound_InputOutput.
+:AFP rdfs:subClassOf :Forwarding_Point.
+:AFP_Binding rdfs:subClassOf :Binding.
+:Bidirectional_AFP rdfs:subClassOf :AFP, :Possible_Bi_LC_Connected_RP.
+:Bidirectional_MFP rdfs:subClassOf :MFP, :Possible_Bi_LC_Connected_RP.
+:Bidirectional_SNFP rdfs:subClassOf :SNFP, :Possible_Bi_LC_Connected_RP.
+:Forwarding_Point rdfs:subClassOf :Reference_Point.
+:LP_Input__Sk_LPFP_Bound rdfs:subClassOf :Layer_Processor_Sink_Input, :Possible_Egress_LC.
+:LPFP rdfs:subClassOf :Forwarding_Point.
+:LPF_Output__So_LFP_Bound rdfs:subClassOf :Layer_Processor_Source_Output, :Possible_Ingress_LC.
+:M_Input__Sk_MFP_Bound rdfs:subClassOf :Matrix_Input, :Bound_InputOutput.
+:M_Output__So_MFP_Bound rdfs:subClassOf :Matrix_Output, :Possible_Ingress_LC, :Bound_InputOutput.
+:MFP rdfs:subClassOf :Forwarding_Point.
+:SN_Intput__Sk_SNFP_Bound rdfs:subClassOf :Subnetwork_Input, :Possible_Egress_LC, :Bound_InputOutput.
+:SN_Outtput__So_SNFP_Bound rdfs:subClassOf :Subnetwork_Output, :Possible_Ingress_LC, :Bound_InputOutput.
+:SNFP rdfs:subClassOf :Forwarding_Point.
+:Sink_LPFP rdfs:subClassOf :LPFP, :Possible_LC_Connected_RP.
+:Sink_LPFP_Bi_Component rdfs:subClassOf :Sink_LPFP.
+:Sink_MFP rdfs:subClassOf :MFP, :Possible_LC_Connected_RP.
+:Sink_MFP_Bi_Component rdfs:subClassOf :Sink_MFP.
+:Sink_MFP_Binding rdfs:subClassOf :Binding.
+:Sink_SNFP rdfs:subClassOf :SNFP, :Possible_LC_Connected_RP.
+:Sink_SNFP_Bi_Component rdfs:subClassOf :Sink_SNFP.
+:Sink_SNFP_Binding rdfs:subClassOf :Binding.
+:Source_LFP_Binding rdfs:subClassOf :Binding.
+:Source_LPFP rdfs:subClassOf :LPFP, :Possible_LC_Connected_RP.
+:Source_LPFP_Bi_Component rdfs:subClassOf :Source_LPFP.
+:Source_MFP rdfs:subClassOf :MFP, :Possible_LC_Connected_RP.
+:Source_MFP_Bi_Component rdfs:subClassOf :Source_MFP.
+:Source_MFP_Binding rdfs:subClassOf :Binding.
+:Source_SNFP rdfs:subClassOf :SNFP, :Possible_LC_Connected_RP.
+:Source_SNFP_Bi_Component rdfs:subClassOf :Source_SNFP.
+:Source_SNFP_Binding rdfs:subClassOf :Binding.
+:Uni_AFP_Bi_Component rdfs:subClassOf :Unidirectional_AFP.
+:Unidirectional_AFP rdfs:subClassOf :AFP, :Possible_LC_Connected_RP.
+:Sink_AFEP rdfs:subClassOf :Possible_LC_Connected_RP.
+:Source_LPFFEP rdfs:subClassOf :Possible_LC_Connected_RP.
+:Sink_LPFFEP rdfs:subClassOf :Possible_LC_Connected_RP.
+:Source_AFEP rdfs:subClassOf :Possible_LC_Connected_RP.
+:Bidirectional_AFEP rdfs:subClassOf :Possible_Bi_LC_Connected_RP.
+:T_Sk_Input__Sk_MFEP_Bound rdfs:subClassOf :Possible_Egress_LC.
+:T_Sk_Input__Sk_PMFEP_Bound rdfs:subClassOf :Possible_Egress_LC.
+:T_Sk_Input__Sk_LPFFEP_Bound rdfs:subClassOf :Possible_Egress_LC.
+:T_Sk_Input__Sk_SNFEP_Bound rdfs:subClassOf :Possible_Egress_LC.
+:T_Sk_Input__Sk_AFEP_Bound rdfs:subClassOf :Possible_Egress_LC.
+:T_So_Output__So_SNFEP_Bound rdfs:subClassOf :Possible_Ingress_LC.
+:T_So_Output__So_AFEP_Bound rdfs:subClassOf :Possible_Ingress_LC.
+:T_So_Output__So_PMFEP_Bound rdfs:subClassOf :Possible_Ingress_LC.
+:T_So_Output__So_LPFFEP_Bound rdfs:subClassOf :Possible_Ingress_LC.
+:T_So_Output__So_MFEP_Bound rdfs:subClassOf :Possible_Ingress_LC.
+:Source_Path_FEP rdfs:subClassOf :Source_FEP.
+:Source_PMFEP rdfs:subClassOf :Source_FEP.
+:Source_SNFEP rdfs:subClassOf :Source_Path_FEP.
+:Source_MFEP rdfs:subClassOf :Source_Path_FEP.
+:Source_LPFFEP rdfs:subClassOf :Source_Path_FEP.
+:Source_AFEP rdfs:subClassOf :Source_Path_FEP.
+:Sink_LPFFEP rdfs:subClassOf :Sink_Path_FEP.
+:Sink_SNFEP rdfs:subClassOf :Sink_Path_FEP.
+:Sink_AFEP rdfs:subClassOf :Sink_Path_FEP.
+:Sink_MFEP rdfs:subClassOf :Sink_Path_FEP.
+:Sink_Path_FEP rdfs:subClassOf :Sink_FEP.
+:Sink_PMFEP rdfs:subClassOf :Sink_FEP.
+:Sink_FEP rdfs:subClassOf :Forwarding_End_Point.
+:Bidirectional_FEP rdfs:subClassOf :Forwarding_End_Point.
+:Source_FEP rdfs:subClassOf :Forwarding_End_Point.
+:Bidirectional_MFEP rdfs:subClassOf :Bidirectional_Path_FEP.
+:Bidirectional_SNFEP rdfs:subClassOf :Bidirectional_Path_FEP.
+:Bidirectional_AFEP rdfs:subClassOf :Bidirectional_Path_FEP.
+:Bidirectional_PMFEP rdfs:subClassOf :Bidirectional_FEP.
+:Bidirectional_Path_FEP rdfs:subClassOf :Bidirectional_FEP.
+:A_Sk_Output__Sk_AFEP_Bound rdfs:subClassOf :Adaptation_Sink_Output.
+:A_So_Input__So_AFEP_Bound rdfs:subClassOf :Adaptation_Source_Input.
+:Bidirectional_AFEP rdfs:subClassOf :Bidirectional_Path_FEP, :Possible_Bi_LC_Connected_RP.
+:Bidirectional_FEP rdfs:subClassOf :Forwarding_End_Point.
+:Bidirectional_MFEP rdfs:subClassOf :Bidirectional_Path_FEP.
+:Bidirectional_PMFEP rdfs:subClassOf :Bidirectional_FEP.
+:Bidirectional_Path_FEP rdfs:subClassOf :Bidirectional_FEP.
+:Bidirectional_SNFEP rdfs:subClassOf :Bidirectional_Path_FEP.
+:Forwarding_End_Point rdfs:subClassOf :Reference_Point.
+:LPF__Sk_LFEP_Bound rdfs:subClassOf :Layer_Processor_Sink_Output.
+:LPF_Input__So_LFEP_Bound rdfs:subClassOf :Layer_Processor_Source_Input.
+:M_Input__So_MFEP_Bound rdfs:subClassOf :Matrix_Input.
+:M_Output__Sk_MFEP_Bound rdfs:subClassOf :Matrix_Output.
+:PM_Input__So_PMFEP_Bound rdfs:subClassOf :Physical_Media_Input.
+:PM_Output__Sk_PMFEP_Bound rdfs:subClassOf :Physical_Media_Output.
+:SN_Input__So_SFEP_Bound rdfs:subClassOf :Subnetwork_Input.
+:SN_Output__Sk_SFEP_Bound rdfs:subClassOf :Subnetwork_Output.
+:Sink_AFEP rdfs:subClassOf :Sink_Path_FEP, :Possible_LC_Connected_RP.
+:Sink_AFEP_Bi_Component rdfs:subClassOf :Sink_AFEP.
+:Sink_AFEP_Binding rdfs:subClassOf :Binding.
+:Sink_FEP rdfs:subClassOf :Forwarding_End_Point.
+:Sink_LPFFEP rdfs:subClassOf :Sink_Path_FEP, :Possible_LC_Connected_RP.
+:Sink_LPFFEP_Bi_Component rdfs:subClassOf :Sink_LPFFEP.
+:Sink_LPFFEP_Bound rdfs:subClassOf :Binding.
+:Sink_MFEP rdfs:subClassOf :Sink_Path_FEP.
+:Sink_MFEP_Bi_Component rdfs:subClassOf :Sink_MFEP.
+:Sink_MFEP_Binding rdfs:subClassOf :Binding.
+:Sink_PMFEP rdfs:subClassOf :Sink_FEP.
+:Sink_PMFEP_Bi_Component rdfs:subClassOf :Sink_PMFEP.
+:Sink_PMFEP_Binding rdfs:subClassOf :Binding.
+:Sink_Path_FEP rdfs:subClassOf :Sink_FEP.
+:Sink_SNFEP rdfs:subClassOf :Sink_Path_FEP.
+:Sink_SNFEP_Bi_Component rdfs:subClassOf :Sink_SNFEP.
+:Sink_SNFEP_Binding rdfs:subClassOf :Binding.
+:Source_AFEP rdfs:subClassOf :Source_Path_FEP, :Possible_LC_Connected_RP.
+:Source_AFEP_Bi_Component rdfs:subClassOf :Source_AFEP.
+:Source_AFEP_Binding rdfs:subClassOf :Binding.
+:Source_FEP rdfs:subClassOf :Forwarding_End_Point.
+:Source_LPFFEP rdfs:subClassOf :Source_Path_FEP, :Possible_LC_Connected_RP.
+:Source_LPFFEP_Bi_Component rdfs:subClassOf :Source_LPFFEP.
+:Source_LPFFEP_Binding rdfs:subClassOf :Binding.
+:Source_MFEP rdfs:subClassOf :Source_Path_FEP.
+:Source_MFEP_Bi_Component rdfs:subClassOf :Source_MFEP.
+:Source_MFEP_Binding rdfs:subClassOf :Binding.
+:Source_PMFEP rdfs:subClassOf :Source_FEP.
+:Source_PMFEP_Bi_Component rdfs:subClassOf :Source_PMFEP.
+:Source_PMFEP_Binding rdfs:subClassOf :Binding.
+:Source_Path_FEP rdfs:subClassOf :Source_FEP.
+:Source_SNFEP rdfs:subClassOf :Source_Path_FEP.
+:Source_SNFEP_Bi_Component rdfs:subClassOf :Source_SNFEP.
+:Source_SNFEP_Binding rdfs:subClassOf :Binding.
+:T_Sk_Input__Sk_AFEP_Bound rdfs:subClassOf :Termination_Sink_Input, :Possible_Egress_LC.
+:T_Sk_Input__Sk_LPFFEP_Bound rdfs:subClassOf :Termination_Sink_Input, :Possible_Egress_LC.
+:T_Sk_Input__Sk_MFEP_Bound rdfs:subClassOf :Termination_Sink_Input, :Possible_Egress_LC.
+:T_Sk_Input__Sk_PMFEP_Bound rdfs:subClassOf :Termination_Sink_Input, :Possible_Egress_LC.
+:T_Sk_Input__Sk_SNFEP_Bound rdfs:subClassOf :Termination_Sink_Input, :Possible_Egress_LC.
+:T_So_Output__So_AFEP_Bound rdfs:subClassOf :Termination_Source_Output, :Possible_Ingress_LC.
+:T_So_Output__So_LPFFEP_Bound rdfs:subClassOf :Termination_Source_Output, :Possible_Ingress_LC.
+:T_So_Output__So_MFEP_Bound rdfs:subClassOf :Termination_Source_Output, :Possible_Ingress_LC.
+:T_So_Output__So_PMFEP_Bound rdfs:subClassOf :Termination_Source_Output, :Possible_Ingress_LC.
+:T_So_Output__So_SNFEP_Bound rdfs:subClassOf :Termination_Source_Output, :Possible_Ingress_LC.
+:Bidirectional_AP rdfs:subClassOf :Access_Point.
+:Sink_AP rdfs:subClassOf :Access_Point.
+:A_Sk_Input__Sk_AP_Bound rdfs:subClassOf :Adaptation_Sink_Input, :Bound_InputOutput.
+:A_So_Output__So_AP_Bound rdfs:subClassOf :Adaptation_Source_Output, :Bound_InputOutput.
+:Access_Point rdfs:subClassOf :Reference_Point.
+:Bidirectional_AP rdfs:subClassOf :Access_Point.
+:Sink_AP rdfs:subClassOf :Access_Point.
+:Sink_AP_Bi_Component rdfs:subClassOf :Sink_AP.
+:Sink_AP_Binding rdfs:subClassOf :Binding.
+:Source_AP rdfs:subClassOf :Access_Point.
+:Source_AP_Bi_Component rdfs:subClassOf :Source_AP.
+:Source_AP_Binding rdfs:subClassOf :Binding.
+:T_Sk_Output__Sk_AP_Bound rdfs:subClassOf :Termination_Sink_Output, :Bound_InputOutput.
+:T_So_Input__So_AP_Bound rdfs:subClassOf :Termination_Source_Input, :Bound_InputOutput.
+:Section_Layer_Termination rdfs:subClassOf :Transmission_Media_Layer_Termination.
+:Physical_Media_Layer_Termination rdfs:subClassOf :Transmission_Media_Layer_Termination.
+:Transmission_Media_Layer_Termination rdfs:subClassOf :Termination_Function.
+:Path_Layer_Termination rdfs:subClassOf :Termination_Function.
+:Termination_Source rdfs:subClassOf :Termination_Function.
+:Termination_Sink rdfs:subClassOf :Termination_Function.
+:Bidirectional_Termination rdfs:subClassOf :Termination_Function, :Termination_Function.
+:Path_Layer_Termination rdfs:subClassOf :Termination_Function.
+:Physical_Media_Layer_Termination rdfs:subClassOf :Transmission_Media_Layer_Termination.
+:Section_Layer_Termination rdfs:subClassOf :Transmission_Media_Layer_Termination.
+:Termination_Sink rdfs:subClassOf :Termination_Function.
+:Termination_Sk_Bidirectional_Component rdfs:subClassOf :Termination_Sink.
+:Termination_So_Bidirectional_Component rdfs:subClassOf :Termination_Source.
+:Termination_Source rdfs:subClassOf :Termination_Function.
+:Transmission_Media_Layer_Termination rdfs:subClassOf :Termination_Function.
+:Layer_Processor_Function_Source rdfs:subClassOf :Layer_Processor_Function.
+:Bidirectional_Layer_Processor_Function rdfs:subClassOf :Layer_Processor_Function.
+:Layer_Processor_Function_Sink rdfs:subClassOf :Layer_Processor_Function.
+:Bidirectional_Layer_Processor_Function rdfs:subClassOf :Layer_Processor_Function.
+:LPF_Sk_Bidirectional_Component rdfs:subClassOf :Layer_Processor_Function_Sink.
+:LPF_So_Bidirectional_Component rdfs:subClassOf :Layer_Processor_Function_Source.
+:Layer_Processor_Function rdfs:subClassOf :Transport_Processing_Function.
+:Layer_Processor_Function_Sink rdfs:subClassOf :Layer_Processor_Function.
+:Layer_Processor_Function_Source rdfs:subClassOf :Layer_Processor_Function.
+:Layer_Processor_Sink_Input rdfs:subClassOf :Input.
+:Layer_Processor_Sink_Output rdfs:subClassOf :Output.
+:Layer_Processor_Source_Input rdfs:subClassOf :Input.
+:Layer_Processor_Source_Output rdfs:subClassOf :Output.
+:SectionPhysical_Media_Layers_AF rdfs:subClassOf :Adaptation_Function.
+:PathPath_Layers_AF rdfs:subClassOf :Adaptation_Function.
+:PathSection_Layers_AF rdfs:subClassOf :Adaptation_Function.
+:Adaptation_Source rdfs:subClassOf :Adaptation_Function.
+:Bidirectional_Adaptation rdfs:subClassOf :Adaptation_Function.
+:Adaptation_Sink rdfs:subClassOf :Adaptation_Function.
+:Adaptation_Function rdfs:subClassOf :Transport_Processing_Function.
+:Adaptation_Sink rdfs:subClassOf :Adaptation_Function.
+:Adaptation_Sink_Input rdfs:subClassOf :Input.
+:Adaptation_Sink_Output rdfs:subClassOf :Output.
+:Adaptation_Sk_Bidirectional_Component rdfs:subClassOf :Adaptation_Sink.
+:Adaptation_So_Bidirectional_Component rdfs:subClassOf :Adaptation_Source.
+:Adaptation_Source rdfs:subClassOf :Adaptation_Function.
+:Adaptation_Source_Input rdfs:subClassOf :Input.
+:Adaptation_Source_Output rdfs:subClassOf :Output.
+:Bidirectional_Adaptation rdfs:subClassOf :Adaptation_Function.
+:PathPath_Layers_AF rdfs:subClassOf :Adaptation_Function.
+:PathSection_Layers_AF rdfs:subClassOf :Adaptation_Function.
+:SectionPhysical_Media_Layers_AF rdfs:subClassOf :Adaptation_Function.
+:A_Sk__Uni_Subnetwork_Connected rdfs:subClassOf :Adaptation_Sink.
+:A_So__Uni_Subnetwork_Connected rdfs:subClassOf :Adaptation_Source.
+:Bi_A__Bi_Subnetwork_Connected rdfs:subClassOf :Bidirectional_Adaptation.
+:Bi_Subnetwork__A_Bi_Connected rdfs:subClassOf :Bidirectional_Connected_Subnetwork.
+:Uni_Subnetwork__A_Sk_Connected rdfs:subClassOf :Unidirectional_Subnetwork.
+:Uni_Subnetwork__A_So_Connected rdfs:subClassOf :Unidirectional_Subnetwork.
+:A_Sk__Uni_Matrix_Connected rdfs:subClassOf :Adaptation_Sink, :Bound_Transport_Function.
+:A_So__Uni_Matrix_Connected rdfs:subClassOf :Adaptation_Source, :Bound_Transport_Function.
+:Bi_A__Bi_Matrix_Connected rdfs:subClassOf :Bidirectional_Adaptation, :Bound_Transport_Function.
+:Bi_Matrix__A_Bi_Connected rdfs:subClassOf :Bidirectional_Matrix, :Bound_Transport_Function.
+:Uni_Matrix__A_Sk_Connected rdfs:subClassOf :Connected_Unidirectional_Matrix, :Bound_Transport_Function.
+:Uni_Matrix__A_So_Connected rdfs:subClassOf :Connected_Unidirectional_Matrix, :Bound_Transport_Function.
+:A_Sk__Termination_Sink_Connected rdfs:subClassOf :Adaptation_Sink, :Bound_Transport_Function.
+:A_So__Termination_Source_Connected rdfs:subClassOf :Adaptation_Source, :Bound_Transport_Function.
+:Ag_PM__Bidirectional_Termination_Connected rdfs:subClassOf :Aggregated_Physical_Media, :Bound_Transport_Function.
+:Bi_A__Bidirectional_Termination_Connected rdfs:subClassOf :Bidirectional_Adaptation, :Bound_Transport_Function.
+:Bi_M__Bidirectional_Termination_Connected rdfs:subClassOf :Bidirectional_Matrix, :Bound_Transport_Function.
+:Bi_SN__Bidirectional_Termination_Connected rdfs:subClassOf :Bidirectional_Connected_Subnetwork, :Bound_Transport_Function.
+:Bidirectional_LPF__Bi_Termination_Connected rdfs:subClassOf :Bidirectional_Layer_Processor_Function.
+:Bidirectional_Termination__Ag_PM_Connected rdfs:subClassOf :Bidirectional_Termination, :Bound_Transport_Function.
+:Bidirectional_Termination__Bi_A_Connected rdfs:subClassOf :Bidirectional_Termination, :Bound_Transport_Function.
+:Bidirectional_Termination__Bi_LPF_Connection rdfs:subClassOf :Bidirectional_Termination.
+:Bidirectional_Termination__Bi_M_Connected rdfs:subClassOf :Bidirectional_Termination, :Bound_Transport_Function.
+:Bidirectional_Termination__Bi_SN_Connected rdfs:subClassOf :Bidirectional_Termination, :Bound_Transport_Function.
+:LPF__Termination_Sink_Connected rdfs:subClassOf :Layer_Processor_Function_Sink, :Bound_Transport_Function.
+:LPF__Termination_Source_Connected rdfs:subClassOf :Layer_Processor_Function_Source, :Bound_Transport_Function.
+:M__Termination_Sink_Connected rdfs:subClassOf :Unidirectional_Matrix, :Bound_Transport_Function.
+:M__Termination_Source_Connected rdfs:subClassOf :Unidirectional_Matrix, :Bound_Transport_Function.
+:PM__Termination_Sink_Connected rdfs:subClassOf :Single_Physical_Media, :Bound_Transport_Function.
+:PM__Termination_Source_Connected rdfs:subClassOf :Single_Physical_Media, :Bound_Transport_Function.
+:SN__Termination_Sink_Connected rdfs:subClassOf :Unidirectional_Subnetwork.
+:SN__Termination_Source_Connected rdfs:subClassOf :Unidirectional_Subnetwork.
+:Termination_Sink__A_Sk_Connected rdfs:subClassOf :Termination_Sink, :Bound_Transport_Function.
+:Termination_Sink__LPF_Connected rdfs:subClassOf :Termination_Sink, :Bound_Transport_Function.
+:Termination_Sink__M_Connected rdfs:subClassOf :Path_Layer_Termination, :Termination_Sink, :Bound_Transport_Function.
+:Termination_Sink__PM_Connected rdfs:subClassOf :Physical_Media_Layer_Termination, :Termination_Sink, :Bound_Transport_Function.
+:Termination_Sink__SN_Connected rdfs:subClassOf :Termination_Sink, :Path_Layer_Termination, :Bound_Transport_Function.
+:Termination_Source__A_So_Connected rdfs:subClassOf :Termination_Source, :Bound_Transport_Function.
+:Termination_Source__LPF_Connected rdfs:subClassOf :Termination_Source, :Bound_Transport_Function.
+:Termination_Source__M_Connected rdfs:subClassOf :Termination_Source, :Path_Layer_Termination, :Bound_Transport_Function.
+:Termination_Source__PM_Connected rdfs:subClassOf :Termination_Source, :Physical_Media_Layer_Termination, :Bound_Transport_Function.
+:Termination_Source__SN_Connected rdfs:subClassOf :Path_Layer_Termination, :Termination_Source, :Bound_Transport_Function.
+:A__LPF_Source_Connected rdfs:subClassOf :Adaptation_Source, :Bound_Transport_Function.
+:A__Layer_Processor_Sink_Connected rdfs:subClassOf :Adaptation_Sink, :Bound_Transport_Function.
+:Bidirectional_Adaptation__LPF_Bi_Connected rdfs:subClassOf :Bidirectional_Adaptation.
+:Bidirectional_Layer_Processor__A_Bi_Connected rdfs:subClassOf :Bidirectional_Layer_Processor_Function.
+:Layer_Processor_Sink__A_Connected rdfs:subClassOf :Layer_Processor_Function_Sink, :Bound_Transport_Function.
+:Layer_Processor_Source__A_Connected rdfs:subClassOf :Layer_Processor_Function_Source, :Bound_Transport_Function.
+:A_So__Adaptation_Sink_Connected rdfs:subClassOf :Adaptation_Source, :Bound_Transport_Function.
+:Adaptation_Sink__A_So_Connected rdfs:subClassOf :Adaptation_Sink, :Bound_Transport_Function.
+:Adaptation_Sink__T_Sk_Connected rdfs:subClassOf :Adaptation_Sink, :Bound_Transport_Function.
+:Adaptation_Source__T_So_Connected rdfs:subClassOf :Adaptation_Source, :Bound_Transport_Function.
+:Bi_Termination__Bidirectional_A_Connected rdfs:subClassOf :Bidirectional_Termination, :Bound_Transport_Function.
+:Bidirectional_Adaptation__Bi_A_Connected rdfs:subClassOf :Bidirectional_Adaptation, :Bound_Transport_Function.
+:Bidirectional_Adaptation__Bi_T_Connected rdfs:subClassOf :Bidirectional_Adaptation, :Bound_Transport_Function.
+:T_Sk__Adaptation_Sink_Connected rdfs:subClassOf :Termination_Sink, :Bound_Transport_Function.
+:T_So__Adaptation_Source_Connected rdfs:subClassOf :Termination_Source, :Bound_Transport_Function.
+:latitude rdfs:domain :Defined_Geographical_Element;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "latitude"@en.
+:longitude rdfs:domain :Defined_Geographical_Element;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "longitude"@en.
+:location rdfs:domain :Geographical_Element_With_Alias;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "location"@en.
+:type_ rdfs:domain :Termination_Function;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "type_"@en.

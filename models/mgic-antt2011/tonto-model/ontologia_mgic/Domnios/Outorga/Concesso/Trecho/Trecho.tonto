@@ -1,0 +1,9 @@
+import Trecho_Ferrovirio
+import Ativo_Ferrovirio
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+
+package Trecho
+
+category Trecho of functional-complexes  specializes Trecho_Ferrovirio 
+

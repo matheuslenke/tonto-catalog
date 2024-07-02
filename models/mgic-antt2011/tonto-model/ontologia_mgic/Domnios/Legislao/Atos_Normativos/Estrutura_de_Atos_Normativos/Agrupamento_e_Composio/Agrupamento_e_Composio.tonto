@@ -1,0 +1,115 @@
+
+package Agrupamento_e_Composio
+
+subkind Inciso_Componente_de_Pargrafo of functional-complexes  specializes Inciso 
+
+subkind Seo_Componente_de_Ato_Normativo of functional-complexes  specializes Seo_de_Ato_Normativo 
+
+subkind Seo_Simples_de_Ato_Normativo of functional-complexes  specializes Seo_de_Ato_Normativo 
+
+subkind Artigo_Composto_por_Incisos specializes Artigo_Composto 
+
+subkind Pargrafo_Simples of functional-complexes  specializes Pargrafo 
+
+kind Livro specializes Elemento_de_Agrupamento {
+    nromanos: undefined  
+}
+
+kind Inciso specializes Elemento_de_Discriminao {
+    nromanos: undefined  
+}
+
+kind Alnea specializes Elemento_de_Discriminao {
+    nalfabetica: undefined  
+}
+
+kind Pargrafo specializes Elemento_de_Discriminao {
+    nordinal: undefined  
+}
+
+subkind Seo_Composta_de_Ato_Normativo of functional-complexes  specializes Seo_de_Ato_Normativo 
+
+subkind Parte_Mltipla_de_Ato_Normativo of functional-complexes  specializes Parte_de_Ato_Normativo {
+    nmero: undefined  
+}
+
+subkind Artigo_Componente_de_Captulo_de_Ato_Normativo
+
+subkind Inciso_Simples of functional-complexes  specializes Inciso 
+
+subkind Ttulo_Componente_de_Ato_Normativo of functional-complexes  specializes Ttulo_de_Ato_Normativo 
+
+subkind Parte_Dupla_de_Ato_Normativo of functional-complexes  specializes Parte_de_Ato_Normativo 
+
+kind Captulo_de_Ato_Normativo specializes Elemento_de_Agrupamento {
+    nromanos: undefined  
+}
+
+subkind Inciso_Composto of functional-complexes  specializes Inciso 
+
+subkind Livro_Componente_de_Ato_Normativo of functional-complexes  specializes Livro 
+
+subkind Artigo_Simples{
+    texto: undefined  
+}
+
+subkind Inciso_Componente_de_Artigo of functional-complexes  specializes Inciso 
+
+subkind Subseo_de_Ato_Normativo of functional-complexes  specializes Seo_Simples_de_Ato_Normativo 
+
+kind Item
+
+kind Ttulo_de_Ato_Normativo specializes Elemento_de_Agrupamento {
+    nromanos: undefined  
+}
+
+subkind Captulo_Componente_de_Ato_Normativo of functional-complexes  specializes Captulo_de_Ato_Normativo 
+
+kind Parte_de_Ato_Normativo specializes Elemento_de_Agrupamento 
+
+subkind Artigo_Composto_por_Pargrafos specializes Artigo_Composto 
+
+subkind Artigo_Composto{
+    caput: undefined  
+}
+
+subkind Parte_Geral_de_Ato_Normativo of functional-complexes  specializes Parte_Dupla_de_Ato_Normativo 
+
+subkind Parte_Especial_de_Ato_Normativo of functional-complexes  specializes Parte_Dupla_de_Ato_Normativo 
+
+subkind Artigo_Componente_de_Seo_de_Ato_Normativo
+
+subkind Alnea_Simples of functional-complexes  specializes Alnea 
+
+subkind Captulo_de_Ato_Normativo_Composto_por_Artigo of functional-complexes  specializes Captulo_de_Ato_Normativo 
+
+subkind Captulo_de_Ato_Normativo_Composto_por_Seo of functional-complexes  specializes Captulo_de_Ato_Normativo 
+
+subkind Alnea_Composta of functional-complexes  specializes Alnea 
+
+kind Seo_de_Ato_Normativo specializes Elemento_de_Agrupamento {
+    nromanos: undefined  
+}
+
+subkind Pargrafo_Composto of functional-complexes  specializes Pargrafo 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

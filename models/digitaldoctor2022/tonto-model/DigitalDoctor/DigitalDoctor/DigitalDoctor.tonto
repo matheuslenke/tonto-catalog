@@ -2,15 +2,15 @@
 package DigitalDoctor
 
 kind Person specializes NamedEntity {
-    firstName: string_  
-    lastName: string_  
+    firstName: string  
+    lastName: string  
     birthdate: undefined  
-    gender: boolean_  
-    SSN: string_  
+    gender: boolean  
+    SSN: string  
 }
 
 subkind User of functional-complexes  specializes Person {
-    username: string_  
+    username: string  
     contactPoint: ContactPoint  
 }
 
@@ -32,13 +32,13 @@ phase MildSymptom of relators  specializes Symptom
 phase SevereSymptom of relators  specializes Symptom, MedicalProcedureTrigger 
 
 collective MedicalHistory specializes NamedEntity {
-    observation: string_  
+    observation: string  
 }
 
 relator MedicalProcedure specializes NamedEntity {
     address: Address  
     date: Date  
-    patientPreparation: string_  
+    patientPreparation: string  
 }
 
 subkind TherapeuticProcedure of relators  specializes PresenceMedicalProcedure, RemoteMedicalProcedure 
@@ -46,12 +46,12 @@ subkind TherapeuticProcedure of relators  specializes PresenceMedicalProcedure, 
 subkind PalliativeProcedure of relators  specializes PresenceMedicalProcedure 
 
 subkind PhysicalExam of relators  specializes PresenceMedicalProcedure {
-    bodyLocation: string_  
+    bodyLocation: string  
 }
 
 subkind SurgicalProcedure of relators  specializes PresenceMedicalProcedure {
-    bodyLocation: string_  
-    typeOfAnaesthesia: string_  
+    bodyLocation: string  
+    typeOfAnaesthesia: string  
 }
 
 subkind DiagnosticProcedure of relators  specializes PresenceMedicalProcedure, RemoteMedicalProcedure {
@@ -59,23 +59,23 @@ subkind DiagnosticProcedure of relators  specializes PresenceMedicalProcedure, R
 }
 
 kind DoseSchedule specializes NamedEntity {
-    doseUnit: string_  
+    doseUnit: string  
     doseValue: float  
-    doseFrequency: string_  
+    doseFrequency: string  
 }
 
 kind Drug specializes NamedEntity {
     prescriptionRequired: undefined  
     isAvailableGenerically: undefined  
-    alcoholWarning: string_  
-    foodWarning: string_  
-    pregnancyWarning: string_  
-    breastfeedingWarning: string_  
+    alcoholWarning: string  
+    foodWarning: string  
+    pregnancyWarning: string  
+    breastfeedingWarning: string  
 }
 
 category NamedEntity{
-    name: string_  
-    description: string_  
+    name: string  
+    description: string  
 }
 
 relator Prescription specializes NamedEntity 
@@ -90,7 +90,7 @@ subkind PreviousIllness of functional-complexes  specializes MedicalProcedureTri
 }
 
 kind MedicalProcedureOutcome specializes NamedEntity {
-    remark: string_  
+    remark: string  
     expiryDate: Date  
     date: Date  
     severity_rating: Rating  
@@ -104,7 +104,7 @@ role GeneralPractitioner of functional-complexes  specializes Doctor
 
 relator PatientReport specializes NamedEntity {
     date: Date  
-    comment: string_  
+    comment: string  
 }
 
 subkind RemoteMedicalProcedure of relators  specializes MedicalProcedure 

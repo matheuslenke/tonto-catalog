@@ -1,0 +1,60 @@
+import Componente_Trecho_Fsico
+import Sinalizao
+import Obra_com_Interveno
+
+package Sinalizao
+
+subkind Sinalizao_Semafrica of functional-complexes  specializes Sinalizao_Rodoviria 
+
+subkind Sinalizao_Horizontal of functional-complexes  specializes Sinalizao_Rodoviria 
+
+subkind Sinalizao_Temporria of functional-complexes  specializes Sinalizao_Rodoviria 
+
+subkind Marca_Transversal of functional-complexes  specializes Marca_de_Sinalizao 
+
+subkind Marca_de_Canalizao of functional-complexes  specializes Marca_de_Sinalizao 
+
+subkind Sinalizao_Vertical of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Sinalizao_Turstica of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Seta_Direcional of functional-complexes  specializes Inscrio_no_Pavimento 
+
+subkind Sinalizao_por_Placa of functional-complexes  specializes Sinalizao_Rodoviria 
+
+subkind Linha_Contnua of functional-complexes  specializes Marca_Longitudinal 
+
+subkind Sinalizao_de_Regulamentao of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Inscrio_no_Pavimento of functional-complexes  specializes Sinalizao_Horizontal 
+
+subkind Sinalizao_de_Advertncia of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Marca_Longitudinal of functional-complexes  specializes Marca_de_Sinalizao 
+
+subkind Sinalizao_de_Indicao of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Legenda of functional-complexes  specializes Inscrio_no_Pavimento 
+
+subkind Sinalizao_de_Obra of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Sinalizao_de_Servio_Auxiliar of functional-complexes  specializes Sinalizao_por_Placa 
+
+quantity Material_de_Sinalizao
+
+subkind Sinalizao_de_Educao of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Sinalizao_Area of functional-complexes  specializes Sinalizao_por_Placa 
+
+subkind Marca_de_Sinalizao of functional-complexes  specializes Sinalizao_Horizontal 
+
+subkind Smbolo of functional-complexes  specializes Inscrio_no_Pavimento 
+
+subkind Linha_Tracejada of functional-complexes  specializes Marca_Longitudinal 
+
+subkind Marca_de_Delimitao of functional-complexes  specializes Marca_de_Sinalizao 
+
+subkind Sinalizao_Permanente of functional-complexes  specializes Sinalizao_Rodoviria 
+
+
+

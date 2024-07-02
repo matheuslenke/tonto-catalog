@@ -1,0 +1,22 @@
+import Transporte_Rodovirio_Internacional_de_Cargas
+import Transporte_Rodovirio_de_Cargas
+import Transportador_Rodovirio_de_Cargas
+import Espcie_e_Categoria
+import Transporte_Rodovirio_Internacional_de_Carga_Prpria
+
+package Transporte_Rodovirio_Internacional_de_Carga_Prpria
+
+roleMixin Carga_em_Transporte_Rodovirio of functional-complexes 
+
+relator Operao_de_Transporte_Rodovirio_Internacional_de_Carga_Prpria specializes Operao_de_Transporte_Rodovirio_Internacional_de_Cargas 
+
+role Veculo_em_Transporte_Rodovirio_Internacional_de_Carga_Prpria
+
+role Transportador_de_Carga_Prpria_em_Territrio_Internacional specializes Transportador_de_Carga_Prpria 
+
+relator Propriedade_de_Carga
+
+
+
+
+

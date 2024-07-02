@@ -1,0 +1,41 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Chromosome rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Chromosome"@en.
+:Gene rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Gene"@en.
+:Alelle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Alelle"@en.
+:Nucleotide rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Nucleotide"@en.
+:Inserted_Nucleotide rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Inserted_Nucleotide"@en.
+:Allelic_Reference rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Allelic_Reference"@en.
+:Allelic_Variant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Allelic_Variant"@en.
+:RefSeq rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "RefSeq"@en.
+:Record rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Record"@en.
+:Insertion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Insertion"@en.
+:Allelic_Variant rdfs:subClassOf :Alelle.
+:Allelic_Reference rdfs:subClassOf :Alelle.
+:Inserted_Nucleotide rdfs:subClassOf :Nucleotide.
+:Allelic_Reference rdfs:subClassOf :Alelle.
+:Allelic_Variant rdfs:subClassOf :Alelle.

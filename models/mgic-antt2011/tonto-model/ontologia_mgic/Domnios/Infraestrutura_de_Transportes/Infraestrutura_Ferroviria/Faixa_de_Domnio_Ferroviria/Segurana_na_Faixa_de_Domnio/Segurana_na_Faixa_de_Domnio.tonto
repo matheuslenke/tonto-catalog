@@ -1,0 +1,72 @@
+import Pessoa_Jurdica
+import Scios
+import Tipo_de_Veculo
+import Espcie_e_Categoria
+import Cesso_de_Bem
+import Compra
+import Agente_Administrativo
+import Obrigao_Financeira
+import Designao
+import Provimento
+import Contratao_via_Termo_de_Cooperao
+import Estgio
+import Fretamento_Contnuo
+import Tipo_de_Autorizao_de_Viagem
+import Certificado_de_Registro_para_Fretamento
+import Autorizao
+import Outorga
+import Autuao
+import Complementares
+import Servio_em_Concesso
+import Fiscalizaes_Especficas
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Arrendamento
+import Contratos_e_Convnios
+import Convnio_de_Aquisio__Cotao
+import Convnio_de_Aquisio__Solicitao
+import Revista_da_ANTT
+import Pagamento
+import GRU
+import Transporte_Dutovirio_de_Cargas
+import Operador_de_Transporte_Multimodal
+import Operador_Ferrovirio_Independente
+import Pagamento_Eletrnico_de_Frete
+import Gerao_de_CIOT
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+import Permisso_por_Licitao
+import Conhecimento_de_Transporte
+import Faixa_de_Domnio_Ferroviria
+import Ativo_Ferrovirio
+import Pessoa
+import Segurana_na_Faixa_de_Domnio
+
+package Segurana_na_Faixa_de_Domnio
+
+role Sociedade_Empresria_Contratante_de_Servio_de_Vigilncia of functional-complexes  specializes Sociedade_Empresria 
+
+role Faixa_de_Domnio_Ferroviria_com_Vigilncia specializes Faixa_de_Domnio_Ferroviria 
+
+roleMixin Invasor of functional-complexes  specializes Pessoa 
+
+relator Invaso_de_Faixa_de_Domnio_Ferroviria
+
+role Concessionria_Ferroviria_que_Efetua_Servio_de_Vigilncia specializes Concessionria_Ferroviria 
+
+relator Servio_de_Vigilncia_Ferroviria_Contratado_por_Terceiros specializes Servio_de_Vigilncia_Ferroviria 
+
+relator Servio_de_Vigilncia_Ferroviria
+
+relator Servio_de_Vigilncia_Ferroviria_Efetuado_pela_Concessionria specializes Servio_de_Vigilncia_Ferroviria 
+
+role Faixa_de_Domnio_Ferroviria_com_Invaso specializes Faixa_de_Domnio_Ferroviria 
+
+
+
+
+
+

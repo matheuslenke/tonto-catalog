@@ -1,0 +1,21 @@
+import Documento
+import Instrumentos_de_Outorga
+import Projeto_Bsico
+import Plano_de_Outorga
+import Permisso
+
+package Instrumentos_de_Outorga
+
+category Instrumento_de_Outorga of functional-complexes 
+
+kind Edital_de_Licitao specializes Instrumento_de_Outorga, Documento 
+
+kind Plano_de_Outorga specializes Instrumento_de_Outorga, Documento 
+
+
+
+
+
+
+
+

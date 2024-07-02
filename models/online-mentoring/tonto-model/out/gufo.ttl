@@ -1,0 +1,108 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:EducationalInstitution rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EducationalInstitution"@en.
+:WorkContract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "WorkContract"@en.
+:Professor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Professor"@en.
+:Participant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Participant"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:Enrollment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Enrollment"@en.
+:ParticipantWithanswer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ParticipantWithanswer"@en.
+:Answer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Answer"@en.
+:ParticipantWithQuestion rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ParticipantWithQuestion"@en.
+:Question rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Question"@en.
+:AnsweredQuestion rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AnsweredQuestion"@en.
+:OpenQuestion rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "OpenQuestion"@en.
+:ActiveStudent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ActiveStudent"@en.
+:Course rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Course"@en.
+:Curriculum rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Curriculum"@en.
+:Tutor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tutor"@en.
+:Tutoring rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Tutoring"@en.
+:TutoredDiscipline rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "TutoredDiscipline"@en.
+:CharacterizedQuestion rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CharacterizedQuestion"@en.
+:NonCharacterizedQuestion rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NonCharacterizedQuestion"@en.
+:Discipline rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Discipline"@en.
+:Ementa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Ementa"@en.
+:NonTutoredDiscipline rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NonTutoredDiscipline"@en.
+:Topic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Topic"@en.
+:CharacterizingTopic rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CharacterizingTopic"@en.
+:NonCharacterizingTopic rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NonCharacterizingTopic"@en.
+:Organization rdfs:subClassOf :Agent.
+:Person rdfs:subClassOf :Agent.
+:Student rdfs:subClassOf :Participant.
+:Professor rdfs:subClassOf :Participant.
+:NonTutoredDiscipline rdfs:subClassOf :Discipline.
+:TutoredDiscipline rdfs:subClassOf :Discipline.
+:CharacterizingTopic rdfs:subClassOf :Topic.
+:NonCharacterizingTopic rdfs:subClassOf :Topic.
+:CharacterizedQuestion rdfs:subClassOf :Question.
+:NonCharacterizedQuestion rdfs:subClassOf :Question.
+:AnsweredQuestion rdfs:subClassOf :Question.
+:OpenQuestion rdfs:subClassOf :Question.
+:Organization rdfs:subClassOf :Agent.
+:Person rdfs:subClassOf :Agent.
+:EducationalInstitution rdfs:subClassOf :Organization.
+:Professor rdfs:subClassOf :Participant.
+:Participant rdfs:subClassOf :Person.
+:Student rdfs:subClassOf :Participant.
+:ParticipantWithanswer rdfs:subClassOf :Participant.
+:ParticipantWithQuestion rdfs:subClassOf :Participant.
+:AnsweredQuestion rdfs:subClassOf :Question.
+:OpenQuestion rdfs:subClassOf :Question.
+:ActiveStudent rdfs:subClassOf :Student.
+:Tutor rdfs:subClassOf :ActiveStudent.
+:TutoredDiscipline rdfs:subClassOf :Discipline.
+:CharacterizedQuestion rdfs:subClassOf :Question.
+:NonCharacterizedQuestion rdfs:subClassOf :Question.
+:NonTutoredDiscipline rdfs:subClassOf :Discipline.
+:CharacterizingTopic rdfs:subClassOf :Topic.
+:NonCharacterizingTopic rdfs:subClassOf :Topic.

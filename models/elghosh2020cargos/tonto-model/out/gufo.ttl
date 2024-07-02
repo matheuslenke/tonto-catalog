@@ -1,0 +1,38 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Right_Holder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Right_Holder"@en.
+:Duty_Holder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Duty_Holder"@en.
+:Carrier rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Carrier"@en.
+:Shipper rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Shipper"@en.
+:Right_Duty_to_Indemnity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Right_Duty_to_Indemnity"@en.
+:Right_to_Indemnity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Right_to_Indemnity"@en.
+:Duty_to_Indemnity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Duty_to_Indemnity"@en.
+:Inaccuracies rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Inaccuracies"@en.
+:Legal_Rule rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Legal_Rule"@en.
+:Loss_or_Damage_of_Goods rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Loss_or_Damage_of_Goods"@en.
+:Carrier rdfs:subClassOf :Duty_Holder.
+:Shipper rdfs:subClassOf :Right_Holder.

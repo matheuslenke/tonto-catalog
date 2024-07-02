@@ -1,0 +1,70 @@
+
+package Movimentao_de_Ativo_Ferrovirio
+
+relator Transporte_Ferrovirio_de_Carga specializes Modal_de_Transporte, Viagem_Ferroviria 
+
+roleMixin Carga_em_Transporte_por_Volume of functional-complexes  specializes Carga_em_Transporte {
+    volume: Unidade_de_Volume  
+}
+
+subkind Descarregamento_de_Carga_Ferroviria of functional-complexes  specializes Operao_Acessria 
+
+relator Viagem_Ferroviria specializes Viagem_Ferroviria_Sem_Interseo, Viagem_Ferroviria_com_Interseo {
+    distncia: Unidade_de_Comprimento  
+    partida: Unidade_de_Tempo  
+}
+
+role Pessoa_Fsica_Requerente_de_Transporte_Ferrovirio_de_Carga specializes Requerente_de_Transporte_Ferrovirio_de_Carga 
+
+roleMixin Carga_em_Transporte_por_Peso of functional-complexes  specializes Carga_em_Transporte {
+    peso: Unidade_de_Massa  
+}
+
+role Terminal_Ferrovirio_Intermedirio of functional-complexes  specializes Terminal_Ferrovirio 
+
+role Concessionria_Ferroviria_que_Realiza_Viagem_sem_Interseo
+
+role Terminal_Ferrovirio_de_Origem of functional-complexes  specializes Terminal_Ferrovirio 
+
+roleMixin Carga_em_Transporte_por_Unidade of functional-complexes  specializes Carga_em_Transporte {
+    unidade: undefined  
+}
+
+subkind Manobra_de_Carga_Ferroviria of functional-complexes  specializes Operao_Acessria 
+
+role Sociedade_Empresria_Requerente_de_Transporte_Ferrovirio_de_Carga specializes Requerente_de_Transporte_Ferrovirio_de_Carga 
+
+kind Operao_Acessria{
+    tarifa_de_operao_acessria: undefined  
+}
+
+role Trem_em_Viagem
+
+subkind Centro_de_Controle_Operacional
+
+subkind Carregamento_de_Carga_Ferroviria of functional-complexes  specializes Operao_Acessria 
+
+roleMixin Carga_em_Transporte of functional-complexes 
+
+roleMixin Requerente_de_Transporte_Ferrovirio_de_Carga of functional-complexes 
+
+role Centro_de_Controle_Operacional_Controlador_da_Viagem specializes Centro_de_Controle_Operacional 
+
+subkind Armazenagem_de_Carga_Ferroviria of functional-complexes  specializes Operao_Acessria 
+
+role Terminal_Ferrovirio_de_Destino of functional-complexes  specializes Terminal_Ferrovirio 
+
+kind Fluxo_Ferrovirio_de_Carga{
+    tarifa_de_fluxo: undefined  
+}
+
+
+
+
+
+
+
+
+
+
+

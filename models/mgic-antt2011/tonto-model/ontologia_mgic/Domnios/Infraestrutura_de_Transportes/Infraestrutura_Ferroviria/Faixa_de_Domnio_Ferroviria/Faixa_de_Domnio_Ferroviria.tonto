@@ -1,0 +1,81 @@
+
+package Faixa_de_Domnio_Ferroviria
+
+role Faixa_de_Domnio_Ferroviria{
+    largura: Unidade_de_Comprimento  
+}
+
+subkind Trilho_Compondo_Via_Frrea_de_Bitola_Mista of functional-complexes  specializes Trilho 
+
+role Terreno_de_Faixa_de_Domnio of functional-complexes  specializes Terreno 
+
+kind Retensor specializes Componente_Metlico 
+
+subkind Via_Frrea_de_Bitola_Mista of functional-complexes  specializes Via_Frrea {
+    distncia_entre_trilhos: undefined  
+}
+
+subkind Via_Frrea_Singela of functional-complexes  specializes Via_Frrea_Principal 
+
+subkind Via_Frrea_Dupla of functional-complexes  specializes Via_Frrea_Principal 
+
+subkind Via_Frrea_de_Bitola_Larga of functional-complexes  specializes Via_Frrea {
+    distncia_entre_trilhos: undefined  
+}
+
+kind Dormente specializes Elemento_de_Superestrutura {
+    tipo: undefined  
+}
+
+subkind Trilho_Compondo_Via_Frrea_de_Bitola_Estreita of functional-complexes  specializes Trilho 
+
+subkind Ramal_Ferrovirio of functional-complexes  specializes Via_Frrea 
+
+kind Trilho specializes Elemento_de_Superestrutura {
+    tipo: undefined  
+}
+
+kind Lastro specializes Elemento_de_Superestrutura {
+    fim: undefined  
+    incio: Unidade_de_Medida  
+    tipo: undefined  
+}
+
+category Componente_Metlico of functional-complexes  specializes Acessrios_de_Via_Permanente 
+
+kind Via_Frrea specializes Parte_de_Trfego_Concedida, Ativo_Ferrovirio, Componente_de_Trecho_Ferrovirio {
+    comprimento: Unidade_de_Medida  
+    fim: Unidade_de_Medida  
+    incio: Unidade_de_Medida  
+    sigla: undefined  
+}
+
+category Elemento_de_Superestrutura of functional-complexes 
+
+category Acessrios_de_Via_Permanente of functional-complexes  specializes Elemento_de_Superestrutura 
+
+kind Palmilha specializes Acessrios_de_Via_Permanente 
+
+kind Tala_de_Juno specializes Componente_Metlico 
+
+subkind Trilho_Compondo_Via_Frrea_de_Bitola_Larga of functional-complexes  specializes Trilho 
+
+subkind Ptio_de_Cruzamento of functional-complexes  specializes Via_Frrea 
+
+subkind Via_Frrea_de_Bitola_Estreita of functional-complexes  specializes Via_Frrea {
+    distncia_entre_trilhos: undefined  
+}
+
+subkind Via_Frrea_Principal of functional-complexes  specializes Via_Frrea 
+
+subkind Variante of functional-complexes  specializes Via_Frrea 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+
+package Plano_de_Outorga
+
+kind Estudo_de_Demanda specializes Parte_de_Documento 
+
+relator Pesquisa_Operacional specializes Pesquisa_de_Campo 
+
+kind Estudo_de_Viabilidade_EconmicoFinanceira specializes Parte_de_Documento 
+
+role Municpio_Pesquisado specializes Regio_Pesquisada 
+
+role Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional of functional-complexes  specializes Plano_de_Outorga 
+
+subkind Metodologia_de_Estudo of functional-complexes  specializes Metodologia 
+
+role Regio_Administrativa_Pesquisada specializes Regio_Pesquisada 
+
+subkind Metodologia_de_Plano_de_Outorga of functional-complexes  specializes Metodologia 
+
+relator Pesquisa_de_Ativos_e_Custos specializes Pesquisa_de_Campo 
+
+kind Metodologia specializes Parte_de_Documento 
+
+roleMixin Regio_Pesquisada of functional-complexes {
+    amostra: undefined  
+}
+
+relator Pesquisa_de_Campo{
+    dataInicio: undefined  
+    dataTrmino: undefined  
+    descrio: undefined  
+    objetivo: undefined  
+}
+
+role Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos of functional-complexes  specializes Plano_de_Outorga 
+
+role Executora_de_Pesquisa_de_Campo
+
+kind Estudo_de_Oferta specializes Parte_de_Documento 
+
+
+
+
+

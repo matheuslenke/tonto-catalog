@@ -1,0 +1,32 @@
+
+package Conhecimento_de_Transporte
+
+category Documento_Fiscal of functional-complexes  specializes MDFe, Nota_Fiscal 
+
+role Municpio_Final_da_Prestao
+
+role Municpio_Inicial_da_Prestao
+
+role CTe_Emitido of functional-complexes  specializes CTe_em_Operao_de_Transporte_Rodovirio_Nacional_de_Cargas, CTe {
+    DataEmisso: undefined  
+}
+
+role Administradora_de_PEF_Emissora specializes Administradora_de_PEF 
+
+relator Conhecimento_de_Transporte
+
+kind CTe specializes Documento_Fiscal 
+
+kind DACTE
+
+role DACTE_Emitido of functional-complexes  specializes DACTE {
+    DataEmisso: undefined  
+}
+
+
+
+
+
+
+
+

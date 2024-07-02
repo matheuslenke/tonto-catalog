@@ -1,0 +1,83 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:DeclaredValue rdf:type owl:NamedIndividual;
+    rdfs:label "DeclaredValue"@en.
+:Consumer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Consumer"@en.
+:Actor rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Actor"@en.
+:ConsumerNeed rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ConsumerNeed"@en.
+:BusinessNeed rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BusinessNeed"@en.
+:ProvenanceEvaluation rdf:type owl:NamedIndividual;
+    rdfs:label "ProvenanceEvaluation"@en.
+:ValueActivity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ValueActivity"@en.
+:Provenance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Provenance"@en.
+:DeclaredProvenance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DeclaredProvenance"@en.
+:GeographicIndication rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "GeographicIndication"@en.
+:EndProduct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EndProduct"@en.
+:RawProduct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RawProduct"@en.
+:ValueObject rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ValueObject"@en.
+:Production rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Production"@en.
+:Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:Purchase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Purchase"@en.
+:Payment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Payment"@en.
+:Provider rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Provider"@en.
+:CounterObject rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CounterObject"@en.
+:Receipt rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Receipt"@en.
+:Sale rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sale"@en.
+:Policy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Policy"@en.
+:DeclaredProvenance rdfs:subClassOf :Provenance.
+:GeographicIndication rdfs:subClassOf :Provenance.
+:EndProduct rdfs:subClassOf :ValueObject.
+:RawProduct rdfs:subClassOf :ValueObject.
+:Provenance rdfs:subClassOf :ValueObject.
+:Purchase rdfs:subClassOf :ValueActivity.
+:Production rdfs:subClassOf :ValueActivity.
+:Sale rdfs:subClassOf :ValueActivity.
+:Payment rdfs:subClassOf :ValueActivity.
+:Receipt rdfs:subClassOf :ValueActivity.
+:Consumer rdfs:subClassOf :Actor.
+:Provenance rdfs:subClassOf :ValueObject.
+:DeclaredProvenance rdfs:subClassOf :Provenance.
+:GeographicIndication rdfs:subClassOf :Provenance.
+:EndProduct rdfs:subClassOf :ValueObject.
+:RawProduct rdfs:subClassOf :ValueObject.
+:Production rdfs:subClassOf :ValueActivity.
+:Agent rdfs:subClassOf :Actor.
+:Purchase rdfs:subClassOf :ValueActivity.
+:Payment rdfs:subClassOf :ValueActivity.
+:Provider rdfs:subClassOf :Actor.
+:CounterObject rdfs:subClassOf :ValueObject.
+:Receipt rdfs:subClassOf :ValueActivity.
+:Sale rdfs:subClassOf :ValueActivity.

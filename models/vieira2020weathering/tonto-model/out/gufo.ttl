@@ -1,0 +1,139 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Weathering rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Weathering"@en.
+:Chemical_Weathering rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Chemical_Weathering"@en.
+:Physical_Weathering rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Physical_Weathering"@en.
+:Rock_Physical_Weathering rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Rock_Physical_Weathering"@en.
+:Sediment_Physical_Weathering rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Sediment_Physical_Weathering"@en.
+:Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition"@en.
+:Brokendown_Geological_Solid_Object rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Brokendown_Geological_Solid_Object"@en.
+:Geological_Solid_Object_exposed_to_surface_conditions rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Geological_Solid_Object_exposed_to_surface_conditions"@en.
+:Geological_Solid_Object_infilled_with_Meteoric_Water rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Geological_Solid_Object_infilled_with_Meteoric_Water"@en.
+:Weathered_Geologic_Solid_Object rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Weathered_Geologic_Solid_Object"@en.
+:Chemical_altered_Geological_Solid_Object rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Chemical_altered_Geological_Solid_Object"@en.
+:Biological_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Biological_Entity"@en.
+:Pore_Water rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pore_Water"@en.
+:Solar_Radiation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Solar_Radiation"@en.
+:Geological_Solid_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Geological_Solid_Object"@en.
+:Rock_exposed_to_physical_stress_due_to_surface_exposition rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Rock_exposed_to_physical_stress_due_to_surface_exposition"@en.
+:Brokendown_Sediment rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Brokendown_Sediment"@en.
+:Brokendown_Sediment_and_Rock rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Brokendown_Sediment_and_Rock"@en.
+:Sediment_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sediment_Object"@en.
+:Brokendown_Rock rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Brokendown_Rock"@en.
+:Source_Rock rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Source_Rock"@en.
+:Rock_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rock_Object"@en.
+:Sediment_exposed_to_physical_stress_due_to_surface_exposition rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Sediment_exposed_to_physical_stress_due_to_surface_exposition"@en.
+:Water rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Water"@en.
+:Meteoric_Water rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Meteoric_Water"@en.
+:Chemically_altered_Geological_Solid_Object rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Chemically_altered_Geological_Solid_Object"@en.
+:Pore_Fluid rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Pore_Fluid"@en.
+:Earth_Solid rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Earth_Solid"@en.
+:Sediment rdf:type owl:NamedIndividual;
+    rdfs:label "Sediment"@en.
+:Petrographic_Composition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Petrographic_Composition"@en.
+:Particle_Size_Average rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Particle_Size_Average"@en.
+:Mass rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Mass"@en.
+:Geochemical_Composition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Geochemical_Composition"@en.
+:Fracture_Density rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Fracture_Density"@en.
+:Pore_Filling rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Pore_Filling"@en.
+:Earth_Material rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Earth_Material"@en.
+:Earth_Fluid rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Earth_Fluid"@en.
+:Geological_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Geological_Object"@en.
+:Rock rdf:type owl:NamedIndividual;
+    rdfs:label "Rock"@en.
+:Physical_Weathering rdfs:subClassOf :Weathering.
+:Chemical_Weathering rdfs:subClassOf :Weathering.
+:Sediment_Physical_Weathering rdfs:subClassOf :Physical_Weathering.
+:Rock_Physical_Weathering rdfs:subClassOf :Physical_Weathering.
+:Earth_Solid rdfs:subClassOf :Earth_Material.
+:Sediment rdfs:subClassOf :Earth_Solid.
+:Sediment_Object rdfs:subClassOf :Geological_Solid_Object.
+:Rock_Object rdfs:subClassOf :Geological_Solid_Object.
+:Chemical_Weathering rdfs:subClassOf :Weathering.
+:Physical_Weathering rdfs:subClassOf :Weathering.
+:Rock_Physical_Weathering rdfs:subClassOf :Physical_Weathering.
+:Sediment_Physical_Weathering rdfs:subClassOf :Physical_Weathering.
+:Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition rdfs:subClassOf :Geological_Solid_Object_exposed_to_surface_conditions.
+:Brokendown_Geological_Solid_Object rdfs:subClassOf :Weathered_Geologic_Solid_Object.
+:Geological_Solid_Object_infilled_with_Meteoric_Water rdfs:subClassOf :Geological_Solid_Object_exposed_to_surface_conditions.
+:Chemical_altered_Geological_Solid_Object rdfs:subClassOf :Weathered_Geologic_Solid_Object.
+:Pore_Water rdfs:subClassOf :Water, :Pore_Fluid.
+:Geological_Solid_Object rdfs:subClassOf :Geological_Object.
+:Rock_exposed_to_physical_stress_due_to_surface_exposition rdfs:subClassOf :Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition.
+:Brokendown_Sediment rdfs:subClassOf :Brokendown_Geological_Solid_Object.
+:Brokendown_Sediment_and_Rock rdfs:subClassOf :Brokendown_Geological_Solid_Object.
+:Sediment_Object rdfs:subClassOf :Geological_Solid_Object.
+:Brokendown_Rock rdfs:subClassOf :Brokendown_Geological_Solid_Object.
+:Source_Rock rdfs:subClassOf :Rock.
+:Rock_Object rdfs:subClassOf :Geological_Solid_Object.
+:Sediment_exposed_to_physical_stress_due_to_surface_exposition rdfs:subClassOf :Geological_Solid_Object_exposed_to_physical_stress_due_to_surface_exposition.
+:Water rdfs:subClassOf :Earth_Fluid.
+:Meteoric_Water rdfs:subClassOf :Water.
+:Pore_Fluid rdfs:subClassOf :Earth_Fluid.
+:Earth_Solid rdfs:subClassOf :Earth_Material.
+:Sediment rdfs:subClassOf :Earth_Solid.
+:Earth_Fluid rdfs:subClassOf :Earth_Material.
+:Rock rdfs:subClassOf :Earth_Solid.
+:Earth_Fluid rdfs:subClassOf :Earth_Material.
+:Rock rdfs:subClassOf :Earth_Solid.

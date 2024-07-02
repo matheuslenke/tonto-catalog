@@ -1,0 +1,40 @@
+
+package Audincia_Interna
+
+role PJDPI_Solicitado_
+
+kind Ata_de_Audincia_Interna
+
+phase Solicitao_Atendida of relators  specializes Solicitao_de_Audincia_Interna 
+
+role Solicitante_de_Audincia_Interna
+
+relator Solicitao_de_Audincia_Interna{
+    data_da_solicitao: undefined  
+    data_solicitada_audincia: undefined  
+}
+
+role Participanete_de_Audincia_Interna
+
+phase Solicitao_com_Audincia_Agendada of relators  specializes Solicitao_de_Audincia_Interna {
+    data_agendada: undefined  
+}
+
+mode Motivo_de_Audincia_Interna{
+    descrio: undefined  
+}
+
+relator Audincia_Interna{
+    local: undefined  
+    realizao: undefined  
+}
+
+role Convidado_Para_Audincia_Interna
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Balance_Duality_Spot_Market_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Balance_Duality_Spot_Market_Contract"@en.
+:Liability rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Liability"@en.
+:Off_Balance rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Off_Balance"@en.
+:Asset rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Asset"@en.
+:Derivative_Instrument rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Derivative_Instrument"@en.
+:Economic_Resource rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Resource"@en.
+:Equity rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Equity"@en.
+:Economic_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Economic_Event"@en.
+:Debit_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Debit_Event"@en.
+:Credit_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Credit_Event"@en.
+:Economic_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Commitment"@en.
+:Debit_Commitment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Debit_Commitment"@en.
+:Credit_Commitment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Credit_Commitment"@en.
+:Economic_Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Economic_Agent"@en.
+:Balanced_Reciprocity_Future_Market_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Balanced_Reciprocity_Future_Market_Contract"@en.
+:Planning_and_Control_Policy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Planning_and_Control_Policy"@en.
+:Uncertainty_Sample_Space rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Uncertainty_Sample_Space"@en.
+:Plan_Event_Tree rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Plan_Event_Tree"@en.
+:Off_Balance rdfs:subClassOf :Derivative_Instrument.
+:Liability rdfs:subClassOf :Derivative_Instrument.
+:Equity rdfs:subClassOf :Derivative_Instrument.
+:Asset rdfs:subClassOf :Derivative_Instrument.
+:Debit_Event rdfs:subClassOf :Economic_Event.
+:Credit_Event rdfs:subClassOf :Economic_Event.
+:Credit_Commitment rdfs:subClassOf :Economic_Commitment.
+:Debit_Commitment rdfs:subClassOf :Economic_Commitment.
+:Asset rdfs:subClassOf :Economic_Resource.
+:Liability rdfs:subClassOf :Economic_Resource.
+:Equity rdfs:subClassOf :Economic_Resource.
+:Off_Balance rdfs:subClassOf :Economic_Resource.
+:Liability rdfs:subClassOf :Derivative_Instrument, :Economic_Resource.
+:Off_Balance rdfs:subClassOf :Derivative_Instrument, :Economic_Resource.
+:Asset rdfs:subClassOf :Derivative_Instrument, :Economic_Resource.
+:Equity rdfs:subClassOf :Economic_Resource, :Derivative_Instrument.
+:Debit_Event rdfs:subClassOf :Economic_Event.
+:Credit_Event rdfs:subClassOf :Economic_Event.
+:Debit_Commitment rdfs:subClassOf :Economic_Commitment.
+:Credit_Commitment rdfs:subClassOf :Economic_Commitment.

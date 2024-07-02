@@ -1,0 +1,57 @@
+
+package Atendimento_Rodovirio
+
+relator Acidente_de_Trnsito_com_Atendimento specializes Acidente_de_Trnsito 
+
+role VPS_em_Atendimento
+
+role Veculo_Rodovirio_Atendido
+
+relator Inspeo_de_Trfego specializes Atendimento_Rodovirio 
+
+relator Servio_de_Guincho specializes Atendimento_Rodovirio 
+
+relator Atendimento_para_Primeiros_Socorros specializes Atendimento_Rodovirio 
+
+role VCI_em_Atendimento
+
+role VI_em_Atendimento
+
+role VSM_em_Atendimento
+
+relator Combate_a_Incndio specializes Atendimento_Rodovirio 
+
+role GL_em_Atendimento
+
+role VAA_em_Atendimento
+
+relator Apreenso_de_Animais specializes Atendimento_Rodovirio 
+
+relator Atendimento_Rodovirio_de_Acidente specializes Atendimento_Rodovirio 
+
+relator Servio_de_Socorro_Mecnico specializes Atendimento_Rodovirio 
+
+relator Atendimento_Rodovirio{
+    condio_climtica: undefined  
+    data: undefined  
+    km: undefined  
+}
+
+role Veculo_em_Atendimento
+
+role Trecho_Rodovirio_Fsico_com_Atendimento of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+role GP_em_Atendimento
+
+
+
+
+
+
+
+
+
+
+
+
+

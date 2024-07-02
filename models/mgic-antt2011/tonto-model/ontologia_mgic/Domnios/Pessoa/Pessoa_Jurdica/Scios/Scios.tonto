@@ -1,0 +1,21 @@
+
+package Scios
+
+roleMixin Scio_Empresrio of functional-complexes  specializes Pessoa, Responsvel_por_Aporte, Responsvel_por_Adiantamento 
+
+role Scio_Cooperado of functional-complexes  specializes Pessoa_Fsica, Transportador_Autnomo_de_Carga_Cooperado {
+    quotaparte: undefined  
+}
+
+roleMixin Scio_Acionista of functional-complexes  specializes Acionista_Votante, Scio_Empresrio 
+
+role Representante_Legal_Cooperado of functional-complexes  specializes Scio_Cooperado 
+
+roleMixin Scio_LTDA of functional-complexes  specializes Scio_Empresrio 
+
+role Diretor_Cooperado of functional-complexes  specializes Scio_Cooperado 
+
+role ScioFundador_Cooperado of functional-complexes  specializes Scio_Cooperado 
+
+
+

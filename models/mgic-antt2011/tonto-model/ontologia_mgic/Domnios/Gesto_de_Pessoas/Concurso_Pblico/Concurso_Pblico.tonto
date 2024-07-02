@@ -1,0 +1,70 @@
+
+package Concurso_Pblico
+
+role Organizadora_de_Concurso_Pblico
+
+relator Participao_em_Concurso_Pblico{
+    nota: undefined  
+    posio: undefined  
+    vagas: undefined  
+}
+
+relator Publicao_de_Edital_de_Concurso_Pblico
+
+role Suplente_em_Concurso_Pblico specializes Participante_de_Concurso_Pblico 
+
+mode Requisito_de_Posio_Pblica
+
+relator Oferta_de_Vaga_para_Concurso{
+    vagas: undefined  
+}
+
+subkind Vaga_para_Emprego_Pblico of functional-complexes  specializes Vaga_Pblica_Concursada 
+
+kind Vaga_Pblica
+
+category Posio_Pblica_Concursada of functional-complexes 
+
+subkind Vaga_para_Estagirio of functional-complexes  specializes Vaga_Pblica 
+
+subkind Vaga_para_Cargo_Efetivo of functional-complexes  specializes Vaga_Pblica_Concursada 
+
+subkind Vaga_para_Cargo_em_Comisso of functional-complexes  specializes Vaga_Pblica 
+
+role rgo_Oferecedor_de_Concurso_Pblico
+
+subkind Vaga_Pblica_Concursada of functional-complexes  specializes Vaga_Pblica 
+
+kind Edital_de_Concurso_Pblico
+
+subkind Concurso_Pblico_de_Provas_e_Ttulos of functional-complexes  specializes Concurso_Pblico_de_Provas 
+
+role Reprovado_em_Concurso_Pblico specializes Participante_de_Concurso_Pblico 
+
+roleMixin Posio_Pblica_com_Inscrio of functional-complexes  specializes Posio_Pblica_Concursada 
+
+role Habilitado_em_Concurso_Pblico specializes Participante_de_Concurso_Pblico 
+
+roleMixin Posio_Pblica_Ofertada_em_Concurso of functional-complexes  specializes Posio_Pblica_Concursada 
+
+role Concurso_com_Participante of functional-complexes  specializes Concurso_Pblico_de_Provas 
+
+role Participante_de_Concurso_Pblico
+
+kind Concurso_Pblico_de_Provas{
+    prazo_de_validade: undefined  
+    realizao: undefined  
+    resultado: undefined  
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:High_School_Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "High_School_Student"@en.
+:College_Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "College_Student"@en.
+:Post_Graduate_Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Post_Graduate_Student"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:Educational_Institution rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Educational_Institution"@en.
+:Enrolment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Enrolment"@en.
+:Intern rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Intern"@en.
+:Legal_Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Legal_Person"@en.
+:Natural_Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Natural_Person"@en.
+:Juridical_Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Juridical_Person"@en.
+:Employment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Employment"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Employer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employer"@en.
+:Educational_Supervisor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Educational_Supervisor"@en.
+:Supervisor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Supervisor"@en.
+:Internship_Provider_Organization rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Internship_Provider_Organization"@en.
+:Internship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Internship"@en.
+:Obligatory_Internship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Obligatory_Internship"@en.
+:Voluntary_Internship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Voluntary_Internship"@en.
+:Term_of_commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Term_of_commitment"@en.
+:Full_Time_Internship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Full_Time_Internship"@en.
+:Part_Time_Internship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Part_Time_Internship"@en.
+:Insurance_Carrier rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Insurance_Carrier"@en.
+:Organization_Insured rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Organization_Insured"@en.
+:Personal_Injury_Insurance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Personal_Injury_Insurance"@en.
+:Insurance_Policy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Insurance_Policy"@en.
+:College_Student rdfs:subClassOf :Student.
+:High_School_Student rdfs:subClassOf :Student.
+:Post_Graduate_Student rdfs:subClassOf :Student.
+:Juridical_Person rdfs:subClassOf :Legal_Person.
+:Natural_Person rdfs:subClassOf :Legal_Person.
+:Voluntary_Internship rdfs:subClassOf :Internship.
+:Obligatory_Internship rdfs:subClassOf :Internship.
+:Part_Time_Internship rdfs:subClassOf :Internship.
+:Full_Time_Internship rdfs:subClassOf :Internship.
+:High_School_Student rdfs:subClassOf :Student.
+:College_Student rdfs:subClassOf :Student.
+:Post_Graduate_Student rdfs:subClassOf :Student.
+:Student rdfs:subClassOf :Natural_Person.
+:Educational_Institution rdfs:subClassOf :Employer.
+:Intern rdfs:subClassOf :Student.
+:Natural_Person rdfs:subClassOf :Legal_Person.
+:Juridical_Person rdfs:subClassOf :Legal_Person.
+:Employee rdfs:subClassOf :Natural_Person.
+:Employer rdfs:subClassOf :Juridical_Person.
+:Educational_Supervisor rdfs:subClassOf :Employee.
+:Supervisor rdfs:subClassOf :Employee.
+:Internship_Provider_Organization rdfs:subClassOf :Employer, :Organization_Insured.
+:Obligatory_Internship rdfs:subClassOf :Internship.
+:Voluntary_Internship rdfs:subClassOf :Internship.
+:Full_Time_Internship rdfs:subClassOf :Internship.
+:Part_Time_Internship rdfs:subClassOf :Internship.
+:Insurance_Carrier rdfs:subClassOf :Juridical_Person.
+:hours_per_day rdfs:domain :Internship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "hours_per_day"@en.
+:income rdfs:domain :Internship;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "income"@en.

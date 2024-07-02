@@ -1,0 +1,117 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:dcatResource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "dcatResource"@en.
+:dcatDataset rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "dcatDataset"@en.
+:dcatDataService rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "dcatDataService"@en.
+:dcatCatalog rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "dcatCatalog"@en.
+:Individual rdf:type owl:NamedIndividual;
+    rdfs:label "Individual"@en.
+:stOT rdf:type owl:NamedIndividual;
+    rdfs:label "stOT"@en.
+:ndOT rdf:type owl:NamedIndividual;
+    rdfs:label "ndOT"@en.
+:CataloguedResource_DescriptorType rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "CataloguedResource_DescriptorType"@en.
+:dcatRelationship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "dcatRelationship"@en.
+:dcatRole rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "dcatRole"@en.
+:DatasetDescriptorType rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DatasetDescriptorType"@en.
+:RelationRole rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RelationRole"@en.
+:SourceDescriptor_Type rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "SourceDescriptor_Type"@en.
+:TargetDataset_Type rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "TargetDataset_Type"@en.
+:CataloguedData_DescriptorType rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CataloguedData_DescriptorType"@en.
+:Relation_isOwner rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Relation_isOwner"@en.
+:_Relation_isOwner rdf:type owl:NamedIndividual;
+    rdfs:label "_Relation_isOwner"@en.
+:exCOVID_19_Collection_Descriptor rdf:type owl:NamedIndividual;
+    rdfs:label "exCOVID_19_Collection_Descriptor"@en.
+:exCOVID19_Hospital1_Item_Descriptor rdf:type owl:NamedIndividual;
+    rdfs:label "exCOVID19_Hospital1_Item_Descriptor"@en.
+:dcatDistribution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "dcatDistribution"@en.
+:dcatCatalogRecord rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "dcatCatalogRecord"@en.
+:AttributionRole rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AttributionRole"@en.
+:skosConceptScheme rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "skosConceptScheme"@en.
+:skosConcept rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "skosConcept"@en.
+:foafAgent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "foafAgent"@en.
+:dcatRelationShip rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "dcatRelationShip"@en.
+:dcatResource rdfs:subClassOf :Individual.
+:dcatDataset rdfs:subClassOf :dcatResource.
+:dcatDataService rdfs:subClassOf :dcatResource.
+:dcatCatalog rdfs:subClassOf :dcatDataset.
+:CataloguedResource_DescriptorType rdfs:subClassOf :stOT.
+:dcatRelationship rdfs:subClassOf :stOT.
+:dcatRole rdfs:subClassOf :stOT.
+:DatasetDescriptorType rdfs:subClassOf :CataloguedData_DescriptorType.
+:RelationRole rdfs:subClassOf :dcatRole.
+:SourceDescriptor_Type rdfs:subClassOf :CataloguedResource_DescriptorType.
+:TargetDataset_Type rdfs:subClassOf :DatasetDescriptorType.
+:CataloguedData_DescriptorType rdfs:subClassOf :CataloguedResource_DescriptorType.
+:dcatDistribution rdfs:subClassOf :Individual.
+:dcatCatalogRecord rdfs:subClassOf :Individual.
+:AttributionRole rdfs:subClassOf :dcatRole.
+:dcat rdfs:domain :Relation_isOwner;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dcat"@en.
+:dcathadRole rdfs:domain :_Relation_isOwner;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dcathadRole"@en.
+:dctrelation rdfs:domain :_Relation_isOwner;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dctrelation"@en.
+:dcatqualifiedRelation rdfs:domain :_Relation_isOwner;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dcatqualifiedRelation"@en.
+:dctissued rdfs:domain :_Relation_isOwner;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dctissued"@en.
+:dctmodify rdfs:domain :_Relation_isOwner;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dctmodify"@en.

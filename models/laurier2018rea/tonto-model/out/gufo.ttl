@@ -1,0 +1,78 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:economicresource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "economicresource"@en.
+:stockflow rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "stockflow"@en.
+:inflow rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "inflow"@en.
+:outflow rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "outflow"@en.
+:economicevent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "economicevent"@en.
+:incrementevent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "incrementevent"@en.
+:decrementevent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "decrementevent"@en.
+:transformation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "transformation"@en.
+:produce rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "produce"@en.
+:transformationduality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "transformationduality"@en.
+:consume rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "consume"@en.
+:duality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "duality"@en.
+:take rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "take"@en.
+:give rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "give"@en.
+:transferduality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "transferduality"@en.
+:transfer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "transfer"@en.
+:insideparty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "insideparty"@en.
+:participation_ rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "participation_"@en.
+:outsideparty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "outsideparty"@en.
+:economicagent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "economicagent"@en.
+:tradingpartner rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "tradingpartner"@en.
+:from_ rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "from_"@en.
+:to rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "to"@en.
+:inflow rdfs:subClassOf :stockflow.
+:outflow rdfs:subClassOf :stockflow.
+:incrementevent rdfs:subClassOf :economicevent.
+:decrementevent rdfs:subClassOf :economicevent.
+:produce rdfs:subClassOf :incrementevent, :transformation.
+:transformationduality rdfs:subClassOf :duality.
+:consume rdfs:subClassOf :decrementevent, :transformation.
+:take rdfs:subClassOf :transfer, :incrementevent.
+:give rdfs:subClassOf :transfer, :decrementevent.
+:transferduality rdfs:subClassOf :duality.
+:insideparty rdfs:subClassOf :participation_.
+:outsideparty rdfs:subClassOf :participation_.
+:from_ rdfs:subClassOf :outsideparty.
+:to rdfs:subClassOf :outsideparty.

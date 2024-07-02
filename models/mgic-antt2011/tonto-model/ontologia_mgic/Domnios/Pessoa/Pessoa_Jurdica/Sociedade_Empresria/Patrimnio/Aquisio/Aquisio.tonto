@@ -1,0 +1,12 @@
+
+package Aquisio
+
+relator _Investimento_em_Imobilizado specializes _Compra__Imobilizado, _Arrendamento_Financeiro_Imobilizado, _Construo_de_Imobilizado 
+
+relator _Investimento_em_Intangvel specializes _Compra_Intangvel, Arrendamento_Mercantil_Operacional, _Arrendamento_Financeiro_Intangvel, _Construo_de_Intangvel 
+
+relator Aquisio_de_Permanente specializes Cesso_de_Bens, Compra_de_Bem, Arrendamento_Mercantil, Construo, Acordo_Formal {
+    valor: undefined  
+}
+
+

@@ -1,0 +1,99 @@
+
+package Compra
+
+relator Solicitao_de_Bem{
+    medida: Unidade_de_Medida  
+    quantidade: undefined  
+}
+
+roleMixin Fornecedor of functional-complexes 
+
+role Item_Solicitado specializes Produto 
+
+role Modelo_Cotado_Individualmente specializes Modelo_Cotado 
+
+relator Cotao_Individual_de_Produto specializes Cotao_Individual 
+
+roleMixin Solicitado of functional-complexes  specializes Concessionria_Rodoviria_Solicitada 
+
+relator Compra_por_Cotao specializes Compra_de_Item 
+
+role Modelo_Cotado specializes Modelo_Solicitado 
+
+relator Compra_Solicitada specializes Compra_de_Item 
+
+role Produto_Cotado specializes Item_Solicitado 
+
+relator Compra_de_Item{
+    data: undefined  
+    valor: undefined  
+}
+
+role Produto_Cotado_Coletivamente specializes Produto_Cotado 
+
+role Produto_Cotado_Individualmente specializes Produto_Cotado 
+
+relator Solicitao_de_Compra specializes Solicitao_de_Compra_em_CA {
+    data: undefined  
+}
+
+roleMixin Comprador of functional-complexes  specializes Pessoa 
+
+role Modelo_Solicitado
+
+relator Solicitao_de_Modelo specializes Solicitao_de_Bem 
+
+roleMixin Cotador of functional-complexes  specializes Concessionria_Rodoviria_Cotadora_ 
+
+relator Cotao{
+    data: undefined  
+    prazo: undefined  
+    valor: undefined  
+}
+
+relator Pagamento_de_Compra_de_Produto specializes Pagamento 
+
+subkind Nota_Fiscal_de_Produto of functional-complexes  specializes Comprovante_de_Pagamento 
+
+relator Cotao_Agrupada_de_Modelo specializes Cotao_Agrupada 
+
+roleMixin Vendedor of functional-complexes  specializes Pessoa 
+
+relator Cotao_Agrupada specializes Cotao 
+
+relator Cotao_Individual_de_Modelo specializes Cotao_Individual 
+
+relator Cotao_Individual specializes Cotao 
+
+relator Cotao_Agrupada_de_Produto specializes Cotao_Agrupada 
+
+kind Item_de_Compra
+
+relator Solicitao_de_Item specializes Solicitao_de_Bem 
+
+roleMixin Solicitante of functional-complexes  specializes Entidade_Pblica_em_CA_Solicitante_ 
+
+role Modelo_Cotado_Coletivamente specializes Modelo_Cotado 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

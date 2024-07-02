@@ -19,25 +19,25 @@ kind Normative_Act{
 }
 
 kind Brief{
-    text: string_  
+    text: string  
 }
 
 kind Epigraph{
-    text: string_  
+    text: string  
 }
 
 kind Preamble{
-    text: string_  
+    text: string  
 }
 
 subkind Composed_Article of functional-complexes  specializes Article 
 
 subkind Simple_Article of functional-complexes  specializes Article {
-    text: string_  
+    text: string  
 }
 
 kind Caput{
-    text: string_  
+    text: string  
 }
 
 subkind Article_composed_of_Item of functional-complexes  specializes Composed_Article 
@@ -51,7 +51,7 @@ kind Item{
 subkind Item_component_of_Article of functional-complexes  specializes Item 
 
 kind Paragraph{
-    identification: string_  
+    identification: string  
 }
 
 subkind Composed_Item of functional-complexes  specializes Item 

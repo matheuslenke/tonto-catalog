@@ -1,0 +1,116 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Channel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Channel"@en.
+:LAN rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LAN"@en.
+:MAN rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MAN"@en.
+:WAN rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WAN"@en.
+:Data_Center rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Center"@en.
+:Switchcore rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Switchcore"@en.
+:Server rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Server"@en.
+:Communication_Module rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Communication_Module"@en.
+:Functional_Module rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Functional_Module"@en.
+:Defective_Module rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Defective_Module"@en.
+:Communication_Port rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Communication_Port"@en.
+:_Gbps_Port rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "_Gbps_Port"@en.
+:_Gbps_Port_1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "_Gbps_Port"@en.
+:IT_Service rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "IT_Service"@en.
+:DBMS rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DBMS"@en.
+:Email rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Email"@en.
+:Application_System rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Application_System"@en.
+:Database rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Database"@en.
+:Database_File rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Database_File"@en.
+:Executable_File rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Executable_File"@en.
+:Conventional_File rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Conventional_File"@en.
+:File_in_Disk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "File_in_Disk"@en.
+:Mailbox rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Mailbox"@en.
+:Storage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Storage"@en.
+:Disk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Disk"@en.
+:Functional_Disk rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Functional_Disk"@en.
+:Defective_Disk rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Defective_Disk"@en.
+:IT_Team rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "IT_Team"@en.
+:Technician rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Technician"@en.
+:Manager rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Manager"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:MAN rdfs:subClassOf :Channel.
+:LAN rdfs:subClassOf :Channel.
+:WAN rdfs:subClassOf :Channel.
+:Functional_Module rdfs:subClassOf :Communication_Module.
+:Defective_Module rdfs:subClassOf :Communication_Module.
+:_Gbps_Port rdfs:subClassOf :Communication_Port, :Communication_Port.
+:DBMS rdfs:subClassOf :IT_Service.
+:Application_System rdfs:subClassOf :IT_Service.
+:Email rdfs:subClassOf :IT_Service.
+:Executable_File rdfs:subClassOf :File_in_Disk.
+:Database_File rdfs:subClassOf :File_in_Disk.
+:Conventional_File rdfs:subClassOf :File_in_Disk.
+:Defective_Disk rdfs:subClassOf :Disk.
+:Functional_Disk rdfs:subClassOf :Disk.
+:LAN rdfs:subClassOf :Channel.
+:MAN rdfs:subClassOf :Channel.
+:WAN rdfs:subClassOf :Channel.
+:Functional_Module rdfs:subClassOf :Communication_Module.
+:Defective_Module rdfs:subClassOf :Communication_Module.
+:_Gbps_Port rdfs:subClassOf :Communication_Port, :Communication_Port.
+:DBMS rdfs:subClassOf :IT_Service.
+:Email rdfs:subClassOf :IT_Service.
+:Application_System rdfs:subClassOf :IT_Service.
+:Database_File rdfs:subClassOf :File_in_Disk.
+:Executable_File rdfs:subClassOf :File_in_Disk.
+:Conventional_File rdfs:subClassOf :File_in_Disk.
+:Functional_Disk rdfs:subClassOf :Disk.
+:Defective_Disk rdfs:subClassOf :Disk.
+:Technician rdfs:subClassOf :Person.
+:Manager rdfs:subClassOf :Person.

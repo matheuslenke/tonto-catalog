@@ -1,0 +1,137 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Performed_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Performed_Process"@en.
+:Performed_General_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_General_Process"@en.
+:Performed_Specific_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Specific_Process"@en.
+:Performed_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Performed_Activity"@en.
+:Stakeholder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Stakeholder"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Performed_Simple_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Simple_Activity"@en.
+:Performed_Composite_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Composite_Activity"@en.
+:Simple_Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Simple_Artifact"@en.
+:Composite_Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Composite_Artifact"@en.
+:Software_Product rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_Product"@en.
+:Software_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_Item"@en.
+:Information_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Information_Item"@en.
+:Model rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Model"@en.
+:Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Document"@en.
+:Requirements_Document rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Requirements_Document"@en.
+:Design_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Design_Process"@en.
+:Software_Architect rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Software_Architect"@en.
+:Architectural_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Architectural_Design"@en.
+:Architecture_Development rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Architecture_Development"@en.
+:Interface_Highlevel_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Interface_Highlevel_Design"@en.
+:Data_Highlevel_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Data_Highlevel_Design"@en.
+:Detailed_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Detailed_Design"@en.
+:Designer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Designer"@en.
+:Component_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Component_Design"@en.
+:Component_Interface_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Component_Interface_Design"@en.
+:User_Inteface_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "User_Inteface_Design"@en.
+:Data_Design rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Data_Design"@en.
+:Design_Documentation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Design_Documentation"@en.
+:Design_Evaluation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Design_Evaluation"@en.
+:Interface_Specification rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Interface_Specification"@en.
+:Architectural_Element rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Architectural_Element"@en.
+:Software_Architecture rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Software_Architecture"@en.
+:Data_Definitions rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Definitions"@en.
+:Architectural_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Architectural_Component"@en.
+:Architectural_Connector rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Architectural_Connector"@en.
+:Data_Model rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Model"@en.
+:Design_Document rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Design_Document"@en.
+:Design_Evaluation_Document rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Design_Evaluation_Document"@en.
+:User_Interface_Specification rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "User_Interface_Specification"@en.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Performed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Performed_Simple_Activity rdfs:subClassOf :Performed_Activity.
+:Performed_Composite_Activity rdfs:subClassOf :Performed_Activity.
+:Simple_Artifact rdfs:subClassOf :Artifact.
+:Composite_Artifact rdfs:subClassOf :Artifact.
+:Software_Product rdfs:subClassOf :Artifact.
+:Software_Item rdfs:subClassOf :Artifact.
+:Information_Item rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Performed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Simple_Artifact rdfs:subClassOf :Artifact.
+:Composite_Artifact rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Software_Item rdfs:subClassOf :Artifact.
+:Information_Item rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Software_Product rdfs:subClassOf :Artifact.
+:Requirements_Document rdfs:subClassOf :Document.
+:Design_Process rdfs:subClassOf :Performed_Specific_Process.
+:Software_Architect rdfs:subClassOf :Stakeholder.
+:Architectural_Design rdfs:subClassOf :Performed_Composite_Activity.
+:Architecture_Development rdfs:subClassOf :Performed_Simple_Activity.
+:Interface_Highlevel_Design rdfs:subClassOf :Performed_Simple_Activity.
+:Data_Highlevel_Design rdfs:subClassOf :Performed_Simple_Activity.
+:Detailed_Design rdfs:subClassOf :Performed_Composite_Activity.
+:Designer rdfs:subClassOf :Stakeholder.
+:Component_Design rdfs:subClassOf :Performed_Simple_Activity.
+:Component_Interface_Design rdfs:subClassOf :Performed_Simple_Activity.
+:User_Inteface_Design rdfs:subClassOf :Performed_Simple_Activity.
+:Data_Design rdfs:subClassOf :Performed_Simple_Activity.
+:Design_Documentation rdfs:subClassOf :Performed_Composite_Activity.
+:Design_Evaluation rdfs:subClassOf :Performed_Composite_Activity.
+:Interface_Specification rdfs:subClassOf :Information_Item.
+:Software_Architecture rdfs:subClassOf :Model.
+:Data_Definitions rdfs:subClassOf :Information_Item.
+:Architectural_Component rdfs:subClassOf :Architectural_Element.
+:Architectural_Connector rdfs:subClassOf :Architectural_Element.
+:Data_Model rdfs:subClassOf :Model.
+:Design_Document rdfs:subClassOf :Document.
+:Design_Evaluation_Document rdfs:subClassOf :Document.
+:User_Interface_Specification rdfs:subClassOf :Interface_Specification.

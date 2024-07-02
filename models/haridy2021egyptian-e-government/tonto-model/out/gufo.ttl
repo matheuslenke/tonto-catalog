@@ -1,0 +1,103 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Traveler rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Traveler"@en.
+:Reservation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Reservation"@en.
+:Check rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Check"@en.
+:Application rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Application"@en.
+:Revision rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Revision"@en.
+:Ticket rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Ticket"@en.
+:Airlain rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Airlain"@en.
+:Train rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Train"@en.
+:Visa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Visa"@en.
+:Kind rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Kind"@en.
+:Schedule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Schedule"@en.
+:Flight rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Flight"@en.
+:Railway rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Railway"@en.
+:Status rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Status"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:Enrollment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Enrollment"@en.
+:Coordination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Coordination"@en.
+:Equivalence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Equivalence"@en.
+:Secondary_Certificate rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Secondary_Certificate"@en.
+:Results rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Results"@en.
+:Secondary_Azhar rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Secondary_Azhar"@en.
+:Secondary_General rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Secondary_General"@en.
+:Technical rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Technical"@en.
+:Nile_School rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Nile_School"@en.
+:STEM_School rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "STEM_School"@en.
+:Arab_Country rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Arab_Country"@en.
+:Foreing_Country rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Foreing_Country"@en.
+:Wish rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Wish"@en.
+:Scientific_Degree rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Scientific_Degree"@en.
+:Bachelor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bachelor"@en.
+:Masters rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Masters"@en.
+:PhD rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PhD"@en.
+:Airlain rdfs:subClassOf :Ticket.
+:Train rdfs:subClassOf :Ticket.
+:Flight rdfs:subClassOf :Schedule.
+:Railway rdfs:subClassOf :Schedule.
+:Secondary_Azhar rdfs:subClassOf :Secondary_Certificate.
+:Secondary_General rdfs:subClassOf :Secondary_Certificate.
+:Technical rdfs:subClassOf :Secondary_Certificate.
+:Nile_School rdfs:subClassOf :Secondary_Certificate.
+:STEM_School rdfs:subClassOf :Secondary_Certificate.
+:Arab_Country rdfs:subClassOf :Secondary_Certificate.
+:Foreing_Country rdfs:subClassOf :Secondary_Certificate.
+:Bachelor rdfs:subClassOf :Scientific_Degree.
+:Masters rdfs:subClassOf :Scientific_Degree.
+:PhD rdfs:subClassOf :Scientific_Degree.

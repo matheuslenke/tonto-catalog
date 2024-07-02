@@ -1,0 +1,133 @@
+import Tipo_de_Veculo
+import Espcie_e_Categoria
+import Cesso_de_Bem
+import Compra
+import Agente_Administrativo
+import Obrigao_Financeira
+import Designao
+import Provimento
+import Contratao_via_Termo_de_Cooperao
+import Estgio
+import Fretamento_Contnuo
+import Tipo_de_Autorizao_de_Viagem
+import Certificado_de_Registro_para_Fretamento
+import Autorizao
+import Scios
+import Contratos_e_Convnios
+import Transporte_Dutovirio_de_Cargas
+import Operador_de_Transporte_Multimodal
+import Operador_Ferrovirio_Independente
+import Pagamento_Eletrnico_de_Frete
+import Gerao_de_CIOT
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+import Permisso_por_Licitao
+import Conhecimento_de_Transporte
+import Outorga
+import Autuao
+import Complementares
+import Servio_em_Concesso
+import Fiscalizaes_Especficas
+import Pessoa_Jurdica
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Arrendamento
+import Convnio_de_Aquisio__Cotao
+import Convnio_de_Aquisio__Solicitao
+import Revista_da_ANTT
+import Pagamento
+import GRU
+import Participao_da_Sociedade
+import Comisso_de_Outorga
+import Servio_de_Transporte_Rodovirio_de_Passageiros
+import Pessoa
+import Parentesco
+
+package Parentesco
+
+role Parente_por_Afinidade of functional-complexes  specializes Parente 
+
+subkind Mulher of functional-complexes  specializes Pessoa_Fsica 
+
+role Av of functional-complexes  specializes Parente_em_Linha_Reta, Parente_Direto 
+
+role Irmo of functional-complexes  specializes Parente_Direto, Parente_em_Linha_Colateral 
+
+role Tio of functional-complexes  specializes Parente_em_Linha_Colateral, Parente_Direto 
+
+relator Registro_de_Adoo specializes Reconhecimento_de_Paternidade 
+
+role Filho of functional-complexes  specializes Parente_Direto, Parente_em_Linha_Reta 
+
+role Parente_de_4_Grau_ou_Maior of functional-complexes  specializes Parente 
+
+role Primo of functional-complexes  specializes Parente_em_Linha_Colateral 
+
+role Sobrinho of functional-complexes  specializes Parente_Direto, Parente_em_Linha_Colateral 
+
+role Parente_de_3_Grau of functional-complexes  specializes Parente 
+
+relator Certido_de_Casamento
+
+role Bisav of functional-complexes  specializes Parente_em_Linha_Reta, Parente_Direto 
+
+role Parente of functional-complexes  specializes Pessoa_Fsica 
+
+role Companheiro of functional-complexes  specializes Pessoa_Fsica 
+
+role Excompanheiro of functional-complexes  specializes Pessoa_Fsica 
+
+relator Reconhecimento_de_Paternidade
+
+role Parente_Direto of functional-complexes  specializes Parente, Primo 
+
+role Parente_em_Linha_Colateral of functional-complexes  specializes Parente 
+
+role Parente_de_2_Grau of functional-complexes  specializes Parente 
+
+subkind Homem of functional-complexes  specializes Pessoa_Fsica 
+
+role Pai of functional-complexes  specializes Parente_em_Linha_Reta, Parente_Direto 
+
+role Tioav of functional-complexes  specializes Parente_em_Linha_Colateral, Parente_Direto 
+
+role Parente_em_Linha_Reta of functional-complexes  specializes Parente 
+
+relator Certido_de_Divrcio
+
+relator Certido_de_Nascimento specializes Reconhecimento_de_Paternidade 
+
+role Sobrinhoneto of functional-complexes  specializes Parente_em_Linha_Colateral, Parente_Direto 
+
+role Neto of functional-complexes  specializes Parente_em_Linha_Reta, Parente_Direto 
+
+role Bisneto of functional-complexes  specializes Parente_em_Linha_Reta, Parente_Direto 
+
+role Parente_de_1_Grau of functional-complexes  specializes Parente 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

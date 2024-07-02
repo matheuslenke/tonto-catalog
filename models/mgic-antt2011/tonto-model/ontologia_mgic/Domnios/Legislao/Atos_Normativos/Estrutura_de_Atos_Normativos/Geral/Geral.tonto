@@ -1,0 +1,29 @@
+
+package Geral
+
+subkind Alnea_Vetada of functional-complexes  specializes Alnea, Elemento_Vetado 
+
+category Elemento_de_Agrupamento of functional-complexes  specializes Elemento_Componente_de_Ato_Normativo {
+    ttulo: undefined  
+}
+
+subkind Inciso_Vetado of functional-complexes  specializes Inciso, Elemento_Vetado 
+
+category Elemento_de_Discriminao of functional-complexes  specializes Elemento_Componente_de_Ato_Normativo {
+    texto: undefined  
+}
+
+category Elemento_Altervel of functional-complexes 
+
+category Elemento_Vetado of functional-complexes 
+
+subkind Artigo_Vetado of functional-complexes  specializes Artigo, Elemento_Vetado 
+
+category Elemento_Componente_de_Ato_Normativo of functional-complexes  specializes Elemento_Altervel 
+
+category Elemento_Modificado of functional-complexes  specializes Elemento_Altervel 
+
+category Elemento_Original of functional-complexes  specializes Elemento_Altervel 
+
+subkind Pargrafo_Vetado of functional-complexes  specializes Pargrafo, Elemento_Vetado 
+

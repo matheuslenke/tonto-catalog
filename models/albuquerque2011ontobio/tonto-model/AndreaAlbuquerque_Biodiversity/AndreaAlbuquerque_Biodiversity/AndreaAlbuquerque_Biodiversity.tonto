@@ -309,7 +309,7 @@ category AraucariasRegion of functional-complexes  specializes Phytophysiognomic
 
 category FieldsRegion of functional-complexes  specializes PhytophysiognomicRegion 
 
-enum GeographicCoordinate{
+datatype GeographicCoordinate{
 altitude,latitude,longitude
 }
 

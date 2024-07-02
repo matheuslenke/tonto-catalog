@@ -1,0 +1,89 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Transport_Processing_Function rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Transport_Processing_Function"@en.
+:Adaptation_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Function"@en.
+:Flow_Termination_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Flow_Termination_Function"@en.
+:Adaptation_Source rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Source"@en.
+:Adaptation_Sink rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Adaptation_Sink"@en.
+:Flow_Termination_Sink rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Flow_Termination_Sink"@en.
+:Flow_Termination_Source rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Flow_Termination_Source"@en.
+:Adaptation_Source_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Adaptation_Source_Output"@en.
+:Adaptation_Source_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Adaptation_Source_Input"@en.
+:Adaptation_Sink_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Adaptation_Sink_Input"@en.
+:Adaptation_Sink_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Adaptation_Sink_Output"@en.
+:Flow_Termination_Sink_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Flow_Termination_Sink_Output"@en.
+:Flow_Termination_Sink_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Flow_Termination_Sink_Input"@en.
+:Flow_Termination_Source_Output rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Flow_Termination_Source_Output"@en.
+:Flow_Termination_Source_Input rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Flow_Termination_Source_Input"@en.
+:A_Sk_Input__Sk_AP_Binded rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_Sk_Input__Sk_AP_Binded"@en.
+:FT_Sk_Output__Sk_AP_Binded rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FT_Sk_Output__Sk_AP_Binded"@en.
+:Sink_AP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Sink_AP_Binding"@en.
+:AP rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "AP"@en.
+:Sink_AP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink_AP"@en.
+:Source_AP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source_AP"@en.
+:Source_AP_Binding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Source_AP_Binding"@en.
+:FT_So_Input__So_AP_Binded rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FT_So_Input__So_AP_Binded"@en.
+:A_So_Output__So_AP_Binding rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "A_So_Output__So_AP_Binding"@en.
+:Adaptation_Function rdfs:subClassOf :Transport_Processing_Function.
+:Flow_Termination_Function rdfs:subClassOf :Transport_Processing_Function.
+:Adaptation_Source rdfs:subClassOf :Adaptation_Function.
+:Adaptation_Sink rdfs:subClassOf :Adaptation_Function.
+:Flow_Termination_Source rdfs:subClassOf :Flow_Termination_Function.
+:Flow_Termination_Sink rdfs:subClassOf :Flow_Termination_Function.
+:Sink_AP rdfs:subClassOf :AP.
+:Source_AP rdfs:subClassOf :AP.
+:Adaptation_Function rdfs:subClassOf :Transport_Processing_Function.
+:Flow_Termination_Function rdfs:subClassOf :Transport_Processing_Function.
+:Adaptation_Source rdfs:subClassOf :Adaptation_Function.
+:Adaptation_Sink rdfs:subClassOf :Adaptation_Function.
+:Flow_Termination_Sink rdfs:subClassOf :Flow_Termination_Function.
+:Flow_Termination_Source rdfs:subClassOf :Flow_Termination_Function.
+:A_Sk_Input__Sk_AP_Binded rdfs:subClassOf :Adaptation_Sink_Input.
+:FT_Sk_Output__Sk_AP_Binded rdfs:subClassOf :Flow_Termination_Sink_Output.
+:Sink_AP rdfs:subClassOf :AP.
+:Source_AP rdfs:subClassOf :AP.
+:FT_So_Input__So_AP_Binded rdfs:subClassOf :Flow_Termination_Source_Input.
+:A_So_Output__So_AP_Binding rdfs:subClassOf :Adaptation_Source_Output.

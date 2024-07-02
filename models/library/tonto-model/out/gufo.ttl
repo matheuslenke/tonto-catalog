@@ -1,0 +1,131 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Reserved_Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Reserved_Copy"@en.
+:Renewed_Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Renewed_Copy"@en.
+:Get_Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Get_Copy"@en.
+:Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Item"@en.
+:Items_Copy rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Items_Copy"@en.
+:Work rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Work"@en.
+:Videotape rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Videotape"@en.
+:Periodical rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Periodical"@en.
+:Book rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Book"@en.
+:Dvd rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dvd"@en.
+:Collection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Collection"@en.
+:Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Copy"@en.
+:Copy_Reservation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Copy_Reservation"@en.
+:Student_Loan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Student_Loan"@en.
+:Delay rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Delay"@en.
+:Make_Reservation_for_Student rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Make_Reservation_for_Student"@en.
+:Renew_Copy_for_Student rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Renew_Copy_for_Student"@en.
+:Renew_Copy rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Renew_Copy"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:Generate_Student_Delay rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Generate_Student_Delay"@en.
+:Return_Deadline rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Return_Deadline"@en.
+:Fine rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Fine"@en.
+:Daily rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Daily"@en.
+:Monthly rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Monthly"@en.
+:Undergraduate_Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Undergraduate_Student"@en.
+:Graduate_Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Graduate_Student"@en.
+:Undergraduate_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Undergraduate_Contract"@en.
+:Graduate_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Graduate_Contract"@en.
+:UNISAM rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UNISAM"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Administrative rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Administrative"@en.
+:Professor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Professor"@en.
+:Regular rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Regular"@en.
+:Intern rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Intern"@en.
+:Employee_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Employee_Contract"@en.
+:Professor_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Professor_Contract"@en.
+:Employee_Loan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Employee_Loan"@en.
+:Renew_Employee rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Renew_Employee"@en.
+:Make_Reservation_for_Employee rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Make_Reservation_for_Employee"@en.
+:Renew_Copy_for_Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Renew_Copy_for_Employee"@en.
+:Reserve_Copy_for_Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Reserve_Copy_for_Employee"@en.
+:Employee_Loan_1 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee_Loan"@en.
+:Videotape rdfs:subClassOf :Work.
+:Periodical rdfs:subClassOf :Work.
+:Book rdfs:subClassOf :Work.
+:Dvd rdfs:subClassOf :Work.
+:Student rdfs:subClassOf :Person.
+:Daily rdfs:subClassOf :Fine.
+:Monthly rdfs:subClassOf :Fine.
+:Undergraduate_Student rdfs:subClassOf :Student.
+:Graduate_Student rdfs:subClassOf :Student.
+:Employee rdfs:subClassOf :Person.
+:Administrative rdfs:subClassOf :Employee.
+:Professor rdfs:subClassOf :Employee.
+:Regular rdfs:subClassOf :Administrative.
+:Intern rdfs:subClassOf :Administrative.

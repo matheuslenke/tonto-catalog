@@ -1,0 +1,11 @@
+
+package Trfego
+
+role Veculo_Contado
+
+relator Registro_de_Passagem{
+    data: undefined  
+}
+
+
+

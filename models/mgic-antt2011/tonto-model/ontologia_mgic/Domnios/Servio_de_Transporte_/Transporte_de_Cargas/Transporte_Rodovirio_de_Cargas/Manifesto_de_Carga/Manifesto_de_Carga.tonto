@@ -1,0 +1,15 @@
+import Transportador_Rodovirio_de_Cargas
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Manifesto_de_Carga
+import Conhecimento_de_Transporte
+import Transporte_Rodovirio_de_Cargas
+
+package Manifesto_de_Carga
+
+role MDFe_Emitido of functional-complexes  specializes MDFe, MDFe_em_Operao_de_Transporte_Rodovirio_Nacional_de_Cargas 
+
+relator Manifesto_de_Carga
+
+
+
+

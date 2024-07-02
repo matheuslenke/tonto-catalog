@@ -1,0 +1,15 @@
+
+package Senado_Federal
+
+relator Mandato_de_Senador
+
+role Senador specializes Parlamentar 
+
+collective Senado_Federal specializes Agente_Legislativo {
+    senadores: undefined  
+}
+
+
+
+
+

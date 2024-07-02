@@ -2,9 +2,9 @@
 package ontoUMLCSHG
 
 category biological_entity of functional-complexes {
-    id: string_  
-    name: string_  
-    description: string_  
+    id: string  
+    name: string  
+    description: string  
     creation_: undefined  
 }
 
@@ -20,8 +20,8 @@ event process_ specializes biological_event
 
 event biological_event specializes event_ {
     id: int  
-    type_: string_  
-    name: string_  
+    type_: string  
+    name: string  
     start: undefined  
     end: undefined  
 }
@@ -41,7 +41,7 @@ event participation_in_biological_event specializes event_
 
 type role_in_biological_event
 
-datatype string_
+datatype string
 datatype int
 
 

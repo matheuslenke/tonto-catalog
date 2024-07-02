@@ -1,0 +1,108 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Object_of_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object_of_Contract"@en.
+:Social_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Social_Contract"@en.
+:Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Claim"@en.
+:Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Commitment"@en.
+:Rulee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Rulee"@en.
+:Ruler rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ruler"@en.
+:Individual rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Individual"@en.
+:Society rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Society"@en.
+:State_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "State_Claim"@en.
+:Society_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Society_Claim"@en.
+:State_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "State_Commitment"@en.
+:Society_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Society_Commitment"@en.
+:Familiar_Society rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Familiar_Society"@en.
+:Religious_Society rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Religious_Society"@en.
+:Educational_Society rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Educational_Society"@en.
+:Political_Society rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Political_Society"@en.
+:State rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "State"@en.
+:Public_Asset rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Public_Asset"@en.
+:Legal_System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Legal_System"@en.
+:Principal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Principal"@en.
+:Rule rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Rule"@en.
+:Norm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Norm"@en.
+:Population rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Population"@en.
+:Independent_Goverment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Independent_Goverment"@en.
+:Territory rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Territory"@en.
+:Land_Part rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Land_Part"@en.
+:Aerial_Part rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Aerial_Part"@en.
+:Terrritorial_Waters_Part rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Terrritorial_Waters_Part"@en.
+:Border_Part rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Border_Part"@en.
+:Sketched_Border rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sketched_Border"@en.
+:Live_Border rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Live_Border"@en.
+:Dead_Border rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dead_Border"@en.
+:Supremacy_of_Power rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Supremacy_of_Power"@en.
+:Rulee rdfs:subClassOf :Individual.
+:Ruler rdfs:subClassOf :Individual.
+:Familiar_Society rdfs:subClassOf :Society.
+:Religious_Society rdfs:subClassOf :Society.
+:Educational_Society rdfs:subClassOf :Society.
+:Political_Society rdfs:subClassOf :Society.
+:Sketched_Border rdfs:subClassOf :Border_Part.
+:Live_Border rdfs:subClassOf :Border_Part.
+:Dead_Border rdfs:subClassOf :Border_Part.

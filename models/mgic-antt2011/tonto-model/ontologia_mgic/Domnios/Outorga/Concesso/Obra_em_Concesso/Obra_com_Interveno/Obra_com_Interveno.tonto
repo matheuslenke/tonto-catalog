@@ -1,0 +1,35 @@
+
+package Obra_com_Interveno
+
+role Via_Modificada_em_Concesso specializes Via_Terrestre, Elemento_Rodovirio_Modificado_em_Concesso 
+
+roleMixin Elemento_Rodovirio_Modificado_em_Concesso of functional-complexes 
+
+roleMixin Componente_Rodovirio_Modificado_em_Concesso of functional-complexes  specializes Componente_de_Trecho, Elemento_Rodovirio_Modificado_em_Concesso 
+
+roleMixin Interventor of functional-complexes 
+
+role Obra_com_Interveno of functional-complexes  specializes Obra_de_Concesso_ 
+
+role Responsvel_Tcnico_em_Obra
+
+relator Interveno_para_Obra specializes Interveno_de_Obra_Conveniada {
+    DataInicio: undefined  
+    DataTermino: undefined  
+}
+
+role Interventor_Poder_Pblico specializes Interventor 
+
+role Interventor_Concessionria specializes Interventor 
+
+role Trecho_Rodovirio_em_Obra of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+relator Modificao_de_ElementoRodovirio
+
+
+
+
+
+
+
+

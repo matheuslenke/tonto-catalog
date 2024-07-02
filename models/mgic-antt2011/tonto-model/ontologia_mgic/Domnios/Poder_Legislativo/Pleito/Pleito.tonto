@@ -1,0 +1,37 @@
+
+package Pleito
+
+role Responsvel_por_Anlise_de_Pleito
+
+relator Pleito_para_Solicitao_de_Informao specializes Pleito 
+
+role Destino_do_Pleito
+
+phase Pleito_em_Anlise_Tcnica of relators  specializes Pleito {
+    encaminhamento: undefined  
+}
+
+subkind Ofcio_de_Resposta_a_Pleito
+
+role Autor_de_Pleito
+
+relator Pleito{
+    contedo: undefined  
+    recebimento: undefined  
+}
+
+relator Pleito_para_Indagao specializes Pleito 
+
+subkind Ofcio_para_Pleito
+
+phase Pleito_Respondido of relators  specializes Pleito {
+    resposta: undefined  
+}
+
+phase Pleito_Recebido of relators  specializes Pleito 
+
+
+
+
+
+

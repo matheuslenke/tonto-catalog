@@ -1,0 +1,147 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Software_System rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Software_System"@en.
+:Loaded_Software_System_Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Loaded_Software_System_Copy"@en.
+:Computer_System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Computer_System"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Software_Item rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Software_Item"@en.
+:Language rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Language"@en.
+:Data_File rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Data_File"@en.
+:RDBMS_Item rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "RDBMS_Item"@en.
+:Relational_Database rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Relational_Database"@en.
+:Relational_Schema rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Relational_Schema"@en.
+:RDBMS rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RDBMS"@en.
+:Loaded_RDBMS_Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Loaded_RDBMS_Copy"@en.
+:Relational_Data_Language rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Relational_Data_Language"@en.
+:Table rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Table"@en.
+:Base_Table rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Base_Table"@en.
+:Derived_Table rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Derived_Table"@en.
+:Line rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Line"@en.
+:Line_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Line_Type"@en.
+:Column rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Column"@en.
+:Foreign_Key_Column rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Foreign_Key_Column"@en.
+:Primary_Key_Column rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Primary_Key_Column"@en.
+:Data_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Type"@en.
+:External_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "External_Data_Type"@en.
+:Internal_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Internal_Data_Type"@en.
+:Primary_Key_Constraint rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Primary_Key_Constraint"@en.
+:Column_Type_Constraint rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Column_Type_Constraint"@en.
+:Foreign_Key_Constraint rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Foreign_Key_Constraint"@en.
+:Check_Constraint rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Check_Constraint"@en.
+:Constraint rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Constraint"@en.
+:Data_Type_Constraint rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Type_Constraint"@en.
+:Column_Constraint rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Column_Constraint"@en.
+:Relational_Database_System rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Relational_Database_System"@en.
+:DBMS_Item rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "DBMS_Item"@en.
+:Data_Language rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Language"@en.
+:Database rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Database"@en.
+:Data_Schema rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Schema"@en.
+:Schema rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Schema"@en.
+:Information_Schema rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Information_Schema"@en.
+:Dictionary rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Dictionary"@en.
+:DBMS_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "DBMS_Account"@en.
+:DBMS rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DBMS"@en.
+:Loaded_DBMS_Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Loaded_DBMS_Copy"@en.
+:Database_System rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Database_System"@en.
+:Software_System rdfs:subClassOf :Software_Item.
+:Software_Item rdfs:subClassOf :Artifact.
+:Derived_Table rdfs:subClassOf :Table.
+:Base_Table rdfs:subClassOf :Table.
+:External_Data_Type rdfs:subClassOf :Data_Type.
+:Internal_Data_Type rdfs:subClassOf :Data_Type.
+:Primary_Key_Constraint rdfs:subClassOf :Column_Constraint.
+:Foreign_Key_Constraint rdfs:subClassOf :Column_Constraint.
+:Column_Type_Constraint rdfs:subClassOf :Column_Constraint.
+:Check_Constraint rdfs:subClassOf :Column_Constraint.
+:Data_File rdfs:subClassOf :Software_Item.
+:RDBMS_Item rdfs:subClassOf :DBMS_Item.
+:Relational_Database rdfs:subClassOf :RDBMS_Item, :Database.
+:Relational_Schema rdfs:subClassOf :RDBMS_Item, :Schema.
+:RDBMS rdfs:subClassOf :DBMS.
+:Loaded_RDBMS_Copy rdfs:subClassOf :Loaded_DBMS_Copy.
+:Relational_Data_Language rdfs:subClassOf :Data_Language.
+:Table rdfs:subClassOf :RDBMS_Item.
+:Base_Table rdfs:subClassOf :Table.
+:Derived_Table rdfs:subClassOf :Table.
+:Foreign_Key_Column rdfs:subClassOf :Column.
+:Primary_Key_Column rdfs:subClassOf :Column.
+:External_Data_Type rdfs:subClassOf :Data_Type.
+:Internal_Data_Type rdfs:subClassOf :Data_Type.
+:Primary_Key_Constraint rdfs:subClassOf :Column_Constraint.
+:Column_Type_Constraint rdfs:subClassOf :Column_Constraint.
+:Foreign_Key_Constraint rdfs:subClassOf :Column_Constraint.
+:Check_Constraint rdfs:subClassOf :Column_Constraint.
+:Constraint rdfs:subClassOf :RDBMS_Item.
+:Data_Type_Constraint rdfs:subClassOf :Constraint.
+:Column_Constraint rdfs:subClassOf :Constraint.
+:Relational_Database_System rdfs:subClassOf :Database_System.
+:DBMS_Item rdfs:subClassOf :Software_Item.
+:Data_Language rdfs:subClassOf :Language.
+:Database rdfs:subClassOf :DBMS_Item.
+:Data_Schema rdfs:subClassOf :Schema.
+:Schema rdfs:subClassOf :DBMS_Item.
+:Information_Schema rdfs:subClassOf :Schema.
+:Dictionary rdfs:subClassOf :DBMS_Item.
+:DBMS_Account rdfs:subClassOf :DBMS_Item.
+:DBMS rdfs:subClassOf :Software_System.
+:Loaded_DBMS_Copy rdfs:subClassOf :Loaded_Software_System_Copy.
+:Database_System rdfs:subClassOf :Computer_System.

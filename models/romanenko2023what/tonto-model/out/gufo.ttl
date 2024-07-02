@@ -1,0 +1,202 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Registration rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Registration"@en.
+:Registered_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Registered_Person"@en.
+:Age rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Age"@en.
+:Librarian rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Librarian"@en.
+:Library rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Library"@en.
+:Work_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Work_Contract"@en.
+:Artifact rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Work rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Work"@en.
+:Digitized rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Digitized"@en.
+:Document rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Document"@en.
+:Sound_Recording rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sound_Recording"@en.
+:Object rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Library_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Library_Account"@en.
+:Client rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Client"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Publisher rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Publisher"@en.
+:Library_Number rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Library_Number"@en.
+:Series rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Series"@en.
+:Suspended_Account rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Suspended_Account"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Loan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Loan"@en.
+:Access_Clearance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Access_Clearance"@en.
+:Recording rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Recording"@en.
+:Video_Recording rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Video_Recording"@en.
+:Data_Medium rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Data_Medium"@en.
+:Article rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Article"@en.
+:Patent rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Patent"@en.
+:Book rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Book"@en.
+:Chapter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chapter"@en.
+:Proceedings rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Proceedings"@en.
+:Newspaper rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Newspaper"@en.
+:Registered_Organization rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Registered_Organization"@en.
+:Man rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Man"@en.
+:Woman rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Woman"@en.
+:Address rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Address"@en.
+:Library_Card rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Library_Card"@en.
+:Active_Account rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Active_Account"@en.
+:Finished rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Finished"@en.
+:Translator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Translator"@en.
+:Authorship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Authorship"@en.
+:Translation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Translation"@en.
+:Translated_Edition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Translated_Edition"@en.
+:Edition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Edition"@en.
+:Publication rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Publication"@en.
+:Ongoing rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Ongoing"@en.
+:Copy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Copy"@en.
+:Lent_Copy rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Lent_Copy"@en.
+:Borrowed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Borrowed"@en.
+:Discarded rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Discarded"@en.
+:Available rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Available"@en.
+:Undamaged rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Undamaged"@en.
+:Damaged rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Damaged"@en.
+:Destroyed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Destroyed"@en.
+:Writer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Writer"@en.
+:Video_Recording rdfs:subClassOf :Recording.
+:Sound_Recording rdfs:subClassOf :Recording.
+:Library rdfs:subClassOf :Organization.
+:Publisher rdfs:subClassOf :Organization.
+:Patent rdfs:subClassOf :Document.
+:Newspaper rdfs:subClassOf :Document.
+:Book rdfs:subClassOf :Document.
+:Chapter rdfs:subClassOf :Document.
+:Article rdfs:subClassOf :Document.
+:Proceedings rdfs:subClassOf :Document.
+:Woman rdfs:subClassOf :Person.
+:Man rdfs:subClassOf :Person.
+:Registered_Person rdfs:subClassOf :Client.
+:Registered_Organization rdfs:subClassOf :Client.
+:Suspended_Account rdfs:subClassOf :Library_Account.
+:Active_Account rdfs:subClassOf :Library_Account.
+:Digitized rdfs:subClassOf :Edition.
+:Translated_Edition rdfs:subClassOf :Edition.
+:Work rdfs:subClassOf :Artifact.
+:Object rdfs:subClassOf :Artifact.
+:Finished rdfs:subClassOf :Loan.
+:Ongoing rdfs:subClassOf :Loan.
+:Borrowed rdfs:subClassOf :Copy.
+:Available rdfs:subClassOf :Copy.
+:Discarded rdfs:subClassOf :Copy.
+:Undamaged rdfs:subClassOf :Copy.
+:Damaged rdfs:subClassOf :Copy.
+:Destroyed rdfs:subClassOf :Copy.
+:Registered_Person rdfs:subClassOf :Person, :Client.
+:Librarian rdfs:subClassOf :Employee.
+:Library rdfs:subClassOf :Organization.
+:Work rdfs:subClassOf :Artifact.
+:Digitized rdfs:subClassOf :Edition.
+:Document rdfs:subClassOf :Work.
+:Sound_Recording rdfs:subClassOf :Recording.
+:Object rdfs:subClassOf :Artifact.
+:Employee rdfs:subClassOf :Person.
+:Publisher rdfs:subClassOf :Organization.
+:Suspended_Account rdfs:subClassOf :Library_Account.
+:Recording rdfs:subClassOf :Work.
+:Video_Recording rdfs:subClassOf :Recording.
+:Article rdfs:subClassOf :Document.
+:Patent rdfs:subClassOf :Document.
+:Book rdfs:subClassOf :Document.
+:Chapter rdfs:subClassOf :Document.
+:Proceedings rdfs:subClassOf :Document.
+:Newspaper rdfs:subClassOf :Document.
+:Registered_Organization rdfs:subClassOf :Organization, :Client.
+:Man rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Active_Account rdfs:subClassOf :Library_Account.
+:Finished rdfs:subClassOf :Loan.
+:Translator rdfs:subClassOf :Person.
+:Translated_Edition rdfs:subClassOf :Edition.
+:Ongoing rdfs:subClassOf :Loan.
+:Lent_Copy rdfs:subClassOf :Copy.
+:Borrowed rdfs:subClassOf :Copy.
+:Discarded rdfs:subClassOf :Copy.
+:Available rdfs:subClassOf :Copy.
+:Undamaged rdfs:subClassOf :Copy.
+:Damaged rdfs:subClassOf :Copy.
+:Destroyed rdfs:subClassOf :Copy.
+:Writer rdfs:subClassOf :Person.

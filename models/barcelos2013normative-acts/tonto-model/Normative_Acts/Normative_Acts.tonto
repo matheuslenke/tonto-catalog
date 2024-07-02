@@ -1,7 +1,7 @@
 
 package Normative_Acts
 
-datatype string_
+datatype string
 datatype int
 datatype char
 genset gUOS1z6GAqBwAQzZ {

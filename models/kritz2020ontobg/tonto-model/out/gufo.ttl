@@ -1,0 +1,546 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Game rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Game"@en.
+:Mechanics rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Mechanics"@en.
+:Dynamics rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Dynamics"@en.
+:Aesthetics rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Aesthetics"@en.
+:Variable_Player_Powers rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Variable_Player_Powers"@en.
+:Assymetry rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Assymetry"@en.
+:Game_Balance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Game_Balance"@en.
+:RockPaperScizors rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RockPaperScizors"@en.
+:TimeTrack rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "TimeTrack"@en.
+:Phase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Phase"@en.
+:Variable_Phase_Order rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Variable_Phase_Order"@en.
+:Impulse rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Impulse"@en.
+:Ruleset rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Ruleset"@en.
+:Teams rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Teams"@en.
+:Partnership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Partnership"@en.
+:Cooperative_Play rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Cooperative_Play"@en.
+:Algorithm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Algorithm"@en.
+:TrickTaking rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "TrickTaking"@en.
+:Betting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Betting"@en.
+:Gamble rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Gamble"@en.
+:Action rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Action"@en.
+:Grid_Movement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Grid_Movement"@en.
+:Area_Movement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Area_Movement"@en.
+:PointtoPointMovement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "PointtoPointMovement"@en.
+:Movement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Movement"@en.
+:Action_Programming rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Action_Programming"@en.
+:Stock_Holding rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Stock_Holding"@en.
+:Commodity_Speculation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Commodity_Speculation"@en.
+:Pattern_Building rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Pattern_Building"@en.
+:Auction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Auction"@en.
+:Secret_Unit_Depoyment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Secret_Unit_Depoyment"@en.
+:Simultaneous_Action_Selection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Simultaneous_Action_Selection"@en.
+:Press_Your_Luck rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Press_Your_Luck"@en.
+:Take_That rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Take_That"@en.
+:Chitpull rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Chitpull"@en.
+:Voting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Voting"@en.
+:Trading rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Trading"@en.
+:Role_Playing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Role_Playing"@en.
+:Expression rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Expression"@en.
+:Acting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Acting"@en.
+:Storytelling rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Storytelling"@en.
+:Singing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Singing"@en.
+:Dice_Rolling rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Dice_Rolling"@en.
+:Random_Draw rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Random_Draw"@en.
+:Deck rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Deck"@en.
+:Draft rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Draft"@en.
+:Card_Draft rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Card_Draft"@en.
+:Action_Draft rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Action_Draft"@en.
+:Tile_Placement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Tile_Placement"@en.
+:Colection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Colection"@en.
+:Set_Colection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Set_Colection"@en.
+:Line_Drawing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Line_Drawing"@en.
+:Network_Building rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Network_Building"@en.
+:Pool_Building rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Pool_Building"@en.
+:Memory rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Memory"@en.
+:Goal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Goal"@en.
+:Player_Elimination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Player_Elimination"@en.
+:Pickup_and_Delivery rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pickup_and_Delivery"@en.
+:Resource_Management rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource_Management"@en.
+:Pattern_Recognition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pattern_Recognition"@en.
+:Area_Control rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Area_Control"@en.
+:Area_Enclosure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Area_Enclosure"@en.
+:Resource rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Resource"@en.
+:Victory_Points rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Victory_Points"@en.
+:Action_Points rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Action_Points"@en.
+:Action_Card rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Action_Card"@en.
+:Data_Representation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Representation"@en.
+:Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Component"@en.
+:Areas rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Areas"@en.
+:Pattern rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Pattern"@en.
+:Die rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Die"@en.
+:Token rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Token"@en.
+:Modular_Board rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Modular_Board"@en.
+:Paper_And_Pencil rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Paper_And_Pencil"@en.
+:Tile rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Tile"@en.
+:Card rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Card"@en.
+:Die_Marker rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Die_Marker"@en.
+:Intention_of_use rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Intention_of_use"@en.
+:Action_based rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Action_based"@en.
+:Combo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Combo"@en.
+:Resource_extinction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Resource_extinction"@en.
+:Game_state_change rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Game_state_change"@en.
+:Reduce_options rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Reduce_options"@en.
+:Blocking rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Blocking"@en.
+:Indirect_effect rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Indirect_effect"@en.
+:Diversion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Diversion"@en.
+:Acquire_information rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Acquire_information"@en.
+:Deduction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Deduction"@en.
+:Sacrifice rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sacrifice"@en.
+:Forcefull_interpretation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Forcefull_interpretation"@en.
+:Intimidate rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Intimidate"@en.
+:MetaGame rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "MetaGame"@en.
+:Count_resources rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Count_resources"@en.
+:Convince rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Convince"@en.
+:Small_talk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Small_talk"@en.
+:Bluffing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bluffing"@en.
+:Camping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Camping"@en.
+:Playing_patterns rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Playing_patterns"@en.
+:Behaviour rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Behaviour"@en.
+:Self_objective rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Self_objective"@en.
+:Strategic_choices rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Strategic_choices"@en.
+:Grouping rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Grouping"@en.
+:One_versus_all rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "One_versus_all"@en.
+:All_versus_one rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "All_versus_one"@en.
+:Alliance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Alliance"@en.
+:Derived rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Derived"@en.
+:Survival_D rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Survival_D"@en.
+:Risky_play rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Risky_play"@en.
+:Safe_play rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Safe_play"@en.
+:Protectionism rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Protectionism"@en.
+:Human_Shield rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Human_Shield"@en.
+:Action_Planning rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Action_Planning"@en.
+:Flexible_strategy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Flexible_strategy"@en.
+:Reject_objectives rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Reject_objectives"@en.
+:Rush_the_game rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rush_the_game"@en.
+:Disgust rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Disgust"@en.
+:Abhorrence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Abhorrence"@en.
+:Repugnance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Repugnance"@en.
+:Loathing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Loathing"@en.
+:Distaste rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Distaste"@en.
+:Revulsion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Revulsion"@en.
+:Aversion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Aversion"@en.
+:Dislike rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dislike"@en.
+:Fear rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Fear"@en.
+:Terror rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Terror"@en.
+:Desperation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Desperation"@en.
+:Nervousness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Nervousness"@en.
+:Horror rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Horror"@en.
+:Trepidation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Trepidation"@en.
+:Dread rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dread"@en.
+:Anxiety rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Anxiety"@en.
+:Panic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Panic"@en.
+:Anger rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Anger"@en.
+:Fury rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Fury"@en.
+:Annoyance rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Annoyance"@en.
+:Vengefulness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Vengefulness"@en.
+:Argumentativeness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Argumentativeness"@en.
+:Bitterness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bitterness"@en.
+:Exasperation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Exasperation"@en.
+:Frustration rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Frustration"@en.
+:Sadness rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sadness"@en.
+:Anguish rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Anguish"@en.
+:Helplessness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Helplessness"@en.
+:Despair rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Despair"@en.
+:Sorrow rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sorrow"@en.
+:Discouragement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Discouragement"@en.
+:Resignation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Resignation"@en.
+:Survival_A rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Survival_A"@en.
+:Identification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Identification"@en.
+:Protection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Protection"@en.
+:Curiosity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Curiosity"@en.
+:Competition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Competition"@en.
+:Revenge rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Revenge"@en.
+:Agressiveness rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agressiveness"@en.
+:Greed rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Greed"@en.
+:Color_Appreciation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Color_Appreciation"@en.
+:Communication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Communication"@en.
+:Collecting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Collecting"@en.
+:Misery rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Misery"@en.
+:Disapointment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Disapointment"@en.
+:Distraughtness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Distraughtness"@en.
+:Grief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Grief"@en.
+:Hopelessness rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Hopelessness"@en.
+:Joy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Joy"@en.
+:Excitement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Excitement"@en.
+:Enjoyment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Enjoyment"@en.
+:Naches rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Naches"@en.
+:Fiero rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Fiero"@en.
+:Ecstasy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ecstasy"@en.
+:Compassion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Compassion"@en.
+:Amusement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Amusement"@en.
+:Relief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Relief"@en.
+:Schadenfreud rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Schadenfreud"@en.
+:Rejoicing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Rejoicing"@en.
+:Wonder rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Wonder"@en.
+:Sensory_Pleasure rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sensory_Pleasure"@en.
+:Peace rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Peace"@en.
+:Pride rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Pride"@en.
+:Compound_Emotions rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Compound_Emotions"@en.
+:Variable_Player_Powers rdfs:subClassOf :Assymetry.
+:Assymetry rdfs:subClassOf :Game_Balance.
+:Game_Balance rdfs:subClassOf :Ruleset.
+:RockPaperScizors rdfs:subClassOf :Game_Balance.
+:TimeTrack rdfs:subClassOf :Phase.
+:Phase rdfs:subClassOf :Ruleset.
+:Variable_Phase_Order rdfs:subClassOf :Phase.
+:Impulse rdfs:subClassOf :Phase.
+:Ruleset rdfs:subClassOf :Algorithm.
+:Teams rdfs:subClassOf :Ruleset.
+:Partnership rdfs:subClassOf :Teams.
+:Cooperative_Play rdfs:subClassOf :Teams.
+:TrickTaking rdfs:subClassOf :Gamble.
+:Betting rdfs:subClassOf :Gamble.
+:Gamble rdfs:subClassOf :Action.
+:Action rdfs:subClassOf :Algorithm.
+:Grid_Movement rdfs:subClassOf :Area_Movement.
+:Area_Movement rdfs:subClassOf :PointtoPointMovement.
+:PointtoPointMovement rdfs:subClassOf :Movement.
+:Movement rdfs:subClassOf :Action.
+:Action_Programming rdfs:subClassOf :Action.
+:Stock_Holding rdfs:subClassOf :Commodity_Speculation.
+:Commodity_Speculation rdfs:subClassOf :Action.
+:Pattern_Building rdfs:subClassOf :Action.
+:Auction rdfs:subClassOf :Action.
+:Secret_Unit_Depoyment rdfs:subClassOf :Action.
+:Simultaneous_Action_Selection rdfs:subClassOf :Action.
+:Press_Your_Luck rdfs:subClassOf :Action.
+:Take_That rdfs:subClassOf :Action.
+:Chitpull rdfs:subClassOf :Action.
+:Voting rdfs:subClassOf :Action.
+:Trading rdfs:subClassOf :Action.
+:Role_Playing rdfs:subClassOf :Expression.
+:Expression rdfs:subClassOf :Action.
+:Acting rdfs:subClassOf :Expression.
+:Storytelling rdfs:subClassOf :Expression.
+:Singing rdfs:subClassOf :Expression.
+:Dice_Rolling rdfs:subClassOf :Random_Draw.
+:Random_Draw rdfs:subClassOf :Action.
+:Deck rdfs:subClassOf :Random_Draw.
+:Draft rdfs:subClassOf :Action.
+:Card_Draft rdfs:subClassOf :Draft.
+:Action_Draft rdfs:subClassOf :Draft.
+:Tile_Placement rdfs:subClassOf :Action.
+:Colection rdfs:subClassOf :Action.
+:Set_Colection rdfs:subClassOf :Colection.
+:Line_Drawing rdfs:subClassOf :Action.
+:Network_Building rdfs:subClassOf :Line_Drawing.
+:Pool_Building rdfs:subClassOf :Colection.
+:Memory rdfs:subClassOf :Goal.
+:Goal rdfs:subClassOf :Algorithm, :Pickup_and_Delivery, :Player_Elimination, :Resource_Management, :Pattern_Recognition.
+:Area_Control rdfs:subClassOf :Goal.
+:Area_Enclosure rdfs:subClassOf :Goal.
+:Resource rdfs:subClassOf :Data_Representation.
+:Victory_Points rdfs:subClassOf :Resource.
+:Action_Points rdfs:subClassOf :Resource.
+:Action_Card rdfs:subClassOf :Resource.
+:Component rdfs:subClassOf :Data_Representation.
+:Areas rdfs:subClassOf :Component.
+:Pattern rdfs:subClassOf :Component.
+:Die rdfs:subClassOf :Component.
+:Token rdfs:subClassOf :Component.
+:Modular_Board rdfs:subClassOf :Component.
+:Paper_And_Pencil rdfs:subClassOf :Component.
+:Tile rdfs:subClassOf :Token.
+:Card rdfs:subClassOf :Token.
+:Die_Marker rdfs:subClassOf :Die.
+:Intention_of_use rdfs:subClassOf :Action_based.
+:Combo rdfs:subClassOf :Intention_of_use.
+:Resource_extinction rdfs:subClassOf :Intention_of_use.
+:Game_state_change rdfs:subClassOf :Intention_of_use.
+:Reduce_options rdfs:subClassOf :Intention_of_use.
+:Blocking rdfs:subClassOf :Intention_of_use.
+:Indirect_effect rdfs:subClassOf :Intention_of_use.
+:Diversion rdfs:subClassOf :Intention_of_use.
+:Acquire_information rdfs:subClassOf :Indirect_effect.
+:Sacrifice rdfs:subClassOf :Action_based.
+:Intimidate rdfs:subClassOf :MetaGame.
+:Count_resources rdfs:subClassOf :MetaGame.
+:Convince rdfs:subClassOf :MetaGame.
+:Small_talk rdfs:subClassOf :MetaGame.
+:Bluffing rdfs:subClassOf :Convince.
+:Camping rdfs:subClassOf :Playing_patterns.
+:Playing_patterns rdfs:subClassOf :Behaviour.
+:Self_objective rdfs:subClassOf :Behaviour.
+:Strategic_choices rdfs:subClassOf :Behaviour.
+:Grouping rdfs:subClassOf :Strategic_choices.
+:One_versus_all rdfs:subClassOf :Grouping.
+:All_versus_one rdfs:subClassOf :Alliance.
+:Alliance rdfs:subClassOf :Grouping.
+:Survival_D rdfs:subClassOf :Playing_patterns.
+:Risky_play rdfs:subClassOf :Playing_patterns.
+:Safe_play rdfs:subClassOf :Playing_patterns.
+:Protectionism rdfs:subClassOf :Playing_patterns.
+:Human_Shield rdfs:subClassOf :Strategic_choices.
+:Action_Planning rdfs:subClassOf :Strategic_choices.
+:Flexible_strategy rdfs:subClassOf :Strategic_choices.
+:Reject_objectives rdfs:subClassOf :Strategic_choices.
+:Rush_the_game rdfs:subClassOf :Strategic_choices.
+:Abhorrence rdfs:subClassOf :Disgust.
+:Repugnance rdfs:subClassOf :Disgust.
+:Loathing rdfs:subClassOf :Disgust.
+:Distaste rdfs:subClassOf :Disgust.
+:Revulsion rdfs:subClassOf :Disgust.
+:Aversion rdfs:subClassOf :Disgust.
+:Dislike rdfs:subClassOf :Disgust.
+:Terror rdfs:subClassOf :Fear.
+:Desperation rdfs:subClassOf :Fear.
+:Nervousness rdfs:subClassOf :Fear.
+:Horror rdfs:subClassOf :Fear.
+:Trepidation rdfs:subClassOf :Fear.
+:Dread rdfs:subClassOf :Fear.
+:Anxiety rdfs:subClassOf :Fear.
+:Panic rdfs:subClassOf :Fear.
+:Fury rdfs:subClassOf :Anger.
+:Annoyance rdfs:subClassOf :Anger.
+:Vengefulness rdfs:subClassOf :Anger.
+:Argumentativeness rdfs:subClassOf :Anger.
+:Bitterness rdfs:subClassOf :Anger.
+:Exasperation rdfs:subClassOf :Anger.
+:Frustration rdfs:subClassOf :Anger.
+:Anguish rdfs:subClassOf :Sadness.
+:Helplessness rdfs:subClassOf :Sadness.
+:Despair rdfs:subClassOf :Sadness.
+:Sorrow rdfs:subClassOf :Sadness.
+:Discouragement rdfs:subClassOf :Sadness.
+:Resignation rdfs:subClassOf :Sadness.
+:Misery rdfs:subClassOf :Sadness.
+:Disapointment rdfs:subClassOf :Sadness.
+:Distraughtness rdfs:subClassOf :Sadness.
+:Grief rdfs:subClassOf :Sadness.
+:Hopelessness rdfs:subClassOf :Sadness.
+:Joy rdfs:subClassOf :Enjoyment.
+:Excitement rdfs:subClassOf :Enjoyment.
+:Naches rdfs:subClassOf :Enjoyment.
+:Fiero rdfs:subClassOf :Enjoyment.
+:Ecstasy rdfs:subClassOf :Enjoyment.
+:Compassion rdfs:subClassOf :Enjoyment.
+:Amusement rdfs:subClassOf :Enjoyment.
+:Relief rdfs:subClassOf :Enjoyment.
+:Schadenfreud rdfs:subClassOf :Enjoyment.
+:Rejoicing rdfs:subClassOf :Enjoyment.
+:Wonder rdfs:subClassOf :Enjoyment.
+:Sensory_Pleasure rdfs:subClassOf :Enjoyment.
+:Peace rdfs:subClassOf :Enjoyment.
+:Pride rdfs:subClassOf :Enjoyment.

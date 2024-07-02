@@ -1,0 +1,220 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:AppleEndurant rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "AppleEndurant"@en.
+:AppleAspect rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AppleAspect"@en.
+:AppleFeature rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AppleFeature"@en.
+:PressureMarkInApple rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "PressureMarkInApple"@en.
+:HoleInApple rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "HoleInApple"@en.
+:AppleStain rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "AppleStain"@en.
+:AppleSubstance rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AppleSubstance"@en.
+:Apple rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Apple"@en.
+:ApplePart rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "ApplePart"@en.
+:AppleExocarp rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AppleExocarp"@en.
+:AplleEndocarp rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AplleEndocarp"@en.
+:AppleCultivar rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "AppleCultivar"@en.
+:AppleTaste rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "AppleTaste"@en.
+:AppleColor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "AppleColor"@en.
+:AppleNutritionalFactor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "AppleNutritionalFactor"@en.
+:AppleQualityState rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "AppleQualityState"@en.
+:Event rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Event"@en.
+:AppleQuality rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AppleQuality"@en.
+:AppleBatch rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "AppleBatch"@en.
+:AppleHandlingActivity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "AppleHandlingActivity"@en.
+:AppleHarvest rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "AppleHarvest"@en.
+:AppleStorage rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "AppleStorage"@en.
+:StorageFacility rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "StorageFacility"@en.
+:Building rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Building"@en.
+:SpatialEntity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SpatialEntity"@en.
+:SpatialRegion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SpatialRegion"@en.
+:PhysicalQualityStateOfSpatialEntityDuringAppleHandling rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "PhysicalQualityStateOfSpatialEntityDuringAppleHandling"@en.
+:PysicalQuality rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "PysicalQuality"@en.
+:PhysicalQualityState rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "PhysicalQualityState"@en.
+:Temperature rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Temperature"@en.
+:Humidity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Humidity"@en.
+:GasConcentration rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "GasConcentration"@en.
+:AppleDisposition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AppleDisposition"@en.
+:InfectedAppleSubstance rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "InfectedAppleSubstance"@en.
+:PathogenSign rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "PathogenSign"@en.
+:PathogenCollective rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "PathogenCollective"@en.
+:Pathogen rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pathogen"@en.
+:PathologicalAppleSubstance rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "PathologicalAppleSubstance"@en.
+:ApplePathologyManifestation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "ApplePathologyManifestation"@en.
+:AppleSymptomManifestation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "AppleSymptomManifestation"@en.
+:ApplePathology rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ApplePathology"@en.
+:AppleSymptomType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "AppleSymptomType"@en.
+:ApplePathologyType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "ApplePathologyType"@en.
+:AppleDiseaseType rdf:type owl:NamedIndividual;
+    rdfs:label "AppleDiseaseType"@en.
+:AppleDisorderType rdf:type owl:NamedIndividual;
+    rdfs:label "AppleDisorderType"@en.
+:PathogenType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "PathogenType"@en.
+:ApplePathologyEnablingFactor rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ApplePathologyEnablingFactor"@en.
+:InsectStingInApple rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "InsectStingInApple"@en.
+:ApplePostHarvestPathologyEnablingFactor rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "ApplePostHarvestPathologyEnablingFactor"@en.
+:ApplePreHarvestPathologyEnablingFactor rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "ApplePreHarvestPathologyEnablingFactor"@en.
+:AppleLowNutritionalFactor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AppleLowNutritionalFactor"@en.
+:InadequatePhysicalQualityStateOfSpatialEntityDuringAppleHandling rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "InadequatePhysicalQualityStateOfSpatialEntityDuringAppleHandling"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:PhotographAutorship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "PhotographAutorship"@en.
+:Photographer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Photographer"@en.
+:Photograph rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Photograph"@en.
+:AppleSymptomsPhotograph rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AppleSymptomsPhotograph"@en.
+:PrototypicalAppleSymptomsPhotograph rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PrototypicalAppleSymptomsPhotograph"@en.
+:AppleSymptomsPrototypeAssignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "AppleSymptomsPrototypeAssignment"@en.
+:ApplePathogenInfectionPhotograph rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ApplePathogenInfectionPhotograph"@en.
+:PrototypicalApplePathogenSignPhotograph rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PrototypicalApplePathogenSignPhotograph"@en.
+:ApplePathogenInfectionPrototypeAssignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ApplePathogenInfectionPrototypeAssignment"@en.
+:AppleAspect rdfs:subClassOf :AppleEndurant.
+:AppleFeature rdfs:subClassOf :AppleAspect.
+:PressureMarkInApple rdfs:subClassOf :AppleFeature, :ApplePathologyEnablingFactor.
+:HoleInApple rdfs:subClassOf :AppleFeature.
+:AppleStain rdfs:subClassOf :AppleFeature.
+:AppleSubstance rdfs:subClassOf :AppleEndurant.
+:Apple rdfs:subClassOf :AppleSubstance.
+:ApplePart rdfs:subClassOf :AppleSubstance.
+:AppleExocarp rdfs:subClassOf :ApplePart.
+:AplleEndocarp rdfs:subClassOf :ApplePart.
+:AppleTaste rdfs:subClassOf :AppleQuality.
+:AppleColor rdfs:subClassOf :AppleQuality.
+:AppleNutritionalFactor rdfs:subClassOf :AppleQuality.
+:AppleQualityState rdfs:subClassOf :Event.
+:AppleQuality rdfs:subClassOf :AppleAspect.
+:AppleHandlingActivity rdfs:subClassOf :Event.
+:AppleHarvest rdfs:subClassOf :AppleHandlingActivity.
+:AppleStorage rdfs:subClassOf :AppleHandlingActivity.
+:StorageFacility rdfs:subClassOf :Building, :SpatialEntity.
+:SpatialRegion rdfs:subClassOf :SpatialEntity.
+:PhysicalQualityStateOfSpatialEntityDuringAppleHandling rdfs:subClassOf :PhysicalQualityState.
+:PhysicalQualityState rdfs:subClassOf :Event.
+:Temperature rdfs:subClassOf :PysicalQuality.
+:Humidity rdfs:subClassOf :PysicalQuality.
+:GasConcentration rdfs:subClassOf :PysicalQuality.
+:AppleDisposition rdfs:subClassOf :AppleAspect.
+:InfectedAppleSubstance rdfs:subClassOf :PathologicalAppleSubstance.
+:PathogenSign rdfs:subClassOf :AppleAspect.
+:PathologicalAppleSubstance rdfs:subClassOf :AppleSubstance.
+:ApplePathology rdfs:subClassOf :AppleDisposition.
+:AppleDiseaseType rdfs:subClassOf :ApplePathologyType.
+:AppleDisorderType rdfs:subClassOf :ApplePathologyType.
+:InsectStingInApple rdfs:subClassOf :AppleFeature, :ApplePathologyEnablingFactor.
+:ApplePostHarvestPathologyEnablingFactor rdfs:subClassOf :ApplePathologyEnablingFactor.
+:ApplePreHarvestPathologyEnablingFactor rdfs:subClassOf :ApplePathologyEnablingFactor.
+:AppleLowNutritionalFactor rdfs:subClassOf :AppleNutritionalFactor, :ApplePreHarvestPathologyEnablingFactor.
+:InadequatePhysicalQualityStateOfSpatialEntityDuringAppleHandling rdfs:subClassOf :ApplePostHarvestPathologyEnablingFactor, :PhysicalQualityStateOfSpatialEntityDuringAppleHandling.
+:Photographer rdfs:subClassOf :Person.
+:AppleSymptomsPhotograph rdfs:subClassOf :Photograph.
+:PrototypicalAppleSymptomsPhotograph rdfs:subClassOf :AppleSymptomsPhotograph.
+:ApplePathogenInfectionPhotograph rdfs:subClassOf :Photograph.
+:PrototypicalApplePathogenSignPhotograph rdfs:subClassOf :ApplePathogenInfectionPhotograph.
+:begin rdfs:domain :Event;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "begin"@en.
+:end rdfs:domain :Event;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "end"@en.

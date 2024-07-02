@@ -1,0 +1,159 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Texto_Cientfico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Texto_Cientfico"@en.
+:Resumo_Publicado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Resumo_Publicado"@en.
+:Artigo_Publicado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Artigo_Publicado"@en.
+:Captulo_de_Livro_Publicado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Captulo_de_Livro_Publicado"@en.
+:Livro rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Livro"@en.
+:Autoria_Cientfica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Autoria_Cientfica"@en.
+:Autor_Cientfico rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Autor_Cientfico"@en.
+:Publicao_de_Obra_Cientfica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Publicao_de_Obra_Cientfica"@en.
+:Publicador rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Publicador"@en.
+:Volume_de_Peridico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Volume_de_Peridico"@en.
+:Artigo_de_Peridico_Publicado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Artigo_de_Peridico_Publicado"@en.
+:Artigo_de_Evento_Publicado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Artigo_de_Evento_Publicado"@en.
+:Anais_de_Evento rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Anais_de_Evento"@en.
+:Fascculo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Fascculo"@en.
+:Veculos_de_Publicao_Cientfica rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Veculos_de_Publicao_Cientfica"@en.
+:Evento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Evento"@en.
+:Peridico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Peridico"@en.
+:Pessoa_Fsica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa_Fsica"@en.
+:Edio_de_Livro rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Edio_de_Livro"@en.
+:Edio_do_Evento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Edio_do_Evento"@en.
+:Obra_Cientfica_Editada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Obra_Cientfica_Editada"@en.
+:Texto_Cientfico_Editado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Texto_Cientfico_Editado"@en.
+:Editor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Editor"@en.
+:Obra_Cientfica_Publicada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Obra_Cientfica_Publicada"@en.
+:Edio_de_Obra_Cientfica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Edio_de_Obra_Cientfica"@en.
+:Texto_Cientfico_Publicado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Texto_Cientfico_Publicado"@en.
+:Coleo_de_Textos_Cientficos rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Coleo_de_Textos_Cientficos"@en.
+:ndice_de_Qualidade_Cientfica rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "ndice_de_Qualidade_Cientfica"@en.
+:ndice_de_Autor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ndice_de_Autor"@en.
+:ndice_de_Veculo_de_Publicao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ndice_de_Veculo_de_Publicao"@en.
+:ndice_de_Texto_Cientfico_Publicado rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ndice_de_Texto_Cientfico_Publicado"@en.
+:Entidades_Avaliveis rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Entidades_Avaliveis"@en.
+:JCR rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "JCR"@en.
+:Qualis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Qualis"@en.
+:Hindex rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Hindex"@en.
+:H10 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "H10"@en.
+:N_de_Citaes rdf:type owl:NamedIndividual;
+    rdfs:label "N_de_Citaes"@en.
+:Pessoa_Jurdica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa_Jurdica"@en.
+:Instituio rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Instituio"@en.
+:Afiliao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Afiliao"@en.
+:rea_de_Pesquisa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "rea_de_Pesquisa"@en.
+:Colaborador_Afiliado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Colaborador_Afiliado"@en.
+:Autor_Cientfico_Independente rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Autor_Cientfico_Independente"@en.
+:Autor_Cientfico_Afilidado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Autor_Cientfico_Afilidado"@en.
+:Artigo_de_Peridico_Publicado rdfs:subClassOf :Artigo_Publicado.
+:Artigo_de_Evento_Publicado rdfs:subClassOf :Artigo_Publicado.
+:Resumo_Publicado rdfs:subClassOf :Texto_Cientfico.
+:Artigo_Publicado rdfs:subClassOf :Texto_Cientfico.
+:Captulo_de_Livro_Publicado rdfs:subClassOf :Texto_Cientfico.
+:Autor_Cientfico rdfs:subClassOf :Entidades_Avaliveis.
+:Veculos_de_Publicao_Cientfica rdfs:subClassOf :Entidades_Avaliveis.
+:Texto_Cientfico_Publicado rdfs:subClassOf :Entidades_Avaliveis.
+:ndice_de_Autor rdfs:subClassOf :ndice_de_Qualidade_Cientfica.
+:ndice_de_Veculo_de_Publicao rdfs:subClassOf :ndice_de_Qualidade_Cientfica.
+:Peridico rdfs:subClassOf :Veculos_de_Publicao_Cientfica.
+:Evento rdfs:subClassOf :Veculos_de_Publicao_Cientfica.
+:Hindex rdfs:subClassOf :ndice_de_Autor.
+:H10 rdfs:subClassOf :ndice_de_Autor.
+:Qualis rdfs:subClassOf :ndice_de_Veculo_de_Publicao.
+:JCR rdfs:subClassOf :ndice_de_Veculo_de_Publicao.
+:Autor_Cientfico_Independente rdfs:subClassOf :Autor_Cientfico.
+:Autor_Cientfico_Afilidado rdfs:subClassOf :Autor_Cientfico.
+:Resumo_Publicado rdfs:subClassOf :Texto_Cientfico.
+:Artigo_Publicado rdfs:subClassOf :Texto_Cientfico.
+:Captulo_de_Livro_Publicado rdfs:subClassOf :Texto_Cientfico_Publicado.
+:Autor_Cientfico rdfs:subClassOf :Pessoa_Fsica, :Entidades_Avaliveis.
+:Artigo_de_Peridico_Publicado rdfs:subClassOf :Artigo_Publicado.
+:Artigo_de_Evento_Publicado rdfs:subClassOf :Artigo_Publicado.
+:Anais_de_Evento rdfs:subClassOf :Coleo_de_Textos_Cientficos.
+:Fascculo rdfs:subClassOf :Coleo_de_Textos_Cientficos.
+:Veculos_de_Publicao_Cientfica rdfs:subClassOf :Entidades_Avaliveis.
+:Evento rdfs:subClassOf :Veculos_de_Publicao_Cientfica.
+:Peridico rdfs:subClassOf :Veculos_de_Publicao_Cientfica.
+:Edio_de_Livro rdfs:subClassOf :Coleo_de_Textos_Cientficos.
+:Obra_Cientfica_Editada rdfs:subClassOf :Coleo_de_Textos_Cientficos.
+:Texto_Cientfico_Editado rdfs:subClassOf :Texto_Cientfico.
+:Obra_Cientfica_Publicada rdfs:subClassOf :Obra_Cientfica_Editada.
+:Texto_Cientfico_Publicado rdfs:subClassOf :Texto_Cientfico_Editado, :Entidades_Avaliveis.
+:ndice_de_Autor rdfs:subClassOf :ndice_de_Qualidade_Cientfica.
+:ndice_de_Veculo_de_Publicao rdfs:subClassOf :ndice_de_Qualidade_Cientfica.
+:ndice_de_Texto_Cientfico_Publicado rdfs:subClassOf :ndice_de_Qualidade_Cientfica.
+:JCR rdfs:subClassOf :ndice_de_Veculo_de_Publicao.
+:Qualis rdfs:subClassOf :ndice_de_Veculo_de_Publicao.
+:Hindex rdfs:subClassOf :ndice_de_Autor.
+:H10 rdfs:subClassOf :ndice_de_Autor.
+:N_de_Citaes rdfs:subClassOf :ndice_de_Texto_Cientfico_Publicado.
+:Instituio rdfs:subClassOf :Pessoa_Jurdica.
+:Colaborador_Afiliado rdfs:subClassOf :Pessoa_Fsica.
+:Autor_Cientfico_Independente rdfs:subClassOf :Autor_Cientfico.
+:Autor_Cientfico_Afilidado rdfs:subClassOf :Autor_Cientfico, :Colaborador_Afiliado.

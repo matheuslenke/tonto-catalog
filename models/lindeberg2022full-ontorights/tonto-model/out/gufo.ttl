@@ -1,0 +1,637 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:UFOB_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "UFOB_Event"@en.
+:UFOB_Fact rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "UFOB_Fact"@en.
+:UFOB_Time_Frame rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "UFOB_Time_Frame"@en.
+:UFOB_Complex_event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "UFOB_Complex_event"@en.
+:UFOB_Atomic_event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "UFOB_Atomic_event"@en.
+:UFOL_Legally_Defined_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "UFOL_Legally_Defined_Event"@en.
+:Legally_Defined_Human_Rights_Violation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Legally_Defined_Human_Rights_Violation"@en.
+:UFOL_Legal_Normative_Description rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOL_Legal_Normative_Description"@en.
+:UFOL_Legal_Norm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOL_Legal_Norm"@en.
+:Human_Rights_Instrument rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Human_Rights_Instrument"@en.
+:Human_Rights_Standard rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Human_Rights_Standard"@en.
+:UFOB_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "UFOB_Action"@en.
+:UFOC_Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "UFOC_Intention"@en.
+:UFOC_Goal rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "UFOC_Goal"@en.
+:UFOB_Participation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "UFOB_Participation"@en.
+:UFOB_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "UFOB_Situation"@en.
+:UFOB_Counterfactual_situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "UFOB_Counterfactual_situation"@en.
+:Human_Rights_Problem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Human_Rights_Problem"@en.
+:Legal_Perpetrator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Legal_Perpetrator"@en.
+:Legal_Victim rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Legal_Victim"@en.
+:UFOL_Legal_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOL_Legal_Agent"@en.
+:UFOL_Agentive_Legal_Institution rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOL_Agentive_Legal_Institution"@en.
+:UFOL_Singular_Legal_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOL_Singular_Legal_Agent"@en.
+:UFOC_Human_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOC_Human_Agent"@en.
+:UFOC_Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOC_Social_Agent"@en.
+:UFOC_Collective_Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOC_Collective_Social_Agent"@en.
+:UFOC_Society rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "UFOC_Society"@en.
+:Dutybearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Dutybearer"@en.
+:Human_Rights_Responsibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Human_Rights_Responsibility"@en.
+:Consequence_On_Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Consequence_On_Person"@en.
+:Consequence_For_Resulting_Event_Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Consequence_For_Resulting_Event_Agent"@en.
+:Reputational_Consequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Reputational_Consequence"@en.
+:Consequence_On_Collective rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Consequence_On_Collective"@en.
+:Psychological_Consequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Psychological_Consequence"@en.
+:Economical_Consequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Economical_Consequence"@en.
+:Territorial_Consequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Territorial_Consequence"@en.
+:Physical_Consequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Physical_Consequence"@en.
+:Resulting_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Resulting_Event"@en.
+:Sex rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Sex"@en.
+:Gender_Identity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Gender_Identity"@en.
+:Sexual_Orientation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Sexual_Orientation"@en.
+:Age rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Age"@en.
+:Living_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Living_Person"@en.
+:Deceased_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Deceased_Person"@en.
+:Child rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Child"@en.
+:Adult rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Ethnicity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Ethnicity"@en.
+:Religion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Religion"@en.
+:Weight rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Weight"@en.
+:Positive_Consequence_On_Agent rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Positive_Consequence_On_Agent"@en.
+:Negative_Consequence_On_Agent rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Negative_Consequence_On_Agent"@en.
+:Integrity_Consequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Integrity_Consequence"@en.
+:State_Authority rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "State_Authority"@en.
+:Religious_Group rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Religious_Group"@en.
+:Ethnic_Group rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ethnic_Group"@en.
+:Human_Rights_Instrument_Article rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Human_Rights_Instrument_Article"@en.
+:Element_of_Legally_Defined_Human_Rights_Violations rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Element_of_Legally_Defined_Human_Rights_Violations"@en.
+:Monitoring_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Monitoring_Event"@en.
+:Monitoring_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Monitoring_Process"@en.
+:Information_Exchange rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Information_Exchange"@en.
+:Media_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Media_Object"@en.
+:Confidentiality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Confidentiality"@en.
+:Informed_Consent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Informed_Consent"@en.
+:Goal_Transfer_From_Sender rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Goal_Transfer_From_Sender"@en.
+:Goal_Transfer_From_Sender_To_Influence_Third_Agent rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Goal_Transfer_From_Sender_To_Influence_Third_Agent"@en.
+:Communication_Channel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Communication_Channel"@en.
+:Disclose_Information rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Disclose_Information"@en.
+:Digital_File rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Digital_File"@en.
+:Paper_Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Paper_Document"@en.
+:Other_Physical_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Other_Physical_Object"@en.
+:Physical_Media_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Media_Object"@en.
+:Digital_Media_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Digital_Media_Object"@en.
+:Digital_Folder rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Digital_Folder"@en.
+:Information_Exchange_Record rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Information_Exchange_Record"@en.
+:Observation_Record rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Observation_Record"@en.
+:Network_Connection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Network_Connection"@en.
+:Money_Flow rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Money_Flow"@en.
+:Supply_Flow rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Supply_Flow"@en.
+:Goods_Flow rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Goods_Flow"@en.
+:Service_Flow rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Service_Flow"@en.
+:Information_Flow rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Information_Flow"@en.
+:Has_Influence_On rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Has_Influence_On"@en.
+:Ownership rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ownership"@en.
+:Partial_Ownership rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Partial_Ownership"@en.
+:Complete_Ownership rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Complete_Ownership"@en.
+:Support rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Support"@en.
+:Oppose rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Oppose"@en.
+:Neutral rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Neutral"@en.
+:Consequence_For_Agent rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Consequence_For_Agent"@en.
+:Real_Consequence_For_Agent rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Real_Consequence_For_Agent"@en.
+:Risk rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Risk"@en.
+:UFOA_Substantial rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOA_Substantial"@en.
+:Force_At_Work rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Force_At_Work"@en.
+:UFOL_Conduct_Legal_Norm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "UFOL_Conduct_Legal_Norm"@en.
+:UFOL_Power_Legal_Norm rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "UFOL_Power_Legal_Norm"@en.
+:Human_Rights_Mechanism rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Human_Rights_Mechanism"@en.
+:Nation_State rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Nation_State"@en.
+:Human_Rights_Violation rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Human_Rights_Violation"@en.
+:Abusive_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Abusive_Event"@en.
+:EOPL_Multiorganisation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EOPL_Multiorganisation"@en.
+:EOPL_Standalone_Organisation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EOPL_Standalone_Organisation"@en.
+:EOPL_Complex_Organisation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EOPL_Complex_Organisation"@en.
+:EOPL_Simple_Organisation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EOPL_Simple_Organisation"@en.
+:EOPL_Organisational_Unit rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EOPL_Organisational_Unit"@en.
+:EOPL_Complex_Organisational_Unit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EOPL_Complex_Organisational_Unit"@en.
+:EOPL_Simple_Organisational_Unit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EOPL_Simple_Organisational_Unit"@en.
+:Organisation_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Organisation_Member"@en.
+:Affiliation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Affiliation"@en.
+:Head_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Head_Member"@en.
+:Common_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Common_Member"@en.
+:Formal_Organisation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Formal_Organisation"@en.
+:Memory rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Memory"@en.
+:Recording rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Recording"@en.
+:Intentional_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Intentional_Event"@en.
+:Legal_Analysis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Legal_Analysis"@en.
+:Monitoring_Record rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Monitoring_Record"@en.
+:Observation_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Observation_Action"@en.
+:Height rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Height"@en.
+:Site rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Site"@en.
+:Place rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Place"@en.
+:Geolocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Geolocation"@en.
+:Detention_Centre rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Detention_Centre"@en.
+:Confirmed_Human_Rights_Violation rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Confirmed_Human_Rights_Violation"@en.
+:Alleged_Human_Rights_Violation rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Alleged_Human_Rights_Violation"@en.
+:Possible_Human_Rights_Violation rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Possible_Human_Rights_Violation"@en.
+:Perpetration_by_commission rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Perpetration_by_commission"@en.
+:Perpetration_by_ommission rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Perpetration_by_ommission"@en.
+:Complex_Place rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Complex_Place"@en.
+:Atomic_Place rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Atomic_Place"@en.
+:Informal_Organisation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Informal_Organisation"@en.
+:Natural_Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Natural_Person"@en.
+:UFOC_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOC_Agent"@en.
+:Criminal_Organisation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Criminal_Organisation"@en.
+:Rightsholder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Rightsholder"@en.
+:Group rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Group"@en.
+:Identity_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Identity_Group"@en.
+:Circumstantial_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Circumstantial_Group"@en.
+:InfluenceList rdf:type owl:NamedIndividual;
+    rdfs:label "InfluenceList"@en.
+:OwnerShipList rdf:type owl:NamedIndividual;
+    rdfs:label "OwnerShipList"@en.
+:SupplyFlowList rdf:type owl:NamedIndividual;
+    rdfs:label "SupplyFlowList"@en.
+:UFOA_NonAgentive_Substantial rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOA_NonAgentive_Substantial"@en.
+:UFOC_Social_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOC_Social_Object"@en.
+:UFOL_Legal_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOL_Legal_Object"@en.
+:Official_Legal_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Official_Legal_Process"@en.
+:Official_Legal_Record rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Official_Legal_Record"@en.
+:Legal_Consequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Legal_Consequence"@en.
+:Monitoring_Event_Participant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Monitoring_Event_Participant"@en.
+:Monitoring_Staff rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Monitoring_Staff"@en.
+:Witness rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Witness"@en.
+:Material_Absuser rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Material_Absuser"@en.
+:Absused_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Absused_Person"@en.
+:Dutybearer_representative rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Dutybearer_representative"@en.
+:Failed_Responsibility_To_Respect rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Failed_Responsibility_To_Respect"@en.
+:Failed_Responsibility_To_Protect rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Failed_Responsibility_To_Protect"@en.
+:Failed_Responsibility_To_Promote rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Failed_Responsibility_To_Promote"@en.
+:Membership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Membership"@en.
+:Legal_Process_Relation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Legal_Process_Relation"@en.
+:Causation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Causation"@en.
+:Function_Variation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Function_Variation"@en.
+:EOPL_Organisation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EOPL_Organisation"@en.
+:UFOC_Institutional_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "UFOC_Institutional_Agent"@en.
+:EOPL_Team rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EOPL_Team"@en.
+:Legal_Dutybearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Legal_Dutybearer"@en.
+:Moral_Dutybearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Moral_Dutybearer"@en.
+:Benign_Human_Rights_Problem rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Benign_Human_Rights_Problem"@en.
+:Receive_Information rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Receive_Information"@en.
+:Original_Media_Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Original_Media_Object"@en.
+:Lead_To rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Lead_To"@en.
+:Merged_With rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Merged_With"@en.
+:MembershipTypeList rdf:type owl:NamedIndividual;
+    rdfs:label "MembershipTypeList"@en.
+:Assignmnent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Assignmnent"@en.
+:Person_Relationship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Person_Relationship"@en.
+:Detainment_Conditions rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Detainment_Conditions"@en.
+:Truth rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Truth"@en.
+:Justice rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Justice"@en.
+:Reparation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Reparation"@en.
+:Guarantees_Of_NonRepetition rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Guarantees_Of_NonRepetition"@en.
+:Remedy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Remedy"@en.
+:Information_Piece rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Information_Piece"@en.
+:Detained rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Detained"@en.
+:Detained_person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Detained_person"@en.
+:Detained_Group rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Detained_Group"@en.
+:Counterfactual_Consequence_For_Agent rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Counterfactual_Consequence_For_Agent"@en.
+:Personal_Relationship rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Personal_Relationship"@en.
+:Family_Relationship rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Family_Relationship"@en.
+:Affective_Relationship rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Affective_Relationship"@en.
+:Professional_Relationship rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Professional_Relationship"@en.
+:Detainment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Detainment"@en.
+:De_Facto_Detainment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "De_Facto_Detainment"@en.
+:De_Jure_Detainment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "De_Jure_Detainment"@en;
+    rdfs:subClassOf :Detainment.
+:De_Facto_Detainment rdfs:subClassOf :Detainment.
+:Receive_Information rdfs:subClassOf :Information_Exchange.
+:Disclose_Information rdfs:subClassOf :Information_Exchange.
+:Benign_Human_Rights_Problem rdfs:subClassOf :Human_Rights_Problem.
+:Human_Rights_Violation rdfs:subClassOf :Human_Rights_Problem.
+:Moral_Dutybearer rdfs:subClassOf :Dutybearer.
+:Legal_Dutybearer rdfs:subClassOf :Dutybearer.
+:UFOL_Legal_Agent rdfs:subClassOf :UFOC_Social_Agent.
+:UFOC_Institutional_Agent rdfs:subClassOf :UFOC_Social_Agent.
+:Failed_Responsibility_To_Protect rdfs:subClassOf :Human_Rights_Responsibility.
+:Failed_Responsibility_To_Promote rdfs:subClassOf :Human_Rights_Responsibility.
+:Failed_Responsibility_To_Respect rdfs:subClassOf :Human_Rights_Responsibility.
+:Perpetration_by_commission rdfs:subClassOf :Human_Rights_Responsibility.
+:Perpetration_by_ommission rdfs:subClassOf :Human_Rights_Responsibility.
+:Official_Legal_Record rdfs:subClassOf :UFOL_Legal_Object.
+:Official_Legal_Process rdfs:subClassOf :UFOL_Legal_Object.
+:Circumstantial_Group rdfs:subClassOf :Group.
+:Identity_Group rdfs:subClassOf :Group.
+:Informal_Organisation rdfs:subClassOf :EOPL_Organisation.
+:Formal_Organisation rdfs:subClassOf :EOPL_Organisation.
+:Complex_Place rdfs:subClassOf :Place.
+:Atomic_Place rdfs:subClassOf :Place.
+:Confirmed_Human_Rights_Violation rdfs:subClassOf :Human_Rights_Violation.
+:Alleged_Human_Rights_Violation rdfs:subClassOf :Human_Rights_Violation.
+:Possible_Human_Rights_Violation rdfs:subClassOf :Human_Rights_Violation.
+:EOPL_Standalone_Organisation rdfs:subClassOf :EOPL_Organisation.
+:EOPL_Multiorganisation rdfs:subClassOf :EOPL_Organisation.
+:Head_Member rdfs:subClassOf :Organisation_Member.
+:Common_Member rdfs:subClassOf :Organisation_Member.
+:EOPL_Complex_Organisational_Unit rdfs:subClassOf :EOPL_Organisational_Unit.
+:EOPL_Simple_Organisational_Unit rdfs:subClassOf :EOPL_Organisational_Unit.
+:EOPL_Organisational_Unit rdfs:subClassOf :UFOC_Institutional_Agent.
+:EOPL_Team rdfs:subClassOf :UFOC_Institutional_Agent.
+:EOPL_Organisation rdfs:subClassOf :UFOC_Institutional_Agent.
+:EOPL_Simple_Organisation rdfs:subClassOf :EOPL_Standalone_Organisation.
+:EOPL_Complex_Organisation rdfs:subClassOf :EOPL_Standalone_Organisation.
+:UFOL_Conduct_Legal_Norm rdfs:subClassOf :UFOL_Legal_Norm.
+:UFOL_Power_Legal_Norm rdfs:subClassOf :UFOL_Legal_Norm.
+:Real_Consequence_For_Agent rdfs:subClassOf :Consequence_For_Agent.
+:Counterfactual_Consequence_For_Agent rdfs:subClassOf :Consequence_For_Agent.
+:Oppose rdfs:subClassOf :Has_Influence_On.
+:Neutral rdfs:subClassOf :Has_Influence_On.
+:Support rdfs:subClassOf :Has_Influence_On.
+:Complete_Ownership rdfs:subClassOf :Ownership.
+:Partial_Ownership rdfs:subClassOf :Ownership.
+:Physical_Media_Object rdfs:subClassOf :Media_Object.
+:Digital_Media_Object rdfs:subClassOf :Media_Object.
+:Negative_Consequence_On_Agent rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Positive_Consequence_On_Agent rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Adult rdfs:subClassOf :Natural_Person.
+:Child rdfs:subClassOf :Natural_Person.
+:Deceased_Person rdfs:subClassOf :Natural_Person.
+:Living_Person rdfs:subClassOf :Natural_Person.
+:UFOC_Social_Agent rdfs:subClassOf :UFOC_Agent.
+:UFOC_Human_Agent rdfs:subClassOf :UFOC_Agent.
+:UFOL_Singular_Legal_Agent rdfs:subClassOf :UFOL_Legal_Agent.
+:UFOL_Agentive_Legal_Institution rdfs:subClassOf :UFOL_Legal_Agent.
+:UFOB_Fact rdfs:subClassOf :UFOB_Situation.
+:UFOB_Counterfactual_situation rdfs:subClassOf :UFOB_Situation.
+:UFOB_Complex_event rdfs:subClassOf :UFOB_Event.
+:UFOB_Atomic_event rdfs:subClassOf :UFOB_Event.
+:UFOB_Fact rdfs:subClassOf :UFOB_Situation.
+:UFOB_Complex_event rdfs:subClassOf :UFOB_Event.
+:UFOB_Atomic_event rdfs:subClassOf :UFOB_Event.
+:UFOL_Legally_Defined_Event rdfs:subClassOf :UFOB_Event.
+:Legally_Defined_Human_Rights_Violation rdfs:subClassOf :UFOL_Legally_Defined_Event, :Abusive_Event.
+:Human_Rights_Instrument rdfs:subClassOf :UFOL_Legal_Normative_Description.
+:Human_Rights_Standard rdfs:subClassOf :UFOL_Legal_Norm.
+:UFOB_Action rdfs:subClassOf :UFOB_Event.
+:UFOC_Goal rdfs:subClassOf :UFOB_Counterfactual_situation.
+:UFOB_Participation rdfs:subClassOf :UFOB_Event.
+:UFOB_Counterfactual_situation rdfs:subClassOf :UFOB_Situation.
+:Legal_Perpetrator rdfs:subClassOf :Legal_Dutybearer.
+:Legal_Victim rdfs:subClassOf :Rightsholder.
+:UFOL_Legal_Agent rdfs:subClassOf :UFOC_Social_Agent.
+:UFOL_Agentive_Legal_Institution rdfs:subClassOf :UFOL_Legal_Agent, :UFOC_Institutional_Agent.
+:UFOL_Singular_Legal_Agent rdfs:subClassOf :UFOL_Legal_Agent.
+:UFOC_Human_Agent rdfs:subClassOf :UFOC_Agent.
+:UFOC_Social_Agent rdfs:subClassOf :UFOC_Agent.
+:UFOC_Collective_Social_Agent rdfs:subClassOf :UFOC_Social_Agent.
+:UFOC_Society rdfs:subClassOf :UFOC_Collective_Social_Agent.
+:Dutybearer rdfs:subClassOf :UFOL_Legal_Agent.
+:Consequence_On_Person rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Reputational_Consequence rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Consequence_On_Collective rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Psychological_Consequence rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Economical_Consequence rdfs:subClassOf :Consequence_For_Resulting_Event_Agent, :Consequence_For_Resulting_Event_Agent.
+:Territorial_Consequence rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Physical_Consequence rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Resulting_Event rdfs:subClassOf :UFOB_Participation.
+:Living_Person rdfs:subClassOf :Natural_Person.
+:Deceased_Person rdfs:subClassOf :Natural_Person.
+:Child rdfs:subClassOf :Natural_Person.
+:Adult rdfs:subClassOf :Natural_Person.
+:Positive_Consequence_On_Agent rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Negative_Consequence_On_Agent rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Integrity_Consequence rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:State_Authority rdfs:subClassOf :Formal_Organisation.
+:Religious_Group rdfs:subClassOf :Identity_Group.
+:Ethnic_Group rdfs:subClassOf :Identity_Group.
+:Human_Rights_Instrument_Article rdfs:subClassOf :UFOL_Legal_Normative_Description.
+:Element_of_Legally_Defined_Human_Rights_Violations rdfs:subClassOf :Human_Rights_Standard.
+:Monitoring_Event rdfs:subClassOf :UFOB_Participation.
+:Information_Exchange rdfs:subClassOf :Monitoring_Event.
+:Goal_Transfer_From_Sender rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Goal_Transfer_From_Sender_To_Influence_Third_Agent rdfs:subClassOf :Goal_Transfer_From_Sender.
+:Disclose_Information rdfs:subClassOf :Information_Exchange.
+:Digital_File rdfs:subClassOf :Digital_Media_Object.
+:Paper_Document rdfs:subClassOf :Physical_Media_Object.
+:Other_Physical_Object rdfs:subClassOf :Physical_Media_Object.
+:Physical_Media_Object rdfs:subClassOf :Media_Object.
+:Digital_Media_Object rdfs:subClassOf :Media_Object.
+:Digital_Folder rdfs:subClassOf :Digital_Media_Object.
+:Information_Exchange_Record rdfs:subClassOf :Monitoring_Record.
+:Observation_Record rdfs:subClassOf :Monitoring_Record.
+:Money_Flow rdfs:subClassOf :Network_Connection.
+:Supply_Flow rdfs:subClassOf :Network_Connection.
+:Goods_Flow rdfs:subClassOf :Supply_Flow.
+:Service_Flow rdfs:subClassOf :Supply_Flow.
+:Information_Flow rdfs:subClassOf :Network_Connection.
+:Has_Influence_On rdfs:subClassOf :Network_Connection.
+:Ownership rdfs:subClassOf :Network_Connection.
+:Partial_Ownership rdfs:subClassOf :Ownership.
+:Complete_Ownership rdfs:subClassOf :Ownership.
+:Support rdfs:subClassOf :Has_Influence_On.
+:Oppose rdfs:subClassOf :Has_Influence_On.
+:Neutral rdfs:subClassOf :Has_Influence_On.
+:Consequence_For_Agent rdfs:subClassOf :UFOB_Situation.
+:Real_Consequence_For_Agent rdfs:subClassOf :Consequence_For_Agent.
+:Risk rdfs:subClassOf :Counterfactual_Consequence_For_Agent.
+:Force_At_Work rdfs:subClassOf :UFOA_Substantial.
+:UFOL_Conduct_Legal_Norm rdfs:subClassOf :UFOL_Legal_Norm.
+:UFOL_Power_Legal_Norm rdfs:subClassOf :UFOL_Legal_Norm.
+:Human_Rights_Mechanism rdfs:subClassOf :Formal_Organisation, :UFOL_Legal_Agent.
+:Nation_State rdfs:subClassOf :UFOC_Institutional_Agent.
+:Human_Rights_Violation rdfs:subClassOf :Human_Rights_Problem.
+:Abusive_Event rdfs:subClassOf :UFOB_Event.
+:EOPL_Multiorganisation rdfs:subClassOf :EOPL_Organisation.
+:EOPL_Standalone_Organisation rdfs:subClassOf :EOPL_Organisation.
+:EOPL_Complex_Organisation rdfs:subClassOf :EOPL_Standalone_Organisation.
+:EOPL_Simple_Organisation rdfs:subClassOf :EOPL_Standalone_Organisation.
+:EOPL_Organisational_Unit rdfs:subClassOf :UFOC_Institutional_Agent.
+:EOPL_Complex_Organisational_Unit rdfs:subClassOf :EOPL_Organisational_Unit.
+:EOPL_Simple_Organisational_Unit rdfs:subClassOf :EOPL_Organisational_Unit.
+:Organisation_Member rdfs:subClassOf :Natural_Person.
+:Head_Member rdfs:subClassOf :Organisation_Member.
+:Common_Member rdfs:subClassOf :Organisation_Member.
+:Formal_Organisation rdfs:subClassOf :EOPL_Organisation.
+:Memory rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Recording rdfs:subClassOf :Resulting_Event.
+:Intentional_Event rdfs:subClassOf :UFOB_Action.
+:Monitoring_Record rdfs:subClassOf :UFOC_Social_Object.
+:Observation_Action rdfs:subClassOf :Monitoring_Event.
+:Site rdfs:subClassOf :Place.
+:Detention_Centre rdfs:subClassOf :Site.
+:Confirmed_Human_Rights_Violation rdfs:subClassOf :Human_Rights_Violation.
+:Alleged_Human_Rights_Violation rdfs:subClassOf :Human_Rights_Violation.
+:Possible_Human_Rights_Violation rdfs:subClassOf :Human_Rights_Violation.
+:Perpetration_by_commission rdfs:subClassOf :Human_Rights_Responsibility.
+:Perpetration_by_ommission rdfs:subClassOf :Human_Rights_Responsibility.
+:Complex_Place rdfs:subClassOf :Place.
+:Atomic_Place rdfs:subClassOf :Place.
+:Informal_Organisation rdfs:subClassOf :EOPL_Organisation.
+:Natural_Person rdfs:subClassOf :UFOC_Human_Agent.
+:UFOC_Agent rdfs:subClassOf :UFOA_Substantial.
+:Criminal_Organisation rdfs:subClassOf :Informal_Organisation.
+:Rightsholder rdfs:subClassOf :UFOC_Social_Agent.
+:Group rdfs:subClassOf :UFOC_Collective_Social_Agent.
+:Identity_Group rdfs:subClassOf :Group.
+:Circumstantial_Group rdfs:subClassOf :Group.
+:UFOA_NonAgentive_Substantial rdfs:subClassOf :UFOA_Substantial.
+:UFOC_Social_Object rdfs:subClassOf :UFOA_NonAgentive_Substantial.
+:UFOL_Legal_Object rdfs:subClassOf :UFOC_Social_Object.
+:Official_Legal_Process rdfs:subClassOf :UFOL_Legal_Object.
+:Official_Legal_Record rdfs:subClassOf :UFOL_Legal_Object.
+:Legal_Consequence rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Monitoring_Event_Participant rdfs:subClassOf :Natural_Person.
+:Monitoring_Staff rdfs:subClassOf :Monitoring_Event_Participant.
+:Witness rdfs:subClassOf :Monitoring_Event_Participant.
+:Material_Absuser rdfs:subClassOf :Monitoring_Event_Participant.
+:Absused_Person rdfs:subClassOf :Monitoring_Event_Participant.
+:Dutybearer_representative rdfs:subClassOf :Monitoring_Event_Participant.
+:Failed_Responsibility_To_Respect rdfs:subClassOf :Human_Rights_Responsibility.
+:Failed_Responsibility_To_Protect rdfs:subClassOf :Human_Rights_Responsibility.
+:Failed_Responsibility_To_Promote rdfs:subClassOf :Human_Rights_Responsibility.
+:EOPL_Organisation rdfs:subClassOf :UFOC_Institutional_Agent.
+:UFOC_Institutional_Agent rdfs:subClassOf :UFOC_Social_Agent.
+:EOPL_Team rdfs:subClassOf :UFOC_Institutional_Agent.
+:Legal_Dutybearer rdfs:subClassOf :Dutybearer.
+:Moral_Dutybearer rdfs:subClassOf :Dutybearer.
+:Benign_Human_Rights_Problem rdfs:subClassOf :Human_Rights_Problem.
+:Receive_Information rdfs:subClassOf :Information_Exchange.
+:Original_Media_Object rdfs:subClassOf :Media_Object.
+:Lead_To rdfs:subClassOf :Legal_Process_Relation.
+:Merged_With rdfs:subClassOf :Legal_Process_Relation.
+:Detainment_Conditions rdfs:subClassOf :UFOB_Situation.
+:Truth rdfs:subClassOf :Remedy.
+:Justice rdfs:subClassOf :Remedy.
+:Reparation rdfs:subClassOf :Remedy.
+:Guarantees_Of_NonRepetition rdfs:subClassOf :Remedy.
+:Remedy rdfs:subClassOf :Consequence_For_Resulting_Event_Agent.
+:Detained_person rdfs:subClassOf :Natural_Person, :Detained.
+:Detained_Group rdfs:subClassOf :Circumstantial_Group, :Detained.
+:Counterfactual_Consequence_For_Agent rdfs:subClassOf :Consequence_For_Agent.
+:Personal_Relationship rdfs:subClassOf :Person_Relationship.
+:Family_Relationship rdfs:subClassOf :Personal_Relationship.
+:Affective_Relationship rdfs:subClassOf :Personal_Relationship.
+:Professional_Relationship rdfs:subClassOf :Person_Relationship.
+:De_Facto_Detainment rdfs:subClassOf :Detainment.
+:De_Jure_Detainment rdfs:subClassOf :Detainment.

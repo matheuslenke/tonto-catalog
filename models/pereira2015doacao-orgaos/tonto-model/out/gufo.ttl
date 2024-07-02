@@ -1,0 +1,87 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Pessoa_com_PCR rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_PCR"@en.
+:Pessoa_Saudvel rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_Saudvel"@en.
+:Pessoa_Doente rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_Doente"@en.
+:No_Funcional rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "No_Funcional"@en.
+:Crnea rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Crnea"@en.
+:Pessoa_Morta rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_Morta"@en.
+:Pessoa_Viva rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_Viva"@en.
+:Funcional rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Funcional"@en.
+:Tecido rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Tecido"@en.
+:Pessoa_com_ME rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_ME"@en.
+:Pessoa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa"@en.
+:Sistema_Orgnico rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sistema_Orgnico"@en.
+:rgo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "rgo"@en.
+:Corao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Corao"@en.
+:Mulher rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Mulher"@en.
+:Homem rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Homem"@en.
+:Sistema_Circulatrio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sistema_Circulatrio"@en.
+:Doador rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Doador"@en.
+:Captao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Captao"@en.
+:Captador rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Captador"@en.
+:Transplantador rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Transplantador"@en.
+:Item_Captado rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Item_Captado"@en.
+:Item_Transplantado rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Item_Transplantado"@en.
+:Transplante rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Transplante"@en.
+:Receptor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Receptor"@en.
+:Sistema_Circulatrio rdfs:subClassOf :Sistema_Orgnico.
+:Corao rdfs:subClassOf :rgo.
+:Crnea rdfs:subClassOf :Tecido.
+:Pessoa_com_PCR rdfs:subClassOf :Pessoa_Morta.
+:Pessoa_Saudvel rdfs:subClassOf :Pessoa_Viva.
+:Pessoa_Doente rdfs:subClassOf :Pessoa_Viva.
+:No_Funcional rdfs:subClassOf :rgo.
+:Crnea rdfs:subClassOf :Tecido.
+:Pessoa_Morta rdfs:subClassOf :Pessoa.
+:Pessoa_Viva rdfs:subClassOf :Pessoa.
+:Funcional rdfs:subClassOf :rgo.
+:Tecido rdfs:subClassOf :Item_Captado.
+:Pessoa_com_ME rdfs:subClassOf :Pessoa_Morta.
+:rgo rdfs:subClassOf :Item_Captado.
+:Corao rdfs:subClassOf :rgo.
+:Mulher rdfs:subClassOf :Pessoa.
+:Homem rdfs:subClassOf :Pessoa.
+:Sistema_Circulatrio rdfs:subClassOf :Sistema_Orgnico.
+:Doador rdfs:subClassOf :Pessoa.
+:Captador rdfs:subClassOf :Pessoa.
+:Transplantador rdfs:subClassOf :Pessoa.
+:Item_Transplantado rdfs:subClassOf :Item_Captado.
+:Receptor rdfs:subClassOf :Pessoa.

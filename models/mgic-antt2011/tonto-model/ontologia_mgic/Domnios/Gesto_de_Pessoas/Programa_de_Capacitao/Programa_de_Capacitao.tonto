@@ -1,0 +1,185 @@
+
+package Programa_de_Capacitao
+
+subkind Curso_Presencial_de_Capacitao of functional-complexes  specializes Curso_de_Capacitao 
+
+kind Nota_de_Empenho
+
+role Evento_Externo_Ofertado of functional-complexes  specializes Evento_de_Capacitao_Externo 
+
+kind Termo_de_Compromisso_e_Responsabilidade
+
+mode Modalidade_de_Capacitao_Profissional specializes Modalidade_de_Capacitao 
+
+kind Grupo_de_Conhecimento
+
+relator Participao_em_Evento_com_nus_Limitado specializes Participao_em_Evento_de_Capacitao 
+
+mode Modalidade_de_Ambientao specializes Modalidade_de_Capacitao 
+
+role Evento_de_Capacitao_com_Participantes of functional-complexes  specializes Evento_de_Capacitao 
+
+role Servidor_Avaliador_de_Evento_Externo specializes Servidor_Pblico_Ativo 
+
+subkind Seminrio_de_Capacitao of functional-complexes  specializes Evento_de_Capacitao 
+
+mode Formao_Avanada specializes Nvel_de_Formao_de_Capacitao 
+
+mode Modalidade_de_Reciclagem specializes Modalidade_de_Capacitao 
+
+mode Formao_por_rea_de_Atuao specializes Nvel_de_Formao_de_Capacitao 
+
+kind Relatrio_de_Participao_em_Evento_Externo
+
+kind Conhecimento_Geral
+
+role Servidor_Participante_de_Evento_ specializes Servidor_Pblico_Ativo 
+
+relator Participao_em_Evento_com_nus specializes Participao_em_Evento_de_Capacitao 
+
+role Evento_Interno_Ofertado of functional-complexes  specializes Evento_de_Capacitao_Interno 
+
+kind Vaga_em_Evento
+
+subkind Congresso_de_Capacitao of functional-complexes  specializes Evento_de_Capacitao 
+
+subkind Aprendizagem_em_Servio of functional-complexes  specializes Evento_de_Capacitao 
+
+subkind Grupo_Formal_de_Estudo of functional-complexes  specializes Evento_de_Capacitao 
+
+type Tipo_de_Modalidade_de_Capacitao{
+    nome: undefined  
+}
+
+subkind Curso__Distncia_de_Capacitao of functional-complexes  specializes Curso_de_Capacitao 
+
+subkind Evento_de_Capacitao_Externo of functional-complexes  specializes Evento_de_Capacitao 
+
+relator Participao_em_Evento_sem_nus specializes Participao_em_Evento_de_Capacitao 
+
+mode Nvel_de_Formao_de_Capacitao
+
+kind Eixo_Temtico_de_Plano_de_Capacitao{
+    nome: undefined  
+}
+
+relator Oferta_de_Vaga_para_Capacitao
+
+mode Capacitao_Gerencial specializes Nvel_de_Formao_de_Capacitao 
+
+mode Modalidade_de_Formao_Profissional specializes Modalidade_de_Capacitao 
+
+role Evento_Externo_Avaliado of functional-complexes  specializes Evento_de_Capacitao_Externo 
+
+subkind Curso_de_Capacitao of functional-complexes  specializes Evento_de_Capacitao 
+
+mode Formao_Bsica_Comum specializes Nvel_de_Formao_de_Capacitao 
+
+relator Avaliao_de_Evento_interno specializes Avaliao_de_Evento_de_Capacitao 
+
+role Servidor_Avaliador_de_Evento_Interno specializes Servidor_Pblico_Ativo 
+
+role Promotora_de_Evento_Externo_de_Capacitao
+
+kind Plano_de_Capacitao{
+    ano: undefined  
+    oramento: undefined  
+}
+
+role Servidor_Solicitante_de_Evento specializes Servidor_Pblico_Ativo 
+
+kind Conhecimento_Especfico{
+    tipo_de_formao: undefined  
+}
+
+kind Evento_de_Capacitao{
+    numero_de_vagas: undefined  
+    carga_horria: undefined  
+    inicio: undefined  
+    trmino: undefined  
+}
+
+type Tipo_de_Evento_de_Capacitao{
+    nome: undefined  
+}
+
+relator Oferta_de_Capacitao_Interna
+
+subkind Intercmbio_de_Capacitao of functional-complexes  specializes Evento_de_Capacitao 
+
+subkind Estgio_de_Capacitao of functional-complexes  specializes Evento_de_Capacitao 
+
+relator Avaliao_de_Evento_de_Capacitao
+
+role Instrutor_de_Evento specializes Servidor_Pblico_Ativo 
+
+role Evento_Interno_Avaliado of functional-complexes  specializes Evento_de_Capacitao_Interno 
+
+mode Modalidade_de_Aperfeioamento specializes Modalidade_de_Capacitao 
+
+role Evento_com_Vagas of functional-complexes  specializes Evento_de_Capacitao 
+
+type Tipo_de_Nvel_de_Formao{
+    nome: undefined  
+}
+
+relator Participao_em_Evento_de_Capacitao
+
+role Promotora_de_Evento_Interno_de_Capacitao
+
+role Membro_de_Comit_Gestor_de_Capacitao specializes Servidor_Pblico_Ativo 
+
+subkind Evento_de_Capacitao_Interno of functional-complexes  specializes Evento_de_Capacitao 
+
+kind Certificado_de_Participao_em_Evento
+
+relator Solicitao_de_Participao_em_Evento{
+    atividades_relacionadas: undefined  
+    motivo_do_treinamento: undefined  
+}
+
+subkind Curso_Semi_Presencial_de_Capacitao of functional-complexes  specializes Curso_de_Capacitao 
+
+mode Modalidade_Ps_Graduao specializes Modalidade_de_Capacitao 
+
+role Evento_de_Capacitao_Solicitado of functional-complexes  specializes Evento_de_Capacitao 
+
+relator Oferta_de_Capacitao_Externa
+
+mode Modalidade_de_Capacitao
+
+relator Avaliao_de_Evento_Externo specializes Avaliao_de_Evento_de_Capacitao 
+
+subkind Comit_Gestor_de_Capacitao
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

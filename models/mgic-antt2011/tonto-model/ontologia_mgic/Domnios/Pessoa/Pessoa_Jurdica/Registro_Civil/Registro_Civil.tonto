@@ -1,0 +1,14 @@
+import Registro_Civil
+import Pessoa
+
+package Registro_Civil
+
+role Representante_Legal
+
+role Cartrio_Registrador_de_Pessoa_Jurdica
+
+relator Registro_Civil_de_Pessoa_Jurdica
+
+
+
+

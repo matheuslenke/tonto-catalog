@@ -1,0 +1,226 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Man rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Man"@en.
+:Woman rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Woman"@en.
+:Husband rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Husband"@en.
+:Wife rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Wife"@en.
+:Conjugal_Relationship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Conjugal_Relationship"@en.
+:Spouse rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Spouse"@en.
+:Monogamous_Heteresexual_Marriage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Monogamous_Heteresexual_Marriage"@en.
+:Conjugal_Relationship_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Conjugal_Relationship_Type"@en.
+:Spouse_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Spouse_Type"@en.
+:Person_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Walker rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Walker"@en.
+:Walk rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Walk"@en.
+:Ongoing_Walk rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Ongoing_Walk"@en.
+:Finalized_Walk rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Finalized_Walk"@en.
+:Sucessful_Walk rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Sucessful_Walk"@en.
+:Redirected_Walk rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Redirected_Walk"@en.
+:Redirected_Destination_Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Redirected_Destination_Intention"@en.
+:Redirected_Destination rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Redirected_Destination"@en.
+:Originally_Intended_Destination rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Originally_Intended_Destination"@en.
+:Destination rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Destination"@en.
+:Place rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Place"@en.
+:Employment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Employment"@en.
+:Teacher rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Teacher"@en.
+:Person_2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:Class rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Class"@en.
+:School_Enrollment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "School_Enrollment"@en.
+:Course_Enrollment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Course_Enrollment"@en.
+:School rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "School"@en.
+:Course rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Course"@en.
+:Course_Offering rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Course_Offering"@en.
+:Course_Teacher_Assignment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Course_Teacher_Assignment"@en.
+:Wooden_Table rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Wooden_Table"@en.
+:Left_Rear_Leg rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Left_Rear_Leg"@en.
+:Right_Front_Leg rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Right_Front_Leg"@en.
+:Right_Rear_Leg rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Right_Rear_Leg"@en.
+:Wooden_Table_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Wooden_Table_Component"@en.
+:Table_Leg_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Table_Leg_Component"@en.
+:Table_Top_Component rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Table_Top_Component"@en.
+:Wood_Portion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Wood_Portion"@en.
+:Top_Component rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Top_Component"@en.
+:Wood_Component_Constituent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Wood_Component_Constituent"@en.
+:Left_Front_Leg rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Left_Front_Leg"@en.
+:Track rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Track"@en.
+:Person_3 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Jog rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Jog"@en.
+:Jogging_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Jogging_Process"@en.
+:Jogging_Perdurant rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Jogging_Perdurant"@en.
+:Jogging_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Jogging_Event"@en.
+:Jogging_Track rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Jogging_Track"@en.
+:Jogger rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Jogger"@en.
+:Jog_State rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Jog_State"@en.
+:Jogging_Locomotion rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Jogging_Locomotion"@en.
+:Walking_While_Jogging rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Walking_While_Jogging"@en.
+:Running_While_Jogging rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Running_While_Jogging"@en.
+:Jogging_Speed_Values rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf ()
+];
+    rdfs:label "Jogging_Speed_Values"@en.
+:Flower rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Flower"@en.
+:Rose rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Rose"@en.
+:Color rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Color"@en.
+:Flower_Color rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Flower_Color"@en.
+:Flower_Color_Values rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:Red :Brown :Yellow :White)
+].
+:Red rdf:type :Flower_Color_Values;
+    rdf:label "[object Object]".
+:Brown rdf:type :Flower_Color_Values;
+    rdf:label "[object Object]".
+:Yellow rdf:type :Flower_Color_Values;
+    rdf:label "[object Object]".
+:White rdf:type :Flower_Color_Values;
+    rdf:label "[object Object]".
+:Flower_Color_Values rdfs:label "Flower_Color_Values"@en.
+:Man rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Wife rdfs:subClassOf :Spouse.
+:Man rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Husband rdfs:subClassOf :Man, :Spouse.
+:Wife rdfs:subClassOf :Woman, :Spouse.
+:Spouse rdfs:subClassOf :Person.
+:Monogamous_Heteresexual_Marriage rdfs:subClassOf :Conjugal_Relationship.
+:Finalized_Walk rdfs:subClassOf :Walk.
+:Ongoing_Walk rdfs:subClassOf :Walk.
+:Sucessful_Walk rdfs:subClassOf :Finalized_Walk.
+:Redirected_Walk rdfs:subClassOf :Finalized_Walk.
+:Redirected_Destination rdfs:subClassOf :Destination.
+:Originally_Intended_Destination rdfs:subClassOf :Destination.
+:Walker rdfs:subClassOf :Person_1.
+:Ongoing_Walk rdfs:subClassOf :Walk.
+:Finalized_Walk rdfs:subClassOf :Walk.
+:Sucessful_Walk rdfs:subClassOf :Finalized_Walk.
+:Redirected_Walk rdfs:subClassOf :Finalized_Walk.
+:Redirected_Destination rdfs:subClassOf :Destination.
+:Originally_Intended_Destination rdfs:subClassOf :Destination.
+:Destination rdfs:subClassOf :Place.
+:Teacher rdfs:subClassOf :Person_2.
+:Student rdfs:subClassOf :Person_2.
+:Table_Leg_Component rdfs:subClassOf :Wooden_Table_Component.
+:Table_Top_Component rdfs:subClassOf :Wooden_Table_Component.
+:Left_Rear_Leg rdfs:subClassOf :Table_Leg_Component.
+:Right_Front_Leg rdfs:subClassOf :Table_Leg_Component.
+:Right_Rear_Leg rdfs:subClassOf :Table_Leg_Component.
+:Table_Leg_Component rdfs:subClassOf :Wooden_Table_Component.
+:Table_Top_Component rdfs:subClassOf :Wooden_Table_Component.
+:Top_Component rdfs:subClassOf :Table_Top_Component.
+:Wood_Component_Constituent rdfs:subClassOf :Wood_Portion.
+:Left_Front_Leg rdfs:subClassOf :Table_Leg_Component.
+:Jogging_Process rdfs:subClassOf :Jogging_Perdurant.
+:Jogging_Event rdfs:subClassOf :Jogging_Perdurant.
+:Walking_While_Jogging rdfs:subClassOf :Jogging_Locomotion.
+:Running_While_Jogging rdfs:subClassOf :Jogging_Locomotion.
+:Jogging_Process rdfs:subClassOf :Jogging_Perdurant.
+:Jogging_Event rdfs:subClassOf :Jogging_Perdurant.
+:Jogging_Track rdfs:subClassOf :Track.
+:Jogger rdfs:subClassOf :Person_3.
+:Jog_State rdfs:subClassOf :Jogging_Event.
+:Jogging_Locomotion rdfs:subClassOf :Jogging_Event.
+:Walking_While_Jogging rdfs:subClassOf :Jogging_Locomotion.
+:Running_While_Jogging rdfs:subClassOf :Jogging_Locomotion.
+:Rose rdfs:subClassOf :Flower.
+:Flower_Color rdfs:subClassOf :Color.

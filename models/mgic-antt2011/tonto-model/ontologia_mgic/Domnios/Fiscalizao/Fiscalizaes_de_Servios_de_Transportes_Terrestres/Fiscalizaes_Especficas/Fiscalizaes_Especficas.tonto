@@ -1,0 +1,43 @@
+import Gerais
+import Contratos_e_Convnios
+import Contrato_Operacional_Especfico
+import Fiscalizaes_de_Servios_de_Transportes_Terrestres
+import Complementares
+import Fiscalizaes_Especficas
+
+package Fiscalizaes_Especficas
+
+role Contrato_de_Prestao_de_ST_Fiscalizado_por_VP of functional-complexes  specializes Contrato_de_Prestao_de_Servio_de_Transporte, Objeto_Fiscalizado 
+
+role Concessionria_Rodoviria_Fiscalizada_por_VP specializes Objeto_Fiscalizado 
+
+subkind Contrato_de_Prestao_de_Servio_de_Transporte of functional-complexes  specializes Contrato 
+
+relator Fiscalizao_de_VP_de_Operadora_de_Rodovia specializes Fiscalizao_de_VP 
+
+role Concessionria_Rodoviria_Fiscalizada_por_PEF specializes Concessionria_Rodoviria_com_TRO, Objeto_Fiscalizado 
+
+relator Fiscalizao_de_PEF_de_Operadora_do_Meio_de_Pagamento specializes Fiscalizao_de_PEF 
+
+relator Fiscalizao_de_PEF_de_Contrato specializes Fiscalizao_de_PEF 
+
+relator Fiscalizao_de_VP_de_Contrato specializes Fiscalizao_de_VP 
+
+role Operadora_de_MP_Fiscalizada_por_PEF specializes Operadora_de_Meio_de_Pagamento, Objeto_Fiscalizado 
+
+relator Fiscalizao_de_PEF_de_Concessionria specializes Fiscalizao_de_PEF 
+
+subkind Operadora_de_Meio_de_Pagamento
+
+relator Fiscalizao_de_VP_de_Operadora_do_Meio_de_Pagamento specializes Fiscalizao_de_VP 
+
+role Operadora_de_MP_Fiscalizada_por_VP specializes Operadora_de_Meio_de_Pagamento, Objeto_Fiscalizado 
+
+role Contrato_de_Prestao_de_ST_Fiscalizado_por_PEF of functional-complexes  specializes Contrato_de_Prestao_de_Servio_de_Transporte, Objeto_Fiscalizado 
+
+
+
+
+
+
+

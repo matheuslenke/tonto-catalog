@@ -1,0 +1,559 @@
+import GEPES
+
+package GEPES
+
+class Bolsas_de_Estudo_em_Idiomas_concedidas
+
+class Eventos_externos_realizados
+
+class Qual_a_unidade_de_avaliao_de_desempenho
+
+class Demanda_de_capacitao_identificadas
+
+class Programas_de_capacitao_e_desenvolvimento_de_pessoal_da_Agncia_em_todos_os_nveis_planejados_e_realizados_
+
+class Equipes_de_trabalho_definidas
+
+class rgo_Pblico
+
+class Quantos_instrutores_de_eventos_de_capacitao_foram_avaliados_insatisfatoriamente
+
+class Plano_de_Trabalho
+
+class Quantas_oportunidades_de_capacitao_so_fornecidas_por_ano
+
+class Nomeao_de_sevidores_para_cargo_comissionado_realizada
+
+class Vencimento_e_Remunerao_dos_servidores_pagos
+
+class Comisso_de_Acompanhamento_da_Avaliao_de_Desempenho_CAD
+
+class Eventos_de_capacitao_conhecidos
+
+class Avano_na_carreira_obtido
+
+class Oportunidades_de_capacitao_ofertadas_regularmente
+
+class Reconduo_de_servidores_realizada
+
+class Eventos_externos_contratados
+
+class Gratificao_por_encargo_de_curso_paga
+
+class Quais_eventos_externos_de_capacitao_foram_contratados_no_ano_passado
+
+class Provimento_de_pessoal_promovido_e_administrado
+
+class Quais_os_servidores_que_recebem_gratificao_de_qualidade_na_Agncia
+
+class Exonerao_de_servidores_realizada
+
+class Quais_os_servidores_beneficiados_por_auxlio_funeral
+
+class Avaliao_do_desempenho_do_servidor_realizada
+
+class Quais_os_servidores_que_progrediram_na_carreira_neste_ano
+
+class Quais_os_seridores_beneficiados_por_penso
+
+class Indenizao_de_diria_paga
+
+class Metas_intermedirias_das_equipes_de_trabalho_definidas
+
+class Fatores_avaliativos_definidos
+
+class Quantitativo_mximo_de_vagas_por_classe_definido
+
+class Reintegrao_de_servidores_realizada
+
+class Anlise_das_informaes_e_a_elaborao_da_proposta_de_realizao_dos_eventos_corporativos_realizada
+
+class Quais_as_quantidades_de_vagas_de_cada_cargo_ofertado_na_Agncia
+
+class Progresso_de_servidores_realizada
+
+class Quais_as_esquipes_de_trabalhos_definidas_em_determinada_unidade_de_avaliao
+
+class Provimento_e_vacncia_registro_funcional_orientao_controle_e_pagamento_de_pessoal_promovido_e_administrado
+
+class Quais_so_as_atribuies_de_um_determinado_cargo_da_Agncia
+
+class Quais_eventos_de_capacitao_ofertados_se_enquadram_no_plano_de_carreira_do_servidor
+
+class O_servidor_obteve_avaliao_satisfatria_em_seu_desempenho
+
+class Portaria_com_ciclo_de_avaliao_publicada
+
+class Definio_de_estratgia_de_atuao_realizada
+
+class Ficha_de_avaliao_do_evento
+
+class Quais_eventos_de_capacitao_esto_sendo_ofertados_em_outros_rgos_e_intituies
+
+class Quais_os_servidores_readaptados_na_Agncia
+
+class Ccontrole_de_pessoal_promovido_e_adminitrado
+
+class Quantos_servidores_so_contemplados_na_concesso_da_Bolsa_de_Idiomas
+
+class Metas_institucionais_intermedirias_definidas
+
+class Reverso_de_servidores_realizada
+
+class Eixos_temticos_grupos_de_conhecimento_conhecimentos_gerais_e_especficos_definidos
+
+class Inscrio_de_servidores_realizada
+
+class Atribuies_pertinentes_a_cada_cargo_do_quadro_de_pessoal_especificadas_em_ato_prprio
+
+class Adicionais_pagos
+
+class Quais_os_servidores_que_recebem_gratificao_por_encargo_de_concurso
+
+class Quais_aes_externas_visam_a_capacitao_de_servidores
+
+class Competncias_profissionais_dos_servidores_aprimoradas
+
+class Metas_institucionais_globais_definidas
+
+class Quais_os_servidores_que_receberam_adicionais_de_frias_pagos_nos_ltimos_5_anos
+
+class Aes_de_capacitao_definidas
+
+class Aes_de_cada_equipe_definidas
+
+class Plano_de_Seguridade_Social_para_o_servidor_e_sua_famlia_mantido
+
+class Perodos_de_avaliaes_parciais_definidos
+
+class Adicionais_pelo_Exerccio_de_atividades_perigosas_pagos
+
+class Administrao_de_pessoal_e_desenvolvimento_e_reteno_de_talentos_realizada_fromSUDEG
+
+class Cursos_oficinas_encontros_e_eventos_sobre_temas_envolvendo_questes_relevantes_e_de_interesse_da_Agncia_organizados
+
+class Quais_as_metas_intermedirias_deifnidas_em_cada_equipe_de_trabalho
+
+class Resultados_apurados_durante_a_avaliao_amplamente_divulgados
+
+class Qual_a_chefia_imediata_definida
+
+class Unidade_de_avaliao_definida
+
+class Resoluo_3000_Art_84_Inciso_XXVI
+
+class Sistemtica_de_avaliao_de_desempenho_do_pessoal_da_Agncia_proposta_e_administrada_
+
+class Quais_servidores_foram_nomeados_para_cargo_comissionado_nesse_semestre
+
+class Quais_os_servidores_que_foram_redistribuidos_desde_o_ano_passado
+
+class Adequao_dos_servidores_aos_novos_perfis_profissionais_requeridos_para_a_Agncia
+
+class Qual_o_gasto_total_despendido_para_realizao_de_todo_o_programa_de_capacitao
+
+class Aes_de_capacitao_externa_definidas
+
+class Gratificao_de_Qualidade_paga
+
+class Quais_os_servidores_contemplados_com_adicional_de_atividade_perigosa
+
+class Quais_os_servidores_contemplados_com_adicionais_de_prestao_de_servio_extraordinrio_na_Agncia
+
+class Quais_os_servidores_que_receberam_gratificao_natalina_no_ano_passado_
+
+class Quais_servidores_reaproveitados_na_Agncia
+
+class Avaliao_dos_eventos_e_dos_instrutores_do_evento_realizada
+
+class Participao_no_planejamento_coordenao_e_supervisionamento_das_atividades_de_Administrao_dos_Recursos_de_Pessoal_realizada
+
+class Resoluo_3000_Art_84_Inciso_XXI
+
+class Etapas_do_processo_de_avaliao_de_desempenho_acompanhadas
+
+class Quais_os_intrutores_de_um_determinado_evento_de_capacitao
+
+class Resoluo_3000_Art_84_Inciso_XXV
+
+class Existem_vagas_disponvieis_para_um_determinado_evento_de_capacitao_no_mbito_da_Agncia
+
+class Plano_de_carreira_e_de_cargos_e_remunerao_dos_servidores_da_ANTT_administrado
+
+class Adicionais_Noturnos_pagos
+
+class Qual_o_custo_de_cada_evento_de_capacitao
+
+class Quais_os_servidores_beneficiados_por_auxlio_recluso_na_Agncia
+
+class Penso_e_AuxlioFuneral_e_AuxlioRecluso_do_servidor_estabelecidos
+
+class Dados_de_rea_de_atuao_fornecidos_a_fim_de_subsidiar_a_elaborao_do_Anurio_Estatstico_pela_Superintendncia_de_Estudos_e_Pesquisas_
+
+class Quais_servidores_foram_nomeados_neste_ano_para_funo_pblica_na_Agncia
+
+class Avaliao_individual_definida
+
+class Quais_os_servidores_que_so_beneficiados_por_auxlio_natalidade
+
+class Perodo_avaliativo_definido
+
+class Remoo_Redistribuio_e_Substituio_dos_servidores_realizada
+
+class Gratificaes_de_pessoal_pagas
+
+class Programas_de_capacitao_especiais_definidos
+
+class Formulrio_de_Solicitao_de_Participao_em_Eventos_de_Capacitao
+
+class Quais_os_servidores_que_recebem_gratificao_por_encargo_de_curso
+
+class Posse_de_servidores_realizada
+
+class Chefia_Imediata_definida
+
+class Gratificao_natalina
+
+class Aes_de_capacitao_internas_definidas
+
+class Retribuio_pelo_exercio_de_funo_de_direo_chefia_e_assessoramento_paga
+
+class Quais_os_servidores_reconduzidos_na_Agncia
+
+class Quais_eventos_de_capacitao_esto_sendo_ofertados_no_mbito_da_Agncia
+
+class Quais_servidores_esto_em_exonerao_na_Agncia
+
+class Metas_institucionais_definidas
+
+class Quais_os_servidores_que_recebem_indenizao_de_tranporte
+
+class Quais_servidores_foram_nomeados_para_cargo_efetivo_nesse_semestre
+
+class Quais_os_servidores_aposentados_na_Agncia
+
+class Demisso_de_servidores_realizada
+
+class Gratificaes_identificadas
+
+class Quantos_servidores_esto_de_licena_afastamento_ou_ausncia_na_Agncia
+
+class Regulamentaes_especficas_no_mbito_da_direo_da_ANTT_avaliadas_e_sugeridas
+
+class Indenizao_de_tranporte_paga
+
+class Quais_os_grupos_de_conhecimento_conhecimento_geral_e_especfico_de_um_eixo_temtico
+
+class Vagas_em_cursos_seminrios_e_congressos_sobre_eixos_temticos_nos_diversos_estados_da_federao_adquiridas
+
+class Quais_os_servidores_que_foram_promovidos_na_carreira_neste_ano
+
+class Unidade_Organizacional
+
+class Programas_especiais_implementados
+
+class Palestras_com_turmas_e_temas_distintos_de_acordo_com_o_cargo_dos_servidores_de_rea_finalstica_e_administrativa
+
+class Quais_os_servidores_que_so_beneficiados_por_salrio_famlia
+
+class Nomeao_de_servidores_para_cargo_efetivo_realizada
+
+class Programa_de_capacitao_realizado
+
+class Qual_o_tipo_de_formao_de_um_eixo_temtico
+
+class Indenizao_de_auxlio_moradia_paga
+
+class Acesso_facilitado_s_informaes_sobre_eventos_e_oportunidades_de_capacitao
+
+class Quais_os_servidores_foram_revertidos_nos_ltimos_5_anos
+
+class Ficha_de_Avaliao_de_Desempenho_Individual
+
+class Provimento_derivado_de_servidores_realizado
+
+class Orientao_de_pessoal_promovido_e_administrado
+
+class Qual_o_gasto_anual_com_eventos_de_capacitao
+
+class Nomeao_de_servidores_para_funo_pblica_realizada
+
+class Quais_os_servidores_contemplados_com_adicionais_noturnos_na_Agncia
+
+class Envios_de_comunicados_por_email_ou_publicao_na_Intranet
+
+class Quais_aes_internas_visam_a_capacitao_de_servidores
+
+class Oramento_de_programa_de_capacitao_definido
+
+class Quais_os_servidores_contemplados_com_auxlio_moradia
+
+class Pagamento_de_pessoal_promovido_e_administrado
+
+class Quais_os_servidores_pertencentes_a_equipe_de_trabalho
+
+class Quais_os_servidores_foram_reintegrados
+
+class Quais_servidores_tomaram_posse_de_cargo_efetivo_neste_ano
+
+class Resoluo_3000_Art_84_Inciso_XXVIII
+
+class Resoluo_3000_Art_84_Inciso_XXIV
+
+class Licenas_Afastamentos_e_Ausncias_dos_servidores_realizada
+
+class Readaptao_de_servidores_realizada
+
+class Plano_de_Trabalho_da_equipe_definido
+
+class Quais_os_servidores_em_plano_de_seguridade_social_na_Agncia
+
+class Avano_na_carreira_obtido_por_progresso
+
+class Registro_funcional_de_pessoal_promovido_e_administrado
+
+class Resoluo_3000_Art_84_Inciso_XXIII
+
+class Quais_os_eixos_temticos_de_capacitao_deifnidos
+
+class GEPES
+
+class Servidor_Efetivo
+
+class Gratificao_de_Desempenho_paga
+
+class Quais_so_as_aoes_definidas_para_cada_equipe_de_trabalho
+
+class AutoAvaliao_realizada
+
+class Adicionais_de_Frias_pagos
+
+class Resoluo_3000_Art_84_Inciso_XXII
+
+class Quais_os_servidores_foram_substitudos
+
+class Qual_o_perodo_da_avaliao_de_desempenho
+
+class Indenizaes_pagas
+
+class Programa_de_capacitao_planejado
+
+class Quantos_servidores_participaram_de_eventos_de_capacitao_neste_ano
+
+class Eventos_de_capacitao_realizados
+
+class Eventos_de_capacitao_divulgados
+
+class Oportunidades_de_capacitao_em_programas_ofertados_por_outros_rgos_ou_instituies_disponibilizadas
+
+class Resultado_final_de_avaliao_pulicado
+
+class AuxlioNatalidade_e_SalrioFamlia_para_servidor_estabelecidos
+
+class Indenizao_de_ajuda_de_custo_paga
+
+class Oportunidades_de_capacitao_que_favorea_a_progresso_e_promoo_dos_servidores_efetivos_possibilitadas
+
+class Avano_na_carreira_obtido_por_promoo_
+
+class Avaliao_dos_subordinados_diretos_realizada
+
+class Eventos_internos_realizados
+
+class Quais_os_servidores_inscritos_em_determinado_evento_de_capacitao
+
+class Avaliao_dos_eventos_realizada
+
+class Plano_de_benefcios_da_ANTT_proposto_e_administrado
+
+class Quais_os_servidores_que_foram_removidos_nos_ltimos_5_anos
+
+class Quais_os_fatores_avaliativos_definidos_para_o_desempenho_do_servidor
+
+class Apurao_final_do_cumprimento_das_metas_e_demais_compromissos_realizado
+
+class Aposentadoria_do_servidor_realizada
+
+class Ambientao_para_novos_servidores_realizada
+
+class Ciclo_de_avaliao_definido
+
+class Quais_os_servidores_que_recebem_ajuda_de_custo
+
+class Quais_os_servidores_que_recebem_indenizao_de_dirias
+
+class Promoo_de_servidores_realizada
+
+class Vacncia_de_pessoal_promovido_e_administrado
+
+class Adicionais_de_prestao_de_servio_extraordinrio_pagos
+
+class Quais_gratificaes_de_desempenho_definidas
+
+class Certificados_de_participao_emitidos_e_controlados
+
+class Ficha_de_avaliao_de_desempenho_do_instrutor_do_evento
+
+class Avaliao_dos_instrutores_do_evento_realizada
+
+class Perodo_de_efeitos_financeiros_definido
+
+class Eventos_divulgados_eletronicamente
+
+class Existem_vagas_disponveis_para_um_determinado_evento_de_capacitao_ofertado_em_outro_rgo_e_instituio
+
+class Quais_as_metas_insitucionais_globais_definidas_na_unidade_de_avaliao
+
+class Avaliao_dos_integrantes_da_equipe_de_trabalho_realizada
+
+class Eventos_divulgados_pessoalmente
+
+class Avaliao_parcial_dos_resultados_para_ajustes_no_decorrer_do_ciclo_de_avaliao_realizada
+
+class Nomeao_de_servidores_realizada
+
+class Aproveitamento_de_servidores_realizada
+
+class Quantos_servidores_foram_demitidos_no_ano_passado
+
+class Gratificao_por_encargo_de_concurso_paga
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

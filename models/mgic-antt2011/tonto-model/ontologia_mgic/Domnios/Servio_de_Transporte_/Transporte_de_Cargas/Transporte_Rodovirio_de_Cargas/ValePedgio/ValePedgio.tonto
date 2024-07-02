@@ -1,0 +1,22 @@
+import Edificao_Rodoviria
+import Praa_de_Pedgio
+import ValePedgio
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+
+package ValePedgio
+
+role Praa_de_Pedgio_Liberada specializes Praa_de_Pedgio 
+
+roleMixin Embarcador_Equiparado of functional-complexes  specializes Embarcador 
+
+roleMixin Embarcador_Proprietrio of functional-complexes  specializes Embarcador 
+
+roleMixin Embarcador_Contratante_de_Servio_de_Transporte_de_Cargas of functional-complexes  specializes Embarcador_Equiparado 
+
+roleMixin Embarcador of functional-complexes 
+
+relator ValePedgio
+
+
+
+

@@ -1,0 +1,146 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Estrutura rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Estrutura"@en.
+:EstruturaOrganizacional rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "EstruturaOrganizacional"@en.
+:EstruturaOcupacional rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "EstruturaOcupacional"@en.
+:EstruturaAdministrativa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EstruturaAdministrativa"@en.
+:EstruturaOperacional rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "EstruturaOperacional"@en.
+:Organizacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organizacao"@en.
+:Diretoria rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Diretoria"@en.
+:Assessoria rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Assessoria"@en.
+:Departamento rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Departamento"@en.
+:Secao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Secao"@en.
+:DepartamentoTecnico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DepartamentoTecnico"@en.
+:DepartamentoAdminstrativo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DepartamentoAdminstrativo"@en.
+:Escritorio rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Escritorio"@en.
+:UnidadeVolante rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "UnidadeVolante"@en.
+:Posto rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Posto"@en.
+:LaboratorioDiagnostico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LaboratorioDiagnostico"@en.
+:Pessoa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa"@en.
+:Lotacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Lotacao"@en.
+:Servidor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Servidor"@en.
+:UnidadeLotacao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "UnidadeLotacao"@en.
+:Cargo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Cargo"@en.
+:Designacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Designacao"@en.
+:CargoDesignado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CargoDesignado"@en.
+:GrupoOcupacional rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "GrupoOcupacional"@en.
+:ServicoAuxiliar rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ServicoAuxiliar"@en.
+:ApoioTecnicoAdministrativo rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ApoioTecnicoAdministrativo"@en.
+:Finalistico rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Finalistico"@en.
+:TecnicoSanidadeInspecaoAnimal rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TecnicoSanidadeInspecaoAnimal"@en.
+:TecnicoSanidadeInspecaoVegetal rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TecnicoSanidadeInspecaoVegetal"@en.
+:TecnicoCartografia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TecnicoCartografia"@en.
+:TecnicoRecursosNaturais rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TecnicoRecursosNaturais"@en.
+:TecnicoDesenvolvimentoFundiario rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TecnicoDesenvolvimentoFundiario"@en.
+:TecnicoLaboratorio rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TecnicoLaboratorio"@en.
+:SuporteAdministrativo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SuporteAdministrativo"@en.
+:SuporteTecnico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SuporteTecnico"@en.
+:AuxiliarServicos rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AuxiliarServicos"@en.
+:Atendimento rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Atendimento"@en.
+:Fronteira rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Fronteira"@en.
+:Central rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Central"@en.
+:Regional rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Regional"@en.
+:Local rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Local"@en.
+:LotacaoDepartamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "LotacaoDepartamento"@en.
+:DepartamentoLotacao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "DepartamentoLotacao"@en.
+:EscritorioLotacao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EscritorioLotacao"@en.
+:OrganizacaoAdministrativa rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OrganizacaoAdministrativa"@en.
+:OrganizacaoOperacional rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OrganizacaoOperacional"@en.
+:EstruturaOrganizacional rdfs:subClassOf :Estrutura.
+:EstruturaOcupacional rdfs:subClassOf :Estrutura.
+:EstruturaAdministrativa rdfs:subClassOf :EstruturaOrganizacional.
+:EstruturaOperacional rdfs:subClassOf :EstruturaOrganizacional.
+:Diretoria rdfs:subClassOf :OrganizacaoAdministrativa.
+:Assessoria rdfs:subClassOf :OrganizacaoAdministrativa.
+:Departamento rdfs:subClassOf :OrganizacaoAdministrativa.
+:Secao rdfs:subClassOf :OrganizacaoAdministrativa.
+:DepartamentoTecnico rdfs:subClassOf :Departamento.
+:DepartamentoAdminstrativo rdfs:subClassOf :Departamento.
+:Escritorio rdfs:subClassOf :OrganizacaoOperacional.
+:UnidadeVolante rdfs:subClassOf :OrganizacaoOperacional.
+:Posto rdfs:subClassOf :OrganizacaoOperacional.
+:LaboratorioDiagnostico rdfs:subClassOf :OrganizacaoOperacional.
+:Servidor rdfs:subClassOf :Pessoa.
+:CargoDesignado rdfs:subClassOf :Cargo.
+:ServicoAuxiliar rdfs:subClassOf :GrupoOcupacional.
+:ApoioTecnicoAdministrativo rdfs:subClassOf :GrupoOcupacional.
+:Finalistico rdfs:subClassOf :GrupoOcupacional.
+:TecnicoSanidadeInspecaoAnimal rdfs:subClassOf :Cargo.
+:TecnicoSanidadeInspecaoVegetal rdfs:subClassOf :Cargo.
+:TecnicoCartografia rdfs:subClassOf :Cargo.
+:TecnicoRecursosNaturais rdfs:subClassOf :Cargo.
+:TecnicoDesenvolvimentoFundiario rdfs:subClassOf :Cargo.
+:TecnicoLaboratorio rdfs:subClassOf :Cargo.
+:SuporteAdministrativo rdfs:subClassOf :Cargo.
+:SuporteTecnico rdfs:subClassOf :Cargo.
+:AuxiliarServicos rdfs:subClassOf :Cargo.
+:Atendimento rdfs:subClassOf :Posto.
+:Fronteira rdfs:subClassOf :Posto.
+:Central rdfs:subClassOf :Escritorio.
+:Regional rdfs:subClassOf :Escritorio.
+:Local rdfs:subClassOf :Escritorio.
+:DepartamentoLotacao rdfs:subClassOf :Departamento.
+:EscritorioLotacao rdfs:subClassOf :Central.
+:OrganizacaoAdministrativa rdfs:subClassOf :Organizacao.
+:OrganizacaoOperacional rdfs:subClassOf :Organizacao.

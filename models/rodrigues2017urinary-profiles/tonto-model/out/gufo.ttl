@@ -1,0 +1,193 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Urine rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Urine"@en.
+:Urinary_Content rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Urinary_Content"@en.
+:Profiled_Urine rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Profiled_Urine"@en.
+:ProfileDefining_Content rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "ProfileDefining_Content"@en.
+:ProfileDefining_Presence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ProfileDefining_Presence"@en.
+:Urinary_Profile rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Urinary_Profile"@en.
+:Urinary_Analyte rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Urinary_Analyte"@en.
+:Nephritic_Urine rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Nephritic_Urine"@en.
+:NephriticDefining_Presence_of_RBC_Cast rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "NephriticDefining_Presence_of_RBC_Cast"@en.
+:NephriticDefining_Presence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "NephriticDefining_Presence"@en.
+:NephriticDefining_Presence_of_Substances rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "NephriticDefining_Presence_of_Substances"@en.
+:NephriticDefining_RBC_Cast rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NephriticDefining_RBC_Cast"@en.
+:NephriticDefining_Content rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "NephriticDefining_Content"@en.
+:NephriticDefining_Hemoglobin rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NephriticDefining_Hemoglobin"@en.
+:NephriticDefining_Albumin rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NephriticDefining_Albumin"@en.
+:RBC_Cast rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RBC_Cast"@en.
+:Dismorphic_RBC rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Dismorphic_RBC"@en.
+:Hemoglobin rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Hemoglobin"@en.
+:Albumin rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Albumin"@en.
+:Nephritic_Profile rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Nephritic_Profile"@en.
+:Urinary_Relatum rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Urinary_Relatum"@en.
+:ProfileDefining_Context rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ProfileDefining_Context"@en.
+:ProfileDefining_Relatum rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "ProfileDefining_Relatum"@en.
+:Spermatozoa_Contaminate_Urine rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Spermatozoa_Contaminate_Urine"@en.
+:Sperm_Contam_Defining_Context rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sperm_Contam_Defining_Context"@en.
+:Sperm_Contam_Defining_Feminine_Patient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sperm_Contam_Defining_Feminine_Patient"@en.
+:Sperm_Contam_Defining_Spermatozoa rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sperm_Contam_Defining_Spermatozoa"@en.
+:Sperm_Contam_Defining_Relatum rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Sperm_Contam_Defining_Relatum"@en.
+:Feminine_Patient rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Feminine_Patient"@en.
+:Spermatozoon_in_Urine rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Spermatozoon_in_Urine"@en.
+:Sperm_Contam_Profile rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sperm_Contam_Profile"@en.
+:Product rdf:type owl:NamedIndividual;
+    rdfs:label "Product"@en.
+:Resulting_from_Event rdf:type owl:NamedIndividual;
+    rdfs:label "Resulting_from_Event"@en.
+:Final_Urine_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Final_Urine_Situation"@en.
+:Object rdf:type owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Initial_Urine_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Initial_Urine_Situation"@en.
+:Vehicle rdf:type owl:NamedIndividual;
+    rdfs:label "Vehicle"@en.
+:Base rdf:type owl:NamedIndividual;
+    rdfs:label "Base"@en.
+:Agent rdf:type owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:Holding_Contents rdf:type owl:NamedIndividual;
+    rdfs:label "Holding_Contents"@en.
+:Suffering_Action rdf:type owl:NamedIndividual;
+    rdfs:label "Suffering_Action"@en.
+:Causing_Event rdf:type owl:NamedIndividual;
+    rdfs:label "Causing_Event"@en.
+:Urinary_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Urinary_Event"@en.
+:Urinary_Content_Change rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Change"@en.
+:Urinary_Content_Transformation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Transformation"@en.
+:Urinary_Content_Destruction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Destruction"@en.
+:Urinary_Content_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Creation"@en.
+:Urinary_Content_Appearance rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Appearance"@en.
+:Urinary_Content_Transportation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Transportation"@en.
+:Urinary_Content_Escape rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Escape"@en.
+:Urinary_Content_Entrance rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Entrance"@en.
+:Urinary_Content_Disappearance rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Urinary_Content_Disappearance"@en.
+:Incomer_Leukocyte rdf:type owl:NamedIndividual;
+    rdfs:label "Incomer_Leukocyte"@en.
+:Leukocyte rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Leukocyte"@en.
+:Leukocyte_Being_Wrapped_by_Urine rdf:type owl:NamedIndividual;
+    rdfs:label "Leukocyte_Being_Wrapped_by_Urine"@en.
+:Urine_with_Leukocyte rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Urine_with_Leukocyte"@en.
+:Immune_Response rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Immune_Response"@en.
+:Urine_in_Vivo_with_Microorganism rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Urine_in_Vivo_with_Microorganism"@en.
+:Microorganism rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Microorganism"@en.
+:Infectious_Agent rdf:type owl:NamedIndividual;
+    rdfs:label "Infectious_Agent"@en.
+:Incoming_Leukocyte rdf:type owl:NamedIndividual;
+    rdfs:label "Incoming_Leukocyte"@en.
+:Causing_Response rdf:type owl:NamedIndividual;
+    rdfs:label "Causing_Response"@en.
+:Leukocyte_Entering_Urine rdf:type owl:NamedIndividual;
+    rdfs:label "Leukocyte_Entering_Urine"@en.
+:Urine rdfs:subClassOf :Object.
+:Urinary_Content rdfs:subClassOf :Urinary_Analyte.
+:Profiled_Urine rdfs:subClassOf :Urine.
+:ProfileDefining_Content rdfs:subClassOf :Urinary_Content.
+:Nephritic_Urine rdfs:subClassOf :Profiled_Urine.
+:NephriticDefining_Presence_of_RBC_Cast rdfs:subClassOf :NephriticDefining_Presence.
+:NephriticDefining_Presence rdfs:subClassOf :ProfileDefining_Presence.
+:NephriticDefining_Presence_of_Substances rdfs:subClassOf :NephriticDefining_Presence.
+:NephriticDefining_RBC_Cast rdfs:subClassOf :NephriticDefining_Content, :RBC_Cast.
+:NephriticDefining_Content rdfs:subClassOf :ProfileDefining_Content.
+:NephriticDefining_Hemoglobin rdfs:subClassOf :NephriticDefining_Content, :Hemoglobin.
+:NephriticDefining_Albumin rdfs:subClassOf :NephriticDefining_Content, :Albumin.
+:RBC_Cast rdfs:subClassOf :Urinary_Analyte.
+:Dismorphic_RBC rdfs:subClassOf :Urinary_Analyte.
+:Hemoglobin rdfs:subClassOf :Urinary_Analyte.
+:Albumin rdfs:subClassOf :Urinary_Analyte.
+:Nephritic_Profile rdfs:subClassOf :Urinary_Profile.
+:ProfileDefining_Relatum rdfs:subClassOf :Urinary_Relatum.
+:Spermatozoa_Contaminate_Urine rdfs:subClassOf :Profiled_Urine.
+:Sperm_Contam_Defining_Context rdfs:subClassOf :ProfileDefining_Context.
+:Sperm_Contam_Defining_Feminine_Patient rdfs:subClassOf :Sperm_Contam_Defining_Relatum, :Feminine_Patient.
+:Sperm_Contam_Defining_Spermatozoa rdfs:subClassOf :Sperm_Contam_Defining_Relatum, :Spermatozoon_in_Urine.
+:Sperm_Contam_Defining_Relatum rdfs:subClassOf :ProfileDefining_Relatum.
+:Feminine_Patient rdfs:subClassOf :Urinary_Relatum.
+:Spermatozoon_in_Urine rdfs:subClassOf :Urinary_Relatum.
+:Sperm_Contam_Profile rdfs:subClassOf :Urinary_Profile.
+:Product rdfs:subClassOf :Object.
+:Vehicle rdfs:subClassOf :Urine.
+:Base rdfs:subClassOf :Object.
+:Agent rdfs:subClassOf :Object.
+:Urinary_Content_Change rdfs:subClassOf :Urinary_Content_Transformation.
+:Urinary_Content_Transformation rdfs:subClassOf :Urinary_Event.
+:Urinary_Content_Destruction rdfs:subClassOf :Urinary_Content_Transformation, :Urinary_Content_Disappearance.
+:Urinary_Content_Creation rdfs:subClassOf :Urinary_Content_Transformation, :Urinary_Content_Appearance.
+:Urinary_Content_Appearance rdfs:subClassOf :Urinary_Event.
+:Urinary_Content_Transportation rdfs:subClassOf :Urinary_Event.
+:Urinary_Content_Escape rdfs:subClassOf :Urinary_Content_Transportation, :Urinary_Content_Disappearance.
+:Urinary_Content_Entrance rdfs:subClassOf :Urinary_Content_Transportation, :Urinary_Content_Appearance.
+:Urinary_Content_Disappearance rdfs:subClassOf :Urinary_Event.
+:Incomer_Leukocyte rdfs:subClassOf :Leukocyte.
+:Infectious_Agent rdfs:subClassOf :Microorganism.
+:Incoming_Leukocyte rdfs:subClassOf :Leukocyte.

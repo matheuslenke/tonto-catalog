@@ -1,0 +1,39 @@
+import Bem_Durvel
+import Imvel_Contbil
+import Compra
+import Produto
+import Servio
+import Imvel
+import Pessoa_Jurdica
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Concesso_Rodoviria
+import Ativo_Ferrovirio
+import Georreferenciamento
+import Componente_Trecho_Fsico
+import OntoUML_Datatypes
+import Trecho_Rodovirio_Fsico
+import Elemento_de_Sinalizao_Ferroviria
+import Faixa_de_Domnio_Ferroviria
+import Infraestrutura_Rodoviria
+import Trecho_de_Concesso
+import Veculo_Ferrovirio
+import Movimentao_de_Ativo_Ferrovirio
+import Acidente_Ferrovirio
+import Bem_da_Concesso
+
+package Bem_da_Concesso
+
+role Concessionria_Ferroviria_que_Realiza_Aquisio
+
+roleMixin Ativo_Ferrovirio_Prprio_Revertido of functional-complexes  specializes Ativo_Ferrovirio_Prprio 
+
+roleMixin Ativo_Ferrovirio_Arrendado of functional-complexes  specializes Bem_Operacional_Arrendado, Imvel_Edificado_Arrendado, Terreno_Arrendado 
+
+relator Aquisio_de_Ativo_Ferrovirio_Prprio
+
+mixin Bem_da_Concesso of functional-complexes  specializes Bem_da_Concesso_Rodoviria, Ativo_Ferrovirio 
+
+roleMixin Ativo_Ferrovirio_Prprio of functional-complexes 
+
+
+

@@ -1,0 +1,15 @@
+import Fretamento_Contnuo
+import Tipos_de_Fretamento
+import Tipo_de_Autorizao_de_Viagem
+
+package Fretamento_Contnuo
+
+role Agncia_Reguladora_Emissora_de_Autorizao_para_Fretamento_Contnuo
+
+role Contratante_Fretamento_Contnuo
+
+relator Fretamento_Contnuo
+
+
+
+

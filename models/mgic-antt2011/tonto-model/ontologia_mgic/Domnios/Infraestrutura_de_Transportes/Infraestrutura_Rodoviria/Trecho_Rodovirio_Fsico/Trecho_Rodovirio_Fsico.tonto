@@ -1,0 +1,80 @@
+
+package Trecho_Rodovirio_Fsico
+
+phase Trecho_Implantado of functional-complexes  specializes Trecho_Plataforma 
+
+subkind Separador_Rgido of functional-complexes  specializes Separador_de_Pistas 
+
+kind Faixa_Lateral
+
+phase Trecho_Pavimentado of functional-complexes  specializes Trecho_Plataforma 
+
+phase Trecho_Pista_Tripla of functional-complexes  specializes Trecho_com_Canteiro_Central 
+
+subkind Faixa_de_Acostamento of functional-complexes  specializes Faixa_Lateral 
+
+phase Trecho_em_Obra_de_Duplicao of functional-complexes  specializes Trecho_Pavimentado 
+
+phase Trecho_Duplicado of functional-complexes  specializes Trecho_com_Canteiro_Central 
+
+quantity Base_de_Pavimento_Rodovirio
+
+phase Trecho_Planejado of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+subkind Pista_de_Rolamento_Multipista of functional-complexes  specializes Pista_de_Rolamento 
+
+subkind Trecho_Rodovirio_Multipista of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+phase Trecho_Planejada_Implantao of functional-complexes  specializes Trecho_Planejado 
+
+subkind Faixa_de_Refgio of functional-complexes  specializes Faixa_Lateral 
+
+quantity Pavimento_Rodovirio
+
+phase Trecho_Travessia of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+kind Separador_de_Pistas
+
+kind Faixa_de_Domnio_Rodoviria{
+    largura: undefined  
+}
+
+subkind Pavimento_Flexvel of quantities  specializes Pavimento_Rodovirio 
+
+subkind Pavimento_Rgido of quantities  specializes Pavimento_Rodovirio 
+
+subkind Canteiro_Central of functional-complexes  specializes Separador_de_Pistas 
+
+quantity Revestimento_de_Pavimento_Rodovirio
+
+phase Trecho_Natural_Implantao of functional-complexes  specializes Trecho_Leito_Natural 
+
+subkind Pavimento_Semirrgido of quantities  specializes Pavimento_Rodovirio 
+
+kind Pista_de_Rolamento
+
+phase Trecho_Multifaixas of functional-complexes  specializes Trecho_Pavimentado 
+
+phase Trecho_em_Obra_de_Pavimentao of functional-complexes  specializes Trecho_Implantado 
+
+subkind Pista_Reversvel of functional-complexes  specializes Pista_de_Rolamento 
+
+phase Trecho_com_Canteiro_Central of functional-complexes  specializes Trecho_Pavimentado 
+
+phase Trecho_Plataforma of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+phase Trecho_Leito_Natural of functional-complexes  specializes Trecho_Rodovirio_Fsico 
+
+kind Faixa_de_Rolamento{
+    sentido: undefined  
+}
+
+
+
+
+
+
+
+
+
+

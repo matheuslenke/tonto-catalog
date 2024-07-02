@@ -1,0 +1,31 @@
+
+package Capital_Prprio
+
+relator AFAC{
+    data: undefined  
+    valor: undefined  
+}
+
+roleMixin Responsvel_por_Adiantamento of functional-complexes 
+
+kind Reserva_de_Capital{
+    saldo: undefined  
+    tipoReserva: undefined  
+}
+
+relator Aporte_de_Capital{
+    data: undefined  
+    valor: undefined  
+}
+
+role Empresa_com_Reserva of functional-complexes  specializes Sociedade_Empresria_Fiscalizada 
+
+roleMixin Responsvel_por_Aporte of functional-complexes 
+
+role Empresa_com_AFAC of functional-complexes  specializes Sociedade_Empresria_Fiscalizada 
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+
+package Estgio
+
+role Estagirio specializes Estagirio_do_Servio_Pblico, Estudante, Segurado_SCAP 
+
+kind Termo_de_Compromisso_de_Estgio
+
+role Instituio_de_Ensino
+
+role Estudante_de_Ensino_Mdio specializes Estudante 
+
+role Autorizadora_de_Estgio specializes Instituio_de_Ensino_com_Convnio_de_Estgio 
+
+roleMixin Contratante_do_Seguro of functional-complexes 
+
+role Estudante_de_Educao_Profissional specializes Estudante 
+
+role Instituio_de_Ensino_com_Convnio_de_Estgio specializes Instituio_de_Ensino 
+
+relator Seguro_contra_Acidentes_Pessoais{
+    nmero_aplice: undefined  
+    valor: undefined  
+}
+
+role UO_com_Estagirio
+
+role Segurado_SCAP
+
+role Estudante_de_Ensino_Fundamental specializes Estudante 
+
+role Professor_Orientador
+
+role Estudante specializes Menor_Aprendiz 
+
+role Estudante_de_Ensino_Superior specializes Estudante 
+
+relator Estgio_No_Obrigatrio specializes Estgio 
+
+relator Convnio_de_Concesso_de_Estgio
+
+relator Estgio_Obrigatrio_ specializes Estgio 
+
+kind Curso{
+    nvel: undefined  
+    nome: undefined  
+}
+
+relator Matrcula_
+
+role Seguradora_com_SCAP_
+
+relator Estgio specializes Estgio_Pblico {
+    auxlio_alimentao: undefined  
+    auxlio_de_transporte: undefined  
+    auxlio_sade: undefined  
+    bolsa: undefined  
+    carga_horria: undefined  
+    durao: undefined  
+    incio: undefined  
+}
+
+role Parte_Concedente_de_Estgio specializes Parte_Concedente_de_Estgio_Pblico 
+
+role Estudante_de_Educao_Especial specializes Estudante 
+
+kind Plano_de_Atividades_do_Estagirio
+
+role Supervisor_de_Estgio specializes Supervisor_de_Estagirio_Pblico 
+
+role Estudante_de_Ps_Graduao specializes Estudante 
+
+role Concedente_de_Estgio_com_Convnio
+
+enum Escolaridade{
+    fundamental, mdio, superior, tcnico, ps_graduao, mestrado, doutorado
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:WeatherOrganization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WeatherOrganization"@en.
+:FloodManagementOrganization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FloodManagementOrganization"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:HighWaterController rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "HighWaterController"@en.
+:SelectedHighWaterProtectionMeasure rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "SelectedHighWaterProtectionMeasure"@en.
+:HighWaterProtectionMeasureEvaluator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "HighWaterProtectionMeasureEvaluator"@en.
+:People rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "People"@en.
+:Victim rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Victim"@en.
+:FloodEvacuationImplementer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FloodEvacuationImplementer"@en.
+:FloodForecast rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FloodForecast"@en.
+:FloodEvent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FloodEvent"@en.
+:FloodForecaster rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FloodForecaster"@en.
+:WeatherForecaster rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "WeatherForecaster"@en.
+:Area rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Area"@en.
+:WeatherForecast rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "WeatherForecast"@en.
+:Resource rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource"@en.
+:FloodDamage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FloodDamage"@en.
+:EvacuationRegistration rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EvacuationRegistration"@en.
+:EvaluatedHighWaterProtectionMeasure rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "EvaluatedHighWaterProtectionMeasure"@en.
+:HighWaterProtectionMeasure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HighWaterProtectionMeasure"@en.
+:ImplementedHighWaterProtectionMeasure rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ImplementedHighWaterProtectionMeasure"@en.
+:HighWaterProtectionImplementer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "HighWaterProtectionImplementer"@en.
+:FloodEvacuation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FloodEvacuation"@en.
+:FloodDefenseMeasuresImplementer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FloodDefenseMeasuresImplementer"@en.
+:FloodDefenseManager rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FloodDefenseManager"@en.
+:FloodDefenseOrganization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FloodDefenseOrganization"@en.
+:EvacuationOrganization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EvacuationOrganization"@en.
+:FloodEvacuationManager rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FloodEvacuationManager"@en.
+:FloodEvacuationPlan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FloodEvacuationPlan"@en.
+:FloodDefenseMeasures rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FloodDefenseMeasures"@en.
+:WeatherOrganization rdfs:subClassOf :Organization.
+:FloodManagementOrganization rdfs:subClassOf :Organization.
+:HighWaterController rdfs:subClassOf :FloodManagementOrganization.
+:SelectedHighWaterProtectionMeasure rdfs:subClassOf :HighWaterProtectionMeasure.
+:HighWaterProtectionMeasureEvaluator rdfs:subClassOf :FloodManagementOrganization.
+:Victim rdfs:subClassOf :People.
+:FloodEvacuationImplementer rdfs:subClassOf :EvacuationOrganization.
+:FloodForecaster rdfs:subClassOf :FloodManagementOrganization.
+:WeatherForecaster rdfs:subClassOf :WeatherOrganization.
+:EvaluatedHighWaterProtectionMeasure rdfs:subClassOf :HighWaterProtectionMeasure.
+:ImplementedHighWaterProtectionMeasure rdfs:subClassOf :HighWaterProtectionMeasure.
+:HighWaterProtectionImplementer rdfs:subClassOf :FloodManagementOrganization.
+:FloodDefenseMeasuresImplementer rdfs:subClassOf :FloodDefenseOrganization.
+:FloodDefenseManager rdfs:subClassOf :FloodDefenseOrganization.
+:FloodDefenseOrganization rdfs:subClassOf :Organization.
+:EvacuationOrganization rdfs:subClassOf :Organization.
+:FloodEvacuationManager rdfs:subClassOf :EvacuationOrganization.

@@ -1,0 +1,44 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Economic_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Economic_Agent"@en.
+:Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Provider"@en.
+:Receiver rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Receiver"@en.
+:Bilateral_Economic_Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Bilateral_Economic_Contract"@en.
+:Good_Transfer_Conditional_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Good_Transfer_Conditional_Commitment"@en.
+:Money_Transfer_Conditional_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Money_Transfer_Conditional_Commitment"@en.
+:Economic_Exchange rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Economic_Exchange"@en.
+:Economic_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Economic_Event"@en.
+:Sell_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sell_Event"@en.
+:Cash_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cash_Event"@en.
+:Sell_Event rdfs:subClassOf :Economic_Event.
+:Cash_Event rdfs:subClassOf :Economic_Event.
+:Economic_Agent rdfs:subClassOf :Agent.
+:Provider rdfs:subClassOf :Economic_Agent.
+:Receiver rdfs:subClassOf :Economic_Agent.
+:Sell_Event rdfs:subClassOf :Economic_Event.
+:Cash_Event rdfs:subClassOf :Economic_Event.

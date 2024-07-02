@@ -1,0 +1,202 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Software_System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_System"@en.
+:Program rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Program"@en.
+:Code rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Code"@en.
+:Source_Code rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Source_Code"@en.
+:Language rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Language"@en.
+:Programming_Language rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Programming_Language"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Software_Item rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Software_Item"@en.
+:ObjectOriented_Programming_Language rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ObjectOriented_Programming_Language"@en.
+:ObjectOriented_Source_Code rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ObjectOriented_Source_Code"@en.
+:Module rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Module"@en.
+:Name rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Name"@en.
+:Named_Element rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Named_Element"@en.
+:Element_Visibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Element_Visibility"@en.
+:Class rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Class"@en.
+:Member rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Member"@en.
+:Variable rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Variable"@en.
+:Mutability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Mutability"@en.
+:Primitive_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Primitive_Type"@en.
+:Physical_Module rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Physical_Module"@en.
+:Type rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Type"@en.
+:Return_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Return_Type"@en.
+:Logical_Module rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Logical_Module"@en.
+:Method_Member_Function rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Method_Member_Function"@en.
+:Attribute_Member_Variable rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Attribute_Member_Variable"@en.
+:Value_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Value_Type"@en.
+:Method_Variable rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Method_Variable"@en.
+:Overridable_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Overridable_Method"@en.
+:NonOverridable_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NonOverridable_Method"@en.
+:Class_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Class_Method"@en.
+:Instance_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Instance_Method"@en.
+:Abstract_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Abstract_Method"@en.
+:Concrete_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concrete_Method"@en.
+:Generic_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Generic_Method"@en.
+:Class_Variable rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Class_Variable"@en.
+:Instance_Variable rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Instance_Variable"@en.
+:Parameter_Variabe rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Parameter_Variabe"@en.
+:Local_Variable rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Local_Variable"@en.
+:Type_Parameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Type_Parameter"@en.
+:Block rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Block"@en.
+:Constructor_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Constructor_Method"@en.
+:Destructor_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Destructor_Method"@en.
+:Accessor_Method rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Accessor_Method"@en.
+:Generic_Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Generic_Class"@en.
+:Type_Parameter_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Type_Parameter"@en.
+:Concrete_Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concrete_Class"@en.
+:Abstract_Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Abstract_Class"@en.
+:NonExtendable_Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NonExtendable_Class"@en.
+:Extendable_Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Extendable_Class"@en.
+:Root_Class rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Root_Class"@en.
+:Superclass rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Superclass"@en.
+:Subclass rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Subclass"@en.
+:Nesting rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Nesting"@en.
+:Inheritance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Inheritance"@en.
+:Nested_Class rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Nested_Class"@en.
+:Inheritance_Visibility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Inheritance_Visibility"@en.
+:Software_System rdfs:subClassOf :Software_Item.
+:Program rdfs:subClassOf :Software_Item.
+:Code rdfs:subClassOf :Software_Item.
+:Source_Code rdfs:subClassOf :Code.
+:Programming_Language rdfs:subClassOf :Language.
+:Software_Item rdfs:subClassOf :Artifact.
+:Logical_Module rdfs:subClassOf :Module.
+:Physical_Module rdfs:subClassOf :Module.
+:Class rdfs:subClassOf :Named_Element.
+:Variable rdfs:subClassOf :Named_Element.
+:Method_Member_Function rdfs:subClassOf :Named_Element.
+:Primitive_Type rdfs:subClassOf :Type.
+:Class rdfs:subClassOf :Type.
+:ObjectOriented_Programming_Language rdfs:subClassOf :Programming_Language.
+:ObjectOriented_Source_Code rdfs:subClassOf :Source_Code.
+:Class rdfs:subClassOf :Named_Element, :Type.
+:Variable rdfs:subClassOf :Named_Element.
+:Primitive_Type rdfs:subClassOf :Type.
+:Physical_Module rdfs:subClassOf :Module.
+:Logical_Module rdfs:subClassOf :Module.
+:Method_Member_Function rdfs:subClassOf :Member, :Named_Element.
+:Attribute_Member_Variable rdfs:subClassOf :Member, :Variable.
+:Instance_Variable rdfs:subClassOf :Attribute_Member_Variable.
+:Class_Variable rdfs:subClassOf :Attribute_Member_Variable.
+:Parameter_Variabe rdfs:subClassOf :Method_Variable.
+:Local_Variable rdfs:subClassOf :Method_Variable.
+:Overridable_Method rdfs:subClassOf :Method_Member_Function.
+:NonOverridable_Method rdfs:subClassOf :Method_Member_Function.
+:Concrete_Method rdfs:subClassOf :Method_Member_Function.
+:Abstract_Method rdfs:subClassOf :Method_Member_Function.
+:Destructor_Method rdfs:subClassOf :Instance_Method.
+:Constructor_Method rdfs:subClassOf :Instance_Method.
+:Accessor_Method rdfs:subClassOf :Instance_Method.
+:Generic_Method rdfs:subClassOf :Method_Member_Function.
+:Method_Variable rdfs:subClassOf :Variable.
+:Overridable_Method rdfs:subClassOf :Method_Member_Function.
+:NonOverridable_Method rdfs:subClassOf :Method_Member_Function.
+:Class_Method rdfs:subClassOf :NonOverridable_Method, :Concrete_Method.
+:Instance_Method rdfs:subClassOf :Concrete_Method.
+:Abstract_Method rdfs:subClassOf :Overridable_Method, :Method_Member_Function.
+:Concrete_Method rdfs:subClassOf :Method_Member_Function.
+:Generic_Method rdfs:subClassOf :Method_Member_Function.
+:Class_Variable rdfs:subClassOf :Attribute_Member_Variable.
+:Instance_Variable rdfs:subClassOf :Attribute_Member_Variable.
+:Parameter_Variabe rdfs:subClassOf :Method_Variable.
+:Local_Variable rdfs:subClassOf :Method_Variable.
+:Constructor_Method rdfs:subClassOf :NonOverridable_Method, :Instance_Method.
+:Destructor_Method rdfs:subClassOf :Instance_Method.
+:Accessor_Method rdfs:subClassOf :Instance_Method.
+:Generic_Class rdfs:subClassOf :Class.
+:Concrete_Class rdfs:subClassOf :Class.
+:Abstract_Class rdfs:subClassOf :Class.
+:Extendable_Class rdfs:subClassOf :Class.
+:NonExtendable_Class rdfs:subClassOf :Class.
+:Subclass rdfs:subClassOf :Class.
+:Generic_Class rdfs:subClassOf :Class.
+:Concrete_Class rdfs:subClassOf :Class.
+:Abstract_Class rdfs:subClassOf :Class, :Extendable_Class.
+:NonExtendable_Class rdfs:subClassOf :Class.
+:Extendable_Class rdfs:subClassOf :Class.
+:Root_Class rdfs:subClassOf :Extendable_Class.
+:Superclass rdfs:subClassOf :Extendable_Class.
+:Subclass rdfs:subClassOf :Class.
+:Nested_Class rdfs:subClassOf :Class.

@@ -33,7 +33,7 @@ role User of functional-complexes  specializes Person {
 category Physical_building of collectives {
     facilityId: int  
     location: undefined  
-    sportType: string_  
+    sportType: string  
 }
 
 category FacilityBooking of functional-complexes {

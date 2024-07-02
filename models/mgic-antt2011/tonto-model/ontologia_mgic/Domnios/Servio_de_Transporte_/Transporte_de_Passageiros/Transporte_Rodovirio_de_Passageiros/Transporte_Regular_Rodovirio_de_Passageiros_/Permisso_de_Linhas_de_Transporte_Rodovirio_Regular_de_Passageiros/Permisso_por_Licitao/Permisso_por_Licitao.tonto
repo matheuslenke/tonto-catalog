@@ -1,0 +1,37 @@
+import Publicao
+import Ato_por_Licitao
+import Instrumentos_de_Outorga
+import Projeto_Bsico
+import Permisso
+import Comisso_de_Outorga
+import Permisso_por_Licitao
+import Leilo_de_Licitao
+
+package Permisso_por_Licitao
+
+relator Incluso_de_Licitante
+
+kind Parmetro_Financeiro
+
+relator Republicao_de_Edital specializes Republicao 
+
+role Licitao_de_Permisso_em_Fase_Externa of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+role Edital_de_Licitao_Publicado of functional-complexes  specializes Edital_de_Licitao, Objeto_Publicado 
+
+kind Parmetro_Operacional
+
+role Licitante
+
+relator Publicao_de_Edital specializes Publicao 
+
+role Licitao_de_Permisso_em_Leilo of functional-complexes  specializes Licitao_de_Permisso 
+
+relator Audincia_Pblica_para_Licitao
+
+
+
+
+
+
+

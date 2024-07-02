@@ -1,0 +1,112 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Plano_de_trabalho rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Plano_de_trabalho"@en.
+:Objetivo_pedaggico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Objetivo_pedaggico"@en.
+:Mediaco_pedaggica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Mediaco_pedaggica"@en.
+:intenco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "intenco"@en.
+:Mediador rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mediador"@en.
+:Mediado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mediado"@en.
+:Agente rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agente"@en.
+:Agente_Humano rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Agente_Humano"@en.
+:Agente_Sinttico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Agente_Sinttico"@en.
+:Professor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Professor"@en.
+:Estudante rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Estudante"@en.
+:Pesquisador rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pesquisador"@en.
+:Recursos_Pedaggicos rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Recursos_Pedaggicos"@en.
+:Recurso_Pedaggico_Virtual rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Recurso_Pedaggico_Virtual"@en.
+:Objeto_Virtual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Objeto_Virtual"@en.
+:Recurso_pedaggico_fsico rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Recurso_pedaggico_fsico"@en.
+:Objeto_fsico rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Objeto_fsico"@en.
+:Arquitetura_pedaggica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Arquitetura_pedaggica"@en.
+:Plano_de_trabalho_AP rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Plano_de_trabalho_AP"@en.
+:Mtodo_pedaggico rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Mtodo_pedaggico"@en.
+:Atividade_pedaggica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Atividade_pedaggica"@en.
+:Pedagogical_objective_intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Pedagogical_objective_intention"@en.
+:PA_Creator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PA_Creator"@en.
+:Virtual_pedagogical_resource rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Virtual_pedagogical_resource"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Tutor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tutor"@en.
+:Work_plan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Work_plan"@en.
+:Pedagogical_architecture rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pedagogical_architecture"@en.
+:Work_plan_AP rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Work_plan_AP"@en.
+:Technological_implementation rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Technological_implementation"@en.
+:Pedagogical_activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pedagogical_activity"@en.
+:Pedagogical_method rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pedagogical_method"@en.
+:Recurso_pedaggico_fsico rdfs:subClassOf :Recursos_Pedaggicos.
+:Recurso_Pedaggico_Virtual rdfs:subClassOf :Recursos_Pedaggicos.
+:Agente_Humano rdfs:subClassOf :Agente.
+:Agente_Sinttico rdfs:subClassOf :Agente.
+:Estudante rdfs:subClassOf :Agente_Humano.
+:Pesquisador rdfs:subClassOf :Agente_Humano.
+:Professor rdfs:subClassOf :Agente_Humano.
+:Mediador rdfs:subClassOf :Agente.
+:Mediado rdfs:subClassOf :Agente_Humano.
+:Agente_Humano rdfs:subClassOf :Agente.
+:Agente_Sinttico rdfs:subClassOf :Agente.
+:Professor rdfs:subClassOf :Agente_Humano.
+:Estudante rdfs:subClassOf :Agente_Humano.
+:Pesquisador rdfs:subClassOf :Agente_Humano.
+:Recurso_Pedaggico_Virtual rdfs:subClassOf :Recursos_Pedaggicos, :Objeto_Virtual.
+:Recurso_pedaggico_fsico rdfs:subClassOf :Recursos_Pedaggicos, :Objeto_fsico.
+:Plano_de_trabalho_AP rdfs:subClassOf :Plano_de_trabalho.
+:PA_Creator rdfs:subClassOf :Tutor.
+:Tutor rdfs:subClassOf :Agent.
+:Work_plan_AP rdfs:subClassOf :Work_plan.

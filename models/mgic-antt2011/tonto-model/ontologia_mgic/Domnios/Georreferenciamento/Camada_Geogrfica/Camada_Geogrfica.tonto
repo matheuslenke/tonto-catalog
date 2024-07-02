@@ -1,0 +1,225 @@
+
+package Camada_Geogrfica
+
+kind Camada_Simbitica specializes Camada_de_Referncia 
+
+subkind Camada_Temtica_Monoatributo of functional-complexes  specializes Camada_Temtica 
+
+subkind Camada_de_reas_Quilombolas of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+subkind Camada_de_reas_Urbanizadas of collectives  specializes Camada_Geogrfica_No_Contemplada_pelo_INDE, Camada_Geogrfica_de_rea 
+
+subkind Camada_de_Mapeamento_dos_Solos_do_Brasil of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+kind Linha_de_Transmisso_de_Energia specializes Elemento_com_Projeo_Linear 
+
+subkind Camada_de_Linha_de_Sistema_de_Transporte of collectives  specializes Camada_Geogrfica_Linear 
+
+subkind Camada_de_Pases_da_Amrica_do_Sul of collectives  specializes Camada_de_Pas 
+
+subkind Camada_de_Ferrovia of collectives  specializes Camada_de_Linha_de_Sistema_de_Transporte 
+
+subkind Camada_de_Regio of collectives  specializes Camada_Geogrfica_de_rea_de_Limites 
+
+kind Camada_Temtica
+
+subkind Camada_de_reas_de_Assentamento_Rural of collectives  specializes Camada_Geogrfica_No_Contemplada_pelo_INDE, Camada_Geogrfica_de_rea 
+
+subkind Camada_Geogrfica_de_Ponto of collectives  specializes Camada_Geogrfica 
+
+subkind Camada_de_Localidades of collectives  specializes Camada_Geogrfica_de_Ponto 
+
+subkind Camada_de_Unidade_de_Conservao of collectives  specializes Camada_Geogrfica_de_rea 
+
+kind rea_Urbanizada specializes Elemento_com_Projeo_Espacial 
+
+subkind Camada_de_Reservas_Legais of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+kind rea_de_Aptido_Agrcola specializes Elemento_com_Projeo_Espacial 
+
+subkind Camada_de_Conservao_de_Proteo_Integral of collectives  specializes Camada_de_Unidade_de_Conservao 
+
+subkind Camada_de_Cobertura_e_Uso_da_Terra_no_Brasil of collectives  specializes Camada_Geogrfica_No_Contemplada_pelo_INDE, Camada_Geogrfica_de_rea 
+
+subkind Bacia_Hidrogrfica_Otto_II of collectives  specializes Bacia_Hidrogrfica 
+
+subkind Camada_de_Estado of collectives  specializes Camada_Geogrfica_de_rea_de_Limites 
+
+kind Stio_Arqueolgico specializes Elemento_com_Projeo_Espacial, Elemento_com_Projeo_Pontual 
+
+subkind Camada_de_Conservao_de_Uso_Sustentvel of collectives  specializes Camada_de_Unidade_de_Conservao 
+
+subkind Rio of functional-complexes  specializes Curso_de_gua 
+
+kind rea_de_Assentamento_Rural specializes Elemento_com_Projeo_Espacial 
+
+collective Bacia_Hidrogrfica specializes Elemento_com_Projeo_Espacial 
+
+kind rea_de_Cobertura_e_Uso_da_Terra_no_Brasil specializes Elemento_com_Projeo_Espacial 
+
+kind Reserva_Legal specializes Elemento_com_Projeo_Espacial 
+
+collective Camada_Geogrfica specializes Camada_de_Referncia, Camada_em_Cadeia_Produtiva, Camada_em_Alocao_de_Caminho_Mnimo, Camada_em_rea_de_Influncia, Camada_em_Linha_de_Desejo 
+
+kind Classe_de_Camada_Temtica{
+    casa_decimais: undefined  
+    descrio: undefined  
+    limite_inferior: undefined  
+    limite_superior: undefined  
+}
+
+category Camada_Geogrfica_No_Contemplada_pelo_INDE of functional-complexes 
+
+subkind Camada_do_Brasil_ of collectives  specializes Camada_de_Pas 
+
+subkind Camada_de_Pas of collectives  specializes Camada_Geogrfica_de_rea_de_Limites 
+
+subkind Camada_de_Zonas_Ecolgicas_Econmicas of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+subkind Camada_de_Biomas_do_Brasil of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+subkind Camada_de_Terras_Indgenas of collectives  specializes Camada_Geogrfica_de_rea_de_Limites 
+
+subkind Camada_de_Regio_Hidrogrfica of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+subkind Reserva_da_Biosfera_do_Brasil of functional-complexes  specializes Elemento_com_Projeo_Espacial, Unidade_de_Conservao 
+
+subkind Camada_de_Reservas_da_Biosfera_do_Brasil of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+kind Curso_de_gua specializes Elemento_com_Projeo_Linear 
+
+subkind Camada_de_Linhas_de_Transmisso_de_Energia of collectives  specializes Camada_de_Energia_e_Comunicaes 
+
+subkind Camada_de_rea_de_Hidrografia of collectives  specializes Camada_Geogrfica_de_rea 
+
+subkind Hidrovia_ specializes Elemento_com_Projeo_Linear 
+
+subkind Camada_de_Municpio of collectives  specializes Camada_Geogrfica_de_rea_de_Limites 
+
+subkind Camada_de_Estrutura_Econmica of collectives  specializes Camada_Geogrfica_de_Ponto 
+
+subkind Unidade_de_Proteo_Integral of functional-complexes  specializes Unidade_de_Conservao 
+
+subkind Camada_de_Massas_dgua of collectives  specializes Camada_de_rea_de_Hidrografia 
+
+subkind Camada_de_Energia_e_Comunicaes of collectives  specializes Camada_Geogrfica_Linear 
+
+subkind Camada_de_reas_Prioritrias_para_Conservao_da_Biodiversidade of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+subkind Unidade_No_Contemplada_pelo_SNUC of functional-complexes  specializes Unidade_de_Conservao 
+
+subkind Camada_de_Hidrografia_e_Drenagem_Interior specializes Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+subkind Camada_da_Amaznia_Legal_Brasileira of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+kind Ponto_de_Extrao_Mineral specializes Elemento_com_Projeo_Pontual 
+
+subkind Camada_de_Drenagem_Interior of collectives  specializes Camada_Geogrfica_Linear, Camada_de_Hidrografia_e_Drenagem_Interior 
+
+kind Regio_Hidrogrfica specializes Elemento_com_Projeo_Espacial 
+
+kind Zona_Ecolgico_Econmica specializes Elemento_com_Projeo_Espacial 
+
+subkind Camada_de_Cidades of collectives  specializes Camada_de_Localidades 
+
+subkind Camada_de_Hidrografia of collectives  specializes Camada_Geogrfica_Linear, Camada_de_Hidrografia_e_Drenagem_Interior 
+
+subkind Camada_Geogrfica_de_Extrao_Mineral of collectives  specializes Camada_de_Estrutura_Econmica 
+
+subkind Camada_de_Aptido_Agrcola of collectives  specializes Camada_Geogrfica_de_rea, Camada_Geogrfica_No_Contemplada_pelo_INDE 
+
+subkind Camada_de_Bacia_Hidrogrfica_Otto_II of collectives  specializes Camada_de_rea_de_Hidrografia 
+
+subkind Camada_Temtica_Multiatributo of functional-complexes  specializes Camada_Temtica {
+    valor_final: undefined  
+    valor_inicial: undefined  
+}
+
+subkind Camada_Geogrfica_de_rea of collectives  specializes Camada_Geogrfica 
+
+subkind Camada_de_Terminais_Ferrovirios_de_Cargas of collectives  specializes Camada_Geogrfica_de_Ponto 
+
+subkind Camada_Geogrfica_de_rea_de_Limites of collectives  specializes Camada_Geogrfica_de_rea 
+
+subkind Camada_de_Stios_Arquieolgicos of collectives  specializes Camada_Geogrfica_No_Contemplada_pelo_INDE, Camada_Geogrfica_de_Ponto 
+
+subkind rea_Prioritria_para_Conservao_da_Biodiversidade of functional-complexes  specializes Elemento_com_Projeo_Espacial, Unidade_de_Conservao 
+
+kind rea_de_Bioma_do_Brasil specializes Elemento_com_Projeo_Espacial 
+
+subkind Camada_de_Hidrovias of collectives  specializes Camada_de_Linha_de_Sistema_de_Transporte 
+
+subkind Porto_ of functional-complexes  specializes Imvel_Edificado 
+
+subkind Bacia_Hidrogrfica_Otto_I of collectives  specializes Bacia_Hidrogrfica 
+
+subkind Camada_de_Rodovia of collectives  specializes Camada_de_Linha_de_Sistema_de_Transporte 
+
+kind rea_da_Amaznia_Legal_Brasileira specializes Elemento_com_Projeo_Espacial 
+
+subkind Unidade_de_Uso_Sustentvel of functional-complexes  specializes Unidade_de_Conservao 
+
+category Camada_de_Referncia of functional-complexes {
+    nome: undefined  
+}
+
+subkind Camada_de_Capitais of collectives  specializes Camada_de_Cidades 
+
+subkind Camada_de_Bacia_Hidrogrfica_Otto_I of collectives  specializes Camada_de_rea_de_Hidrografia 
+
+kind Massa_dgua_ specializes Elemento_com_Projeo_Espacial 
+
+subkind Camada_de_Dutos of collectives  specializes Camada_de_Linha_de_Sistema_de_Transporte 
+
+subkind Camada_de_Portos of collectives  specializes Camada_Geogrfica_de_Ponto 
+
+kind rea_de_Solo specializes Elemento_com_Projeo_Espacial 
+
+subkind Unidade_Protegida of functional-complexes  specializes Unidade_de_Conservao 
+
+subkind Camada_Geogrfica_Linear of collectives  specializes Camada_Geogrfica 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

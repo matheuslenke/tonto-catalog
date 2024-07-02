@@ -1,0 +1,64 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Archive rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Archive"@en.
+:Principle_of_Respect_for_Original_Order rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Principle_of_Respect_for_Original_Order"@en.
+:Theory_of_the_Tree_Ages rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Theory_of_the_Tree_Ages"@en.
+:Principle_of_Provenance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Principle_of_Provenance"@en.
+:ArchiveManaged rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ArchiveManaged"@en.
+:Funds rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Funds"@en.
+:Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Document"@en.
+:Photography rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Photography"@en.
+:Digital rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Digital"@en.
+:Traditional rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Traditional"@en.
+:Archivist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Archivist"@en.
+:Collection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Collection"@en.
+:Individual rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Individual"@en.
+:Management rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Management"@en.
+:Operation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Operation"@en.
+:Document_Operated rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Document_Operated"@en.
+:Operator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Operator"@en.
+:Archive rdfs:subClassOf :Organization.
+:ArchiveManaged rdfs:subClassOf :Archive.
+:Photography rdfs:subClassOf :Document.
+:Digital rdfs:subClassOf :Photography.
+:Traditional rdfs:subClassOf :Photography.
+:Archivist rdfs:subClassOf :Individual.
+:Document_Operated rdfs:subClassOf :Document.
+:Operator rdfs:subClassOf :Individual.

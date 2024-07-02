@@ -1,0 +1,81 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:NFRRequirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "NFRRequirement"@en.
+:NFRQuality_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "NFRQuality_Requirement"@en.
+:UFOQuality_Universal rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "UFOQuality_Universal"@en.
+:UFOQuality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "UFOQuality"@en.
+:UFOQuality_Value rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOQuality_Value"@en.
+:UFO_Quality_Region rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFO_Quality_Region"@en.
+:UFOCGoal rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOCGoal"@en.
+:Explicability_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Explicability_Requirement"@en.
+:Autonomy_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Autonomy_Requirement"@en.
+:Beneficence_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Beneficence_Requirement"@en.
+:Nonmaleficense_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Nonmaleficense_Requirement"@en.
+:Ethical_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Ethical_Requirement"@en.
+:Justice_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Justice_Requirement"@en.
+:NFRRequirement_1 rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "NFRRequirement"@en.
+:NFRQuality_Requirement_1 rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "NFRQuality_Requirement"@en.
+:UFOCGoal_1 rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOCGoal"@en.
+:Beneficence_Requirement_1 rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Beneficence_Requirement"@en.
+:Nonmaleficence_Requirement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Nonmaleficence_Requirement"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intention"@en.
+:UFOAgent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UFOAgent"@en.
+:COVERGain_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "COVERGain_Event"@en.
+:COVERLoss_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "COVERLoss_Event"@en.
+:Beneficence_Intention rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Beneficence_Intention"@en.
+:Nonmaleficence_Intention rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Nonmaleficence_Intention"@en.
+:NFRRequirement rdfs:subClassOf :UFOCGoal.
+:NFRQuality_Requirement rdfs:subClassOf :NFRRequirement.
+:Explicability_Requirement rdfs:subClassOf :NFRQuality_Requirement.
+:Autonomy_Requirement rdfs:subClassOf :NFRQuality_Requirement.
+:Beneficence_Requirement rdfs:subClassOf :NFRQuality_Requirement.
+:Nonmaleficense_Requirement rdfs:subClassOf :NFRQuality_Requirement.
+:Ethical_Requirement rdfs:subClassOf :NFRQuality_Requirement.
+:Justice_Requirement rdfs:subClassOf :NFRQuality_Requirement.
+:NFRRequirement_1 rdfs:subClassOf :UFOCGoal_1.
+:NFRQuality_Requirement_1 rdfs:subClassOf :NFRRequirement_1.
+:Beneficence_Requirement_1 rdfs:subClassOf :NFRQuality_Requirement_1.
+:Nonmaleficence_Requirement rdfs:subClassOf :NFRQuality_Requirement_1.
+:Beneficence_Intention rdfs:subClassOf :Intention.
+:Nonmaleficence_Intention rdfs:subClassOf :Intention.

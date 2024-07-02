@@ -1,0 +1,53 @@
+
+package Ato_por_Licitao
+
+role Licitao_Suspensa of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+role Licitao_em_Fase_Interna of functional-complexes  specializes Licitao 
+
+role Licitao_em_Habilitao of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+role Licitao_Deserta of functional-complexes  specializes Licitao_sem_Seleo 
+
+subkind Licitao_de_Permisso of functional-complexes  specializes Licitao {
+    prazo: undefined  
+}
+
+subkind Licitao_de_Concesso of functional-complexes  specializes Licitao 
+
+subkind Licitao_de_Obra of functional-complexes  specializes Licitao 
+
+subkind Licitao_de_Servio of functional-complexes  specializes Licitao 
+
+role Licitao_em_Julgamento of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+role Licitao_sem_Seleo of functional-complexes  specializes Licitao_Concluda 
+
+role Licitao_com_Seleo of functional-complexes  specializes Licitao_Concluda 
+
+subkind Licitao_de_Locao of functional-complexes  specializes Licitao 
+
+role Licitao_em_Fase_Externa of functional-complexes  specializes Licitao 
+
+subkind Licitao_de_Alientao of functional-complexes  specializes Licitao 
+
+role Licitao_Concluda of functional-complexes  specializes Licitao 
+
+subkind Licitao_de_Compra of functional-complexes  specializes Licitao 
+
+kind Licitao
+
+role Licitao_em_Convocao of functional-complexes  specializes Licitao_em_Fase_Externa, Contexto_de_Publicao 
+
+role Licitao_em_Homologao_e_Adjudicao of functional-complexes  specializes Licitao_em_Fase_Externa 
+
+role Licitao_Fracassada of functional-complexes  specializes Licitao_sem_Seleo 
+
+role Licitao_Anulada of functional-complexes  specializes Licitao_Concluda 
+
+relator Compra_por_Licitao specializes Compra_de_Item 
+
+
+
+
+

@@ -1,0 +1,41 @@
+
+package Lotao
+
+relator Remoo_a_Pedido specializes Remoo 
+
+role Servidor_Removido specializes Servidor_Pblico_Ativo 
+
+role Servidor_Movimentado specializes Servidor_Pblico_Ativo 
+
+relator Remoo
+
+role Unidade_de_Destino_de_Movimentao
+
+relator Remoo_Compulsria_a_Pedido_ specializes Remoo_a_Pedido 
+
+relator Remoo_Discricionria_a_Pedido_ specializes Remoo_a_Pedido 
+
+relator Movimentao
+
+role Unidade_de_Origem
+
+role Servidor_Lotado specializes Servidor_Pblico_Ativo 
+
+role Unidade_de_Origem_de_Movimentao
+
+relator Lotao{
+    data: undefined  
+}
+
+relator Remoo_de_Ofcio specializes Remoo 
+
+role Unidade_de_Lotao
+
+
+
+
+
+
+
+
+

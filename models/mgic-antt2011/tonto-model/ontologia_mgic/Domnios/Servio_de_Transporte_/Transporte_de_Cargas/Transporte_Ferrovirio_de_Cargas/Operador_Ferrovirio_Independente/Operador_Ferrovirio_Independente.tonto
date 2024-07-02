@@ -1,0 +1,27 @@
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Movimentao_de_Ativo_Ferrovirio
+import Operador_Ferrovirio_Independente
+
+package Operador_Ferrovirio_Independente
+
+role Concesso_Ferroviria_com_Operador_Ferrovirio_Independente specializes Concessionria_Ferroviria 
+
+subkind Contrato_de_Subcesso_Onerosa_de_Direito_de_Uso_
+
+role Operador_Ferrovirio_Independente
+
+relator Estabelecimento_de_Direito_de_Uso_para_Operador_Ferrovirio_Independente
+
+role OFI_Operador_de_Viagem_Ferroviria specializes Operador_Ferrovirio_Independente 
+
+relator Transporte_Ferrovirio_de_Carga_Operado_por_OFI specializes Transporte_Ferrovirio_de_Carga 
+
+
+
+
+
+

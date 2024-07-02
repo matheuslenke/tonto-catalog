@@ -1,0 +1,40 @@
+
+package Reviso_Tarifria
+
+role Concessionria_Adimplente_que_Solicita_Reviso specializes Concessionria_Adimplente 
+
+role Tabela_Tarifria_Criada_a_Partir_de_Reviso_Iniciada_por_Concedente of functional-complexes  specializes Tabela_Tarifria_Criada_a_Partir_de_Reviso 
+
+relator Reviso_Solicitada_por_Concessionria_Ferroviria specializes Reviso_de_Tabela_Tarifria 
+
+relator Reviso_de_Tabela_Tarifria{
+    data_da_reviso: undefined  
+}
+
+role Agncia_Reguladora_Avaliadora_de__Reviso_ of functional-complexes  specializes Agncia_Reguladora_Concedente 
+
+role Tabela_Tarifria_Criada_a_Partir_de_Reviso_Iniciada_por_Concessionria_Ferroviria of functional-complexes  specializes Tabela_Tarifria_Criada_a_Partir_de_Reviso 
+
+relator Reviso_Tarifria_Aceita specializes Reviso_Solicitada_por_Concessionria_Ferroviria 
+
+mode Justificativa_de_Reviso_Extraordinria
+
+role Concedente_Solicitante_de_Reviso of functional-complexes  specializes Agncia_Reguladora_Concedente 
+
+relator Reviso_Iniciada_por_Concedente_ specializes Reviso_de_Tabela_Tarifria 
+
+relator Reviso_Ordinria_de_Tabela_Tarifria specializes Reviso_de_Tabela_Tarifria {
+    vigncia: undefined  
+}
+
+relator Reviso_Tarifria_Negada specializes Reviso_Solicitada_por_Concessionria_Ferroviria 
+
+relator Reviso_Extraordinria_de_Tabela_Tarifria specializes Reviso_de_Tabela_Tarifria 
+
+
+
+
+
+
+
+

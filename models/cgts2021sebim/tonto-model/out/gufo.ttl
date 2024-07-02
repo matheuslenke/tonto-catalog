@@ -1,0 +1,101 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Zone rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Zone"@en.
+:Space rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Space"@en.
+:Construction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Construction"@en.
+:Floor rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Floor"@en.
+:Geometry rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Geometry"@en.
+:CityData rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "CityData"@en.
+:BusStop rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BusStop"@en.
+:BikePath rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BikePath"@en.
+:Park rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Park"@en.
+:Material rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Material"@en.
+:Equipment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Equipment"@en.
+:MaterialClassification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "MaterialClassification"@en.
+:Certification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Certification"@en.
+:Certificate rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Certificate"@en.
+:Area rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Area"@en.
+:Score rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Score"@en.
+:LEEDCertified rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LEEDCertified"@en.
+:LEEDGold rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LEEDGold"@en.
+:LEEDSilver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LEEDSilver"@en.
+:LEEDPlatinum rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LEEDPlatinum"@en.
+:CertificationArea rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CertificationArea"@en.
+:BuildinCertified rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BuildinCertified"@en.
+:EnergyAtmosphere rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EnergyAtmosphere"@en.
+:IndoorEnvironmentQuality rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "IndoorEnvironmentQuality"@en.
+:IntegrativeProcess rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "IntegrativeProcess"@en.
+:LocationTransportation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "LocationTransportation"@en.
+:MaterialResource rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MaterialResource"@en.
+:SustainableSite rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SustainableSite"@en.
+:WaterEfficiency rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WaterEfficiency"@en.
+:Space rdfs:subClassOf :Zone.
+:Construction rdfs:subClassOf :Zone.
+:Floor rdfs:subClassOf :Zone.
+:BusStop rdfs:subClassOf :CityData.
+:BikePath rdfs:subClassOf :CityData.
+:Park rdfs:subClassOf :CityData.
+:LEEDCertified rdfs:subClassOf :Certification.
+:LEEDGold rdfs:subClassOf :Certification.
+:LEEDSilver rdfs:subClassOf :Certification.
+:LEEDPlatinum rdfs:subClassOf :Certification.
+:CertificationArea rdfs:subClassOf :Certification.
+:BuildinCertified rdfs:subClassOf :CityData.
+:EnergyAtmosphere rdfs:subClassOf :CertificationArea.
+:IndoorEnvironmentQuality rdfs:subClassOf :CertificationArea.
+:IntegrativeProcess rdfs:subClassOf :CertificationArea.
+:LocationTransportation rdfs:subClassOf :CertificationArea.
+:MaterialResource rdfs:subClassOf :CertificationArea.
+:SustainableSite rdfs:subClassOf :CertificationArea.
+:WaterEfficiency rdfs:subClassOf :CertificationArea.
+:value_ rdfs:domain :Material;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "value_"@en.

@@ -1,0 +1,152 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Searchable_Resource rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Searchable_Resource"@en.
+:Data rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Data"@en.
+:Ground_Data rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ground_Data"@en.
+:Metadata rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Metadata"@en.
+:Searchable_Data rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Searchable_Data"@en.
+:RegistrationIndexing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "RegistrationIndexing"@en.
+:Data_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Data_Item"@en.
+:Metadata_Item rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Metadata_Item"@en.
+:Data_Entity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Entity"@en.
+:Attribute rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Attribute"@en.
+:Metadata_Item_Attribute rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Metadata_Item_Attribute"@en.
+:ID rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ID"@en.
+:Data_ID rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_ID"@en.
+:Data_Item_ID rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Item_ID"@en.
+:Identification_Service rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Identification_Service"@en.
+:ID_Registration rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ID_Registration"@en.
+:Qualified_Attribute_Item rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Qualified_Attribute_Item"@en.
+:Attribute_Key rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Attribute_Key"@en.
+:Attribute_Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Attribute_Value"@en.
+:Explained_Attribute_Key rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Explained_Attribute_Key"@en.
+:SelfExplanatory_Attribute_Key rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SelfExplanatory_Attribute_Key"@en.
+:Extrinsic_Attribute_Value rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Extrinsic_Attribute_Value"@en.
+:Intrinsic_Attribute_Value rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Intrinsic_Attribute_Value"@en.
+:Data_Model rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Data_Model"@en.
+:Representation_Language rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Representation_Language"@en.
+:Accessible_Data rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Accessible_Data"@en.
+:Open_Data rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Open_Data"@en.
+:Data_with_Restricted_Access rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Data_with_Restricted_Access"@en.
+:Data_Accessibility_Requirements rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Data_Accessibility_Requirements"@en.
+:Data_Access_Protocol rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Access_Protocol"@en.
+:Authentication_Protocol rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Authentication_Protocol"@en.
+:Authorization_Protocol rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Authorization_Protocol"@en.
+:Resource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource"@en.
+:Protocol rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Protocol"@en.
+:Community rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Community"@en.
+:Community_Standard rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Community_Standard"@en.
+:Community_Consensus rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Community_Consensus"@en.
+:Restricted_Data_Accessibility_Requirements rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Restricted_Data_Accessibility_Requirements"@en.
+:Provenance_Metadata rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Provenance_Metadata"@en.
+:Provenance_Metadata_Item_Attribute rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Provenance_Metadata_Item_Attribute"@en.
+:Rich_Metadata_Item_Attribute rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Rich_Metadata_Item_Attribute"@en.
+:Reusable_Data rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Reusable_Data"@en.
+:Data_Usage_License rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Data_Usage_License"@en.
+:Rich_Metadata rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Rich_Metadata"@en.
+:Rich_Provenance_Metadata_Item_Attribute rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Rich_Provenance_Metadata_Item_Attribute"@en.
+:Rich_Provenance_Metadata rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Rich_Provenance_Metadata"@en.
+:Ground_Data rdfs:subClassOf :Data.
+:Metadata rdfs:subClassOf :Data.
+:Data rdfs:subClassOf :Data_Entity.
+:Data_Item rdfs:subClassOf :Data_Entity.
+:Searchable_Resource rdfs:subClassOf :Resource.
+:Data rdfs:subClassOf :Data_Entity.
+:Ground_Data rdfs:subClassOf :Data.
+:Metadata rdfs:subClassOf :Data.
+:Searchable_Data rdfs:subClassOf :Data.
+:Data_Item rdfs:subClassOf :Data_Entity.
+:Metadata_Item rdfs:subClassOf :Data_Item.
+:Metadata_Item_Attribute rdfs:subClassOf :Attribute.
+:ID rdfs:subClassOf :Attribute.
+:Data_ID rdfs:subClassOf :ID.
+:Data_Item_ID rdfs:subClassOf :ID.
+:Identification_Service rdfs:subClassOf :Resource.
+:Explained_Attribute_Key rdfs:subClassOf :Attribute_Key, :Qualified_Attribute_Item.
+:SelfExplanatory_Attribute_Key rdfs:subClassOf :Attribute_Key.
+:Extrinsic_Attribute_Value rdfs:subClassOf :Attribute_Value, :Qualified_Attribute_Item.
+:Intrinsic_Attribute_Value rdfs:subClassOf :Attribute_Value.
+:Data_Model rdfs:subClassOf :Resource.
+:Representation_Language rdfs:subClassOf :Resource.
+:Accessible_Data rdfs:subClassOf :Data.
+:Open_Data rdfs:subClassOf :Accessible_Data.
+:Data_with_Restricted_Access rdfs:subClassOf :Accessible_Data.
+:Data_Access_Protocol rdfs:subClassOf :Protocol.
+:Authentication_Protocol rdfs:subClassOf :Data_Access_Protocol.
+:Authorization_Protocol rdfs:subClassOf :Data_Access_Protocol.
+:Protocol rdfs:subClassOf :Resource.
+:Community_Standard rdfs:subClassOf :Resource.
+:Restricted_Data_Accessibility_Requirements rdfs:subClassOf :Data_Accessibility_Requirements.
+:Provenance_Metadata rdfs:subClassOf :Metadata.
+:Provenance_Metadata_Item_Attribute rdfs:subClassOf :Metadata_Item_Attribute.
+:Rich_Metadata_Item_Attribute rdfs:subClassOf :Metadata_Item_Attribute.
+:Reusable_Data rdfs:subClassOf :Data.
+:Rich_Metadata rdfs:subClassOf :Metadata.
+:Rich_Provenance_Metadata_Item_Attribute rdfs:subClassOf :Rich_Metadata_Item_Attribute, :Provenance_Metadata_Item_Attribute.
+:Rich_Provenance_Metadata rdfs:subClassOf :Provenance_Metadata, :Rich_Metadata.

@@ -1,0 +1,25 @@
+
+package Financiamento
+
+kind Carta_de_Fiana specializes Garantia 
+
+mixin Garantia of functional-complexes 
+
+mixin Direito_Emergente of functional-complexes 
+
+kind Receita_Futura specializes Direito_Emergente 
+
+subkind Contrato_de_Financiamento of functional-complexes  specializes Contrato 
+
+relator Financiamento{
+    dataAssinatura: undefined  
+    dvida: undefined  
+    valor: undefined  
+}
+
+roleMixin Direito_como_Garantia of functional-complexes  specializes Direito_Emergente, Garantia 
+
+role Ao_como_Garantia specializes Garantia 
+
+
+

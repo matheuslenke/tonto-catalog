@@ -1,0 +1,205 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Line rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Line"@en.
+:Column rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Column"@en.
+:Line_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Line_Type"@en.
+:Data_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Type"@en.
+:Parameter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Parameter"@en.
+:Data_Preprocessing_Operator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Preprocessing_Operator"@en.
+:Data_Transformation_Preprocessing_Operator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Transformation_Preprocessing_Operator"@en.
+:Data_Cleaning_Preprocessing_Operator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Cleaning_Preprocessing_Operator"@en.
+:Data_Type_Convert rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Type_Convert"@en.
+:Data_Discretization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Discretization"@en.
+:Data_Create rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Create"@en.
+:Data_Normalization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Normalization"@en.
+:Data_Coding rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Coding"@en.
+:Data_Standardization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Standardization"@en.
+:Data_Partition_Preprocessing_Operator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Partition_Preprocessing_Operator"@en.
+:Holdout rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Holdout"@en.
+:Cross_Validation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cross_Validation"@en.
+:Data_Outlier_Treatment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Outlier_Treatment"@en.
+:Data_Missing_Imputation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Missing_Imputation"@en.
+:Data_Reduction_Preprocessing_Operator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Reduction_Preprocessing_Operator"@en.
+:Line_Selection rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Line_Selection"@en.
+:Column_Selection rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Column_Selection"@en.
+:Data_Sampling_Correction_Preprocessing_Operator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Sampling_Correction_Preprocessing_Operator"@en.
+:Oversampling rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Oversampling"@en.
+:Undersampling rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Undersampling"@en.
+:Dataset rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Dataset"@en.
+:Column_Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Column_Value"@en.
+:Column_Characteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Column_Characteristic"@en.
+:Labeled_Dataset rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Labeled_Dataset"@en.
+:Dataset_Characteristic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Dataset_Characteristic"@en.
+:Supervised_Learning_Task rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Supervised_Learning_Task"@en.
+:Target_Column rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Target_Column"@en.
+:Supervised_Learning_Classification_Task rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Supervised_Learning_Classification_Task"@en.
+:Qualitative_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Qualitative_Data_Type"@en.
+:Quantitative_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Quantitative_Data_Type"@en.
+:Nominal_Qualitative_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Nominal_Qualitative_Data_Type"@en.
+:Ordinal_Quantitative_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ordinal_Quantitative_Data_Type"@en.
+:Discreet_Quantitative_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Discreet_Quantitative_Data_Type"@en.
+:Continuous_Quantitative_Data_Type rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Continuous_Quantitative_Data_Type"@en.
+:Data_Transformation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Transformation"@en.
+:Data_Preprocessing_Workflow_Plan rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Preprocessing_Workflow_Plan"@en.
+:User rdf:type owl:NamedIndividual;
+    rdfs:label "User"@en.
+:Operator_Execution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Operator_Execution"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Data_Preprocessing_Assistant rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Data_Preprocessing_Assistant"@en.
+:Software rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Software"@en.
+:Data_Preprocessing_Executable_Operator rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Data_Preprocessing_Executable_Operator"@en.
+:Data_Preprocessing_Executable_Workflow rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data_Preprocessing_Executable_Workflow"@en.
+:Operator rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Operator"@en.
+:Column_Characteristic_Initial rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Column_Characteristic_Initial"@en.
+:Exploratory_Data_Analysis rdf:type owl:NamedIndividual;
+    rdfs:label "Exploratory_Data_Analysis"@en.
+:Data_Preprocessing rdf:type owl:NamedIndividual;
+    rdfs:label "Data_Preprocessing"@en.
+:Data_Preprocessing_Operator_Execution rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Data_Preprocessing_Operator_Execution"@en.
+:Processed_Column rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Processed_Column"@en.
+:Column_Characteristic_Identified rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Column_Characteristic_Identified"@en.
+:Data_Processing_Ability rdf:type owl:NamedIndividual;
+    rdfs:label "Data_Processing_Ability"@en.
+:Data rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Data"@en.
+:Algorithm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Algorithm"@en.
+:Operator_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Operator"@en.
+:Line rdfs:subClassOf :Data.
+:Data_Preprocessing_Operator rdfs:subClassOf :Operator.
+:Data_Outlier_Treatment rdfs:subClassOf :Data_Cleaning_Preprocessing_Operator.
+:Data_Missing_Imputation rdfs:subClassOf :Data_Cleaning_Preprocessing_Operator.
+:Line_Selection rdfs:subClassOf :Data_Reduction_Preprocessing_Operator.
+:Column_Selection rdfs:subClassOf :Data_Reduction_Preprocessing_Operator.
+:Oversampling rdfs:subClassOf :Data_Sampling_Correction_Preprocessing_Operator.
+:Undersampling rdfs:subClassOf :Data_Sampling_Correction_Preprocessing_Operator.
+:Cross_Validation rdfs:subClassOf :Data_Partition_Preprocessing_Operator.
+:Holdout rdfs:subClassOf :Data_Partition_Preprocessing_Operator.
+:Data_Standardization rdfs:subClassOf :Data_Normalization.
+:Data_Normalization rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Discretization rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Type_Convert rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Coding rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Create rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Supervised_Learning_Classification_Task rdfs:subClassOf :Supervised_Learning_Task.
+:Ordinal_Quantitative_Data_Type rdfs:subClassOf :Qualitative_Data_Type.
+:Nominal_Qualitative_Data_Type rdfs:subClassOf :Qualitative_Data_Type.
+:Continuous_Quantitative_Data_Type rdfs:subClassOf :Quantitative_Data_Type.
+:Discreet_Quantitative_Data_Type rdfs:subClassOf :Quantitative_Data_Type.
+:Qualitative_Data_Type rdfs:subClassOf :Data_Type.
+:Quantitative_Data_Type rdfs:subClassOf :Data_Type.
+:Data_Preprocessing_Operator rdfs:subClassOf :Operator.
+:Data_Transformation_Preprocessing_Operator rdfs:subClassOf :Data_Preprocessing_Operator.
+:Data_Cleaning_Preprocessing_Operator rdfs:subClassOf :Data_Preprocessing_Operator.
+:Data_Type_Convert rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Discretization rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Create rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Normalization rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Coding rdfs:subClassOf :Data_Transformation_Preprocessing_Operator.
+:Data_Standardization rdfs:subClassOf :Data_Normalization.
+:Data_Partition_Preprocessing_Operator rdfs:subClassOf :Data_Preprocessing_Operator.
+:Holdout rdfs:subClassOf :Data_Partition_Preprocessing_Operator.
+:Cross_Validation rdfs:subClassOf :Data_Partition_Preprocessing_Operator.
+:Data_Outlier_Treatment rdfs:subClassOf :Data_Cleaning_Preprocessing_Operator.
+:Data_Missing_Imputation rdfs:subClassOf :Data_Cleaning_Preprocessing_Operator.
+:Data_Reduction_Preprocessing_Operator rdfs:subClassOf :Data_Preprocessing_Operator.
+:Line_Selection rdfs:subClassOf :Data_Reduction_Preprocessing_Operator.
+:Column_Selection rdfs:subClassOf :Data_Reduction_Preprocessing_Operator.
+:Data_Sampling_Correction_Preprocessing_Operator rdfs:subClassOf :Data_Preprocessing_Operator.
+:Oversampling rdfs:subClassOf :Data_Sampling_Correction_Preprocessing_Operator.
+:Undersampling rdfs:subClassOf :Data_Sampling_Correction_Preprocessing_Operator.
+:Dataset rdfs:subClassOf :Data.
+:Column_Value rdfs:subClassOf :Data.
+:Labeled_Dataset rdfs:subClassOf :Dataset.
+:Target_Column rdfs:subClassOf :Column.
+:Supervised_Learning_Classification_Task rdfs:subClassOf :Supervised_Learning_Task.
+:Qualitative_Data_Type rdfs:subClassOf :Data_Type.
+:Quantitative_Data_Type rdfs:subClassOf :Data_Type.
+:Nominal_Qualitative_Data_Type rdfs:subClassOf :Qualitative_Data_Type.
+:Ordinal_Quantitative_Data_Type rdfs:subClassOf :Qualitative_Data_Type.
+:Discreet_Quantitative_Data_Type rdfs:subClassOf :Quantitative_Data_Type.
+:Continuous_Quantitative_Data_Type rdfs:subClassOf :Quantitative_Data_Type.
+:User rdfs:subClassOf :Person.
+:Data_Preprocessing_Assistant rdfs:subClassOf :Software.
+:Data_Preprocessing_Executable_Operator rdfs:subClassOf :Operator.

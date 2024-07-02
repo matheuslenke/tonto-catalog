@@ -1,0 +1,39 @@
+
+package Receita
+
+mixin Ativo_Vendido of functional-complexes  specializes Ativo_Permanente 
+
+roleMixin Comprador_Sucata of functional-complexes  specializes Pessoa 
+
+relator Atividade_No_Operacional specializes Atividade_ {
+    despesaNoOperacional: undefined  
+}
+
+relator Atividade_Financeira specializes Atividade_No_Operacional 
+
+relator Venda_de_Sucata specializes Atividade_No_Operacional 
+
+roleMixin Comprador_de_Ativo of functional-complexes  specializes Pessoa 
+
+relator Atividade_Operacional specializes Atividade_ {
+    custoOperacional: undefined  
+    despesaOperacional: undefined  
+}
+
+relator Atividade_{
+    receitaBruta: undefined  
+    receitaLquida: undefined  
+}
+
+relator Atividade_Ordinria specializes Atividade_Operacional 
+
+relator Atividade_Extraordinria specializes Atividade_Operacional 
+
+relator Venda_de_Ativo specializes Atividade_No_Operacional 
+
+
+
+
+
+
+

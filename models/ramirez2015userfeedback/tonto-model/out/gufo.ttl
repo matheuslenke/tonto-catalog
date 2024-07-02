@@ -1,0 +1,196 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Receiver rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Receiver"@en.
+:IntentionInternalCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "IntentionInternalCommitment"@en.
+:CommunicativeCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CommunicativeCommitment"@en.
+:CommunicativeIntention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CommunicativeIntention"@en.
+:InterpretedIntention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "InterpretedIntention"@en.
+:Sender rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Sender"@en.
+:PerformativeVerb rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "PerformativeVerb"@en.
+:IllocutionaryAct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "IllocutionaryAct"@en.
+:Perception rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Perception"@en.
+:Communication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Communication"@en.
+:CommunicativeAct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "CommunicativeAct"@en.
+:PerlocutionaryAct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "PerlocutionaryAct"@en.
+:LocutionaryAct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LocutionaryAct"@en.
+:SpeechAct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "SpeechAct"@en.
+:NonLinguisticAct rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "NonLinguisticAct"@en.
+:Gesture rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Gesture"@en.
+:AttachedInformation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AttachedInformation"@en.
+:Drawing rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Drawing"@en.
+:SoftwareApplication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SoftwareApplication"@en.
+:ArtificialAgent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ArtificialAgent"@en.
+:FeedbackCollector rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FeedbackCollector"@en.
+:FeedbackChannel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "FeedbackChannel"@en.
+:MobileTechnology rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "MobileTechnology"@en.
+:IssueTrackingSystem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "IssueTrackingSystem"@en.
+:MailingList rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "MailingList"@en.
+:OpenForum rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "OpenForum"@en.
+:AppStore rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AppStore"@en.
+:FeedbackProvider rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FeedbackProvider"@en.
+:FeedbackCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "FeedbackCollection"@en.
+:SharedDescription rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SharedDescription"@en.
+:Metadata rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Metadata"@en.
+:FeedbackDescription rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FeedbackDescription"@en.
+:Attachment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Attachment"@en.
+:Audio rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Audio"@en.
+:Video rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Video"@en.
+:Image rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Image"@en.
+:Topic rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Topic"@en.
+:Message rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Message"@en.
+:Sentence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sentence"@en.
+:Words rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Words"@en.
+:FeedbackAnalyst rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FeedbackAnalyst"@en.
+:FeedbackAnalysis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "FeedbackAnalysis"@en.
+:FeedbackAnalyzed rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FeedbackAnalyzed"@en.
+:FeedbackClassified rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FeedbackClassified"@en.
+:FeedbackClassification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "FeedbackClassification"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:PresentationFormat rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:StructuredText :SemiStructuredText :UnstructuredText)
+].
+:StructuredText rdf:type :PresentationFormat;
+    rdf:label "[object Object]".
+:SemiStructuredText rdf:type :PresentationFormat;
+    rdf:label "[object Object]".
+:UnstructuredText rdf:type :PresentationFormat;
+    rdf:label "[object Object]".
+:PresentationFormat rdfs:label "PresentationFormat"@en.
+:AnalysisTechnique rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:SpeechActAnalysis :TopicModeling :SentimentAnalysis :AspectBasedOpinionMining)
+].
+:SpeechActAnalysis rdf:type :AnalysisTechnique;
+    rdf:label "[object Object]".
+:TopicModeling rdf:type :AnalysisTechnique;
+    rdf:label "[object Object]".
+:SentimentAnalysis rdf:type :AnalysisTechnique;
+    rdf:label "[object Object]".
+:AspectBasedOpinionMining rdf:type :AnalysisTechnique;
+    rdf:label "[object Object]".
+:AnalysisTechnique rdfs:label "AnalysisTechnique"@en.
+:FeedbackType rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf (:BugReport :ClarificationRequest :NewFeatureRequest :ProvideRating :Informative)
+].
+:BugReport rdf:type :FeedbackType;
+    rdf:label "[object Object]".
+:ClarificationRequest rdf:type :FeedbackType;
+    rdf:label "[object Object]".
+:NewFeatureRequest rdf:type :FeedbackType;
+    rdf:label "[object Object]".
+:ProvideRating rdf:type :FeedbackType;
+    rdf:label "[object Object]".
+:Informative rdf:type :FeedbackType;
+    rdf:label "[object Object]".
+:FeedbackType rdfs:label "FeedbackType"@en.
+:Sender rdfs:subClassOf :Agent.
+:Receiver rdfs:subClassOf :Agent, :Agent.
+:CommunicativeCommitment rdfs:subClassOf :IntentionInternalCommitment.
+:CommunicativeIntention rdfs:subClassOf :CommunicativeCommitment.
+:InterpretedIntention rdfs:subClassOf :CommunicativeCommitment.
+:Sender rdfs:subClassOf :Agent.
+:IllocutionaryAct rdfs:subClassOf :CommunicativeAct.
+:PerlocutionaryAct rdfs:subClassOf :CommunicativeAct.
+:LocutionaryAct rdfs:subClassOf :CommunicativeAct.
+:Gesture rdfs:subClassOf :NonLinguisticAct.
+:AttachedInformation rdfs:subClassOf :NonLinguisticAct.
+:Drawing rdfs:subClassOf :NonLinguisticAct.
+:FeedbackCollector rdfs:subClassOf :ArtificialAgent.
+:MobileTechnology rdfs:subClassOf :FeedbackChannel.
+:IssueTrackingSystem rdfs:subClassOf :FeedbackChannel.
+:MailingList rdfs:subClassOf :FeedbackChannel.
+:OpenForum rdfs:subClassOf :FeedbackChannel.
+:AppStore rdfs:subClassOf :FeedbackChannel.
+:FeedbackProvider rdfs:subClassOf :Sender.
+:SharedDescription rdfs:subClassOf :FeedbackDescription.
+:Audio rdfs:subClassOf :Attachment.
+:Video rdfs:subClassOf :Attachment.
+:Image rdfs:subClassOf :Attachment.
+:FeedbackAnalyst rdfs:subClassOf :Receiver, :Person.
+:FeedbackAnalyzed rdfs:subClassOf :FeedbackDescription.
+:FeedbackClassified rdfs:subClassOf :FeedbackAnalyzed.

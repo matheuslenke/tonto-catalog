@@ -1,0 +1,60 @@
+
+package Contratos_e_Convnios
+
+mixin Agente_Social of functional-complexes  specializes Pessoa, Entidade_Pblica_Cedente, Fornecedor_de_Compra, Contratado_de_Terceirizado, PJDPI_com_Servidor, Contratante_de_Terceirizado, Supervisor_de_Estgio, Parte_Concedente_de_Estgio, Professor_Orientador, Autorizadora_de_Estgio, Estagirio, Contratante_Fretamento_Contnuo, Autorizatria_com_Autorizao_para_Fretamento_Contnuo 
+
+kind Anexo
+
+relator Acordo_Testemunhado specializes Acordo_Formal 
+
+mode Reivindicao
+
+relator Acordo_por_Prazo_Determinado specializes Acordo_Formal, Fretamento_Contnuo {
+    prazo: undefined  
+}
+
+relator Representao_em_Contrato
+
+role Representante_em_Contrato
+
+mode Compromisso
+
+kind Contrato specializes Contrato_como_Fundamento_Legal, Contrato_de_Subcesso_Onerosa_de_Direito_de_Uso_, Contrato_de_Operao_Especfica 
+
+kind Clusula_Contratual specializes Clusula_Contratual_com_Infrao_Definida, Clusula_Contratual_Utilizada_Como_Base_Para_Documento_de_Advertncia, Clusula_de_Contrato_de_Concesso_Ferroviria {
+    numero: undefined  
+    texto: undefined  
+}
+
+relator Acordo_Social{
+    data_de_estabelecimento: undefined  
+    local: undefined  
+}
+
+relator Acordo_Formal specializes Contratao_de_Empresa_Terceirizada, Vnculo_de_Servio_Pblico, Estgio, Acordo_de_Emprstimo, Acordo_Social, Receita_Rodoviria_Extraordinria, Acordo_Formal_de_Contratao_de_Servio_de_Transporte_Rodovirio_de_Cargas, Acordo_Formal_de_Subcontratao 
+
+role Testemunha_em_Contrato
+
+role Concessionria_com_Documento_de_Advertncia
+
+relator Convnio specializes Acordo_por_Prazo_Determinado {
+    data: undefined  
+    nmero: undefined  
+    tempo: Unidade_de_Tempo  
+}
+
+role Convenente specializes Agente_Social 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

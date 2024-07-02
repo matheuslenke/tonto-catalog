@@ -5,170 +5,170 @@ event UFOB_Event_Event{
     eventID: int  { ordered }
     startTime: DEFTimepoint  
     endTime: DEFTimepoint  
-    header: string_  
-    description: string_  
-    intentionalEvent: boolean_  
-    resultingEvent: boolean_  
-    atomicEvent: boolean_  { derived }
-    complexEvent: boolean_  { derived }
-    harmfulEvent: boolean_  
+    header: string  
+    description: string  
+    intentionalEvent: boolean  
+    resultingEvent: boolean  
+    atomicEvent: boolean  { derived }
+    complexEvent: boolean  { derived }
+    harmfulEvent: boolean  
     intendedRole: DEFRoleTypeList  
     actualRole: DEFRoleTypeList  
 }
 
 kind Place_Place{
     placeID: undefined  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
     geonames: undefined  
     googlemaps: undefined  
-    latitude: string_  
-    longitude: string_  
+    latitude: string  
+    longitude: string  
     openstreetmap: undefined  
 }
 
 category UFOC_Agent_Agent of functional-complexes {
     agentID: int  
-    name: string_  
-    description: string_  
+    name: string  
+    description: string  
     startTime: DEFTimepoint  
     endTime: DEFTimepoint  
     agentType: DEFAgentType  
-    wikidataURL: string_  
-    whowasincommandURL: string_  
+    wikidataURL: string  
+    whowasincommandURL: string  
     contactDetails: DEFContactDetails  
 }
 
 situation Consequence_For_Agent_Consequence_For_Agent{
     consequenceID: int  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
     startTime: DEFTimepoint  
     endTime: DEFTimepoint  
-    positive: boolean_  
-    negative: boolean_  
-    goalTransfer: boolean_  
-    goalTransferThirdAgent: boolean_  
-    economical: boolean_  
-    territorial: boolean_  
-    reputational: boolean_  
-    psychological: boolean_  
-    physical: boolean_  
-    integrity: boolean_  
-    legal: boolean_  
-    remedy: boolean_  
-    truth: boolean_  
-    justice: boolean_  
-    reparation: boolean_  
-    guarantees_of_nonrepetition: boolean_  
+    positive: boolean  
+    negative: boolean  
+    goalTransfer: boolean  
+    goalTransferThirdAgent: boolean  
+    economical: boolean  
+    territorial: boolean  
+    reputational: boolean  
+    psychological: boolean  
+    physical: boolean  
+    integrity: boolean  
+    legal: boolean  
+    remedy: boolean  
+    truth: boolean  
+    justice: boolean  
+    reparation: boolean  
+    guarantees_of_nonrepetition: boolean  
 }
 
 kind Natural_Person_Person specializes UFOC_Agent_Agent {
     personID: int  
-    nationalIdNumber: string_  
+    nationalIdNumber: string  
     sex: DEFSexList  
-    deceased: boolean_  
-    child: boolean_  { derived }
+    deceased: boolean  
+    child: boolean  { derived }
     age: int  { derived }
     weightKg: int  
     heightCm: int  
     ethnicity: DEFEthnicGroupList  
     religion: DEFReligionList  
-    functionalVariation: string_  
-    genderIdentity: string_  
+    functionalVariation: string  
+    genderIdentity: string  
     sexualOrientation: DEFSexualOrientationList  
-    firstName: string_  
-    lastName: string_  
-    middleName: string_  
-    fullName: string_  { derived }
+    firstName: string  
+    lastName: string  
+    middleName: string  
+    fullName: string  { derived }
     nationality: DEFCountryList [0..*] 
     civilStatus: DEFCivilStatusList  
 }
 
 kind UFOC_Social_Agent_Organisation_OR_Group specializes UFOC_Agent_Agent {
     organisationID: int  
-    nationalOrganisationNumber: string_  
+    nationalOrganisationNumber: string  
     numberEmployees: int  
     jurisdictionOf: DEFCountryList  
     netIncome: int  
-    isFormalOrganisation: boolean_  
-    isOrganisationalUnit: boolean_  
-    isAgentiveLegalinstitution: boolean_  
-    isMultiOrganisation: boolean_  
-    isStandAloneOrganisation: boolean_  
-    isSimpleOrganisation: boolean_  
-    isComplexOrganisation: boolean_  
-    isSimpleOrganisationalUnit: boolean_  
-    isComplexOrganisationalUnit: boolean_  
+    isFormalOrganisation: boolean  
+    isOrganisationalUnit: boolean  
+    isAgentiveLegalinstitution: boolean  
+    isMultiOrganisation: boolean  
+    isStandAloneOrganisation: boolean  
+    isSimpleOrganisation: boolean  
+    isComplexOrganisation: boolean  
+    isSimpleOrganisationalUnit: boolean  
+    isComplexOrganisationalUnit: boolean  
 }
 
 roleMixin Perpetrator_Perpetrator of functional-complexes  specializes UFOC_Agent_Agent {
     perpetratorID: int  
-    commission: boolean_  
-    omission: boolean_  
-    failedResponsibilityToRespect: boolean_  
-    failedResponsibilityToProtect: boolean_  
-    failedResponsibilityToPromote: boolean_  
+    commission: boolean  
+    omission: boolean  
+    failedResponsibilityToRespect: boolean  
+    failedResponsibilityToProtect: boolean  
+    failedResponsibilityToPromote: boolean  
 }
 
 roleMixin Victim_Victim of functional-complexes  specializes UFOC_Agent_Agent {
     victimID: int  
-    childAtTimeOfViolation: boolean_  
+    childAtTimeOfViolation: boolean  
     attribute: undefined  
 }
 
 phase Human_Rights_Violation_Human_Rights_Violation of relators {
     humanRightsViolationID: int  
     ohchrThematicIssue: DEFOHCHRThematicIssue [0..*] 
-    legalAnalysis: string_  
+    legalAnalysis: string  
     confirmedStatus: DEFConfirmedStatusList  
 }
 
 kind Human_Rights_Standard_Human_Rights_Standard{
     humanRightsStandardID: int  
-    title: string_  
-    description: string_  
-    wikidataURL: string_  
+    title: string  
+    description: string  
+    wikidataURL: string  
     type_: DEFHumanRightsStandardTypeList  
 }
 
 kind Human_Rights_Instrument_Human_Rights_Instrument{
     humanRightsInstrumentID: int  
-    title: string_  
-    description: string_  
-    ohchrURL: string_  
-    wikidataURL: string_  
-    standaloneInstrument: boolean_  
+    title: string  
+    description: string  
+    ohchrURL: string  
+    wikidataURL: string  
+    standaloneInstrument: boolean  
     instrumentType: undefined  
 }
 
 kind Monitoring_Process_Monitoring_Process{
     monitoringProcessID: int  
-    title: string_  
-    description: string_  
+    title: string  
+    description: string  
 }
 
 subkind Human_Rights_Mechanism_Human_Rights_Mechanism of functional-complexes  specializes UFOC_Social_Agent_Organisation_OR_Group {
     humanRightsMechanismID: undefined  
-    title: string_  
-    description: string_  
-    ohchrURL: string_  
+    title: string  
+    description: string  
+    ohchrURL: string  
 }
 
 role Organisation_Member_Member of functional-complexes  specializes Natural_Person_Person {
     membershipID: int  
     startTime: DEFDateTime  
     endTime: DEFDateTime  
-    commonMember: boolean_  
-    headMember: boolean_  
-    header: string_  
-    description: string_  
+    commonMember: boolean  
+    headMember: boolean  
+    header: string  
+    description: string  
 }
 
 subkind Site_Site of functional-complexes  specializes Place_Place {
     siteID: int  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
 }
 
 role Detention_Centre_Detention_Centre of functional-complexes  specializes Site_Site {
@@ -180,8 +180,8 @@ role Detention_Centre_Detention_Centre of functional-complexes  specializes Site
 
 relator Network_Connection_Network_Connection{
     influece: undefined  
-    moneyFlow: boolean_  
-    informationFlow: boolean_  
+    moneyFlow: boolean  
+    informationFlow: boolean  
     ownership: undefined  
     supplyFlow: undefined  
     networkConnectionID: int  
@@ -191,9 +191,9 @@ relator Network_Connection_Network_Connection{
 
 relator Causation_Causation{
     causationID: undefined  
-    intentionalToResultingEvent: boolean_  
-    directlyCauses: boolean_  
-    contributesTo: boolean_  
+    intentionalToResultingEvent: boolean  
+    directlyCauses: boolean  
+    contributesTo: boolean  
 }
 
 role Detained_Person_Detained_Person of functional-complexes  specializes Natural_Person_Person {
@@ -210,21 +210,21 @@ role Detained_Group_Detained_Group of functional-complexes  specializes UFOC_Soc
 
 event Legally_Defined_Human_Rights_Violation_Legally_Defined_Human_Rights_Violation{
     definedViolationID: int  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
 }
 
 event Monitoring_Event_Monitoring_Event{
     monitoringActionID: int  
-    header: string_  
-    description: string_  
-    informedConsent: string_  
+    header: string  
+    description: string  
+    informedConsent: string  
     locationType: DEFLocationTypeList  
     channelType: undefined  
     startTime: DEFDateTime  
     endTime: DEFDateTime  
-    disclosedInformation: boolean_  
-    receivedInformation: boolean_  
+    disclosedInformation: boolean  
+    receivedInformation: boolean  
     confidentiality: DEFConfidentialityManagement  
     MonitoringIntention: DEFMonitoringIntentionList  
 }
@@ -232,12 +232,12 @@ event Monitoring_Event_Monitoring_Event{
 kind Information_Piece_Information_Piece{
     confidentiality: DEFConfidentialityManagement [1..*] 
     recordID: int  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
     created: DEFDateTime  
     updated: DEFDateTime  
-    representPhysicalObject: boolean_  
-    physicalObjectLocation: string_  
+    representPhysicalObject: boolean  
+    physicalObjectLocation: string  
 }
 
 role Monitoring_Action_Participant_Monitoring_Event_Participant of functional-complexes  specializes Natural_Person_Person {
@@ -250,23 +250,23 @@ kind Digital_File_Digital_File
 kind Official_Legal_Record_Official_Legal_Record{
     legalRecordID: int  
     created: DEFTimepoint  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
 }
 
 kind Official_Legal_Process_Official_Legal_Process{
     legalProcessID: int  
     created: DEFTimepoint  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
 }
 
 relator Membership_Membership{
     membershipID: int  
     startTime: DEFTimepoint  
     endTime: DEFTimepoint  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
     membershipType: undefined [1..*] 
 }
 
@@ -278,14 +278,14 @@ relator Person_Relationship_Person_Relationship{
 
 situation Detainment_Conditions_Detainment_Conditions{
     detainmentConditionsID: undefined  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
 }
 
 situation UFOB_Situation_Situation{
     situationID: undefined  
-    header: string_  
-    description: string_  
+    header: string  
+    description: string  
 }
 
 datatype DEFDate{
@@ -312,9 +312,9 @@ datatype DEFConfidentialityManagement{
 condition,levelAccordingToStaff,levelGIvenBySource
 }
 
-datatype boolean_
+datatype boolean
 datatype int
-datatype string_
+datatype string
 enum DEFRoleTypeList{
     abuse, intervention, other, unkown, no_intention
 }

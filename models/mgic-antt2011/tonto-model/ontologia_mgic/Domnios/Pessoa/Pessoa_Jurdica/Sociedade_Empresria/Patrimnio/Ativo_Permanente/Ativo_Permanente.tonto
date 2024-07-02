@@ -1,0 +1,58 @@
+
+package Ativo_Permanente
+
+role Terreno_Imobilizado of functional-complexes  specializes Ativo_Imobilizado, Terreno_Arrendado_Imobilizado, Terreno_Comprado_Imobilizado 
+
+role Imvel_Edificado_Imobilizado of functional-complexes  specializes Ativo_Imobilizado, Ativo_Deprecivel, Imvel_Edificado_Comprado_Imobilizado, Imvel_Edificado_Construdo_Imobilizado, Imvel_Edificado_Arrendado_Imobilizado 
+
+mixin Participao_em_Empresa of functional-complexes  specializes Ativo_Investimento 
+
+mixin Imvel_Edificado_Explorado of functional-complexes  specializes Ativo_Explorado, Imvel_Edificado_Arrendado_Explorado, Imvel_Edificado_Cedido, Imvel_Edificado_Comprado_Explorado_, Imvel_Edificado_Alugado, Imvel_Edificado_Construdo_Explorado 
+
+mixin Ativo_Intangvel of functional-complexes  specializes Ativo_Permanente {
+    tipo: undefined  
+}
+
+kind Quota_como_Ativo specializes Participao_em_Empresa 
+
+roleMixin Ativo_com_Valor_Inicial of functional-complexes  specializes Ativo_Deprecivel 
+
+mixin Ativo_Explorado of functional-complexes  specializes Ativo_Intangvel, Bem_da_Concesso_Rodoviria 
+
+roleMixin Ativo_Depreciado of functional-complexes  specializes Ativo_Deprecivel {
+    valorDepreciado: undefined  
+    valorResidual: undefined  
+}
+
+roleMixin Ativo_Amortizado of functional-complexes  specializes Ativo_Intangvel {
+    Valor_amortizado: undefined  
+    valor_residual: undefined  
+}
+
+mixin Ativo_Investimento of functional-complexes  specializes Ativo_Permanente, Bem_Especulativo 
+
+mixin Ativo_Permanente of functional-complexes {
+    valor_ativo: undefined  
+}
+
+roleMixin Bem_Operacional_Imobilizado of functional-complexes  specializes Ativo_Deprecivel, Bem_Operacional_Comprado_Imobilizado_, Bem_Operacional_Arrendado_Imobilizado 
+
+kind Bem_Imaterial specializes Ativo_Intangvel 
+
+roleMixin Ativo_Sem_Amortizao of functional-complexes  specializes Ativo_Intangvel 
+
+mixin Bem_Operacional_Explorado of functional-complexes  specializes Ativo_Explorado, Bem_Operacional_Arrendado_Explorado, Bem_Operacional_Alugado, Bem_Operacional_Comprado_Explorado, Bem_Operacional_Cedido 
+
+category Obra_da_Concesso of functional-complexes  specializes Ativo_Explorado 
+
+roleMixin Ativo_Imobilizado of functional-complexes  specializes Ativo_Permanente 
+
+roleMixin Ativo_Deprecivel of functional-complexes  specializes Ativo_Imobilizado {
+    tipo: undefined  
+}
+
+role Ao_como_Ativo specializes Participao_em_Empresa 
+
+mixin Terreno_Explorado of functional-complexes  specializes Ativo_Explorado, Terreno_Cedido, Terreno_Arrendado_Explorado, Terreno_Comprado_Explorado, Terreno_Alugado 
+
+

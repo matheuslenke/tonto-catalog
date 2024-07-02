@@ -1,0 +1,147 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Standard_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Standard_Process"@en.
+:Process_Occurrence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Process_Occurrence"@en.
+:Evaluation_Criteria rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Evaluation_Criteria"@en.
+:Identified_NC rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Identified_NC"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Work_Product_Evaluation_Criteria rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Work_Product_Evaluation_Criteria"@en.
+:Registered_NC rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Registered_NC"@en.
+:NC_Issue rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NC_Issue"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Employment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Employment"@en.
+:NC_Cause rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "NC_Cause"@en.
+:Evaluation_Checklist rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Evaluation_Checklist"@en.
+:Finished_Issue rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Finished_Issue"@en.
+:Planned_Issue rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Planned_Issue"@en.
+:Process_Evaluation_Criteria rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Process_Evaluation_Criteria"@en.
+:Preventive_Action rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Preventive_Action"@en.
+:Improvement_Suggestion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Improvement_Suggestion"@en.
+:Item_Evaluation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Item_Evaluation"@en.
+:Issue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Issue"@en.
+:Appraiser rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Appraiser"@en.
+:Project_Process rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Project_Process"@en.
+:Implementing_Issue rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Implementing_Issue"@en.
+:Objective_Evaluation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Objective_Evaluation"@en.
+:Lesson_Learned rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Lesson_Learned"@en.
+:Non_Effective_Issue rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Non_Effective_Issue"@en.
+:NC_Action_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "NC_Action_Item"@en.
+:Finished_NC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Finished_NC"@en.
+:Corretive_Action rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Corretive_Action"@en.
+:Cause rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Cause"@en.
+:Noncompliance rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Noncompliance"@en.
+:Human_Resource rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Human_Resource"@en.
+:Resolving_NC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Resolving_NC"@en.
+:Planned_NC rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Planned_NC"@en.
+:Problem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Problem"@en.
+:Canceled_NC rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Canceled_NC"@en.
+:Evaluation_Find rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Evaluation_Find"@en.
+:Cause_Identification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Cause_Identification"@en.
+:Project rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Project"@en.
+:Effective_Issue rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Effective_Issue"@en.
+:Problem_Action_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Problem_Action_Item"@en.
+:Problem_Issue rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Problem_Issue"@en.
+:Noncompliance rdfs:subClassOf :Evaluation_Find.
+:Problem rdfs:subClassOf :Evaluation_Find.
+:Lesson_Learned rdfs:subClassOf :Evaluation_Find.
+:Registered_NC rdfs:subClassOf :Noncompliance.
+:Identified_NC rdfs:subClassOf :Noncompliance.
+:Canceled_NC rdfs:subClassOf :Noncompliance.
+:Resolving_NC rdfs:subClassOf :Registered_NC.
+:Finished_NC rdfs:subClassOf :Registered_NC.
+:Planned_NC rdfs:subClassOf :Registered_NC.
+:Preventive_Action rdfs:subClassOf :Issue.
+:Corretive_Action rdfs:subClassOf :Issue.
+:Improvement_Suggestion rdfs:subClassOf :Issue.
+:Finished_Issue rdfs:subClassOf :Issue.
+:Planned_Issue rdfs:subClassOf :Issue.
+:Implementing_Issue rdfs:subClassOf :Issue.
+:Identified_NC rdfs:subClassOf :Noncompliance.
+:Work_Product_Evaluation_Criteria rdfs:subClassOf :Evaluation_Criteria.
+:Registered_NC rdfs:subClassOf :Noncompliance.
+:NC_Issue rdfs:subClassOf :Issue.
+:NC_Cause rdfs:subClassOf :Cause.
+:Finished_Issue rdfs:subClassOf :Issue.
+:Planned_Issue rdfs:subClassOf :Issue.
+:Process_Evaluation_Criteria rdfs:subClassOf :Evaluation_Criteria.
+:Preventive_Action rdfs:subClassOf :Issue.
+:Improvement_Suggestion rdfs:subClassOf :Issue.
+:Appraiser rdfs:subClassOf :Human_Resource.
+:Implementing_Issue rdfs:subClassOf :Issue.
+:Lesson_Learned rdfs:subClassOf :Evaluation_Find.
+:Non_Effective_Issue rdfs:subClassOf :Finished_Issue.
+:Finished_NC rdfs:subClassOf :Registered_NC.
+:Corretive_Action rdfs:subClassOf :Issue.
+:Noncompliance rdfs:subClassOf :Evaluation_Find.
+:Human_Resource rdfs:subClassOf :Person.
+:Resolving_NC rdfs:subClassOf :Registered_NC.
+:Planned_NC rdfs:subClassOf :Registered_NC.
+:Problem rdfs:subClassOf :Evaluation_Find.
+:Canceled_NC rdfs:subClassOf :Noncompliance.
+:Effective_Issue rdfs:subClassOf :Finished_Issue.
+:Problem_Issue rdfs:subClassOf :Issue.

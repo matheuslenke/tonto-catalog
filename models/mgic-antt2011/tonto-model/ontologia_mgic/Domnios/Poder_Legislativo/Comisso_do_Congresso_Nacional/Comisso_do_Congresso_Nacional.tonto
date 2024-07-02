@@ -1,0 +1,109 @@
+
+package Comisso_do_Congresso_Nacional
+
+mode Atribuio_da_Comisso{
+    descrio: undefined  
+}
+
+subkind Comisso_do_Senado_Federal of collectives  specializes Comisso_do_Congresso_Nacional 
+
+subkind Comisso_da_Cmara_dos_Deputados of collectives  specializes Comisso_do_Congresso_Nacional 
+
+role Participante_de_Reunio_de_CCN specializes Membro_de_CCN 
+
+subkind Comisso_Parlamentar_Mista_de_Inqurito_CPMI of collectives  specializes Comisso_Parlamentar_de_Inqurito_CPI, Comisso_Mista 
+
+mode Inteo_de_Comisso_Temporria{
+    objetivo: undefined  
+}
+
+role CCN_com_Reunio of collectives  specializes Comisso_do_Congresso_Nacional 
+
+role Relator_de_CCN specializes Titular_de_CCN 
+
+role Presidente_de_Turma_de_Comisso specializes Membro_Titular_de_Turma_de_Comisso, Vice_Presidente_de_CCN 
+
+phase Comisso_em_Funcionamento of collectives  specializes Comisso_Temporria 
+
+role Titular_de_CCN specializes Membro_de_CCN 
+
+role Comisso_Permanente_Dividida_em_Subcomisses of collectives  specializes Comisso_Permanente 
+
+role Membro_Titular_de_Turma_de_Comisso specializes Membro_de_Turma_de_Comisso 
+
+subkind Comisso_Permanente of collectives  specializes Comisso_do_Congresso_Nacional 
+
+relator Reunio_de_CCN{
+    data: undefined  
+    local: undefined  
+}
+
+role Membro_de_CCN specializes Parlamentar 
+
+role Presidente_de_CCN specializes Titular_de_CCN 
+
+role Vice_Presidente_de_CCN specializes Titular_de_CCN 
+
+role Comisso_Permanente_Dividia_em_Turmas of collectives  specializes Comisso_Permanente 
+
+role Suplente_de_CCN specializes Membro_de_CCN 
+
+subkind Comisso_Mista of collectives  specializes Comisso_do_Congresso_Nacional 
+
+phase Comisso_Encerrada of collectives  specializes Comisso_Temporria 
+
+subkind Comisso_Parlamentar_de_Inqurito_CPI of collectives  specializes Comisso_Temporria 
+
+subkind Subcomisso_Permanente of collectives  specializes Subcomisso 
+
+subkind Subcomisso_Especial of collectives  specializes Subcomisso 
+
+subkind Comisso_Temporria of collectives  specializes Comisso_do_Congresso_Nacional {
+    prazo: undefined  
+}
+
+collective Comisso_do_Congresso_Nacional specializes Responsvel_por_Sesso_Extraordinria, Agente_Legislativo {
+    instalao: undefined  
+    nome: undefined  
+    sigla: undefined  
+    suplentes: undefined  
+    titulares: undefined  
+    vagasSuplente: undefined  
+    vagasTitular: undefined  
+}
+
+subkind Comisso_Especial of collectives  specializes Comisso_Temporria 
+
+role Membro_Suplente_de_Turma_de_Comisso specializes Membro_de_Turma_de_Comisso 
+
+role Membro_de_Turma_de_Comisso specializes Titular_de_CCN 
+
+role Relator_de_Reunio_de_CCN specializes Participante_de_Reunio_de_CCN 
+
+collective Turma_de_Comisso_Permanente
+
+phase Comisso_Aguardando_Instalao of collectives  specializes Comisso_Temporria 
+
+subkind Comisso_Externa of collectives  specializes Comisso_Temporria 
+
+subkind Subcomisso of collectives  specializes Comisso_do_Congresso_Nacional 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

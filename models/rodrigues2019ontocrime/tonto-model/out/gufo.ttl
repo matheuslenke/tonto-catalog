@@ -1,0 +1,346 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Object rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object"@en.
+:Agent rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Physical_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Physical_Object"@en.
+:Social_Object rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Social_Object"@en.
+:Physical_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Physical_Agent"@en.
+:Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Social_Agent"@en.
+:Normative_Description rdf:type owl:NamedIndividual;
+    rdfs:label "Normative_Description"@en.
+:Institutional_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Institutional_Agent"@en.
+:Collective_Social_Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Collective_Social_Agent"@en.
+:Intention rdf:type owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Social_Commitment rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Commitment"@en.
+:Agent_Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Agent_Participation"@en.
+:Commitment rdf:type owl:NamedIndividual;
+    rdfs:label "Commitment"@en.
+:Unfulfilled rdf:type owl:NamedIndividual;
+    rdfs:label "Unfulfilled"@en.
+:Desire rdf:type owl:NamedIndividual;
+    rdfs:label "Desire"@en.
+:Society rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Society"@en.
+:Action_Contribution rdf:type owl:NamedIndividual;
+    rdfs:label "Action_Contribution"@en.
+:Intrinsic_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Intrinsic_Moment"@en.
+:Social_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Social_Relator"@en.
+:Event rdf:type owl:NamedIndividual;
+    rdfs:label "Event"@en.
+:Mental_Moment rdf:type owl:NamedIndividual;
+    rdfs:label "Mental_Moment"@en.
+:Situation rdf:type owl:NamedIndividual;
+    rdfs:label "Situation"@en.
+:Legal_Object rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Legal_Object"@en.
+:Crime_Object rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Crime_Object"@en.
+:Material_Object rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Material_Object"@en.
+:Abstract_Object rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Abstract_Object"@en.
+:Natural_Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Natural_Person"@en.
+:Criminally_Liable rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Criminally_Liable"@en.
+:Criminally_Incapable rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Criminally_Incapable"@en.
+:Passive_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Passive_Agent"@en.
+:Active_Agent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Active_Agent"@en.
+:Underage rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Underage"@en.
+:Mentally_Sick rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Mentally_Sick"@en.
+:State rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "State"@en.
+:Juridical_Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Juridical_Person"@en.
+:Positive_Law rdf:type owl:NamedIndividual;
+    rdfs:label "Positive_Law"@en.
+:Legal_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Legal_Act"@en.
+:Qualified_Situation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Qualified_Situation"@en.
+:Allowed_Situation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Allowed_Situation"@en.
+:Disallowed_Situation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Disallowed_Situation"@en.
+:Mandatory_Situation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Mandatory_Situation"@en.
+:Legal_Norm rdf:type owl:NamedIndividual;
+    rdfs:label "Legal_Norm"@en.
+:Qualification rdf:type owl:NamedIndividual;
+    rdfs:label "Qualification"@en.
+:Permission rdf:type owl:NamedIndividual;
+    rdfs:label "Permission"@en.
+:Prohibition rdf:type owl:NamedIndividual;
+    rdfs:label "Prohibition"@en.
+:Obligation rdf:type owl:NamedIndividual;
+    rdfs:label "Obligation"@en.
+:Non_Incriminating rdf:type owl:NamedIndividual;
+    rdfs:label "Non_Incriminating"@en.
+:Incriminating rdf:type owl:NamedIndividual;
+    rdfs:label "Incriminating"@en.
+:Able_Agent_Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Able_Agent_Participation"@en.
+:Able_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Able_Person"@en.
+:Ability rdf:type owl:NamedIndividual;
+    rdfs:label "Ability"@en.
+:Duty_to_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Duty_to_Act"@en.
+:Guarantor_Able_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Guarantor_Able_Person"@en.
+:Legal_Care_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Legal_Care_Relator"@en.
+:Guarantor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Guarantor"@en.
+:Guaranteed rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Guaranteed"@en.
+:Specific_Duty_to_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Specific_Duty_to_Act"@en.
+:Crime rdf:type owl:NamedIndividual;
+    rdfs:label "Crime"@en.
+:Comissive_Crime rdf:type owl:NamedIndividual;
+    rdfs:label "Comissive_Crime"@en.
+:Pure_Omissive_Crime rdf:type owl:NamedIndividual;
+    rdfs:label "Pure_Omissive_Crime"@en.
+:Felony_Omission rdf:type owl:NamedIndividual;
+    rdfs:label "Felony_Omission"@en.
+:Punishment_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Punishment_Act"@en.
+:Deprive_Liberty rdf:type owl:NamedIndividual;
+    rdfs:label "Deprive_Liberty"@en.
+:Restrict_Right rdf:type owl:NamedIndividual;
+    rdfs:label "Restrict_Right"@en.
+:Fine rdf:type owl:NamedIndividual;
+    rdfs:label "Fine"@en.
+:Circumstance rdf:type owl:NamedIndividual;
+    rdfs:label "Circumstance"@en.
+:Aggravating rdf:type owl:NamedIndividual;
+    rdfs:label "Aggravating"@en.
+:Mitigating rdf:type owl:NamedIndividual;
+    rdfs:label "Mitigating"@en.
+:Norm_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Norm_Relator"@en.
+:Lex_Posterior_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Lex_Posterior_Relator"@en.
+:Specific_Rule rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Specific_Rule"@en.
+:General_Rule rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "General_Rule"@en.
+:Ancient_Rule rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Ancient_Rule"@en.
+:Recent_Rule rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Recent_Rule"@en.
+:Superior_Rule rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Superior_Rule"@en.
+:Inferior_Rule rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Inferior_Rule"@en.
+:Passive_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Passive_Person"@en.
+:Passive_Juridical_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Passive_Juridical_Person"@en.
+:Passive_Society rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Passive_Society"@en.
+:Register rdf:type owl:NamedIndividual;
+    rdfs:label "Register"@en.
+:CPF rdf:type owl:NamedIndividual;
+    rdfs:label "CPF"@en.
+:CNPJ rdf:type owl:NamedIndividual;
+    rdfs:label "CNPJ"@en.
+:Legal_Normative_Description rdf:type owl:NamedIndividual;
+    rdfs:label "Legal_Normative_Description"@en.
+:Legal_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Legal_Agent"@en.
+:Crime_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Crime_Agent"@en.
+:Principle rdf:type owl:NamedIndividual;
+    rdfs:label "Principle"@en.
+:Legal_Rule rdf:type owl:NamedIndividual;
+    rdfs:label "Legal_Rule"@en.
+:Unfulfilled_Duty_to_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Unfulfilled_Duty_to_Act"@en.
+:Unfulfilled_Specific_Duty_to_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Unfulfilled_Specific_Duty_to_Act"@en.
+:Able_Guarantor_Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Able_Guarantor_Participation"@en.
+:Adult rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Mentally_Healthy rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Mentally_Healthy"@en.
+:Crime_Author rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Crime_Author"@en.
+:Legal_Event rdf:type owl:NamedIndividual;
+    rdfs:label "Legal_Event"@en.
+:TypicalEvent rdf:type owl:NamedIndividual;
+    rdfs:label "TypicalEvent"@en.
+:CulpableEvent rdf:type owl:NamedIndividual;
+    rdfs:label "CulpableEvent"@en.
+:UnlawfulEvent rdf:type owl:NamedIndividual;
+    rdfs:label "UnlawfulEvent"@en.
+:LegalOmission rdf:type owl:NamedIndividual;
+    rdfs:label "LegalOmission"@en.
+:LegalFelonyOmission rdf:type owl:NamedIndividual;
+    rdfs:label "LegalFelonyOmission"@en.
+:Legal_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Legal_Relator"@en.
+:Criminal_Act rdf:type owl:NamedIndividual;
+    rdfs:label "Criminal_Act"@en.
+:Jurisdiction_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Jurisdiction_Agent"@en.
+:Jurisdictional_State rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Jurisdictional_State"@en.
+:Crime_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Crime_Relator"@en.
+:Lex_Specialis_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Lex_Specialis_Relator"@en.
+:Lex_Superior_Relator rdf:type owl:NamedIndividual;
+    rdfs:label "Lex_Superior_Relator"@en.
+:Physical_Object rdfs:subClassOf :Object.
+:Social_Object rdfs:subClassOf :Object.
+:Physical_Agent rdfs:subClassOf :Agent.
+:Social_Agent rdfs:subClassOf :Agent.
+:Normative_Description rdfs:subClassOf :Social_Object.
+:Institutional_Agent rdfs:subClassOf :Social_Agent.
+:Collective_Social_Agent rdfs:subClassOf :Social_Agent.
+:Intention rdfs:subClassOf :Mental_Moment.
+:Social_Commitment rdfs:subClassOf :Commitment.
+:Agent_Participation rdfs:subClassOf :Event.
+:Unfulfilled rdfs:subClassOf :Commitment.
+:Society rdfs:subClassOf :Collective_Social_Agent.
+:Action_Contribution rdfs:subClassOf :Agent_Participation.
+:Underage rdfs:subClassOf :Natural_Person.
+:Adult rdfs:subClassOf :Natural_Person.
+:Mentally_Sick rdfs:subClassOf :Natural_Person.
+:Mentally_Healthy rdfs:subClassOf :Natural_Person.
+:Passive_Juridical_Person rdfs:subClassOf :Passive_Agent.
+:Passive_Person rdfs:subClassOf :Passive_Agent.
+:Passive_Society rdfs:subClassOf :Passive_Agent.
+:CPF rdfs:subClassOf :Register.
+:CNPJ rdfs:subClassOf :Register.
+:Incriminating rdfs:subClassOf :Legal_Rule.
+:Non_Incriminating rdfs:subClassOf :Legal_Rule.
+:Disallowed_Situation rdfs:subClassOf :Qualified_Situation.
+:Allowed_Situation rdfs:subClassOf :Qualified_Situation.
+:Mandatory_Situation rdfs:subClassOf :Qualified_Situation.
+:Fine rdfs:subClassOf :Punishment_Act.
+:Deprive_Liberty rdfs:subClassOf :Punishment_Act.
+:Restrict_Right rdfs:subClassOf :Punishment_Act.
+:Mitigating rdfs:subClassOf :Circumstance.
+:Aggravating rdfs:subClassOf :Circumstance.
+:Principle rdfs:subClassOf :Legal_Norm.
+:Legal_Rule rdfs:subClassOf :Legal_Norm.
+:Legal_Object rdfs:subClassOf :Object.
+:Crime_Object rdfs:subClassOf :Legal_Object.
+:Material_Object rdfs:subClassOf :Physical_Object, :Crime_Object.
+:Abstract_Object rdfs:subClassOf :Social_Object, :Crime_Object.
+:Natural_Person rdfs:subClassOf :Physical_Agent, :Agent.
+:Criminally_Liable rdfs:subClassOf :Mentally_Healthy, :Adult.
+:Criminally_Incapable rdfs:subClassOf :Natural_Person.
+:Passive_Agent rdfs:subClassOf :Crime_Agent, :Legal_Agent.
+:Active_Agent rdfs:subClassOf :Crime_Agent, :Natural_Person, :Legal_Agent.
+:Underage rdfs:subClassOf :Natural_Person.
+:Mentally_Sick rdfs:subClassOf :Natural_Person.
+:State rdfs:subClassOf :Institutional_Agent.
+:Juridical_Person rdfs:subClassOf :Institutional_Agent.
+:Positive_Law rdfs:subClassOf :Legal_Normative_Description.
+:Legal_Act rdfs:subClassOf :Action_Contribution, :Legal_Event.
+:Qualified_Situation rdfs:subClassOf :Situation.
+:Allowed_Situation rdfs:subClassOf :Qualified_Situation.
+:Disallowed_Situation rdfs:subClassOf :Qualified_Situation.
+:Mandatory_Situation rdfs:subClassOf :Situation, :Qualified_Situation.
+:Legal_Norm rdfs:subClassOf :Legal_Normative_Description.
+:Qualification rdfs:subClassOf :Legal_Relator.
+:Permission rdfs:subClassOf :Qualification.
+:Prohibition rdfs:subClassOf :Permission.
+:Obligation rdfs:subClassOf :Permission.
+:Non_Incriminating rdfs:subClassOf :Legal_Rule.
+:Incriminating rdfs:subClassOf :Legal_Rule.
+:Able_Agent_Participation rdfs:subClassOf :Legal_Event.
+:Able_Person rdfs:subClassOf :Natural_Person.
+:Ability rdfs:subClassOf :Intrinsic_Moment.
+:Duty_to_Act rdfs:subClassOf :Social_Commitment.
+:Guarantor_Able_Person rdfs:subClassOf :Guarantor, :Able_Person.
+:Legal_Care_Relator rdfs:subClassOf :Legal_Relator.
+:Guarantor rdfs:subClassOf :Natural_Person.
+:Guaranteed rdfs:subClassOf :Physical_Agent.
+:Specific_Duty_to_Act rdfs:subClassOf :Duty_to_Act.
+:Crime rdfs:subClassOf :TypicalEvent, :UnlawfulEvent, :CulpableEvent.
+:Comissive_Crime rdfs:subClassOf :Crime, :Criminal_Act.
+:Pure_Omissive_Crime rdfs:subClassOf :CulpableEvent, :LegalOmission, :UnlawfulEvent.
+:Felony_Omission rdfs:subClassOf :LegalFelonyOmission, :UnlawfulEvent, :CulpableEvent.
+:Punishment_Act rdfs:subClassOf :Legal_Act.
+:Deprive_Liberty rdfs:subClassOf :Punishment_Act.
+:Restrict_Right rdfs:subClassOf :Punishment_Act.
+:Fine rdfs:subClassOf :Punishment_Act.
+:Circumstance rdfs:subClassOf :Qualified_Situation.
+:Aggravating rdfs:subClassOf :Circumstance.
+:Mitigating rdfs:subClassOf :Circumstance.
+:Norm_Relator rdfs:subClassOf :Legal_Relator.
+:Lex_Posterior_Relator rdfs:subClassOf :Norm_Relator.
+:Specific_Rule rdfs:subClassOf :Legal_Rule.
+:General_Rule rdfs:subClassOf :Legal_Rule.
+:Ancient_Rule rdfs:subClassOf :Legal_Rule.
+:Recent_Rule rdfs:subClassOf :Legal_Rule.
+:Superior_Rule rdfs:subClassOf :Legal_Rule.
+:Inferior_Rule rdfs:subClassOf :Legal_Rule.
+:Passive_Person rdfs:subClassOf :Passive_Agent, :Natural_Person.
+:Passive_Juridical_Person rdfs:subClassOf :Juridical_Person, :Passive_Agent.
+:Passive_Society rdfs:subClassOf :Society, :Passive_Agent.
+:Register rdfs:subClassOf :Social_Object.
+:CPF rdfs:subClassOf :Register.
+:CNPJ rdfs:subClassOf :Register.
+:Legal_Normative_Description rdfs:subClassOf :Normative_Description.
+:Legal_Agent rdfs:subClassOf :Agent.
+:Crime_Agent rdfs:subClassOf :Legal_Agent.
+:Principle rdfs:subClassOf :Legal_Norm.
+:Legal_Rule rdfs:subClassOf :Legal_Norm.
+:Unfulfilled_Duty_to_Act rdfs:subClassOf :Unfulfilled, :Duty_to_Act.
+:Unfulfilled_Specific_Duty_to_Act rdfs:subClassOf :Unfulfilled, :Specific_Duty_to_Act.
+:Able_Guarantor_Participation rdfs:subClassOf :Able_Agent_Participation.
+:Adult rdfs:subClassOf :Natural_Person.
+:Mentally_Healthy rdfs:subClassOf :Natural_Person.
+:Crime_Author rdfs:subClassOf :Active_Agent, :Criminally_Liable.
+:Legal_Event rdfs:subClassOf :Agent_Participation.
+:TypicalEvent rdfs:subClassOf :Legal_Event.
+:CulpableEvent rdfs:subClassOf :Legal_Event.
+:UnlawfulEvent rdfs:subClassOf :Legal_Event.
+:LegalOmission rdfs:subClassOf :TypicalEvent, :Able_Agent_Participation.
+:LegalFelonyOmission rdfs:subClassOf :Able_Guarantor_Participation, :TypicalEvent.
+:Legal_Relator rdfs:subClassOf :Social_Relator.
+:Criminal_Act rdfs:subClassOf :Legal_Act, :TypicalEvent.
+:Jurisdiction_Agent rdfs:subClassOf :Legal_Agent.
+:Jurisdictional_State rdfs:subClassOf :Jurisdiction_Agent, :State.
+:Lex_Specialis_Relator rdfs:subClassOf :Norm_Relator.
+:Lex_Superior_Relator rdfs:subClassOf :Norm_Relator.

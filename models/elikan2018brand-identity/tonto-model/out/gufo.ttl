@@ -1,0 +1,97 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Stakeholders rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Stakeholders"@en.
+:External_stekaholders rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "External_stekaholders"@en.
+:Official_stakeholders rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Official_stakeholders"@en.
+:Internal_stakeholders rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Internal_stakeholders"@en.
+:Customers rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Customers"@en.
+:Customer_reflection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Customer_reflection"@en.
+:Perceived_image_Perception rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Perceived_image_Perception"@en.
+:Employees rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Employees"@en.
+:Brand_heritage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Brand_heritage"@en.
+:Reputation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Reputation"@en.
+:Identity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Identity"@en.
+:Vision rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Vision"@en.
+:Essence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Essence"@en.
+:Mission rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Mission"@en.
+:Aims_and_goals rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Aims_and_goals"@en.
+:Culture rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Culture"@en.
+:Structure rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Structure"@en.
+:Values rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Values"@en.
+:Personality rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Personality"@en.
+:Desired_Image rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Desired_Image"@en.
+:Image rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Image"@en.
+:Positioning rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Positioning"@en.
+:Presentation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Presentation"@en.
+:Noise rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Noise"@en.
+:Environmental_Influences rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Environmental_Influences"@en.
+:Communication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Communication"@en.
+:Behaviors rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Behaviors"@en.
+:Value_Proposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value_Proposition"@en.
+:Expression rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Expression"@en.
+:Visual_components rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Visual_components"@en.
+:Perceived_image_Perception rdfs:subClassOf :Image.
+:Vision rdfs:subClassOf :Identity.
+:Culture rdfs:subClassOf :Identity.
+:Desired_Image rdfs:subClassOf :Identity, :Image.
+:Environmental_Influences rdfs:subClassOf :Noise.

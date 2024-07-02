@@ -1,0 +1,94 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:ActiveClass rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ActiveClass"@en.
+:ActiveCurriculum rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ActiveCurriculum"@en.
+:ActiveProfessor rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "ActiveProfessor"@en.
+:Center rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Center"@en.
+:Class rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Class"@en.
+:ClassEnrollment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ClassEnrollment"@en.
+:Colegiado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Colegiado"@en.
+:Course rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Course"@en.
+:CourseCoordinator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CourseCoordinator"@en.
+:Curriculum rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Curriculum"@en.
+:Department rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Department"@en.
+:DepartmentChief rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "DepartmentChief"@en.
+:Discipline rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Discipline"@en.
+:EgressStudent rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "EgressStudent"@en.
+:Enrollment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Enrollment"@en.
+:Higher_Education_Institution rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Higher_Education_Institution"@en.
+:InactiveClass rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "InactiveClass"@en.
+:InactiveCurriculum rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "InactiveCurriculum"@en.
+:InactiveProfessor rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "InactiveProfessor"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Professor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Professor"@en.
+:ProfessorMandate rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ProfessorMandate"@en.
+:RegularStudent rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "RegularStudent"@en.
+:Semester rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Semester"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:StudentMandate rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "StudentMandate"@en.
+:SuspendedStudent rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "SuspendedStudent"@en.
+:Field rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Field"@en.
+:ActiveClass rdfs:subClassOf :Class.
+:ActiveCurriculum rdfs:subClassOf :Curriculum.
+:ActiveProfessor rdfs:subClassOf :Professor.
+:Center rdfs:subClassOf :Organization.
+:CourseCoordinator rdfs:subClassOf :Professor.
+:Department rdfs:subClassOf :Organization.
+:DepartmentChief rdfs:subClassOf :Professor.
+:EgressStudent rdfs:subClassOf :Student.
+:Higher_Education_Institution rdfs:subClassOf :Organization.
+:InactiveClass rdfs:subClassOf :Class.
+:InactiveCurriculum rdfs:subClassOf :Curriculum.
+:InactiveProfessor rdfs:subClassOf :Professor.
+:Professor rdfs:subClassOf :Person.
+:RegularStudent rdfs:subClassOf :Student.
+:Student rdfs:subClassOf :Person.
+:SuspendedStudent rdfs:subClassOf :Student.

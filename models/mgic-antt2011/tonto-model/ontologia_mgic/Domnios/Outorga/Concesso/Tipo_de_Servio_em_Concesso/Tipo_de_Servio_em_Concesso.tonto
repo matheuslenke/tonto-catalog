@@ -1,0 +1,21 @@
+import Convnio_de_Manuteno
+import Servio_em_Concesso
+
+package Tipo_de_Servio_em_Concesso
+
+subkind Servio_de_Manuteno of functional-complexes  specializes Servio_de_Manuteno_Delegado, Servio_com_Interveno 
+
+subkind Servio_com_Interveno of functional-complexes  specializes Servio_em_Concesso_ 
+
+subkind Servio_de_Monitorao of functional-complexes  specializes Servio_de_Operao 
+
+subkind Servio_de_Recuperao of functional-complexes  specializes Servio_com_Interveno 
+
+subkind Servio_de_Conservao of functional-complexes  specializes Servio_com_Interveno 
+
+subkind Servios_de_Auxlio_aos_Usurios of functional-complexes  specializes Servio_de_Operao 
+
+subkind Servio_de_Melhoramento of functional-complexes  specializes Servio_com_Interveno 
+
+subkind Servio_de_Operao of functional-complexes  specializes Servio_em_Concesso_ 
+

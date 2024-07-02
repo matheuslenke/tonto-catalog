@@ -1,0 +1,28 @@
+
+package Pagamento
+
+relator Pagamento_Parcelado specializes Pagamento {
+    vezes: undefined  
+}
+
+roleMixin Pagador of functional-complexes 
+
+relator Pagamento__Vista specializes Pagamento 
+
+kind Comprovante_de_Pagamento{
+    nmero: undefined  
+}
+
+roleMixin Beneficirio of functional-complexes 
+
+relator Pagamento specializes Pagamento_de_GRU, Pagamento_de_Frete {
+    data: undefined  
+    valor: undefined  
+}
+
+
+
+
+
+
+

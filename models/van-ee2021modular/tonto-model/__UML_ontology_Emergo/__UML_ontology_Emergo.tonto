@@ -2,5 +2,5 @@
 package __UML_ontology_Emergo
 
 datatype double
-datatype string_
-datatype boolean_
+datatype string
+datatype boolean

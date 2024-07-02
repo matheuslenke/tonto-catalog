@@ -1,0 +1,98 @@
+
+package Gerais
+
+relator Fiscalizao_Apurativa specializes Fiscalizao 
+
+relator Fiscalizao_Indireta specializes Fiscalizao 
+
+roleMixin Pessoa_Fiscalizada of functional-complexes  specializes Objeto_Fiscalizado 
+
+roleMixin Veculo_Fiscalizado of functional-complexes  specializes Objeto_Fiscalizado 
+
+relator Fiscalizao_Individual specializes Fiscalizao {
+    local: undefined  
+}
+
+role Fiscal_em_Fiscalizao_Individual specializes Fiscal 
+
+mode Objetivo_de_Fiscalizao
+
+role Ato_Normativo_Base_de_Fiscalizao
+
+role Fiscal_da_ANTT specializes Fiscal 
+
+role Fiscal
+
+roleMixin Objeto_Fiscalizado of functional-complexes 
+
+mode Meta_de_Fiscalizao
+
+role Equipe_Componente_de_Fiscalizao_Composta of functional-complexes  specializes Equipe_Simples_de_Fiscalizao 
+
+role Fiscal_Lder_de_Equipe specializes Fiscal_Participante_de_Equipe 
+
+relator Fiscalizao_Constante specializes Fiscalizao_de_Rotina 
+
+role Coordenador_de_Fiscalizao_Composta specializes Fiscal_Lder_de_Equipe 
+
+relator Fiscalizao{
+    data: undefined  
+    perodo: undefined  
+    valor: undefined  
+}
+
+relator Fiscalizao_Programada specializes Fiscalizao 
+
+relator Fiscalizao_de_Rotina specializes Fiscalizao {
+    regularidade: undefined  
+}
+
+relator Fiscalizao_Preventiva specializes Fiscalizao 
+
+kind Equipe_Simples_de_Fiscalizao
+
+relator Fiscalizao_Eventual specializes Fiscalizao 
+
+relator Fiscalizao_Peridica specializes Fiscalizao_de_Rotina 
+
+relator Fiscalizao_Direta specializes Fiscalizao 
+
+role Fiscal_Participante_de_Equipe specializes Fiscal 
+
+role Fiscal_Conveniado specializes Fiscal 
+
+roleMixin Veculo_Fiscalizado_em_Plataforma of functional-complexes  specializes Veculo_Fiscalizado 
+
+roleMixin Objeto_Fiscalizado_Indiretamente of functional-complexes  specializes Objeto_Fiscalizado 
+
+relator Fiscalizao_em_Equipe_Composta specializes Fiscalizao {
+    local: undefined  
+}
+
+relator Fiscalizao_Apurativa_e_Punitiva specializes Fiscalizao_Apurativa 
+
+relator Fiscalizao_em_Equipe_Simples specializes Fiscalizao {
+    local: undefined  
+}
+
+role Fiscal_Integrante_de_Equipe specializes Fiscal_Participante_de_Equipe 
+
+roleMixin Objeto_Fiscalizado_Diretamente of functional-complexes  specializes Objeto_Fiscalizado 
+
+relator Abordagem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

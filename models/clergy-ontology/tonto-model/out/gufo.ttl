@@ -1,0 +1,98 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Clergy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Clergy"@en.
+:Secular_Clergy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Secular_Clergy"@en.
+:Regular_Clergy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Regular_Clergy"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Clergy_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Clergy_Member"@en.
+:Secular_Clergy_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Secular_Clergy_Member"@en.
+:Regular_Clergy_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Regular_Clergy_Member"@en.
+:Baptism rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Baptism"@en.
+:Layman rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Layman"@en.
+:Clergyman rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Clergyman"@en.
+:Witness_of_Profession rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Witness_of_Profession"@en.
+:Religious_Profession rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Religious_Profession"@en.
+:Deacon rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Deacon"@en.
+:Bishop rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Bishop"@en.
+:Priest rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Priest"@en.
+:Cardinal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Cardinal"@en.
+:Ordination_of_Deacon rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Ordination_of_Deacon"@en.
+:Bishop_Ordination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Bishop_Ordination"@en.
+:Ordination_of_Priest rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Ordination_of_Priest"@en.
+:Ordinator_of_Deacon rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ordinator_of_Deacon"@en.
+:Ordained_Bishop rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ordained_Bishop"@en.
+:Ordinator_of_Bishop rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ordinator_of_Bishop"@en.
+:Ordinator_of_Priest rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ordinator_of_Priest"@en.
+:Nomination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Nomination"@en.
+:Cardinal_Nominator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Cardinal_Nominator"@en.
+:Pope rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pope"@en.
+:Election rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Election"@en.
+:College_of_Cardinals rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "College_of_Cardinals"@en.
+:Electorate_of_the_Cadinal_School rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Electorate_of_the_Cadinal_School"@en.
+:Clergyman rdfs:subClassOf :Regular_Clergy_Member.
+:Layman rdfs:subClassOf :Regular_Clergy_Member.
+:Clergy_Member rdfs:subClassOf :Person.
+:Secular_Clergy_Member rdfs:subClassOf :Clergy_Member.
+:Regular_Clergy_Member rdfs:subClassOf :Clergy_Member.
+:Layman rdfs:subClassOf :Regular_Clergy_Member.
+:Clergyman rdfs:subClassOf :Regular_Clergy_Member.
+:Witness_of_Profession rdfs:subClassOf :Clergyman.
+:Deacon rdfs:subClassOf :Secular_Clergy_Member.
+:Bishop rdfs:subClassOf :Secular_Clergy_Member.
+:Priest rdfs:subClassOf :Secular_Clergy_Member.
+:Cardinal rdfs:subClassOf :Secular_Clergy_Member.
+:Ordinator_of_Deacon rdfs:subClassOf :Bishop.
+:Ordained_Bishop rdfs:subClassOf :Bishop.
+:Ordinator_of_Bishop rdfs:subClassOf :Bishop.
+:Ordinator_of_Priest rdfs:subClassOf :Bishop.
+:Cardinal_Nominator rdfs:subClassOf :Pope.
+:Pope rdfs:subClassOf :Cardinal.

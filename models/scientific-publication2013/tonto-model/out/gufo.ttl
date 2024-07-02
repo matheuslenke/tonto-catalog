@@ -1,0 +1,235 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Authored_Document rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Authored_Document"@en.
+:Editored_Document rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Editored_Document"@en.
+:Editor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Editor"@en.
+:Editorship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Editorship"@en.
+:Main_Author rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Main_Author"@en.
+:Compound_Authorship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Compound_Authorship"@en.
+:Authorship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Authorship"@en.
+:Editored_Book rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Editored_Book"@en.
+:Cited rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Cited"@en.
+:Citing_Document rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Citing_Document"@en.
+:Citation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Citation"@en.
+:Thesis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Thesis"@en.
+:Book rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Book"@en.
+:Report rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Report"@en.
+:MSc_Thesis rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MSc_Thesis"@en.
+:PhD_Thesis rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PhD_Thesis"@en.
+:Proceedings rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Proceedings"@en.
+:Publication rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Publication"@en.
+:InBook rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "InBook"@en.
+:Periodical rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Periodical"@en.
+:Magazine rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Magazine"@en.
+:BSc_Thesis rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BSc_Thesis"@en.
+:Document rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Document"@en.
+:Unpublished_Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Unpublished_Document"@en.
+:InProceedings rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "InProceedings"@en.
+:Book_Chapter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Book_Chapter"@en.
+:Range_of_Pages rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Range_of_Pages"@en.
+:Collection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Collection"@en.
+:InCollection rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "InCollection"@en.
+:Technical_Report rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Technical_Report"@en.
+:Project_Report rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Project_Report"@en.
+:Booklet rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Booklet"@en.
+:Manual rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Manual"@en.
+:ResearchPaper rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ResearchPaper"@en.
+:Event_Type rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Event_Type"@en.
+:Event rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Event"@en.
+:Conference_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Conference_Type"@en.
+:Workshop_Type rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Workshop_Type"@en.
+:Conference rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Conference"@en.
+:Workshop rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Workshop"@en.
+:Host_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Host_Event"@en.
+:Colocated_Event rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Colocated_Event"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Colaborator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Colaborator"@en.
+:Country rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Country"@en.
+:City rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "City"@en.
+:Address rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Address"@en.
+:Published_Document rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Published_Document"@en.
+:Publisher rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Publisher"@en.
+:PublicationRELATOR rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "PublicationRELATOR"@en.
+:Journal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Journal"@en.
+:Journal_Issue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Journal_Issue"@en.
+:Article rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Article"@en.
+:Authored_Document rdfs:subClassOf :InBook.
+:Compound_Authorship rdfs:subClassOf :Authorship.
+:Editored_Book rdfs:subClassOf :Book, :Editored_Document.
+:Cited rdfs:subClassOf :Document.
+:Citing_Document rdfs:subClassOf :Document.
+:Thesis rdfs:subClassOf :Publication, :Authored_Document.
+:Book rdfs:subClassOf :Publication, :Authored_Document.
+:Report rdfs:subClassOf :Publication, :Authored_Document.
+:MSc_Thesis rdfs:subClassOf :Thesis.
+:PhD_Thesis rdfs:subClassOf :Thesis.
+:Proceedings rdfs:subClassOf :Publication, :Editored_Document.
+:Publication rdfs:subClassOf :Document.
+:InBook rdfs:subClassOf :Publication.
+:Periodical rdfs:subClassOf :Publication, :Editored_Document.
+:Magazine rdfs:subClassOf :Periodical.
+:BSc_Thesis rdfs:subClassOf :Thesis.
+:Unpublished_Document rdfs:subClassOf :Document.
+:InProceedings rdfs:subClassOf :Publication, :Authored_Document.
+:Book_Chapter rdfs:subClassOf :InBook.
+:Range_of_Pages rdfs:subClassOf :InBook.
+:Collection rdfs:subClassOf :Publication, :Editored_Document.
+:InCollection rdfs:subClassOf :Publication, :Authored_Document.
+:Technical_Report rdfs:subClassOf :Report.
+:Project_Report rdfs:subClassOf :Report.
+:Booklet rdfs:subClassOf :Publication, :Authored_Document.
+:Manual rdfs:subClassOf :Publication, :Authored_Document.
+:ResearchPaper rdfs:subClassOf :Publication, :Authored_Document.
+:Event_Type rdfs:subClassOf :Conference_Type, :Workshop_Type.
+:Conference rdfs:subClassOf :Event.
+:Workshop rdfs:subClassOf :Event.
+:Host_Event rdfs:subClassOf :Event.
+:Colocated_Event rdfs:subClassOf :Event.
+:Person rdfs:subClassOf :Agent.
+:Organization rdfs:subClassOf :Agent.
+:Colaborator rdfs:subClassOf :Agent.
+:Publisher rdfs:subClassOf :Organization.
+:title rdfs:domain :Document;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "title"@en.
+:subtitle rdfs:domain :Document;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "subtitle"@en.
+:periodicity rdfs:domain :Journal;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "periodicity"@en.
+:title_1 rdfs:domain :Journal;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "title"@en.
+:subtitle_1 rdfs:domain :Journal;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "subtitle"@en.
+:volume rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "volume"@en.
+:number_ rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "number_"@en.
+:issueDate rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "issueDate"@en.
+:issn rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "issn"@en.
+:startPage rdfs:domain :Article;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startPage"@en.
+:endPage rdfs:domain :Article;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "endPage"@en.
+:abstract rdfs:domain :Article;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "abstract"@en.

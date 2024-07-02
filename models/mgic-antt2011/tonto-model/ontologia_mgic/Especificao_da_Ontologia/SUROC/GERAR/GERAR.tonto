@@ -1,0 +1,324 @@
+import GERAR
+import SUROC
+
+package GERAR
+
+class Cadastro_de_Sistemas_de_Dutovias_mantido
+
+class Operaes_de_transporte_registradas
+
+class Monitoramento_dos_servios_de_transporte_dutovirio_nacional_realizado_fromSUROC
+
+class Experincia_como_Scio_ou_Diretor_de_ETC_ou_CTC_comprovada
+
+class Resoluo_3000_Art_73B_V
+
+class Certificado_do_RNTRC_emitido
+
+class Veculo_de_propriedade_do_TAC
+
+class Fiscalizao_de_fornecedoras_de_valepedgio_obrigatrio_realizada_fromSUROC
+
+class Atividade_econmica_da_ETC_verificada
+
+class Aprovao_do_responsvel_tcnico_pela_ETC_em_curso_especfico_comprovada
+
+class Scios_diretores_e_administradores_da_ETC_verificados
+
+class Sistema_de_Controle_de_Frotas_SCF
+
+class Autorizao_de_operao_para_fornecedoras_de_valepedgio_obrigatrio_concedida
+
+class Autorizao_de_Carter_Ocasional_de_Transportadores_Rodovirios_Internacionais_de_Cargas_proposta
+
+class Credenciamento_de_entidades_cadastradoras_de_RNTRC
+
+class Experincia_do_TAC_compravada
+
+class Capacidade_de_carga_til_CCU_do_veculo_da_ETC_verificada
+
+class Habilitao_dos_transportadores_rodovirios_nacionais_de_cargas_efetuada_
+
+class Habilitao_das_administradoras_de_meios_de_pagamento_eletrnico_de_frete_PEF_efetuada
+
+class Experincia_do_TAC_de_pelo_menos_3_anos_na_rea_comprovada
+
+class Fiscalizao_de_administradoras_de_meios_de_pagamento_eletrnico_de_frete_PEF_realizada_fromSUROC
+
+class Atualizao_do_cadastro_de_Frota_de_Transportadores_Rodovirios_Internacionais_de_Cargas_garantida
+
+class Categoria_do_veculo_da_ETC_verificada
+
+class Resoluo_3000_Art_73B_I
+
+class Cdigo_Identificador_da_Operao_de_Transporte_CIOT_emitido
+
+class Resoluo_3000_Art_73B_VI
+
+class GERAR
+
+class Controle_dos_servios_de_transporte_rodovirio_nacional_de_cargas_realizado_fromSUROC
+
+class TAC_com_registro_anterior_no_RNTRC
+
+class Veculo_em_contrato_de_aluguel
+
+class Resoluo_n_79404
+
+class Unidades_da_ANTT_e_Postos_Credenciados_para_Pontos_de_Cadastramento_no_RNTRC_estabelecidos
+
+class Aprovao_de_Modelos_e_Sistemas_Operacionais_das_Fornecedoras_de_ValePedgio_Obrigatrio_realizada
+
+class Espcie_do_veculo_do_TAC_verificada
+
+class Quando_a_dutovia_x_foi_construda
+
+class Licena_Complementar_de_Transportadores_Rodovirios_Internacionais_de_Cargas_proposta
+
+class Monitoramento_do_mercado_de_transporte_rodovirio_de_nacional_de_cargas_realizado
+
+class Registro_de_transportadores_rodovirios_de_produtos_perigosos_efetuado
+
+class Contratos_de_transporte_rodovirio_de_cargas_registrados
+
+class Registro_de_Cooperativas_Transportadoras_de_Cargas_CTC_realizado
+
+class Resoluo_3000_Art_73B_IV
+
+class Habilitao_de_transportadores_rodovirios_internacionais_de_cargas_efetuada
+
+class Idoneidade_do_responsvel_tcnico_pela_ETC_verificada
+
+class Veculo_em_contrato_de_comodato_com_a_ETC
+
+class Resoluo_3000_Art_73B_VII
+
+class Registro_de_transportadores_rodovirios_internacionais_de_cargas_TRIC_efetuado
+
+class Declarao_de_Operao_de_Transporte
+
+class Delegao_de_transportadores_rodovirios_de_produtos_perigosos_realizada
+
+class Quais_os_operadores_de_transporte_multimodal_OTM_habilitados
+
+class Aprovao_do_TAC_em_curso_especfico_comprovada
+
+class Veculo_em_contrato_de_arrendamento
+
+class Frota_da_TAC_registrada
+
+class Conhecimentos_de_transporte_rodovirio_de_cargas_registrados
+
+class CNPJ_da_ETC_registrado
+
+class Atuao_como_responsvel_tcnico_de_ETC_ou_CTC_comprovada_pelo_TAC
+
+class Posse_veicular_comprovada_pelo_TAC
+
+class Servio_online_de_cadastramento_no_RNTRC_mantido
+
+class Experincia_do_responsvel_tcnico_pela_ETC_de_pelo_menos_3_anos_na_rea_comprovada
+
+class Registro_de_Transportadores_Autnomos_de_Cargas_TAC_realizado
+
+class Registro_Nacional_de_Transportadores_Rodovirios_de_Cargas_RNTRC_efetuado
+
+class Idoneidade_dos_scios_administradores_e_diretores_da_ETC_verificada
+
+class Veculo_em_contrato_de_arrendamento_com_a_ETC
+
+class Capacidade_de_carga_til_CCU_do_veculo_do_TAC_verificada
+
+class Meios_de_cadastramento_no_RNTRC_disponibilizados
+
+class Resoluo_3000_Art_73B_VIII
+
+class Monitoramento_dos_Postos_de_Fronteira_do_Transporte_Internacional_de_Cargas_TRIC_realizado
+
+class Operao_de_Transporte_para_Viagem_de_TACAgregado_cadastrada
+
+class Sistema_de_infraestrutura_dutoviria_cadastrado
+
+class Qual_a_natureza_da_empresa_operadora_de_transporte_multimodal
+
+class Quais_localidades_a_dutovia_x_conecta
+
+class Situao_cadastral_do_CPF_do_TAC_verificado
+
+class Habilitao_de_transportadores_rodovirios_de_produtos_perigosos_efetuada
+
+class Frota_da_ETC_registrada
+
+class Autorizao_de_operao_para_administradoras_de_meios_de_pagamento_eletrnico_de_frete_concedida
+
+class Quais_as_empresas_proprietrias_de_dutovias
+
+class Licena_Originria_de_Transportadores_Rodovirios_Internacionais_de_Cargas_proposta
+
+class Atividades_equivalentes_comprovadas_pelo_TAC
+
+class Veculo_em_contrato_de_aluguel_com_a_ETC
+
+class Registro_de_Empresas_Transportadoras_de_Cargas_ETC_realizado
+
+class Monitoramento_do_mercado_de_transporte_multimodal_de_cargas_realizado_fromSUROC
+
+class Quais_operadores_de_transporte_multimodal_registrados
+
+class Resoluo_3000_Art_73B_II
+
+class Conhecimento_de_Transporte_Multimodal_de_Cargas_CTMC_registrados
+
+class Situao_cadastral_do_CPF_do_responsvel_tcnico_pela_ETC_verificada
+
+class Habilitao_de_fornecedoras_de_valepedgio_obrigatrio_efetuada
+
+class Contribuio_sindical_do_TAC_verificada
+
+class Qual_a_abrangncia_de_atuao_da_OTM_x
+
+class Experincia_do_responsvel_tcnico_pela_ETC_compravada
+
+class RG_do_TAC_registrado
+
+class Identificao_do_Nmero_de_Inscrio_no_RNTRC_para_as_Laterais_dos_Veculos_fornecida
+
+class Responsvel_tcnico_pela_ETC_verificado
+
+class Espcie_do_veculo_da_ETC_verificada
+
+class Quitao_das_contribuies__Previdncia_Social_como_Motorista_profissional_comprovada_pelo_TAC
+
+class Contribuio_sindical_da_ETC_verificada
+
+class Monitoramento_do_mercado_de_transporte_rodovirio_internacional_de_cargas_realizado
+
+class Quais_as_dutovias_no_territrio_brasileiro
+
+class Atuaao_como_TAC_comprovada_pelo_ETC
+
+class Veculo_de_propriedade_da_ETC
+
+class Normatizao_para_habilitao_de_operadores_de_transporte_multimodal_realizada_fromSUROC
+
+class Monitoramento_do_mercado_de_transporte_rodovirio_de_cargas_realizado_fromSUROC
+
+class Veculo_em_contrato_de_comodato_com_o_TAC
+
+class Habilitao_da_prestao_de_servios_de_transporte_rodovirio_de_cargas_realizada_fromSUROC
+
+class Operao_de_Transporte_para_ViagemPadro_cadastrada
+
+class Categoria_do_veculo_do_TAC_verificada
+
+class Atividades_equivalentes_comprovadas_pelo_responsvel_tcnico
+
+class Habilitao_da_prestao_de_servios_de_transporte_multimodal_de_cargas_realizada_fromSUROC
+
+class Delegao_de_transportadores_rodovirios_internacionais_de_cargas_realizadas
+
+class Situao_cadastral_do_CPF_dos_scios_diretores_e_administradores_verificada
+
+class A_empresa_x__dona_de_qual_rodovia
+
+class Qual_a_extenso_da_dutovia_x
+
+class Empresas_proprietrias_de_infraestrutura_dutoviria_cadastradas
+
+class Posse_veicular_comprovada_pela_ETC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

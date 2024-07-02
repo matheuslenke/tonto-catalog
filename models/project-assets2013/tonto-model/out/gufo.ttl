@@ -1,0 +1,151 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Ativo_Reutilizvel rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Ativo_Reutilizvel"@en.
+:Ativo_de_Software rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Ativo_de_Software"@en.
+:Biblioteca_de_Ativos_Reutilizveis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Biblioteca_de_Ativos_Reutilizveis"@en.
+:Recurso_Humano rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Recurso_Humano"@en.
+:Produtor_de_Ativos_Reutilizveis rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Produtor_de_Ativos_Reutilizveis"@en.
+:Consumidor_de_Ativos_Reutilizveis rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Consumidor_de_Ativos_Reutilizveis"@en.
+:Gerente_de_Ativos_Reutilizveis rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Gerente_de_Ativos_Reutilizveis"@en.
+:Ativo_de_Processo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Ativo_de_Processo"@en.
+:Artefato_Organizacional rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Artefato_Organizacional"@en.
+:Ativo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Ativo"@en.
+:Avaliao_de_Ativo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Avaliao_de_Ativo"@en.
+:Avaliao_de_Aprovao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Avaliao_de_Aprovao"@en.
+:Ativo_Recusado rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Ativo_Recusado"@en.
+:Avaliao_de_Reprovao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Avaliao_de_Reprovao"@en.
+:Avaliao_de_usurio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Avaliao_de_usurio"@en.
+:Autorizao_de_uso rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Autorizao_de_uso"@en.
+:Projeto rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Projeto"@en.
+:Plano_de_Alocao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Plano_de_Alocao"@en.
+:Solicitao_de_incluso_para_novo_Ativo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Solicitao_de_incluso_para_novo_Ativo"@en.
+:Ativo_de_Processo rdfs:subClassOf :Ativo.
+:Ativo_de_Software rdfs:subClassOf :Ativo.
+:Artefato_Organizacional rdfs:subClassOf :Ativo.
+:Ativo_Reutilizvel rdfs:subClassOf :Ativo.
+:Ativo_Recusado rdfs:subClassOf :Ativo.
+:Avaliao_de_Aprovao rdfs:subClassOf :Avaliao_de_Ativo.
+:Avaliao_de_Reprovao rdfs:subClassOf :Avaliao_de_Ativo.
+:Consumidor_de_Ativos_Reutilizveis rdfs:subClassOf :Recurso_Humano.
+:Gerente_de_Ativos_Reutilizveis rdfs:subClassOf :Recurso_Humano.
+:Produtor_de_Ativos_Reutilizveis rdfs:subClassOf :Recurso_Humano.
+:Ativo_Reutilizvel rdfs:subClassOf :Ativo.
+:Ativo_de_Software rdfs:subClassOf :Ativo.
+:Produtor_de_Ativos_Reutilizveis rdfs:subClassOf :Recurso_Humano.
+:Consumidor_de_Ativos_Reutilizveis rdfs:subClassOf :Recurso_Humano.
+:Gerente_de_Ativos_Reutilizveis rdfs:subClassOf :Recurso_Humano.
+:Ativo_de_Processo rdfs:subClassOf :Ativo.
+:Artefato_Organizacional rdfs:subClassOf :Ativo.
+:Avaliao_de_Aprovao rdfs:subClassOf :Avaliao_de_Ativo.
+:Ativo_Recusado rdfs:subClassOf :Ativo.
+:Avaliao_de_Reprovao rdfs:subClassOf :Avaliao_de_Ativo.
+:dataAvaliaes rdfs:domain :Ativo_Reutilizvel;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataAvaliaes"@en.
+:critrosDeAceitao rdfs:domain :Biblioteca_de_Ativos_Reutilizveis;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "critrosDeAceitao"@en.
+:critriosDeAvaliao rdfs:domain :Biblioteca_de_Ativos_Reutilizveis;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "critriosDeAvaliao"@en.
+:critriosDeCertificao rdfs:domain :Biblioteca_de_Ativos_Reutilizveis;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "critriosDeCertificao"@en.
+:critriosDeClassificao rdfs:domain :Biblioteca_de_Ativos_Reutilizveis;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "critriosDeClassificao"@en.
+:critriosDeDescontinuidade rdfs:domain :Biblioteca_de_Ativos_Reutilizveis;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "critriosDeDescontinuidade"@en.
+:definioDeAtivo rdfs:domain :Ativo;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "definioDeAtivo"@en.
+:notasDeAceitao rdfs:domain :Avaliao_de_Ativo;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "notasDeAceitao"@en.
+:notasDeDescontinuidade rdfs:domain :Avaliao_de_Ativo;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "notasDeDescontinuidade"@en.
+:notasDeCertificao rdfs:domain :Avaliao_de_Ativo;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "notasDeCertificao"@en.
+:notasDeAvaliao rdfs:domain :Avaliao_de_Ativo;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "notasDeAvaliao"@en.
+:notasDeClassificao rdfs:domain :Avaliao_de_Ativo;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "notasDeClassificao"@en.
+:dataAvaliao rdfs:domain :Ativo_Recusado;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataAvaliao"@en.
+:informaoDeProjeto rdfs:domain :Autorizao_de_uso;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "informaoDeProjeto"@en.
+:informacaoProjeto rdfs:domain :Projeto;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "informacaoProjeto"@en.

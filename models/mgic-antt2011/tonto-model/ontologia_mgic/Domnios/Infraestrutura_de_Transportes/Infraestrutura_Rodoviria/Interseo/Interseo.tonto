@@ -1,0 +1,47 @@
+import Infraestrutura_Rodoviria
+import Componente_Trecho_Fsico
+import Interseo
+
+package Interseo
+
+subkind Cruzamento_Esconso of functional-complexes  specializes Cruzamento 
+
+subkind Acesso of functional-complexes  specializes Interseo 
+
+subkind Cruzamento_Ortogonal of functional-complexes  specializes Cruzamento 
+
+subkind Interseo_em_Nvel of functional-complexes  specializes Interseo 
+
+subkind Trevo_Completo of functional-complexes  specializes Trevo 
+
+subkind Entroncamento_em_Y of functional-complexes  specializes Entroncamento 
+
+kind Interseo specializes Componente_Rodovirio 
+
+subkind Entroncamento_em_T of functional-complexes  specializes Entroncamento 
+
+subkind Cruzamento_com_Ilhas of functional-complexes  specializes Cruzamento 
+
+subkind Trevo_Incompleto of functional-complexes  specializes Trevo 
+
+subkind Interseo_Ferroviria of functional-complexes  specializes Interseo 
+
+subkind Interseo_Rodoferroviria of functional-complexes  specializes Interseo 
+
+subkind Interseo_Rodoviria of functional-complexes  specializes Interseo 
+
+subkind Entroncamento of functional-complexes  specializes Interseo 
+
+subkind Interseo_em_Desnvel of functional-complexes  specializes Interseo 
+
+subkind Trevo of functional-complexes  specializes Interseo 
+
+subkind Rotatria of functional-complexes  specializes Interseo 
+
+subkind Cruzamento of functional-complexes  specializes Interseo 
+
+
+
+
+
+

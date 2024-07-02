@@ -1,0 +1,65 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Participant rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Participant"@en.
+:Participation rdf:type owl:NamedIndividual;
+    rdfs:label "Participation"@en.
+:CollaborativeAction rdf:type owl:NamedIndividual;
+    rdfs:label "CollaborativeAction"@en.
+:CollaborationSession rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "CollaborationSession"@en.
+:Site rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Site"@en.
+:RealSite rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RealSite"@en.
+:VirtualSite rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "VirtualSite"@en.
+:CollaborationArtifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "CollaborationArtifact"@en.
+:Protocol rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Protocol"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Objective rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Objective"@en.
+:Language rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Language"@en.
+:Message rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Message"@en.
+:Send rdf:type owl:NamedIndividual;
+    rdfs:label "Send"@en.
+:Receive rdf:type owl:NamedIndividual;
+    rdfs:label "Receive"@en.
+:CommunicationAction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "CommunicationAction"@en.
+:VerbalLanguage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "VerbalLanguage"@en.
+:NonVerbalLanguage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "NonVerbalLanguage"@en.
+:Participant rdfs:subClassOf :Agent.
+:CollaborativeAction rdfs:subClassOf :Participation.
+:RealSite rdfs:subClassOf :Site.
+:VirtualSite rdfs:subClassOf :Site.
+:CollaborationArtifact rdfs:subClassOf :Artifact.
+:Send rdfs:subClassOf :Participation.
+:Receive rdfs:subClassOf :Participation.
+:VerbalLanguage rdfs:subClassOf :Language.
+:NonVerbalLanguage rdfs:subClassOf :Language.

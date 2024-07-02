@@ -1,0 +1,152 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:Mental_Moment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Mental_Moment"@en.
+:Intention rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Belief rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Belief"@en.
+:Desire rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Desire"@en.
+:Perception rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Perception"@en.
+:Disposition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Disposition"@en.
+:Endurant rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Endurant"@en.
+:Substantial rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Substantial"@en.
+:Moment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Moment"@en.
+:Aspectual_Belief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Aspectual_Belief"@en.
+:Intention_Belief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Intention_Belief"@en.
+:Disposition_Belief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Disposition_Belief"@en.
+:Capability_Belief rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ExtrinsicMode;
+    rdfs:label "Capability_Belief"@en.
+:Vulnerability_Belief rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ExtrinsicMode;
+    rdfs:label "Vulnerability_Belief"@en.
+:Vulnerability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Vulnerability"@en.
+:Capability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Capability"@en.
+:Trustor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Trustor"@en.
+:Trustee rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Trustee"@en.
+:Trust rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Trust"@en.
+:Trust_Degree rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Trust_Degree"@en.
+:Belief_Intensity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Belief_Intensity"@en.
+:Performance_Level rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Performance_Level"@en.
+:Manifestation_Likelihood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Manifestation_Likelihood"@en.
+:Complex_Intention rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Complex_Intention"@en.
+:Atomic_Intention rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Atomic_Intention"@en.
+:Trustworthiness_Evidence rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Trustworthiness_Evidence"@en.
+:Social_System rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Social_System"@en.
+:Social_System_Trustee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Social_System_Trustee"@en.
+:Institutionbased_Trust rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Institutionbased_Trust"@en.
+:Agent_Trustee rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Agent_Trustee"@en.
+:Social_Trust rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Social_Trust"@en.
+:Trustor_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Trustor_Action"@en.
+:Trust_Calibration_Signal rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Trust_Calibration_Signal"@en.
+:TrustWarranting_Signal rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "TrustWarranting_Signal"@en.
+:Uncertainty_Signal rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Uncertainty_Signal"@en.
+:Trustee_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Trustee_Action"@en.
+:Influence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Influence"@en.
+:Trust_influence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Trust_influence"@en.
+:Mental_Moment_Influence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Mental_Moment_Influence"@en.
+:Trustworthiness_Evidence_Influence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Trustworthiness_Evidence_Influence"@en.
+:Trust_Calibration_Signal_Influence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Trust_Calibration_Signal_Influence"@en.
+:Hazardous_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Hazardous_Situation"@en.
+:Threat_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Threat_Event"@en.
+:Loss_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Loss_Event"@en.
+:Loss_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Loss_Situation"@en.
+:Object rdfs:subClassOf :Substantial.
+:Agent rdfs:subClassOf :Substantial.
+:Mental_Moment rdfs:subClassOf :Moment.
+:Intention rdfs:subClassOf :Mental_Moment.
+:Belief rdfs:subClassOf :Mental_Moment.
+:Desire rdfs:subClassOf :Mental_Moment.
+:Perception rdfs:subClassOf :Mental_Moment.
+:Substantial rdfs:subClassOf :Endurant.
+:Moment rdfs:subClassOf :Endurant.
+:Intention_Belief rdfs:subClassOf :Aspectual_Belief.
+:Disposition_Belief rdfs:subClassOf :Aspectual_Belief.
+:Capability_Belief rdfs:subClassOf :Disposition_Belief.
+:Vulnerability_Belief rdfs:subClassOf :Disposition_Belief.
+:Social_System_Trustee rdfs:subClassOf :Trustee, :Social_System.
+:Institutionbased_Trust rdfs:subClassOf :Trust.
+:Agent_Trustee rdfs:subClassOf :Trustee.
+:Social_Trust rdfs:subClassOf :Trust.
+:TrustWarranting_Signal rdfs:subClassOf :Trust_Calibration_Signal.
+:Uncertainty_Signal rdfs:subClassOf :Trust_Calibration_Signal.
+:Trust_influence rdfs:subClassOf :Influence.
+:Mental_Moment_Influence rdfs:subClassOf :Influence.
+:Trustworthiness_Evidence_Influence rdfs:subClassOf :Influence.
+:Trust_Calibration_Signal_Influence rdfs:subClassOf :Influence.

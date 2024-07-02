@@ -1,0 +1,76 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Player_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Player_Action"@en.
+:Game_Player rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Game_Player"@en.
+:Action_Profile rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Action_Profile"@en.
+:Outcome rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Outcome"@en.
+:Game rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Game"@en.
+:Unity_Value_Ascription rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Unity_Value_Ascription"@en.
+:Utility rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Utility"@en.
+:Utility_Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Utility_Value"@en.
+:Successful_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Successful_Situation"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intention"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Value_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Value_Event"@en.
+:Value_Experience rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Value_Experience"@en.
+:Resulting_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Resulting_Situation"@en.
+:Threatening_Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:label "Threatening_Situation"@en.
+:Threat_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Threat_Event"@en.
+:Trigger_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Trigger_Event"@en.
+:Risk_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Risk_Event"@en.
+:Impact_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Impact_Event"@en.
+:Gain_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Gain_Event"@en.
+:Loss_Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Loss_Event"@en.
+:Game_Player rdfs:subClassOf :Agent.
+:Action_Profile rdfs:subClassOf :Value_Event.
+:Outcome rdfs:subClassOf :Value_Experience.
+:Successful_Situation rdfs:subClassOf :Resulting_Situation.
+:Impact_Event rdfs:subClassOf :Value_Event.
+:Trigger_Event rdfs:subClassOf :Value_Event.
+:Loss_Event rdfs:subClassOf :Impact_Event.
+:Gain_Event rdfs:subClassOf :Impact_Event.
+:Threatening_Situation rdfs:subClassOf :Resulting_Situation.
+:Threat_Event rdfs:subClassOf :Trigger_Event, :Risk_Event.
+:Trigger_Event rdfs:subClassOf :Value_Event.
+:Risk_Event rdfs:subClassOf :Value_Event.
+:Impact_Event rdfs:subClassOf :Value_Event.
+:Gain_Event rdfs:subClassOf :Impact_Event.
+:Loss_Event rdfs:subClassOf :Impact_Event, :Risk_Event.

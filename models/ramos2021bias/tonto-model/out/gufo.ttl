@@ -1,0 +1,159 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intention"@en.
+:Cognitive_Bias rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Cognitive_Bias"@en.
+:Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Action"@en.
+:Decision_Resulting_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Decision_Resulting_Action"@en.
+:Decision rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Decision"@en.
+:Intuition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intuition"@en.
+:Consequence rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Consequence"@en.
+:Situation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Situation"@en.
+:Choice rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Choice"@en.
+:Intuitive_Choice rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Intuitive_Choice"@en.
+:Mental_Moment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Mental_Moment"@en.
+:ValueBeholder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "ValueBeholder"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Deliberation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Deliberation"@en.
+:Preference rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Preference"@en.
+:Intuition_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intuition"@en.
+:Belief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Belief"@en.
+:Value_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value_Bearer"@en.
+:Preferred_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Preferred_Bearer"@en.
+:Deprecated_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Deprecated_Bearer"@en.
+:Psychological_Value_Ascription_PVA rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Psychological_Value_Ascription_PVA"@en.
+:PVA_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "PVA_Component"@en.
+:Psychological_Value_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Psychological_Value_Component"@en.
+:Gain rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Gain"@en.
+:Loss rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Loss"@en.
+:Reference_Point rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Reference_Point"@en.
+:Rational_Value_Ascription_RVA rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rational_Value_Ascription_RVA"@en.
+:Rational_Value_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rational_Value_Component"@en.
+:Benefit rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Benefit"@en.
+:Sacrifice rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sacrifice"@en.
+:Cognitive_Bias_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Cognitive_Bias"@en.
+:Loss_Aversion rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Loss_Aversion"@en.
+:Psychological_Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Psychological_Value"@en.
+:Rational_Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rational_Value"@en.
+:Value_Ascription_VA rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Value_Ascription_VA"@en.
+:RVA_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RVA_Component"@en.
+:VA_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "VA_Component"@en.
+:Value_Component rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Value_Component"@en.
+:Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Value"@en.
+:Desire rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Desire"@en.
+:Rational_Preferred_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Rational_Preferred_Bearer"@en.
+:Psychological_Preferred_Bearer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Psychological_Preferred_Bearer"@en.
+:Risk_Seeking_Preference rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Risk_Seeking_Preference"@en.
+:Risk_Averse_Preference rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Risk_Averse_Preference"@en.
+:Intention_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Intention"@en.
+:Intrinsinc_Moment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Intrinsinc_Moment"@en.
+:motivating_INTENTION rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "motivating_INTENTION"@en.
+:Intrinsic_Moment_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Intrinsic_Moment_Type"@en.
+:Intuitive_Choice_1 rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Intuitive_Choice"@en.
+:Intention rdfs:subClassOf :Mental_Moment.
+:Cognitive_Bias rdfs:subClassOf :Mental_Moment.
+:Decision_Resulting_Action rdfs:subClassOf :Action.
+:Decision rdfs:subClassOf :Intention.
+:Intuition rdfs:subClassOf :Mental_Moment.
+:Consequence rdfs:subClassOf :Situation.
+:Choice rdfs:subClassOf :Action.
+:Intuitive_Choice rdfs:subClassOf :Choice.
+:ValueBeholder rdfs:subClassOf :Agent.
+:Deliberation rdfs:subClassOf :Choice.
+:Preference rdfs:subClassOf :Belief.
+:Preferred_Bearer rdfs:subClassOf :Value_Bearer.
+:Deprecated_Bearer rdfs:subClassOf :Value_Bearer.
+:Psychological_Value_Ascription_PVA rdfs:subClassOf :Value_Ascription_VA.
+:PVA_Component rdfs:subClassOf :VA_Component.
+:Psychological_Value_Component rdfs:subClassOf :Value_Component.
+:Gain rdfs:subClassOf :Psychological_Value_Component, :Psychological_Value.
+:Loss rdfs:subClassOf :Psychological_Value_Component, :Psychological_Value.
+:Reference_Point rdfs:subClassOf :Belief.
+:Rational_Value_Ascription_RVA rdfs:subClassOf :Value_Ascription_VA.
+:Rational_Value_Component rdfs:subClassOf :Value_Component.
+:Benefit rdfs:subClassOf :Rational_Value_Component.
+:Sacrifice rdfs:subClassOf :Rational_Value_Component.
+:Loss_Aversion rdfs:subClassOf :Cognitive_Bias_1, :Desire.
+:Psychological_Value rdfs:subClassOf :Value.
+:Rational_Value rdfs:subClassOf :Value.
+:RVA_Component rdfs:subClassOf :VA_Component.
+:Rational_Preferred_Bearer rdfs:subClassOf :Preferred_Bearer.
+:Psychological_Preferred_Bearer rdfs:subClassOf :Preferred_Bearer.
+:Risk_Seeking_Preference rdfs:subClassOf :Preference.
+:Risk_Averse_Preference rdfs:subClassOf :Preference.

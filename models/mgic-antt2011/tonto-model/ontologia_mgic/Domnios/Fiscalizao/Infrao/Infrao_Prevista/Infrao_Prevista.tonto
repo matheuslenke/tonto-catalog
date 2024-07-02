@@ -1,0 +1,30 @@
+
+package Infrao_Prevista
+
+type Infrao_Contratual_Prevista specializes Infrao_Prevista 
+
+type Infrao_Regulamentar_Prevista specializes Infrao_Prevista 
+
+type Infrao_Prevista_com_MA specializes Infrao_Prevista 
+
+subkind Clusula_Contratual_com_Infrao_Definida
+
+type Medida_Administrativa_Prevista
+
+subkind Artigo_Regulamentar_com_Infrao_Definida
+
+type Tipo_de_Penalidade
+
+type Infrao_Legal_Prevista specializes Infrao_Prevista 
+
+type Infrao_Prevista{
+    prazo_de_reincidncia: undefined  
+}
+
+subkind Artigo_Legal_com_Infrao_Definida
+
+
+
+
+
+

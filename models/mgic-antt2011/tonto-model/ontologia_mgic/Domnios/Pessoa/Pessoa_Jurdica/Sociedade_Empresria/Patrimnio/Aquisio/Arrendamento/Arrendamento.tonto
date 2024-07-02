@@ -1,0 +1,106 @@
+import Restries
+import Carroceria
+import Partes
+import Atendimento_Rodovirio
+import Acidente
+import Trfego
+import Componente_Trecho_Fsico
+import Praa_de_Pedgio
+import Posto_de_Pesagem
+import Bem_Durvel
+import Imvel_Contbil
+import Compra
+import Produto
+import Servio
+import Imvel
+import Pessoa_Jurdica
+import Imvel_Desapropriado_em_Concesso_Rodoviria
+import Tipo_de_Veculo
+import Espcie_e_Categoria
+import Contratos_e_Convnios
+import Convnio_de_Aquisio__Cotao
+import Servio_em_Concesso
+import Fiscalizaes_Especficas
+import Complementares
+import Convnio_de_Aquisio__Solicitao
+import Revista_da_ANTT
+import Pagamento
+import Autuao
+import Obrigao_Financeira
+import GRU
+import Cesso_de_Bem
+import Agente_Administrativo
+import Designao
+import Provimento
+import Contratao_via_Termo_de_Cooperao
+import Estgio
+import Fretamento_Contnuo
+import Tipo_de_Autorizao_de_Viagem
+import Certificado_de_Registro_para_Fretamento
+import Autorizao
+import Scios
+import Transporte_Dutovirio_de_Cargas
+import Operador_de_Transporte_Multimodal
+import Operador_Ferrovirio_Independente
+import Pagamento_Eletrnico_de_Frete
+import Gerao_de_CIOT
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+import Permisso_por_Licitao
+import Conhecimento_de_Transporte
+import Outorga
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Capital_de_Terceiros
+import Financiamento
+import Debnture
+import Penso
+import Anistia
+import Contratao_via_Banco_Mundial
+import Receita_Rodoviria_Extraordinria
+import Tarifa_Bsica_de_Pedgio
+import Imposto
+import Sociedade_Empresria
+import Receita
+import Concesso_Rodoviria
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Tipos_de_Fretamento
+import Arrendamento
+
+package Arrendamento
+
+relator _Arrendamento_Financeiro_Imobilizado
+
+roleMixin Bem_Arrendado of functional-complexes  specializes Veculo_Arrendado 
+
+roleMixin Bem_em_Arrendamento_Financeiro of functional-complexes  specializes Bem_Arrendado, Bem_Operacional_Arrendado, Imvel_Edificado_Arrendado, Terreno_Arrendado 
+
+role Arrendador_Financeiro specializes Arrendador 
+
+role Arrendatrio specializes Agente_Social 
+
+relator Arrendamento_Mercantil_Financeiro specializes Arrendamento_Mercantil, _Arrendamento_Financeiro_Intangvel, _Arrendamento_Financeiro_Imobilizado, Obrigao_Financeira 
+
+roleMixin Bem_em_Arrendamento_Operacional of functional-complexes  specializes Bem_Arrendado, Bem_Operacional_Alugado, Terreno_Alugado, Imvel_Edificado_Alugado 
+
+roleMixin Arrendador_Operacional of functional-complexes  specializes Arrendador 
+
+relator _Arrendamento_Financeiro_Intangvel
+
+relator Arrendamento_Mercantil_Operacional specializes Arrendamento_Mercantil 
+
+relator Arrendamento_Mercantil
+
+role Arrendador specializes Agente_Social 
+
+
+
+
+
+
+
+
+

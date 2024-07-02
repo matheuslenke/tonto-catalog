@@ -1,0 +1,45 @@
+
+package Acidente_Ferrovirio
+
+role Via_Frrea_com_Acidente of functional-complexes  specializes Via_Frrea 
+
+relator Acidente_Ferrovirio_na_Prpria_Malha_Ferroviria specializes Acidente_Ferrovirio 
+
+mode Causa_do_Acidente_Ferrovirio{
+    descrio: undefined  
+    sigla: undefined  
+}
+
+relator Coliso_entre_Trem specializes Coliso_Ferroviria 
+
+relator Coliso_entre_Trem_e_Veculo_Rodovirio specializes Coliso_Ferroviria 
+
+mode Gravidade
+
+relator Descarrilamento specializes Acidente_Ferrovirio 
+
+relator Coliso_Ferroviria specializes Acidente_Ferrovirio 
+
+relator Acidente_Ferrovirio_com_Vtima specializes Acidente_Ferrovirio 
+
+relator Acidente_Ferrovirio
+
+relator Atropelamento_em_Linha_Frrea_ specializes Acidente_Ferrovirio_com_Vtima, Acidente_Ferrovirio 
+
+role Veculo_Acidentado_em_Coliso_Ferroviria specializes Veculo_Acidentado 
+
+role Concessionria_Ferroviria_Acidentada specializes Concessionria_Ferroviria 
+
+role Trem_Acidentado
+
+roleMixin Vtima_de_Acidente_Ferroviria of functional-complexes 
+
+
+
+
+
+
+
+
+
+

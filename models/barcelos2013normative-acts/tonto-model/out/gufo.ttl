@@ -1,0 +1,175 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Article rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Article"@en.
+:Duration_Clause rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Duration_Clause"@en.
+:Revocation_Clause rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Revocation_Clause"@en.
+:Ordinary_Article rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ordinary_Article"@en.
+:Normative_Act rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Normative_Act"@en.
+:Brief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Brief"@en.
+:Epigraph rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Epigraph"@en.
+:Preamble rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Preamble"@en.
+:Composed_Article rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed_Article"@en.
+:Simple_Article rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Article"@en.
+:Caput rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Caput"@en.
+:Article_composed_of_Item rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Article_composed_of_Item"@en.
+:Article_composed_of_Paragraph rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Article_composed_of_Paragraph"@en.
+:Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Item"@en.
+:Item_component_of_Article rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Item_component_of_Article"@en.
+:Paragraph rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Paragraph"@en.
+:Composed_Item rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed_Item"@en.
+:Simple_Item rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Item"@en.
+:Letter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Letter"@en.
+:Simple_Letter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Letter"@en.
+:Composed_Letter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed_Letter"@en.
+:Letter_Discriminator rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Letter_Discriminator"@en.
+:Article_component_of_Chapter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Article_component_of_Chapter"@en.
+:Article_component_of_Section rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Article_component_of_Section"@en.
+:Section rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Section"@en.
+:Simple_Section rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Simple_Section"@en.
+:Subsection rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Subsection"@en.
+:Composed_Section rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed_Section"@en.
+:Component_Section rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Component_Section"@en.
+:Chapter_composed_by_Section rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chapter_composed_by_Section"@en.
+:Chapter_composed_by_Article rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chapter_composed_by_Article"@en.
+:Chapter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Chapter"@en.
+:Component_Chapter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Component_Chapter"@en.
+:Component_Charter rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Component_Charter"@en.
+:Charter rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Charter"@en.
+:Book rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Book"@en.
+:Component_Book rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Component_Book"@en.
+:Part rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Part"@en.
+:Multiple_Part rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Multiple_Part"@en.
+:Double_Part rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Double_Part"@en.
+:Special_Part rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Special_Part"@en.
+:General_Part rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "General_Part"@en.
+:Duration_Clause rdfs:subClassOf :Article.
+:Revocation_Clause rdfs:subClassOf :Article.
+:Ordinary_Article rdfs:subClassOf :Article.
+:Composed_Article rdfs:subClassOf :Article.
+:Simple_Article rdfs:subClassOf :Article.
+:Article_composed_of_Item rdfs:subClassOf :Composed_Article.
+:Article_composed_of_Paragraph rdfs:subClassOf :Composed_Article.
+:Item_component_of_Article rdfs:subClassOf :Item.
+:Composed_Item rdfs:subClassOf :Item.
+:Simple_Item rdfs:subClassOf :Item.
+:Simple_Letter rdfs:subClassOf :Letter.
+:Composed_Letter rdfs:subClassOf :Letter.
+:Article_component_of_Chapter rdfs:subClassOf :Article.
+:Article_component_of_Section rdfs:subClassOf :Article.
+:Simple_Section rdfs:subClassOf :Section.
+:Subsection rdfs:subClassOf :Simple_Section.
+:Composed_Section rdfs:subClassOf :Section.
+:Component_Section rdfs:subClassOf :Section.
+:Chapter_composed_by_Section rdfs:subClassOf :Chapter.
+:Chapter_composed_by_Article rdfs:subClassOf :Chapter.
+:Component_Chapter rdfs:subClassOf :Chapter.
+:Component_Charter rdfs:subClassOf :Charter.
+:Component_Book rdfs:subClassOf :Book.
+:Multiple_Part rdfs:subClassOf :Part.
+:Double_Part rdfs:subClassOf :Part.
+:Special_Part rdfs:subClassOf :Double_Part.
+:General_Part rdfs:subClassOf :Double_Part.
+:duration rdfs:domain :Normative_Act;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "duration"@en.
+:publication_date rdfs:domain :Normative_Act;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "publication_date"@en.
+:text rdfs:domain :Brief;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "text"@en.
+:text_1 rdfs:domain :Epigraph;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "text"@en.
+:text_2 rdfs:domain :Preamble;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "text"@en.
+:text_3 rdfs:domain :Simple_Article;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "text"@en.
+:text_4 rdfs:domain :Caput;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "text"@en.
+:identification rdfs:domain :Paragraph;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "identification"@en.

@@ -32,11 +32,11 @@ kind Mean
 kind Object
 
 mode Form{
-    name: string_  
-    composite: boolean_  { const }
-    temporal: boolean_  { const }
-    spatial: boolean_  { const }
-    sensible: boolean_  
+    name: string  
+    composite: boolean  { const }
+    temporal: boolean  { const }
+    spatial: boolean  { const }
+    sensible: boolean  
 }
 
 relator Actuality
@@ -70,19 +70,19 @@ role MiddleTerm of functional-complexes  specializes Term
 subkind Affirmation of functional-complexes  specializes Assertion 
 
 kind Assertion{
-    textOfAssertion: string_  { derived }
+    textOfAssertion: string  { derived }
 }
 
 kind Term{
-    textOfTerm: string_  
+    textOfTerm: string  
 }
 
 subkind Predicate of functional-complexes  specializes Term {
-    universal: boolean_  
+    universal: boolean  
 }
 
 subkind Subject of functional-complexes  specializes Term {
-    universal: boolean_  
+    universal: boolean  
 }
 
 role Premise of functional-complexes  specializes Assertion 
@@ -146,15 +146,15 @@ subkind Democraty of intrinsic-modes  specializes DeviantForm {
 mode ConstitutionalForm
 
 subkind CorrectForm of intrinsic-modes  specializes ConstitutionalForm {
-    just: boolean_  
+    just: boolean  
 }
 
 subkind DeviantForm of intrinsic-modes  specializes ConstitutionalForm {
-    just: boolean_  
+    just: boolean  
 }
 
 kind Word{
-    Language: string_  
+    Language: string  
 }
 
 kind Meaning
@@ -226,29 +226,29 @@ event ChangeInSubstance specializes Change
 event Change
 
 kind AccidentalUniversal specializes Being {
-    saidoff: boolean_  
-    presentin: boolean_  
-    universal: boolean_  
+    saidoff: boolean  
+    presentin: boolean  
+    universal: boolean  
 }
 
 role AccidentalParticularNonSubstantialParticular of functional-complexes  specializes Being, AccidentalUniversal {
     saidoff: undefined  
-    presentin: boolean_  
-    particular: boolean_  
+    presentin: boolean  
+    particular: boolean  
 }
 
 mixin Being of functional-complexes 
 
 kind EssentialUniversalSecondarySubstance specializes Being {
-    saidoff: boolean_  
-    presentin: boolean_  
-    universal: boolean_  
+    saidoff: boolean  
+    presentin: boolean  
+    universal: boolean  
 }
 
 kind EssentialParticularPrimarySubstance specializes Being {
-    saidoff: boolean_  
-    presentin: boolean_  
-    particular: boolean_  
+    saidoff: boolean  
+    presentin: boolean  
+    particular: boolean  
 }
 
 subkind Genus of functional-complexes  specializes SupremeGenusHighestKind {
@@ -257,11 +257,11 @@ subkind Genus of functional-complexes  specializes SupremeGenusHighestKind {
 }
 
 mode Differentia{
-    question: string_  
+    question: string  
 }
 
 subkind Species of functional-complexes  specializes Genus {
-    essential: boolean_  
+    essential: boolean  
     superiorGenus: Genus  
     answerToDifferentia: undefined  
 }
@@ -309,8 +309,8 @@ kind PracticalSciences specializes ScienceKnowledge
 kind TheoreticalSciences specializes ScienceKnowledge 
 
 category ScienceKnowledge of functional-complexes {
-    universal: boolean_  
-    necessarily_the_case: boolean_  
+    universal: boolean  
+    necessarily_the_case: boolean  
     known_causes: Cause  
 }
 
@@ -381,8 +381,8 @@ subkind ContinentPerson of functional-complexes  specializes Person {
 kind Soul
 
 kind LivingBody{
-    exist: boolean_  
-    real: boolean_  
+    exist: boolean  
+    real: boolean  
 }
 
 kind LivingBeing
@@ -413,8 +413,8 @@ subkind Particular of functional-complexes  specializes Species
 
 kind Happiness
 
-datatype string_
-datatype boolean_
+datatype string
+datatype boolean
 genset Yr3ab6GAqAAZSYs {
     general Element
     specifics Water

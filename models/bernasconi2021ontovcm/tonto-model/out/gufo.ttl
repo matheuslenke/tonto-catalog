@@ -1,0 +1,386 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Researcher rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Researcher"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Research_Affiliation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Research_Affiliation"@en.
+:Author rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Author"@en.
+:Publication rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Publication"@en.
+:Virus_Sequencing_Publication rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Virus_Sequencing_Publication"@en.
+:Journal_Issue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Journal_Issue"@en.
+:Virus_Sequencing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Virus_Sequencing"@en.
+:Sequencing_Laboratory rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sequencing_Laboratory"@en.
+:Animal rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Animal"@en.
+:Virus_Host rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Virus_Host"@en.
+:Animal_Species rdf:type owl:NamedIndividual;
+    rdfs:label "Animal_Species"@en.
+:Biological_Organism rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Biological_Organism"@en.
+:Virus rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Virus"@en.
+:Virus_Species rdf:type owl:NamedIndividual;
+    rdfs:label "Virus_Species"@en.
+:Virus_Collective rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Virus_Collective"@en.
+:Viral_Infection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Viral_Infection"@en.
+:Bat rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bat"@en.
+:Sequencing_Platform rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sequencing_Platform"@en.
+:Sampling_Laboratory rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sampling_Laboratory"@en.
+:Tissue_Sampling rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Tissue_Sampling"@en.
+:Virus_Infected_Tissue rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Virus_Infected_Tissue"@en.
+:Biological_Tissue rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Biological_Tissue"@en.
+:Viral_Disease rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Viral_Disease"@en.
+:Viral_Disease_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Viral_Disease_Type"@en.
+:Biological_Species rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Biological_Species"@en.
+:Virus_Sequence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Virus_Sequence"@en.
+:Amino_acid rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Amino_acid"@en.
+:Analyst rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Analyst"@en.
+:Research_Laboratory rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Research_Laboratory"@en.
+:Variant rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Variant"@en.
+:Full_Consensus_Sequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Full_Consensus_Sequence"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Nucleotide_Subsequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Nucleotide_Subsequence"@en.
+:Reference_Sequence rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Reference_Sequence"@en.
+:Nucleotide rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Nucleotide"@en.
+:Regular_Sequence rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Regular_Sequence"@en.
+:Living_Host rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Living_Host"@en.
+:In_Vitro_Host rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "In_Vitro_Host"@en.
+:Cell_Line rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Cell_Line"@en.
+:Viral_Response rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Viral_Response"@en.
+:Biological_Tissue_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Biological_Tissue_Type"@en.
+:Sampled_Animal rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Sampled_Animal"@en.
+:Genomic_Assembly_Method rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Genomic_Assembly_Method"@en.
+:Sample_Sequencing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Sample_Sequencing"@en.
+:Genome_Assembly rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Genome_Assembly"@en.
+:Virus_Raw_Data rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Virus_Raw_Data"@en.
+:Read rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Read"@en.
+:Molecule_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Molecule_Type"@en.
+:Adenine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Adenine"@en.
+:Guanine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Guanine"@en.
+:Cytosine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cytosine"@en.
+:Uracil rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Uracil"@en.
+:Thymine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Thymine"@en.
+:Codon rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Codon"@en.
+:Coding_Region rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Coding_Region"@en.
+:Translation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Translation"@en.
+:Protein rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Protein"@en.
+:Codon_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Codon_Type"@en.
+:Amino_Acid_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Amino_Acid_Type"@en.
+:Leucine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Leucine"@en.
+:Arginine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Arginine"@en.
+:Threonine rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Threonine"@en.
+:Proline rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Proline"@en.
+:Sequence rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sequence"@en.
+:Variant_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Variant_Type"@en.
+:Variant_Analysis rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Variant_Analysis"@en.
+:Analyst_Affiliation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Analyst_Affiliation"@en.
+:Sequence_Deposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Sequence_Deposition"@en.
+:Sequence_Database rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Sequence_Database"@en.
+:Data_Stewardship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Data_Stewardship"@en.
+:Biological_Data_Institution rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Biological_Data_Institution"@en.
+:Project_Participant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Project_Participant"@en.
+:Project_Participation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Project_Participation"@en.
+:Virus_Sequencing_Endeavor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Virus_Sequencing_Endeavor"@en.
+:Assembling_Laboratory rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Assembling_Laboratory"@en.
+:Proline rdfs:subClassOf :Amino_acid.
+:Leucine rdfs:subClassOf :Amino_acid.
+:Arginine rdfs:subClassOf :Amino_acid.
+:Threonine rdfs:subClassOf :Amino_acid.
+:Uracil rdfs:subClassOf :Nucleotide.
+:Adenine rdfs:subClassOf :Nucleotide.
+:Thymine rdfs:subClassOf :Nucleotide.
+:Guanine rdfs:subClassOf :Nucleotide.
+:Cytosine rdfs:subClassOf :Nucleotide.
+:Researcher rdfs:subClassOf :Person.
+:Person rdfs:subClassOf :Animal.
+:Author rdfs:subClassOf :Researcher.
+:Virus_Sequencing_Publication rdfs:subClassOf :Publication.
+:Sequencing_Laboratory rdfs:subClassOf :Research_Laboratory.
+:Animal rdfs:subClassOf :Biological_Organism.
+:Animal_Species rdfs:subClassOf :Biological_Species.
+:Virus rdfs:subClassOf :Biological_Organism.
+:Virus_Species rdfs:subClassOf :Biological_Species.
+:Bat rdfs:subClassOf :Animal.
+:Sampling_Laboratory rdfs:subClassOf :Research_Laboratory.
+:Virus_Infected_Tissue rdfs:subClassOf :Biological_Tissue.
+:Viral_Disease rdfs:subClassOf :Viral_Response.
+:Virus_Sequence rdfs:subClassOf :Sequence.
+:Analyst rdfs:subClassOf :Person.
+:Research_Laboratory rdfs:subClassOf :Organization.
+:Full_Consensus_Sequence rdfs:subClassOf :Virus_Sequence.
+:Nucleotide_Subsequence rdfs:subClassOf :Virus_Sequence.
+:Reference_Sequence rdfs:subClassOf :Sequence.
+:Regular_Sequence rdfs:subClassOf :Sequence.
+:Living_Host rdfs:subClassOf :Virus_Host, :Animal.
+:In_Vitro_Host rdfs:subClassOf :Virus_Host, :Cell_Line.
+:Sampled_Animal rdfs:subClassOf :Animal.
+:Adenine rdfs:subClassOf :Nucleotide.
+:Guanine rdfs:subClassOf :Nucleotide.
+:Cytosine rdfs:subClassOf :Nucleotide.
+:Uracil rdfs:subClassOf :Nucleotide.
+:Thymine rdfs:subClassOf :Nucleotide.
+:Codon rdfs:subClassOf :Nucleotide_Subsequence.
+:Coding_Region rdfs:subClassOf :Nucleotide_Subsequence.
+:Protein rdfs:subClassOf :Sequence.
+:Leucine rdfs:subClassOf :Amino_acid.
+:Arginine rdfs:subClassOf :Amino_acid.
+:Threonine rdfs:subClassOf :Amino_acid.
+:Proline rdfs:subClassOf :Amino_acid.
+:Biological_Data_Institution rdfs:subClassOf :Organization.
+:Project_Participant rdfs:subClassOf :Researcher.
+:Assembling_Laboratory rdfs:subClassOf :Research_Laboratory.
+:Tile rdfs:domain :Publication;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Tile"@en.
+:DOI rdfs:domain :Publication;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "DOI"@en.
+:Submission_Date rdfs:domain :Virus_Sequencing_Publication;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Submission_Date"@en.
+:Journal_Name rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Journal_Name"@en.
+:ISSN rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "ISSN"@en.
+:Publication_Date rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Publication_Date"@en.
+:Volume rdfs:domain :Journal_Issue;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Volume"@en.
+:Sequencing_Date rdfs:domain :Virus_Sequencing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Sequencing_Date"@en.
+:species_name rdfs:domain :Animal_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "species_name"@en.
+:genus rdfs:domain :Animal_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "genus"@en.
+:subFamily rdfs:domain :Animal_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "subFamily"@en.
+:family rdfs:domain :Animal_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "family"@en.
+:coverage rdfs:domain :Sequencing_Platform;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "coverage"@en.
+:collection_date rdfs:domain :Tissue_Sampling;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "collection_date"@en.
+:species_name_1 rdfs:domain :Biological_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "species_name"@en.
+:genus_1 rdfs:domain :Biological_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "genus"@en.
+:subFamily_1 rdfs:domain :Biological_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "subFamily"@en.
+:family_1 rdfs:domain :Biological_Species;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "family"@en.
+:length rdfs:domain :Virus_Sequence;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "length"@en.
+:GC_percentage rdfs:domain :Virus_Sequence;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "GC_percentage"@en.
+:region rdfs:domain :Research_Laboratory;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "region"@en.
+:country rdfs:domain :Research_Laboratory;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "country"@en.
+:geo_group rdfs:domain :Research_Laboratory;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "geo_group"@en.
+:start_position rdfs:domain :Variant;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "start_position"@en.
+:length_1 rdfs:domain :Variant;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "length"@en.
+:alternative_seq rdfs:domain :Variant;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "alternative_seq"@en.
+:strain_name rdfs:domain :Regular_Sequence;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "strain_name"@en.
+:deposition_date rdfs:domain :Sequence_Deposition;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "deposition_date"@en.

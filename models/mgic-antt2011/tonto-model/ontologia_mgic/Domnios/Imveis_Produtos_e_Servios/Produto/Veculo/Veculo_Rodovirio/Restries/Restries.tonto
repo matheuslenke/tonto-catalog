@@ -1,0 +1,38 @@
+import Tipo_de_Veculo
+import Carroceria
+import Partes
+import Atendimento_Rodovirio
+import Acidente
+import Trfego
+import Componente_Trecho_Fsico
+import Praa_de_Pedgio
+import Posto_de_Pesagem
+
+package Restries
+
+role Veculo_com_Restrio_Tributria of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_com_Restrio_Administrativa of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_com_Restrio_Judicial of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_Definitivamente_Desmontado of functional-complexes  specializes Veculo_Baixado 
+
+role Veculo_com_Alienao_Fiduciria of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_Roubado of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_em_Reserva_de_Domnio of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_Arrendado of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_em_Perda_Total of functional-complexes  specializes Veculo_Baixado 
+
+role Veculo_Irrecupervel of functional-complexes  specializes Veculo_Baixado 
+
+role Veculo_com_Baixa_na_Alienao_por_Ordem_Judiciria of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_Baixado of functional-complexes  specializes Veculo_Rodovirio 
+
+role Veculo_Penhorado of functional-complexes  specializes Veculo_Rodovirio 
+

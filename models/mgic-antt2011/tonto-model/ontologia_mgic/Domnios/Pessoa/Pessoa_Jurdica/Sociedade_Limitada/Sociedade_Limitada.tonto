@@ -1,0 +1,16 @@
+
+package Sociedade_Limitada
+
+relator Constuio_de_Empresa_LTDA
+
+relator Posse_de_Quota{
+    quota: undefined  
+    valor: undefined  
+}
+
+subkind Contrato_Social of functional-complexes  specializes Contrato 
+
+
+
+
+

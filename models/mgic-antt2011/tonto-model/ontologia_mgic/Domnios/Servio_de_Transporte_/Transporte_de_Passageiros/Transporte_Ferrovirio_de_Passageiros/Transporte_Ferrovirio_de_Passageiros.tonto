@@ -1,0 +1,14 @@
+import Movimentao_de_Ativo_Ferrovirio
+import Arbitragem_e_Mediao
+import Transporte_Ferrovirio_de_Passageiros
+
+package Transporte_Ferrovirio_de_Passageiros
+
+relator Transporte_Ferrovirio_de_Passageiro specializes Viagem_Ferroviria 
+
+role Passageiros_em_Viagem_Ferroviria
+
+kind Boletim_de_Viagem
+
+
+

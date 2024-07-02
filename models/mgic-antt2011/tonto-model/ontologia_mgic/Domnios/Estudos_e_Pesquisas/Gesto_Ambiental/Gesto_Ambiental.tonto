@@ -1,0 +1,491 @@
+
+package Gesto_Ambiental
+
+subkind Relatrio_de_Atendimento_s_Condicionantes_da_Licena_Ambiental_RACLA of functional-complexes  specializes Relatrio_Ambiental 
+
+subkind Licena_Ambiental_de_Operao_LO of functional-complexes  specializes Licena_Ambiental 
+
+role RAA_em_Complementao of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+type Tipo_do_Estudo_Ambiental
+
+kind Termo_de_Compromisso_de_Regularizao_Ambiental
+
+role Relatrio_de_Execuo_de_Programas_Voluntrios_em_RAA of functional-complexes  specializes Relatrio_de_Execuo_de_Programas_Voluntrios 
+
+role Licena_Ambiental_Prorrogada of functional-complexes  specializes Licena_Ambiental 
+
+kind Relatrio_de_Execuo_de_Programas_Voluntrios
+
+relator Licenciamento_para_Instalao_atrelada_a_LP specializes Licenciamento_para_Instalao 
+
+role Relatrio_em_Licenciamento_Ambiental of functional-complexes  specializes Relatrio_Ambiental 
+
+relator Licenciamento_Ambiental_com_Autorizao_Ambiental specializes Licenciamento_Ambiental 
+
+role CNMA_em_Avaliao_de_GTP of collectives  specializes Coordenao_do_Ncleo_de_Meio_Ambiente_CNMA 
+
+role Formulrio_de_GSTP_para_Politica_Ambiental of functional-complexes  specializes Formulrio 
+
+role Manifestao_de_RAA_Avaliada of functional-complexes  specializes Manifestao_de_RAA 
+
+relator Regularizao_Ambiental
+
+role Certificado_ISO_14001_em_RAA of functional-complexes  specializes Certificado_ISO_14001 
+
+relator Renovao_de_Licena_Ambiental{
+    cdigo: undefined  
+    data: undefined  
+}
+
+kind Autorizao_Ambiental_AA{
+    emisso: undefined  
+    numero: undefined  
+    validade: undefined  
+}
+
+role Ente_Regulado_Licenciado_em_Prorrogao_de_Licena specializes Ente_Regulado_em_Licena_Ambiental 
+
+relator Avaliao_do_Relatrio_de_Acompanhamento_Ambiental_RAA
+
+role rgo_Licenciador_em_Ronovao_de_Autorizao_Ambiental
+
+role Autorizao_Ambiental_em_Renovao of functional-complexes  specializes Autorizao_Ambiental_AA 
+
+kind Estudo_Ambiental_EA specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+subkind Manifestao_Negativa_de_RAA_em_Avaliao of functional-complexes  specializes Manifestao_de_RAA 
+
+role Ente_Regulado_em_Avaliao_de_RAA specializes Outorgado 
+
+relator Processo_de_Autorizao_Ambiental{
+    cdigo: undefined  
+    data: undefined  
+}
+
+role rgo_Licenciador_Autorizador_Ambiental_em_Esclarecimento specializes rgo_Licenciador_Ambiental 
+
+role Licena_Ambiental_em_Renovao of functional-complexes  specializes Licena_Ambiental 
+
+role Relatrio_de_Esclarecimento_de_Autorizao_Ambiental
+
+role Autorizao_Ambiental_em_Licenciamneto_Ambiental of functional-complexes  specializes Autorizao_Ambiental_AA 
+
+role Certificado_ISO_14001_com_Formulrio_para_GSTP of functional-complexes  specializes Certificado_ISO_14001 
+
+role Objeto_de_Renovao_de_Autorizao_Ambiental of functional-complexes  specializes Objeto_de_Autorizao_Ambiental 
+
+relator Licenciamento_Prvio
+
+kind Projeto_de_Controle_Ambiental_PCA specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+relator Emisso_de_Parecer_Tcnico_de_Complementao_de_Licena_Ambiental
+
+kind Estudo_de_Patrimnio_Espeleolgico specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+subkind Autorizao_para_Supresso_Vegetal_ASV of functional-complexes  specializes Autorizao_Ambiental_AA 
+
+subkind RAA_com_PAE of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+phase Programa_Ambiental_No_Iniciado of functional-complexes  specializes Programa_Ambiental 
+
+kind Certificado_ISO_14001
+
+kind Estudo_de_Viabilidade_Tcnica_Ambiental_EVTA specializes Estudo_Ambiental 
+
+role Ente_Regulado_Licenciado_em_LOC specializes Ente_Regulado_em_Licena_Ambiental 
+
+role rgo_Licenciador_Avaliador_de_Estudo_Ambiental specializes rgo_Licenciador_Ambiental 
+
+mixin Objeto_Licenciado_em_LO_ of functional-complexes  specializes Objeto_Licenciado_Ambiental 
+
+role Ente_Regulado_em_Complementao_de_RAA specializes Outorgado 
+
+role Parecer_Tcnico_de_Pedido_de_Complementao_de_Estudo_em_Licena
+
+relator Licenciamento_para_Instalao_com_dispensa_de_LP specializes Licenciamento_para_Instalao 
+
+category Estudo_Ambiental_para_Obteno_de_Licena_Ambiental of functional-complexes  specializes Estudo_Ambiental 
+
+kind Relatrio_de_Impacto_Ambiental_RIMA_
+
+role RAA_Em_No_Conformidade of functional-complexes  specializes RAA_em_Avaliao 
+
+relator Avaliao_Tcnica_de_RAA
+
+role Ente_Regulado_em_Licena_Ambiental specializes Outorgado 
+
+role Ente_Regulado_em_Autorizao_Ambiental_ specializes Outorgado 
+
+kind Relatrio_de_Controle_Ambiental_RCA
+
+role Estudo_Ambiental_para_Renovao_de_Licena_Ambiental
+
+role Ente_Regulado_Licenciado_em_LI specializes Ente_Regulado_em_Licena_Ambiental 
+
+role Ente_Regulado_Autorizado_em_Esclarecimento specializes Outorgado 
+
+kind Termo_de_Referncia_TR_de_Licena_Ambiental
+
+phase Licena_Ambiental_Vigente of functional-complexes  specializes Licena_Ambiental 
+
+mixin Objeto_Licenciado_em_LP_ of functional-complexes  specializes Objeto_Licenciado_Ambiental 
+
+role Estudo_Ambiental_para_Obteno_de_Licena_de_Instalao specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+kind Programa_Ambiental{
+    fim_previsto: undefined  
+    nome: undefined  
+}
+
+relator Avaliao_de_Estudo_Ambiental_para_Licena_Ambiental
+
+role Plano_de_Monitoramento_Ambiental_com_Formulrio_GSTP of functional-complexes  specializes Plano_de_Monitoramento_Ambiental 
+
+subkind Relatrio_Detalhado_de_Programas_Ambientais_RDPA of functional-complexes  specializes Relatrio_Ambiental 
+
+relator Renovao_de_Autorizao_Ambiental{
+    cdigo: undefined  
+    data: undefined  
+}
+
+kind Procedimento_de_Ao_Preventiva_e_Corretiva
+
+role Plano_Bsico_Ambiental_PBA_em_LO of functional-complexes  specializes Plano_Bsico_Ambiental_PBA 
+
+role Formulrio_de_GSTP_para_Ao_Preventiva_e_Corretiva of functional-complexes  specializes Formulrio 
+
+kind Estudo_de_Impacto_Ambiental_EIA specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+mixin Objecto_Licenciado_em_LI_ of functional-complexes  specializes Objeto_Licenciado_Ambiental 
+
+relator Licenciamento_Ambiental_com_Inventrio_Florestal specializes Licenciamento_Ambiental 
+
+relator Avaliao_da_Manifestao_da_CNMA
+
+role Plano_Bsco_Ambiental_PBA_em_LI of functional-complexes  specializes Plano_Bsico_Ambiental_PBA 
+
+role rgo_Licenciador_em_Prorrogao_de_Licena_Ambiental specializes rgo_Licenciador_Ambiental 
+
+role Formulrio_de_GSTP_para_Documento_de_Auditoria_Interna of functional-complexes  specializes Formulrio 
+
+role Documento_de_Auditoria_com_Formulrio_para_GSTP of functional-complexes  specializes Documento_Ambiental_de_Auditoria_Interna_ 
+
+role Plano_de_Gerenciamento_de_Risco_em_RAA of functional-complexes  specializes Plano_de_Gerenciamento_de_Risco_PGR_ 
+
+relator Licenciamento_Ambiental_com_EVTA specializes Licenciamento_Ambiental 
+
+role Termo_de_Referncia_TR_em_Licena_Ambiental_em_LOC of functional-complexes  specializes Termo_de_Referncia_TR_de_Licena_Ambiental 
+
+role RAA_Em_Conformidade of functional-complexes  specializes RAA_em_Avaliao 
+
+subkind Licena_Ambiental_de_Operao_Corretiva_LOC of functional-complexes  specializes Licena_Ambiental 
+
+kind Manifestao_de_RAA
+
+kind Documento_Ambiental_de_Auditoria_Interna_
+
+role Licena_AMbiental_Prvia_LP_atrelada_a_Licenciamento_de_Instalao of functional-complexes  specializes Licena_Ambiental_Prvia_LP 
+
+mode Impacto_ScioAmbiental_do_Programa_Ambiental{
+    descrio: undefined  
+}
+
+role Ente_Regulado_em_Gesto_ScioAmbiental_do_TP specializes Outorgado 
+
+subkind Manifestao_Positiva_de_RAA_em_Avaliao of functional-complexes  specializes Manifestao_de_RAA 
+
+role Ente_Licenciado_em_Renovao_de_Licena_Ambiental specializes Ente_Regulado_em_Licena_Ambiental 
+
+kind Licena_Ambiental{
+    emisso: undefined  
+    numero: undefined  
+    validade: undefined  
+}
+
+role Membro_do_CNMA
+
+category Estudo_Ambiental of functional-complexes 
+
+role RAA_em_Avaliao_de_Manifestao of functional-complexes  specializes RAA_em_Avaliao 
+
+kind Plano_de_Compensao_Ambiental_ specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+kind Formulrio specializes Documento 
+
+phase Programa_Ambiental_Concludo of functional-complexes  specializes Programa_Ambiental 
+
+kind Estudo_de_Conformidade_Ambiental_ECA specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+subkind RAA_com_Documento_de_Auditoria_Interna of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+role Documento_de_Auditoria_Interna_em_RAA of functional-complexes  specializes Documento_Ambiental_de_Auditoria_Interna_ 
+
+subkind Licena_Ambiental_Prvia_LP of functional-complexes  specializes Licena_Ambiental 
+
+role rgo_Licenciador_Ambiental
+
+relator Licenciamento_de_Operao
+
+kind Estudo_Ambiental_Simplificado specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+role Documento_de_Poltica_Ambiental_com_Formulrio_GSTP of functional-complexes  specializes Documento_de_Poltica_Ambiental 
+
+role Objeto_de_Renovao_de_Licena_Ambiental specializes Objeto_Licenciado_Ambiental 
+
+kind Documento_de_Poltica_Ambiental
+
+kind Plano_de_Monitoramento_Ambiental
+
+role RAA_em_Avaliao_Tcnica of functional-complexes  specializes RAA_em_Avaliao 
+
+mode Condio_Especfica_da_Licena_Ambiental
+
+role Procedimento_de_Ao_Preventiva_e_Corretiva_com_Formulrio_GSTP of functional-complexes  specializes Procedimento_de_Ao_Preventiva_e_Corretiva 
+
+role Estudo_Ambiental_para_Licena_Ambiental_em_Avaliao specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+kind Objeto_de_Autorizao_Ambiental
+
+role Estudo_Ambiental_para_Licena_Ambiental_em_Parecer_Tcnico specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+kind Plano_de_Recuperao_de_reas_Degradadas_PRAD
+
+subkind Autorizao_de_Uso_de_reas_de_Preservao_Permanente_APP of functional-complexes  specializes Autorizao_Ambiental_AA 
+
+subkind Relatrio_de_Avaliao_de_Desempenho_de_Empreendimento_RDAE of functional-complexes  specializes Relatrio_Ambiental 
+
+mixin Objeto_Licenciado_em_LOC of functional-complexes  specializes Objeto_Licenciado_Ambiental 
+
+role Intrumento_de_Cooperao_em_RAA of functional-complexes  specializes Instrumento_de_Cooperao_Ambiental 
+
+relator Licenciamento_para_Instalao
+
+subkind RAA_com_Programa_de_Voluntrios of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+relator Licenciamento_Ambiental_com_PRAD specializes Licenciamento_Ambiental 
+
+role Plano_de_Ao_Emergencial_em_RAA of functional-complexes  specializes Plano_de_Ao_Emergencial_PAE_ 
+
+subkind RAA_com_PGR of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+phase Programa_Ambiental_Em_Andamento of functional-complexes  specializes Programa_Ambiental 
+
+role rgo_Licenciador_em_LI specializes rgo_Licenciador_Ambiental 
+
+role Objeto_de_Prorrogao_de_Licena_Ambiental specializes Objeto_Licenciado_Ambiental 
+
+role Relatrio_de_Execuo_de_Programas_Voluntrios_com_Formulrio_GSTP of functional-complexes  specializes Relatrio_de_Execuo_de_Programas_Voluntrios 
+
+subkind RAA_com_Instrumento_de_Cooperao of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+role rgo_Licenciador_Emissor_de_Autorizao_Ambiental specializes rgo_Licenciador_Ambiental, rgo_Licenciador_em_Ronovao_de_Autorizao_Ambiental 
+
+role Formulrio_de_GSTP_para_Programa_de_Voluntrios of functional-complexes  specializes Formulrio 
+
+mode Objetivo_do_Programa_Ambiental{
+    descrio: undefined  
+}
+
+role Estudo_Ambiental_para_Obteno_de_Licena_Operational_Corretiva specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+role Formulrio_de_Gesto_ScioAmbiental_do_Transporte_de_Passageiros of functional-complexes  specializes Formulrio 
+
+role Formulrio_de_GSTP_para_Certificado_ISO of functional-complexes  specializes Formulrio 
+
+type Tipo_de_Interveno
+
+kind Plano_de_Gerenciamento_de_Risco_PGR_
+
+role Ente_Regulado_Licenciado_em_LO specializes Ente_Regulado_em_Licena_Ambiental 
+
+role CNMA_em_Avaliao_Tcnica of collectives  specializes Coordenao_do_Ncleo_de_Meio_Ambiente_CNMA 
+
+collective Coordenao_do_Ncleo_de_Meio_Ambiente_CNMA
+
+relator Prorrogao_de_Licena_Ambiental{
+    cdigo: undefined  
+    data: undefined  
+}
+
+role Ente_Regulado_Licenciado_em_LP specializes Ente_Regulado_em_Licena_Ambiental 
+
+relator Esclarecimento_de_Autorizao_Ambiental
+
+relator Licenciamento_Ambiental specializes Licenciamento_para_Instalao, Licenciamento_de_Operao, Licenciamento_Prvio, Regularizao_Ambiental {
+    cdigo: undefined  
+    data_de_abertura: undefined  
+    data_de_implementao: undefined  
+    numero: undefined  
+}
+
+kind Plano_Bsico_Ambiental_PBA
+
+subkind Relatrio_Ambiental_Preliminar_RAP of functional-complexes  specializes Relatrio_Ambiental 
+
+relator Reponsabilidade_em_Programa_Ambiental
+
+role Licena_Vinculada_a_Autorizao_Ambiental of functional-complexes  specializes Licena_Ambiental 
+
+role rgo_Licenciador_em_Renovao_de_Licena_Ambiental specializes rgo_Licenciador_Ambiental, rgo_Licenciador_Ambiental 
+
+role Estudo_Ambiental_para_Obteno_de_Licena_de_Operao specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+role rgo_Licenciador_em_LO specializes rgo_Licenciador_Ambiental 
+
+subkind RAA_com_Certificado_ISO of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+role Responsvel_por_Programa_Ambiental
+
+role Formulrio_de_GSTP_para_Plano_de_Monitoramento_Ambiental of functional-complexes  specializes Formulrio 
+
+role Ente_Regulado_em_Renovao_de_Autorizao_Ambiental specializes Ente_Regulado_em_Autorizao_Ambiental_ 
+
+role Estudo_Ambiental_para_Obteno_da_Licena_Prvia specializes Estudo_Ambiental_para_Obteno_de_Licena_Ambiental 
+
+role Termo_de_Referncia_de_Licena_Ambiental_em_LI of functional-complexes  specializes Termo_de_Referncia_TR_de_Licena_Ambiental 
+
+subkind Relatrio_Ambiental_Simplificado_RAS of functional-complexes  specializes Relatrio_Ambiental 
+
+role rgo_Licenciador_Ambiental_Emissor_de_Parecer_Tnico specializes rgo_Licenciador_Ambiental 
+
+kind Relatrio_Ambiental
+
+role Relatrio_de_Complementao_de_Estudo_Ambiental_em_Licena
+
+subkind Licena_Ambiental_de_Instalao_LI of functional-complexes  specializes Licena_Ambiental 
+
+role RAA_em_Avaliao of functional-complexes  specializes Relatrio_de_Acompanhamento_Ambiental_RAA 
+
+kind Plano_de_Ao_Emergencial_PAE_
+
+phase Licena_Ambiental_Vencida of functional-complexes  specializes Licena_Ambiental 
+
+relator Gesto_ScioAmbiental_do_Transporte_de_Passageiros
+
+relator Complementao_de_RAA
+
+kind Instrumento_de_Cooperao_Ambiental
+
+mode Condio_Geral_da_Licena_Ambiental
+
+kind Inventrio_Florestal specializes Estudo_Ambiental 
+
+kind Relatrio_de_Acompanhamento_Ambiental_RAA
+
+role rgo_Licenciador_em_LOC specializes rgo_Licenciador_Ambiental 
+
+mixin Objeto_Licenciado_Ambiental of functional-complexes  specializes Obra_de_Concesso_ 
+
+subkind Relatrio_Ambiental_RA of functional-complexes  specializes Relatrio_Ambiental 
+
+relator Licenciamento_Ambiental_com_Relatrios_Ambientais specializes Licenciamento_Ambiental 
+
+relator Autorizao_Ambiental_Vinculada_a_Licena_Ambiental specializes Processo_de_Autorizao_Ambiental 
+
+role Termo_de_Referncia_de_Licena_Ambiental_em_LP of functional-complexes  specializes Termo_de_Referncia_TR_de_Licena_Ambiental 
+
+role rgo_Licenciador_em_LP specializes rgo_Licenciador_Ambiental 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

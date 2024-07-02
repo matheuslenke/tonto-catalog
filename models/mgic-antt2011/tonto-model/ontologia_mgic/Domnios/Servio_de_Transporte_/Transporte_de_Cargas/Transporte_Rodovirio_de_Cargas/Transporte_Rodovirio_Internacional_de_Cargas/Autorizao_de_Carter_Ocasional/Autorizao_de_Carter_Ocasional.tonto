@@ -1,0 +1,36 @@
+import Autorizao_de_Carter_Ocasional
+import Transporte_Rodovirio_Internacional_de_Cargas_Mediante_Remunerao
+import Transporte_Rodovirio_Internacional_de_Carga_Prpria
+
+package Autorizao_de_Carter_Ocasional
+
+relator Requerimento_de_Autorizao_de_Carter_Ocasional
+
+relator Requerimento_de_Autorizao_de_Carter_Ocasional_de_Carga_Prpria specializes Requerimento_de_Autorizao_de_Carter_Ocasional 
+
+role Pas_de_Destino_de_Viagem_de_TRC_de_Carter_Ocasional
+
+relator Viagem_de_Ida_de_OTRC_de_Carter_Ocasional specializes Viagem_de_TRC_de_Carter_Ocasional 
+
+role Documento_de_Autorizao_de_Carter_Ocasional of functional-complexes  specializes Autorizao_de_Carter_Ocasional 
+
+role Pas_Transitado_em_Viagem_de_TRC_de_Carter_Ocasional
+
+relator Requerimento_de_Autorizao_de_Carter_Ocasional_Normal specializes Requerimento_de_Autorizao_de_Carter_Ocasional 
+
+relator Viagem_de_Volta_de_TRC_de_Carter_Ocasional specializes Viagem_de_TRC_de_Carter_Ocasional 
+
+role Pas_de_Origem_de_Viagem_de_TRC_de_Carter_Ocasional
+
+relator Viagem_de_TRC_de_Carter_Ocasional
+
+kind Autorizao_de_Carter_Ocasional
+
+
+
+
+
+
+
+
+

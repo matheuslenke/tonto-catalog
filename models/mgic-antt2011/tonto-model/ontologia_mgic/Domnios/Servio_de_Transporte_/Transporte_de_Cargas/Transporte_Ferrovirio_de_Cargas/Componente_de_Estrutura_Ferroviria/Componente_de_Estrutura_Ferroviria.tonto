@@ -1,0 +1,5 @@
+
+package Componente_de_Estrutura_Ferroviria
+
+mixin Componente_de_Trecho_Ferrovirio of functional-complexes 
+

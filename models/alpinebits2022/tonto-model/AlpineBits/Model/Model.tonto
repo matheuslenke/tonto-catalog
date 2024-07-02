@@ -6,9 +6,9 @@ relator Event_Plan specializes Named_Entity {
     end_date: Time_Instant  
     inperson_capacity: int  
     online_capacity: int  
-    participation_url: string_  
-    registration_url: string_  
-    recorded: boolean_  
+    participation_url: string  
+    registration_url: string  
+    recorded: boolean  
 }
 
 phase Cancelled of relators  specializes Event_Plan 
@@ -52,7 +52,7 @@ kind Video_Object specializes Media_Object {
 }
 
 category Media_Object of functional-complexes  specializes Named_Entity {
-    content_type: string_  
+    content_type: string  
 }
 
 subkind Event_Plan_Category specializes Category 
@@ -71,7 +71,7 @@ subkind Point of qualities  specializes Geometry
 
 category Place of functional-complexes  specializes Geospatial_Feature, Named_Entity {
     address: Address  
-    how_to_arrive: string_  
+    how_to_arrive: string  
     opening_hours: Hours_Specification [1..*] 
 }
 
@@ -87,11 +87,11 @@ kind Lift specializes Place, Named_Entity {
 kind Trail specializes Place 
 
 category Named_Entity{
-    abstract: string_  
-    description: string_  
-    name: string_  
-    short_name: string_  
-    url: string_  
+    abstract: string  
+    description: string  
+    name: string  
+    short_name: string  
+    url: string  
 }
 
 subkind Snowpark of functional-complexes  specializes Trail, Named_Entity 
@@ -110,8 +110,8 @@ relator Snow_Measurement specializes Geospatial_Feature {
     base_snow_range: undefined  
     storm_total: int  
     snow_over_night: int  
-    groomed: boolean_  
-    snow_making: boolean_  
+    groomed: boolean  
+    snow_making: boolean  
 }
 
 type Snow_Type

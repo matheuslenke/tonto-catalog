@@ -1,0 +1,11 @@
+import Principais
+import Autuao
+
+package Infrao_de_Transporte_Ferrovirio_de_Cargas
+
+subkind Infrao_de_Transporte_Ferrovirio_de_Cargas of functional-complexes  specializes Infrao_Praticada 
+
+subkind Infrao_de_Transporte_Ferrovirio_de_Cargas_Prevista of functional-complexes  specializes Infrao_de_Transporte_Ferrovirio_de_Cargas, Infrao_Graduada_por_Grupo 
+
+subkind Infrao_de_Transporte_Ferrovirio_de_Cargas_Praticada of functional-complexes  specializes Infrao_de_Transporte_Ferrovirio_de_Cargas, Infrao_Praticada_de_Transporte 
+

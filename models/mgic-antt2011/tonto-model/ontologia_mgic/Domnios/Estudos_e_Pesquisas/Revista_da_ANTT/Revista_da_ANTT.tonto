@@ -1,0 +1,373 @@
+
+package Revista_da_ANTT
+
+roleMixin Recurso_Bibliogrfico_Distribudo of functional-complexes  specializes Recurso_Bibliogrfico 
+
+role Editora
+
+roleMixin _DTC_Aceito_Condicionalmente of functional-complexes  specializes DTC_Avaliado_Tcnicamente 
+
+role Parecerista_do_Ncleo_Editorial specializes Membro_de_Ncleo_Editorial 
+
+kind Artigo_TcnicoCientfico specializes Artigo 
+
+roleMixin Recurso_Bibliogrfico_com_Editora of functional-complexes  specializes Recurso_Bibliogrfico 
+
+role CDR_com_Parecer of collectives  specializes Conselho_Deliberativo_de_Revista 
+
+role Livro_de_Srie of functional-complexes  specializes Livro_Simples 
+
+roleMixin Autor_de_Documento of functional-complexes 
+
+category Produto_de_Evento of functional-complexes 
+
+relator Ressubmisso_de_DTC specializes Submisso_de_DTC 
+
+roleMixin DTC_Aceito_Pelo_Conselho of functional-complexes  specializes DTC_Avaliado_Pelo_Conselho 
+
+kind Artigo_Especial specializes Artigo, Contedo_de_Peridico, Documento_TcnicoCientfico 
+
+relator Citao
+
+subkind Subseo_de_DTC of functional-complexes  specializes Seo_de_DTC 
+
+kind Editorial{
+    contedo: undefined  
+}
+
+role Tradutor
+
+roleMixin DTC_Submetido of functional-complexes  specializes Documento_TcnicoCientfico 
+
+roleMixin _DTC_Aceito of functional-complexes  specializes DTC_Avaliado_Tcnicamente 
+
+subkind Seo_de_DTC_Simples of functional-complexes  specializes Seo_de_DTC 
+
+mode Direito_Autoral
+
+role Membro_de_Ncleo_Editorial
+
+subkind Seo_de_DTC_Composta of functional-complexes  specializes Seo_de_DTC 
+
+kind Seo_de_Referncia_de_DTC
+
+role Revista_com_Submisso of collectives  specializes Revista_Cientfica 
+
+roleMixin _DTC_Recusado of functional-complexes  specializes DTC_Avaliado_Tcnicamente 
+
+subkind Artigo_TcnicoCientfico_em_Peridico of functional-complexes  specializes Documento_TcnicoCientfico, Contedo_de_Peridico, Artigo_TcnicoCientfico 
+
+category Recurso_Bibliogrfico of functional-complexes {
+    criao: undefined  
+    doi: undefined  
+    idioma: Idioma  
+    resumo: undefined  
+    subttulo: undefined  
+    ttulo: undefined  
+}
+
+roleMixin DTC_Ressubmetido of functional-complexes  specializes _DTC_Aceito_Condicionalmente 
+
+roleMixin Documento_Revisor of functional-complexes  specializes Documento 
+
+kind Resenha_Bibliogrfica specializes Documento_TcnicoCientfico, Contedo_de_Peridico, Artigo 
+
+relator Evento_Simples specializes Evento 
+
+category Publicao_Seriada of functional-complexes  specializes Coleo {
+    issn: undefined  
+}
+
+relator Retratao_de_Pessoa_em_Imagem
+
+kind Reportagem specializes Contedo_de_Peridico, Artigo {
+    contedo: undefined  
+}
+
+relator Parecer_do_Conselho_Deliberativo
+
+kind Padro_Documentado specializes Documento 
+
+kind Conjuntura_Profissional specializes Artigo, Documento_TcnicoCientfico, Contedo_de_Peridico 
+
+roleMixin Documento_Fonte_de_Traduo of functional-complexes  specializes Documento 
+
+role Parecerista_de_DTC specializes Membro_de_Corpo_Tcnico 
+
+category Documento_Composto of functional-complexes  specializes Documento 
+
+subkind Anais_de_Eventos of functional-complexes  specializes Livro_Simples, Produto_de_Evento 
+
+category Documento_Legal of functional-complexes  specializes Documento, Certificado_de_Operador_de_Transporte_Multimodal, Requerimento_de_Habilitao_de_Transporte_Multimodal, Documento_de_Modificao_de_Frota 
+
+relator Paracer_do_Ncleo_Editorial
+
+kind Parecer_Tcnico specializes Documento, Parecer_Tcnico_de_Pedido_de_Complementao_de_Estudo_em_Licena 
+
+role Imagem_com_Retratado of functional-complexes  specializes Imagem 
+
+kind Documento_de_udio specializes Documento {
+    durao: undefined  
+}
+
+role Distribuidor_de_Recurso_Bibliogrfico
+
+kind Manual specializes Documento 
+
+kind Registro_de_Entrevista specializes Artigo, Contedo_de_Peridico, Produto_de_Evento 
+
+kind Patente specializes Documento 
+
+relator Workshop specializes Evento_Com_Anais 
+
+role Autor_Corporativo specializes Autor_de_Documento 
+
+roleMixin Documentado_Citado of functional-complexes  specializes Documento 
+
+role Stio_Eletrnico_com_Proprietrio of collectives  specializes Stio_Eletrnico 
+
+category Trabalho_Acadmico of functional-complexes  specializes Projeto_de_Graduao, Dissertao_de_Mestrado, Tese_de_Doutorado, Documento 
+
+kind Nota specializes Documento 
+
+kind Documento_Audio_Visual specializes Documento {
+    durao: undefined  
+}
+
+kind Pgina_Eletrnica specializes Documento 
+
+category Parte_de_Documento of functional-complexes  specializes Documento 
+
+relator Evento{
+    fim: undefined  
+    incio: undefined  
+}
+
+relator Evento_Composto specializes Evento 
+
+collective Ncleo_Editorial
+
+role Remetente_de_DTC{
+    email: undefined  
+}
+
+collective Corpo_Tcnico
+
+kind Seo_de_DTC{
+    contedo: undefined  
+    nmero: undefined  
+}
+
+relator Traduo
+
+kind Excerto specializes Parte_de_Documento 
+
+collective Conselho_Deliberativo_de_Revista
+
+role Documento_Audio_Visual_com_Diretor_de_Video of functional-complexes  specializes Documento_Audio_Visual 
+
+roleMixin Documento_Citador of functional-complexes  specializes Documento 
+
+role Membro_de_Corpo_Tcnico
+
+relator Evento_Com_Anais specializes Evento 
+
+relator Parecer_de_DTC{
+    aceito: undefined  
+    condicional: undefined  
+    contedo: undefined  
+}
+
+relator Edio_de_Recurso_Bibliogrfico
+
+kind Livro_Composto specializes Livro, Documento_Composto 
+
+category Documento_TcnicoCientfico of functional-complexes {
+    palavrachave: undefined  
+}
+
+kind Relatrio specializes Relatrio_Tcnico_em_Peridico, Documento, Relatrio_de_Complementao_de_Estudo_Ambiental_em_Licena, Relatrio_de_Esclarecimento_de_Autorizao_Ambiental 
+
+category Coleo of functional-complexes  specializes Recurso_Bibliogrfico 
+
+collective Revista_Cientfica specializes Peridico 
+
+kind Imagem specializes Documento 
+
+kind Item_de_Entrevista{
+    pergunta: undefined  
+    resposta: undefined  
+}
+
+kind Apresentao_de_Slides specializes Documento 
+
+relator Autoria_de_Documento
+
+role Entrevistador
+
+roleMixin DTC_Avaliado_Tcnicamente of functional-complexes  specializes Documento_TcnicoCientfico 
+
+roleMixin DTC_Recusado_Pelo_Conselho of functional-complexes  specializes DTC_Avaliado_Pelo_Conselho 
+
+kind Slide specializes Parte_de_Documento {
+    nmero: undefined  
+}
+
+relator Direito_de_Propriedade_de_Stio_Eletrnico
+
+roleMixin Reprovado_Pelo_Ncleo_Editorial of functional-complexes  specializes DTC_Avaliado_Pelo_Ncleo_Editorial 
+
+relator Edio_de_Recurso_Bibliogrfico_2
+
+relator Conferncia specializes Evento_Com_Anais 
+
+category Livro of functional-complexes {
+    isbn: undefined  
+}
+
+subkind Livro_com_Sesso of functional-complexes  specializes Livro_Simples 
+
+relator Direo_de_Documento_Audio_Visual
+
+role Autor_Fsico_de_Documento specializes Entrevistador, Autor_de_Documento, Autor_de_Nota_Tcnica 
+
+kind Livro_Simples specializes Documento, Livro 
+
+subkind Artigo_Acadmico_em_Evento of functional-complexes  specializes Produto_de_Evento, Artigo_TcnicoCientfico 
+
+collective Jornal specializes Peridico 
+
+role Editor
+
+kind Edio_de_Peridico specializes Documento_Composto {
+    nmero: undefined  
+    volume: undefined  
+}
+
+role Membro_de_Conselho_Deliberativo_de_Revista
+
+collective Srie specializes Publicao_Seriada 
+
+roleMixin Recurso_Bibliogrfico_Editado of functional-complexes  specializes Recurso_Bibliogrfico 
+
+roleMixin DTC_Avaliado_Pelo_Ncleo_Editorial of functional-complexes  specializes Documento_TcnicoCientfico 
+
+relator Reviso_de_Recurso_Bibliogrfico
+
+roleMixin Documento_Traduzido of functional-complexes  specializes Documento 
+
+collective Stio_Eletrnico specializes Coleo 
+
+kind Seo_de_Livro specializes Parte_de_Documento {
+    nmero: undefined  
+}
+
+category Peridico of functional-complexes  specializes Publicao_Seriada {
+    frequncia: undefined  
+}
+
+kind Documento_de_Referncia specializes Documento 
+
+subkind Relatrio_Tcnico_em_Peridico specializes Contedo_de_Peridico, Documento_TcnicoCientfico 
+
+category Artigo of functional-complexes  specializes Documento 
+
+relator Submisso_de_DTC
+
+roleMixin Recurso_Bibliogrfico_Revisado of functional-complexes  specializes Recurso_Bibliogrfico 
+
+role Edio_de_Peridico_em_Parecer_Deliberativo of functional-complexes  specializes Edio_de_Peridico 
+
+collective Revista_TcnicoCientfica specializes Peridico 
+
+roleMixin Aprovado_Pelo_Ncleo_Editorial of functional-complexes  specializes DTC_Avaliado_Pelo_Ncleo_Editorial 
+
+role Diretor_de_Vdeo
+
+category Documento of functional-complexes  specializes Recurso_Bibliogrfico, Termo_de_Referncia, Nota_Tcnica, Contrato_de_Prestao_de_Servio_de_Transporte_Rodovirio_Nacional_de_Cargas, Autorizao_de_Carter_Ocasional 
+
+relator Entrevista specializes Evento {
+    ttuloEntrevistado: undefined  
+}
+
+roleMixin Pessoa_com_Stio_Eletrnico of functional-complexes 
+
+roleMixin DTC_Avaliado_Pelo_Conselho of functional-complexes  specializes Documento_TcnicoCientfico 
+
+role Entrevistado
+
+collective Revista specializes Peridico 
+
+roleMixin Retratado_em_Imagem of functional-complexes 
+
+relator Distribuio_de_Recurso_Bibliogrfico
+
+category Contedo_de_Peridico of functional-complexes  specializes Documento 
+
+enum Idioma
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

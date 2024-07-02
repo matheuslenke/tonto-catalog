@@ -1,0 +1,37 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Recipient rdf:type owl:NamedIndividual;
+    rdfs:label "Recipient"@en.
+:Value_Proposition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Value_Proposition"@en.
+:Provider rdf:type owl:NamedIndividual;
+    rdfs:label "Provider"@en.
+:Control rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Control"@en.
+:Resource rdf:type owl:NamedIndividual;
+    rdfs:label "Resource"@en.
+:Capability rdf:type owl:NamedIndividual;
+    rdfs:label "Capability"@en.
+:Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Action"@en.
+:Caused_State rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Caused_State"@en.
+:Problem_Solution rdf:type owl:NamedIndividual;
+    rdfs:label "Problem_Solution"@en.
+:Intention rdf:type owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Satisfaction_Level rdf:type owl:NamedIndividual;
+    rdfs:label "Satisfaction_Level"@en.
+:Value rdf:type owl:NamedIndividual;
+    rdfs:label "Value"@en.

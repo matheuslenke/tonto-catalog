@@ -1,0 +1,212 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Composed rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composed"@en.
+:organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "organization"@en.
+:organizationalPart rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "organizationalPart"@en.
+:Atomic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Atomic"@en.
+:individual rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "individual"@en.
+:team rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "team"@en.
+:system rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "system"@en.
+:phenomenon rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "phenomenon"@en.
+:commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "commitment"@en.
+:norm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "norm"@en.
+:major_premisse rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "major_premisse"@en.
+:applicationNorm rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "applicationNorm"@en.
+:secondary_premisse rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "secondary_premisse"@en.
+:facto rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "facto"@en.
+:sanction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "sanction"@en.
+:conclusion rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "conclusion"@en.
+:penalty rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "penalty"@en.
+:reward rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "reward"@en.
+:civil rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "civil"@en.
+:civilCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "civilCommitment"@en.
+:civilServiceUnit rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "civilServiceUnit"@en.
+:policeIAD rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "policeIAD"@en.
+:internalAffairDepartment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "internalAffairDepartment"@en.
+:section rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "section"@en.
+:registry rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "registry"@en.
+:commandUnit rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "commandUnit"@en.
+:command rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "command"@en.
+:generalInspector rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "generalInspector"@en.
+:substitution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "substitution"@en.
+:viceInspector rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "viceInspector"@en.
+:designationResponsabilitySection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "designationResponsabilitySection"@en.
+:serviceUnit rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "serviceUnit"@en.
+:military rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "military"@en.
+:militaryCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "militaryCommitment"@en.
+:designatedSection rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "designatedSection"@en.
+:sectionResponsible rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "sectionResponsible"@en.
+:registryResponsible rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "registryResponsible"@en.
+:designationResponsabilityRegistry rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "designationResponsabilityRegistry"@en.
+:designatedRegistry rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "designatedRegistry"@en.
+:action rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "action"@en.
+:activity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "activity"@en.
+:create rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "create"@en.
+:update rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "update"@en.
+:delete_ rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "delete_"@en.
+:search rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "search"@en.
+:document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "document"@en.
+:keywordSet rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "keywordSet"@en.
+:keyword rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "keyword"@en.
+:subject rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "subject"@en.
+:content rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "content"@en.
+:title rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "title"@en.
+:attachment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "attachment"@en.
+:destiny rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "destiny"@en.
+:message rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "message"@en.
+:experience rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "experience"@en.
+:source rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "source"@en.
+:public_ rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "public_"@en.
+:personal rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "personal"@en.
+:organizationalBase rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "organizationalBase"@en.
+:individualBase rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "individualBase"@en.
+:base rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "base"@en.
+:organization rdfs:subClassOf :Composed.
+:organizationalPart rdfs:subClassOf :Composed.
+:Atomic rdfs:subClassOf :system.
+:Composed rdfs:subClassOf :system.
+:penalty rdfs:subClassOf :sanction.
+:reward rdfs:subClassOf :sanction.
+:section rdfs:subClassOf :organizationalPart.
+:registry rdfs:subClassOf :organizationalPart.
+:civil rdfs:subClassOf :individual.
+:military rdfs:subClassOf :individual.
+:search rdfs:subClassOf :activity.
+:create rdfs:subClassOf :activity.
+:delete_ rdfs:subClassOf :activity.
+:update rdfs:subClassOf :activity.
+:experience rdfs:subClassOf :document.
+:message rdfs:subClassOf :document.
+:personal rdfs:subClassOf :document.
+:public_ rdfs:subClassOf :document.
+:individualBase rdfs:subClassOf :base.
+:organizationalBase rdfs:subClassOf :base.
+:Composed rdfs:subClassOf :system.
+:organization rdfs:subClassOf :Composed.
+:organizationalPart rdfs:subClassOf :Composed.
+:Atomic rdfs:subClassOf :system.
+:individual rdfs:subClassOf :Atomic.
+:major_premisse rdfs:subClassOf :norm.
+:secondary_premisse rdfs:subClassOf :facto.
+:conclusion rdfs:subClassOf :sanction.
+:penalty rdfs:subClassOf :sanction.
+:reward rdfs:subClassOf :sanction.
+:civil rdfs:subClassOf :individual.
+:civilServiceUnit rdfs:subClassOf :policeIAD.
+:policeIAD rdfs:subClassOf :internalAffairDepartment.
+:internalAffairDepartment rdfs:subClassOf :organization.
+:section rdfs:subClassOf :organizationalPart.
+:registry rdfs:subClassOf :organizationalPart.
+:commandUnit rdfs:subClassOf :policeIAD.
+:generalInspector rdfs:subClassOf :military.
+:viceInspector rdfs:subClassOf :military.
+:serviceUnit rdfs:subClassOf :policeIAD.
+:military rdfs:subClassOf :individual.
+:designatedSection rdfs:subClassOf :section.
+:sectionResponsible rdfs:subClassOf :military.
+:registryResponsible rdfs:subClassOf :military.
+:designatedRegistry rdfs:subClassOf :registry.
+:create rdfs:subClassOf :activity.
+:update rdfs:subClassOf :activity.
+:delete_ rdfs:subClassOf :activity.
+:search rdfs:subClassOf :activity.
+:message rdfs:subClassOf :document.
+:experience rdfs:subClassOf :document.
+:public_ rdfs:subClassOf :document.
+:personal rdfs:subClassOf :document.
+:organizationalBase rdfs:subClassOf :base.
+:individualBase rdfs:subClassOf :base.

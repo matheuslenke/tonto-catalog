@@ -1,0 +1,41 @@
+
+package Convnio_de_Cooperao_Tcnica
+
+mode Destaque_Oramentrio_e_Financeiro{
+    data: undefined  
+    valorDaRestituio: undefined  
+}
+
+role Trecho_com_Cooperao_Tcnica
+
+relator CCT_com_Compartilhamento_de_Receita specializes Convnio_de_Cooperao_Tcnica {
+    percentual_ANTT: undefined  
+    percentual_conveniada: undefined  
+}
+
+role Entidade_Pblica_em_CCT specializes Convenente 
+
+role Agncia_Reguladora_Convenente specializes Convenente 
+
+relator Convnio_de_Cooperao_Tcnica specializes Convnio_em_Concesso_Rodoviria {
+    receita: undefined  
+    recursoFinanceiro: undefined  
+}
+
+mode Dotao_Oramentria{
+    Ao_Oramentria: undefined  
+    dotaoOramentria: undefined  
+    Natureza_de_Despesa: undefined  
+}
+
+mode Estimativa_de_Receita{
+    data: undefined  
+    estimativaDeReceita: undefined  
+}
+
+
+
+
+
+
+

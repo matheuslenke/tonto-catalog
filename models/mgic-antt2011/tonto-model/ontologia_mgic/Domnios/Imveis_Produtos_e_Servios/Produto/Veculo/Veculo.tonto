@@ -1,0 +1,17 @@
+
+package Veculo
+
+category Veculo_Areo of functional-complexes  specializes Veculo 
+
+category Veculo_Terrestre of functional-complexes  specializes Veculo, Veculo_Ferrovirio, Veculo_de_Propulso_Humana, Veculo_de_Trao_Animal, Veculo_Rodovirio_Atendido {
+    cor_predominante: undefined  
+    nmero_de_eixos: undefined  
+}
+
+category Veculo of functional-complexes  specializes Veculo_Fiscalizado {
+    ano_de_fabricao: undefined  
+}
+
+category Veculo_Aquavirio of functional-complexes  specializes Veculo 
+
+

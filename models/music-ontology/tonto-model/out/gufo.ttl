@@ -1,0 +1,169 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Written_Representation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Written_Representation"@en.
+:Full_Score rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Full_Score"@en.
+:Sketch rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sketch"@en.
+:Part rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Part"@en.
+:Music_Work rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Music_Work"@en.
+:Ballet rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Ballet"@en.
+:Opera rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Opera"@en.
+:Orchestral_Work rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Orchestral_Work"@en.
+:Suite rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Suite"@en.
+:Overture rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Overture"@en.
+:Symphony rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Symphony"@en.
+:Symphonic_Poem rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Symphonic_Poem"@en.
+:Suite_Short_Moviment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Suite_Short_Moviment"@en.
+:Short_Moviment rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Short_Moviment"@en.
+:Long_Moviment rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Long_Moviment"@en.
+:Moviment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Moviment"@en.
+:Individual_Moviment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Individual_Moviment"@en.
+:Composite_Moviment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Composite_Moviment"@en.
+:Dancelike_Moviment rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Dancelike_Moviment"@en.
+:Slow_Moviment rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Slow_Moviment"@en.
+:Fast_Moviment rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Fast_Moviment"@en.
+:Art_Work rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Art_Work"@en.
+:Publishment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Publishment"@en.
+:Artistic_Composition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Artistic_Composition"@en.
+:Musical_Composition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Musical_Composition"@en.
+:Music_Composer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Music_Composer"@en.
+:Composer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Composer"@en.
+:Artist rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artist"@en.
+:Individual_Artist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Individual_Artist"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Software_Program rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_Program"@en.
+:Publisher rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Publisher"@en.
+:Oeuvre rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Oeuvre"@en.
+:Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Member"@en.
+:Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Group"@en.
+:Artistic_Group rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Artistic_Group"@en.
+:Musical_Group rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Musical_Group"@en.
+:Musical_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Musical_Member"@en.
+:Artistic_Member rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Artistic_Member"@en.
+:Musician rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Musician"@en.
+:Orchestra rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Orchestra"@en.
+:Orchestral_Work rdfs:subClassOf :Music_Work.
+:Opera rdfs:subClassOf :Music_Work.
+:Ballet rdfs:subClassOf :Music_Work.
+:Suite rdfs:subClassOf :Music_Work.
+:Sketch rdfs:subClassOf :Written_Representation.
+:Part rdfs:subClassOf :Written_Representation.
+:Full_Score rdfs:subClassOf :Written_Representation.
+:Overture rdfs:subClassOf :Orchestral_Work.
+:Symphony rdfs:subClassOf :Orchestral_Work.
+:Symphonic_Poem rdfs:subClassOf :Orchestral_Work.
+:Short_Moviment rdfs:subClassOf :Individual_Moviment.
+:Long_Moviment rdfs:subClassOf :Individual_Moviment.
+:Fast_Moviment rdfs:subClassOf :Individual_Moviment.
+:Slow_Moviment rdfs:subClassOf :Individual_Moviment.
+:Dancelike_Moviment rdfs:subClassOf :Individual_Moviment.
+:Individual_Moviment rdfs:subClassOf :Moviment.
+:Composite_Moviment rdfs:subClassOf :Moviment.
+:Full_Score rdfs:subClassOf :Written_Representation.
+:Sketch rdfs:subClassOf :Written_Representation.
+:Part rdfs:subClassOf :Written_Representation.
+:Music_Work rdfs:subClassOf :Art_Work.
+:Ballet rdfs:subClassOf :Music_Work.
+:Opera rdfs:subClassOf :Music_Work.
+:Orchestral_Work rdfs:subClassOf :Music_Work.
+:Suite rdfs:subClassOf :Music_Work.
+:Overture rdfs:subClassOf :Orchestral_Work.
+:Symphony rdfs:subClassOf :Orchestral_Work.
+:Symphonic_Poem rdfs:subClassOf :Orchestral_Work.
+:Suite_Short_Moviment rdfs:subClassOf :Short_Moviment.
+:Short_Moviment rdfs:subClassOf :Individual_Moviment.
+:Long_Moviment rdfs:subClassOf :Individual_Moviment.
+:Individual_Moviment rdfs:subClassOf :Moviment.
+:Composite_Moviment rdfs:subClassOf :Moviment.
+:Dancelike_Moviment rdfs:subClassOf :Individual_Moviment.
+:Slow_Moviment rdfs:subClassOf :Individual_Moviment.
+:Fast_Moviment rdfs:subClassOf :Individual_Moviment.
+:Musical_Composition rdfs:subClassOf :Artistic_Composition.
+:Music_Composer rdfs:subClassOf :Composer.
+:Composer rdfs:subClassOf :Artist.
+:Individual_Artist rdfs:subClassOf :Artist, :Person, :Artistic_Member.
+:Software_Program rdfs:subClassOf :Artist.
+:Publisher rdfs:subClassOf :Person.
+:Member rdfs:subClassOf :Person.
+:Artistic_Group rdfs:subClassOf :Group, :Artist.
+:Musical_Group rdfs:subClassOf :Artistic_Group.
+:Musical_Member rdfs:subClassOf :Artistic_Member.
+:Artistic_Member rdfs:subClassOf :Member.
+:Musician rdfs:subClassOf :Individual_Artist, :Musical_Member.
+:Orchestra rdfs:subClassOf :Musical_Group.
+:identifier rdfs:domain :Music_Work;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "identifier"@en.
+:duration rdfs:domain :Moviment;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "duration"@en.
+:time_plus_measure rdfs:domain :Moviment;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "time_plus_measure"@en.
+:completion rdfs:domain :Artistic_Composition;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "completion"@en.

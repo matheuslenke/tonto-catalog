@@ -1,0 +1,111 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Abstraction_Of_CoLocalization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Abstraction_Of_CoLocalization"@en.
+:Physical_Termination_Point rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Physical_Termination_Point"@en.
+:Termination_Point rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Termination_Point"@en.
+:Connection_Termination_Point rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Connection_Termination_Point"@en.
+:PTP_of_ME rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PTP_of_ME"@en.
+:Physical_Termination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Physical_Termination"@en.
+:ME_Composed_Of_PTP rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ME_Composed_Of_PTP"@en.
+:Management rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Management"@en.
+:ManagedElement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ManagedElement"@en.
+:ME_Composed_Of_Rack rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ME_Composed_Of_Rack"@en.
+:Rack_Composed_Of_Shelf rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Rack_Composed_Of_Shelf"@en.
+:Shelf_Composed_Of_Slot rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Shelf_Composed_Of_Slot"@en.
+:Slot_Composed_Of_SubSlot rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Slot_Composed_Of_SubSlot"@en.
+:Socket_Composed_Of_Equipment rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Socket_Composed_Of_Equipment"@en.
+:Equipment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Equipment"@en.
+:EquipmentHolder rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EquipmentHolder"@en.
+:Fitting_ShelfRack rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Fitting_ShelfRack"@en.
+:Fitting_SlotShelf rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Fitting_SlotShelf"@en.
+:Fitting_SocketEquipment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Fitting_SocketEquipment"@en.
+:Fitting_SubSlotSlot rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Fitting_SubSlotSlot"@en.
+:Rack rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rack"@en.
+:Shelf rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Shelf"@en.
+:Slot rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Slot"@en.
+:Socket rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Socket"@en.
+:SubSlot rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "SubSlot"@en.
+:Abstraction_Of_CoLocalization_1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Abstraction_Of_CoLocalization"@en.
+:SNC_Termination rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "SNC_Termination"@en.
+:EMS_That_Manages_Rack rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EMS_That_Manages_Rack"@en.
+:EMS_That_Manages_Shelf rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EMS_That_Manages_Shelf"@en.
+:EMS_That_Manages_Slot rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EMS_That_Manages_Slot"@en.
+:EMS_That_Manages_SubSlot rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EMS_That_Manages_SubSlot"@en.
+:EMS_That_Manages_Equipment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EMS_That_Manages_Equipment"@en.
+:EMS rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EMS"@en.
+:EMS_Composed_Of_ME rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EMS_Composed_Of_ME"@en.
+:Physical_Termination_Point rdfs:subClassOf :Termination_Point.
+:Connection_Termination_Point rdfs:subClassOf :Termination_Point.
+:PTP_of_ME rdfs:subClassOf :Physical_Termination_Point.
+:ME_Composed_Of_PTP rdfs:subClassOf :ManagedElement.
+:ME_Composed_Of_Rack rdfs:subClassOf :ManagedElement.
+:Rack_Composed_Of_Shelf rdfs:subClassOf :Rack.
+:Shelf_Composed_Of_Slot rdfs:subClassOf :Shelf.
+:Slot_Composed_Of_SubSlot rdfs:subClassOf :Slot.
+:Socket_Composed_Of_Equipment rdfs:subClassOf :Socket.
+:Rack rdfs:subClassOf :EquipmentHolder.
+:Shelf rdfs:subClassOf :EquipmentHolder.
+:Slot rdfs:subClassOf :Socket.
+:Socket rdfs:subClassOf :EquipmentHolder.
+:SubSlot rdfs:subClassOf :Socket.
+:EMS_That_Manages_Rack rdfs:subClassOf :EMS_Composed_Of_ME.
+:EMS_That_Manages_Shelf rdfs:subClassOf :EMS_Composed_Of_ME.
+:EMS_That_Manages_Slot rdfs:subClassOf :EMS_Composed_Of_ME.
+:EMS_That_Manages_SubSlot rdfs:subClassOf :EMS_Composed_Of_ME.
+:EMS_That_Manages_Equipment rdfs:subClassOf :EMS_Composed_Of_ME.
+:EMS_Composed_Of_ME rdfs:subClassOf :EMS.

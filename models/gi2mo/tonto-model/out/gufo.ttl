@@ -1,0 +1,224 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Accepted rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Accepted"@en.
+:Access_Authorized_Group rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Access_Authorized_Group"@en.
+:Account_Ownership rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Account_Ownership"@en.
+:Authorization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Authorization"@en.
+:Category rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Category"@en.
+:Commented_Contest rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Commented_Contest"@en.
+:Contest_with_Access_Authorization rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Contest_with_Access_Authorization"@en.
+:Contest_with_Idea rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Contest_with_Idea"@en.
+:Creation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Creation"@en.
+:Deployed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Deployed"@en.
+:Described rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Described"@en.
+:Describee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Describee"@en.
+:Describes_Part rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Describes_Part"@en.
+:Draft rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Draft"@en.
+:Edited rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Edited"@en.
+:Idea rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Idea"@en.
+:Idea_Attachment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Idea_Attachment"@en.
+:Idea_Category rdf:type owl:NamedIndividual;
+    rdfs:label "Idea_Category"@en.
+:Idea_Comment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Idea_Comment"@en.
+:Idea_Contest rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Idea_Contest"@en.
+:Idea_Contest_Attachment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Idea_Contest_Attachment"@en.
+:Idea_Contest_Comment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Idea_Contest_Comment"@en.
+:Idea_Relationship rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Idea_Relationship"@en.
+:Idea_Updater_User rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Idea_Updater_User"@en.
+:Idea_with_a_Comment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Idea_with_a_Comment"@en.
+:Implemented rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Implemented"@en.
+:Merged rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Merged"@en.
+:Merged_1 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Merged_1"@en.
+:Merging rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Merging"@en.
+:Online_Account rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Online_Account"@en.
+:Partially_Implemented rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Partially_Implemented"@en.
+:Rating_Review rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rating_Review"@en.
+:Read_Authorization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Read_Authorization"@en.
+:Rejected rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Rejected"@en.
+:Related_Idea rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Related_Idea"@en.
+:Relatee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Relatee"@en.
+:Review rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Review"@en.
+:Review_Category rdf:type owl:NamedIndividual;
+    rdfs:label "Review_Category"@en.
+:Review_Rating rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Review_Rating"@en.
+:Reviewer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Reviewer"@en.
+:Revised_Idea rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Revised_Idea"@en.
+:Similar_Idea rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Similar_Idea"@en.
+:Similaree rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Similaree"@en.
+:Similarity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Similarity"@en.
+:SubCategory rdf:type owl:NamedIndividual;
+    rdfs:label "SubCategory"@en.
+:Submission rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Submission"@en.
+:Submited_by_Method rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Submited_by_Method"@en.
+:Submitted_Idea rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Submitted_Idea"@en.
+:Submitting_User rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Submitting_User"@en.
+:Textual_Review rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Textual_Review"@en.
+:Update_Idea rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Update_Idea"@en.
+:Updated_Contest rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Updated_Contest"@en.
+:Updated_Idea rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Updated_Idea"@en.
+:User rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "User"@en.
+:User_Editor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User_Editor"@en.
+:User_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "User_Group"@en.
+:User_Group_in_a_Group rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "User_Group_in_a_Group"@en.
+:User_in_a_Group rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User_in_a_Group"@en.
+:User_with_Account rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User_with_Account"@en.
+:User_with_Comment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User_with_Comment"@en.
+:User_with_Idea rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User_with_Idea"@en.
+:User_with_Idea_Contest_Comment rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User_with_Idea_Contest_Comment"@en.
+:Write_Authorization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Write_Authorization"@en.
+:Merged_1 rdfs:subClassOf :Idea.
+:Merged rdfs:subClassOf :Idea.
+:Relatee rdfs:subClassOf :Idea.
+:Related_Idea rdfs:subClassOf :Idea.
+:Similaree rdfs:subClassOf :Idea.
+:Similar_Idea rdfs:subClassOf :Idea.
+:Read_Authorization rdfs:subClassOf :Authorization.
+:Write_Authorization rdfs:subClassOf :Authorization.
+:Draft rdfs:subClassOf :Idea.
+:Rejected rdfs:subClassOf :Idea.
+:Implemented rdfs:subClassOf :Idea.
+:Partially_Implemented rdfs:subClassOf :Idea.
+:Deployed rdfs:subClassOf :Idea.
+:Accepted rdfs:subClassOf :Idea.
+:Textual_Review rdfs:subClassOf :Review.
+:Rating_Review rdfs:subClassOf :Review.
+:Accepted rdfs:subClassOf :Idea.
+:Access_Authorized_Group rdfs:subClassOf :User_Group.
+:Commented_Contest rdfs:subClassOf :Idea_Contest.
+:Contest_with_Access_Authorization rdfs:subClassOf :Idea_Contest.
+:Contest_with_Idea rdfs:subClassOf :Idea_Contest.
+:Deployed rdfs:subClassOf :Idea.
+:Described rdfs:subClassOf :Idea.
+:Describee rdfs:subClassOf :Idea.
+:Draft rdfs:subClassOf :Idea.
+:Idea_Category rdfs:subClassOf :Category.
+:Idea_Updater_User rdfs:subClassOf :User.
+:Idea_with_a_Comment rdfs:subClassOf :Idea.
+:Implemented rdfs:subClassOf :Idea.
+:Merged rdfs:subClassOf :Idea.
+:Merged_1 rdfs:subClassOf :Idea.
+:Partially_Implemented rdfs:subClassOf :Idea.
+:Rating_Review rdfs:subClassOf :Review.
+:Read_Authorization rdfs:subClassOf :Authorization.
+:Rejected rdfs:subClassOf :Idea.
+:Related_Idea rdfs:subClassOf :Idea.
+:Relatee rdfs:subClassOf :Idea.
+:Review_Category rdfs:subClassOf :Category.
+:Reviewer rdfs:subClassOf :User.
+:Revised_Idea rdfs:subClassOf :Idea.
+:Similar_Idea rdfs:subClassOf :Idea.
+:Similaree rdfs:subClassOf :Idea.
+:SubCategory rdfs:subClassOf :Category.
+:Submitted_Idea rdfs:subClassOf :Idea.
+:Submitting_User rdfs:subClassOf :User.
+:Textual_Review rdfs:subClassOf :Review.
+:Updated_Contest rdfs:subClassOf :Idea_Contest.
+:Updated_Idea rdfs:subClassOf :Idea.
+:User_Editor rdfs:subClassOf :User.
+:User_Group_in_a_Group rdfs:subClassOf :User_Group.
+:User_in_a_Group rdfs:subClassOf :User.
+:User_with_Account rdfs:subClassOf :User.
+:User_with_Comment rdfs:subClassOf :User.
+:User_with_Idea rdfs:subClassOf :User.
+:User_with_Idea_Contest_Comment rdfs:subClassOf :User.
+:Write_Authorization rdfs:subClassOf :Authorization.
+:VersionDate rdfs:domain :Edited;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "VersionDate"@en.
+:Description rdfs:domain :Idea;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Description"@en.

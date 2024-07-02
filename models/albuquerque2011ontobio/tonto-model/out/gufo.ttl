@@ -1,0 +1,599 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:ObjectClassifier rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ObjectClassifier"@en.
+:ParticipantInCollection rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ParticipantInCollection"@en.
+:Researcher rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Researcher"@en.
+:AssistantInCollection rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AssistantInCollection"@en.
+:ResearcherParticipant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ResearcherParticipant"@en.
+:ResponsibleForCollection rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ResponsibleForCollection"@en.
+:SpatialLocation rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SpatialLocation"@en.
+:CollectionLocation rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CollectionLocation"@en.
+:Classification rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Classification"@en.
+:Species rdf:type owl:NamedIndividual;
+    rdfs:label "Species"@en.
+:ClassifiedEntity rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ClassifiedEntity"@en.
+:CollectedEntity rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CollectedEntity"@en.
+:EntityInStudy rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EntityInStudy"@en.
+:BioticEntity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "BioticEntity"@en.
+:Collection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Collection"@en.
+:InstitutionalContract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "InstitutionalContract"@en.
+:ResearchInstitution rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ResearchInstitution"@en.
+:ResponsibleInstitution rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "ResponsibleInstitution"@en.
+:CollectionThroughFraction rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "CollectionThroughFraction"@en.
+:RandomCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RandomCollection"@en.
+:ManualCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "ManualCollection"@en.
+:InstrumentedCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "InstrumentedCollection"@en.
+:CollectionInstrument rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CollectionInstrument"@en.
+:Instrument rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Instrument"@en.
+:TrapCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "TrapCollection"@en.
+:NetCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "NetCollection"@en.
+:EtimologicalUmbrellaCollection rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "EtimologicalUmbrellaCollection"@en.
+:Ecosystem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Ecosystem"@en.
+:EcosystemType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "EcosystemType"@en.
+:AbioticEntity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AbioticEntity"@en.
+:MesoEcosystem rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MesoEcosystem"@en.
+:MacroEcosystem rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MacroEcosystem"@en.
+:MicorEcosystem rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MicorEcosystem"@en.
+:Biome rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Biome"@en.
+:BiomeType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "BiomeType"@en.
+:MataAtlantica rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MataAtlantica"@en.
+:Cerrado rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cerrado"@en.
+:Caatinga rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Caatinga"@en.
+:Amazonia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Amazonia"@en.
+:CostalZone rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CostalZone"@en.
+:Pantanal rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Pantanal"@en.
+:Luminosity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Luminosity"@en.
+:MoonPhase rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "MoonPhase"@en.
+:HighLuminosity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "HighLuminosity"@en.
+:AverageLuminosity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "AverageLuminosity"@en.
+:LowLuminosity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LowLuminosity"@en.
+:FullMoon rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "FullMoon"@en.
+:FirstQuarterMoon rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "FirstQuarterMoon"@en.
+:LastQuarterMoon rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "LastQuarterMoon"@en.
+:NewMoon rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "NewMoon"@en.
+:Environment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Environment"@en.
+:WeatherCondition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "WeatherCondition"@en.
+:Rainy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Rainy"@en.
+:Sunny rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sunny"@en.
+:Cloudy rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Cloudy"@en.
+:MacroEnvironment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "MacroEnvironment"@en.
+:MicroEnvironment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "MicroEnvironment"@en.
+:MaterialEntity rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "MaterialEntity"@en.
+:Taxon rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Taxon"@en.
+:Family rdf:type owl:NamedIndividual;
+    rdfs:label "Family"@en.
+:Genus rdf:type owl:NamedIndividual;
+    rdfs:label "Genus"@en.
+:Plant rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Plant"@en.
+:Microorganism rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Microorganism"@en.
+:Fauna rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Fauna"@en.
+:Animal rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Animal"@en.
+:Microbiota rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Microbiota"@en.
+:Flora rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Flora"@en.
+:Vegetation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Vegetation"@en.
+:GeographicSpace rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "GeographicSpace"@en.
+:Igapo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Igapo"@en.
+:Forest rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Forest"@en.
+:Restinga rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Restinga"@en.
+:Field rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Field"@en.
+:Lowland rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Lowland"@en.
+:Capoeira rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Capoeira"@en.
+:Gender rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Gender"@en.
+:Male rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Male"@en.
+:Female rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Female"@en.
+:Hermaphrodite rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Hermaphrodite"@en.
+:Bisexual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Bisexual"@en.
+:Asexual rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Asexual"@en.
+:NonExamined rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "NonExamined"@en.
+:Unknown rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Unknown"@en.
+:LifeStage rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "LifeStage"@en.
+:Adult rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Egg rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Egg"@en.
+:Embryo rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Embryo"@en.
+:Maggot rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Maggot"@en.
+:Juvenile rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Juvenile"@en.
+:Pupa rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Pupa"@en.
+:Unknown_ rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:label "Unknown_"@en.
+:Soil rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Soil"@en.
+:Air rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Air"@en.
+:Water rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Water"@en.
+:BrackishWater rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BrackishWater"@en.
+:Freshwater rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Freshwater"@en.
+:Saltwater rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Saltwater"@en.
+:Clearwater rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Clearwater"@en.
+:BlackWater rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "BlackWater"@en.
+:WhiteWater rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "WhiteWater"@en.
+:Clayey rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Clayey"@en.
+:Litholic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Litholic"@en.
+:Sandy rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sandy"@en.
+:Hydromorphic rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Hydromorphic"@en.
+:Rocky rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Rocky"@en.
+:Humous rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Humous"@en.
+:GeographicPoint rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "GeographicPoint"@en.
+:ClimateRegionType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "ClimateRegionType"@en.
+:ClimateRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "ClimateRegion"@en.
+:SocialPoliticalRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "SocialPoliticalRegion"@en.
+:PhytophysiognomicRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "PhytophysiognomicRegion"@en.
+:SocialPoliticalRegionType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "SocialPoliticalRegionType"@en.
+:PhytophysiognomicRegionType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "PhytophysiognomicRegionType"@en.
+:Equatorial rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Equatorial"@en.
+:Temperate rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Temperate"@en.
+:TropicalWetAndDry rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "TropicalWetAndDry"@en.
+:Semiarid rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Semiarid"@en.
+:HumidSubtropical rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "HumidSubtropical"@en.
+:Tropical rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Tropical"@en.
+:Country rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Country"@en.
+:State rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "State"@en.
+:City rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "City"@en.
+:Location rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Location"@en.
+:PrivateLocation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PrivateLocation"@en.
+:PublicLocation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PublicLocation"@en.
+:Settlement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Settlement"@en.
+:Community rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Community"@en.
+:ConservationUnity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ConservationUnity"@en.
+:Village rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Village"@en.
+:Thorp rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Thorp"@en.
+:FederalArea rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FederalArea"@en.
+:StateLand rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "StateLand"@en.
+:CityLand rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "CityLand"@en.
+:IndiandLand rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "IndiandLand"@en.
+:FederalLand rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FederalLand"@en.
+:DevoluteLand rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DevoluteLand"@en.
+:AmazonicRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AmazonicRegion"@en.
+:AtlanticRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AtlanticRegion"@en.
+:CaatingaRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "CaatingaRegion"@en.
+:CerradoRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "CerradoRegion"@en.
+:PatanalRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "PatanalRegion"@en.
+:CostalRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "CostalRegion"@en.
+:CocaisRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "CocaisRegion"@en.
+:AraucariasRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "AraucariasRegion"@en.
+:FieldsRegion rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "FieldsRegion"@en.
+:ObjectClassifier rdfs:subClassOf :Person.
+:Researcher rdfs:subClassOf :Person.
+:ParticipantInCollection rdfs:subClassOf :Person.
+:ResearcherParticipant rdfs:subClassOf :ParticipantInCollection.
+:AssistantInCollection rdfs:subClassOf :ParticipantInCollection.
+:ClassifiedEntity rdfs:subClassOf :EntityInStudy.
+:CollectedEntity rdfs:subClassOf :EntityInStudy.
+:EtimologicalUmbrellaCollection rdfs:subClassOf :CollectionInstrument.
+:NetCollection rdfs:subClassOf :CollectionInstrument.
+:TrapCollection rdfs:subClassOf :CollectionInstrument.
+:MicorEcosystem rdfs:subClassOf :Ecosystem.
+:MesoEcosystem rdfs:subClassOf :Ecosystem.
+:MacroEcosystem rdfs:subClassOf :Ecosystem.
+:Amazonia rdfs:subClassOf :Biome.
+:MataAtlantica rdfs:subClassOf :Biome.
+:CostalZone rdfs:subClassOf :Biome.
+:Cerrado rdfs:subClassOf :Biome.
+:Pantanal rdfs:subClassOf :Biome.
+:Caatinga rdfs:subClassOf :Biome.
+:AbioticEntity rdfs:subClassOf :MaterialEntity.
+:Ecosystem rdfs:subClassOf :MaterialEntity.
+:BioticEntity rdfs:subClassOf :MaterialEntity.
+:Family rdfs:subClassOf :Taxon.
+:Genus rdfs:subClassOf :Taxon.
+:Species rdfs:subClassOf :Taxon.
+:Lowland rdfs:subClassOf :Vegetation.
+:Field rdfs:subClassOf :Vegetation.
+:Restinga rdfs:subClassOf :Vegetation.
+:Capoeira rdfs:subClassOf :Vegetation.
+:Forest rdfs:subClassOf :Vegetation.
+:Cerrado rdfs:subClassOf :Vegetation.
+:Caatinga rdfs:subClassOf :Vegetation.
+:Igapo rdfs:subClassOf :Vegetation.
+:Hermaphrodite rdfs:subClassOf :Gender.
+:Female rdfs:subClassOf :Gender.
+:Unknown rdfs:subClassOf :Gender.
+:Male rdfs:subClassOf :Gender.
+:Asexual rdfs:subClassOf :Gender.
+:Bisexual rdfs:subClassOf :Gender.
+:NonExamined rdfs:subClassOf :Gender.
+:Adult rdfs:subClassOf :LifeStage.
+:Embryo rdfs:subClassOf :LifeStage.
+:Pupa rdfs:subClassOf :LifeStage.
+:Egg rdfs:subClassOf :LifeStage.
+:Maggot rdfs:subClassOf :LifeStage.
+:Juvenile rdfs:subClassOf :LifeStage.
+:Unknown_ rdfs:subClassOf :LifeStage.
+:Air rdfs:subClassOf :AbioticEntity.
+:Water rdfs:subClassOf :AbioticEntity.
+:Soil rdfs:subClassOf :AbioticEntity.
+:Clearwater rdfs:subClassOf :Freshwater.
+:BlackWater rdfs:subClassOf :Freshwater.
+:WhiteWater rdfs:subClassOf :Freshwater.
+:BrackishWater rdfs:subClassOf :Water.
+:Freshwater rdfs:subClassOf :Water.
+:Saltwater rdfs:subClassOf :Water.
+:Hydromorphic rdfs:subClassOf :Soil.
+:Litholic rdfs:subClassOf :Soil.
+:Sandy rdfs:subClassOf :Soil.
+:Rocky rdfs:subClassOf :Soil.
+:Clayey rdfs:subClassOf :Soil.
+:Humous rdfs:subClassOf :Soil.
+:GeographicPoint rdfs:subClassOf :SpatialLocation.
+:GeographicSpace rdfs:subClassOf :SpatialLocation.
+:TropicalWetAndDry rdfs:subClassOf :ClimateRegion.
+:Semiarid rdfs:subClassOf :ClimateRegion.
+:Temperate rdfs:subClassOf :ClimateRegion.
+:Equatorial rdfs:subClassOf :ClimateRegion.
+:HumidSubtropical rdfs:subClassOf :ClimateRegion.
+:Tropical rdfs:subClassOf :ClimateRegion.
+:City rdfs:subClassOf :SocialPoliticalRegion.
+:Location rdfs:subClassOf :SocialPoliticalRegion.
+:Country rdfs:subClassOf :SocialPoliticalRegion.
+:State rdfs:subClassOf :SocialPoliticalRegion.
+:PublicLocation rdfs:subClassOf :Location.
+:PrivateLocation rdfs:subClassOf :Location.
+:ConservationUnity rdfs:subClassOf :Location.
+:Village rdfs:subClassOf :Location.
+:Thorp rdfs:subClassOf :Location.
+:Community rdfs:subClassOf :Location.
+:Settlement rdfs:subClassOf :Location.
+:CityLand rdfs:subClassOf :PublicLocation.
+:StateLand rdfs:subClassOf :PublicLocation.
+:FederalArea rdfs:subClassOf :PublicLocation.
+:IndiandLand rdfs:subClassOf :PublicLocation.
+:FederalLand rdfs:subClassOf :FederalArea.
+:DevoluteLand rdfs:subClassOf :FederalArea.
+:CocaisRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:CerradoRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:AtlanticRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:PatanalRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:CostalRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:AmazonicRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:FieldsRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:CaatingaRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:AraucariasRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:Person rdfs:subClassOf :Animal.
+:ObjectClassifier rdfs:subClassOf :Person.
+:ParticipantInCollection rdfs:subClassOf :Person.
+:Researcher rdfs:subClassOf :Person.
+:AssistantInCollection rdfs:subClassOf :ParticipantInCollection.
+:ResearcherParticipant rdfs:subClassOf :ParticipantInCollection, :Researcher.
+:ResponsibleForCollection rdfs:subClassOf :ResearcherParticipant.
+:CollectionLocation rdfs:subClassOf :SpatialLocation.
+:Species rdfs:subClassOf :Taxon.
+:ClassifiedEntity rdfs:subClassOf :EntityInStudy.
+:CollectedEntity rdfs:subClassOf :EntityInStudy.
+:EntityInStudy rdfs:subClassOf :BioticEntity.
+:BioticEntity rdfs:subClassOf :MaterialEntity.
+:ResponsibleInstitution rdfs:subClassOf :ResearchInstitution.
+:CollectionThroughFraction rdfs:subClassOf :Collection.
+:RandomCollection rdfs:subClassOf :Collection.
+:ManualCollection rdfs:subClassOf :Collection.
+:InstrumentedCollection rdfs:subClassOf :Collection.
+:CollectionInstrument rdfs:subClassOf :Instrument.
+:TrapCollection rdfs:subClassOf :CollectionInstrument.
+:NetCollection rdfs:subClassOf :CollectionInstrument.
+:EtimologicalUmbrellaCollection rdfs:subClassOf :CollectionInstrument.
+:Ecosystem rdfs:subClassOf :MaterialEntity.
+:AbioticEntity rdfs:subClassOf :MaterialEntity.
+:MesoEcosystem rdfs:subClassOf :Ecosystem.
+:MacroEcosystem rdfs:subClassOf :Ecosystem.
+:MicorEcosystem rdfs:subClassOf :Ecosystem.
+:Biome rdfs:subClassOf :MacroEcosystem.
+:MataAtlantica rdfs:subClassOf :Biome.
+:Cerrado rdfs:subClassOf :Biome, :Vegetation.
+:Caatinga rdfs:subClassOf :Biome, :Vegetation.
+:Amazonia rdfs:subClassOf :Biome.
+:CostalZone rdfs:subClassOf :Biome.
+:Pantanal rdfs:subClassOf :Biome.
+:HighLuminosity rdfs:subClassOf :Luminosity.
+:AverageLuminosity rdfs:subClassOf :Luminosity.
+:LowLuminosity rdfs:subClassOf :Luminosity.
+:FullMoon rdfs:subClassOf :MoonPhase.
+:FirstQuarterMoon rdfs:subClassOf :MoonPhase.
+:LastQuarterMoon rdfs:subClassOf :MoonPhase.
+:NewMoon rdfs:subClassOf :MoonPhase.
+:Rainy rdfs:subClassOf :WeatherCondition.
+:Sunny rdfs:subClassOf :WeatherCondition.
+:Cloudy rdfs:subClassOf :WeatherCondition.
+:MacroEnvironment rdfs:subClassOf :Environment.
+:MicroEnvironment rdfs:subClassOf :Environment.
+:Family rdfs:subClassOf :Taxon.
+:Genus rdfs:subClassOf :Taxon.
+:Plant rdfs:subClassOf :BioticEntity.
+:Microorganism rdfs:subClassOf :BioticEntity.
+:Animal rdfs:subClassOf :BioticEntity.
+:GeographicSpace rdfs:subClassOf :SpatialLocation.
+:Igapo rdfs:subClassOf :Vegetation.
+:Forest rdfs:subClassOf :Vegetation.
+:Restinga rdfs:subClassOf :Vegetation.
+:Field rdfs:subClassOf :Vegetation.
+:Lowland rdfs:subClassOf :Vegetation.
+:Capoeira rdfs:subClassOf :Vegetation.
+:Male rdfs:subClassOf :Gender.
+:Female rdfs:subClassOf :Gender.
+:Hermaphrodite rdfs:subClassOf :Gender.
+:Bisexual rdfs:subClassOf :Gender.
+:Asexual rdfs:subClassOf :Gender.
+:NonExamined rdfs:subClassOf :Gender.
+:Unknown rdfs:subClassOf :Gender.
+:Adult rdfs:subClassOf :LifeStage.
+:Egg rdfs:subClassOf :LifeStage.
+:Embryo rdfs:subClassOf :LifeStage.
+:Maggot rdfs:subClassOf :LifeStage.
+:Juvenile rdfs:subClassOf :LifeStage.
+:Pupa rdfs:subClassOf :LifeStage.
+:Unknown_ rdfs:subClassOf :LifeStage.
+:Soil rdfs:subClassOf :AbioticEntity.
+:Air rdfs:subClassOf :AbioticEntity.
+:Water rdfs:subClassOf :AbioticEntity.
+:BrackishWater rdfs:subClassOf :Water.
+:Freshwater rdfs:subClassOf :Water.
+:Saltwater rdfs:subClassOf :Water.
+:Clearwater rdfs:subClassOf :Freshwater.
+:BlackWater rdfs:subClassOf :Freshwater.
+:WhiteWater rdfs:subClassOf :Freshwater.
+:Clayey rdfs:subClassOf :Soil.
+:Litholic rdfs:subClassOf :Soil.
+:Sandy rdfs:subClassOf :Soil.
+:Hydromorphic rdfs:subClassOf :Soil.
+:Rocky rdfs:subClassOf :Soil.
+:Humous rdfs:subClassOf :Soil.
+:GeographicPoint rdfs:subClassOf :SpatialLocation.
+:ClimateRegion rdfs:subClassOf :GeographicSpace.
+:SocialPoliticalRegion rdfs:subClassOf :GeographicSpace.
+:PhytophysiognomicRegion rdfs:subClassOf :GeographicSpace.
+:Equatorial rdfs:subClassOf :ClimateRegion.
+:Temperate rdfs:subClassOf :ClimateRegion.
+:TropicalWetAndDry rdfs:subClassOf :ClimateRegion.
+:Semiarid rdfs:subClassOf :ClimateRegion.
+:HumidSubtropical rdfs:subClassOf :ClimateRegion.
+:Tropical rdfs:subClassOf :ClimateRegion.
+:Country rdfs:subClassOf :SocialPoliticalRegion.
+:State rdfs:subClassOf :SocialPoliticalRegion.
+:City rdfs:subClassOf :SocialPoliticalRegion.
+:Location rdfs:subClassOf :SocialPoliticalRegion.
+:PrivateLocation rdfs:subClassOf :Location.
+:PublicLocation rdfs:subClassOf :Location.
+:Settlement rdfs:subClassOf :Location.
+:Community rdfs:subClassOf :Location.
+:ConservationUnity rdfs:subClassOf :Location.
+:Village rdfs:subClassOf :Location.
+:Thorp rdfs:subClassOf :Location.
+:FederalArea rdfs:subClassOf :PublicLocation.
+:StateLand rdfs:subClassOf :PublicLocation.
+:CityLand rdfs:subClassOf :PublicLocation.
+:IndiandLand rdfs:subClassOf :PublicLocation.
+:FederalLand rdfs:subClassOf :FederalArea.
+:DevoluteLand rdfs:subClassOf :FederalArea.
+:AmazonicRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:AtlanticRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:CaatingaRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:CerradoRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:PatanalRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:CostalRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:CocaisRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:AraucariasRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:FieldsRegion rdfs:subClassOf :PhytophysiognomicRegion.
+:size rdfs:domain :BioticEntity;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "size"@en.
+:weight rdfs:domain :BioticEntity;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "weight"@en.
+:EndDate rdfs:domain :Collection;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "EndDate"@en.
+:StartDate rdfs:domain :Collection;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "StartDate"@en.
+:acronym rdfs:domain :ResearchInstitution;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "acronym"@en.
+:commonName rdfs:domain :Taxon;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "commonName"@en.
+:scientificName rdfs:domain :Taxon;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "scientificName"@en.
+:humidity rdfs:domain :Air;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "humidity"@en.
+:speed rdfs:domain :Air;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "speed"@en.
+:temperature rdfs:domain :Air;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "temperature"@en.

@@ -1,0 +1,15 @@
+
+package Trecho_Ferrovirio
+
+kind Trecho_Ferrovirio specializes Trecho_Ferrovirio_Com_Meta, Trecho_Ferrovirio_Sem_Meta {
+    capacidade_instalada: undefined  
+    capacidade_ociosa: undefined  
+    capacidade_vinculada: undefined  
+    distncia: Unidade_de_Comprimento  
+}
+
+
+
+
+
+

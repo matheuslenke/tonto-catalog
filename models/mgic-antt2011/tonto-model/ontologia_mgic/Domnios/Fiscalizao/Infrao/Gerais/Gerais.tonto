@@ -1,0 +1,47 @@
+import Principais
+import Infrao_Prevista
+import Obrigao_Financeira
+import Gerais
+
+package Gerais
+
+category Penalidade of functional-complexes 
+
+mode Medida_Administrativa
+
+mode Remoo_de_Veculo specializes Medida_Administrativa 
+
+kind Anulao specializes Penalidade 
+
+kind Multa specializes Penalidade, Obrigao_de_Natureza_No_Tributria 
+
+kind Declarao_de_Caducidade specializes Penalidade 
+
+kind Cassao specializes Penalidade 
+
+kind Advertncia specializes Penalidade 
+
+kind Resciso specializes Penalidade 
+
+kind Suspenso specializes Penalidade 
+
+kind Demisso specializes Penalidade 
+
+kind Interveno specializes Penalidade 
+
+mode Apreenso_de_Veculo specializes Medida_Administrativa 
+
+kind Encampao specializes Penalidade 
+
+kind Declarao_de_Inidoneidade specializes Penalidade 
+
+mode Reteno_de_Documento specializes Medida_Administrativa 
+
+mode Reteno_de_Veculo specializes Medida_Administrativa 
+
+mode Transbordo specializes Medida_Administrativa 
+
+
+
+
+

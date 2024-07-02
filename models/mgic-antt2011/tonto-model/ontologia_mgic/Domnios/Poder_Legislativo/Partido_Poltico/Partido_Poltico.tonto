@@ -1,0 +1,17 @@
+
+package Partido_Poltico
+
+relator Filiao__Partido_Poltico
+
+role Membro_de_Partido_Poltico specializes Agente_Poltico_Eleito 
+
+role Partido_de_Oposio_ao_Governo
+
+role Partido_de_Apoio_ao_Governo
+
+role Eleitor specializes Agente_Poltico_Eleito {
+    ttulo_de_eleitor: undefined  
+}
+
+
+

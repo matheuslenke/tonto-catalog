@@ -1,0 +1,63 @@
+import Ato_da_Administrao
+import Marco_Regulatrio
+import Gerais
+import Agente_Administrativo
+import Tipo_de_Veculo
+import Espcie_e_Categoria
+import Arrendamento
+import Compra
+import Contratos_e_Convnios
+import Convnio_de_Aquisio__Cotao
+import Servio_em_Concesso
+import Fiscalizaes_Especficas
+import Complementares
+import Convnio_de_Aquisio__Solicitao
+import Revista_da_ANTT
+import Pagamento
+import Autuao
+import Obrigao_Financeira
+import GRU
+import Cesso_de_Bem
+import Designao
+import Contratao_via_Termo_de_Cooperao
+import Estgio
+import Fretamento_Contnuo
+import Tipo_de_Autorizao_de_Viagem
+import Certificado_de_Registro_para_Fretamento
+import Autorizao
+import Scios
+import Transporte_Dutovirio_de_Cargas
+import Operador_de_Transporte_Multimodal
+import Operador_Ferrovirio_Independente
+import Pagamento_Eletrnico_de_Frete
+import Gerao_de_CIOT
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+import Permisso_por_Licitao
+import Conhecimento_de_Transporte
+import Outorga
+import Pessoa_Jurdica
+import Concesso_Ferroviria
+import Sistema_de_Sinalizao_Ferroviria
+import Meta_de_Concesso_Ferroviria
+import Bem_da_Concesso
+import Arbitragem_e_Mediao
+import Provimento
+import Delegao_de_Competncia
+
+package Delegao_de_Competncia
+
+role Ato_Oficializador_de_Delegao_de_Competncia of functional-complexes  specializes Ato_Oficializador_da_Administrao 
+
+role Sujeito_da_Delegao_de_Competncia specializes Agente_Pblico 
+
+role Alvo_da_Delegao_de_Competncia specializes Agente_Pblico, Objeto_do_Ato_da_Administrao 
+
+mode Competncia_Delegada specializes Competncia 
+
+relator Delegao_de_Competncia
+
+
+
+
+

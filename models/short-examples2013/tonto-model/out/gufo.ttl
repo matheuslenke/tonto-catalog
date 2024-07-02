@@ -1,0 +1,113 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Detective rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Detective"@en.
+:Criminal_Investigation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Criminal_Investigation"@en.
+:Suspect rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Suspect"@en.
+:Lead_Detective rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Lead_Detective"@en.
+:Witness rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Witness"@en.
+:Interrogation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Interrogation"@en.
+:Captain rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Captain"@en.
+:Officer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Officer"@en.
+:Parent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Parent"@en.
+:Child rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Child"@en.
+:Interrogator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Interrogator"@en.
+:Kind1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Kind1"@en.
+:ST1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ST1"@en.
+:ST2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ST2"@en.
+:T1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "T1"@en.
+:T2 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "T2"@en.
+:ST rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ST"@en.
+:T1_2 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T1_2"@en.
+:T2_2 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T2_2"@en.
+:T rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "T"@en.
+:T1_3 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "T1_3"@en.
+:T2_3 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "T2_3"@en.
+:T3 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "T3"@en.
+:R1 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "R1"@en.
+:T1_4 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T1_4"@en.
+:T3_2 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T3_2"@en.
+:T2_4 rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "T2_4"@en.
+:ST_2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ST_2"@en.
+:T2_5 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "T2_5"@en.
+:SBT1 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SBT1"@en.
+:SBT2 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SBT2"@en.
+:SBT3 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SBT3"@en.
+:Kind2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Kind2"@en.
+:T1_5 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "T1_5"@en.
+:Detective rdfs:subClassOf :Person.
+:Suspect rdfs:subClassOf :Person.
+:Lead_Detective rdfs:subClassOf :Detective.
+:Witness rdfs:subClassOf :Person.
+:Captain rdfs:subClassOf :Detective.
+:Officer rdfs:subClassOf :Detective.
+:Parent rdfs:subClassOf :Person.
+:Child rdfs:subClassOf :Person.
+:T1 rdfs:subClassOf :ST1.
+:T2 rdfs:subClassOf :ST2.
+:T1_2 rdfs:subClassOf :ST.
+:T2_2 rdfs:subClassOf :ST.
+:T1_4 rdfs:subClassOf :ST_2.
+:T3_2 rdfs:subClassOf :ST_2.
+:T2_4 rdfs:subClassOf :ST_2.
+:SBT1 rdfs:subClassOf :T2_5.
+:SBT2 rdfs:subClassOf :T2_5.
+:SBT3 rdfs:subClassOf :T2_5.

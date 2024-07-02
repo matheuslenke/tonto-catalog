@@ -1,0 +1,212 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:EMWave rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EMWave"@en.
+:Signal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Signal"@en.
+:Interface rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Interface"@en.
+:Receiver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Receiver"@en.
+:Sender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sender"@en.
+:FreeSpace rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "FreeSpace"@en.
+:Medium rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Medium"@en.
+:DetectBond rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "DetectBond"@en.
+:WantedSignal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "WantedSignal"@en.
+:UnWantedSignal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "UnWantedSignal"@en.
+:WantedSender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "WantedSender"@en.
+:Information rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Information"@en.
+:SelectedSender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SelectedSender"@en.
+:MonitoredSender rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MonitoredSender"@en.
+:DecodedBond rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "DecodedBond"@en.
+:MonitoredBond rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MonitoredBond"@en.
+:SelectedBond rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "SelectedBond"@en.
+:Source rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Source"@en.
+:Sink rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Sink"@en.
+:HandShakeBond rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "HandShakeBond"@en.
+:Interface2 rdf:type owl:NamedIndividual;
+    rdfs:label "Interface2"@en.
+:TXIntfSituation rdf:type owl:NamedIndividual;
+    rdfs:label "TXIntfSituation"@en.
+:EMField rdf:type owl:NamedIndividual;
+    rdfs:label "EMField"@en.
+:Sender2 rdf:type owl:NamedIndividual;
+    rdfs:label "Sender2"@en.
+:GenerateEMWave rdf:type owl:NamedIndividual;
+    rdfs:label "GenerateEMWave"@en.
+:EMWIsGenerated rdf:type owl:NamedIndividual;
+    rdfs:label "EMWIsGenerated"@en.
+:EMWave2 rdf:type owl:NamedIndividual;
+    rdfs:label "EMWave2"@en.
+:Permittivity rdf:type owl:NamedIndividual;
+    rdfs:label "Permittivity"@en.
+:FreeSpace2 rdf:type owl:NamedIndividual;
+    rdfs:label "FreeSpace2"@en.
+:PropagateEMW rdf:type owl:NamedIndividual;
+    rdfs:label "PropagateEMW"@en.
+:EMWIsPropagated rdf:type owl:NamedIndividual;
+    rdfs:label "EMWIsPropagated"@en.
+:Sensitivity rdf:type owl:NamedIndividual;
+    rdfs:label "Sensitivity"@en.
+:Receiver2 rdf:type owl:NamedIndividual;
+    rdfs:label "Receiver2"@en.
+:DetectEMW rdf:type owl:NamedIndividual;
+    rdfs:label "DetectEMW"@en.
+:EMWIsDetected rdf:type owl:NamedIndividual;
+    rdfs:label "EMWIsDetected"@en.
+:Signal2 rdf:type owl:NamedIndividual;
+    rdfs:label "Signal2"@en.
+:Medium2 rdf:type owl:NamedIndividual;
+    rdfs:label "Medium2"@en.
+:RxIntfSituation rdf:type owl:NamedIndividual;
+    rdfs:label "RxIntfSituation"@en.
+:Receiver rdfs:subClassOf :Interface.
+:Sender rdfs:subClassOf :Interface.
+:UnWantedSignal rdfs:subClassOf :Signal.
+:WantedSignal rdfs:subClassOf :Signal.
+:SelectedSender rdfs:subClassOf :WantedSender.
+:MonitoredSender rdfs:subClassOf :WantedSender.
+:Source rdfs:subClassOf :Interface.
+:Sink rdfs:subClassOf :Interface.
+:Signal rdfs:subClassOf :EMWave.
+:Receiver rdfs:subClassOf :Interface.
+:Sender rdfs:subClassOf :Interface.
+:Medium rdfs:subClassOf :FreeSpace.
+:WantedSignal rdfs:subClassOf :Signal.
+:UnWantedSignal rdfs:subClassOf :Signal.
+:WantedSender rdfs:subClassOf :Sender, :Sender.
+:SelectedSender rdfs:subClassOf :WantedSender.
+:MonitoredSender rdfs:subClassOf :WantedSender.
+:DecodedBond rdfs:subClassOf :DetectBond.
+:MonitoredBond rdfs:subClassOf :DecodedBond.
+:SelectedBond rdfs:subClassOf :DecodedBond.
+:Source rdfs:subClassOf :Interface.
+:Sink rdfs:subClassOf :Interface.
+:Sender2 rdfs:subClassOf :Interface2.
+:Receiver2 rdfs:subClassOf :Interface2.
+:Signal2 rdfs:subClassOf :EMWave2.
+:Medium2 rdfs:subClassOf :FreeSpace2.
+:poweredOn rdfs:domain :TXIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "poweredOn"@en.
+:ableToTx rdfs:domain :TXIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "ableToTx"@en.
+:ableToRx rdfs:domain :TXIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "ableToRx"@en.
+:startAt rdfs:domain :TXIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startAt"@en.
+:finishAt rdfs:domain :TXIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "finishAt"@en.
+:startAt_1 rdfs:domain :EMWIsGenerated;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startAt"@en.
+:finishAt_1 rdfs:domain :EMWIsGenerated;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "finishAt"@en.
+:frequency rdfs:domain :EMWave2;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "frequency"@en.
+:bandwidth rdfs:domain :EMWave2;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "bandwidth"@en.
+:power rdfs:domain :EMWave2;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "power"@en.
+:startAt_2 rdfs:domain :EMWIsPropagated;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startAt"@en.
+:finishAt_2 rdfs:domain :EMWIsPropagated;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "finishAt"@en.
+:startAt_3 rdfs:domain :EMWIsDetected;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startAt"@en.
+:finishAt_3 rdfs:domain :EMWIsDetected;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "finishAt"@en.
+:poweredOn_1 rdfs:domain :RxIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "poweredOn"@en.
+:ableToTx_1 rdfs:domain :RxIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "ableToTx"@en.
+:ableToRx_1 rdfs:domain :RxIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "ableToRx"@en.
+:startAt_4 rdfs:domain :RxIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startAt"@en.
+:finishAt_4 rdfs:domain :RxIntfSituation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "finishAt"@en.

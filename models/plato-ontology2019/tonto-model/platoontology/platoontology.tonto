@@ -83,11 +83,11 @@ subkind Aristocratic of intrinsic-modes  specializes PsychologicalConstitution {
 relator Being
 
 kind Particular{
-    name: string_  
-    composite: boolean_  
-    temporal: boolean_  
-    spatial: boolean_  
-    sensible: boolean_  
+    name: string  
+    composite: boolean  
+    temporal: boolean  
+    spatial: boolean  
+    sensible: boolean  
 }
 
 mode Good
@@ -133,7 +133,7 @@ kind Triangle
 kind HeavenlyBody
 
 subkind Name of functional-complexes  specializes Particular {
-    language: string_  
+    language: string  
 }
 
 subkind NameBearerObject of functional-complexes  specializes Particular 
@@ -147,11 +147,11 @@ phase PresentName of functional-complexes  specializes Name
 phase OriginalName of functional-complexes  specializes Name 
 
 kind Form{
-    spatial: boolean_  { const }
-    name: string_  
-    composite: boolean_  { const }
-    temporal: boolean_  { const }
-    sensible: boolean_  
+    spatial: boolean  { const }
+    name: string  
+    composite: boolean  { const }
+    temporal: boolean  { const }
+    sensible: boolean  
 }
 
 kind Difference
@@ -172,8 +172,8 @@ kind Thinking
 
 kind Recollection
 
-datatype string_
-datatype boolean_
+datatype string
+datatype boolean
 genset R21ouz6GAqACaRRs {
     general PsychologicalConstitution
     specifics Timocratic, Oligarchic, Democratic, Aristocratic, Tyrannical

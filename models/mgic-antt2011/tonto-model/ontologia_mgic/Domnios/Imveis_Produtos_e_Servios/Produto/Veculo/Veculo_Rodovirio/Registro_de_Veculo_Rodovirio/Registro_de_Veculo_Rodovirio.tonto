@@ -1,0 +1,13 @@
+
+package Registro_de_Veculo_Rodovirio
+
+relator Registro_de_Veculo{
+    endereo: undefined  
+    nmero: undefined  
+}
+
+roleMixin Proprietrio_de_Veculo of functional-complexes  specializes Transportador_de_Carga_Prpria 
+
+
+
+

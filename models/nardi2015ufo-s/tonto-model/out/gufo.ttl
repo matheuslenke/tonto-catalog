@@ -1,0 +1,90 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Service_Offering rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Service_Offering"@en.
+:Service_Offer rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Service_Offer"@en.
+:Service_Offering_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Service_Offering_Description"@en.
+:Target_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Target_Customer"@en.
+:Target_Customer_Community rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Target_Customer_Community"@en.
+:Service_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Service_Provider"@en.
+:Service_Offering_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Service_Offering_Commitment"@en.
+:Service_Offering_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Service_Offering_Claim"@en.
+:Service_Negotiation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Service_Negotiation"@en.
+:Service_Agreement_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Service_Agreement_Description"@en.
+:Hired_Service_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Hired_Service_Provider"@en.
+:Service_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Service_Customer"@en.
+:Service_Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Service_Agreement"@en.
+:Hired_Provider_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Hired_Provider_Commitment"@en.
+:Hired_Provider_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Hired_Provider_Claim"@en.
+:Service_Customer_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Service_Customer_Claim"@en.
+:Service_Customer_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Service_Customer_Commitment"@en.
+:Service_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Service_Delivery"@en.
+:Hired_Provider_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Hired_Provider_Action"@en.
+:Customer_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Customer_Action"@en.
+:Hired_ProviderCustomer_Interaction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Hired_ProviderCustomer_Interaction"@en.
+:Specialized_Service_Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Specialized_Service_Agreement"@en.
+:Committed_Service_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Committed_Service_Customer"@en.
+:Claimed_Hired_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Claimed_Hired_Provider"@en.
+:Target_Customer_On_Negotiation rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Target_Customer_On_Negotiation"@en.
+:Service_Provider_On_Negotiation rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Service_Provider_On_Negotiation"@en.
+:Target_Customer rdfs:subClassOf :Agent.
+:Service_Provider rdfs:subClassOf :Agent.
+:Hired_Service_Provider rdfs:subClassOf :Service_Provider_On_Negotiation.
+:Service_Customer rdfs:subClassOf :Target_Customer_On_Negotiation.
+:Specialized_Service_Agreement rdfs:subClassOf :Service_Agreement.
+:Committed_Service_Customer rdfs:subClassOf :Service_Customer.
+:Claimed_Hired_Provider rdfs:subClassOf :Hired_Service_Provider.
+:Target_Customer_On_Negotiation rdfs:subClassOf :Target_Customer.
+:Service_Provider_On_Negotiation rdfs:subClassOf :Service_Provider.

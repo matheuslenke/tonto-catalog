@@ -1,0 +1,38 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Railway_Usage_Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Railway_Usage_Agreement"@en.
+:Railway_Concessionaire rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Railway_Concessionaire"@en.
+:PRCS_Description rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "PRCS_Description"@en.
+:Regulatory_Agency rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Regulatory_Agency"@en.
+:Regulatory_Legislation rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Regulatory_Legislation"@en.
+:Eventual_Passenger_Rail_Chartered_Service rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Eventual_Passenger_Rail_Chartered_Service"@en.
+:Interested_Agent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Interested_Agent"@en.
+:PRCS_Offering_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "PRCS_Offering_Commitment"@en.
+:PRCS_Offering_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "PRCS_Offering_Claim"@en.
+:User_Community_of_PRCS rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "User_Community_of_PRCS"@en.
+:User_of_PRCS rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "User_of_PRCS"@en.

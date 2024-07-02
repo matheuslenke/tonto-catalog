@@ -1,0 +1,21 @@
+
+package Meta_de_Concesso_Ferroviria
+
+phase Trecho_Ferrovirio_Sem_Meta
+
+mode Meta_de_Desempenho_de_Transporte__Ferrovirio{
+    data_de_fim: undefined  
+    data_de_incio: undefined  
+}
+
+mode Meta_de_Produo_de_Transporte_ specializes Meta_de_Desempenho_de_Transporte__Ferrovirio {
+    valor_mnimo_de_produo: undefined  
+}
+
+mode Meta_de_Reduo_de_Acidente specializes Meta_de_Desempenho_de_Transporte__Ferrovirio {
+    quantidade_mxima_de_acidentes: undefined  
+}
+
+phase Trecho_Ferrovirio_Com_Meta
+
+

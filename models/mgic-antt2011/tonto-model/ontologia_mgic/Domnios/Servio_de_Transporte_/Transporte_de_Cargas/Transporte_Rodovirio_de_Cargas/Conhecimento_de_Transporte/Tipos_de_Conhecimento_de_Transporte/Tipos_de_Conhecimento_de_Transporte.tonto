@@ -1,0 +1,21 @@
+import Conhecimento_de_Transporte
+import Papis_Envolvidos_no_Conhecimento_de_Transporte
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Gerao_de_CIOT
+import Tipos_de_Conhecimento_de_Transporte
+import Contratao_de_Transporte_Multimodal_de_Cargas
+
+package Tipos_de_Conhecimento_de_Transporte
+
+relator Conhecimento_de_Transporte_Redespacho_Intermedirio specializes Conhecimento_de_Transporte 
+
+relator Conhecimento_de_Transporte_Normal specializes Conhecimento_de_Transporte 
+
+relator Conhecimento_de_Transporte_Multimodal specializes Conhecimento_de_Transporte 
+
+relator Conhecimento_de_Transporte_Subcontratao specializes Conhecimento_de_Transporte 
+
+relator Conhecimento_de_Transporte_Redespacho specializes Conhecimento_de_Transporte 
+
+
+

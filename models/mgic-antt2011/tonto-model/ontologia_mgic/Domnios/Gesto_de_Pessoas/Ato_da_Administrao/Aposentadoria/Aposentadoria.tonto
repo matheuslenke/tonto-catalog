@@ -1,0 +1,24 @@
+
+package Aposentadoria
+
+kind Junta_Mdica_Oficial
+
+relator Aposentadoria_por_Doena specializes Aposentadoria_por_Invalidez 
+
+relator Aposentadoria_por_Invalidez specializes Aposentadoria 
+
+relator Aposentadoria_Compulsria specializes Aposentadoria 
+
+relator Aposentadoria{
+    data: undefined  
+    valor_bruto: undefined  
+}
+
+relator Aposentadoria_por_Molstia_Profissional specializes Aposentadoria_por_Invalidez 
+
+relator Aposentadoria_por_Acidente_em_Servio specializes Aposentadoria_por_Invalidez 
+
+relator Aposentadoria_Voluntria specializes Aposentadoria 
+
+
+

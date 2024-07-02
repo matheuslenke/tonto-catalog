@@ -1,0 +1,84 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:BiologicalPerson rdf:type owl:NamedIndividual;
+    rdfs:label "BiologicalPerson"@en.
+:ElectricPotential rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "ElectricPotential"@en.
+:PersonUnderECGMonitoring rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PersonUnderECGMonitoring"@en.
+:ECGRecordingSession rdf:type owl:NamedIndividual;
+    rdfs:label "ECGRecordingSession"@en.
+:ECGDevice rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ECGDevice"@en.
+:ECGLead rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ECGLead"@en.
+:ECGLeadUnipolar rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ECGLeadUnipolar"@en.
+:ECGLeadBipolarLimb rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ECGLeadBipolarLimb"@en.
+:TimeSeriesMeasurements rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "TimeSeriesMeasurements"@en.
+:ECGSampleSequence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ECGSampleSequence"@en.
+:HeartElectricalActivity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "HeartElectricalActivity"@en.
+:Device rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Device"@en.
+:Measurement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Measurement"@en.
+:Sensor rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Sensor"@en.
+:UnitOfMeasurement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "UnitOfMeasurement"@en.
+:Property rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Property"@en.
+:Task rdf:type owl:NamedIndividual;
+    rdfs:label "Task"@en.
+:LivingPerson rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LivingPerson"@en.
+:ECGLeadUnipolar rdfs:subClassOf :ECGLead.
+:ECGLeadBipolarLimb rdfs:subClassOf :ECGLead.
+:ECGSampleSequence rdfs:subClassOf :TimeSeriesMeasurements.
+:Sensor rdfs:subClassOf :Device.
+:LivingPerson rdfs:subClassOf :BiologicalPerson.
+:sarefhasTimestamp rdfs:domain :TimeSeriesMeasurements;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sarefhasTimestamp"@en.
+:sarefhasManufacturer rdfs:domain :Device;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sarefhasManufacturer"@en.
+:sarefhasTimestamp_1 rdfs:domain :Measurement;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sarefhasTimestamp"@en.
+:hasStart rdfs:domain :Task;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "hasStart"@en.
+:hasEnd rdfs:domain :Task;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "hasEnd"@en.

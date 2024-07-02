@@ -1,0 +1,1093 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Service_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Service_Provider"@en.
+:Service_Offering rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Service_Offering"@en.
+:Service_Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Service_Agreement"@en.
+:Service_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Service_Delivery"@en.
+:Hired_Provider_Commitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Hired_Provider_Commitment"@en.
+:Service_Customer_Claim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Service_Customer_Claim"@en.
+:Target_Customer_Communty rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Target_Customer_Communty"@en.
+:Target_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Target_Customer"@en.
+:Service_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Service_Customer"@en.
+:Hired_Service_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Hired_Service_Provider"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Highest_Price_Offer rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Highest_Price_Offer"@en.
+:Location rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Location"@en.
+:Job_Fee rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Job_Fee"@en.
+:Relator rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Relator"@en.
+:Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event"@en.
+:Subevent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Subevent"@en.
+:Event_A rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event_A"@en.
+:Event_B rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event_B"@en.
+:Object_A rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object_A"@en.
+:Subobject_A rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Subobject_A"@en.
+:Object_B rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object_B"@en.
+:Object rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Object"@en.
+:Class_C rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Class_C"@en.
+:Object_C rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Object_C"@en.
+:jobDropper rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "jobDropper"@en.
+:Worker rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Worker"@en.
+:Add_Filter rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Add_Filter"@en.
+:Job_Interest rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Job_Interest"@en.
+:Job_acceptance rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Job_acceptance"@en.
+:Job_done rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Job_done"@en.
+:Favorite_worker_selection rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Favorite_worker_selection"@en.
+:Favorite_List rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Favorite_List"@en.
+:Transportation_Cost rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Transportation_Cost"@en.
+:Money_Receivement rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Money_Receivement"@en.
+:Physical_Good rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Physical_Good"@en.
+:Regularly_uses rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Regularly_uses"@en.
+:UnderUtilized_Product rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "UnderUtilized_Product"@en.
+:Digital_Marketplace_Tusher_and_Laudien_2018 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Digital_Marketplace_Tusher_and_Laudien_2018"@en.
+:Sharing_Platform_Frenken_and_Schor_2017 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Sharing_Platform_Frenken_and_Schor_2017"@en.
+:MultiSided_Transaction_platform_Evans_and_Gawer_2016 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MultiSided_Transaction_platform_Evans_and_Gawer_2016"@en.
+:OnDemand_Platform_Mamonova_2018 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OnDemand_Platform_Mamonova_2018"@en.
+:P2P_Sharing_and_CC_Platform_Chasin_et_al_2018 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "P2P_Sharing_and_CC_Platform_Chasin_et_al_2018"@en.
+:MultiSided_Platform_Hagiu_and_Wright_2015 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "MultiSided_Platform_Hagiu_and_Wright_2015"@en.
+:Digital_Platform_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Digital_Platform_Type"@en.
+:Investment_Platform_Evans_and_Gawer_2016 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Investment_Platform_Evans_and_Gawer_2016"@en.
+:Crowdfunding_Platform_Haas_and_Blohm_2014 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Crowdfunding_Platform_Haas_and_Blohm_2014"@en.
+:SecondHand_P2P_platform_Acquier_et_al_2017 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "SecondHand_P2P_platform_Acquier_et_al_2017"@en.
+:TwoSided_Platform rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TwoSided_Platform"@en.
+:OneSided_Platform_Filistrucchi_et_al_2014 rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "OneSided_Platform_Filistrucchi_et_al_2014"@en.
+:Digital_Good_Upload rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Digital_Good_Upload"@en.
+:Offline_Good_Transfer rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Offline_Good_Transfer"@en.
+:Request_Quote rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Request_Quote"@en.
+:Quote rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Quote"@en.
+:Price_Proposal rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Price_Proposal"@en.
+:Proposed_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Proposed_Price"@en.
+:Price_Acceptance rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Price_Acceptance"@en.
+:Accepted_Quote_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Accepted_Quote_Price"@en.
+:Quoted_Transaction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Quoted_Transaction"@en.
+:Immediate_Acces_Transaction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Immediate_Acces_Transaction"@en.
+:Immediate_Access_Claim rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Immediate_Access_Claim"@en.
+:immediate_Access_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "immediate_Access_Provider"@en.
+:Immediate_Access_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Immediate_Access_Customer"@en.
+:Immediate_Access_Commitment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Immediate_Access_Commitment"@en.
+:Manual_Affiliation_Check rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Manual_Affiliation_Check"@en.
+:Automated_Affiliation_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Automated_Affiliation_Action"@en.
+:ManuallyChecked_Affiliation_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "ManuallyChecked_Affiliation_Action"@en.
+:Peer_Creator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Peer_Creator"@en.
+:Peer_Consumer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Peer_Consumer"@en.
+:Peer_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Peer_User"@en.
+:NonPeer_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "NonPeer_User"@en.
+:Peer_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Peer_Action"@en.
+:C2C_Platform_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "C2C_Platform_Customer"@en.
+:C2C_Platform_Provider rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "C2C_Platform_Provider"@en.
+:B2C_Platform_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "B2C_Platform_Customer"@en.
+:B2C_Platform_Provider rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "B2C_Platform_Provider"@en.
+:B2B_Platform_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "B2B_Platform_Customer"@en.
+:B2B_Platform_Provider rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "B2B_Platform_Provider"@en.
+:UserOriented_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "UserOriented_Delivery"@en.
+:ResultOriented_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "ResultOriented_Delivery"@en.
+:ProductOriented_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "ProductOriented_Delivery"@en.
+:Good rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Good"@en.
+:Review rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Review"@en.
+:Review_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Review_Creation"@en.
+:Review_Content rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Review_Content"@en.
+:Marketplace_Company rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Marketplace_Company"@en.
+:Fixed_Fee rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Fixed_Fee"@en.
+:Revenue_Stream rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Revenue_Stream"@en.
+:Price rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Price"@en.
+:Suggested_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Suggested_Price"@en.
+:Market_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Market_Price"@en.
+:Offering_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Offering_Price"@en.
+:Paid_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Paid_Price"@en.
+:FeatureBased_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FeatureBased_Price"@en.
+:Feature rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Feature"@en.
+:Price_Offer_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Price_Offer_Creation"@en.
+:Transaction_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Transaction_Price"@en.
+:Booking_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Booking_Price"@en.
+:Transaction_Payment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transaction_Payment"@en.
+:Payment_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Payment_Action"@en.
+:Paid_Transaction_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Paid_Transaction_Price"@en.
+:Received_Transaction_Price rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Received_Transaction_Price"@en.
+:Offering_description_of_Ownership_transfer rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Offering_description_of_Ownership_transfer"@en.
+:Ownership_Transfer rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Ownership_Transfer"@en.
+:Private_Customer rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Private_Customer"@en.
+:InterUser_Conversation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "InterUser_Conversation"@en.
+:Transaction_Conversation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transaction_Conversation"@en.
+:Listing_Conversation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Listing_Conversation"@en.
+:Send_Message rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Send_Message"@en.
+:Booking_Conversation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Booking_Conversation"@en.
+:OneSided_Platform rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OneSided_Platform"@en.
+:Target_OneSided_User_Community rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Target_OneSided_User_Community"@en.
+:OneSided_Platform_User_Affiliation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "OneSided_Platform_User_Affiliation"@en.
+:OneSided_Platform_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "OneSided_Platform_User"@en.
+:MS_Platform_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "MS_Platform_User"@en.
+:Target_MS_Platform_User_Side rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Target_MS_Platform_User_Side"@en.
+:MS_Platform_User_Side rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "MS_Platform_User_Side"@en.
+:MS_User_Affiliation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MS_User_Affiliation"@en.
+:Subscription rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Subscription"@en.
+:Investment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Investment"@en.
+:MS_Platform_Supported_Interaction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "MS_Platform_Supported_Interaction"@en.
+:Target_Platform_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Target_Platform_User"@en.
+:Target_Platform_User_Community rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Target_Platform_User_Community"@en.
+:Platform_Software rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Platform_Software"@en.
+:Software rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Software"@en.
+:Digital_Platform_Offering rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Digital_Platform_Offering"@en.
+:Platform_Company rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Platform_Company"@en.
+:Platform_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Platform_User"@en.
+:Digital_Communication rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Digital_Communication"@en.
+:User_Affiliation_Agreement rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "User_Affiliation_Agreement"@en.
+:User_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "User_Action"@en.
+:Digital_Content_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Digital_Content_Creation"@en.
+:Digital_Content_Consumption rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Digital_Content_Consumption"@en.
+:Platform_Software_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Platform_Software_Action"@en.
+:Platform_Supported_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Platform_Supported_Action"@en.
+:Platform_Company_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Platform_Company_Action"@en.
+:User_Affiliation_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "User_Affiliation_Action"@en.
+:Offline_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Offline_Action"@en.
+:Platform_Visitor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Platform_Visitor"@en.
+:User_Role_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "User_Role_Type"@en.
+:User_Action_Type rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "User_Action_Type"@en.
+:User_Role rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "User_Role"@en.
+:User_Role_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "User_Role_Action"@en.
+:Content_Consumer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Content_Consumer"@en.
+:Platform_Supported_Interaction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Platform_Supported_Interaction"@en.
+:Content_Creator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Content_Creator"@en.
+:Digital_Content rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Digital_Content"@en.
+:Main_Digital_Content rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Main_Digital_Content"@en.
+:Main_Digital_Content_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Main_Digital_Content_Creation"@en.
+:Personal_Data rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Personal_Data"@en.
+:Digital_Message rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Digital_Message"@en.
+:Digital_File rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Digital_File"@en.
+:Platform_Supported_Communication rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Platform_Supported_Communication"@en.
+:Main_Digital_Content_Consumption rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Main_Digital_Content_Consumption"@en.
+:Uber_Eats_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uber_Eats_Customer"@en.
+:Meal_Preparation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Meal_Preparation"@en.
+:Uber_Eats_Restaurant rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Uber_Eats_Restaurant"@en.
+:Uber_Eats_Rider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Uber_Eats_Rider"@en.
+:Meal_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Meal_Delivery"@en.
+:Transaction_Acceptance rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Transaction_Acceptance"@en.
+:Meal rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Meal"@en.
+:Logged_In_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Logged_In_User"@en.
+:SafaRide_Trip_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "SafaRide_Trip_Provider"@en.
+:SafaRide_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "SafaRide_Customer"@en.
+:Login_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Login_Action"@en.
+:Park rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Park"@en.
+:Car rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Car"@en.
+:Set_Filter rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Set_Filter"@en.
+:Offered_Price_per_Seat rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Offered_Price_per_Seat"@en.
+:Set_Price_per_Seat rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Set_Price_per_Seat"@en.
+:Airbnb_Home_Seeker rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Airbnb_Home_Seeker"@en.
+:Accommodation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Accommodation"@en.
+:Rent_Home rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Rent_Home"@en.
+:Private_Airbnb_Homeowner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Private_Airbnb_Homeowner"@en.
+:Product rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Product"@en.
+:Airbnb_Homeowner rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Airbnb_Homeowner"@en.
+:Airbnb_Software rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Airbnb_Software"@en.
+:Airbnb_Home_Renter rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Airbnb_Home_Renter"@en.
+:Listing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Listing"@en.
+:Listing_Search rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Listing_Search"@en.
+:Listing_Overview rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Listing_Overview"@en.
+:Listing_Description rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Listing_Description"@en.
+:Decentralized_Target_Platform_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Decentralized_Target_Platform_Customer"@en.
+:Decentralized_Target_Platform_Customer_Community rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Decentralized_Target_Platform_Customer_Community"@en.
+:Decentralized_Transaction_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Decentralized_Transaction_Creation"@en.
+:Decentralized_Platform_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Decentralized_Platform_Customer"@en.
+:Decentralized_Transaction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Decentralized_Transaction"@en.
+:Listing_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Listing_Creation"@en.
+:Match_Target_Customer_To_Offering rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Match_Target_Customer_To_Offering"@en.
+:Centralized_Offering rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Centralized_Offering"@en.
+:Centralized_Target_Platform_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Centralized_Target_Platform_Customer"@en.
+:Centralized_Target_Platform_Customer_Community rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Centralized_Target_Platform_Customer_Community"@en.
+:Centralized_Transaction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Centralized_Transaction"@en.
+:Centralized_Platform_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Centralized_Platform_Customer"@en.
+:Centralized_Transaction_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Centralized_Transaction_Creation"@en.
+:Transaction rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Transaction"@en.
+:Offering_On_The_Platform rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Offering_On_The_Platform"@en.
+:Offering_Description rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Offering_Description"@en.
+:Platform_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Platform_Provider"@en.
+:Offering_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Offering_Creation"@en.
+:Offering_Creator rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Offering_Creator"@en.
+:Transaction_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transaction_Creation"@en.
+:Target_Platform_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Target_Platform_Customer"@en.
+:Target_MS_Platform_Customer_Community rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Target_MS_Platform_Customer_Community"@en.
+:Platform_Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Platform_Customer"@en.
+:Transaction_Platform_Company rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Transaction_Platform_Company"@en.
+:Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Delivery"@en.
+:OuterPlatform_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "OuterPlatform_Delivery"@en.
+:User_Payment_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "User_Payment_Action"@en.
+:Subscription_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Subscription_Action"@en.
+:Subscribed_Platform_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Subscribed_Platform_User"@en.
+:Registered_User rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Registered_User"@en.
+:Registration rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Registration"@en.
+:Registration_Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Registration_Action"@en.
+:CapitalSeeking_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "CapitalSeeking_Agent"@en.
+:CapitalGiving_Agent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "CapitalGiving_Agent"@en.
+:Resource rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Resource"@en.
+:Future_Reimbursement_Commitment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Future_Reimbursement_Commitment"@en.
+:Reimbursement rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Reimbursement"@en.
+:Resource_Claim rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Resource_Claim"@en.
+:Review_Creation_by_Provider rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Review_Creation_by_Provider"@en.
+:Provider_Review rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Provider_Review"@en.
+:Review_Creation_by_Customer rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Review_Creation_by_Customer"@en.
+:Customer_Review rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Customer_Review"@en.
+:Subscription_Fee rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Subscription_Fee"@en.
+:Subscription_Payment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Subscription_Payment"@en.
+:Commission_Fee rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Commission_Fee"@en.
+:Revenue_Stream_Payed_by_Provider rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Revenue_Stream_Payed_by_Provider"@en.
+:Revenue_Stream_Payed_by_Customer rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Revenue_Stream_Payed_by_Customer"@en.
+:Price_set_by_Provider rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Price_set_by_Provider"@en.
+:Price_Setting_action_by_Provider rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Price_Setting_action_by_Provider"@en.
+:Price_per_Quantity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Price_per_Quantity"@en.
+:Quantity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Quantity"@en.
+:Available_Quantity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Available_Quantity"@en.
+:Booked_Quantity rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Booked_Quantity"@en.
+:Offline_Payment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Offline_Payment"@en.
+:Inhouse_Payment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Inhouse_Payment"@en.
+:External_Payment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "External_Payment"@en.
+:Payment_Provider rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Payment_Provider"@en.
+:Platform_Service_Provider rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Platform_Service_Provider"@en.
+:Booking rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Booking"@en.
+:Booking_Creation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Booking_Creation"@en.
+:Service_Delivery_1 rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Service_Delivery"@en.
+:Time rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Time"@en.
+:Physical_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Physical_Delivery"@en.
+:Physical_Offering_Description rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Physical_Offering_Description"@en.
+:Platform_Customer_of_Offline_Physical_Good rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Platform_Customer_of_Offline_Physical_Good"@en.
+:Digital_Good rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Digital_Good"@en.
+:Digital_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Digital_Delivery"@en.
+:Digital_Good_Transfer rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Digital_Good_Transfer"@en.
+:Available_time_slot rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Available_time_slot"@en.
+:Booked_Time_Slot rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Booked_Time_Slot"@en.
+:Time_Slot rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Time_Slot"@en.
+:Start_Time rdf:type owl:NamedIndividual;
+    rdfs:label "Start_Time"@en.
+:End_Time rdf:type owl:NamedIndividual;
+    rdfs:label "End_Time"@en.
+:Onetime_listing rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Onetime_listing"@en.
+:Offline_Service_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Offline_Service_Delivery"@en.
+:Service_Delivery rdfs:subClassOf :Delivery.
+:Service_Customer rdfs:subClassOf :Target_Customer.
+:Hired_Service_Provider rdfs:subClassOf :Service_Provider.
+:Organization rdfs:subClassOf :Agent.
+:Person rdfs:subClassOf :Agent.
+:Organization rdfs:subClassOf :Agent.
+:Person rdfs:subClassOf :Agent.
+:Highest_Price_Offer rdfs:subClassOf :Offering_Price.
+:Job_Fee rdfs:subClassOf :Price_set_by_Provider.
+:Subevent rdfs:subClassOf :Event.
+:Subobject_A rdfs:subClassOf :Object_A.
+:Physical_Good rdfs:subClassOf :Good.
+:UnderUtilized_Product rdfs:subClassOf :Physical_Good.
+:Digital_Marketplace_Tusher_and_Laudien_2018 rdfs:subClassOf :MultiSided_Transaction_platform_Evans_and_Gawer_2016.
+:Sharing_Platform_Frenken_and_Schor_2017 rdfs:subClassOf :P2P_Sharing_and_CC_Platform_Chasin_et_al_2018.
+:MultiSided_Transaction_platform_Evans_and_Gawer_2016 rdfs:subClassOf :MultiSided_Platform_Hagiu_and_Wright_2015.
+:OnDemand_Platform_Mamonova_2018 rdfs:subClassOf :Digital_Marketplace_Tusher_and_Laudien_2018.
+:P2P_Sharing_and_CC_Platform_Chasin_et_al_2018 rdfs:subClassOf :Digital_Marketplace_Tusher_and_Laudien_2018.
+:Investment_Platform_Evans_and_Gawer_2016 rdfs:subClassOf :MultiSided_Transaction_platform_Evans_and_Gawer_2016.
+:Crowdfunding_Platform_Haas_and_Blohm_2014 rdfs:subClassOf :Investment_Platform_Evans_and_Gawer_2016.
+:SecondHand_P2P_platform_Acquier_et_al_2017 rdfs:subClassOf :Digital_Marketplace_Tusher_and_Laudien_2018.
+:TwoSided_Platform rdfs:subClassOf :MultiSided_Platform_Hagiu_and_Wright_2015.
+:Offline_Good_Transfer rdfs:subClassOf :Offline_Action, :Ownership_Transfer.
+:Request_Quote rdfs:subClassOf :User_Action.
+:Price_Proposal rdfs:subClassOf :User_Action.
+:Proposed_Price rdfs:subClassOf :Price.
+:Price_Acceptance rdfs:subClassOf :User_Action.
+:Accepted_Quote_Price rdfs:subClassOf :Proposed_Price.
+:Quoted_Transaction rdfs:subClassOf :Transaction.
+:Immediate_Acces_Transaction rdfs:subClassOf :Transaction.
+:Immediate_Access_Claim rdfs:subClassOf :Service_Customer_Claim.
+:immediate_Access_Provider rdfs:subClassOf :Platform_Provider.
+:Immediate_Access_Customer rdfs:subClassOf :Platform_Customer.
+:Immediate_Access_Commitment rdfs:subClassOf :Hired_Provider_Commitment.
+:ManuallyChecked_Affiliation_Action rdfs:subClassOf :User_Affiliation_Action.
+:Automated_Affiliation_Action rdfs:subClassOf :User_Affiliation_Action.
+:Peer_Creator rdfs:subClassOf :Peer_User.
+:Peer_Consumer rdfs:subClassOf :Peer_User.
+:NonPeer_User rdfs:subClassOf :Platform_User.
+:Peer_User rdfs:subClassOf :Platform_User.
+:Manual_Affiliation_Check rdfs:subClassOf :Platform_Company_Action.
+:Automated_Affiliation_Action rdfs:subClassOf :User_Affiliation_Action, :Registration_Action.
+:ManuallyChecked_Affiliation_Action rdfs:subClassOf :User_Affiliation_Action, :Platform_Company_Action.
+:Peer_Creator rdfs:subClassOf :Peer_User.
+:Peer_Consumer rdfs:subClassOf :Peer_User.
+:Peer_User rdfs:subClassOf :Platform_User.
+:NonPeer_User rdfs:subClassOf :Platform_User.
+:Peer_Action rdfs:subClassOf :User_Action.
+:C2C_Platform_Customer rdfs:subClassOf :Platform_Customer, :Peer_User, :Person.
+:C2C_Platform_Provider rdfs:subClassOf :Platform_Provider, :Peer_User, :Person.
+:B2C_Platform_Customer rdfs:subClassOf :Platform_Customer, :Person.
+:B2C_Platform_Provider rdfs:subClassOf :Platform_Provider, :Organization.
+:B2B_Platform_Customer rdfs:subClassOf :Platform_Customer, :Organization.
+:B2B_Platform_Provider rdfs:subClassOf :Platform_Provider, :Organization.
+:UserOriented_Delivery rdfs:subClassOf :Delivery, :ProductOriented_Delivery, :ResultOriented_Delivery.
+:ResultOriented_Delivery rdfs:subClassOf :Delivery, :Service_Delivery.
+:ProductOriented_Delivery rdfs:subClassOf :Delivery.
+:Marketplace_Company rdfs:subClassOf :Platform_Company.
+:Fixed_Fee rdfs:subClassOf :Revenue_Stream.
+:Suggested_Price rdfs:subClassOf :Price.
+:Market_Price rdfs:subClassOf :Price.
+:Offering_Price rdfs:subClassOf :Price.
+:Market_Price rdfs:subClassOf :Price.
+:Paid_Price rdfs:subClassOf :Price.
+:FeatureBased_Price rdfs:subClassOf :Price_set_by_Provider.
+:Price_Offer_Creation rdfs:subClassOf :User_Action.
+:Transaction_Price rdfs:subClassOf :Price.
+:Booking_Price rdfs:subClassOf :Price.
+:Paid_Price rdfs:subClassOf :Price.
+:Transaction_Payment rdfs:subClassOf :Payment_Action.
+:Payment_Action rdfs:subClassOf :User_Action, :Platform_Supported_Action.
+:Paid_Transaction_Price rdfs:subClassOf :Price, :Transaction_Price.
+:Received_Transaction_Price rdfs:subClassOf :Transaction_Price.
+:Private_Customer rdfs:subClassOf :Person.
+:Transaction_Conversation rdfs:subClassOf :InterUser_Conversation.
+:Listing_Conversation rdfs:subClassOf :InterUser_Conversation.
+:Booking_Conversation rdfs:subClassOf :Transaction_Conversation.
+:OneSided_Platform rdfs:subClassOf :Digital_Platform_Offering.
+:OneSided_Platform_User_Affiliation rdfs:subClassOf :User_Affiliation_Agreement.
+:OneSided_Platform_User rdfs:subClassOf :Platform_User.
+:Subscription rdfs:subClassOf :MS_User_Affiliation.
+:Investment rdfs:subClassOf :MS_User_Affiliation.
+:MS_Platform_User rdfs:subClassOf :Platform_Visitor.
+:MS_User_Affiliation rdfs:subClassOf :User_Affiliation_Agreement.
+:Subscription rdfs:subClassOf :User_Affiliation_Agreement, :MS_User_Affiliation, :OneSided_Platform_User_Affiliation.
+:Investment rdfs:subClassOf :MS_User_Affiliation.
+:MS_Platform_Supported_Interaction rdfs:subClassOf :Platform_Supported_Interaction.
+:Subscription rdfs:subClassOf :User_Affiliation_Agreement.
+:Digital_Content_Consumption rdfs:subClassOf :User_Action.
+:Digital_Content_Creation rdfs:subClassOf :User_Action.
+:Platform_Company_Action rdfs:subClassOf :Platform_Supported_Action.
+:Platform_Software_Action rdfs:subClassOf :Platform_Supported_Action.
+:User_Action rdfs:subClassOf :Platform_Supported_Action.
+:Target_Platform_User rdfs:subClassOf :Agent.
+:Platform_Software rdfs:subClassOf :Software.
+:Platform_Company rdfs:subClassOf :Agent.
+:Platform_User rdfs:subClassOf :Target_Platform_User, :Platform_Visitor.
+:User_Action rdfs:subClassOf :Platform_Supported_Action.
+:Digital_Content_Creation rdfs:subClassOf :User_Action.
+:Digital_Content_Consumption rdfs:subClassOf :User_Action.
+:Platform_Software_Action rdfs:subClassOf :Platform_Supported_Action.
+:Platform_Company_Action rdfs:subClassOf :Platform_Supported_Action.
+:User_Affiliation_Action rdfs:subClassOf :User_Action.
+:Platform_Visitor rdfs:subClassOf :Target_Platform_User.
+:User_Role_Action rdfs:subClassOf :User_Action.
+:Digital_Message rdfs:subClassOf :Main_Digital_Content.
+:Digital_File rdfs:subClassOf :Main_Digital_Content.
+:Personal_Data rdfs:subClassOf :Main_Digital_Content.
+:Content_Consumer rdfs:subClassOf :Platform_User.
+:Content_Creator rdfs:subClassOf :Platform_User.
+:Main_Digital_Content rdfs:subClassOf :Digital_Content.
+:Main_Digital_Content_Creation rdfs:subClassOf :Digital_Content_Creation, :User_Affiliation_Action, :User_Action.
+:Personal_Data rdfs:subClassOf :Main_Digital_Content.
+:Digital_Message rdfs:subClassOf :Main_Digital_Content.
+:Digital_File rdfs:subClassOf :Main_Digital_Content.
+:Main_Digital_Content_Consumption rdfs:subClassOf :Digital_Content_Consumption, :User_Action.
+:Uber_Eats_Customer rdfs:subClassOf :Platform_Customer, :Peer_User, :Person.
+:Meal_Preparation rdfs:subClassOf :Offline_Action, :UserOriented_Delivery.
+:Uber_Eats_Restaurant rdfs:subClassOf :Offering_Creator, :Organization.
+:Uber_Eats_Rider rdfs:subClassOf :Peer_User, :Person.
+:Meal_Delivery rdfs:subClassOf :Offline_Action, :ResultOriented_Delivery.
+:Meal rdfs:subClassOf :Product.
+:SafaRide_Trip_Provider rdfs:subClassOf :Logged_In_User.
+:SafaRide_Customer rdfs:subClassOf :Logged_In_User.
+:Airbnb_Home_Seeker rdfs:subClassOf :Platform_User, :Platform_Customer, :Peer_User, :Person.
+:Accommodation rdfs:subClassOf :Physical_Good.
+:Rent_Home rdfs:subClassOf :OuterPlatform_Delivery, :Service_Delivery_1, :UserOriented_Delivery.
+:Private_Airbnb_Homeowner rdfs:subClassOf :Airbnb_Homeowner, :Person.
+:Airbnb_Homeowner rdfs:subClassOf :Offering_Creator, :Peer_User.
+:Airbnb_Software rdfs:subClassOf :Platform_Software.
+:Airbnb_Home_Renter rdfs:subClassOf :Airbnb_Home_Seeker, :Private_Customer.
+:Decentralized_Transaction_Creation rdfs:subClassOf :Transaction_Creation.
+:Decentralized_Platform_Customer rdfs:subClassOf :Decentralized_Target_Platform_Customer.
+:Centralized_Transaction_Creation rdfs:subClassOf :Transaction_Creation.
+:Match_Target_Customer_To_Offering rdfs:subClassOf :Platform_Software_Action.
+:Centralized_Offering rdfs:subClassOf :Offering_On_The_Platform.
+:Centralized_Transaction rdfs:subClassOf :Transaction.
+:Centralized_Platform_Customer rdfs:subClassOf :Platform_Customer, :Centralized_Target_Platform_Customer.
+:Centralized_Transaction_Creation rdfs:subClassOf :Transaction_Creation.
+:Platform_Customer rdfs:subClassOf :Platform_User.
+:Offering_Creator rdfs:subClassOf :Platform_User.
+:Transaction rdfs:subClassOf :User_Affiliation_Agreement, :MS_User_Affiliation.
+:Offering_Description rdfs:subClassOf :Main_Digital_Content.
+:Platform_Provider rdfs:subClassOf :Platform_User, :Offering_Creator.
+:Offering_Creation rdfs:subClassOf :Main_Digital_Content_Creation.
+:Offering_Creator rdfs:subClassOf :Platform_User, :Content_Creator, :MS_Platform_User, :Registered_User.
+:Transaction_Creation rdfs:subClassOf :User_Action, :Platform_Supported_Interaction.
+:Target_Platform_Customer rdfs:subClassOf :Platform_User, :Platform_Visitor.
+:Target_MS_Platform_Customer_Community rdfs:subClassOf :Target_MS_Platform_User_Side.
+:Platform_Customer rdfs:subClassOf :Platform_User, :Content_Consumer, :MS_Platform_User, :Registered_User, :Target_Platform_Customer.
+:Transaction_Platform_Company rdfs:subClassOf :Platform_Company.
+:OuterPlatform_Delivery rdfs:subClassOf :Delivery.
+:Registration rdfs:subClassOf :User_Affiliation_Agreement.
+:CapitalSeeking_Agent rdfs:subClassOf :Platform_Provider.
+:CapitalGiving_Agent rdfs:subClassOf :Platform_Customer.
+:Future_Reimbursement_Commitment rdfs:subClassOf :Hired_Provider_Commitment.
+:Resource_Claim rdfs:subClassOf :Service_Customer_Claim.
+:Review_Creation_by_Provider rdfs:subClassOf :Review_Creation.
+:Provider_Review rdfs:subClassOf :Review.
+:Review_Creation_by_Customer rdfs:subClassOf :Review_Creation.
+:Customer_Review rdfs:subClassOf :Review.
+:Subscription_Fee rdfs:subClassOf :Revenue_Stream.
+:Subscription_Payment rdfs:subClassOf :Payment_Action.
+:Commission_Fee rdfs:subClassOf :Revenue_Stream.
+:Revenue_Stream_Payed_by_Provider rdfs:subClassOf :Revenue_Stream.
+:Revenue_Stream_Payed_by_Customer rdfs:subClassOf :Revenue_Stream.
+:Price_per_Quantity rdfs:subClassOf :Offering_Price.
+:Available_Quantity rdfs:subClassOf :Quantity.
+:Booked_Quantity rdfs:subClassOf :Quantity.
+:Offline_Payment rdfs:subClassOf :Offline_Action, :Transaction_Payment.
+:Inhouse_Payment rdfs:subClassOf :User_Action, :Transaction_Payment.
+:External_Payment rdfs:subClassOf :Transaction_Payment.
+:Payment_Provider rdfs:subClassOf :Organization.
+:Digital_Good rdfs:subClassOf :Good.
+:Digital_Delivery rdfs:subClassOf :Delivery.
+:Digital_Good_Transfer rdfs:subClassOf :Platform_Software_Action, :Ownership_Transfer, :Digital_Delivery.
+:Available_time_slot rdfs:subClassOf :Time_Slot.
+:Booked_Time_Slot rdfs:subClassOf :Time_Slot.
+:Start_Time rdfs:subClassOf :Time.
+:End_Time rdfs:subClassOf :Time.
+:Onetime_listing rdfs:subClassOf :Listing.
+:Offline_Service_Delivery rdfs:subClassOf :Service_Delivery_1.
+:Location_1 rdfs:domain :Add_Filter;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Location"@en.
+:job_type rdfs:domain :Add_Filter;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "job_type"@en.
+:date_and_time rdfs:domain :Add_Filter;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "date_and_time"@en.
+:participation_ rdfs:domain :Digital_Marketplace_Tusher_and_Laudien_2018;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "participation_"@en.
+:under_utilized rdfs:domain :Sharing_Platform_Frenken_and_Schor_2017;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "under_utilized"@en.
+:participation__1 rdfs:domain :Sharing_Platform_Frenken_and_Schor_2017;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "participation_"@en.
+:user_affiliation rdfs:domain :MultiSided_Transaction_platform_Evans_and_Gawer_2016;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "user_affiliation"@en.
+:centralization rdfs:domain :OnDemand_Platform_Mamonova_2018;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "centralization"@en.
+:offering_orientation rdfs:domain :OnDemand_Platform_Mamonova_2018;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "offering_orientation"@en.
+:immediate_access rdfs:domain :OnDemand_Platform_Mamonova_2018;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "immediate_access"@en.
+:centralization_1 rdfs:domain :P2P_Sharing_and_CC_Platform_Chasin_et_al_2018;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "centralization"@en.
+:offering_orientation_1 rdfs:domain :P2P_Sharing_and_CC_Platform_Chasin_et_al_2018;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "offering_orientation"@en.
+:market_sides rdfs:domain :MultiSided_Platform_Hagiu_and_Wright_2015;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "market_sides"@en.
+:user_affiliation_1 rdfs:domain :Investment_Platform_Evans_and_Gawer_2016;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "user_affiliation"@en.
+:participation__2 rdfs:domain :Crowdfunding_Platform_Haas_and_Blohm_2014;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "participation_"@en.
+:centralization_2 rdfs:domain :SecondHand_P2P_platform_Acquier_et_al_2017;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "centralization"@en.
+:offering_orientation_2 rdfs:domain :SecondHand_P2P_platform_Acquier_et_al_2017;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "offering_orientation"@en.
+:market_sided rdfs:domain :TwoSided_Platform;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "market_sided"@en.
+:market_sides_1 rdfs:domain :OneSided_Platform_Filistrucchi_et_al_2014;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "market_sides"@en.
+:score rdfs:domain :Review;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "score"@en.
+:comment rdfs:domain :Review;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "comment"@en.
+:setScore rdfs:domain :Review_Creation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setScore"@en.
+:setComment rdfs:domain :Review_Creation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setComment"@en.
+:available_quantity rdfs:domain :Offering_description_of_Ownership_transfer;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "available_quantity"@en.
+:message rdfs:domain :Booking_Conversation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "message"@en.
+:checkEmail rdfs:domain :Login_Action;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "checkEmail"@en.
+:checkPassword rdfs:domain :Login_Action;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "checkPassword"@en.
+:parkName rdfs:domain :Park;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "parkName"@en.
+:parkLocation rdfs:domain :Park;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "parkLocation"@en.
+:carTypeName rdfs:domain :Car;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "carTypeName"@en.
+:carTypeImage rdfs:domain :Car;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "carTypeImage"@en.
+:setPriceRange rdfs:domain :Set_Filter;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPriceRange"@en.
+:setPersons rdfs:domain :Set_Filter;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPersons"@en.
+:setPark rdfs:domain :Set_Filter;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPark"@en.
+:numFreeSeats rdfs:domain :Listing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "numFreeSeats"@en.
+:startDate rdfs:domain :Listing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "startDate"@en.
+:endDate rdfs:domain :Listing;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "endDate"@en.
+:setPark_1 rdfs:domain :Listing_Creation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPark"@en.
+:setPersons_1 rdfs:domain :Listing_Creation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPersons"@en.
+:setStartAndEndDate rdfs:domain :Listing_Creation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setStartAndEndDate"@en.
+:setCarType rdfs:domain :Listing_Creation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setCarType"@en.
+:displayName rdfs:domain :Registered_User;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "displayName"@en.
+:firstName rdfs:domain :Registered_User;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "firstName"@en.
+:lastName rdfs:domain :Registered_User;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "lastName"@en.
+:email rdfs:domain :Registered_User;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "email"@en.
+:birthDate rdfs:domain :Registered_User;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "birthDate"@en.
+:setFirstName rdfs:domain :Registration_Action;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setFirstName"@en.
+:setLastName rdfs:domain :Registration_Action;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setLastName"@en.
+:setEmail rdfs:domain :Registration_Action;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setEmail"@en.
+:setPassword rdfs:domain :Registration_Action;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPassword"@en.
+:setBirthDate rdfs:domain :Registration_Action;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setBirthDate"@en.
+:setPricePerSeat rdfs:domain :Price_Setting_action_by_Provider;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPricePerSeat"@en.
+:personsBooked rdfs:domain :Booking;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "personsBooked"@en.
+:setPersonsToBook rdfs:domain :Booking_Creation;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "setPersonsToBook"@en.
+:Location_2 rdfs:domain :Physical_Delivery;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Location"@en.
+:Location_3 rdfs:domain :Physical_Offering_Description;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Location"@en.
+:delivery_location rdfs:domain :Platform_Customer_of_Offline_Physical_Good;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "delivery_location"@en.

@@ -1,0 +1,23 @@
+import Obra_em_Concesso
+import Licena_Ambiental
+
+package Licena_Ambiental
+
+subkind Licena_Ambiental_de_Imvel of functional-complexes  specializes Documentao_sobre_Imvel_do_rgo_Ambiental 
+
+subkind Licena_de_Operao of functional-complexes  specializes Licena_Ambiental_de_Obra 
+
+category Documentao_do_rgo_Ambiental of functional-complexes 
+
+subkind Licena_Prvia of functional-complexes  specializes Licena_Ambiental_de_Obra 
+
+subkind Licena_de_Implantao of functional-complexes  specializes Licena_Ambiental_de_Obra 
+
+kind Licena_Ambiental_de_Obra specializes Documentao_do_rgo_Ambiental 
+
+kind Documentao_sobre_Imvel_do_rgo_Ambiental specializes Documentao_do_rgo_Ambiental 
+
+subkind Documento_sobre_Imvel_do_rgo_Ambiental of functional-complexes  specializes Documentao_sobre_Imvel_do_rgo_Ambiental 
+
+
+

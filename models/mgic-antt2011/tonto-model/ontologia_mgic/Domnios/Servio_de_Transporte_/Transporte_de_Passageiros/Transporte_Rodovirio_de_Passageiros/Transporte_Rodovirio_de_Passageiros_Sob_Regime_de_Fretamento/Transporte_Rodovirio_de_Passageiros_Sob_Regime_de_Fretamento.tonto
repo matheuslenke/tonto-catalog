@@ -1,0 +1,25 @@
+
+package Transporte_Rodovirio_de_Passageiros_Sob_Regime_de_Fretamento
+
+role Motorista_de_TRP_Sob_Regime_de_Fretamento specializes Motorista 
+
+relator Inspeo_Tcnica{
+    dataEmisso: undefined  
+    dataInspeo: undefined  
+    dataVencimento: undefined  
+}
+
+role nibus_em_TRP_sob_regime_de_Fretamento specializes Veculo_em_Transporte_Rodovirio_de_Passageiros 
+
+role Passageiro_de_TRP_Sob_Regime_de_Fretamento specializes Passageiro 
+
+kind Laudo_de_Inspeo_Tcnica
+
+role Agente_Emissor_de_LIT
+
+
+
+
+
+
+

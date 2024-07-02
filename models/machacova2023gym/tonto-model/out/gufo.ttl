@@ -1,0 +1,188 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Home_Address rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Home_Address"@en.
+:Address rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Address"@en.
+:Country rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Country"@en.
+:City rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "City"@en.
+:Street rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Street"@en.
+:Street_Number rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Street_Number"@en.
+:Residence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Residence"@en.
+:Citizen rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Citizen"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Date_of_Birth rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Date_of_Birth"@en.
+:Healthy_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Healthy_Person"@en.
+:Disabled_Person rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Disabled_Person"@en.
+:Man rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Man"@en.
+:Woman rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Woman"@en.
+:Education rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Education"@en.
+:Cause_of_Disability rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Cause_of_Disability"@en.
+:Disability_Onset_Data rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Disability_Onset_Data"@en.
+:Order_Price rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Order_Price"@en.
+:Planned_Assembly rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Planned_Assembly"@en.
+:Ongoing_Assembly rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Ongoing_Assembly"@en.
+:Assembly rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Assembly"@en.
+:Person2 rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person2"@en.
+:Assembled_Fitness_Machine rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Assembled_Fitness_Machine"@en.
+:Power_Rack rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Power_Rack"@en.
+:Multigym_Equipment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Multigym_Equipment"@en.
+:Business_Organisation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Business_Organisation"@en.
+:Finished_Assembly rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Finished_Assembly"@en.
+:Product rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Product"@en.
+:Fitness_Machine rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Fitness_Machine"@en.
+:Personal_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Personal_Customer"@en.
+:Assembler rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Assembler"@en.
+:Unfinished_Order rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Unfinished_Order"@en.
+:Assembly_date rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Assembly_date"@en.
+:Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Customer"@en.
+:Weight_Bench rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Weight_Bench"@en.
+:Status_Finished rdf:type owl:Class, gufo:PhaseMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Status_Finished"@en.
+:Corporate_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Corporate_Customer"@en.
+:Order rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Order"@en.
+:Treadmill rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Treadmill"@en.
+:Fitness_Machine_Code rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Fitness_Machine_Code"@en.
+:Finished_Order rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Finished_Order"@en.
+:Disabled_Person rdfs:subClassOf :Person.
+:Healthy_Person rdfs:subClassOf :Person.
+:Man rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Finished_Order rdfs:subClassOf :Order.
+:Unfinished_Order rdfs:subClassOf :Order.
+:Treadmill rdfs:subClassOf :Fitness_Machine.
+:Power_Rack rdfs:subClassOf :Fitness_Machine.
+:Weight_Bench rdfs:subClassOf :Fitness_Machine.
+:Finished_Assembly rdfs:subClassOf :Status_Finished.
+:Finished_Order rdfs:subClassOf :Status_Finished.
+:Weight_Bench rdfs:subClassOf :Multigym_Equipment.
+:Power_Rack rdfs:subClassOf :Multigym_Equipment.
+:Finished_Assembly rdfs:subClassOf :Assembly.
+:Ongoing_Assembly rdfs:subClassOf :Assembly.
+:Planned_Assembly rdfs:subClassOf :Assembly.
+:Home_Address rdfs:subClassOf :Address.
+:Citizen rdfs:subClassOf :Person.
+:Healthy_Person rdfs:subClassOf :Person.
+:Disabled_Person rdfs:subClassOf :Person.
+:Man rdfs:subClassOf :Person.
+:Woman rdfs:subClassOf :Person.
+:Planned_Assembly rdfs:subClassOf :Assembly.
+:Ongoing_Assembly rdfs:subClassOf :Assembly.
+:Assembled_Fitness_Machine rdfs:subClassOf :Product, :Fitness_Machine.
+:Power_Rack rdfs:subClassOf :Fitness_Machine, :Multigym_Equipment.
+:Finished_Assembly rdfs:subClassOf :Assembly, :Status_Finished.
+:Personal_Customer rdfs:subClassOf :Person, :Customer.
+:Assembler rdfs:subClassOf :Person.
+:Unfinished_Order rdfs:subClassOf :Order.
+:Weight_Bench rdfs:subClassOf :Fitness_Machine, :Multigym_Equipment.
+:Corporate_Customer rdfs:subClassOf :Business_Organisation, :Customer.
+:Treadmill rdfs:subClassOf :Fitness_Machine.
+:Finished_Order rdfs:subClassOf :Order, :Status_Finished.
+:country_name rdfs:domain :Country;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "country_name"@en.
+:city_name rdfs:domain :City;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "city_name"@en.
+:street_name rdfs:domain :Street;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "street_name"@en.
+:street_number rdfs:domain :Street_Number;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "street_number"@en.
+:surname rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "surname"@en.
+:sex rdfs:domain :Person;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "sex"@en.
+:birth_date rdfs:domain :Date_of_Birth;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "birth_date"@en.
+:education_level rdfs:domain :Education;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "education_level"@en.

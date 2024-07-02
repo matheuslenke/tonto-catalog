@@ -1,0 +1,224 @@
+import ANTT
+import ontologia_mgic
+import SUFER
+import SUPAS
+import SUINF
+import SUROC
+import GERPA
+
+package ANTT
+
+class Fiscalizao_realizada
+
+class Sociedade
+
+class Regulamentao_da_prestao_de_servios_de_transportes_terrestres_de_cargas_exercidos_por_terceiros_produzida
+
+class Conflitos_entre_empresas_de_transporte_ferrovirio_de_cargas_e_sociedade_solucionados
+
+class Conflitos_entre_concessionrias_ferrovirias_solucionados
+
+class Regulao_do_transporte_multimodal_de_cargas
+
+class Regulao_do_transporte_rodovirio_de_passageiros
+
+class Empresa_regulada
+
+class Conflitos_entre_concessionrias_rodovirias_e_governo_solucionados
+
+class Implantar_gesto_por_processos
+
+class Autoridades_competentes
+
+class Preos_da_prestao_de_servios_e_infraestrutura_de_transportes_terrestres_regulados
+
+class Conflitos_entre_empresas_de_transporte_rodovirio_de_cargas_solucionados
+
+class Qualidade_da_prestao_de_servios_e_infraestrutura_de_transportes_terrestre_regulada
+
+class Regulao_dos_servios_de_transporte_de_passageiros_realizada
+
+class Reviso_e_reajuste_de_tarifas_comunicadas_previamente
+
+class Regulao_da_infraestrutura_rodoviria
+
+class Regulao_do_transporte_rodovirio_nacional_e_internacional_de_cargas
+
+class Polticas_de_transporte_implementadas
+
+class Identidade_ANTT_internalizada_no_ambiente_de_trabalho
+
+class Regulao_do_transporte_dutovirio
+
+class Superviso_da_execuo_da_prestao_de_servios_de_transportes_rodovirios_terrestres_exercidos_por_terceiros_realizada
+
+class Conflitos_envolvendo_empresas_reguladas_solucionados
+
+class Conflitos_entre_empresas_de_transporte_de_passageiros_e_governo_solucionados
+
+class Conflitos_entre_empresas_de_transporte_terrestre_solucionados
+
+class Conflitos_entre_empresas_de_transporte_ferrovirio_de_cargas_e_governo_solucionados
+
+class Conflitos_entre_empresas_de_transporte_terrestre_e_sociedade_solucionados
+
+class Regulao_dos_servios_de_transporte_de_cargas_rodovirio_multimodal_e_dutovirio_realizada
+
+class Conflitos_entre_empresas_de_transporte_ferrovirio_de_cargas_solucionados
+
+class Projetos_de_investimentos_de_outorgados_autorizados
+
+class Concessionria
+
+class Conflitos_entre_concessionrias_ferrovirias_e_governo_solucionados
+
+class Conflitos_entre_empresas_de_transporte_de_passageiros_e_sociedade_solucionados
+
+class Conflitos_entre_empresas_de_transporte_rodovirio_de_cargas_e_sociedade_solucionados
+
+class Reconhecimento_da_agncia_pela_sociedade_ampliado
+
+class Regulao_da_infraestrutura_ferroviria
+
+class Regulao_do_transporte_terrestre_realizada
+
+class MT
+
+class Estado
+
+class Conflitos_entre_concessionrias_rodovirias_solucionados
+
+class Empresa_de_transporte
+
+class Conflitos_entre_concessionrias_rodovirias_e_sociedade_solucionados
+
+class Planos_de_outorga_propostos
+
+class Regulao_do_transporte_ferrovirio_de_passageiros
+
+class Danos_sociais_e_econmicos_decorrentes_dos_congestionamentos_de_trfego_reduzidos
+
+class Empresa_de_transporte_terrestre
+
+class Conflitos_entre_empresas_de_transporte_de_passageiros_solucionados
+
+class Regulamentao_do_transporte_terrestre_realizada
+
+class Regulamentao_da_prestao_de_servios_de_transportes_terrestres_exercidos_por_terceiros_produzida
+
+class Empresa_de_transporte_ferrovirio_de_cargas
+
+class Conflitos_entre_empresas_de_transporte_terrestre_e_governo_solucionados
+
+class MF
+
+class Regulao_dos_servios_de_infraestrutura_realizada
+
+class Representar_o_Brasil_junto_aos_organismos_internacionais_e_em_convenes
+
+class Interesses_nacionais_preservados
+
+class Regulao_do_transporte_ferrovirio_de_cargas
+
+class Conflitos_entre_empresas_de_transporte_rodovirio_de_cargas_e_governo_solucionados
+
+class ANTT
+
+class Superviso_da_execuo_da_prestao_de_servios_de_transportes_terrestres_de_cargas_exercidos_por_terceiros_realizada
+
+class Regulao_dos_servios_de_transporte_de_passageiros_realizada_fromANTT
+
+class Conflitos_entre_concessionrias_ferrovirias_e_sociedade_solucionados
+
+class Regulao_dos_servios_de_transporte_de_cargas_e_infraestrutura_ferrovirios
+
+class Talentos_desenvolvidos_e_retidos
+
+class Mecanismos_de_Transparncia_aperfeioados
+
+class Implantar_gesto_orientada_a_resultados
+
+class Regulao_dos_transportes_terrestres
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

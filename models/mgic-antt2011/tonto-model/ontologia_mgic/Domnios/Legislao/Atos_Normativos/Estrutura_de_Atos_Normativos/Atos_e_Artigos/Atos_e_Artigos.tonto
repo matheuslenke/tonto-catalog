@@ -1,0 +1,74 @@
+
+package Atos_e_Artigos
+
+subkind Artigo_Ordinrio of functional-complexes  specializes Artigo 
+
+subkind Decreto_Legislativo of functional-complexes  specializes Ato_Normativo 
+
+subkind Artigo_Legal of functional-complexes  specializes Artigo, Artigo_Legal_com_Infrao_Definida 
+
+kind Ementa
+
+subkind Constituio of functional-complexes  specializes Ato_Normativo 
+
+subkind Lei_Ordinria of functional-complexes  specializes Ato_Normativo 
+
+subkind Clusula_de_Vigncia of functional-complexes  specializes Artigo 
+
+subkind Portaria of functional-complexes  specializes Ato_Normativo 
+
+subkind Apostila of functional-complexes  specializes Ato_Normativo 
+
+kind Ato_Normativo specializes Elemento_Altervel, Ato_Normativo_Base_de_Fiscalizao {
+    numero: undefined  
+    vigncia: undefined  
+    tema: undefined  
+    data: undefined  
+    hierarquia: undefined  
+}
+
+subkind Artigo_Regulamentar of functional-complexes  specializes Artigo, Artigo_Regulamentar_com_Infrao_Definida, Artigo_Regulamentar_Utilizado_Como_Base_Para_Documento_de_Advertncia 
+
+subkind Lei_Delegada of functional-complexes  specializes Ato_Normativo 
+
+kind Prembulo
+
+subkind Decreto_Singular of functional-complexes  specializes Decreto 
+
+subkind Emenda__Constituio of functional-complexes  specializes Ato_Normativo 
+
+subkind Medida_Provisria of functional-complexes  specializes Ato_Normativo 
+
+subkind Clusula_de_Revogao of functional-complexes  specializes Artigo 
+
+subkind Resoluo of functional-complexes  specializes Ato_Normativo 
+
+kind Epgrafe
+
+subkind Decreto_Regulamentar of functional-complexes  specializes Decreto 
+
+subkind Lei_Complementar of functional-complexes  specializes Ato_Normativo 
+
+subkind Resoluo_da_ANTT of functional-complexes  specializes Resoluo 
+
+kind Artigo specializes Artigo_Composto, Artigo_Componente_de_Seo_de_Ato_Normativo, Artigo_Simples, Artigo_Componente_de_Captulo_de_Ato_Normativo, Elemento_Componente_de_Ato_Normativo {
+    nmero: undefined  
+    texto: undefined  
+    tema: undefined  
+}
+
+subkind Decreto_Autnomo of functional-complexes  specializes Decreto 
+
+subkind Decreto of functional-complexes  specializes Ato_Normativo 
+
+
+
+
+
+
+
+
+
+
+
+

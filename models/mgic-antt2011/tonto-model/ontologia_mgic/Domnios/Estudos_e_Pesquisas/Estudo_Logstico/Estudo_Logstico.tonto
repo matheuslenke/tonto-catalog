@@ -1,0 +1,132 @@
+
+package Estudo_Logstico
+
+relator Linha_de_Desejo
+
+relator Alocao_por_Caminho_Mnimo_por_Custo_de_Pedgio specializes Alocao_por_Caminho_Mnimo 
+
+role Camada_em_Linha_de_Desejo
+
+role N_Destino_da_rea_de_Infuncia
+
+subkind Estudo_Logstico_Mestre of functional-complexes  specializes Estudo_Logstico 
+
+relator Alocao_de_Caminho_Mnimo_por_Custo_Logstico specializes Alocao_por_Caminho_Mnimo 
+
+role Veculo_de_Referncia_em_Alocao_de_Caminho_Mnimo specializes Veculo_de_Referncia_ 
+
+relator Vnculo_de_Obra_em_rea_de_Trabalho
+
+role Camada_em_rea_de_Influncia
+
+kind rea_de_Trabalho_de_Logstica
+
+role Resultado_de_Linha_de_Desejo
+
+role N_de_Origem_da_rea_de_Influncia
+
+role Objeto_Geogrfico_Vinculado_a_Obra
+
+kind Obra_Logstica{
+    descrio: undefined  
+    observao: undefined  
+}
+
+role N_de_Origem_da_Cadeia_Produtiva
+
+role Obra_Vinculada_a_Objeto_Geogrfico of functional-complexes  specializes Obra_Logstica 
+
+relator rea_de_Influncia
+
+role Resultado_da_Alocao_por_Caminho_Mnimo{
+    custo_logistico: undefined  
+    custo_logistico_acum: undefined  
+    custo_oper_acum: undefined  
+    custo_operacional: undefined  
+    distncia: undefined  
+    distncia_acum: undefined  
+    tempo: undefined  
+    tempo_acum: undefined  
+}
+
+role _N_Destino_da_Cadeia_Produtiva
+
+role N_Destino_da_Linha_de_Desejo
+
+relator Alocao_de_Caminho_Mnimo_por_Distncia specializes Alocao_por_Caminho_Mnimo 
+
+role N_de_Origem_da_Alocao_por_Caminho_Mnimo
+
+role N_de_Destino_da_Alocao_por_Caminho_Mnimo
+
+role Camada_em_Alocao_de_Caminho_Mnimo
+
+role Camada_em_Cadeia_Produtiva
+
+relator Alocao_de_Caminho_Mnimo_por_Tempo specializes Alocao_por_Caminho_Mnimo 
+
+role rea_de_Trabalho_com_Obras of functional-complexes  specializes rea_de_Trabalho_de_Logstica 
+
+type Tipo_de_Impedncia_de_Clculo_Mnimo
+
+kind Estudo_Logstico{
+    criao: undefined  
+    descrio: undefined  
+    observao: undefined  
+}
+
+role Resultado_de_rea_de_Influncia
+
+relator Vnculo_de_Objeto_Georreferenciado__Obra
+
+mode Horizonte_Logstico_Base{
+    ano: undefined  
+    nome: undefined  
+    unidade: undefined  
+}
+
+relator Alocao_de_Caminho_Mnimo_por_Custo_Operacional_Rodovirio specializes Alocao_por_Caminho_Mnimo 
+
+relator Cadeia_Produtiva
+
+subkind rea_de_Trabalho_Base of functional-complexes  specializes rea_de_Trabalho_de_Logstica 
+
+relator Alocao_por_Caminho_Mnimo
+
+collective Lista_de_Estudos_Logsticos
+
+role N_de_Origem_da_Linha_de_Desejo
+
+subkind rea_de_Trabalho_de_Cadastro_de_Objetos of functional-complexes  specializes rea_de_Trabalho_de_Logstica 
+
+role Obra_em_rea_de_Trabalho of functional-complexes  specializes Obra_Logstica 
+
+role Resultado_da_Cadeia_Produtiva
+
+category Veculo_de_Referncia_ of functional-complexes 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

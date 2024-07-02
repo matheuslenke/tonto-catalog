@@ -1,0 +1,73 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Cliente rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Cliente"@en.
+:Conta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Conta"@en.
+:Conta_Corrente rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Conta_Corrente"@en.
+:Conta_Poupana rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Conta_Poupana"@en.
+:Conta_em_Depsito rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Conta_em_Depsito"@en.
+:Conta_em_Saque rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Conta_em_Saque"@en.
+:Depsito rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Depsito"@en.
+:Funcionrio_Caixa rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Funcionrio_Caixa"@en.
+:Funcionrio_Caixa_em_Operao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Funcionrio_Caixa_em_Operao"@en.
+:Operao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Operao"@en.
+:Pessoa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa"@en.
+:Pessoa_com_Conta rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Pessoa_com_Conta"@en.
+:Recibo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Recibo"@en.
+:Saque rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Saque"@en.
+:Saque_em_Cheque rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Saque_em_Cheque"@en.
+:Saque_em_Dinheiro rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Saque_em_Dinheiro"@en.
+:Saque_em_Transferncia rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Saque_em_Transferncia"@en.
+:Transferncia rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Transferncia"@en.
+:Cliente rdfs:subClassOf :Pessoa.
+:Conta_Corrente rdfs:subClassOf :Conta.
+:Conta_Poupana rdfs:subClassOf :Conta.
+:Conta_em_Depsito rdfs:subClassOf :Conta.
+:Conta_em_Saque rdfs:subClassOf :Conta.
+:Depsito rdfs:subClassOf :Operao.
+:Funcionrio_Caixa rdfs:subClassOf :Pessoa_com_Conta.
+:Funcionrio_Caixa_em_Operao rdfs:subClassOf :Funcionrio_Caixa.
+:Pessoa_com_Conta rdfs:subClassOf :Pessoa.
+:Saque rdfs:subClassOf :Operao.
+:Saque_em_Cheque rdfs:subClassOf :Saque.
+:Saque_em_Dinheiro rdfs:subClassOf :Saque.
+:Saque_em_Transferncia rdfs:subClassOf :Saque.
+:Transferncia rdfs:subClassOf :Operao.
+:valor rdfs:domain :Operao;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "valor"@en.
+:valor_1 rdfs:domain :Recibo;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "valor"@en.

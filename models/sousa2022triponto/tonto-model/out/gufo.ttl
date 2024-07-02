@@ -1,0 +1,128 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Trip rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Trip"@en.
+:Accommodation rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Accommodation"@en.
+:Destination rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Destination"@en.
+:Origin rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Origin"@en.
+:Tourist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Tourist"@en.
+:Route rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Route"@en.
+:Arrival_Place rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Arrival_Place"@en.
+:Departure_Place rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Departure_Place"@en.
+:International_Tourist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "International_Tourist"@en.
+:National_Tourist rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "National_Tourist"@en.
+:International_Trip rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "International_Trip"@en.
+:National_Trip rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "National_Trip"@en.
+:National_Destination rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "National_Destination"@en.
+:International_Destination rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "International_Destination"@en.
+:Legal_Authorization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Legal_Authorization"@en.
+:Child rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Child"@en.
+:Adult rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Adult"@en.
+:Car rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Car"@en.
+:Plane rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Plane"@en.
+:Bus rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Bus"@en.
+:Train rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Train"@en.
+:Boat rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Boat"@en.
+:Driving_License rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Driving_License"@en.
+:Driver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Driver"@en.
+:Airbnb rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Airbnb"@en.
+:Hotel_Room rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Hotel_Room"@en.
+:Costumer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Costumer"@en.
+:Reservation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Reservation"@en.
+:Ticket rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Ticket"@en.
+:Passenger rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Passenger"@en.
+:Plane_Ticket rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Plane_Ticket"@en.
+:Bus_Ticket rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Bus_Ticket"@en.
+:Train_Ticket rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Train_Ticket"@en.
+:Boat_Ticket rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Boat_Ticket"@en.
+:Airbnb_Reservation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Airbnb_Reservation"@en.
+:Hotel_Reservation rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Hotel_Reservation"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Transportation_Mean rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Transportation_Mean"@en.
+:Tourist rdfs:subClassOf :Person.
+:International_Tourist rdfs:subClassOf :Tourist.
+:National_Tourist rdfs:subClassOf :Tourist.
+:International_Trip rdfs:subClassOf :Trip.
+:National_Trip rdfs:subClassOf :Trip.
+:National_Destination rdfs:subClassOf :Destination.
+:International_Destination rdfs:subClassOf :Destination.
+:Child rdfs:subClassOf :Person.
+:Adult rdfs:subClassOf :Person.
+:Car rdfs:subClassOf :Transportation_Mean.
+:Plane rdfs:subClassOf :Transportation_Mean.
+:Bus rdfs:subClassOf :Transportation_Mean.
+:Train rdfs:subClassOf :Transportation_Mean.
+:Boat rdfs:subClassOf :Transportation_Mean.
+:Driver rdfs:subClassOf :Adult.
+:Airbnb rdfs:subClassOf :Accommodation.
+:Hotel_Room rdfs:subClassOf :Accommodation.
+:Costumer rdfs:subClassOf :Adult.
+:Passenger rdfs:subClassOf :Person.
+:Plane_Ticket rdfs:subClassOf :Ticket.
+:Bus_Ticket rdfs:subClassOf :Ticket.
+:Train_Ticket rdfs:subClassOf :Ticket.
+:Boat_Ticket rdfs:subClassOf :Ticket.
+:Airbnb_Reservation rdfs:subClassOf :Reservation.
+:Hotel_Reservation rdfs:subClassOf :Reservation.
+:gender rdfs:domain :Person;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "gender"@en.

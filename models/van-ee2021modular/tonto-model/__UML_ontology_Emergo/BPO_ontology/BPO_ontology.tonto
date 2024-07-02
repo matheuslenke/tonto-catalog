@@ -8,14 +8,14 @@ event ProjectDevelopment specializes Event
 subkind Housing_Block of functional-complexes  specializes Building 
 
 subkind House of functional-complexes  specializes Building {
-    specialCareFacilityHome: boolean_  
-    cornerhouse: boolean_  
-    Mirrored: boolean_  
+    specialCareFacilityHome: boolean  
+    cornerhouse: boolean  
+    Mirrored: boolean  
     adresHouseNumber: undefined  
-    streetName: string_  
+    streetName: string  
     zipCode: double  
-    city: string_  
-    country: string_  
+    city: string  
+    country: string  
 }
 
 kind Module specializes Assembly 

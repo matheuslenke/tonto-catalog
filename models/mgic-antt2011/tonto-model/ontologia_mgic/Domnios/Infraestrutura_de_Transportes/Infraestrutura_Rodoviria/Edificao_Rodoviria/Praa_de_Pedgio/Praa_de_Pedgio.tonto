@@ -1,0 +1,71 @@
+
+package Praa_de_Pedgio
+
+subkind Praa_Bidirecional specializes Praa_de_Pedgio 
+
+mode Fila_de_Pedgio{
+    comprimento: undefined  
+    data: undefined  
+}
+
+role Praa_de_Pedgio_Autorizada specializes Praa_de_Pedgio 
+
+role Veculo_Passante_por_Praa
+
+subkind Posto_de_Pedgio{
+    trfegoMdioAnual: undefined  
+    trfegoMdioDirio: undefined  
+    trfegoMdioMensal: undefined  
+}
+
+mode Atividade_da_Cabine{
+    fim_atividade: undefined  
+    inicio_atividade: undefined  
+}
+
+subkind Praa_de_Pedgio_Auxiliar specializes Praa_de_Pedgio 
+
+kind Tarifa_de_Pedgio{
+    valor: undefined  
+}
+
+mode Autorizao_para_Cobrana_de_Pedgio{
+    data_autorizao: undefined  
+}
+
+relator Pagamento_de_Pedgio specializes Receita_Rodoviria_Ordinria_ {
+    data: undefined  
+    impostoPago: undefined  
+    tarifaPaga: undefined  
+    tempo_de_atendimento: undefined  
+}
+
+phase Cabine_de_Pedgio_Ativa of functional-complexes  specializes Cabine_de_Pedgio 
+
+phase Cabine_de_Pedgio_Inativa of functional-complexes  specializes Cabine_de_Pedgio 
+
+subkind Praa_Unidirecional specializes Praa_de_Pedgio {
+    sentido: undefined  
+}
+
+role Cabine_de_Pedgio_Ativa_com_Pagamento_de_Pedgio of functional-complexes  specializes Cabine_de_Pedgio_Ativa 
+
+subkind Cabine_de_Pedgio_Manual of functional-complexes  specializes Cabine_de_Pedgio 
+
+kind Tarifa_Bsica_de_Pedgio{
+    fim: undefined  
+    incio: undefined  
+    valor: undefined  
+}
+
+subkind Cabine_de_Pedgio_Automtica of functional-complexes  specializes Cabine_de_Pedgio 
+
+kind Cabine_de_Pedgio
+
+
+
+
+
+
+
+

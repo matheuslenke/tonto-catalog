@@ -1,0 +1,23 @@
+import Outorga
+import Contratos_e_Convnios
+import Agente_Administrativo
+import Penso
+import Anistia
+import Estgio
+import Contratao_via_Banco_Mundial
+import Receita_Rodoviria_Extraordinria
+import Tarifa_Bsica_de_Pedgio
+import Imposto
+import Sociedade_Empresria
+import Receita
+import Concesso_Rodoviria
+import Transporte_Rodovirio_Nacional_de_Cargas_Mediante_Remunerao
+import Tipos_de_Fretamento
+import Contrato_Operacional_Especfico
+
+package Autorizao
+
+relator Outorga_sem_Licitao specializes Outorga 
+
+subkind Contrato_de_Autorizao of functional-complexes  specializes Contrato_de_Outorga 
+

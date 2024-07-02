@@ -1,0 +1,21 @@
+
+package Obra_de_Arte_Especial
+
+kind Ponte specializes Obra_de_Arte_Especial_Rodovirio {
+    extenso_do_vo: undefined  
+}
+
+quantity Material_da_Obra_de_Arte_Especial
+
+quantity Solo
+
+kind Tnel specializes Obra_de_Arte_Especial_Rodovirio 
+
+kind Obstculo_Sobreposto
+
+
+
+
+
+
+

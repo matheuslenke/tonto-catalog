@@ -1,0 +1,32 @@
+import Posio_Pblica
+import Exonerao
+
+package Exonerao
+
+role Cargo_em_Comiso_com_Exonerao of functional-complexes  specializes Cargo_em_Comisso 
+
+relator Exonerao_por_no_Entrar_em_Exerccio specializes Exonerao_de_Ofcio 
+
+role Cargo_Efetivo_com_Exonerao of functional-complexes  specializes Cargo_Efetivo 
+
+relator Exonerao_por_Reprovao_em_Estgio_Probatrio specializes Exonerao_de_Ofcio 
+
+relator Exonerao
+
+relator Exonerao_de_Cargo_Efetivo specializes Exonerao 
+
+relator Exonerao_de_Ofcio specializes Exonerao_de_Cargo_Efetivo 
+
+role Exonerado_do_Servio_Pblico
+
+relator Exonerao_de_Cargo_Efetivo_a_Pedido specializes Exonerao_de_Cargo_Efetivo 
+
+relator Exonerao_de_Cargo_em_Comisso_a_Juizo specializes Exonerao_de_Cargo_em_Comisso 
+
+relator Exonerao_de_Cargo_em_Comisso specializes Exonerao 
+
+relator Exonerao_de_Cargo_em_Comisso_a_Pedido specializes Exonerao_de_Cargo_em_Comisso 
+
+
+
+

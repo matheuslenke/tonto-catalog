@@ -1,0 +1,83 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:PA_Client rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "PA_Client"@en.
+:Company rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Company"@en.
+:Citizen rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Citizen"@en.
+:Enterpreneur rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Enterpreneur"@en.
+:Company_Pensioner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Company_Pensioner"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Citizens_Role rdf:type owl:NamedIndividual;
+    rdfs:label "Citizens_Role"@en.
+:Old_Age_Pensioner rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Old_Age_Pensioner"@en.
+:Student rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Student"@en.
+:Secondary_School_Student rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Secondary_School_Student"@en.
+:Bachelor_Degree_Student rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Bachelor_Degree_Student"@en.
+:On_an_Exchange_Stay rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "On_an_Exchange_Stay"@en.
+:Master_Degree_Student rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Master_Degree_Student"@en.
+:Study_Interrupted rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Study_Interrupted"@en.
+:Doctoral_Degree_Student rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Doctoral_Degree_Student"@en.
+:Offspring rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Offspring"@en.
+:Parent rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Parent"@en.
+:Parenthood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Parenthood"@en.
+:Child rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Child"@en.
+:Pupil rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Pupil"@en.
+:Employed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Employed"@en.
+:Unemployed rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Unemployed"@en.
+:Senior rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Senior"@en.
+:Seeking_for_employment rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Seeking_for_employment"@en.
+:In_requalification rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "In_requalification"@en.
+:Company rdfs:subClassOf :PA_Client.
+:Citizen rdfs:subClassOf :PA_Client.
+:Enterpreneur rdfs:subClassOf :Citizens_Role.
+:Company_Pensioner rdfs:subClassOf :Citizens_Role.
+:Employee rdfs:subClassOf :Citizens_Role.
+:Old_Age_Pensioner rdfs:subClassOf :Citizens_Role.
+:Student rdfs:subClassOf :Citizens_Role.
+:Secondary_School_Student rdfs:subClassOf :Student.
+:Bachelor_Degree_Student rdfs:subClassOf :Student.
+:On_an_Exchange_Stay rdfs:subClassOf :Student.
+:Master_Degree_Student rdfs:subClassOf :Student.
+:Study_Interrupted rdfs:subClassOf :Student.
+:Doctoral_Degree_Student rdfs:subClassOf :Student.
+:Offspring rdfs:subClassOf :Citizens_Role.
+:Parent rdfs:subClassOf :Citizens_Role.
+:Child rdfs:subClassOf :Citizen.
+:Pupil rdfs:subClassOf :Citizen.
+:Employed rdfs:subClassOf :Citizen.
+:Unemployed rdfs:subClassOf :Citizen.
+:Senior rdfs:subClassOf :Citizen.
+:Seeking_for_employment rdfs:subClassOf :Unemployed.
+:In_requalification rdfs:subClassOf :Unemployed.

@@ -1,0 +1,48 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Agent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Agent"@en.
+:Organization rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Organization"@en.
+:Person rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Person"@en.
+:Organizational_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Organizational_Customer"@en.
+:Personal_Customer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Personal_Customer"@en.
+:Employee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Employee"@en.
+:Customer rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Customer"@en.
+:Construction_Work rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Construction_Work"@en.
+:Allocation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Allocation"@en.
+:Photo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Photo"@en.
+:Budget rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Budget"@en.
+:Stage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Stage"@en.
+:Subtstage rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Subtstage"@en.
+:Organization rdfs:subClassOf :Agent.
+:Person rdfs:subClassOf :Agent.
+:Organizational_Customer rdfs:subClassOf :Organization, :Customer.
+:Personal_Customer rdfs:subClassOf :Person, :Customer.
+:Employee rdfs:subClassOf :Person.

@@ -1,0 +1,15 @@
+
+package Convnio_em_Concesso_Rodoviria
+
+relator Convnio_com_Participao_da_Concessionria specializes Convnio_em_Concesso_Rodoviria {
+    valor: undefined  
+}
+
+role Concessionria_Rodoviria_Convenente specializes Convenente, Concessionria_Rodoviria 
+
+subkind Servio_em_Convnio
+
+relator Convnio_em_Concesso_Rodoviria specializes Convnio 
+
+
+

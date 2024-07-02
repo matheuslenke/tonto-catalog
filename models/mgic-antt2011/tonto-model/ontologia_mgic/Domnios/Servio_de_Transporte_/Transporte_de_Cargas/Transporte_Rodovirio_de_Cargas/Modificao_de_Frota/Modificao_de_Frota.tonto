@@ -1,0 +1,31 @@
+import Transportador_Rodovirio_de_Cargas
+import Modificao_de_Frota
+
+package Modificao_de_Frota
+
+kind Documento_de_Modificao_de_Frota specializes Documento_de_Requerimento_de_Modificao_de_Frota 
+
+relator Modificao_de_Frota
+
+role Veculo_Includo_em_Frota specializes Veculo_Exclusivo_de_Carga_em_Frota 
+
+role Frota_com_Veculo_Includo of collectives  specializes Frota_de_Veculos_de_Carga 
+
+role Frota_com_Veculo_Excludo of collectives  specializes Frota_de_Veculos_de_Carga 
+
+role Documento_de_Requerimento_de_Modificao_de_Frota
+
+role Frota_Modificada of collectives  specializes Frota_de_Veculos_de_Carga 
+
+relator Incluso_de_Veculo_em_Frota
+
+relator Excluso_de_Veculo_em_Frota
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,344 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Procurao_para_Indicao_de_Representante rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Procurao_para_Indicao_de_Representante"@en.
+:Licitao_de_Permisso_em_Leilo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Permisso_em_Leilo"@en.
+:Comprovao_de_Frota rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Comprovao_de_Frota"@en.
+:Plano_de_Negcio_em_Proposta_de_Atendimento_Especfica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Plano_de_Negcio_em_Proposta_de_Atendimento_Especfica"@en.
+:Empresa_Participante_do_Leilo rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Empresa_Participante_do_Leilo"@en.
+:Proposta_Econmica_em_Proposta_de_Atendimento_Especfica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Proposta_Econmica_em_Proposta_de_Atendimento_Especfica"@en.
+:Garantia_de_Proposta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Garantia_de_Proposta"@en.
+:Garantia_de_Proposta_em_Proposta_de_Atendimento_Geral rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Garantia_de_Proposta_em_Proposta_de_Atendimento_Geral"@en.
+:Grupo_de_Lotes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Grupo_de_Lotes"@en.
+:Comprovao_de_Frota_em_Proposta_de_Atendimento_Geral rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Comprovao_de_Frota_em_Proposta_de_Atendimento_Geral"@en.
+:Homologao_de_Leilo_de_Pblico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Homologao_de_Leilo_de_Pblico"@en.
+:Qualificao_em_Proposta_de_Atendimento_Geral rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Qualificao_em_Proposta_de_Atendimento_Geral"@en.
+:Indicao_de_Representante rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Indicao_de_Representante"@en.
+:Leilo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Leilo"@en.
+:Leilo_Pblico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Leilo_Pblico"@en.
+:Leilo_de_Licitao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Leilo_de_Licitao"@en.
+:Licitante_em_Leilo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitante_em_Leilo"@en.
+:Lote_de_Servio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Lote_de_Servio"@en.
+:Lote_de_Servio_em_Leilo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Lote_de_Servio_em_Leilo"@en.
+:Lote_em_Leilo rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Lote_em_Leilo"@en.
+:Plano_de_Negcio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Plano_de_Negcio"@en.
+:Proponente_Vencedora rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Proponente_Vencedora"@en.
+:Proposta_Econmica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Proposta_Econmica"@en.
+:Proposta_de_Atendimento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Proposta_de_Atendimento"@en.
+:Proposta_de_Atendimento_Especfica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Proposta_de_Atendimento_Especfica"@en.
+:Proposta_de_Atendimento_Geral rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Proposta_de_Atendimento_Geral"@en.
+:Qualificao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Qualificao"@en.
+:Representante_Legal rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Representante_Legal"@en.
+:Representante_Legal_em_Leilo_de_Licitao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Representante_Legal_em_Leilo_de_Licitao"@en.
+:Sesso_Pblica_de_Leilo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Sesso_Pblica_de_Leilo"@en.
+:Pessoa_Jurdica_de_Direito_Privado_Empresarial rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Pessoa_Jurdica_de_Direito_Privado_Empresarial"@en.
+:Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional"@en.
+:Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos"@en.
+:Licitao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Licitao"@en.
+:Licitao_Anulada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_Anulada"@en.
+:Licitao_Concluda rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_Concluda"@en.
+:Licitao_Deserta rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_Deserta"@en.
+:Licitao_Fracassada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_Fracassada"@en.
+:Licitao_Suspensa rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_Suspensa"@en.
+:Licitao_com_Seleo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_com_Seleo"@en.
+:Contrato_de_Permisso rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Contrato_de_Permisso"@en.
+:Licitao_de_Alientao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Alientao"@en.
+:Licitao_de_Compra rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Compra"@en.
+:Outorga_de_Permisso rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Outorga_de_Permisso"@en.
+:Licitao_de_Concesso rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Concesso"@en.
+:Permissionria rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Permissionria"@en.
+:Licitao_de_Locao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Locao"@en.
+:Licitao_de_Obra rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Obra"@en.
+:Licitao_de_Permisso rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Permisso"@en.
+:Licitao_de_Servio rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Servio"@en.
+:Licitao_em_Convocao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_em_Convocao"@en.
+:Licitao_em_Fase_Externa rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_em_Fase_Externa"@en.
+:Licitao_em_Fase_Interna rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_em_Fase_Interna"@en.
+:Licitao_em_Habilitao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_em_Habilitao"@en.
+:Pessoa_Fsica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa_Fsica"@en.
+:Licitao_em_Homologao_e_Adjudicao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_em_Homologao_e_Adjudicao"@en.
+:Pessoa_Jurdica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa_Jurdica"@en.
+:Licitao_em_Julgamento rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_em_Julgamento"@en.
+:Licitao_sem_Seleo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_sem_Seleo"@en.
+:Audincia_Pblica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Audincia_Pblica"@en.
+:Edital_de_Licitao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Edital_de_Licitao"@en.
+:Plano_de_Outorga rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Plano_de_Outorga"@en.
+:Reunio_Participativa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Reunio_Participativa"@en.
+:Descrio_de_Quota_de_Explorao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Descrio_de_Quota_de_Explorao"@en.
+:Ligao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Ligao"@en.
+:Ligao_Efetivada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Ligao_Efetivada"@en.
+:Linha_de_nibus_em_Implantao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Linha_de_nibus_em_Implantao"@en.
+:Edital_de_Licitao_Publicado rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Edital_de_Licitao_Publicado"@en.
+:Incluso_de_Licitante rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Incluso_de_Licitante"@en.
+:Licitante rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitante"@en.
+:Contexto_de_Publicao rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Contexto_de_Publicao"@en.
+:Licitao_de_Permisso_em_Fase_Externa rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Licitao_de_Permisso_em_Fase_Externa"@en.
+:Objeto_Publicado rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Objeto_Publicado"@en.
+:Publicador rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Publicador"@en.
+:Publicao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Publicao"@en.
+:Publicao_de_Edital rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Publicao_de_Edital"@en.
+:Republicao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Republicao"@en.
+:Republicao_de_Edital rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Republicao_de_Edital"@en.
+:Projeto_Bsico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Projeto_Bsico"@en.
+:Projeto_Bsico_de_Concesso rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Projeto_Bsico_de_Concesso"@en.
+:Comisso rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "Comisso"@en.
+:Comisso_de_Outorga rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Comisso_de_Outorga"@en.
+:Instituio_de_Comisso_de_Outorga rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Instituio_de_Comisso_de_Outorga"@en.
+:Portaria_para_Constituio_de_Comisso_de_Outorga rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Portaria_para_Constituio_de_Comisso_de_Outorga"@en.
+:Licitao_de_Permisso_em_Leilo rdfs:subClassOf :Licitao_de_Permisso.
+:Plano_de_Negcio_em_Proposta_de_Atendimento_Especfica rdfs:subClassOf :Plano_de_Negcio.
+:Proposta_Econmica_em_Proposta_de_Atendimento_Especfica rdfs:subClassOf :Proposta_Econmica.
+:Garantia_de_Proposta_em_Proposta_de_Atendimento_Geral rdfs:subClassOf :Garantia_de_Proposta.
+:Comprovao_de_Frota_em_Proposta_de_Atendimento_Geral rdfs:subClassOf :Comprovao_de_Frota.
+:Qualificao_em_Proposta_de_Atendimento_Geral rdfs:subClassOf :Qualificao.
+:Leilo_Pblico rdfs:subClassOf :Leilo.
+:Leilo_de_Licitao rdfs:subClassOf :Leilo_Pblico.
+:Licitante_em_Leilo rdfs:subClassOf :Empresa_Participante_do_Leilo, :Licitante.
+:Lote_de_Servio_em_Leilo rdfs:subClassOf :Lote_em_Leilo, :Lote_de_Servio.
+:Proponente_Vencedora rdfs:subClassOf :Empresa_Participante_do_Leilo.
+:Representante_Legal rdfs:subClassOf :Pessoa_Fsica.
+:Representante_Legal_em_Leilo_de_Licitao rdfs:subClassOf :Representante_Legal.
+:Licitao_Anulada rdfs:subClassOf :Licitao_Concluda.
+:Licitao_Concluda rdfs:subClassOf :Licitao.
+:Licitao_Deserta rdfs:subClassOf :Licitao_sem_Seleo.
+:Licitao_Fracassada rdfs:subClassOf :Licitao_sem_Seleo.
+:Licitao_Suspensa rdfs:subClassOf :Licitao_em_Fase_Externa.
+:Licitao_com_Seleo rdfs:subClassOf :Licitao_Concluda.
+:Licitao_de_Alientao rdfs:subClassOf :Licitao.
+:Licitao_de_Compra rdfs:subClassOf :Licitao.
+:Licitao_de_Concesso rdfs:subClassOf :Licitao.
+:Licitao_de_Locao rdfs:subClassOf :Licitao.
+:Licitao_de_Obra rdfs:subClassOf :Licitao.
+:Licitao_de_Permisso rdfs:subClassOf :Licitao.
+:Licitao_de_Servio rdfs:subClassOf :Licitao.
+:Licitao_em_Convocao rdfs:subClassOf :Contexto_de_Publicao, :Licitao_em_Fase_Externa.
+:Licitao_em_Fase_Externa rdfs:subClassOf :Licitao.
+:Licitao_em_Fase_Interna rdfs:subClassOf :Licitao.
+:Licitao_em_Habilitao rdfs:subClassOf :Licitao_em_Fase_Externa.
+:Licitao_em_Homologao_e_Adjudicao rdfs:subClassOf :Licitao_em_Fase_Externa.
+:Licitao_em_Julgamento rdfs:subClassOf :Licitao_em_Fase_Externa.
+:Licitao_sem_Seleo rdfs:subClassOf :Licitao_Concluda.
+:Plano_de_Outorga rdfs:subClassOf :Plano_de_Outorga_com_Subsdio_de_Pesquisa_de_Ativos_e_Custos, :Plano_de_Outorga_com_Subsdio_de_Pesquisa_Operacional.
+:Ligao rdfs:subClassOf :Ligao_Efetivada.
+:Edital_de_Licitao_Publicado rdfs:subClassOf :Objeto_Publicado, :Edital_de_Licitao.
+:Licitante rdfs:subClassOf :Pessoa_Jurdica_de_Direito_Privado_Empresarial.
+:Licitao_de_Permisso_em_Fase_Externa rdfs:subClassOf :Licitao_em_Fase_Externa.
+:Publicao_de_Edital rdfs:subClassOf :Publicao.
+:Republicao rdfs:subClassOf :Publicao.
+:Republicao_de_Edital rdfs:subClassOf :Republicao.
+:Projeto_Bsico rdfs:subClassOf :Projeto_Bsico_de_Concesso.
+:Comisso_de_Outorga rdfs:subClassOf :Comisso.
+:numeroLinhas rdfs:domain :Lote_de_Servio;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "numeroLinhas"@en.
+:numeroEmpresas rdfs:domain :Lote_de_Servio;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "numeroEmpresas"@en.
+:frotaReserva rdfs:domain :Lote_de_Servio;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "frotaReserva"@en.
+:prazo rdfs:domain :Licitao_de_Permisso;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "prazo"@en.
+:CPF rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "CPF"@en.
+:RG rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "RG"@en.
+:endereo rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "endereo"@en.
+:estado_civil rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "estado_civil"@en.
+:idade rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "idade"@en.
+:nacionalidade rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nacionalidade"@en.
+:profisso rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "profisso"@en.
+:nome rdfs:domain :Pessoa_Fsica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nome"@en.
+:CNPJ rdfs:domain :Pessoa_Jurdica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "CNPJ"@en.
+:atividade_principal rdfs:domain :Pessoa_Jurdica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "atividade_principal"@en.
+:atividade_secundria rdfs:domain :Pessoa_Jurdica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "atividade_secundria"@en.
+:nome_fantasia rdfs:domain :Pessoa_Jurdica;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nome_fantasia"@en.
+:frequenciaMinimaViagens rdfs:domain :Linha_de_nibus_em_Implantao;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "frequenciaMinimaViagens"@en.
+:frotaOperacionalMinima rdfs:domain :Linha_de_nibus_em_Implantao;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "frotaOperacionalMinima"@en.

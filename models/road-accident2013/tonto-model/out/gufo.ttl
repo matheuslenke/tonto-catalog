@@ -1,0 +1,59 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:RoadTrafficAccident rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "RoadTrafficAccident"@en.
+:TravelingVehicle rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "TravelingVehicle"@en.
+:Vehicle rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Vehicle"@en.
+:Travel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Travel"@en.
+:CrashedVehicle rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "CrashedVehicle"@en.
+:RearEndCollision rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "RearEndCollision"@en.
+:Traveler rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Traveler"@en.
+:Roadway rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Roadway"@en.
+:Victim rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Victim"@en.
+:RoadwayWithAccident rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "RoadwayWithAccident"@en.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:LivingPerson rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LivingPerson"@en.
+:DeceasedPerson rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "DeceasedPerson"@en.
+:Passenger rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Passenger"@en.
+:Driver rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Driver"@en.
+:TravelingVehicle rdfs:subClassOf :Vehicle.
+:CrashedVehicle rdfs:subClassOf :TravelingVehicle.
+:RearEndCollision rdfs:subClassOf :RoadTrafficAccident.
+:Traveler rdfs:subClassOf :Person.
+:Victim rdfs:subClassOf :Traveler.
+:RoadwayWithAccident rdfs:subClassOf :Roadway.
+:LivingPerson rdfs:subClassOf :Person.
+:DeceasedPerson rdfs:subClassOf :Person.
+:Passenger rdfs:subClassOf :Traveler.
+:Driver rdfs:subClassOf :Traveler.
+:fatalvictims rdfs:domain :RoadTrafficAccident;
+    rdfs:range :undefined;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "fatalvictims"@en.

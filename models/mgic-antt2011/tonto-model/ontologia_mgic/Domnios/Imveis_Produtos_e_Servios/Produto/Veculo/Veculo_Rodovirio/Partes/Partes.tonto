@@ -1,0 +1,26 @@
+
+package Partes
+
+subkind Chassi_Rgido
+
+kind Chassi specializes Chassi_Articulado, Chassi_Rgido {
+    nmero_do_chassi: undefined  
+    peso: undefined  
+}
+
+kind Esteira
+
+kind Roda
+
+subkind Chassi_Articulado
+
+kind Motor_de_Propulso{
+    cilindrada: undefined  
+    combustvel: Combustvel  
+    nmero: undefined  
+    potncia: undefined  
+}
+
+category Elemento_Rodante of functional-complexes  specializes Roda, Esteira 
+
+

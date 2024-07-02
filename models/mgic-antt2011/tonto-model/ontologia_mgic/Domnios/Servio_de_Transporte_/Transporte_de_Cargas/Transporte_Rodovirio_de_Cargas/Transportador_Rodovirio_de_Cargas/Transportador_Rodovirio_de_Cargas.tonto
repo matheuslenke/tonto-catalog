@@ -1,0 +1,77 @@
+
+package Transportador_Rodovirio_de_Cargas
+
+mixin Posto_de_Cadastramento_de_RNTRC of functional-complexes 
+
+role Transportador_Equiparado_a_TAC
+
+role Empresa_de_Transporte_de_Carga specializes Transportador_Rodovirio_de_Carga_Registrado, Empresa_Potencial_para_Habilitao_Internacional, Emitente_do_Conhecimento_de_Transporte 
+
+roleMixin Transportador_Rodovirio_de_Carga of functional-complexes 
+
+kind Nota_Fiscal specializes Nota_Fiscal_Emitida 
+
+relator Credenciamento_de_Entidade_RNTRC
+
+role Entidade_Credenciadora_de_Entidade_RNTRC
+
+role Entidade_Credenciada_RNTRC specializes Posto_de_Cadastramento_de_RNTRC 
+
+role Transportador_Rodovirio_de_Carga_Estrangeiro_Habilitado_Internacionalmente specializes Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente 
+
+roleMixin Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente of functional-complexes  specializes Empresa_Nacional_Indicadora_de_Representante 
+
+role Transportador_de_Carga_Prpria specializes Transportador_Rodovirio_de_Carga 
+
+role Transportador_Autnomo_de_Carga_Cooperado specializes Transportador_Autnomo_de_Carga 
+
+role Frota_com_Capacidade_Mnima_para_Operao_Internacional of collectives  specializes Frota_de_Veculos_de_Carga 
+
+role Veculo_Exclusivo_de_Carga_em_Frota
+
+relator Certificado_de_RNTRC{
+    cadastramento: undefined  
+    nmero: undefined  
+    validade: undefined  
+}
+
+role Transportador_Rodovirio_de_Carga_Nativo_Habilitado_Internacionalmente specializes Transportador_Rodovirio_de_Carga_Registrado_com_Frota, Empresa_Potencial_para_Habilitao_Internacional, Transportador_Rodovirio_de_Carga_Habilitado_Internacionalmente 
+
+kind MDFe
+
+role Cooperativa_de_Transportadores_de_Carga specializes Transportador_Rodovirio_de_Carga_Registrado, Empresa_Potencial_para_Habilitao_Internacional, Transportador_Equiparado_a_TAC, Emitente_do_Conhecimento_de_Transporte 
+
+roleMixin Transportador_Rodovirio_de_Carga_No_Registrado of functional-complexes  specializes Transportador_Rodovirio_de_Carga 
+
+collective Frota_de_Veculos_de_Carga
+
+roleMixin Local_de_Registro_de_RNTRC of functional-complexes  specializes Posto_de_Cadastramento_de_RNTRC 
+
+kind Posto_da_ANTT specializes Posto_de_Cadastramento_de_RNTRC 
+
+role Pessoa_Jurdica_Transportadora_Rodoviria_de_Carga_No_Registrada specializes Transportador_Rodovirio_de_Carga_No_Registrado 
+
+role ETC_Equiparada specializes Empresa_de_Transporte_de_Carga, Transportador_Equiparado_a_TAC 
+
+role Transportador_Rodovirio_de_Carga_Registrado_com_Frota specializes Transportador_Rodovirio_de_Carga_Registrado 
+
+role Pessoa_Fsica_Transportadora_Rodoviria_de_Carga_No_Registrada specializes Transportador_Rodovirio_de_Carga_No_Registrado 
+
+role Transportador_Autnomo_de_Carga specializes Transportador_Rodovirio_de_Carga_Registrado 
+
+roleMixin Transportador_Rodovirio_de_Carga_Registrado of functional-complexes  specializes Transportador_Rodovirio_de_Carga 
+
+role Veculo_Exclusivo_de_Carga_Habilitado_Internacionalmente specializes Veculo_Exclusivo_de_Carga_em_Frota 
+
+roleMixin Empresa_Potencial_para_Habilitao_Internacional of functional-complexes 
+
+
+
+
+
+
+
+
+
+
+

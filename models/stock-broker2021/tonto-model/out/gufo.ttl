@@ -1,0 +1,57 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Person"@en.
+:Stockholder_Person rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Stockholder_Person"@en.
+:StockholderOrganization rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "StockholderOrganization"@en.
+:StockHolder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "StockHolder"@en.
+:Contract rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Contract"@en.
+:Hired_Brokerage rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Hired_Brokerage"@en.
+:Organization rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Organization"@en.
+:Brokerage rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Brokerage"@en.
+:Stock_Exchange rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Stock_Exchange"@en.
+:Buyer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Buyer"@en.
+:Seller rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Seller"@en.
+:Stock rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Stock"@en.
+:Public_Traded_Company rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Public_Traded_Company"@en.
+:Stock_Keeper rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Stock_Keeper"@en.
+:Seller rdfs:subClassOf :Brokerage.
+:Buyer rdfs:subClassOf :Brokerage.
+:Public_Traded_Company rdfs:subClassOf :Organization.
+:Brokerage rdfs:subClassOf :Organization.
+:Stock_Exchange rdfs:subClassOf :Organization.
+:StockholderOrganization rdfs:subClassOf :StockHolder.
+:Stockholder_Person rdfs:subClassOf :StockHolder, :Person, :StockHolder.
+:StockholderOrganization rdfs:subClassOf :Organization, :StockHolder.
+:Hired_Brokerage rdfs:subClassOf :Brokerage.
+:Brokerage rdfs:subClassOf :Organization.
+:Stock_Exchange rdfs:subClassOf :Organization.
+:Buyer rdfs:subClassOf :Brokerage.
+:Seller rdfs:subClassOf :Brokerage.
+:Public_Traded_Company rdfs:subClassOf :Organization.
+:Stock_Keeper rdfs:subClassOf :Stock_Exchange.

@@ -1,0 +1,181 @@
+@prefix : <https://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Performed_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Performed_Process"@en.
+:Performed_General_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_General_Process"@en.
+:Perofrmed_Specific_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Perofrmed_Specific_Process"@en.
+:Performed_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Performed_Activity"@en.
+:Stakeholder rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Stakeholder"@en.
+:Configuration_Manager rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Configuration_Manager"@en.
+:Change_Requester rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Change_Requester"@en.
+:Change_Request_Evaluator rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Change_Request_Evaluator"@en.
+:Change_Implementer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Change_Implementer"@en.
+:Change_Reviewer rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Change_Reviewer"@en.
+:Configuration_Auditor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Configuration_Auditor"@en.
+:Performed_Simple_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Performed_Simple_Activity"@en.
+:Perfomed_Composite_Activity rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Perfomed_Composite_Activity"@en.
+:Configuration_Management_Process rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Configuration_Management_Process"@en.
+:Configuration_Management_Planning rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Configuration_Management_Planning"@en.
+:Configuration_Management_System_Establishment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Configuration_Management_System_Establishment"@en.
+:Configuration_Items_Identification rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Configuration_Items_Identification"@en.
+:Change_Control rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Change_Control"@en.
+:Change_Requesting rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Change_Requesting"@en.
+:Request_Evaluation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Request_Evaluation"@en.
+:Change_Accomplishment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Change_Accomplishment"@en.
+:Checkout rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Checkout"@en.
+:Change_Implementation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Change_Implementation"@en.
+:Checkin rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Checkin"@en.
+:Change_Review rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Change_Review"@en.
+:Change_Request_Closing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Change_Request_Closing"@en.
+:Baseline_Establishment rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Baseline_Establishment"@en.
+:Configuration_Auditing rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Configuration_Auditing"@en.
+:Release_Management_and_Delivery rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Release_Management_and_Delivery"@en.
+:Configuration_Management_Plan rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Configuration_Management_Plan"@en.
+:Artifact_CI rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Artifact_CI"@en.
+:Artifact_Copy rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Artifact_Copy"@en.
+:Version rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Version"@en.
+:Baseline rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Baseline"@en.
+:Configuration_Audit_Report rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Configuration_Audit_Report"@en.
+:Deliverable_Product rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Deliverable_Product"@en.
+:Noncompliance_Register rdf:type owl:NamedIndividual;
+    rdfs:label "Noncompliance_Register"@en.
+:Configuration_Item_CI rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Configuration_Item_CI"@en.
+:Change_Request_CR rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Change_Request_CR"@en.
+:Communicate_CR rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Communicate_CR"@en.
+:Evaluate_CR rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Evaluate_CR"@en.
+:CR_Being_Solved rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "CR_Being_Solved"@en.
+:Solved_CR rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Solved_CR"@en.
+:Reviewed_CR rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Reviewed_CR"@en.
+:Closed_CR rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "Closed_CR"@en.
+:Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Artifact"@en.
+:Simple_Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Simple_Artifact"@en.
+:Composite_Artifact rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Composite_Artifact"@en.
+:Software_Product rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_Product"@en.
+:Software_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Software_Item"@en.
+:Information_Item rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Information_Item"@en.
+:Model rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Model"@en.
+:Document rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Document"@en.
+:Item rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Item"@en.
+:Object rdf:type owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Perofrmed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Software_Item rdfs:subClassOf :Artifact.
+:Information_Item rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Software_Product rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Performed_General_Process rdfs:subClassOf :Performed_Process.
+:Perofrmed_Specific_Process rdfs:subClassOf :Performed_Process.
+:Configuration_Manager rdfs:subClassOf :Stakeholder.
+:Change_Requester rdfs:subClassOf :Stakeholder.
+:Change_Request_Evaluator rdfs:subClassOf :Stakeholder.
+:Change_Implementer rdfs:subClassOf :Stakeholder.
+:Change_Reviewer rdfs:subClassOf :Stakeholder.
+:Configuration_Auditor rdfs:subClassOf :Stakeholder.
+:Performed_Simple_Activity rdfs:subClassOf :Performed_Activity.
+:Perfomed_Composite_Activity rdfs:subClassOf :Performed_Activity.
+:Configuration_Management_Process rdfs:subClassOf :Perofrmed_Specific_Process.
+:Configuration_Management_Planning rdfs:subClassOf :Perfomed_Composite_Activity.
+:Configuration_Management_System_Establishment rdfs:subClassOf :Perfomed_Composite_Activity.
+:Configuration_Items_Identification rdfs:subClassOf :Perfomed_Composite_Activity.
+:Change_Control rdfs:subClassOf :Perfomed_Composite_Activity.
+:Change_Requesting rdfs:subClassOf :Performed_Simple_Activity.
+:Request_Evaluation rdfs:subClassOf :Performed_Simple_Activity.
+:Change_Accomplishment rdfs:subClassOf :Perfomed_Composite_Activity.
+:Checkout rdfs:subClassOf :Performed_Simple_Activity.
+:Change_Implementation rdfs:subClassOf :Perfomed_Composite_Activity.
+:Checkin rdfs:subClassOf :Performed_Simple_Activity.
+:Change_Review rdfs:subClassOf :Performed_Simple_Activity.
+:Change_Request_Closing rdfs:subClassOf :Perfomed_Composite_Activity.
+:Baseline_Establishment rdfs:subClassOf :Perfomed_Composite_Activity.
+:Configuration_Auditing rdfs:subClassOf :Perfomed_Composite_Activity.
+:Release_Management_and_Delivery rdfs:subClassOf :Perfomed_Composite_Activity.
+:Configuration_Management_Plan rdfs:subClassOf :Document.
+:Artifact_CI rdfs:subClassOf :Configuration_Item_CI, :Artifact.
+:Artifact_Copy rdfs:subClassOf :Artifact.
+:Baseline rdfs:subClassOf :Information_Item.
+:Configuration_Audit_Report rdfs:subClassOf :Document.
+:Deliverable_Product rdfs:subClassOf :Software_Product.
+:Noncompliance_Register rdfs:subClassOf :Information_Item.
+:Configuration_Item_CI rdfs:subClassOf :Item.
+:Change_Request_CR rdfs:subClassOf :Information_Item.
+:Communicate_CR rdfs:subClassOf :Change_Request_CR.
+:Evaluate_CR rdfs:subClassOf :Change_Request_CR.
+:CR_Being_Solved rdfs:subClassOf :Change_Request_CR.
+:Solved_CR rdfs:subClassOf :Change_Request_CR.
+:Reviewed_CR rdfs:subClassOf :Change_Request_CR.
+:Closed_CR rdfs:subClassOf :Change_Request_CR.
+:Simple_Artifact rdfs:subClassOf :Artifact.
+:Composite_Artifact rdfs:subClassOf :Artifact.
+:Software_Product rdfs:subClassOf :Artifact.
+:Software_Item rdfs:subClassOf :Artifact.
+:Information_Item rdfs:subClassOf :Artifact.
+:Model rdfs:subClassOf :Artifact.
+:Document rdfs:subClassOf :Artifact.
+:Item rdfs:subClassOf :Object.
